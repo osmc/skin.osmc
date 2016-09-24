@@ -2,8 +2,8 @@
 <window>
 	<!-- addonbrowser -->
 	<backgroundcolor>0x00000000</backgroundcolor>
-	<defaultcontrol always="true">50</defaultcontrol>
-	<views>50,500</views>
+	<defaultcontrol always="true">500</defaultcontrol>
+	<views>500</views>
 
 	<controls>
 
@@ -14,207 +14,6 @@
 		<include>Time</include>
 
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="0" condition="!Control.IsVisible(50)">Conditional</animation>
-
-			<!-- Dummy list -->
-			<control type="grouplist" id="9000">
-				<left>120</left>
-				<top>240</top>
-				<width>300</width>
-				<height>870</height>
-				<itemgap>34</itemgap>
-				<orientation>vertical</orientation>
-
-				<!-- Appearance -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>480</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- Videos -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>3</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- Music -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>2</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- Pictures -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>1</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- Weather -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>8</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- System -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>13000</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- Service -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>14036</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- PVR -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>31015</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- System info -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>130</label>
-					<font>Font42</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- More -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>22082</label>
-					<font>Font42</font>
-					<textcolor>TextColor1</textcolor>
-				</control>
-
-			</control>
-
-			<!-- Dummy main list -->
-			<control type="grouplist">
-				<left>480</left>
-				<top>244</top>
-				<width>1680</width>
-				<height>726</height>
-				<itemgap>34</itemgap>
-				<orientation>vertical</orientation>
-
-				<!-- Addons -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>24001</label>
-					<font>Font33</font>
-					<textcolor>TextColor1</textcolor>
-				</control>
-				<!-- Profiles -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>13200</label>
-					<font>Font33</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- File manager -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>7</label>
-					<font>Font33</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-				<!-- Settings level -->
-				<control type="button">
-					<width>300</width>
-					<height>42</height>
-					<label>31016</label>
-					<font>Font33</font>
-					<textcolor>TextColor3</textcolor>
-				</control>
-
-			</control>
-
-			<!-- Dummy main list indicator -->
-			<control type="image">
-				<left>442</left>
-				<top>248</top>
-				<width>20</width>
-				<height>60</height>
-				<colordiffuse>OverlayColorFO</colordiffuse>
-				<texture border="6,1,8,1">common/ScrollBackground.png</texture>
-				<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
-			</control>
-
-			<!-- Default list -->
-			<control type="list" id="50">
-				<left>830</left>
-				<top>226</top>
-				<width>970</width>
-				<height>726</height>
-				<onleft>ReplaceWindow(settings)</onleft>
-				<onright>noop</onright>
-				<onup>noop</onup>
-				<ondown>noop</ondown>
-				<orientation>vertical</orientation>
-				<viewtype label="535">list</viewtype>
-				<animation effect="fade" start="100" end="0" time="200" condition="!Control.IsVisible(50)">Conditional</animation>
-				<visible>String.IsEmpty(Container.FolderPath)</visible>
-
-				<itemlayout height="76" width="900">
-					<control type="label">
-						<width>900</width>
-						<height>76</height>
-						<font>Font33</font>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>TextColor2</textcolor>
-					</control>
-				</itemlayout>
-
-				<focusedlayout height="76" width="900">
-					<control type="label">
-						<width>900</width>
-						<height>76</height>
-						<font>Font33</font>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>TextColor1</textcolor>
-					</control>
-				</focusedlayout>
-
-			</control>
-
-			<!-- Sub list indicator -->
-			<control type="image">
-				<left>792</left>
-				<top>248</top>
-				<width>20</width>
-				<height>60</height>
-				<colordiffuse>OverlayColorFO</colordiffuse>
-				<texture border="6,1,8,1">common/ScrollBackground.png</texture>
-			</control>
-
-		</control>
-
-		<control type="group">
-			<visible>!Control.HasFocus(50)</visible>
-			<animation effect="fade" start="0" end="100" time="0">Visible</animation>
 
 			<!-- Image -->
 			<control type="image">
@@ -238,32 +37,32 @@
 				<onleft>60</onleft>
 				<onright condition="!Skin.HasSetting(KioskMode)">3001</onright>
 				<pagecontrol>60</pagecontrol>
-				<focusposition>3</focusposition>
+				<focusposition>4</focusposition>
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>!String.IsEmpty(Container.FolderPath)</visible>
 
-				<itemlayout height="90" width="1050">
+				<itemlayout height="72" width="1050">
 					<control type="label">
 						<left>32</left>
 						<top>0</top>
 						<width>1018</width>
-						<height>90</height>
+						<height>72</height>
 						<font>Font36</font>
-						<label>$INFO[ListItem.Label]</label>
+						<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 						<textcolor>TextColor2</textcolor>
 					</control>
 				</itemlayout>
 
-				<focusedlayout height="180" width="1050">
+				<focusedlayout height="144" width="1050">
 					<control type="label">
 						<left>32</left>
 						<top>0</top>
 						<width>1018</width>
-						<height>180</height>
+						<height>144</height>
 						<font>Font72</font>
-						<label>$INFO[ListItem.Label]</label>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<textcolor>TextColor1</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
 						<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -272,22 +71,22 @@
 						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
 							<left>32</left>
-							<top>43</top>
+							<top>25</top>
 							<width>1018</width>
 							<height>48</height>
 							<font>Font48</font>
-							<label>$VAR[Label1]</label>
+							<label>[B]$VAR[Label1][/B]</label>
 							<textcolor>TextColor1</textcolor>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
 						</control>
 						<control type="label">
 							<left>32</left>
-							<top>100</top>
+							<top>82</top>
 							<width>1018</width>
 							<height>27</height>
 							<font>Font27</font>
 							<label>$INFO[ListItem.Label2]</label>
-							<textcolor>TextColor2</textcolor>
+							<textcolor>TextColor1</textcolor>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
 						</control>
 					</control>
@@ -354,8 +153,8 @@
 						<height>1040</height>
 						<onup>noop</onup>
 						<ondown>noop</ondown>
-						<onleft>50</onleft>
-						<onright>50</onright>
+						<onleft>500</onleft>
+						<onright>500</onright>
 						<scrolltime>200</scrolltime>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
@@ -366,11 +165,11 @@
 						</include>
 
 						<!-- View -->
-						<control type="button" id="99">
+						<!--control type="button" id="99">
 							<height>52</height>
 							<label>$INFO[Container.ViewMode]</label>
 							<onclick>Container.NextViewMode</onclick>
-						</control>
+						</control-->
 						<!-- Scrollbars -->
 						<control type="radiobutton" id="94">
 							<height>52</height>
