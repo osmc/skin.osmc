@@ -1,0 +1,323 @@
+<includes>
+	<!-- Favourites -->
+	<include name="favourites-widget">
+		<item>
+			<label>$INFO[Window(home).Property(favourite.1.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.1.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.1.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.1.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.2.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.2.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.2.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.2.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.3.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.3.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.3.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.3.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.4.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.4.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.4.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.4.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.5.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.5.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.5.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.5.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.6.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.6.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.6.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.6.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.7.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.7.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.7.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.7.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.8.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.8.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.8.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.8.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.9.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.9.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.9.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.9.name))</visible>
+		</item>
+		<item>
+			<label>$INFO[Window(home).Property(favourite.10.name)]</label>
+			<onclick>$INFO[Window(home).Property(favourite.10.path)]</onclick>
+			<thumb>$INFO[Window(home).Property(favourite.10.thumb)]</thumb>
+			<visible>!String.IsEmpty(Window(home).Property(favourite.10.name))</visible>
+		</item>
+	</include>
+
+	<include name="weather-widget">
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$LOCALIZE[19030]</label>
+			<label2>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits] ($INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits])</label2>
+			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherIconsExtVar]</icon>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Current.FanartCode)]/</property>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Current.FanartCode)]</property>
+		</item>
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$INFO[Window(Weather).Property(Daily.1.LongDay)]</label>
+			<label2>$INFO[Window(Weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.1.FanartCode)]$VAR[WeatherIconsExtVar]</icon>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.1.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Day0.Title))</visible>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Daily.1.FanartCode)]</property>
+		</item>
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$INFO[Window(Weather).Property(Daily.2.LongDay)]</label>
+			<label2>$INFO[Window(Weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.2.OutlookIcon)]</icon>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.2.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Day1.Title))</visible>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Daily.2.FanartCode)]</property>
+		</item>
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$INFO[Window(Weather).Property(Daily.3.LongDay)]</label>
+			<label2>$INFO[Window(Weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.3.OutlookIcon)]</icon>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.3.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Day2.Title))</visible>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Daily.3.FanartCode)]</property>
+		</item>
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$INFO[Window(Weather).Property(Daily.4.LongDay)]</label>
+			<label2>$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.4.OutlookIcon)]</icon>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.4.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Day3.Title))</visible>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Daily.4.FanartCode)]</property>
+		</item>
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$INFO[Window(Weather).Property(Daily.5.LongDay)]</label>
+			<label2>$INFO[Window(Weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+			<thumb>$VAR[weatherIcons]/$INFO[Window(Weather).Property(Daily.5.OutlookIcon)]</thumb>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.5.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Day4.Title))</visible>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Daily.5.FanartCode)]</property>
+		</item>
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$INFO[Window(Weather).Property(Daily.6.LongDay)]</label>
+			<label2>$INFO[Window(Weather).Property(Day5.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day5.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.6.OutlookIcon)]</icon>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.6.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Day5.Title))</visible>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Daily.6.FanartCode)]</property>
+		</item>
+		<item>
+			<onclick>ActivateWindow(Weather)</onclick>
+			<label>$INFO[Window(Weather).Property(Daily.7.LongDay)]</label>
+			<label2>$INFO[Window(Weather).Property(Day6.LowTemp)]$INFO[System.TemperatureUnits] / $INFO[Window(Weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits]</label2>
+			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.7.OutlookIcon)]</icon>
+			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Daily.7.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Day6.Title))</visible>
+			<property name="weatherFanart">$INFO[Window(Weather).Property(Daily.7.FanartCode)]</property>
+		</item>
+	</include>
+
+	<include name="widget-image">
+		<param name="aligny">bottom</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<definition>
+			<control type="image">
+				<left>13</left>
+				<top>0</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$PARAM[art]</texture>
+				<aspectratio align="center" aligny="$PARAM[aligny]">$PARAM[aspectratio]</aspectratio>
+				<bordertexture border="1,1,1,36">$PARAM[shadow]</bordertexture>
+				<bordersize>0,0,0,33</bordersize>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="widget-fakelandscape">
+		<param name="aligny">bottom</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<definition>
+			<control type="image">
+				<left>13</left>
+				<top>0</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$INFO[ListItem.Art(fanart)]</texture>
+				<aspectratio align="center" aligny="$PARAM[aligny]">$PARAM[aspectratio]</aspectratio>
+				<bordertexture border="1,1,1,36">$PARAM[shadow]</bordertexture>
+				<bordersize>0,0,0,33</bordersize>
+				<visible>$PARAM[visible]</visible>
+			</control>
+			<control type="image">
+				<left>13</left>
+				<top>0</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$INFO[ListItem.Art(clearlogo)]</texture>
+				<aspectratio align="center" aligny="$PARAM[aligny]">$PARAM[aspectratio]</aspectratio>
+				<bordertexture border="1,1,1,36">noop</bordertexture>
+				<bordersize>0,0,0,33</bordersize>
+				<visible>$PARAM[visible]</visible>
+			</control>
+			<control type="textbox">
+				<left>13</left>
+				<top>0</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>FFFFFFFF</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font30</font>
+				<visible>!String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="widget-faketvlandscape">
+		<param name="aligny">bottom</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<definition>
+			<control type="image">
+				<left>13</left>
+				<top>0</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$INFO[ListItem.Art(fanart)]</texture>
+				<aspectratio align="center" aligny="$PARAM[aligny]">$PARAM[aspectratio]</aspectratio>
+				<bordertexture border="1,1,1,36">$PARAM[shadow]</bordertexture>
+				<bordersize>0,0,0,33</bordersize>
+				<visible>$PARAM[visible]</visible>
+			</control>
+			<control type="image">
+				<left>13</left>
+				<top>0</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$INFO[ListItem.Art(tvshow.clearlogo)]</texture>
+				<aspectratio align="center" aligny="$PARAM[aligny]">$PARAM[aspectratio]</aspectratio>
+				<bordertexture border="1,1,1,36">noop</bordertexture>
+				<bordersize>0,0,0,33</bordersize>
+				<visible>$PARAM[visible]</visible>
+			</control>
+			<control type="textbox">
+				<left>13</left>
+				<top>0</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>FFFFFFFF</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font30</font>
+				<visible>!String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))</visible>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="widget-content">
+		<definition>
+			<content target="$PARAM[target]">$PARAM[path]</content>
+		</definition>
+	</include>
+
+	<include name="widget-static">
+		<definition>
+			<content>
+				<item id="0">
+					<label>[B]$PARAM[itemLabel][/B]</label>
+					<onclick>$PARAM[itemAction]</onclick>
+					<icon>$PARAM[itemIcon]</icon>
+					<property name="path">$PARAM[itemAction]</property>
+				</item>
+				<include>$PARAM[include]</include>
+			</content>
+		</definition>
+	</include>
+
+	<include name="widget-movement">
+		<definition>
+			<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(1).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(2).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(3).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(4).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(5).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(6).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id])">Conditional</animation>
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(7).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id])">Conditional</animation> 
+			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(8).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id])">Conditional</animation> 
+
+			<!-- Slide it back right if there's a wide widget in the way -->
+			<animation effect="slide" end="-142,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(-2).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="-142,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(-1).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="-142,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap.Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="String.IsEqual(Container(9000).ListItemNoWrap.Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(1).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(2).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(3).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(4).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(5).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(6).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(7).Property(layout),wide)">Conditional</animation>
+			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(8).Property(layout),wide)">Conditional</animation>
+		</definition>
+	</include>
+
+	<include name="widget-movement-wide">
+		<animation effect="slide" end="-345,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(1).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(2).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(3).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(4).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(5).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(6).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id])">Conditional</animation>
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(7).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id])">Conditional</animation> 
+		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(8).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id])">Conditional</animation>
+
+		<animation effect="slide" end="-142,0" time="200" condition="[String.IsEqual(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id]) | Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id])] + String.IsEqual(Container(9000).ListItemNoWrap(-2).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="-142,0" time="200" condition="[String.IsEqual(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id]) | Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id])] + String.IsEqual(Container(9000).ListItemNoWrap(-1).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap.Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap.Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(1).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(2).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(3).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(4).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(5).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(6).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(7).Property(layout),wide)">Conditional</animation>
+		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(8).Property(layout),wide)">Conditional</animation>
+	</include>
+
+</includes>

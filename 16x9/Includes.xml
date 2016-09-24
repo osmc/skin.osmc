@@ -1,0 +1,333 @@
+<includes>
+
+	<include file="Defaults.xml" />
+	<include file="Include_Home_Default.xml" />
+	<include file="Include_Home_Horizontal.xml" />
+	<include file="Include_Home_Lumos.xml" />
+	<include file="Includes_Widgets.xml" />
+	<include file="script-skinshortcuts-includes.xml" />
+	<include file="Include_DialogSettings.xml" />
+	<include file="Viewtype50.xml" />
+	<include file="Viewtype51.xml" />
+	<include file="Viewtype52.xml" />
+	<include file="Viewtype53.xml" />
+	<include file="Viewtype54.xml" />
+	<include file="Viewtype55.xml" />
+	<include file="Variables.xml" />
+
+	<!-- Fullscreen dimensions -->
+	<include name="FullscreenDimensions">
+		<left>0</left>
+		<top>0</top>
+		<width>1920</width>
+		<height>1080</height>
+	</include>
+
+	<!-- Fullscreen dimensions -->
+	<include name="PartscreenDimensions">
+		<left>30</left>
+		<top>30</top>
+		<width>1860</width>
+		<height>1020</height>
+	</include>
+
+	<!-- Window background image -->
+	<include name="WindowBackgroundImage">
+		<control type="visualisation">
+			<include>FullscreenDimensions</include>
+			<visible>Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)</visible>
+		</control>
+		<control type="videowindow">
+			<include>FullscreenDimensions</include>
+			<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo)</visible>
+		</control>
+		<control type="multiimage">
+			<include>FullscreenDimensions</include>
+			<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+			<aspectratio>keep</aspectratio>
+			<timeperimage>10000</timeperimage>
+			<fadetime>2000</fadetime>
+			<randomize>true</randomize>
+			<visible>Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart)</visible>
+			<animation effect="fade" start="100" end="50" time="0" condition="Skin.HasSetting(FadeArtistFanart)">Conditional</animation>
+		</control>
+		<control type="multiimage">
+			<include>FullscreenDimensions</include>
+			<imagepath>$VAR[BackgroundImage]</imagepath>
+			<animation effect="fade" start="100" end="80" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+			<timeperimage>10000</timeperimage>
+			<!--fadetime>200</fadetime-->
+		</control>
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<include>VisibleFadeAnimation</include>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture>$VAR[OSMCBackgroundImage]</texture>
+			<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+			<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+			<visible>[!Window.IsActive(Home) + [String.IsEqual(Control.GetLabel(120000),transparent.png) | String.IsEmpty(Control.GetLabel(120000))]] | [Window.IsActive(Home) + [String.IsEqual(Control.GetLabel(120001),transparent.png) | String.IsEmpty(Control.GetLabel(120001))]]</visible>
+		</control>
+		<control type="image" id="120000">
+			<include>FullscreenDimensions</include>
+			<include>VisibleFadeAnimation</include>
+			<fadetime>400</fadetime>
+			<colordiffuse>FanartDiffuse</colordiffuse>
+			<texture background="true" fallback="transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+			<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+			<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+		</control>
+	</include>
+
+	<!-- Window background image with fade animation -->
+	<include name="WindowFadeBackgroundImage">
+		<control type="group">
+			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<include>WindowBackgroundImage</include>
+		</control>
+	</include>
+
+	<!-- Dialog background image -->
+	<include name="DialogBackgroundImage">
+		<control type="image">
+			<include>PartscreenDimensions</include>
+			<texture colordiffuse="$VAR[OverlayColor]" border="30">dialogs/Background.png</texture>
+		</control>
+	</include>
+
+	<!-- Dialog fade background image -->
+	<include name="DialogFadeBackgroundImage">
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture colordiffuse="44000000">dialogs/DialogTextBackground.png</texture>
+			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+		</control>
+	</include>
+
+	<!-- Options background image -->
+	<include name="OptionsBackgroundImage">
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture border="20">dialogs/OptionsBackground.png</texture>
+		</control>
+	</include>
+
+	<!-- Time -->
+	<include name="Time">
+		<param name="heading">$VAR[HeadingLabel]</param>
+		<definition>
+			<control type="label">
+				<left>120</left>
+				<top>110</top>
+				<width>1680</width>
+				<height>33</height>
+				<aligny>top</aligny>
+				<label>$PARAM[heading]</label>
+				<font>Font33</font>
+				<animation type="WindowOpen" condition="Window.Previous(startup)">
+					<effect type="fade" start="50" end="100" time="200" tween="cubic" easing="out"/>
+				</animation>
+			</control>
+
+			<control type="label">
+				<right>120</right>
+				<top>110</top>
+				<width>1680</width>
+				<height>33</height>
+				<aligny>top</aligny>
+				<align>right</align>
+				<label>$INFO[System.Time]</label>
+				<font>Font36</font>
+				<textcolor>DialogColor2</textcolor>
+				<animation type="WindowOpen" condition="Window.Previous(startup)">
+					<effect type="fade" start="50" end="100" time="200" tween="cubic" easing="out"/>
+				</animation>
+				<animation effect="slide" start="120,0" end="0,0" time="200">Visible</animation>
+				<animation effect="slide" end="120,0" time="200">Hidden</animation>
+				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar)</visible>
+			</control>
+		</definition>
+	</include>
+
+	<!-- Window animation -->
+	<include name="WindowFadeAnimation">
+		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	</include>
+
+	<!-- Visible animation -->
+	<include name="VisibleFadeAnimation">
+		<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+		<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+	</include>
+
+	<!-- Dialog animation -->
+	<include name="DialogZoomAnimation">
+		<animation type="WindowOpen">
+			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+			<effect type="fade" start="0" end="100" time="300" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="zoom" start="100" end="70" center="auto" time="300" />
+			<effect type="fade" start="100" end="0" time="300" />
+		</animation>
+	</include>
+
+	<!-- Options animation -->
+	<include name="OptionsAnimation">
+		<animation type="Visible">
+			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+			<effect type="fade" start="0" end="100" time="300" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="zoom" start="100" end="70" center="auto" time="100" />
+			<effect type="fade" start="100" end="0" time="100" />
+		</animation>
+	</include>
+
+	<!-- Keyboard buttons -->
+	<include name="KeyboardButtons">
+		<width>84</width>
+		<height>74</height>
+		<font>Font48</font>
+		<align>center</align>
+		<textoffsetx>10</textoffsetx>
+	</include>
+
+	<!-- OSD Play buttons -->
+	<include name="OSDPlayStopButtons">
+		<control type="togglebutton" id="5">
+			<width>60</width>
+			<height>60</height>
+			<texturefocus colordiffuse="DialogColor1">osd/OSDPauseNF.png</texturefocus>
+			<texturenofocus colordiffuse="DialogColor2">osd/OSDPauseNF.png</texturenofocus>
+			<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo</usealttexture>
+			<alttexturefocus colordiffuse="DialogColor1">osd/OSDPlayNF.png</alttexturefocus>
+			<alttexturenofocus colordiffuse="DialogColor2">osd/OSDPlayNF.png</alttexturenofocus>
+			<onclick>PlayerControl(Play)</onclick>
+		</control>
+		<control type="button" id="6">
+			<width>60</width>
+			<height>60</height>
+			<texturefocus colordiffuse="DialogColor1">osd/OSDStopNF.png</texturefocus>
+			<texturenofocus colordiffuse="DialogColor2">osd/OSDStopNF.png</texturenofocus>
+			<onclick>PlayerControl(Stop)</onclick>
+		</control>
+	</include>
+
+	<!-- OSD Stop buttons -->
+	<include name="OSDStopButton">
+		<control type="button" id="5">
+			<width>60</width>
+			<height>60</height>
+			<texturefocus colordiffuse="DialogColor1">osd/OSDStopNF.png</texturefocus>
+			<texturenofocus colordiffuse="DialogColor2">osd/OSDStopNF.png</texturenofocus>
+			<onclick>PlayerControl(Stop)</onclick>
+		</control>
+	</include>
+
+	<!-- Item count -->
+	<include name="ItemCount">
+		<control type="grouplist">
+			<right>120</right>
+			<bottom>110</bottom>
+			<width>800</width>
+			<height>44</height>
+			<itemgap>6</itemgap>
+			<align>right</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+			<control type="label">
+				<top>3</top>
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$INFO[Container.NumItems]</label>
+				<font>Font25</font>
+				<textcolor>TextColor2</textcolor>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$VAR[ContentType]</label>
+				<font>Font33</font>
+				<textcolor>TextColor2</textcolor>
+			</control>
+		</control>
+	</include>
+
+	<!-- Media Flags -->
+	<include name="MediaFlags">
+		<control type="grouplist">
+			<left>120</left>
+			<bottom>110</bottom>
+			<width>800</width>
+			<height>44</height>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+			<control type="image">
+				<width>44</width>
+				<height>44</height>
+				<colordiffuse>TextColor2</colordiffuse>
+				<texture>DefaultMovies.png</texture>
+				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$INFO[ListItem.VideoCodec,,]$INFO[ListItem.VideoResolution, ,p]</label>
+				<font>Font33</font>
+				<textcolor>TextColor2</textcolor>
+				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+			</control>
+			<control type="image">
+				<width>44</width>
+				<height>44</height>
+				<colordiffuse>TextColor2</colordiffuse>
+				<texture>DefaultAudio.png</texture>
+				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$INFO[ListItem.AudioCodec,,]$VAR[AudioChannels, ,]</label>
+				<font>Font33</font>
+				<textcolor>TextColor2</textcolor>
+				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+			</control>
+		</control>
+	</include>
+
+	<!-- Side menu animation -->
+	<include name="SideMenuAnimation">
+		<animation effect="slide" end="0,26" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,19)">Conditional</animation>
+		<animation effect="slide" end="0,52" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,18)">Conditional</animation>
+		<animation effect="slide" end="0,78" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,17)">Conditional</animation>
+		<animation effect="slide" end="0,104" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,16)">Conditional</animation>
+		<animation effect="slide" end="0,130" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,15)">Conditional</animation>
+		<animation effect="slide" end="0,156" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,14)">Conditional</animation>
+		<animation effect="slide" end="0,182" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,13)">Conditional</animation>
+		<animation effect="slide" end="0,208" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,12)">Conditional</animation>
+		<animation effect="slide" end="0,234" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,11)">Conditional</animation>
+		<animation effect="slide" end="0,260" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,10)">Conditional</animation>
+		<animation effect="slide" end="0,286" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,9)">Conditional</animation>
+		<animation effect="slide" end="0,312" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,8)">Conditional</animation>
+		<animation effect="slide" end="0,338" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,7)">Conditional</animation>
+		<animation effect="slide" end="0,364" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,6)">Conditional</animation>
+		<animation effect="slide" end="0,390" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,5)">Conditional</animation>
+		<animation effect="slide" end="0,416" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,4)">Conditional</animation>
+		<animation effect="slide" end="0,442" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,3)">Conditional</animation>
+		<animation effect="slide" end="0,468" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,2)">Conditional</animation>
+		<animation effect="slide" end="0,494" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,1)">Conditional</animation>
+
+	</include>
+
+</includes>

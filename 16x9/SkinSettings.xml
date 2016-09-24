@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- skinsettings -->
+	<defaultcontrol always="true">9</defaultcontrol>
+	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1)</onunload>
+
+	<controls>
+
+		<!-- Skin settings -->
+		<control type="group">
+			<!-- Background -->
+			<include>WindowBackgroundImage</include>
+			
+
+			<include content="Time">
+				<param name="heading">$LOCALIZE[20077]</param>
+			</include>
+
+			<!-- Left grouplist -->
+			<control type="grouplist" id="9">
+				<left>120</left>
+				<top>228</top>
+				<width>360</width>
+				<height>660</height>
+				<itemgap>0</itemgap>
+				<onleft>noop</onleft>
+				<onright>2</onright>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(2).HasFocus">Conditional</animation>
+
+				<!-- Home items-->
+				<control type="button" id="10">
+					<width>600</width>
+					<height>66</height>
+					<label>31021</label>
+					<font>Font33</font>
+					<textcolor>$VAR[SkinSettingButton10]</textcolor>
+					<focusedcolor>TextColor1</focusedcolor>
+				</control>
+
+				<!-- Background -->
+				<control type="button" id="11">
+					<width>600</width>
+					<height>66</height>
+					<label>31020</label>
+					<font>Font33</font>
+					<textcolor>$VAR[SkinSettingButton11]</textcolor>
+					<focusedcolor>TextColor1</focusedcolor>
+				</control>
+
+				<!-- Weather -->
+				<control type="button" id="13">
+					<width>600</width>
+					<height>66</height>
+					<label>$LOCALIZE[8]</label>
+					<font>Font33</font>
+					<textcolor>$VAR[SkinSettingButton13]</textcolor>
+					<focusedcolor>TextColor1</focusedcolor>
+				</control>
+
+				<!-- General -->
+				<control type="button" id="12">
+					<width>600</width>
+					<height>66</height>
+					<label>128</label>
+					<font>Font33</font>
+					<textcolor>$VAR[SkinSettingButton12]</textcolor>
+					<focusedcolor>TextColor1</focusedcolor>
+				</control>
+
+				<!-- Addons -->
+				<control type="button" id="14">
+					<width>600</width>
+					<height>66</height>
+					<label>$LOCALIZE[31063]</label>
+					<font>Font33</font>
+					<textcolor>$VAR[SkinSettingButton14]</textcolor>
+					<focusedcolor>TextColor1</focusedcolor>
+				</control>
+
+				<!-- Backup/Reset -->
+				<control type="button" id="15">
+					<width>600</width>
+					<height>66</height>
+					<label>$LOCALIZE[31075]</label>
+					<font>Font33</font>
+					<textcolor>$VAR[SkinSettingButton15]</textcolor>
+					<focusedcolor>TextColor1</focusedcolor>
+				</control>
+
+			</control>
+
+			<!-- Right grouplist -->
+			<control type="grouplist" id="2">
+				<left>550</left>
+				<top>228</top>
+				<width>1220</width>
+				<height>660</height>
+				<itemgap>0</itemgap>
+				<onleft>9</onleft>
+				<onright>noop</onright>
+				<onup>noop</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+
+				<!-- Home items -->
+				<!-- Edit menu-->
+				<control type="button" id="1001">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<label>31049</label>
+					<font>Font33</font>
+					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+					<visible>ControlGroup(9).HasFocus(10)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+				<!-- Hide submenu headings -->
+				<control type="radiobutton" id="1004">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31053</label>
+					<onclick>Skin.ToggleSetting(HideSubmenuHeading)</onclick>
+					<selected>Skin.HasSetting(HideSubmenuHeading)</selected>
+					<visible>ControlGroup(9).HasFocus(10)</visible>
+					<visible>String.IsEmpty(Skin.String(menuStyle)) | String.IsEqual(Skin.String(menuStyle),horizontal)</visible>
+				</control>
+
+
+				<!-- Background -->
+				<!-- Background image -->
+				<control type="radiobutton" id="1200">
+					<width>1220</width>
+					<height>66</height>
+					<onup>101</onup>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[19190] 1</label>
+					<onclick>Skin.SetString(BackgroundImage,1)</onclick>
+					<selected>String.IsEmpty(Skin.String(BackgroundImage)) | String.IsEqual(Skin.String(BackgroundImage),1)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<control type="radiobutton" id="1201">
+					<width>1220</width>
+					<height>66</height>
+					<onup>101</onup>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[19190] 2</label>
+					<onclick>Skin.SetString(BackgroundImage,2)</onclick>
+					<selected>String.IsEqual(Skin.String(BackgroundImage),2)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<control type="radiobutton" id="1202">
+					<width>1220</width>
+					<height>66</height>
+					<onup>101</onup>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[19190] 3</label>
+					<onclick>Skin.SetString(BackgroundImage,3)</onclick>
+					<selected>String.IsEqual(Skin.String(BackgroundImage),3)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<control type="radiobutton" id="1203">
+					<width>1220</width>
+					<height>66</height>
+					<onup>101</onup>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[19190] 4</label>
+					<onclick>Skin.SetString(BackgroundImage,4)</onclick>
+					<selected>String.IsEqual(Skin.String(BackgroundImage),4)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<!-- Background video -->
+				<control type="radiobutton" id="1102">
+					<width>1220</width>
+					<height>66</height>
+					<onup>101</onup>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31027</label>
+					<onclick>Skin.ToggleSetting(BackgroundVideo)</onclick>
+					<selected>Skin.HasSetting(BackgroundVideo)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<!-- Background visualisation -->
+				<control type="radiobutton" id="1103">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31028</label>
+					<onclick>Skin.ToggleSetting(BackgroundVisualisation)</onclick>
+					<selected>Skin.HasSetting(BackgroundVisualisation)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<!-- Enable artist slideshow -->
+				<control type="radiobutton" id="1104">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31034</label>
+					<onclick>Skin.ToggleSetting(EnableArtistFanart)</onclick>
+					<selected>Skin.HasSetting(EnableArtistFanart)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<!-- Fade artist slideshow -->
+				<control type="radiobutton" id="1105">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31014</label>
+					<onclick>Skin.ToggleSetting(FadeArtistFanart)</onclick>
+					<selected>Skin.HasSetting(FadeArtistFanart)</selected>
+					<visible>ControlGroup(9).HasFocus(11) + Skin.HasSetting(EnableArtistFanart)</visible>
+				</control>
+
+
+				<!-- Weather -->
+				<!-- Weather icons-->
+				<control type="button" id="1201">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31067]</label>
+					<label2>$INFO[Skin.String(weatherIcons.name)]</label2>
+					<onclick>RunScript(script.image.resource.select,property=weatherIcons&amp;type=resource.images.weathericons)</onclick>
+					<visible>ControlGroup(9).HasFocus(13)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+				<!-- Weather fanart -->
+				<control type="button" id="1202">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<onclick>RunScript(script.image.resource.select,property=weatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+					<label>$LOCALIZE[31068]</label>
+					<label2>$INFO[Skin.String(weatherFanart.name)]</label2>
+					<visible>ControlGroup(9).HasFocus(13)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+
+
+				<!-- General -->
+				<!-- Enable Debug Grid -->
+				<control type="radiobutton" id="1304">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31041</label>
+					<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
+					<selected>Skin.HasSetting(DebugGrid)</selected>
+					<visible>ControlGroup(9).HasFocus(12)</visible>
+				</control>
+				<!-- Disable Debug Info -->
+				<control type="radiobutton" id="1305">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31042</label>
+					<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
+					<selected>Skin.HasSetting(DebugInfo)</selected>
+					<visible>ControlGroup(9).HasFocus(12)</visible>
+				</control>
+				<!-- Kiosk mode -->
+				<control type="radiobutton" id="1306">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31057</label>
+					<onclick>Skin.ToggleSetting(KioskMode)</onclick>
+					<selected>Skin.HasSetting(KioskMode)</selected>
+					<visible>ControlGroup(9).HasFocus(12)</visible>
+				</control>
+
+
+				<!-- Addons -->
+				<!-- Required -->
+				<control type="label" id="1401">
+					<width>1220</width>
+					<height>62</height>
+					<font>Font33</font>
+					<align>left</align>
+					<label>[I]Required Add-ons[/I]</label>
+					<textcolor>TextColor2</textcolor>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+				<control type="radiobutton" id="1402">
+					<width>1200</width>
+					<height>66</height>
+					<left>20</left>
+					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31079]</label>
+					<onclick>InstallAddon(script.skinshortcuts)</onclick>
+					<selected>System.HasAddon(script.skinshortcuts)</selected>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+
+				<!-- Recommended -->
+				<control type="label" id="1403">
+					<width>1220</width>
+					<height>62</height>
+					<font>Font33</font>
+					<align>left</align>
+					<label>[I]$LOCALIZE[31080][/I]</label>
+					<textcolor>TextColor2</textcolor>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+				<control type="radiobutton" id="1404">
+					<width>1200</width>
+					<height>66</height>
+					<left>20</left>
+					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31081]</label>
+					<onclick>InstallAddon(script.skin.helper.service)</onclick>
+					<selected>System.HasAddon(script.skin.helper.service)</selected>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+				<control type="radiobutton" id="1405">
+					<width>1200</width>
+					<height>66</height>
+					<left>20</left>
+					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31082]</label>
+					<onclick>InstallAddon(plugin.program.autocompletion)</onclick>
+					<selected>System.HasAddon(plugin.program.autocompletion)</selected>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+				<control type="radiobutton" id="1406">
+					<width>1200</width>
+					<height>66</height>
+					<left>20</left>
+					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31083]</label>
+					<onclick>InstallAddon(script.image.resource.select)</onclick>
+					<selected>System.HasAddon(script.image.resource.select)</selected>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+
+				<!-- Supported -->
+				<control type="label" id="1407">
+					<width>1220</width>
+					<height>62</height>
+					<font>Font33</font>
+					<align>left</align>
+					<label>[I]$LOCALIZE[31084][/I]</label>
+					<textcolor>TextColor2</textcolor>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+				<control type="radiobutton" id="1408">
+					<width>1200</width>
+					<height>66</height>
+					<left>20</left>
+					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31085]</label>
+					<onclick>InstallAddon(service.nextup.notification)</onclick>
+					<selected>System.HasAddon(service.nextup.notification)</selected>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+				<control type="radiobutton" id="1409">
+					<width>1200</width>
+					<height>66</height>
+					<left>20</left>
+					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31086]</label>
+					<onclick>InstallAddon(script.artistslideshow)</onclick>
+					<selected>System.HasAddon(script.artistslideshow)</selected>
+					<visible>ControlGroup(9).HasFocus(14)</visible>
+				</control>
+
+
+				<!-- BACKUP/RESET -->
+				<!-- Reset all -->
+				<control type="button" id="1503">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
+					<label>$ADDON[script.skinshortcuts 32037]</label>
+					<visible>ControlGroup(9).HasFocus(15)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+				<!-- Reset skin's setting -->
+				<control type="button" id="1504">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<label>31058</label>
+					<onclick>Skin.ResetSettings</onclick>
+					<visible>ControlGroup(9).HasFocus(15)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+			</control>
+
+		</control>
+
+		<!-- Hide settings warning -->
+		<control type="textbox">
+			<left>600</left>
+			<top>894</top>
+			<width>1240</width>
+			<height>132</height>
+			<label>31051</label>
+			<textcolor>$VAR[DisabledColor]</textcolor>
+			<visible>ControlGroup(9).HasFocus(11) + Skin.HasSetting(HideSettings)</visible>
+		</control>
+	</controls>
+
+</window>
