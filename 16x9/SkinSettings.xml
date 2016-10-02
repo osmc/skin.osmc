@@ -123,7 +123,7 @@
 					<textcolor>TextColor2</textcolor>
 				</control>
 				<!-- Hide submenu headings -->
-				<control type="radiobutton" id="1004">
+				<control type="radiobutton" id="1002">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -132,7 +132,17 @@
 					<onclick>Skin.ToggleSetting(HideSubmenuHeading)</onclick>
 					<selected>Skin.HasSetting(HideSubmenuHeading)</selected>
 					<visible>ControlGroup(9).HasFocus(10)</visible>
-					<visible>String.IsEmpty(Skin.String(menuStyle)) | String.IsEqual(Skin.String(menuStyle),horizontal)</visible>
+				</control>
+				<!-- Larger home menu -->
+				<control type="radiobutton" id="1003">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31030]</label>
+					<onclick>Skin.ToggleSetting(LargerHome)</onclick>
+					<selected>Skin.HasSetting(LargerHome)</selected>
+					<visible>ControlGroup(9).HasFocus(10)</visible>
 				</control>
 
 
