@@ -2,7 +2,6 @@
 
 	<include file="Defaults.xml" />
 	<include file="Include_Home_Default.xml" />
-	<include file="Include_Home_Large.xml" />
 	<include file="Includes_Widgets.xml" />
 	<include file="script-skinshortcuts-includes.xml" />
 	<include file="Include_DialogSettings.xml" />
@@ -327,6 +326,55 @@
 		<animation effect="slide" end="0,468" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,2)">Conditional</animation>
 		<animation effect="slide" end="0,494" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,1)">Conditional</animation>
 
+	</include>
+
+	<include name="Indicators">
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>32</width>
+				<height>$PARAM[height]</height>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>16</width>
+					<height>7</height>
+					<colordiffuse>TextColor2</colordiffuse>
+					<texture colordiffuse="DialogColor2">common/indicator.png</texture>
+
+					<visible>Container($PARAM[container]).HasPrevious</visible>
+
+					<animation type="Visible">
+						<effect type="Fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="0,10" end="0,0" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="Fade" start="100" end="0" time="200"/>
+						<effect type="slide" start="0,0" end="0,-10" time="200"/>
+					</animation>
+
+				</control>
+				<control type="image">
+					<left>0</left>
+					<bottom>0</bottom>
+					<width>16</width>
+					<height>7</height>
+					<texture colordiffuse="DialogColor2">common/indicator.png</texture>
+
+					<visible>Container($PARAM[container]).HasNext</visible>
+
+					<animation type="Visible">
+						<effect type="Fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="0,-10" end="0,0" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="Fade" start="100" end="0" time="200"/>
+						<effect type="slide" start="0,0" end="0,10" time="200"/>
+					</animation>
+				</control>
+			</control>
+		</definition>
 	</include>
 
 </includes>

@@ -26,14 +26,18 @@
 	<propertydefault labelID="tvshows" property="widgetArt">Art(season.poster)</propertydefault>
 	<propertydefault labelID="tvshows" property="widgetFallbackArt">Art(tvshow.poster)</propertydefault>
 
-	<widgetdefaultnode labelID="livetv" label="$ADDON[script.skin.helper.service 32153]" type="pvr" path="pvr://channels/tv/all channel/;reload=$INFO[Window(Home).Property(widgetreload2)]" target="video">pvr</widgetdefaultnode>
+	<widgetdefaultnode labelID="livetv" label="$LOCALIZE[19217]" type="pvr" path="pvr://channels/tv/*/" target="video">pvr</widgetdefaultnode>
 	<propertydefault labelID="livetv" property="layout">wide</propertydefault>
 	<propertydefault labelID="livetv" property="shadow">True</propertydefault>
 
-	<widgetdefaultnode labelID="132" label="Random Albums" type="albums" path="plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window(Home).Property(widgetreloadmusic)]" target="music">librarydataprovider</widgetdefaultnode>
+	<widgetdefaultnode labelID="radio" label="$LOCALIZE[19216]" type="pvr" path="pvr://channels/radio/*/" target="video">pvr</widgetdefaultnode>
+	<propertydefault labelID="livetv" property="layout">wide</propertydefault>
+	<propertydefault labelID="livetv" property="shadow">True</propertydefault>
+
+	<widgetdefaultnode labelID="music" label="Random Albums" type="albums" path="plugin://service.library.data.provider?type=randomalbums&amp;reload=$INFO[Window(Home).Property(widgetreloadmusic)]" target="music">librarydataprovider</widgetdefaultnode>
 	<propertydefault labelID="132" property="layout">square</propertydefault>
 
-	<widgetdefaultnode labelID="31063" label="10001" type="program" path="addons://sources/executable" target="programs">addon</widgetdefaultnode>
+	<widgetdefaultnode labelID="programs" label="10001" type="program" path="addons://sources/executable" target="programs">addon</widgetdefaultnode>
 	<propertydefault labelID="31063" property="layout">square</propertydefault>
 
 	<widgetdefaultnode labelID="1036" label="Favourites" type="movies" path="plugin://script.skin.helper.service/?action=favourites&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]$INFO[Window(Home).Property(widgetreload2)]" target="video">scriptwidgets</widgetdefaultnode>

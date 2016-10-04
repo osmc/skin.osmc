@@ -6,14 +6,13 @@
 		<control type="list" id="9000">
 			<left>120</left>
 			<top>240</top>
-			<width>300</width>
-			<height>684</height>
+			<width>400</width>
+			<height>679</height>
 			<focusposition>7</focusposition>
 			<defaultcontrol>1</defaultcontrol>
-			<pagecontrol>60</pagecontrol>
 			<onup>9000</onup>
 			<ondown>9000</ondown>
-			<onleft>60</onleft>
+			<onleft>9001</onleft>
 			<onright>9002</onright>
 			<orientation>vertical</orientation>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -27,26 +26,26 @@
 				<effect type="slide" start="600,0" end="0,0" time="160" tween="sine" easing="out" />
 			</animation-->
 
-			<itemlayout width="300" height="76">
+			<itemlayout width="400" height="97">
 				<control type="label">
 					<left>0</left>
 					<top>0</top>
-					<width>300</width>
-					<height>42</height>
+					<width>400</width>
+					<height>97</height>
 					<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-					<font>Font42</font>
+					<font>Font50</font>
 					<textcolor>TextColor2</textcolor>
 				</control>
 			</itemlayout>
 
-			<focusedlayout width="300" height="76">
+			<focusedlayout width="400" height="97">
 				<control type="label">
 					<left>0</left>
 					<top>0</top>
-					<width>300</width>
-					<height>42</height>
+					<width>400</width>
+					<height>97</height>
 					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<font>Font42</font>
+					<font>Font50</font>
 					<textcolor>TextColor1</textcolor>
 					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
 				</control>
@@ -57,6 +56,14 @@
 			</content>
 
 		</control>
+
+		<!-- Indicators -->
+		<include content="Indicators">
+			<param name="left">70</param>
+			<param name="top">240</param>
+			<param name="height">679</param>
+			<param name="container">9000</param>
+		</include>
 
 		<!-- Sub Menu -->
 		<control type="group" id="9010">
