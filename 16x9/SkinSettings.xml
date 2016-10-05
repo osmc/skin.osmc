@@ -237,7 +237,8 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31067]</label>
 					<label2>$INFO[Skin.String(weatherIcons.name)]</label2>
-					<onclick>RunScript(script.image.resource.select,property=weatherIcons&amp;type=resource.images.weathericons)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherIcons&amp;type=resource.images.weathericons)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<visible>ControlGroup(9).HasFocus(13)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
@@ -248,7 +249,8 @@
 					<height>66</height>
 					<textwidth>1120</textwidth>
 					<font>Font33</font>
-					<onclick>RunScript(script.image.resource.select,property=weatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<label>$LOCALIZE[31068]</label>
 					<label2>$INFO[Skin.String(weatherFanart.name)]</label2>
 					<visible>ControlGroup(9).HasFocus(13)</visible>
