@@ -100,8 +100,6 @@
 					<top>20</top>
 					<width>410</width>
 					<height>1040</height>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
 					<onleft>noop</onleft>
 					<onright>9000</onright>
 					<orientation>vertical</orientation>
@@ -178,17 +176,7 @@
 		</control>
 
 		<!-- Widget Heading -->
-		<control type="label">
-			<top>680</top>
-			<left>590</left>
-			<width>1218</width>
-			<height>280</height>
-			<font>Font33</font>
-			<align>right</align>
-			<aligny>top</aligny>
-			<label>$INFO[Container(9000).ListItem.Property(widgetName)]</label>
-			<visible>!Skin.HasSetting(HideSubmenuHeading) + !ControlGroup(9002).HasFocus</visible>
-		</control>
+		<include>skinshortcuts-template-widgetHeading</include>
 
 		<!-- Reloading indicator -->
 		<control type="group">

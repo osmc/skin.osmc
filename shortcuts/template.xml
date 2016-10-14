@@ -621,6 +621,29 @@
 		</controls>
 	</other>
 
+	<other include="widgetHeading">
+		<property name="id" tag="mainmenuid" />
+		<property name="widgetName" tag="property" attribute="name|widgetName" />
+		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
+		<property name="label" tag="label" />
+		<controls>
+			<!-- Widget Heading -->
+			<control type="label">
+				<top>680</top>
+				<left>590</left>
+				<width>1218</width>
+				<height>280</height>
+				<font>Font33</font>
+				<align>right</align>
+				<aligny>top</aligny>
+				<label>$SKINSHORTCUTS[widgetName]</label>
+				<visible>!Skin.HasSetting(HideSubmenuHeading) + !ControlGroup(9002).HasFocus</visible>
+				<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])</visible>
+				<visible>Integer.IsGreater(Container(800$SKINSHORTCUTS[id]).NumItems,0) | Container(800$SKINSHORTCUTS[id]).IsUpdating</visible>
+			</control>
+		</controls>
+	</other>
+
 	<other include="widgetDetails">
 		<property name="id" tag="mainmenuid" />
 		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
@@ -638,6 +661,11 @@
 				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
 				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]/</value>
 			</variable>
+			<variable name="widgetVisibility">
+				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">False</value><!--" + !Integer.IsGreater(Container(800$SKINSHORTCUTS[id]).NumItems,0) + !Container(800$SKINSHORTCUTS[id]).IsUpdating">False</value-->
+				<value>True</value>
+			</variable>
 		</variables>
 	</other>
+
 </template>
