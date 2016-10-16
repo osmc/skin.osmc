@@ -31,57 +31,67 @@
 
 	<!-- Window background image -->
 	<include name="WindowBackgroundImage">
-		<control type="visualisation">
-			<include>FullscreenDimensions</include>
-			<visible>Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)</visible>
-		</control>
-		<control type="videowindow">
-			<include>FullscreenDimensions</include>
-			<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo)</visible>
-		</control>
-		<control type="multiimage">
-			<include>FullscreenDimensions</include>
-			<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-			<aspectratio>keep</aspectratio>
-			<timeperimage>10000</timeperimage>
-			<fadetime>2000</fadetime>
-			<randomize>true</randomize>
-			<visible>Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart)</visible>
-			<animation effect="fade" start="100" end="50" time="0" condition="Skin.HasSetting(FadeArtistFanart)">Conditional</animation>
-		</control>
-		<control type="multiimage">
-			<include>FullscreenDimensions</include>
-			<imagepath>$VAR[BackgroundImage]</imagepath>
-			<animation effect="fade" start="100" end="80" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-			<timeperimage>10000</timeperimage>
-			<!--fadetime>200</fadetime-->
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<include>VisibleFadeAnimation</include>
-			<colordiffuse>FanartDiffuse</colordiffuse>
-			<texture>$VAR[OSMCBackgroundImage]</texture>
-			<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-			<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-			<visible>[!Window.IsActive(Home) + [String.IsEqual(Control.GetLabel(120000),transparent.png) | String.IsEmpty(Control.GetLabel(120000))]] | [Window.IsActive(Home) + [String.IsEqual(Control.GetLabel(120001),transparent.png) | String.IsEmpty(Control.GetLabel(120001))]]</visible>
-		</control>
-		<control type="image" id="120000">
-			<include>FullscreenDimensions</include>
-			<include>VisibleFadeAnimation</include>
-			<fadetime>400</fadetime>
-			<colordiffuse>FanartDiffuse</colordiffuse>
-			<texture background="true" fallback="transparent.png">$INFO[ListItem.Art(fanart)]</texture>
-			<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-			<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-		</control>
+		<param name="isHomeWindow">False</param>
+		<definition>
+			<control type="visualisation">
+				<include>FullscreenDimensions</include>
+				<visible>Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)</visible>
+			</control>
+			<control type="videowindow">
+				<include>FullscreenDimensions</include>
+				<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo)</visible>
+			</control>
+			<control type="multiimage">
+				<include>FullscreenDimensions</include>
+				<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>10000</timeperimage>
+				<fadetime>2000</fadetime>
+				<randomize>true</randomize>
+				<visible>Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart)</visible>
+				<animation effect="fade" start="100" end="50" time="0" condition="Skin.HasSetting(FadeArtistFanart)">Conditional</animation>
+			</control>
+			<!-- Gradient image -->
+			<control type="multiimage">
+				<include>FullscreenDimensions</include>
+				<imagepath>special://skin/extras/backgrounds/Default.jpg</imagepath>
+				<animation effect="fade" start="100" end="80" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+				<timeperimage>10000</timeperimage>
+			</control>
+			<!-- OSMC water image -->
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<include>VisibleFadeAnimation</include>
+				<colordiffuse>FanartDiffuse</colordiffuse>
+				<texture>$VAR[OSMCBackgroundImage]</texture>
+				<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+				<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+				<visible>[!$PARAM[isHomeWindow] + [String.IsEqual(Control.GetLabel(120000),transparent.png) | String.IsEmpty(Control.GetLabel(120000))]] | [$PARAM[isHomeWindow] + [String.IsEqual(Control.GetLabel(120001),transparent.png) | String.IsEmpty(Control.GetLabel(120001))]]</visible>
+			</control>
+			<!-- Fanart -->
+			<control type="image" id="120000">
+				<include>FullscreenDimensions</include>
+				<include>VisibleFadeAnimation</include>
+				<fadetime>400</fadetime>
+				<colordiffuse>FanartDiffuse</colordiffuse>
+				<texture background="true" fallback="transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+				<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+				<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
+				<visible>!$PARAM[isHomeWindow]</visible>
+			</control>
+		</definition>
 	</include>
 
 	<!-- Window background image with fade animation -->
 	<include name="WindowFadeBackgroundImage">
 		<control type="group">
-			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<animation effect="fade" start="0" end="100" time="200" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">WindowClose</animation>
 			<include>WindowBackgroundImage</include>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture colordiffuse="44000000">dialogs/DialogTextBackground.png</texture>
+			</control>
 		</control>
 	</include>
 

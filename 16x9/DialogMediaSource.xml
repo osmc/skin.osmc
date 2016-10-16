@@ -16,14 +16,9 @@
 			<include>DialogBackgroundImage</include>
 
 			<!-- Heading -->
-			<control type="label" id="0">
-				<left>150</left>
-				<top>96</top>
-				<width>1620</width>
-				<height>72</height>
-				<font>Font72</font>
-				<label>1021</label>
-			</control>
+			<include content="Time">
+				<param name="heading">$LOCALIZE[1021]</param>
+			</include>
 
 			<!-- Left grouplist -->
 			<control type="grouplist" id="9000">
@@ -97,27 +92,20 @@
 
 			</control>
 
-			<!-- Name background -->
-			<control type="image">
+			<!-- Name -->
+			<control type="edit" id="12">
 				<left>600</left>
 				<top>708</top>
 				<width>1170</width>
-				<height>66</height>
-				<texture>dialogs/DialogTextBackground.png</texture>
-			</control>
-
-			<!-- Name -->
-			<control type="edit" id="12">
-				<left>620</left>
-				<top>708</top>
-				<width>1130</width>
 				<height>66</height>
 				<onup>10</onup>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
 				<ondown>9001</ondown>
 				<font>Font48</font>
-				<textcolor>DialogColor1</textcolor>
+				<textoffsetx>20</textoffsetx>
+				<texturefocus colordiffuse="TextColor1" border="2">common/Border.png</texturefocus>
+				<texturenofocus colordiffuse="TextColor2" border="2">common/Border.png</texturenofocus>
 			</control>
 
 			<!-- Name Label -->
@@ -127,6 +115,16 @@
 				<width>1170</width>
 				<height>74</height>
 				<label>1022</label>
+				<visible>Control.HasFocus(12)</visible>
+			</control>
+			<control type="label">
+				<left>600</left>
+				<top>794</top>
+				<width>1170</width>
+				<height>74</height>
+				<label>1022</label>
+				<textcolor>DialogColor2</textcolor>
+				<visible>!Control.HasFocus(12)</visible>
 			</control>
 
 			<!-- Button grouplist -->
@@ -134,7 +132,7 @@
 				<left>600</left>
 				<top>926</top>
 				<width>1200</width>
-				<itemgap>0</itemgap>
+				<itemgap>30</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
 				<onup>12</onup>
@@ -143,13 +141,13 @@
 
 				<!-- OK Button -->
 				<control type="button" id="18">
-					<width>400</width>
+					<width>auto</width>
 					<label>186</label>
 				</control>
 
 				<!-- Cancel Button -->
 				<control type="button" id="19">
-					<width>400</width>
+					<width>auto</width>
 					<label>222</label>
 				</control>
 
