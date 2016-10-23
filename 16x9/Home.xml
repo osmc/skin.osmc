@@ -5,7 +5,7 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 
 	<!-- Skin Shortcuts -->
-	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1)</onload>
+	<onload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu)</onload>
 
 	<!-- Skin Helper Service -->
 	<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>

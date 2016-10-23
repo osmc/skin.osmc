@@ -3,7 +3,8 @@
 	<include file="Defaults.xml" />
 	<include file="Include_Home_Default.xml" />
 	<include file="Includes_Widgets.xml" />
-	<include file="script-skinshortcuts-includes.xml" />
+	<include condition="System.HasAddon(script.skinshortcuts)" file="script-skinshortcuts-includes.xml" />
+	<include condition="!System.HasAddon(script.skinshortcuts)" file="script-skinshortcuts-static.xml" />
 	<include file="Include_DialogSettings.xml" />
 	<include file="Viewtype50.xml" />
 	<include file="Viewtype51.xml" />

@@ -2,7 +2,7 @@
 <window>
 	<!-- skinsettings -->
 	<defaultcontrol always="true">9</defaultcontrol>
-	<onunload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1)</onunload>
+	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu)</onunload>
 
 	<controls>
 
@@ -118,12 +118,23 @@
 					<label>31049</label>
 					<font>Font33</font>
 					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
-					<visible>ControlGroup(9).HasFocus(10)</visible>
+					<visible>ControlGroup(9).HasFocus(10) + System.HasAddon(script.skinshortcuts)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+				<control type="button" id="1002">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31030]</label>
+					<font>Font33</font>
+					<onclick>InstallAddon(script.skinshortcuts)</onclick>
+					<visible>ControlGroup(9).HasFocus(10) + !System.HasAddon(script.skinshortcuts)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>
 				<!-- Hide submenu headings -->
-				<control type="radiobutton" id="1002">
+				<control type="radiobutton" id="1003">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -296,13 +307,13 @@
 
 
 				<!-- Addons -->
-				<!-- Required -->
+				<!-- Recommended -->
 				<control type="label" id="1401">
 					<width>1220</width>
 					<height>62</height>
 					<font>Font33</font>
 					<align>left</align>
-					<label>[I]Required Add-ons[/I]</label>
+					<label>[I]$LOCALIZE[31080][/I]</label>
 					<textcolor>TextColor2</textcolor>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
@@ -314,17 +325,6 @@
 					<label>$LOCALIZE[31079]</label>
 					<onclick>InstallAddon(script.skinshortcuts)</onclick>
 					<selected>System.HasAddon(script.skinshortcuts)</selected>
-					<visible>ControlGroup(9).HasFocus(14)</visible>
-				</control>
-
-				<!-- Recommended -->
-				<control type="label" id="1403">
-					<width>1220</width>
-					<height>62</height>
-					<font>Font33</font>
-					<align>left</align>
-					<label>[I]$LOCALIZE[31080][/I]</label>
-					<textcolor>TextColor2</textcolor>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
 				<control type="radiobutton" id="1404">
