@@ -65,12 +65,41 @@
 			<param name="container">9000</param>
 		</include>
 
+		<!-- Widgets -->
+		<control type="group" id="9002">
+			<include>skinshortcuts-template-vertical</include>
+		</control>
+
+		<!-- Widget details -->
+		<control type="label">
+			<top>680</top>
+			<left>590</left>
+			<width>1218</width>
+			<height>280</height>
+			<font>Font33</font>
+			<align>right</align>
+			<aligny>top</aligny>
+			<textcolor>TextColor1</textcolor>
+			<label>$VAR[widgetDetails]</label>
+			<visible>!String.IsEqual(Container(9000).ListItem.Property(widget),WeatherWidget) + ControlGroup(9002).HasFocus</visible>
+		</control>
+
+		<!-- Widget Heading -->
+		<include>skinshortcuts-template-widgetHeading</include>
+
+		<!-- Reloading indicator -->
+		<control type="group">
+			<left>1820</left>
+			<top>685</top>
+			<include>skinshortcuts-template-reloading</include>
+		</control>
+
 		<!-- Sub Menu -->
 		<control type="group" id="9010">
 			<animation effect="slide" time="0" end="-10000,0" condition="Integer.IsEqual(Container(9001).NumItems,0)">Conditional</animation>
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="44000000">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9010).HasFocus</visible>
@@ -154,35 +183,6 @@
 
 				</control>
 			</control>
-		</control>
-
-		<!-- Widgets -->
-		<control type="group" id="9002">
-			<include>skinshortcuts-template-vertical</include>
-		</control>
-
-		<!-- Widget details -->
-		<control type="label">
-			<top>680</top>
-			<left>590</left>
-			<width>1218</width>
-			<height>280</height>
-			<font>Font33</font>
-			<align>right</align>
-			<aligny>top</aligny>
-			<textcolor>TextColor1</textcolor>
-			<label>$VAR[widgetDetails]</label>
-			<visible>!String.IsEqual(Container(9000).ListItem.Property(widget),WeatherWidget) + ControlGroup(9002).HasFocus</visible>
-		</control>
-
-		<!-- Widget Heading -->
-		<include>skinshortcuts-template-widgetHeading</include>
-
-		<!-- Reloading indicator -->
-		<control type="group">
-			<left>1820</left>
-			<top>685</top>
-			<include>skinshortcuts-template-reloading</include>
 		</control>
 
 	</include>
