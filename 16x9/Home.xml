@@ -19,25 +19,9 @@
 		</control>
 
 		<!-- Background -->
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>common/white.png</texture>
-		</control>
-
 		<include content="WindowBackgroundImage">
 			<param name="isHomeWindow">True</param>
 		</include>
-
-		<control type="image" id="120001">
-			<include>FullscreenDimensions</include>
-			<include>VisibleFadeAnimation</include>
-			<fadetime>400</fadetime>
-			<colordiffuse>FanartDiffuse</colordiffuse>
-			<texture fallback="transparent.png">$VAR[widgetBackground]</texture>
-			<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-			<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-		</control>
-		<include>skinshortcuts-template-weatherBackground</include>
 
 		<!-- Time -->
 		<include content="Time">
