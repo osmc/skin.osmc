@@ -270,6 +270,26 @@
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
 			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+
+			<!-- Duration -->
+			<control type="image">
+				<width>44</width>
+				<height>44</height>
+				<colordiffuse>TextColor2</colordiffuse>
+				<texture>pvr/Timer.png</texture>
+				<visible>!String.IsEmpty(ListItem.Duration)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$INFO[ListItem.Duration,, $LOCALIZE[12391] ]</label>
+				<font>Font33</font>
+				<textcolor>TextColor2</textcolor>
+				<visible>!String.IsEmpty(ListItem.Duration)</visible>
+			</control>
+
+			<!-- Video flags -->
 			<control type="image">
 				<width>44</width>
 				<height>44</height>
@@ -286,6 +306,8 @@
 				<textcolor>TextColor2</textcolor>
 				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
+
+			<!-- Audio flags -->
 			<control type="image">
 				<width>44</width>
 				<height>44</height>
