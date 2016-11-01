@@ -5,19 +5,21 @@
 
 	<controls>
 		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$INFO[Control.GetLabel(1)]</param>
+			</include>
 
 			<!-- Heading -->
 			<control type="label" id="1">
-				<left>150</left>
+				<left>-150000</left>
 				<top>96</top>
 				<width>1620</width>
 				<height>72</height>

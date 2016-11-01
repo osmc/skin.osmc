@@ -5,15 +5,12 @@
 
 	<controls>
 		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
-
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
 
 			<!-- Heading -->
 			<include content="Time">
@@ -148,18 +145,20 @@
 
 			</control>
 
-			<!-- Button grouplist -->
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9000</param>
+			</include>
+
+			<!-- Buttons -->
 			<control type="grouplist" id="9000">
-				<left>150</left>
-				<top>912</top>
-				<width>1620</width>
+				<left>120</left>
+				<bottom>100</bottom>
+				<width>1680</width>
 				<height>66</height>
-				<itemgap>30</itemgap>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
-				<onup>noop</onup>
-				<ondown>noop</ondown>
 				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
 
 				<!-- OK Button -->
 				<control type="button" id="7">
@@ -170,16 +169,31 @@
 				<control type="button" id="5">
 					<width>auto</width>
 					<label>19165</label>
+					<visible>Window.IsActive(PVRGuideInfo)</visible>
+				</control>
+				<!-- Find Similar -->
+				<control type="button" id="4">
+					<width>auto</width>
+					<label>19003</label>
+					<visible>Window.IsActive(PVRGuideInfo)</visible>
 				</control>
 				<!-- Record Button -->
 				<control type="button" id="6">
 					<width>auto</width>
 					<label>-</label>
+					<visible>Window.IsActive(PVRGuideInfo)</visible>
+				</control>
+				<!-- Play Recording Button -->
+				<control type="button" id="8">
+					<width>auto</width>
+					<label>19687</label>
+					<visible>Window.IsActive(PVRRecordingInfo)</visible>
 				</control>
 				<!-- Add Timer -->
 				<control type="button" id="9">
 					<width>auto</width>
 					<label>19061</label>
+					<visible>Window.IsActive(PVRGuideInfo)</visible>
 				</control>
 
 			</control>

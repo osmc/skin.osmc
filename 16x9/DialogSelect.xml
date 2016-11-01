@@ -5,15 +5,12 @@
 	<include>WindowFadeAnimation</include>
 	<controls>
 		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
-
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
 
 			<!-- Heading -->
 			<include content="Time">
@@ -52,7 +49,7 @@
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
 				<left>690</left>
-				<top>235</top>
+				<centertop>50%</centertop>
 				<width>20</width>
 				<height>692</height>
 				<onleft>5</onleft>
@@ -72,7 +69,7 @@
 			<!-- List -->
 			<control type="list" id="3">
 				<left>750</left>
-				<top>235</top>
+				<centertop>50%</centertop>
 				<width>1050</width>
 				<height>696</height>
 				<onup>6</onup>
@@ -118,7 +115,7 @@
 			<!-- List -->
 			<control type="list" id="6">
 				<left>750</left>
-				<top>235</top>
+				<centertop>50%</centertop>
 				<width>1050</width>
 				<height>672</height>
 				<onup>noop</onup>
@@ -157,6 +154,7 @@
 						<font>Font36</font>
 						<textcolor>DialogColor2</textcolor>
 						<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
+						<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					</control>
 					<control type="label">
 						<left>140</left>
@@ -199,6 +197,7 @@
 							<font>Font36</font>
 							<textcolor>DialogColor1</textcolor>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 						</control>
 						<control type="label">
 							<left>140</left>
@@ -220,6 +219,7 @@
 							<font>Font36</font>
 							<textcolor>DialogColor2</textcolor>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 						</control>
 						<control type="label">
 							<left>140</left>
@@ -235,18 +235,21 @@
 
 			</control>
 
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9001</param>
+			</include>
+
 			<!-- Button grouplist -->
 			<control type="grouplist" id="9001">
-				<left>750</left>
-				<top>926</top>
-				<width>1200</width>
+				<left>120</left>
+				<bottom>100</bottom>
+				<width>1680</width>
+				<height>66</height>
 				<itemgap>30</itemgap>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
 				<onup>3</onup>
-				<ondown>noop</ondown>
-				<defaultcontrol>28</defaultcontrol>
 				<orientation>horizontal</orientation>
+				<align>center</align>
 
 				<!-- Cancel Button -->
 				<control type="button" id="7">

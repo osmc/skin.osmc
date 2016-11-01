@@ -4,16 +4,13 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 
 	<controls>
-		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<!-- Background -->
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
-
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
 
 			<!-- Heading -->
 			<include content="Time">
@@ -153,21 +150,24 @@
 
 			</control>
 
-			<!-- Button grouplist -->
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9000</param>
+			</include>
+
+			<!-- Buttons -->
 			<control type="grouplist" id="9000">
-				<left>150</left>
-				<top>912</top>
-				<width>1620</width>
+				<left>120</left>
+				<bottom>100</bottom>
+				<width>1680</width>
 				<height>66</height>
-				<itemgap>30</itemgap>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
-				<onup>50</onup>
-				<ondown>noop</ondown>
 				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>50</onup>
 
 				<!-- Launch Addon Button -->
-					<control type="button" id="12">
+				<control type="button" id="12">
 					<width>Auto</width>
 					<label>518</label>
 					<visible>Control.IsEnabled(12)</visible>

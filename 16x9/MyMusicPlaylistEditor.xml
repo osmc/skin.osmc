@@ -11,124 +11,14 @@
 		<!-- Background -->
 		<include>WindowBackgroundImage</include>
 
-		<!-- Time -->
-		<include>Time</include>
-
-		<!-- Image -->
-		<control type="image">
-			<left>120</left>
-			<top>225</top>
-			<width>405</width>
-			<height>600</height>
-			<texture>DefaultFile.png</texture>
-			<colordiffuse>OverlayColorFO</colordiffuse>
-			<aspectratio aligny="center">keep</aspectratio>
-		</control>
-
-		<!-- List -->
-		<control type="grouplist">
-			<left>782</left>
-			<centertop>50%</centertop>
-			<width>1050</width>
-			<height>720</height>
-			<itemgap>0</itemgap>
-			<orientation>vertical</orientation>
-			<control type="label">
-				<width>1018</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[Window(Music).Property(ListItem-3)]</label>
-				<textcolor>TextColor2</textcolor>
-			</control>
-			<control type="label">
-				<width>1018</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[Window(Music).Property(ListItem-2)]</label>
-				<textcolor>TextColor2</textcolor>
-			</control>
-			<control type="label">
-				<width>1018</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[Window(Music).Property(ListItem-1)]</label>
-				<textcolor>TextColor2</textcolor>
-			</control>
-			<control type="label">
-				<width>1018</width>
-				<height>180</height>
-				<font>Font72</font>
-				<label>$INFO[Window(Music).Property(ListItem)]</label>
-				<textcolor>TextColor1</textcolor>
-			</control>
-			<control type="label">
-				<width>1018</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[Window(Music).Property(ListItem1)]</label>
-				<textcolor>TextColor2</textcolor>
-			</control>
-			<control type="label">
-				<width>1018</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[Window(Music).Property(ListItem2)]</label>
-				<textcolor>TextColor2</textcolor>
-			</control>
-			<control type="label">
-				<width>1018</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[Window(Music).Property(ListItem3)]</label>
-				<textcolor>TextColor2</textcolor>
-			</control>
-		</control>
-
-		<!-- Item count -->
-		<control type="grouplist">
-			<right>120</right>
-			<bottom>110</bottom>
-			<width>800</width>
-			<height>44</height>
-			<itemgap>6</itemgap>
-			<align>right</align>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<control type="label">
-				<top>3</top>
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$INFO[Window(Music).Property(NumberItems)]</label>
-				<font>Font25</font>
-				<textcolor>TextColor2</textcolor>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>136</label>
-				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
-			</control>
-		</control>
-
 		<!-- Playlist editor controls -->
 		<control type="group">
-			<include>DialogZoomAnimation</include>
-
-			<!-- Background -->
-			<include>DialogBackgroundImage</include>
+			<include>WindowFadeAnimation</include>
 
 			<!-- Heading -->
-			<control type="label">
-				<left>150</left>
-				<top>96</top>
-				<width>1620</width>
-				<height>72</height>
-				<font>Font72</font>
-				<label>10503</label>
-			</control>
+			<include content="Time">
+				<param name="heading">$LOCALIZE[10503]</param>
+			</include>
 
 			<!-- Left group -->
 			<control type="group">

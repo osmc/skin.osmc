@@ -5,38 +5,22 @@
 
 	<controls>
 		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
-
 			<!-- Heading -->
-			<control type="label">
-				<left>150</left>
-				<top>96</top>
-				<width>1620</width>
-				<height>72</height>
-				<font>Font72</font>
-				<label>19142</label>
-			</control>
-
-			<!-- Search label -->
-			<control type="label">
-				<left>150</left>
-				<top>228</top>
-				<width>1620</width>
-				<label>[B]$LOCALIZE[19133][/B]</label>
-			</control>
+			<include content="Time">
+				<param name="heading">$LOCALIZE[19142]</param>
+			</include>
 
 			<!-- Search -->
 			<control type="edit" id="9">
 				<left>150</left>
-				<top>288</top>
+				<top>220</top>
 				<width>1620</width>
 				<height>66</height>
 				<textoffsetx>20</textoffsetx>
@@ -52,7 +36,7 @@
 			<!-- Search help -->
 			<control type="label">
 				<left>150</left>
-				<top>360</top>
+				<top>290</top>
 				<width>1620</width>
 				<font>Font27</font>
 				<label>$LOCALIZE[19001] $LOCALIZE[19002]</label>
@@ -61,7 +45,7 @@
 			<!-- Left group -->
 			<control type="grouplist" id="9001">
 				<left>150</left>
-				<top>426</top>
+				<top>350</top>
 				<width>800</width>
 				<height>528</height>
 				<onleft>noop</onleft>
@@ -133,7 +117,7 @@
 			<!-- Right group -->
 			<control type="grouplist" id="9002">
 				<left>970</left>
-				<top>426</top>
+				<top>350</top>
 				<width>800</width>
 				<height>528</height>
 				<onleft>noop</onleft>
@@ -203,18 +187,21 @@
 
 			</control>
 
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9000</param>
+			</include>
+
 			<!-- Button grouplist -->
 			<control type="grouplist" id="9000">
-				<left>150</left>
-				<top>954</top>
-				<width>1620</width>
+				<left>120</left>
+				<bottom>100</bottom>
+				<width>1680</width>
 				<height>66</height>
-				<itemgap>30</itemgap>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
-				<onup>9001</onup>
-				<ondown>noop</ondown>
 				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>9001</onup>
 
 				<!-- Search Button -->
 				<control type="button" id="26">

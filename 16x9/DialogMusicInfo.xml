@@ -5,15 +5,12 @@
 
 	<controls>
 		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
-
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
 
 			<!-- Heading -->
 			<include content="Time">
@@ -611,18 +608,21 @@
 
 			</control>
 
-			<!-- Button grouplist -->
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9000</param>
+			</include>
+
+			<!-- Buttons -->
 			<control type="grouplist" id="9000">
-				<left>150</left>
-				<top>912</top>
-				<width>1620</width>
+				<left>120</left>
+				<bottom>100</bottom>
+				<width>1680</width>
 				<height>66</height>
-				<itemgap>30</itemgap>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
-				<onup condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21887]) | String.IsEqual(Control.GetLabel(5),$LOCALIZE[183])">50</onup>
-				<ondown>noop</ondown>
 				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21887]) | String.IsEqual(Control.GetLabel(5),$LOCALIZE[183])">50</onup>
 
 				<!-- Refresh Button -->
 				<control type="button" id="6">

@@ -6,15 +6,12 @@
 
 	<controls>
 		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
-
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
 
 			<!-- Heading -->
 			<include content="Time">
@@ -74,7 +71,7 @@
 				<left>690</left>
 				<centertop>50%</centertop>
 				<width>20</width>
-				<height>720</height>
+				<height>672</height>
 				<onleft>9000</onleft>
 				<onright>450</onright>
 				<showonepage>false</showonepage>
@@ -91,7 +88,7 @@
 			<!-- List -->
 			<control type="list" id="450">
 				<left>750</left>
-				<top>235</top>
+				<centertop>50%</centertop>
 				<width>1050</width>
 				<height>672</height>
 				<onup>noop</onup>
@@ -176,10 +173,9 @@
 			</control>
 
 			<!-- List -->
-
 			<control type="list" id="451">
 				<left>750</left>
-				<top>235</top>
+				<centertop>50%</centertop>
 				<width>1050</width>
 				<height>672</height>
 				<onup>noop</onup>
@@ -261,45 +257,44 @@
 
 			</control>
 
-			<!-- Button grouplist -->
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9000</param>
+			</include>
+
+			<!-- Buttons -->
 			<control type="grouplist" id="9000">
-				<left>750</left>
-				<top>912</top>
-				<width>1620</width>
+				<left>120</left>
+				<bottom>100</bottom>
+				<width>1680</width>
 				<height>66</height>
-				<itemgap>0</itemgap>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
-				<onup>450</onup>
-				<ondown>noop</ondown>
 				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>450</onup>
 
 				<!-- OK Button -->
 				<control type="button" id="413">
-					<width>324</width>
-					<height>66</height>
+					<width>auto</width>
 					<label>186</label>
 				</control>
 
 				<!-- Cancel Button -->
 				<control type="button" id="414">
-					<width>324</width>
-					<height>66</height>
+					<width>auto</width>
 					<label>222</label>
 				</control>
 
 				<!-- New folder -->
 				<control type="button" id="415">
-					<width>324</width>
-					<height>66</height>
+					<width>auto</width>
 					<label>119</label>
 					<visible>Control.IsEnabled(415)</visible>
 				</control>
 
 				<!-- Mirror image -->
 				<control type="radiobutton" id="416">
-					<width>324</width>
-					<height>66</height>
+					<width>auto</width>
 					<label>749</label>
 					<visible>Control.IsEnabled(416)</visible>
 				</control>

@@ -22,14 +22,6 @@
 		<height>1080</height>
 	</include>
 
-	<!-- Fullscreen dimensions -->
-	<include name="PartscreenDimensions">
-		<left>30</left>
-		<top>30</top>
-		<width>1860</width>
-		<height>1020</height>
-	</include>
-
 	<!-- Window background image -->
 	<include name="WindowBackgroundImage">
 		<param name="isHomeWindow">False</param>
@@ -99,14 +91,6 @@
 				<include>WindowFadeAnimation</include>
 				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
 			</control>
-		</control>
-	</include>
-
-	<!-- Dialog background image -->
-	<include name="DialogBackgroundImage">
-		<control type="image">
-			<include>PartscreenDimensions</include>
-			<texture colordiffuse="$VAR[OverlayColor]" border="30">dialogs/Background.png</texture>
 		</control>
 	</include>
 
@@ -390,6 +374,27 @@
 						<effect type="slide" start="0,0" end="0,10" time="200"/>
 					</animation>
 				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="dialogButtonBackground">
+		<definition>
+			<control type="image">
+				<left>-100</left>
+				<bottom>90</bottom>
+				<width>2120</width>
+				<height>86</height>
+				<texture colordiffuse="TextColor1" border="2">common/Border.png</texture>
+				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
+			</control>
+			<control type="image">
+				<left>-100</left>
+				<bottom>90</bottom>
+				<width>2120</width>
+				<height>86</height>
+				<texture colordiffuse="TextColor2" border="2">common/Border.png</texture>
+				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
 			</control>
 		</definition>
 	</include>

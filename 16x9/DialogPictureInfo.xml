@@ -5,25 +5,17 @@
 
 	<controls>
 		<!-- Window Background -->
-		<include condition="!Window.IsVisible(FullScreenVideo)">WindowFadeBackgroundImage</include>
+		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
 
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 
-			<!-- Dialog Background -->
-			<include>DialogBackgroundImage</include>
-
 			<!-- Heading -->
-			<control type="label">
-				<left>150</left>
-				<top>96</top>
-				<width>1620</width>
-				<height>72</height>
-				<font>Font72</font>
-				<label>13406</label>
-			</control>
+			<include content="Time">
+				<param name="heading">$LOCALIZE[13406]</param>
+			</include>
 
 			<!-- List -->
 			<control type="list" id="5">
@@ -79,18 +71,28 @@
 
 			</control>
 
-			<!-- OK button -->
-			<control type="button" id="9000">
-				<left>150</left>
-				<top>912</top>
-				<width>400</width>
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9000</param>
+			</include>
+
+			<!-- Buttons -->
+			<control type="grouplist" id="9000">
+				<left>120</left>
+				<bottom>100</bottom>
+				<width>1680</width>
 				<height>66</height>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
 				<onup>5</onup>
-				<ondown>noop</ondown>
-				<onclick>Close</onclick>
-				<label>186</label>
+
+				<!-- OK button -->
+				<control type="button" id="9001">
+					<width>auto</width>
+					<onclick>Close</onclick>
+					<label>186</label>
+				</control>
 			</control>
 
 		</control>
