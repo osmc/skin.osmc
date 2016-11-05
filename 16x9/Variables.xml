@@ -585,38 +585,13 @@
 	<variable name="PVRSeasonEpisode">
 		<value condition="!String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , / ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 	</variable>
-				<!--control type="label">
-					<left>0</left>
-					<top>314</top>
-					<width>500</width>
-					<height>45</height>
-					<font>Font42</font>
-					<label>$INFO[ListItem.TVShowTitle]</label>
-					<textcolor>TextColor1</textcolor>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>366</top>
-					<width>450</width>
-					<height>45</height>
-					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
-					<label>$INFO[ListItem.Title]</label>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>420</top>
-					<width>450</width>
-					<height>45</height>
-					<font>Font30</font>
-					<textcolor>TextColor3</textcolor>
-					<label>$INFO[ListItem.Season,$LOCALIZE[20373] , / ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</label>
-				</control>
-				<control type="textbox">
-					<left>0</left>
-					<top>474</top>
-					<width>450</width>
-					<height>246</height>
-					<label>$VAR[Plot]</label-->
+
+	<!-- Media images -->
+	<variable name="mediaImages">
+		<value condition="Container.Content(Seasons) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="Container.Content(Episodes)">$INFO[ListItem.Icon]</value>
+		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
 
 </includes>

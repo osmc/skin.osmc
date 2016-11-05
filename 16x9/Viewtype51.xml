@@ -6,44 +6,18 @@
 		<control type="group">
 			<visible>Control.IsVisible(51)</visible>
 
-			<!-- Poster image -->
 			<control type="group">
-				<visible>!String.Contains(ListItem.Icon,Default) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<visible>!Container.Content(episodes)</visible>
+				<!-- Default image -->
 				<control type="image">
 					<left>120</left>
 					<top>225</top>
 					<width>405</width>
 					<height>600</height>
 					<fadetime>200</fadetime>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<texture>$VAR[mediaImages]</texture>
 					<aspectratio aligny="center">scale</aspectratio>
 				</control>
-			</control>
-
-			<!-- Album image -->
-			<control type="group">
-				<visible>!String.Contains(ListItem.Icon,Default) + [Container.Content(albums) | Container.Content(songs)]</visible>
-				<control type="image">
-					<left>120</left>
-					<top>322</top>
-					<width>405</width>
-					<height>405</height>
-					<fadetime>200</fadetime>
-					<texture>$INFO[ListItem.Icon]</texture>
-					<aspectratio aligny="center">scale</aspectratio>
-				</control>
-			</control>
-
-			<!-- Default image -->
-			<control type="image">
-				<left>120</left>
-				<top>225</top>
-				<width>405</width>
-				<height>600</height>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<colordiffuse>OverlayColorFO</colordiffuse>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>String.Contains(ListItem.Icon,Default) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(songs)]</visible>
 			</control>
 
 			<!-- Episode Info -->
@@ -52,15 +26,15 @@
 				<top>190</top>
 				<visible>Container.Content(episodes)</visible>
 
-				<!-- Episode image -->
 				<control type="group">
+					<!-- Episode image -->
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>452</width>
 						<height>286</height>
 						<fadetime>200</fadetime>
-						<texture>$INFO[ListItem.Icon]</texture>
+						<texture>$VAR[mediaImages]</texture>
 						<aspectratio aligny="center">scale</aspectratio>
 					</control>
 				</control>
