@@ -277,7 +277,7 @@
 				<height>44</height>
 				<colordiffuse>TextColor2</colordiffuse>
 				<texture>pvr/Timer.png</texture>
-				<visible>!String.IsEmpty(ListItem.Duration)</visible>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 			</control>
 			<control type="label">
 				<width>auto</width>
@@ -286,7 +286,7 @@
 				<label>$INFO[ListItem.Duration,, $LOCALIZE[12391] ]</label>
 				<font>Font33</font>
 				<textcolor>TextColor2</textcolor>
-				<visible>!String.IsEmpty(ListItem.Duration)</visible>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 			</control>
 
 			<!-- Video flags -->
@@ -403,20 +403,31 @@
 	<include name="dialogButtonBackground">
 		<definition>
 			<control type="image">
-				<left>-100</left>
+				<left>-1000</left>
 				<bottom>90</bottom>
-				<width>2120</width>
+				<width>3980</width>
 				<height>86</height>
 				<texture colordiffuse="TextColor1" border="2">common/Border.png</texture>
 				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 			<control type="image">
-				<left>-100</left>
+				<left>-1000</left>
 				<bottom>90</bottom>
-				<width>2120</width>
+				<width>3980</width>
 				<height>86</height>
 				<texture colordiffuse="TextColor2" border="2">common/Border.png</texture>
 				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
+				<include>VisibleFadeAnimation</include>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<bottom>90</bottom>
+				<width>3980</width>
+				<height>86</height>
+				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
+				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<include>VisibleFadeAnimation</include>
 			</control>
 		</definition>
 	</include>
