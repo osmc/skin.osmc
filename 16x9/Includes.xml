@@ -116,6 +116,7 @@
 	<include name="Time">
 		<param name="heading">$VAR[HeadingLabel]</param>
 		<definition>
+			<!-- Window heading -->
 			<control type="label">
 				<left>120</left>
 				<top>110</top>
@@ -129,22 +130,101 @@
 				</animation>
 			</control>
 
-			<control type="label">
-				<right>120</right>
-				<top>110</top>
-				<width>1680</width>
-				<height>33</height>
-				<aligny>top</aligny>
-				<align>right</align>
-				<label>$INFO[System.Time]</label>
-				<font>Font33</font>
-				<textcolor>DialogColor1</textcolor>
+			<control type="group">
+				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar) + !Window.IsVisible(1100)</visible>
+
 				<animation type="WindowOpen" condition="Window.Previous(startup)">
 					<effect type="fade" start="50" end="100" time="200" tween="cubic" easing="out"/>
 				</animation>
-				<animation effect="slide" start="120,0" end="0,0" time="200">Visible</animation>
-				<animation effect="slide" end="120,0" time="200">Hidden</animation>
-				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar) + !Window.IsVisible(1100)</visible>
+				<animation type="Visible">
+					<effect type="slide" start="120,0" end="0,0" time="200" />
+					<effect type="fade" start="0" end="100" time="200" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="slide" end="120,0" time="200" />
+					<effect type="fade" start="100" end="0" time="200" />
+				</animation>
+
+				<!-- Time -->
+				<control type="label">
+					<right>120</right>
+					<top>110</top>
+					<width>1680</width>
+					<height>33</height>
+					<aligny>top</aligny>
+					<align>right</align>
+					<label>$INFO[System.Time]</label>
+					<font>Font33</font>
+					<textcolor>DialogColor1</textcolor>
+					<visible>!Player.HasMedia</visible>
+				</control>
+
+				<control type="group">
+					<visible>Player.HasMedia</visible>
+
+					<!-- Now Playing - Video -->
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1680</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$INFO[VideoPlayer.Season,[LIGHT]s,[/LIGHT]]$INFO[VideoPlayer.Episode,[LIGHT]e,[/LIGHT]  ]$INFO[VideoPlayer.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<label>$INFO[Player.FinishTime,[LIGHT]Finishes at ,[/LIGHT]  ]$INFO[System.Time]</label>
+						<visible>Player.HasVideo</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+
+					<!-- Now Playing - Audio -->
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1680</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
+						<label>[LIGHT]$INFO[MusicPlayer.Artist,,  ][/LIGHT]$INFO[MusicPlayer.Album]</label>
+						<visible>Player.HasAudio</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+
+					<!-- Now Playing - Progress -->
+					<control type="label">
+						<right>170</right>
+						<top>127</top>
+						<width>1680</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
+						<font>Font33</font>
+						<textcolor>DialogColor1</textcolor>
+					</control>
+
+					<!-- Play/Paused Image -->
+					<control type="image">
+						<right>110</right>
+						<top>100</top>
+						<width>60</width>
+						<height>60</height>
+						<texture colordiffuse="DialogColor1">osd/OSDPlayNF.png</texture>
+						<visible>!Player.Paused</visible>
+					</control>
+					<control type="image">
+						<right>110</right>
+						<top>100</top>
+						<width>60</width>
+						<height>60</height>
+						<texture colordiffuse="DialogColor1">osd/OSDPauseNF.png</texture>
+						<visible>Player.Paused</visible>
+					</control>
+
+				</control>
 			</control>
 		</definition>
 	</include>
