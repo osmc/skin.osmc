@@ -5,7 +5,7 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 
 	<!-- Skin Shortcuts -->
-	<onload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;options=noGroups)</onload>
+	<onload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1&amp;options=noGroups)</onload>
 
 	<!-- Skin Helper Service -->
 	<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
@@ -41,7 +41,7 @@
 		<!-- Home layout -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
-			<include>HomeDefault</include>
+			<include>HomeOSMC</include>
 		</control>
 
 		<!-- RSS -->
@@ -65,6 +65,15 @@
 			<titlecolor>TextColor2</titlecolor>
 			<urlset>1</urlset>
 			<include>WindowFadeAnimation</include>
+		</control>
+
+		<control type="label">
+			<left>0</left>
+			<bottom>0</bottom>
+			<height>33</height>
+			<width>1000</width>
+			<label>$INFO[System.AddonVersion(script.skinshortcuts)]</label>
+			<visible>Integer.IsGreater(System.AddonVersion(script.skinshortcuts),1)</visible>
 		</control>
 
 	</controls>

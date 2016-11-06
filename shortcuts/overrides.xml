@@ -1,48 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <overrides>
-	<contextmenu>
-		<!-- Enable context menu on control 211 -->
-		<enableon>211</enableon>
-		<enableon>303</enableon>
-		<enableon>304</enableon>
+	<!-- Disable context menu -->
+	<contextmenu />
 
-		<!-- Add enable/disable controls -->
-		<item control="305" condition="!String.EndsWith(Window.Property(groupname),.1)">$ADDON[script.skinshortcuts 32025]</item>
-		<item control="313" condition="String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),False)">$LOCALIZE[24021]</item>
-		<item control="313" condition="String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),True)">$LOCALIZE[24022]</item>
-		<item control="302">$ADDON[script.skinshortcuts 32001]</item>
-	</contextmenu>
+	<!-- Don't share additional submenu levels -->
+	<doNotShareLevels />
 
-	<!-- Weather widget -->
-	<widget label="Weather Forecast" type="custom" path="$INCLUDE[weather-widget]">WeatherWidget</widget>
+	<!-- Save any shortcut with a widgetPath property -->
+	<saveWithProperty>widgetPath</saveWithProperty>
+
+	<!-- Additional widgets -->
+	<widget label="$LOCALIZE[10508]" type="custom" path="$INCLUDE[weather-widget]">WeatherWidget</widget>
+	<widget label="$LOCALIZE[31091]" type="custom" path="$INCLUDE[osmc-widget]">OSMCWidget</widget>
 
 	<!-- Default properties -->
-	<widgetdefault labelID="weather">WeatherWidget</widgetdefault>
+	<widgetdefault labelID="widget" group="weather.1">WeatherWidget</widgetdefault>
+	<widgetdefault labelID="widget" group="31091.1">OSMCWidget</widgetdefault>
 
-	<widgetdefaultnode labelID="movies" label="$LOCALIZE[31054]" type="movies" path="special://skin/extras/playlists/random_movies.xsp" target="videos">playlist</widgetdefaultnode>
-	<propertydefault labelID="movies" property="widgetArt">Art(poster)</propertydefault>
+	<widgetdefaultnode labelID="widget" group="movies.1" label="$LOCALIZE[31054]" type="movies" path="special://skin/extras/playlists/random_movies.xsp" target="videos">playlist</widgetdefaultnode>
+	<propertydefault labelID="widget" group="movies.1" property="widgetArt">Art(poster)</propertydefault>
 
-	<widgetdefaultnode labelID="tvshows" label="$LOCALIZE[20387]" type="epsiodes" path="videodb://recentlyaddedepisodes" target="video">library</widgetdefaultnode>
-	<propertydefault labelID="tvshows" property="widgetArt">Art(season.poster)</propertydefault>
-	<propertydefault labelID="tvshows" property="widgetFallbackArt">Art(tvshow.poster)</propertydefault>
+	<widgetdefaultnode labelID="widget" group="tvshows.1" label="$LOCALIZE[20387]" type="epsiodes" path="videodb://recentlyaddedepisodes" target="video">library</widgetdefaultnode>
+	<propertydefault labelID="widget" group="tvshows.1" property="widgetArt">Art(season.poster)</propertydefault>
+	<propertydefault labelID="widget" group="tvshows.1" property="widgetFallbackArt">Art(tvshow.poster)</propertydefault>
 
-	<widgetdefaultnode labelID="14204" label="$LOCALIZE[19217]" type="pvr" path="pvr://channels/tv/*/" target="video">pvr</widgetdefaultnode>
-	<propertydefault labelID="14204" property="layout">wide</propertydefault>
-	<propertydefault labelID="14204" property="shadow">True</propertydefault>
+	<widgetdefaultnode labelID="widget" group="14204.1" label="$LOCALIZE[19217]" type="pvr" path="pvr://channels/tv/*/" target="video">pvr</widgetdefaultnode>
 
-	<widgetdefaultnode labelID="19021" label="$LOCALIZE[19216]" type="pvr" path="pvr://channels/radio/*/" target="video">pvr</widgetdefaultnode>
-	<propertydefault labelID="19021" property="layout">wide</propertydefault>
-	<propertydefault labelID="19021" property="shadow">True</propertydefault>
+	<widgetdefaultnode labelID="widget" group="19021.1" label="$LOCALIZE[19216]" type="pvr" path="pvr://channels/radio/*/" target="video">pvr</widgetdefaultnode>
 
-	<widgetdefaultnode labelID="music" label="$LOCALIZE[31056]" type="albums" path="special://skin/extras/playlists/random_albums.xsp" target="music">playlist</widgetdefaultnode>
+	<widgetdefaultnode labelID="widget" group="music.1" label="$LOCALIZE[31056]" type="albums" path="special://skin/extras/playlists/random_albums.xsp" target="music">playlist</widgetdefaultnode>
 
-	<widgetdefaultnode labelID="programs" label="10001" type="program" path="addons://sources/executable" target="programs">addon</widgetdefaultnode>
-
-	<!-- Backgrounds -->
-	<backgroundBrowse default="special://skin/extras/backgrounds/">True</backgroundBrowse>
-
-	<!-- Autoscroll -->
-	<propertySettings toggle="autoscroll" buttonID="600" templateonly="True" title="Autoscroll" />
+	<widgetdefaultnode labelID="widget" group="programs.1" label="$LOCALIZE[10001]" type="program" path="addons://sources/executable" target="programs">addon</widgetdefaultnode>
 
 	<!-- Size -->
 	<propertySettings property="layout" buttonID="601" showNone="False" title="Layout" requires="widgetPath" />
@@ -96,13 +84,5 @@
 	<property property="widgetFallbackArt" condition="!IsEmpty(Container(8000).ListItem.Art(tvshow.landscape)) | !IsEmpty(Container(8000).ListItem(2).Art(tvshow.landscape))" label="TV Show Landscape">Art(tvshow.landscape)</property>
 	<property property="widgetFallbackArt" condition="[!IsEmpty(Container(8000).ListItem.Art(fanart)) | !IsEmpty(Container(8000).ListItem(2).Art(fanart))] + [!IsEmpty(Container(8000).ListItem.Art(clearlogo)) | !IsEmpty(Container(8000).ListItem(2).Art(clearlogo))]" label="Fake Landscape">FAKELANDSCAPE</property>
 	<property property="widgetFallbackArt" condition="[!IsEmpty(Container(8000).ListItem.Art(fanart)) | !IsEmpty(Container(8000).ListItem(2).Art(fanart))] + [!IsEmpty(Container(8000).ListItem.Art(tvshow.clearlogo)) | !IsEmpty(Container(8000).ListItem(2).Art(tvshow.clearlogo))]" label="Fake TV Show Landscape">FAKETVLANDSCAPE</property>
-
-	<!-- Shadow -->
-	<propertySettings toggle="shadow" buttonID="604" templateonly="True" />
-
-	<override action="globaloverride" group="igconq-quicknav">
-		<action>Action(Close)</action>
-		<action>::ACTION::</action>
-	</override>
 
 </overrides>

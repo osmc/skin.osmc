@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="HomeDefault">
+	<include name="HomeOSMC">
+		<!-- Widget control -->
+		<include>skinshortcuts-template-widgetControl</include>
+
 		<!-- Main list -->
 		<control type="list" id="9000">
 			<left>120</left>
@@ -13,18 +16,9 @@
 			<onup>9000</onup>
 			<ondown>9000</ondown>
 			<onleft>9001</onleft>
-			<onright>9002</onright>
+			<onright condition="Control.IsVisible(9006)">9006</onright>
 			<orientation>vertical</orientation>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
-			<!--visible allowhiddenfocus="true">!ControlGroup(9010).HasFocus</visible>
-			<animation type="Hidden" reversible="true">
-				<effect type="fade" start="100" end="0" time="150" tween="sine" easing="in" />
-				<effect type="slide" start="0,0" end="600,0" time="160" tween="sine" easing="in" />
-			</animation>
-			<animation type="Visible" reversible="true">
-				<effect type="fade" start="0" end="100" time="150" tween="sine" easing="out" />
-				<effect type="slide" start="600,0" end="0,0" time="160" tween="sine" easing="out" />
-			</animation-->
 
 			<itemlayout width="400" height="97">
 				<control type="label">
@@ -69,23 +63,6 @@
 		<control type="group" id="9002">
 			<include>skinshortcuts-template-vertical</include>
 		</control>
-
-		<!-- Widget details -->
-		<control type="label">
-			<top>680</top>
-			<left>590</left>
-			<width>1218</width>
-			<height>280</height>
-			<font>Font33</font>
-			<align>right</align>
-			<aligny>top</aligny>
-			<textcolor>TextColor1</textcolor>
-			<label>$VAR[widgetDetails]</label>
-			<visible>!String.IsEqual(Container(9000).ListItem.Property(widget),WeatherWidget) + ControlGroup(9002).HasFocus</visible>
-		</control>
-
-		<!-- Widget Heading -->
-		<include>skinshortcuts-template-widgetHeading</include>
 
 		<!-- Reloading indicator -->
 		<control type="group">

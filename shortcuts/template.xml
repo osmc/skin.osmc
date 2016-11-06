@@ -1,65 +1,161 @@
 <template>
 
-	<other include="weatherBackground">
-		<condition tag="property" attribute="name|widget">WeatherWidget</condition>
-
-		<propertyGroup>mainmenuWidgets</propertyGroup>
+	<submenu include="widgetControl" level="1">
+		<property name="id" tag="mainmenuid" />
 		<controls>
-			<description>Multi-image background for weather widgets</description>
-			<control type="multiimage">
-				<include>FullscreenDimensions</include>
-				<include>VisibleFadeAnimation</include>
-				<fadetime>400</fadetime>
-				<imagepath>$INFO[Skin.String(weatherFanart.path)]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]/</imagepath>
-				<timeperimage>10000</timeperimage>
-				<randomize>true</randomize>
-				<animation effect="fade" start="100" end="0" condition="[Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-				<animation effect="fade" start="70" end="70" condition="![Player.HasVideo + Skin.HasSetting(BackgroundVideo)] | [Player.HasAudio + Skin.HasSetting(BackgroundVisualisation) + !String.Contains(Window(Videos).Property(TvTunesIsAlive),True)]">Conditional</animation>
-				<visible>!Skin.HasSetting(widgetFanart)</visible>
-				<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + Skin.HasSetting(weatherFanart.multi)</visible>
+			<!-- List used to control movement between widgets -->
+			<control type="list" id="1000$SKINSHORTCUTS[id]">
+				<left>1300</left>
+				<top>-10000</top>
+				<width>100</width>
+				<height>300</height>
+				<scrolltime>200</scrolltime>
+				<skinshortcuts>visibility</skinshortcuts>
+				<defaultcontrol>1</defaultcontrol>
+				<itemlayout width="100" height="100">
+					<control type="label">
+						<width>100</width>
+						<height>100</height>
+						<textcolor>TextColor2</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout width="100" height="100">
+					<control type="label">
+						<width>100</width>
+						<height>100</height>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<skinshortcuts insert="onfocus">items</skinshortcuts>
+				</focusedlayout>
+				<content>
+					<skinshortcuts insert="controlItems">items</skinshortcuts>
+				</content>
 			</control>
+
+			<!-- Buttons used to move between widgets -->
+			<control type="button" id="9005">
+				<description>Select previous widget</description>
+				<left>500</left>
+				<top>-10000</top>
+				<skinshortcuts>visibility</skinshortcuts>
+				<label>Previous</label>
+				<skinshortcuts insert="onclickPrevious">items</skinshortcuts>
+				<onfocus>SetProperty(changeWidget-1000$SKINSHORTCUTS[id],True,10000)</onfocus>
+				<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-1000$SKINSHORTCUTS[id],False,10000),00:03,silent)</onfocus>
+				<onfocus>Control.Move(1000$SKINSHORTCUTS[id],-1)</onfocus>
+				<onclick>noop</onclick>
+			</control>
+			<control type="button" id="9006">
+				<description>Select current widget</description>
+				<left>700</left>
+				<top>-10000</top>
+				<skinshortcuts>visibility</skinshortcuts>
+				<label>Current</label>
+				<skinshortcuts insert="onclickCurrent">items</skinshortcuts>
+				<onfocus condition="Integer.IsEqual(Container(1000$SKINSHORTCUTS[id]).NumItems,0)">Control.SetFocus(9000)</onfocus>
+				<onclick>noop</onclick>
+			</control>
+			<control type="button" id="9007">
+				<description>Select next widget</description>
+				<left>900</left>
+				<top>-10000</top>
+				<skinshortcuts>visibility</skinshortcuts>
+				<label>Next</label>
+				<skinshortcuts insert="onclickNext">items</skinshortcuts>
+				<onfocus>SetProperty(changeWidget-1000$SKINSHORTCUTS[id],True,10000)</onfocus>
+				<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-1000$SKINSHORTCUTS[id],False,10000),00:03,silent)</onfocus>
+				<onfocus>Control.Move(1000$SKINSHORTCUTS[id],1)</onfocus>
+				<onclick>noop</onclick>
+			</control>
+
+			<!-- Widget heading/details -->
+			<control type="group">
+				<skinshortcuts>visibility</skinshortcuts>
+				<include content="widgetHeading">
+					<param name="container">1000$SKINSHORTCUTS[id]</param>
+				</include>
+			</control>
+
+		</controls>
+		<items insert="controlItems">
+			<!-- Items that will appear in the control list -->
+			<property name="subid" tag="mainmenuid" />
+			<property name="widgetName" tag="property" attribute="name|widgetName" />
+			<controls>
+				<item id="$SKINSHORTCUTS[subid]">
+					<label>$SKINSHORTCUTS[widgetName]</label>
+					<onclick>noop</onclick>
+					<visible>Integer.IsGreater(Container(10$SKINSHORTCUTS[id]0$SKINSHORTCUTS[subid]).NumItems,0) | Container(10$SKINSHORTCUTS[id]0$SKINSHORTCUTS[subid]).IsUpdating</visible>
+					<property name="widgetID">$SKINSHORTCUTS[id]-$SKINSHORTCUTS[subid]</property>
+					<property name="widgetContainer">10$SKINSHORTCUTS[id]0$SKINSHORTCUTS[subid]</property>
+				</item>
+			</controls>
+		</items>
+		<items insert="onclickPrevious">
+			<!-- Control that should be focused when going to the previous widget -->
+			<property name="subid" tag="mainmenuid" />
+			<property name="widgetName" tag="property" attribute="name|widgetName" />
+			<controls>
+				<onfocus condition="String.IsEqual(Container(1000$SKINSHORTCUTS[id]).ListItem(-1).Property(widgetID),$SKINSHORTCUTS[id]-$SKINSHORTCUTS[subid])">Control.SetFocus(10$SKINSHORTCUTS[id]0$SKINSHORTCUTS[subid])</onfocus>
+			</controls>
+		</items>
+		<items insert="onclickCurrent">
+			<!-- Control that should be focused when going to the current widget -->
+			<property name="subid" tag="mainmenuid" />
+			<property name="widgetName" tag="property" attribute="name|widgetName" />
+			<controls>
+				<onfocus condition="String.IsEqual(Container(1000$SKINSHORTCUTS[id]).ListItem.Property(widgetID),$SKINSHORTCUTS[id]-$SKINSHORTCUTS[subid])">Control.SetFocus(10$SKINSHORTCUTS[id]0$SKINSHORTCUTS[subid])</onfocus>
+			</controls>
+		</items>
+		<items insert="onclickNext">
+			<!-- Control that should be focused when going to the next widget -->
+			<property name="subid" tag="mainmenuid" />
+			<property name="widgetName" tag="property" attribute="name|widgetName" />
+			<controls>
+				<onfocus condition="String.IsEqual(Container(1000$SKINSHORTCUTS[id]).ListItem(1).Property(widgetID),$SKINSHORTCUTS[id]-$SKINSHORTCUTS[subid])">Control.SetFocus(10$SKINSHORTCUTS[id]0$SKINSHORTCUTS[subid])</onfocus>
+			</controls>
+		</items>
+	</submenu>
+
+	<other>
+		<controls>
+			<description>This is a fake template which is needed to trick Skin Shortcuts into building the submenuOther templates</description>
 		</controls>
 	</other>
-
-
-
-	<other include="vertical">
+ 
+	<submenuOther include="vertical" level="1">
 		<!-- Weather widget, Vertical home -->
 		<condition tag="property" attribute="name|widget">WeatherWidget</condition>
 		
 		<propertyGroup>mainmenuWidgets</propertyGroup>
+		<propertyGroup>lumosLayout</propertyGroup>
 
 		<controls>
-			<control type="list" id="800$SKINSHORTCUTS[id]">
-				<left>2605</left>
-				<top>390</top>
-				<width>1218</width>
-				<height>306</height>
-
-				<onleft>9000</onleft>
-				<onback>9000</onback>
-				<onright>noop</onright>
+			<control type="list" id="10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]">
 				<viewtype label="">list</viewtype>
 				<orientation>horizontal</orientation>
 				<defaultcontrol always="true">0</defaultcontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<skinshortcuts>visibility</skinshortcuts>
 
-				<animation effect="slide" start="0,0" end="-1000,0" time="0" condition="StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,1)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1203,0" time="0" condition="StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,2)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1406,0" time="0" condition="StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,3)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1609,0" time="0" condition="StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,4)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1812,0" time="0" condition="StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,5)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-2015,0" time="0" condition="IntegerGreaterThan(Container(800$SKINSHORTCUTS[id]).NumItems,5)">conditional</animation>
+				<!-- Widget layout -->
+				<include>widgetLayout-tall</include>
 
-				<animation type="visible">
-					<effect type="fade" start="0" end="100" time="200" delay="100" />
-					<effect type="slide" start="600,0" end="0,0" time="200" delay="100" />
-				</animation>
-				<animation type="hidden">
-					<effect type="fade" start="100" end="0" time="200" />
-					<effect type="slide" start="0,0" end="600,0" time="200" />
-				</animation>
+				<!-- Widget oncontrol -->
+				<include content="widgetOnControl">
+					<param name="container">1000$SKINSHORTCUTS[auto-rootID]</param>
+				</include>
+				
+				<!-- Widget layout slide -->
+				<include content="widgetLayoutSlide-tall">
+					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
+				</include>
+
+				<!-- Widget animation -->
+				<include content="widgetAnimation">
+					<param name="container1">1000$SKINSHORTCUTS[auto-rootID]</param>
+					<param name="container2">$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]</param>
+				</include>
 
 				<itemlayout width="203" height="306">
 					<control type="group">
@@ -122,7 +218,7 @@
 							<height>306</height>
 							<texture colordiffuse="DiffusePosterNF" background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
-							<visible>!Control.HasFocus(800$SKINSHORTCUTS[id])</visible>
+							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="image">
@@ -132,7 +228,7 @@
 							<height>306</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
-							<visible>Control.HasFocus(800$SKINSHORTCUTS[id])</visible>
+							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
@@ -144,7 +240,7 @@
 							<colordiffuse>DiffusePosterNF</colordiffuse>
 							<timeperimage>200</timeperimage>
 							<aspectratio align="center">keep</aspectratio>
-							<visible>!Control.HasFocus(800$SKINSHORTCUTS[id])</visible>
+							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
@@ -155,7 +251,7 @@
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<timeperimage>200</timeperimage>
 							<aspectratio align="center">keep</aspectratio>
-							<visible>Control.HasFocus(800$SKINSHORTCUTS[id])</visible>
+							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="label">
@@ -170,95 +266,50 @@
 					</control>
 				</focusedlayout>
 
-				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]$PYTHON['&amp;' if path in '?' else '?']igconq=$INFO[Window.Property(refresh800$SKINSHORTCUTS[id])]</content>
-			</control>
-
-			<control type="grouplist">
-				<skinshortcuts>visibility</skinshortcuts>
-				<visible>Control.HasFocus(9002) | !Skin.HasSetting(HideSubmenuHeading)</visible>
-				<visible>StringCompare(Window.Property($SKINSHORTCUTS[labelID]-widget),1) | IsEmpty(Window.Property($SKINSHORTCUTS[labelID]-widget))</visible>
-				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
-				<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
-
-				<top>1005</top>
-				<right>120</right>
-				<width>1000</width>
-				<height>33</height>
-				<align>right</align>
-				<aligny>center</aligny>
-				<orientation>horizontal</orientation>
-				<itemgap>10</itemgap>
-
-				<control type="image">
-					<width>33</width>
-					<height>33</height>
-					<texture>busy.gif</texture>
-					<visible>Container(9002).IsUpdating</visible>
-				</control>
-
-				<control type="label">
-					<minwidth>10</minwidth>
-					<maxwidth>950</maxwidth>
-					<width>auto</width>
-					<height>33</height>
-					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
-					<label>$SKINSHORTCUTS[name]</label>
-				</control>
+				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
 		</controls>
 
-		<variables>
-			<variable name="myvariable">
-				<value condition="$SKINSHORTCUTS[name]">Help</value>
-			</variable>
-		</variables>
-	</other>
+	</submenuOther>
 
-	<other include="vertical">
+	<submenuOther include="vertical" level="1">
 		<!-- Non-weather widget, Vertical home -->
 		<condition tag="property" attribute="name|widgetPath" />
+
+		<property name="id" tag="mainmenuid" />
 		
 		<propertyGroup>mainmenuWidgets</propertyGroup>
 		<propertyGroup>lumosLayout</propertyGroup>
 
 		<controls>
-			<control type="list" id="800$SKINSHORTCUTS[id]">
-				<left>$SKINSHORTCUTS[containerLeft]</left>
-				<top>$SKINSHORTCUTS[containerTop]</top>
-				<width>$SKINSHORTCUTS[containerWidth]</width>
-				<height>$SKINSHORTCUTS[layoutHeight]</height>
-
-				<onleft>9000</onleft>
-				<onback>9000</onback>
-				<onright>noop</onright>
+			<control type="list" id="10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]">
 				<viewtype label="">list</viewtype>
 				<orientation>horizontal</orientation>
 				<defaultcontrol always="true">0</defaultcontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<skinshortcuts>visibility</skinshortcuts>
 
-				<!-- Layout slide -->
-				<animation effect="slide" start="0,0" end="-1000,0" time="0" condition="$PYTHON['True' if layout != 'wide' else 'False'] + StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,1)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1203,0" time="0" condition="$PYTHON['True' if layout != 'wide' else 'False'] + StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,2)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1406,0" time="0" condition="$PYTHON['True' if layout != 'wide' else 'False'] + StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,3)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1609,0" time="0" condition="$PYTHON['True' if layout != 'wide' else 'False'] + StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,4)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1812,0" time="0" condition="$PYTHON['True' if layout != 'wide' else 'False'] + StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,5)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-2015,0" time="0" condition="$PYTHON['True' if layout != 'wide' else 'False'] + IntegerGreaterThan(Container(800$SKINSHORTCUTS[id]).NumItems,5)">conditional</animation>
+				<!-- Widget layout -->
+				<include condition="$PYTHON['True' if layout != 'wide' else 'False']">widgetLayout-tall</include>
+				<include condition="$PYTHON['False' if layout != 'wide' else 'True']">widgetLayout-wide</include>
 
-				<!-- Wide layout slide -->
-				<animation effect="slide" start="0,0" end="-1325,0" time="0" condition="$PYTHON['True' if layout == 'wide' else 'False'] + StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,1)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-1670,0" time="0" condition="$PYTHON['True' if layout == 'wide' else 'False'] + StringCompare(Container(800$SKINSHORTCUTS[id]).NumItems,2)">conditional</animation>
-				<animation effect="slide" start="0,0" end="-2015,0" time="0" condition="$PYTHON['True' if layout == 'wide' else 'False'] + IntegerGreaterThan(Container(800$SKINSHORTCUTS[id]).NumItems,2)">conditional</animation>
+				<!-- Widget oncontrol -->
+				<include content="widgetOnControl">
+					<param name="container">1000$SKINSHORTCUTS[auto-rootID]</param>
+				</include>
+				
+				<!-- Widget layout slide -->
+				<include condition="$PYTHON['True' if layout != 'wide' else 'False']" content="widgetLayoutSlide-tall">
+					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
+				</include>
+				<include condition="$PYTHON['False' if layout != 'wide' else 'True']" content="widgetLayoutSlide-wide">
+					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
+				</include>
 
-				<animation type="visible">
-					<effect type="fade" start="0" end="100" time="200" delay="100" />
-					<effect type="slide" start="600,0" end="0,0" time="200" delay="100" />
-				</animation>
-				<animation type="hidden">
-					<effect type="fade" start="100" end="0" time="200" />
-					<effect type="slide" start="0,0" end="600,0" time="200" />
-				</animation>
+				<!-- Widget animation -->
+				<include content="widgetAnimation">
+					<param name="container1">1000$SKINSHORTCUTS[auto-rootID]</param>
+					<param name="container2">$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]</param>
+				</include>
 
 				<itemlayout width="$SKINSHORTCUTS[layoutWidth]" height="$SKINSHORTCUTS[layoutHeight]">
 					<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
@@ -266,18 +317,18 @@
 						<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 						<param name="height">$SKINSHORTCUTS[imageHeight]</param>
 						<param name="colordiffuse">DiffusePosterNF</param>
-						<param name="fallback"></param>
+						<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 						<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">$SKINSHORTCUTS[shadow]</param>
-						<param name="visible"></param>
+						<param name="visible">![$PYTHON[$SKINSHORTCUTS[secondary-visibility]]]</param>
 					</include>
 					<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 						<description>Fallback art</description>
 						<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 						<param name="height">$SKINSHORTCUTS[imageHeight]</param>
 						<param name="colordiffuse">DiffusePosterNF</param>
-						<param name="fallback"></param>
+						<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 						<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">$SKINSHORTCUTS[shadow]</param>
@@ -288,7 +339,7 @@
 						<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 						<param name="height">$SKINSHORTCUTS[imageHeight]</param>
 						<param name="colordiffuse">DiffusePosterNF</param>
-						<param name="fallback">DefaultShortcut.png</param>
+						<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">$SKINSHORTCUTS[shadow]</param>
@@ -311,17 +362,17 @@
 								<description>Primary art</description>
 								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
-								<param name="fallback"></param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
 								<param name="aspectratio">keep</param>
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
-								<param name="visible"></param>
+								<param name="visible">![$PYTHON[$SKINSHORTCUTS[secondary-visibility]]]</param>
 							</include>
 							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 								<description>Fallback art</description>
 								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
-								<param name="fallback"></param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
 								<param name="aspectratio">keep</param>
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
@@ -331,13 +382,13 @@
 								<description>Catch-all art</description>
 								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
-								<param name="fallback">DefaultShortcut.png</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.Icon]</param>
 								<param name="aspectratio">keep</param>
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
-							<visible>Control.HasFocus(800$SKINSHORTCUTS[id])</visible>
+							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 						</control>
 						<control type="group">
 							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
@@ -345,18 +396,18 @@
 								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
 								<param name="colordiffuse">DiffusePosterNF</param>
-								<param name="fallback"></param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
 								<param name="aspectratio">keep</param>
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
-								<param name="visible"></param>
+								<param name="visible">![$PYTHON[$SKINSHORTCUTS[secondary-visibility]]]</param>
 							</include>
 							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 								<description>Fallback art</description>
 								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
 								<param name="colordiffuse">DiffusePosterNF</param>
-								<param name="fallback"></param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
 								<param name="aspectratio">keep</param>
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
@@ -367,13 +418,13 @@
 								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
 								<param name="colordiffuse">DiffusePosterNF</param>
-								<param name="fallback">DefaultShortcut.png</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.Icon]</param>
 								<param name="aspectratio">keep</param>
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
-							<visible>!Control.HasFocus(800$SKINSHORTCUTS[id])</visible>
+							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 						</control>
 						<control type="image">
 							<left>$PYTHON[int(imageWidth) - 45]</left>
@@ -388,62 +439,27 @@
 				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
 
-			<control type="grouplist">
-				<skinshortcuts>visibility</skinshortcuts>
-				<visible>Control.HasFocus(9002) | !Skin.HasSetting(HideSubmenuHeading)</visible>
-				<visible>StringCompare(Window.Property($SKINSHORTCUTS[labelID]-widget),1) | IsEmpty(Window.Property($SKINSHORTCUTS[labelID]-widget))</visible>
-				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
-				<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
-
-				<top>1005</top>
-				<right>120</right>
-				<width>1000</width>
-				<height>33</height>
-				<align>right</align>
-				<aligny>center</aligny>
-				<orientation>horizontal</orientation>
-				<itemgap>10</itemgap>
-
-				<control type="image">
-					<width>33</width>
-					<height>33</height>
-					<texture>busy.gif</texture>
-					<visible>Container(9002).IsUpdating</visible>
-				</control>
-
-				<control type="label">
-					<minwidth>10</minwidth>
-					<maxwidth>950</maxwidth>
-					<width>auto</width>
-					<height>33</height>
-					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
-					<label>$SKINSHORTCUTS[name]</label>
-				</control>
-			</control>
 		</controls>
 
-		<variables>
-			<variable name="myvariable">
-				<value condition="$SKINSHORTCUTS[name]">Help</value>
-			</variable>
-		</variables>
-	</other>
+	</submenuOther>
 
 
 
-	<other include="reloading">
+	<submenuOther include="reloading" level="1">
 		<property name="id" tag="mainmenuid" />
+		<propertyGroup>mainmenuWidgets</propertyGroup>
+		<propertyGroup>lumosLayout</propertyGroup>
+
 		<controls>
 			<control type="image">
 				<width>36</width>
 				<height>36</height>
 				<texture>busy-small.gif</texture>
 				<skinshortcuts>visibility</skinshortcuts>
-				<visible>Container(800$SKINSHORTCUTS[id]).IsUpdating</visible>
+				<visible>String.IsEqual(Container(1000$SKINSHORTCUTS[auto-rootID]).ListItem.Property(widgetID),$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]) + Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).IsUpdating</visible>
 			</control>
 		</controls>
-	</other>
+	</submenuOther>
 
 
 
@@ -453,13 +469,14 @@
 		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
 
 		<property name="layout" tag="property" attribute="name|layout" />
-		<property name="layout">square</property>
+		<property name="layout">tall</property>
 
 		<property name="autoscroll" tag="property" attribute="name|autoscroll" />
 		<property name="autoscroll">False</property>
 
 		<property name="top">250</property>	
 
+		<property name="name" tag="property" attribute="name|widgetName" />
 		<property name="path" tag="property" attribute="name|widgetPath" />
 		<property name="target" tag="property" attribute="name|widgetTarget" />
 		<property name="target"></property>
@@ -469,6 +486,16 @@
 		<property name="art2" tag="property" attribute="name|widgetFallbackArt" />
 		<property name="art">Icon</property>
 		<property name="art2">Icon</property>
+
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="movies">DefaultMovie.png</property>
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="tvshows">DefaultTVShows.png</property>
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="seasons">DefaultTVShows.png</property>
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="episodes">DefaultMovies.png</property>
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="albums">DefaultMusicAlbums.png</property>
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="artists">DefaultMusicArtist.png</property>
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="songs">DefaultMusicSongs.png</property>
+		<property name="artFallback" tag="property" attribute="name|widgetType" value="pvr">DefaultLiveTV.png</property>
+		<property name="artFallback">DefaultShortcut.png</property>
 
 		<property name="shadow">noop</property>
 
@@ -489,16 +516,6 @@
 	</propertyGroup>
 
 	<propertyGroup name="LumosLayout">
-		<!-- Layout - tall -->
-		<property name="layoutTop" tag="property" attribute="name|layout" value="tall">-306</property>
-		<property name="layoutWidth" tag="property" attribute="name|layout" value="tall">203</property>
-		<property name="layoutHeight" tag="property" attribute="name|layout" value="tall">306</property>
-		<property name="imageWidth" tag="property" attribute="name|layout" value="tall">183</property>
-		<property name="imageHeight" tag="property" attribute="name|layout" value="tall">306</property>
-		<property name="imageEmpty" tag="property" attribute="name|layout" value="tall">poster-empty.png</property>
-		<property name="layoutFocus" tag="property" attribute="name|layout" value="tall">3</property>
-
-
 		<!-- Layout - wide -->
 		<property name="layoutTop" tag="property" attribute="name|layout" value="wide">-177</property>
 		<property name="layoutWidth" tag="property" attribute="name|layout" value="wide">345</property>
@@ -509,21 +526,20 @@
 		<property name="layoutFocus" tag="property" attribute="name|layout" value="wide">4</property>
 		<property name="layoutMovement" tag="property" attribute="name|layout" value="wide">widget-movement-wide</property>
 
-		<!-- Layout - square -->
-		<property name="layoutTop">-177</property>
+		<!-- Layout - tall -->
+		<property name="layoutTop">-306</property>
 		<property name="layoutWidth">203</property>
-		<property name="layoutHeight">219</property>
+		<property name="layoutHeight">306</property>
 		<property name="imageWidth">183</property>
-		<property name="imageHeight">216</property>
-		<property name="imageEmpty">square-empty.png</property>
-		<property name="layoutFocus">4</property>
-		<property name="layoutMovement">widget-movement</property>
+		<property name="imageHeight">306</property>
+		<property name="imageEmpty">poster-empty.png</property>
+		<property name="layoutFocus">3</property>
 
 		<!-- Vertical menu -->
 		<property name="containerWidth" tag="property" attribute="name|layout" value="wide">1035</property>
 		<property name="containerWidth">1218</property>
-		<property name="containerTop" tag="property" attribute="name|layout" value="tall">387</property>
-		<property name="containerTop">475</property>
+		<property name="containerTop" tag="property" attribute="name|layout" value="wide">475</property>
+		<property name="containerTop">387</property>
 		<property name="containerLeft" tag="property" attribute="name|layout" value="wide">2788</property>
 		<property name="containerLeft">2605</property>
 
@@ -543,131 +559,43 @@
 
 	</propertyGroup>
 
-	<other include="oncontrol">
-		<property name="id" tag="mainmenuid" />
-		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
-		<property name="label" tag="label" />
-		<property name="background" tag="property" attribute="name|background" />
-		<controls>
-			<onup condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + StringCompare(Container(800$SKINSHORTCUTS[id]).CurrentItem,1)">SetProperty(currentMenu,$SKINSHORTCUTS[submenuVisibility],Home)</onup>
-			<onup condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + StringCompare(Container(800$SKINSHORTCUTS[id]).CurrentItem,1)">SetProperty(currentMenu.1,$SKINSHORTCUTS[submenuVisibility].1,Home)</onup>
-			<onup condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + StringCompare(Container(800$SKINSHORTCUTS[id]).CurrentItem,1)">SetProperty(currentName,$SKINSHORTCUTS[label],Home)</onup>
-			<onup condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + StringCompare(Container(800$SKINSHORTCUTS[id]).CurrentItem,1)">SetProperty(currentBackground,$SKINSHORTCUTS[background],Home)</onup>
-			<onup condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + StringCompare(Container(800$SKINSHORTCUTS[id]).CurrentItem,1) + !IsEmpty(Container(9000).ListItem.Property(widget))">ActivateWindow(1111)</onup>
-			<onup condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + !StringCompare(Container(800$SKINSHORTCUTS[id]).CurrentItem,1)">Control.Message(800$SKINSHORTCUTS[id],movedown)</onup>
-			<ondown condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + !StringCompare(Container(800$SKINSHORTCUTS[id]).CurrentItem,Container(800$SKINSHORTCUTS[id]).NumItems)">Control.Message(800$SKINSHORTCUTS[id],moveup)</ondown>
-			<onclick condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">Control.SetFocus(800$SKINSHORTCUTS[id])</onclick>
-			<onclick condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">Action(select)</onclick>
-			<onclick condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">Control.SetFocus(9000)</onclick>
-
-			<!--oninfo condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">info</oninfo>
-			<oninfo condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">Control.SetFocus(9000)</oninfo-->
-		</controls>
-	</other>
-
-	<other include="lumos-movement">
-		<property name="id" tag="mainmenuid" />
-		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
-		<property name="label" tag="label" />
-		<property name="background" tag="property" attribute="name|background" />
-		<controls>
-			<onleft condition="StringCompare(Container(9000).ListItem(-1).Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">Control.SetFocus(800$SKINSHORTCUTS[id])</onleft>
-			<onright condition="StringCompare(Container(9000).ListItem(1).Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">Control.SetFocus(800$SKINSHORTCUTS[id])</onright>
-		</controls>
-	</other>
-
-	<other include="lumos-onload">
-		<property name="id" tag="mainmenuid" />
-		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
-		<property name="label" tag="label" />
-		<property name="background" tag="property" attribute="name|background" />
-		<controls>
-			<onload condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">Control.SetFocus(800$SKINSHORTCUTS[id])</onload>
-		</controls>
-	</other>
-
-	<other include="background-fanart">
-		<condition tag="property" attribute="name|background">fanart</condition>
-
-		<property name="path" tag="property" attribute="name|backgroundPlaylist" />
-		<property name="path" tag="property" attribute="name|widgetPath" />
-
-		<controls>
-			<control type="wraplist" id="9010">
-				<left>-1000</left>
-				<top>-1000</top>
-				<width>100</width>
-				<height>100</height>
-				<itemlayout height="100" width="100" />
-				<focusedlayout height="100" width="100" />
-				<content>$SKINSHORTCUTS[path]</content>
-				<autoscroll time="7000" delay="7000" repeat="7000">True</autoscroll>
-				<skinshortcuts>visibility</skinshortcuts>
-			</control>
-		</controls>
-	</other>
-
-	<other include="testLabels">
-		<propertyGroup>mainmenuWidgets</propertyGroup>
-		<controls>
-			<control type="label">
-				<left>300</left>
-				<top>$PYTHON[100 + (50 * int( id ) )]</top>
-				<width>5000</width>
-				<height>50</height>
-				<label>$SKINSHORTCUTS[path]</label>
-			</control>
-		</controls>
-	</other>
-
-	<other include="widgetHeading">
-		<property name="id" tag="mainmenuid" />
-		<property name="widgetName" tag="property" attribute="name|widgetName" />
-		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
-		<property name="label" tag="label" />
-		<controls>
-			<!-- Widget Heading -->
-			<control type="label">
-				<top>680</top>
-				<left>590</left>
-				<width>1218</width>
-				<height>280</height>
-				<font>Font33</font>
-				<align>right</align>
-				<aligny>top</aligny>
-				<label>$SKINSHORTCUTS[widgetName]</label>
-				<visible>!Skin.HasSetting(HideSubmenuHeading) + !ControlGroup(9002).HasFocus</visible>
-				<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])</visible>
-				<visible>Integer.IsGreater(Container(800$SKINSHORTCUTS[id]).NumItems,0) | Container(800$SKINSHORTCUTS[id]).IsUpdating</visible>
-			</control>
-		</controls>
-	</other>
-
-	<other include="widgetDetails">
+	<submenuOther include="widgetDetails" level="1">
 		<property name="id" tag="mainmenuid" />
 		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
 		<property name="isWeather" tag="property" attribute="name|widget" value="WeatherWidget">True</property>
 		<property name="isWeather">False</property>
 		<variables>
 			<variable name="widgetDetails">
-				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + !IsEmpty(Container(800$SKINSHORTCUTS[id]).ListItem.Property(channelname)) + SubString(Container(800$SKINSHORTCUTS[id]).ListItem.Property(type),livechannel)">$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Label][CR]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(Title)] ($INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(StartTime)] - $INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(EndTime)])[CR]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(NextTitle)] ($INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(NextStartTime)] - $INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(NextEndTime)])</value>
-				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + !IsEmpty(Container(800$SKINSHORTCUTS[id]).ListItem.Property(channelname))">$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Label][CR]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(StartTime)]</value>
-				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + !IsEmpty(Container(800$SKINSHORTCUTS[id]).ListItem.Season)">[LIGHT]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR](s$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Season]e$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Episode]) $INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Label]</value>
-				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Label]</value>
+				<!-- Not selected -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + String.IsEqual(Container(1000$SKINSHORTCUTS[auto-rootID]).ListItem.Property(widgetID),$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]) + !Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])">[COLOR TextColor2]$INFO[Container(1000$SKINSHORTCUTS[auto-rootID]).ListItem.Label][/COLOR]</value>
+
+				<!-- Selected, not loaded -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + Integer.IsEqual(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).NumItems,0)">Loading...</value>
+
+				<!-- Weather widget -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + $SKINSHORTCUTS[isWeather]">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(outlook)][/COLOR]</value>
+				<!-- TVShow/Season Widget -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+				<!-- Episodes Widget -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR](s$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]e$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode]) $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][/COLOR]</value>
+				<!-- PVR Channels - With Info -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.ChannelName) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][CR][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Title] ($INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.StartTime] - $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.EndTime])[CR]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.NextTitle] ($INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.NextStartTime] - $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+				<!-- PVR Channels - No Info -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+				<!-- PVR Recordings -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][CR][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.StartDate] $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.StartTime][/LIGHT][/COLOR]</value>
+				<!-- Others -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][/COLOR]</value>
 			</variable>
 			<variable name="widgetBackground">
-				<value condition="Window.Is(Home) + StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + !$SKINSHORTCUTS[isWeather]">$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Art(fanart)]</value>
-				<value condition="Window.Is(Home) + StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
-				<value condition="Window.Is(Home) + StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]/</value>
+				<value condition="Window.Is(Home) + Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + [Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + !$SKINSHORTCUTS[isWeather]">$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Art(fanart)]</value>
+				<value condition="Window.Is(Home) + Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + [Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
+				<value condition="Window.Is(Home) + Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + [Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]/</value>
 				<value condition="!Window.Is(Home) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 				<value condition="[Window.IsActive(visualisation) | Skin.HasSetting(BackgroundVisualisation)] + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 				<value>$VAR[OtherBackgroundImage]</value>
 			</variable>
-			<variable name="widgetVisibility">
-				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">False</value><!--" + !Integer.IsGreater(Container(800$SKINSHORTCUTS[id]).NumItems,0) + !Container(800$SKINSHORTCUTS[id]).IsUpdating">False</value-->
-				<value>True</value>
-			</variable>
 		</variables>
-	</other>
+	</submenuOther>
 
 </template>

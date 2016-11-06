@@ -2,7 +2,7 @@
 <window>
 	<!-- skinsettings -->
 	<defaultcontrol always="true">9</defaultcontrol>
-	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;options=noGroups)</onunload>
+	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1&amp;options=noGroups)</onunload>
 
 	<controls>
 
@@ -255,6 +255,15 @@
 					<label2>$VAR[weather-fanart]</label2>
 					<visible>ControlGroup(9).HasFocus(13)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+				<!-- Warning label for multi-image fanart -->
+				<control type="label" id="1203">
+					<width>1220</width>
+					<height>30</height>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31094]</label>
+					<visible>ControlGroup(9).HasFocus(13) + Skin.HasSetting(weatherFanart.multi)</visible>
 					<textcolor>TextColor2</textcolor>
 				</control>
 
