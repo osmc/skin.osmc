@@ -61,7 +61,7 @@
 			<width>140</width>
 			<height>60</height>
 			<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml)</visible>
-			<visible>[Player.DisplayAfterSeek + Integer.IsGreater(Player.ChapterCount,0)] | Integer.IsGreater(MusicPlayer.PlaylistLength,0) | !String.IsEmpty(Player.SeekStepSize) | !String.IsEmpty(Player.SeekNumeric)</visible>
+			<visible>[Player.DisplayAfterSeek + Integer.IsGreater(Player.ChapterCount,0)] | Integer.IsGreater(MusicPlayer.PlaylistLength,0) | !String.IsEmpty(Player.SeekStepSize)</visible>
 
 			<!-- Background -->
 			<control type="image">
@@ -78,7 +78,7 @@
 				<align>center</align>
 				<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B][B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
 				<textcolor>DialogColor2</textcolor>
-				<visible>!Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize) + String.IsEmpty(Player.SeekNumeric)</visible>
+				<visible>!Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize)</visible>
 			</control>
 
 			<!-- Status -->
@@ -89,7 +89,7 @@
 				<align>center</align>
 				<label>[B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
 				<textcolor>DialogColor2</textcolor>
-				<visible>Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize) + String.IsEmpty(Player.SeekNumeric)</visible>
+				<visible>Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize)</visible>
 			</control>
 
 			<!-- Status -->
@@ -100,17 +100,6 @@
 				<align>center</align>
 				<visible>!String.IsEmpty(Player.SeekStepSize)</visible>
 				<label>$INFO[Player.SeekStepSize]</label>
-				<textcolor>DialogColor2</textcolor>
-			</control>
-
-			<!-- Numeric seek -->
-			<control type="label">
-				<width>140</width>
-				<height>60</height>
-				<font>Font27</font>
-				<align>center</align>
-				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
-				<label>$INFO[Player.SeekNumeric]</label>
 				<textcolor>DialogColor2</textcolor>
 			</control>
 

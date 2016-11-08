@@ -2,7 +2,7 @@
 <window>
 	<!-- seekbar -->
 	<defaultcontrol always="true">901</defaultcontrol>
-	<visible>[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo | !String.IsEmpty(Player.SeekNumeric)] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(MusicOSD)</visible>
+	<visible>[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(MusicOSD)</visible>
 	<animation type="WindowOpen">
 		<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 		<effect type="fade" start="0" end="100" time="200"/>
@@ -16,7 +16,7 @@
 			<top>870</top>
 			<width>140</width>
 			<height>60</height>
-			<visible>player.forwarding | player.rewinding | player.paused | player.istempo</visible>
+			<visible>[player.forwarding | player.rewinding | player.paused | player.istempo] + !String.IsEmpty(Player.SeekNumeric)</visible>
 
 			<!-- Background -->
 			<control type="image">
@@ -52,7 +52,8 @@
 			<top>870</top>
 			<width>140</width>
 			<height>60</height>
-			<visible>[Player.DisplayAfterSeek + Integer.IsGreater(Player.ChapterCount,0)] | Integer.IsGreater(MusicPlayer.PlaylistLength,0) | !String.IsEmpty(Player.SeekStepSize) | !String.IsEmpty(Player.SeekNumeric)</visible>
+			<visible>[Player.DisplayAfterSeek + Integer.IsGreater(Player.ChapterCount,0)] | Integer.IsGreater(MusicPlayer.PlaylistLength,0) | !String.IsEmpty(Player.SeekStepSize)</visible>
+			<visible>String.IsEmpty(Player.SeekNumeric)</visible>
 
 			<!-- Background -->
 			<control type="image">
@@ -69,7 +70,7 @@
 				<align>center</align>
 				<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B][B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
 				<textcolor>DialogColor2</textcolor>
-				<visible>!Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize) + String.IsEmpty(Player.SeekNumeric)</visible>
+				<visible>!Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize)</visible>
 			</control>
 
 			<!-- Status -->
@@ -80,7 +81,7 @@
 				<align>center</align>
 				<label>[B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
 				<textcolor>DialogColor2</textcolor>
-				<visible>Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize) + String.IsEmpty(Player.SeekNumeric)</visible>
+				<visible>Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize)</visible>
 			</control>
 
 			<!-- Status -->
@@ -94,17 +95,6 @@
 				<textcolor>DialogColor2</textcolor>
 			</control>
 
-			<!-- Numeric seek -->
-			<control type="label">
-				<width>140</width>
-				<height>60</height>
-				<font>Font27</font>
-				<align>center</align>
-				<visible>!String.IsEmpty(Player.SeekNumeric)</visible>
-				<label>$INFO[Player.SeekNumeric]</label>
-				<textcolor>DialogColor2</textcolor>
-			</control>
-
 		</control>
 
 		<!-- Progress -->
@@ -113,6 +103,7 @@
 			<top>945</top>
 			<width>1620</width>
 			<height>60</height>
+			<visible>String.IsEmpty(Player.SeekNumeric)</visible>
 
 			<!-- Background -->
 			<control type="image">
