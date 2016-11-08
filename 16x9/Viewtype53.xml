@@ -23,14 +23,18 @@
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 
 				<itemlayout width="270" height="333">
-					<control type="image">
-						<left>34</left>
-						<width>202</width>
-						<height>300</height>
-						<colordiffuse>DiffusePosterNF</colordiffuse>
-						<texture background="true">$VAR[mediaImages]</texture>
-						<aspectratio align="center">scale</aspectratio>
-					</control>
+					<!-- Image - Movies -->
+					<include content="image-53">
+						<param name="fallback">DefaultMovie.png</param>
+						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="visible">Container.Content(movies)</param>
+					</include>
+					<!-- Image - TV -->
+					<include content="image-53">
+						<param name="fallback">DefaultTVShows.png</param>
+						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="visible">!Container.Content(movies)</param>
+					</include>
 					<!-- Watched status -->
 					<control type="image">
 						<left>170</left>
@@ -42,13 +46,16 @@
 				</itemlayout>
 
 				<focusedlayout width="270" height="333">
-					<control type="image">
-						<left>34</left>
-						<width>202</width>
-						<height>300</height>
-						<texture background="true">$VAR[mediaImages]</texture>
-						<aspectratio align="center">scale</aspectratio>
-					</control>
+					<!-- Image - Movies -->
+					<include content="image-53">
+						<param name="fallback">DefaultMovie.png</param>
+						<param name="visible">Container.Content(movies)</param>
+					</include>
+					<!-- Image - TV -->
+					<include content="image-53">
+						<param name="fallback">DefaultTVShows.png</param>
+						<param name="visible">!Container.Content(movies)</param>
+					</include>
 					<!-- Watched status -->
 					<control type="image">
 						<left>170</left>
@@ -97,6 +104,23 @@
 
 		</control>
 
+	</include>
+
+	<include name="image-53">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<left>34</left>
+				<width>202</width>
+				<height>300</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
 	</include>
 
 </includes>

@@ -6,16 +6,16 @@
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
 
-			<!-- Image -->
-			<control type="image">
-				<left>120</left>
-				<top>225</top>
-				<width>405</width>
-				<height>600</height>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<colordiffuse>OverlayColorFO</colordiffuse>
-				<aspectratio aligny="center">keep</aspectratio>
-			</control>
+			<!-- Image - Songs -->
+			<include content="image-54">
+				<param name="fallback">DefaultMusicSongs.png</param>
+				<param name="visible">Container.Content(songs)</param>
+			</include>
+			<!-- Image - Picture -->
+			<include content="image-54">
+				<param name="fallback">DefaultPicture.png</param>
+				<param name="visible">Window.IsVisible(pictures)</param>
+			</include>
 
 			<!-- Song Info -->
 			<control type="group">
@@ -86,6 +86,22 @@
 
 		</control>
 
+	</include>
+
+	<include name="image-54">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<left>120</left>
+				<top>225</top>
+				<width>405</width>
+				<height>600</height>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
 	</include>
 
 </includes>

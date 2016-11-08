@@ -23,14 +23,18 @@
 				<visible>Container.Content(albums) | Container.Content(addons)</visible>
 
 				<itemlayout width="270" height="222">
-					<control type="image">
-						<left>34</left>
-						<width>202</width>
-						<height>202</height>
-						<colordiffuse>DiffusePosterNF</colordiffuse>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<aspectratio align="center">scale</aspectratio>
-					</control>
+					<!-- Image - Albums -->
+					<include content="image-55">
+						<param name="fallback">DefaultMusicAlbums.png</param>
+						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="visible">Container.Content(albums)</param>
+					</include>
+					<!-- Image - Addons -->
+					<include content="image-55">
+						<param name="fallback">DefaultAddon.png</param>
+						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="visible">Container.Content(addons)</param>
+					</include>
 					<!-- Watched status -->
 					<control type="image">
 						<left>177</left>
@@ -42,20 +46,16 @@
 				</itemlayout>
 
 				<focusedlayout width="270" height="222">
-					<control type="image">
-						<left>34</left>
-						<width>202</width>
-						<height>202</height>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<aspectratio align="center">scale</aspectratio>
-					</control>
-					<control type="image">
-						<left>34</left>
-						<width>202</width>
-						<height>202</height>
-						<texture>views/OverlayPosterNF.png</texture>
-						<visible>Skin.HasSetting(Overlays)</visible>
-					</control>
+					<!-- Image - Albums -->
+					<include content="image-55">
+						<param name="fallback">DefaultMusicAlbums.png</param>
+						<param name="visible">Container.Content(albums)</param>
+					</include>
+					<!-- Image - Addons -->
+					<include content="image-55">
+						<param name="fallback">DefaultAddon.png</param>
+						<param name="visible">Container.Content(addons)</param>
+					</include>
 					<!-- Watched status -->
 					<control type="image">
 						<left>177</left>
@@ -103,6 +103,23 @@
 
 		</control>
 
+	</include>
+
+	<include name="image-55">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<left>34</left>
+				<width>202</width>
+				<height>202</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
 	</include>
 
 </includes>

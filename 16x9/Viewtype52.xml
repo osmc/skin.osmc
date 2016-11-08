@@ -25,15 +25,16 @@
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 
 				<itemlayout width="249" height="666">
-					<control type="image">
-						<left>23</left>
-						<top>135</top>
-						<width>225</width>
-						<height>333</height>
-						<colordiffuse>DiffusePosterNF</colordiffuse>
-						<texture background="true">$VAR[mediaImages]</texture>
-						<aspectratio align="center">scale</aspectratio>
-					</control>
+					<!-- Image - Movies -->
+					<include content="image-52">
+						<param name="fallback">DefaultMovie.png</param>
+						<param name="visible">Container.Content(movies)</param>
+					</include>
+					<!-- Image - TV Shows -->
+					<include content="image-52">
+						<param name="fallback">DefaultTVShows.png</param>
+						<param name="visible">!Container.Content(movies)</param>
+					</include>
 					<!-- Watched status -->
 					<control type="image">
 						<left>177</left>
@@ -47,14 +48,16 @@
 				<focusedlayout width="405" height="666">
 					<control type="group">
 						<animation effect="zoom" start="60" end="100" center="202,300" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-						<control type="image">
-							<left>11</left>
-							<top>0</top>
-							<width>405</width>
-							<height>600</height>
-							<texture background="true">$VAR[mediaImages]</texture>
-							<aspectratio align="center">scale</aspectratio>
-						</control>
+						<!-- Image - Movies -->
+						<include content="image-52-focus">
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="visible">Container.Content(movies)</param>
+						</include>
+						<!-- Image - TV Shows -->
+						<include content="image-52-focus">
+							<param name="fallback">DefaultTVShows.png</param>
+							<param name="visible">!Container.Content(movies)</param>
+						</include>
 						<!-- Watched status -->
 						<control type="image">
 							<left>290</left>
@@ -105,6 +108,37 @@
 
 		</control>
 
+	</include>
+
+	<include name="image-52">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<left>23</left>
+				<top>135</top>
+				<width>225</width>
+				<height>333</height>
+				<colordiffuse>DiffusePosterNF</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="image-52-focus">
+		<param name="fallback">DefaultVideos.png</param>
+		<definition>
+			<control type="image">
+				<left>11</left>
+				<top>0</top>
+				<width>405</width>
+				<height>600</height>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center">keep</aspectratio>
+			</control>
+		</definition>
 	</include>
 
 </includes>

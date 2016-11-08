@@ -6,7 +6,17 @@
 		<control type="group">
 			<visible>Control.IsVisible(50)</visible>
 
-			<!-- Image -->
+			<!-- Image - Songs -->
+			<include content="image-51">
+				<param name="fallback">DefaultMusicSongs.png</param>
+				<param name="visible">Container.Content(songs)</param>
+			</include>
+			<!-- Image - Other -->
+			<include content="image-51">
+				<param name="fallback">DefaultFolder.png</param>
+				<param name="visible">!Container.Content(songs)</param>
+			</include>
+
 			<control type="image">
 				<left>120</left>
 				<top>225</top>
@@ -84,6 +94,21 @@
 
 		</control>
 
+	</include>
+
+	<include name="image-50">
+		<param name="fallback">DefaultVideo.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<left>120</left>
+				<top>225</top>
+				<width>405</width>
+				<height>600</height>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio aligny="center">keep</aspectratio>
+			</control>
+		</definition>
 	</include>
 
 </includes>
