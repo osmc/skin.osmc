@@ -660,7 +660,8 @@
 				<value condition="Window.Is(Home) + StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
 				<value condition="Window.Is(Home) + StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility]) + [Control.HasFocus(800$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(800$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]/</value>
 				<value condition="!Window.Is(Home) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-				<value>$VAR[OSMCBackgroundImage]</value>
+				<value condition="[Window.IsActive(visualisation) | Skin.HasSetting(BackgroundVisualisation)] + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
+				<value>$VAR[OtherBackgroundImage]</value>
 			</variable>
 			<variable name="widgetVisibility">
 				<value condition="StringCompare(Container(9000).ListItem.Property(submenuVisibility),$SKINSHORTCUTS[submenuVisibility])">False</value><!--" + !Integer.IsGreater(Container(800$SKINSHORTCUTS[id]).NumItems,0) + !Container(800$SKINSHORTCUTS[id]).IsUpdating">False</value-->

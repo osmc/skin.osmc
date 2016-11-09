@@ -24,6 +24,11 @@
 		<value>OverlayColor</value>
 	</variable>
 
+	<variable name="OtherBackgroundImage">
+		<value condition="Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart) + [Window.IsActive(visualisation) | Skin.HasSetting(BackgroundVisualisation)]" />
+		<value>$VAR[OSMCBackgroundImage]</value>
+	</variable>
+
 	<variable name="OSMCBackgroundImage">
 		<value condition="!String.IsEmpty(Skin.String(BackgroundImage))">$INFO[Skin.String(BackgroundImage),special://skin/extras/backgrounds/,.jpg]</value>
 		<value>special://skin/extras/backgrounds/1.jpg</value>
@@ -585,6 +590,13 @@
 	</variable>
 	<variable name="PVRSeasonEpisode">
 		<value condition="!String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , / ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
+	</variable>
+
+	<variable name="MusicNextPlaying">
+		<value condition="String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+		<value condition="String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).Album,,[CR]]$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+		<value condition="String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).Artist,,[CR]]$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+		<value>$INFO[MusicPlayer.Offset(1).Artist,,[CR]]$INFO[MusicPlayer.Offset(1).Album,,[CR]]$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 	</variable>
 
 	<!-- Media images -->
