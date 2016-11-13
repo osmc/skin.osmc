@@ -128,8 +128,7 @@
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31030]</label>
 					<font>Font33</font>
-					<onclick condition="!System.HasAddon(service.osmc.settings)">InstallAddon(script.skinshortcuts)</onclick>
-					<onclick condition="System.HasAddon(service.osmc.settings)">InstallAndEnable(script.skinshortcuts)</onclick>
+					<onclick>InstallAddon(script.skinshortcuts)</onclick>
 					<visible>ControlGroup(9).HasFocus(10) + !System.HasAddon(script.skinshortcuts)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
@@ -237,9 +236,9 @@
 					<textwidth>1120</textwidth>
 					<font>Font33</font>
 					<label>$LOCALIZE[31067]</label>
-					<label2>$INFO[Skin.String(weatherIcons.name)]</label2>
-					<onclick condition="!System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherIcons&amp;type=resource.images.weathericons)</onclick>
-					<onclick condition="System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+					<label2>$VAR[weather-icons]</label2>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherIcons&amp;type=resource.images.weathericons)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<visible>ControlGroup(9).HasFocus(13)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
@@ -250,10 +249,10 @@
 					<height>66</height>
 					<textwidth>1120</textwidth>
 					<font>Font33</font>
-					<onclick condition="!System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherFanart&amp;type=resource.images.weatherfanart)</onclick>
-					<onclick condition="System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherFanart&amp;type=resource.images.weatherfanart)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<label>$LOCALIZE[31068]</label>
-					<label2>$INFO[Skin.String(weatherFanart.name)]</label2>
+					<label2>$VAR[weather-fanart]</label2>
 					<visible>ControlGroup(9).HasFocus(13)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
@@ -307,48 +306,48 @@
 					<textcolor>TextColor2</textcolor>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
-				<control type="radiobutton" id="1402">
+				<control type="button" id="1402">
 					<width>1200</width>
 					<height>66</height>
 					<left>20</left>
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31079]</label>
-					<onclick condition="!System.HasAddon(service.osmc.settings)">InstallAddon(script.skinshortcuts)</onclick>
-					<onclick condition="System.HasAddon(service.osmc.settings)">InstallAndEnable(script.skinshortcuts)</onclick>
-					<selected>System.HasAddon(script.skinshortcuts)</selected>
+					<label2>$VAR[addon-skinshortcuts]</label2>
+					<onclick condition="!System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
+					<onclick condition="System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
-				<control type="radiobutton" id="1404">
+				<control type="button" id="1404">
 					<width>1200</width>
 					<height>66</height>
 					<left>20</left>
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31081]</label>
-					<onclick condition="!System.HasAddon(service.osmc.settings)">InstallAddon(script.skin.helper.service)</onclick>
-					<onclick condition="System.HasAddon(service.osmc.settings)">InstallAndEnable(script.skin.helper.service)</onclick>
-					<selected>System.HasAddon(script.skin.helper.service)</selected>
+					<label2>$VAR[addon-skinhelper]</label2>
+					<onclick condition="!System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
-				<control type="radiobutton" id="1405">
+				<control type="button" id="1405">
 					<width>1200</width>
 					<height>66</height>
 					<left>20</left>
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31082]</label>
-					<onclick condition="!System.HasAddon(service.osmc.settings)">InstallAddon(plugin.program.autocompletion)</onclick>
-					<onclick condition="System.HasAddon(service.osmc.settings)">InstallAndEnable(plugin.program.autocompletion)</onclick>
-					<selected>System.HasAddon(plugin.program.autocompletion)</selected>
+					<label2>$VAR[addon-autocompletion]</label2>
+					<onclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
+					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
-				<control type="radiobutton" id="1406">
+				<control type="button" id="1406">
 					<width>1200</width>
 					<height>66</height>
 					<left>20</left>
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31083]</label>
-					<onclick condition="!System.HasAddon(service.osmc.settings)">InstallAddon(script.image.resource.select)</onclick>
-					<onclick condition="System.HasAddon(service.osmc.settings)">InstallAndEnable(script.image.resource.select)</onclick>
-					<selected>System.HasAddon(script.image.resource.select)</selected>
+					<label2>$VAR[addon-imageselect]</label2>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
 
@@ -362,26 +361,26 @@
 					<textcolor>TextColor2</textcolor>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
-				<control type="radiobutton" id="1408">
+				<control type="button" id="1408">
 					<width>1200</width>
 					<height>66</height>
 					<left>20</left>
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31085]</label>
-					<onclick condition="!System.HasAddon(service.osmc.settings)">InstallAddon(service.nextup.notification)</onclick>
-					<onclick condition="System.HasAddon(service.osmc.settings)">InstallAndEnable(service.nextup.notification)</onclick>
-					<selected>System.HasAddon(service.nextup.notification)</selected>
+					<label2>$VAR[addon-nextup]</label2>
+					<onclick condition="!System.HasAddon(service.nextup.notification)">InstallAddon(service.nextup.notification)</onclick>
+					<onclick condition="System.HasAddon(service.nextup.notification)">Addon.OpenSettings(service.nextup.notification)</onclick>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
-				<control type="radiobutton" id="1409">
+				<control type="button" id="1409">
 					<width>1200</width>
 					<height>66</height>
 					<left>20</left>
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31086]</label>
-					<onclick condition="!System.HasAddon(service.osmc.settings)">InstallAddon(script.artistslideshow)</onclick>
-					<onclick condition="System.HasAddon(service.osmc.settings)">InstallAndEnable(script.artistslideshow)</onclick>
-					<selected>System.HasAddon(script.artistslideshow)</selected>
+					<label2>$VAR[addon-artistslideshow]</label2>
+					<onclick condition="!System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</onclick>
+					<onclick condition="System.HasAddon(script.artistslideshow)">Addon.OpenSettings(script.artistslideshow)</onclick>
 					<visible>ControlGroup(9).HasFocus(14)</visible>
 				</control>
 
@@ -394,7 +393,7 @@
 					<textwidth>1120</textwidth>
 					<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
 					<label>$ADDON[script.skinshortcuts 32037]</label>
-					<visible>ControlGroup(9).HasFocus(15)</visible>
+					<visible>ControlGroup(9).HasFocus(15) + System.HasAddon(script.skinshortcuts)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>

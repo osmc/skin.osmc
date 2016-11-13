@@ -132,7 +132,7 @@
 			</control>
 
 			<control type="group">
-				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar) + !Window.IsVisible(1100)</visible>
+				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar) + !String.IsEqual(Window(10000).Property(isCaching),True)</visible>
 
 				<animation type="WindowOpen" condition="Window.Previous(startup)">
 					<effect type="fade" start="50" end="100" time="200" tween="cubic" easing="out"/>
@@ -157,11 +157,11 @@
 					<label>$INFO[System.Time]</label>
 					<font>Font33</font>
 					<textcolor>DialogColor1</textcolor>
-					<visible>!Player.HasMedia</visible>
+					<visible>!Player.HasMedia | !Integer.IsGreater(Player.Duration,0)</visible>
 				</control>
 
 				<control type="group">
-					<visible>Player.HasMedia</visible>
+					<visible>Player.HasMedia + Integer.IsGreater(Player.Duration,0)</visible>
 
 					<!-- Now Playing - Video -->
 					<control type="fadelabel">
