@@ -77,8 +77,19 @@
 						<height>27</height>
 						<font>Font27</font>
 						<textcolor>TextColor2</textcolor>
-						<label>[LIGHT]$INFO[ListItem.StartTime]: $INFO[ListItem.Title][/LIGHT]</label>
+						<label>[LIGHT]$INFO[ListItem.StartTime,,: ]$INFO[ListItem.Title][/LIGHT]</label>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>32</left>
+						<top>58</top>
+						<width>1018</width>
+						<height>27</height>
+						<font>Font27</font>
+						<textcolor>TextColor2</textcolor>
+						<label>$LOCALIZE[19055]</label>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+						<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
 					</control>
 					<control type="label">
 						<left>32</left>
@@ -119,8 +130,19 @@
 						<width>1018</width>
 						<height>27</height>
 						<font>Font27</font>
-						<label>[LIGHT]$INFO[ListItem.StartTime]:[/LIGHT] $INFO[ListItem.Title]</label>
+						<label>[LIGHT]$INFO[ListItem.StartTime,,: ][/LIGHT]$INFO[ListItem.Title]</label>
 						<textcolor>TextColor1</textcolor>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>32</left>
+						<top>100</top>
+						<width>1018</width>
+						<height>27</height>
+						<font>Font27</font>
+						<label>$LOCALIZE[19055]</label>
+						<textcolor>TextColor1</textcolor>
+						<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<control type="label">
@@ -129,7 +151,7 @@
 						<width>1018</width>
 						<height>27</height>
 						<font>Font27</font>
-						<label>[LIGHT]$INFO[ListItem.NextStartTime]:[/LIGHT] $INFO[ListItem.NextTitle]</label>
+						<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
 						<textcolor>TextColor1</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
