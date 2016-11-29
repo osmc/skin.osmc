@@ -25,7 +25,7 @@
 				<itemlayout width="270" height="222">
 					<!-- Image - Albums -->
 					<include content="image-55">
-						<param name="fallback">DefaultMusicAlbums.png</param>
+						<param name="fallback"/>
 						<param name="colordiffuse">DiffusePosterNF</param>
 						<param name="visible">Container.Content(albums)</param>
 					</include>
@@ -48,7 +48,7 @@
 				<focusedlayout width="270" height="222">
 					<!-- Image - Albums -->
 					<include content="image-55">
-						<param name="fallback">DefaultMusicAlbums.png</param>
+						<param name="fallback"/>
 						<param name="visible">Container.Content(albums)</param>
 					</include>
 					<!-- Image - Addons -->
@@ -110,6 +110,16 @@
 		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
+			<control type="textbox">
+				<left>34</left>
+				<width>202</width>
+				<height>202</height>
+				<textcolor>$PARAM[colordiffuse]</textcolor>
+				<visible>String.IsEmpty(ListItem.Icon) | String.IsEqual(ListItem.Icon,DefaultAlbumCover.png)</visible>
+				<label>[CR][LIGHT]$INFO[ListItem.Artist][/LIGHT][CR]$INFO[ListItem.Label]</label>
+				<font>font25</font>
+				<align>center</align>
+			</control>
 			<control type="image">
 				<left>34</left>
 				<width>202</width>
@@ -117,7 +127,7 @@
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>$PARAM[visible]</visible>
+				<visible>$PARAM[visible] + !String.IsEqual(ListItem.Icon,DefaultAlbumCover.png)</visible>
 			</control>
 		</definition>
 	</include>
