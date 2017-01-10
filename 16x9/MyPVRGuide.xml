@@ -229,7 +229,7 @@
 						<width>120</width>
 						<height>120</height>
 						<aspectratio>keep</aspectratio>
-						<texture background="true" fallback="pvr/defaultchannel.png">$INFO[Container(10).ListItem.Icon]</texture>
+						<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="right" aligny="top">keep</aspectratio>
 					</control>
 
@@ -246,10 +246,12 @@
 						<left>180</left>
 						<top>62</top>
 						<width>500</width>
-						<height>36</height>
-						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+						<height>108</height>
+						<label>$INFO[ListItem.EpisodeName,,[CR]]$INFO[ListItem.Episode,$INFO[ListItem.Season,s,]e,[CR]]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
 						<textcolor>TextColor1</textcolor>
+						<aligny>top</aligny>
 					</control>
+					$INFO[ListItem.Season, • $LOCALIZE[20373] ]$INFO[ListItem.Episode, • $LOCALIZE[20359] ]
 
 					<!-- Plot -->
 					<control type="textbox">

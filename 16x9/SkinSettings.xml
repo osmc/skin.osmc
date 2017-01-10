@@ -133,8 +133,19 @@
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>
-				<!-- Hide submenu headings -->
+				<!-- Always show settings link -->
 				<control type="radiobutton" id="1003">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31096]</label>
+					<onclick>Skin.ToggleSetting(AlwaysShowSettingsLink)</onclick>
+					<selected>!Skin.HasSetting(AlwaysShowSettingsLink)</selected>
+					<visible>ControlGroup(9).HasFocus(10)</visible>
+				</control>
+				<!-- Hide submenu headings -->
+				<control type="radiobutton" id="1004">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>

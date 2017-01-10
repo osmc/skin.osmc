@@ -353,6 +353,7 @@
 						<height>49</height>
 						<texture>$VAR[StatusOverlayWide]</texture>
 						<visible>!Skin.HasSetting(widgetIcons)</visible>
+						<colordiffuse>OverlayColorNF</colordiffuse>
 					</control>
 				</itemlayout>
 
@@ -388,6 +389,14 @@
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
+							<control type="image">
+								<left>$PYTHON[int(imageWidth) - 45]</left>
+								<top>$PYTHON[int(imageHeight) - 50]</top>
+								<width>35</width>
+								<height>49</height>
+								<texture>$VAR[StatusOverlayWide]</texture>
+								<visible>!Skin.HasSetting(widgetIcons)</visible>
+							</control>
 							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 						</control>
 						<control type="group">
@@ -424,16 +433,18 @@
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
+							<control type="image">
+								<left>$PYTHON[int(imageWidth) - 45]</left>
+								<top>$PYTHON[int(imageHeight) - 50]</top>
+								<width>35</width>
+								<height>49</height>
+								<texture>$VAR[StatusOverlayWide]</texture>
+								<visible>!Skin.HasSetting(widgetIcons)</visible>
+								<colordiffuse>OverlayColorNF</colordiffuse>
+							</control>
 							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 						</control>
-						<control type="image">
-							<left>$PYTHON[int(imageWidth) - 45]</left>
-							<top>$PYTHON[int(imageHeight) - 50]</top>
-							<width>35</width>
-							<height>49</height>
-							<texture>$VAR[StatusOverlayWide]</texture>
-							<visible>!Skin.HasSetting(widgetIcons)</visible>
-						</control>
+
 				</focusedlayout>
 
 				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>

@@ -47,6 +47,13 @@
 
 			<content>
 				<include>skinshortcuts-mainmenu</include>
+				<item>
+					<label>$LOCALIZE[10004]</label>
+					<icon>DefaultShortcut.png</icon>
+					<thumb />
+					<onclick>ActivateWindow(Settings)</onclick>
+					<visible>System.HasAddon(script.skinshortcuts) + !Skin.HasSetting(AlwaysShowSettingsLink) + !Skin.HasSetting(HasSettingsLink)</visible>
+				</item>
 			</content>
 
 		</control>
