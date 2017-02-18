@@ -41,6 +41,16 @@
 				<visible>!$PARAM[animate]</visible>
 			</control>
 
+			<!-- Background Image -->
+			<control type="image" id="10000">
+				<include>FullscreenDimensions</include>
+				<texture background="true" fallback="Transparent.png">$VAR[widgetBackground]</texture>
+				<fadetime>400</fadetime>
+				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
+				<animation effect="fade" start="0" end="100" time="200" delay="70" condition="$PARAM[animate]">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200" condition="$PARAM[animate]">WindowClose</animation>
+			</control>
+
 			<!-- Artists Slideshow -->
 			<control type="multiimage">
 				<include>FullscreenDimensions</include>
@@ -50,16 +60,6 @@
 				<fadetime>2000</fadetime>
 				<randomize>true</randomize>
 				<visible>Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart)</visible>
-			</control>
-
-			<!-- Background Image -->
-			<control type="image" id="10000">
-				<include>FullscreenDimensions</include>
-				<texture background="true" fallback="Transparent.png">$VAR[widgetBackground]</texture>
-				<fadetime>400</fadetime>
-				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="70" condition="$PARAM[animate]">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200" condition="$PARAM[animate]">WindowClose</animation>
 			</control>
 
 			<!-- Visualisation -->
@@ -188,7 +188,22 @@
 						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
 						<label>[LIGHT]$INFO[MusicPlayer.Artist,,  ][/LIGHT]$INFO[MusicPlayer.Album]</label>
 						<label>$INFO[Player.FinishTime,[LIGHT]Finishes at ,[/LIGHT]  ]$INFO[System.Time]</label>
-						<visible>Player.HasAudio</visible>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+
+					<!-- Now Playing - PVR Recording -->
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1680</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$INFO[Player.FinishTime,[LIGHT]Finishes at ,[/LIGHT]  ]$INFO[System.Time]</label>
+						<visible>Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
 
