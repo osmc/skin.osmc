@@ -203,6 +203,29 @@
 					<selected>String.IsEqual(Skin.String(BackgroundImage),4)</selected>
 					<visible>ControlGroup(9).HasFocus(11)</visible>
 				</control>
+				<control type="radiobutton" id="1204">
+					<width>1220</width>
+					<height>66</height>
+					<onup>101</onup>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[33070]</label>
+					<onclick>Skin.SetString(BackgroundImage,Custom)</onclick>
+					<selected>String.IsEqual(Skin.String(BackgroundImage),Custom)</selected>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+				</control>
+				<control type="button" id="1205">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[1024]</label>
+					<label2>$INFO[Skin.String(CustomBackground)]</label2>
+					<onclick>Skin.SetImage(CustomBackground)</onclick>
+					<visible>ControlGroup(9).HasFocus(11) + String.IsEqual(Skin.String(BackgroundImage),Custom)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
 				<!-- Background video -->
 				<control type="radiobutton" id="1102">
 					<width>1220</width>
