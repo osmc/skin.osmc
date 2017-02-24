@@ -8,9 +8,10 @@
 	<onunload>CancelAlarm(isCachingTimer,silent)</onunload>
 	<controls>
 		<control type="group">
+			<visible>Player.Caching</visible>
 			<left>1920</left>
 			<width>550</width>
-			<animation effect="slide" end="-550,0" time="200" condition="String.IsEqual(Window(10000).Property(isCaching),True)">Conditional</animation>
+			<animation effect="slide" end="-550,0" time="200">Visible</animation>
 			<animation effect="slide" end="0,0" time="200">WindowClose</animation>
 
 			<control type="image">
