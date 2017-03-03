@@ -2,7 +2,7 @@
 <window>
 	<!-- seekbar -->
 	<defaultcontrol always="true">901</defaultcontrol>
-	<visible>[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(MusicOSD)</visible>
+	<visible>[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(MusicOSD)</visible>
 	<animation type="WindowOpen" condition="![Window.IsVisible(visualisation) + Player.ShowInfo]">
 		<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 		<effect type="fade" start="0" end="100" time="200"/>
@@ -17,6 +17,8 @@
 			<width>140</width>
 			<height>60</height>
 			<visible>player.forwarding | player.rewinding | player.paused | player.istempo</visible>
+
+			<animation effect="slide" end="0,75" time="0" condition="player.istempo">Conditional</animation>
 
 			<!-- Background -->
 			<control type="image">
@@ -103,7 +105,7 @@
 			<top>945</top>
 			<width>1620</width>
 			<height>60</height>
-			<visible>String.IsEmpty(Player.SeekNumeric)</visible>
+			<visible>String.IsEmpty(Player.SeekNumeric) + !Player.IsTempo</visible>
 
 			<!-- Background -->
 			<control type="image">
