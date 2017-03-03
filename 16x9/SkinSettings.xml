@@ -62,11 +62,11 @@
 					<focusedcolor>TextColor1</focusedcolor>
 				</control>
 
-				<!-- General -->
+				<!-- Advanced -->
 				<control type="button" id="12">
 					<width>600</width>
 					<height>66</height>
-					<label>128</label>
+					<label>$LOCALIZE[10038]</label>
 					<font>Font33</font>
 					<textcolor>$VAR[SkinSettingButton12]</textcolor>
 					<focusedcolor>TextColor1</focusedcolor>
@@ -302,7 +302,32 @@
 				</control>
 
 
-				<!-- General -->
+				<!-- Advanced -->
+				<!-- Adjust overlay color -->
+				<control type="button" id="1201">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31097]</label>
+					<label2>$VAR[OverlayColor-Name]</label2>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlay)</onclick>
+					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<visible>ControlGroup(9).HasFocus(12)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+				<!-- Enable Debug Grid -->
+				<control type="radiobutton" id="1304">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31098]</label>
+					<onclick>Skin.ToggleSetting(GuideLocked)</onclick>
+					<selected>Skin.HasSetting(GuideLocked)</selected>
+					<visible>ControlGroup(9).HasFocus(12)</visible>
+				</control>
 				<!-- Enable Debug Grid -->
 				<control type="radiobutton" id="1304">
 					<width>1220</width>

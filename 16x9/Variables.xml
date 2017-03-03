@@ -24,6 +24,11 @@
 		<value>OverlayColor</value>
 	</variable>
 
+	<variable name="OverlayColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.overlay)) + !String.IsEqual(Skin.String(color.overlay),None)">$INFO[Skin.String(color.overlay)]</value>
+		<value>$LOCALIZE[571]</value>
+	</variable>
+
 	<variable name="OtherBackgroundImage">
 		<value condition="Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart) + [Window.IsActive(visualisation) | Skin.HasSetting(BackgroundVisualisation)]" />
 		<value>$VAR[OSMCBackgroundImage]</value>
