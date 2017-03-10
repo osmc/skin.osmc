@@ -20,6 +20,7 @@
 			<itemgap>0</itemgap>
 			<onleft>3001</onleft>
 			<onright>5</onright>
+			<ondown>20</ondown>
 			<orientation>vertical</orientation>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
 		</control>
@@ -55,6 +56,43 @@
 			<param name="container">5</param>
 		</include>
 
+		<control type="grouplist">
+			<left>120</left>
+			<bottom>110</bottom>
+			<width>800</width>
+			<height>44</height>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$LOCALIZE[31016]: </label>
+				<font>Font33</font>
+				<textcolor>TextColor2</textcolor>
+				<visible>!Control.HasFocus(20)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$LOCALIZE[31016]: </label>
+				<font>Font33</font>
+				<textcolor>TextColor1</textcolor>
+				<visible>Control.HasFocus(20)</visible>
+			</control>
+			<control type="button" id="20">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<font>Font33</font>
+				<onup>3</onup>
+				<onclick>SettingsLevelChange</onclick>
+			</control>
+		</control>
+
 
 		<!-- Options -->
 		<control type="group" id="9002">
@@ -88,7 +126,6 @@
 				<!-- Look controls -->
 				<control type="grouplist" id="3001">
 					<left>20</left>
-					<top>5</top> <!-- -5 because there is one spacer -->
 					<width>410</width>
 					<height>1040</height>
 					<onleft>3</onleft>
@@ -144,26 +181,6 @@
 						<onclick>ReplaceWindow(SystemInfo)</onclick>
 					</control>
 
-
-					<control type="image" id="80">
-						<left>0</left>
-						<top>0</top>
-						<width>410</width>
-						<height>10</height>
-						<texture>transparent.png</texture>
-					</control>
-
-
-					<!-- Change settings level -->
-					<control type="label" id="81">
-						<label>$LOCALIZE[31016]:</label>
-						<textcolor>TextColor2</textcolor>
-						<height>40</height>
-					</control>
-					<control type="button" id="20">
-						<height>52</height>
-						<onclick>SettingsLevelChange</onclick>
-					</control>
 				</control>
 			</control>
 		</control>
@@ -188,7 +205,7 @@
 			<focusedcolor>TextColor1</focusedcolor>
 			<invalidcolor>TextColor4</invalidcolor>
 			<disabledcolor>TextColor4</disabledcolor>
-			<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(5).HasFocus">Conditional</animation>
+			<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(5).HasFocus | Control.HasFocus(20)">Conditional</animation>
 		</control>
 
 		<!-- Default button -->
