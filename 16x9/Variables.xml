@@ -29,6 +29,16 @@
 		<value>$LOCALIZE[571]</value>
 	</variable>
 
+	<variable name="BackgroundColor">
+		<value condition="!String.IsEmpty(Skin.String(color.background)) + !String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(color.background)]</value>
+		<value>FF000000</value>
+	</variable>
+
+	<variable name="BackgroundColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.background)) + !String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(color.background)]</value>
+		<value>$LOCALIZE[571]</value>
+	</variable>
+
 	<variable name="OtherBackgroundImage">
 		<value condition="Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart) + [Window.IsActive(visualisation) | Skin.HasSetting(BackgroundVisualisation)]" />
 		<value>$VAR[OSMCBackgroundImage]</value>

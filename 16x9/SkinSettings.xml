@@ -221,8 +221,36 @@
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>
-				<!-- Display fanart -->
+
+				<!-- Background color -->
 				<control type="radiobutton" id="1107">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>Use default OSMC Background Color</label>
+					<onclick>Skin.ToggleSetting(Not.OSMC.Background)</onclick>
+					<visible>ControlGroup(9).HasFocus(11)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+					<selected>Skin.HasSetting(Not.OSMC.Background)</selected>
+				</control>
+				<control type="button" id="1108">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - Custom background color</label>
+					<label2>$VAR[BackgroundColor-Name]</label2>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.background)</onclick>
+					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<visible>ControlGroup(9).HasFocus(11) + !Skin.HasSetting(Not.OSMC.Background)</visible>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+				</control>
+
+				<!-- Display fanart -->
+				<control type="radiobutton" id="1108">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -233,7 +261,7 @@
 					<visible>ControlGroup(9).HasFocus(11)</visible>
 				</control>
 				<!-- Background video -->
-				<control type="radiobutton" id="1108">
+				<control type="radiobutton" id="1109">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -244,7 +272,7 @@
 					<visible>ControlGroup(9).HasFocus(11)</visible>
 				</control>
 				<!-- Background visualisation -->
-				<control type="radiobutton" id="1109">
+				<control type="radiobutton" id="1110">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
