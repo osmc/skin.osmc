@@ -229,11 +229,11 @@
 					<textwidth>1120</textwidth>
 					<font>Font33</font>
 					<label>Use default OSMC Background Color</label>
-					<onclick>Skin.ToggleSetting(Not.OSMC.Background)</onclick>
+					<onclick>Skin.ToggleSetting(BackgroundCustomColour)</onclick>
 					<visible>ControlGroup(9).HasFocus(11)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
-					<selected>Skin.HasSetting(Not.OSMC.Background)</selected>
+					<selected>!Skin.HasSetting(BackgroundCustomColour)</selected>
 				</control>
 				<control type="button" id="1108">
 					<width>1220</width>
@@ -244,7 +244,7 @@
 					<label2>$VAR[BackgroundColor-Name]</label2>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.background)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
-					<visible>ControlGroup(9).HasFocus(11) + !Skin.HasSetting(Not.OSMC.Background)</visible>
+					<visible>ControlGroup(9).HasFocus(11) + Skin.HasSetting(BackgroundCustomColour)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>

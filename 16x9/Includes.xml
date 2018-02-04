@@ -77,7 +77,7 @@
 				<animation effect="fade" start="100" end="0" time="200" delay="70" condition="$PARAM[animate]">WindowClose</animation>
 				<include>VisibleFadeAnimation</include>
 				<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo | Window.IsActive(musicosd)]]</visible>
-				<visible>Skin.HasSetting(Not.OSMC.Background)</visible>
+				<visible>!Skin.HasSetting(BackgroundCustomColour)</visible>
 			</control>
 
 			<!-- Overlay - Custom color -->
@@ -89,7 +89,7 @@
 				<animation effect="fade" start="100" end="0" time="200" delay="70" condition="$PARAM[animate]">WindowClose</animation>
 				<include>VisibleFadeAnimation</include>
 				<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo | Window.IsActive(musicosd)]]</visible>
-				<visible>!Skin.HasSetting(Not.OSMC.Background)</visible>
+				<visible>Skin.HasSetting(BackgroundCustomColour)</visible>
 			</control>
 		</definition>
 	</include>
