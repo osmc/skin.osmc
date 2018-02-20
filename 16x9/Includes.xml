@@ -133,8 +133,8 @@
 			<!-- Window heading -->
 			<control type="label">
 				<left>120</left>
-				<top>110</top>
-				<width>1680</width>
+				<top>127</top>
+				<width>1400</width>
 				<height>33</height>
 				<aligny>top</aligny>
 				<label>$PARAM[heading]</label>
@@ -162,12 +162,12 @@
 				<!-- Time -->
 				<control type="label">
 					<right>120</right>
-					<top>110</top>
-					<width>1680</width>
+					<top>127</top>
+					<width>1400</width>
 					<height>33</height>
 					<aligny>top</aligny>
 					<align>right</align>
-					<label>$INFO[System.Time]</label>
+					<label>$INFO[System.Time(hh:mm:ss)]</label>
 					<font>Font33</font>
 					<textcolor>DialogColor1</textcolor>
 					<visible>!Player.HasMedia | !Integer.IsGreater(Player.Duration,0)</visible>
@@ -180,15 +180,15 @@
 					<control type="fadelabel">
 						<right>170</right>
 						<top>93</top>
-						<width>1680</width>
+						<width>1400</width>
 						<height>33</height>
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[VideoPlayer.TVShowTitle]</label>
 						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<label>$INFO[VideoPlayer.Season,[LIGHT]s,[/LIGHT]]$INFO[VideoPlayer.Episode,[LIGHT]e,[/LIGHT]  ]$INFO[VideoPlayer.Title]</label>
+						<label>$VAR[Seasonplaying,[LIGHT],[/LIGHT]]$VAR[Episodeplaying,[LIGHT],[/LIGHT]  ]$INFO[VideoPlayer.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
-						<label>$INFO[Player.FinishTime,[LIGHT]Finishes at ,[/LIGHT]  ]$INFO[System.Time]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081] [/LIGHT]]</label>
 						<visible>Player.HasVideo</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
@@ -197,13 +197,13 @@
 					<control type="fadelabel">
 						<right>170</right>
 						<top>93</top>
-						<width>1680</width>
+						<width>1400</width>
 						<height>33</height>
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
-						<label>[LIGHT]$INFO[MusicPlayer.Artist,,  ][/LIGHT]$INFO[MusicPlayer.Album]</label>
-						<label>$INFO[Player.FinishTime,[LIGHT]Finishes at ,[/LIGHT]  ]$INFO[System.Time]</label>
+						<label>[LIGHT]$INFO[MusicPlayer.Artist,,:  ][/LIGHT]$INFO[MusicPlayer.Album]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081] [/LIGHT]]</label>
 						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
@@ -212,13 +212,13 @@
 					<control type="fadelabel">
 						<right>170</right>
 						<top>93</top>
-						<width>1680</width>
+						<width>1400</width>
 						<height>33</height>
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[Player.Title]</label>
 						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<label>$INFO[Player.FinishTime,[LIGHT]Finishes at ,[/LIGHT]  ]$INFO[System.Time]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081] [/LIGHT]]</label>
 						<visible>Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
@@ -227,7 +227,7 @@
 					<control type="label">
 						<right>170</right>
 						<top>127</top>
-						<width>1680</width>
+						<width>1400</width>
 						<height>33</height>
 						<aligny>top</aligny>
 						<align>right</align>
@@ -374,7 +374,7 @@
 	<include name="MediaFlags">
 		<control type="grouplist">
 			<left>120</left>
-			<bottom>110</bottom>
+			<bottom>154</bottom>
 			<width>800</width>
 			<height>44</height>
 			<itemgap>0</itemgap>
@@ -395,11 +395,23 @@
 				<width>auto</width>
 				<height>44</height>
 				<align>right</align>
-				<label>$INFO[ListItem.VideoCodec,,]$INFO[ListItem.VideoResolution, ,p]</label>
-				<font>Font33</font>
+				<label>$VAR[VideoCodec,,]$VAR[3DMode, ,]$VAR[VideoResolution, ,p]$INFO[ListItem.VideoAspect, (,:1)]</label>
+				<font>Font30</font>
 				<textcolor>TextColor2</textcolor>
 				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
+		</control>
+
+		<control type="grouplist">
+			<left>120</left>
+			<bottom>120</bottom>
+			<width>800</width>
+			<height>44</height>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
 
 			<!-- Audio flags -->
 			<control type="image">
@@ -413,14 +425,14 @@
 				<width>auto</width>
 				<height>44</height>
 				<align>right</align>
-				<label>$INFO[ListItem.AudioCodec,,]$VAR[AudioChannels, ,]</label>
-				<font>Font33</font>
+				<label>$VAR[Atmos,,]$VAR[DTSX,,]$VAR[AudioCodec,,]$VAR[AudioChannels, ,]</label>
+				<font>Font30</font>
 				<textcolor>TextColor2</textcolor>
 				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
 		</control>
 		<control type="grouplist">
-			<left>120</left>
+			<left>115</left>
 			<bottom>66</bottom>
 			<width>800</width>
 			<height>44</height>
@@ -443,7 +455,7 @@
 				<width>auto</width>
 				<height>44</height>
 				<align>right</align>
-				<label>$INFO[ListItem.Duration]</label>
+				<label>$INFO[ListItem.Duration, ,]</label>
 				<font>Font33</font>
 				<textcolor>TextColor2</textcolor>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
@@ -452,7 +464,7 @@
 				<width>auto</width>
 				<height>44</height>
 				<align>right</align>
-				<label> $LOCALIZE[12391]</label>
+				<label>$LOCALIZE[12391]</label>
 				<font>Font33</font>
 				<textcolor>TextColor2</textcolor>
 				<visible>!String.IsEmpty(ListItem.Duration) + !String.Contains(ListItem.Duration,:) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
