@@ -32,22 +32,76 @@
 			</control>
 
 			<!-- Now playing -->
+			<control type="fadelabel">
+				<left>980</left>
+				<top>340</top>
+				<width>700</width>
+				<height>40</height>
+				<pauseatend>5000</pauseatend>
+				<label>$INFO[MusicPlayer.Artist,,]</label>
+			</control>
+			<control type="fadelabel">
+				<left>980</left>
+				<top>380</top>
+				<width>700</width>
+				<height>40</height>
+				<pauseatend>5000</pauseatend>
+				<label>$INFO[MusicPlayer.Album,,]</label>
+			</control>
+			<control type="fadelabel">
+				<left>980</left>
+				<top>420</top>
+				<width>700</width>
+				<height>40</height>
+				<pauseatend>5000</pauseatend>
+				<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title,,]</label>
+			</control>
 			<control type="label">
 				<left>980</left>
-				<top>300</top>
-				<width>960</width>
-				<height>300</height>
-				<label>$INFO[MusicPlayer.Artist,,[CR]]$INFO[MusicPlayer.Album,,[CR]]$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title,,[CR]]$INFO[VideoPlayer.ChannelName,[LIGHT],[/LIGHT]]</label>
+				<top>460</top>
+				<width>700</width>
+				<height>40</height>
+				<label>$INFO[VideoPlayer.ChannelName,[LIGHT],[/LIGHT][CR]]$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.BitRate,[LIGHT](,kBit/s)[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.SampleRate,[LIGHT],kHz[/LIGHT]]</label>
 			</control>
 
 			<!-- Next playing -->
 			<control type="label">
 				<left>980</left>
-				<bottom>250</bottom>
-				<width>960</width>
-				<height>300</height>
+				<top>600</top>
+				<width>700</width>
+				<height>40</height>
 				<font>font27</font>
-				<label>$VAR[MusicNextPlaying,[LIGHT]$LOCALIZE[209]:[/LIGHT][CR],]</label>
+				<label>[LIGHT]$LOCALIZE[209]:[/LIGHT]</label>
+				<visible>!String.IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+			</control>
+			<control type="fadelabel">
+				<left>980</left>
+				<top>645</top>
+				<width>700</width>
+				<height>30</height>
+				<font>font27</font>
+				<pauseatend>5000</pauseatend>
+				<label>$VAR[MusicNextPlaying1,,]</label>
+				<visible>!String.IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+			</control>
+			<control type="fadelabel">
+				<left>980</left>
+				<top>675</top>
+				<width>700</width>
+				<height>30</height>
+				<font>font27</font>
+				<pauseatend>5000</pauseatend>
+				<label>$VAR[MusicNextPlaying2,,]</label>
+				<visible>!String.IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+			</control>
+			<control type="fadelabel">
+				<left>980</left>
+				<top>705</top>
+				<width>700</width>
+				<height>30</height>
+				<font>font27</font>
+				<pauseatend>5000</pauseatend>
+				<label>$VAR[MusicNextPlaying3,,]</label>
 				<visible>!String.IsEmpty(MusicPlayer.Offset(1).Title)</visible>
 			</control>
 		</control>
