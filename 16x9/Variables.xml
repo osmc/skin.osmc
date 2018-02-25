@@ -325,8 +325,9 @@
 	</variable>
 
 	<variable name="Label1">
-		<!--value condition="!String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value-->
-		<value>$INFO[ListItem.Label]</value>
+		<value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$VAR[SElist] &#8226; $INFO[ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Title)">$INFO[ListItem.Label]</value>
 	</variable>
 
 	<variable name="SongLabel">
@@ -385,19 +386,8 @@
 	</variable>
 
 	<variable name="Label2-episodes">
-		<value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Date)">$INFO[ListItem.Season,$LOCALIZE[20373] ] &#8226; $INFO[ListItem.Episode,$LOCALIZE[20359] ] &#8226; Aired on $INFO[ListItem.Date]</value>
-		<value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Season,$LOCALIZE[20373] ] &#8226; $INFO[ListItem.Episode,$LOCALIZE[20359] ] &#8226; Aired on $INFO[ListItem.Premiered]</value>
-		<value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Season,$LOCALIZE[20373] ] &#8226; $INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
-
-		<value condition="!String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Date)">$INFO[ListItem.Season,$LOCALIZE[20373] ] &#8226; Aired on $INFO[ListItem.Date]</value>
-		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Season,$LOCALIZE[20373] ] &#8226; Aired on $INFO[ListItem.Premiered]</value>
-		<value condition="String.IsEmpty(ListItem.Season) + String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Season,$LOCALIZE[20373] ]</value>
-
-		<value condition="String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Date)">$INFO[ListItem.Episode,$LOCALIZE[20359] ] &#8226; Aired on $INFO[ListItem.Date]</value>
-		<value condition="String.IsEmpty(ListItem.Season) + !String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Episode,$LOCALIZE[20359] ] &#8226; Aired on $INFO[ListItem.Premeired]</value>
-
-		<value condition="String.IsEmpty(ListItem.Season) + String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Date)">Aired on $INFO[ListItem.Date]</value>
-		<value condition="String.IsEmpty(ListItem.Season) + String.IsEmpty(ListItem.Episode) + !String.IsEmpty(ListItem.Premiered)">Aired on $INFO[ListItem.Premiered]</value>
+		<value condition="!String.IsEmpty(ListItem.Date)">$INFO[ListItem.Date,$LOCALIZE[20416]: ,]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered,$LOCALIZE[20416]: ,]</value>
 	</variable>
 
 		<!-- Audio Channel labels -->
@@ -531,17 +521,83 @@
 		<value condition="ListItem.IsStereoscopic | String.Contains(ListItem.Filenameandpath,-3d-) | String.Contains(ListItem.Filenameandpath,.3d.) | String.Contains(ListItem.Filenameandpath, 3d ) | String.Contains(ListItem.Filenameandpath,_3d_) | String.Contains(ListItem.Filenameandpath,-3D-) | String.Contains(ListItem.Filenameandpath,.3D.) | String.Contains(ListItem.Filenameandpath, 3D ) | String.Contains(ListItem.Filenameandpath,_3D_) | String.Contains(ListItem.Filenameandpath,-3-d-) | String.Contains(ListItem.Filenameandpath,.3-d.) | String.Contains(ListItem.Filenameandpath, 3-d ) | String.Contains(ListItem.Filenameandpath,_3-d_) | String.Contains(ListItem.Filenameandpath,-3-D-) | String.Contains(ListItem.Filenameandpath,.3-D.) | String.Contains(ListItem.Filenameandpath, 3-D ) | String.Contains(ListItem.Filenameandpath,_3-D_) | String.Contains(ListItem.Filenameandpath,-3.-.d-) | String.Contains(ListItem.Filenameandpath,.3.-.d.) | String.Contains(ListItem.Filenameandpath, 3.-.d ) | String.Contains(ListItem.Filenameandpath,_3.-.d_) | String.Contains(ListItem.Filenameandpath,-3.-.D-) | String.Contains(ListItem.Filenameandpath,.3.-.D.) | String.Contains(ListItem.Filenameandpath, 3.-.D ) | String.Contains(ListItem.Filenameandpath,_3.-.D_) | String.Contains(ListItem.Filenameandpath,-3 - d-) | String.Contains(ListItem.Filenameandpath,.3 - d.) | String.Contains(ListItem.Filenameandpath, 3 - d ) | String.Contains(ListItem.Filenameandpath,_3 - d_) | String.Contains(ListItem.Filenameandpath,-3 - D-) | String.Contains(ListItem.Filenameandpath,.3 - D.) | String.Contains(ListItem.Filenameandpath, 3 - D ) | String.Contains(ListItem.Filenameandpath,_3 - D_) | String.Contains(ListItem.Filenameandpath,-3_-_d-) | String.Contains(ListItem.Filenameandpath,.3_-_d.) | String.Contains(ListItem.Filenameandpath, 3_-_d ) | String.Contains(ListItem.Filenameandpath,_3_-_d_) | String.Contains(ListItem.Filenameandpath,-3_-_D-) | String.Contains(ListItem.Filenameandpath,.3_-_D.) | String.Contains(ListItem.Filenameandpath, 3_-_D ) | String.Contains(ListItem.Filenameandpath,_3_-_D_) | String.Contains(ListItem.Filenameandpath,-hsbs-) | String.Contains(ListItem.Filenameandpath,.hsbs.) | String.Contains(ListItem.Filenameandpath, hsbs ) | String.Contains(ListItem.Filenameandpath,_hsbs_) | String.Contains(ListItem.Filenameandpath,-HSBS-) | String.Contains(ListItem.Filenameandpath,.HSBS.) | String.Contains(ListItem.Filenameandpath, HSBS ) | String.Contains(ListItem.Filenameandpath,_HSBS_) | String.Contains(ListItem.Filenameandpath,-h-sbs-) | String.Contains(ListItem.Filenameandpath,.h-sbs.) | String.Contains(ListItem.Filenameandpath, h-sbs ) | String.Contains(ListItem.Filenameandpath,_h-sbs_) | String.Contains(ListItem.Filenameandpath,-H-SBS-) | String.Contains(ListItem.Filenameandpath,.H-SBS.) | String.Contains(ListItem.Filenameandpath, H-SBS ) | String.Contains(ListItem.Filenameandpath,_H-SBS_) | String.Contains(ListItem.Filenameandpath,-h.-.sbs-) | String.Contains(ListItem.Filenameandpath,.h.-.sbs.) | String.Contains(ListItem.Filenameandpath, h.-.sbs ) | String.Contains(ListItem.Filenameandpath,_h.-.sbs_) | String.Contains(ListItem.Filenameandpath,-H.-.SBS-) | String.Contains(ListItem.Filenameandpath,.H.-.SBS.) | String.Contains(ListItem.Filenameandpath, H.-.SBS ) | String.Contains(ListItem.Filenameandpath,_H.-.SBS_) | String.Contains(ListItem.Filenameandpath,-h - sbs-) | String.Contains(ListItem.Filenameandpath,.h - sbs.) | String.Contains(ListItem.Filenameandpath, h - sbs ) | String.Contains(ListItem.Filenameandpath,_h - sbs_) | String.Contains(ListItem.Filenameandpath,-H - SBS-) | String.Contains(ListItem.Filenameandpath,.H - SBS.) | String.Contains(ListItem.Filenameandpath, H - SBS ) | String.Contains(ListItem.Filenameandpath,_H - SBS_) | String.Contains(ListItem.Filenameandpath,-h_-_sbs-) | String.Contains(ListItem.Filenameandpath,.h_-_sbs.) | String.Contains(ListItem.Filenameandpath, h_-_sbs ) | String.Contains(ListItem.Filenameandpath,_h_-_sbs_) | String.Contains(ListItem.Filenameandpath,-H_-_SBS-) | String.Contains(ListItem.Filenameandpath,.H_-_SBS.) | String.Contains(ListItem.Filenameandpath, H_-_SBS ) | String.Contains(ListItem.Filenameandpath,_H_-_SBS_) | String.Contains(ListItem.Filenameandpath,-htab-) | String.Contains(ListItem.Filenameandpath,.htab.) | String.Contains(ListItem.Filenameandpath, htab ) | String.Contains(ListItem.Filenameandpath,_htab_) | String.Contains(ListItem.Filenameandpath,-HTAB-) | String.Contains(ListItem.Filenameandpath,.HTAB.) | String.Contains(ListItem.Filenameandpath, HTAB ) | String.Contains(ListItem.Filenameandpath,_HTAB_) | String.Contains(ListItem.Filenameandpath,-h-tab-) | String.Contains(ListItem.Filenameandpath,.h-tab.) | String.Contains(ListItem.Filenameandpath, h-tab ) | String.Contains(ListItem.Filenameandpath,_h-tab_) | String.Contains(ListItem.Filenameandpath,-H-TAB-) | String.Contains(ListItem.Filenameandpath,.H-TAB.) | String.Contains(ListItem.Filenameandpath, H-TAB ) | String.Contains(ListItem.Filenameandpath,_H-TAB_) | String.Contains(ListItem.Filenameandpath,-h - tab-) | String.Contains(ListItem.Filenameandpath,.h - tab.) | String.Contains(ListItem.Filenameandpath, h - tab ) | String.Contains(ListItem.Filenameandpath,_h - tab_) | String.Contains(ListItem.Filenameandpath,-H - TAB-) | String.Contains(ListItem.Filenameandpath,.H - TAB.) | String.Contains(ListItem.Filenameandpath, H - TAB ) | String.Contains(ListItem.Filenameandpath,_H - TAB_) | String.Contains(ListItem.Filenameandpath,-h.-.tab-) | String.Contains(ListItem.Filenameandpath,.h.-.tab.) | String.Contains(ListItem.Filenameandpath, h.-.tab ) | String.Contains(ListItem.Filenameandpath,_h.-.tab_) | String.Contains(ListItem.Filenameandpath,-H.-.TAB-) | String.Contains(ListItem.Filenameandpath,.H.-.TAB.) | String.Contains(ListItem.Filenameandpath, H.-.TAB ) | String.Contains(ListItem.Filenameandpath,_H.-.TAB_) | String.Contains(ListItem.Filenameandpath,-h_-_tab-) | String.Contains(ListItem.Filenameandpath,.h_-_tab.) | String.Contains(ListItem.Filenameandpath, h_-_tab ) | String.Contains(ListItem.Filenameandpath,_h_-_tab_) | String.Contains(ListItem.Filenameandpath,-H_-_TAB-) | String.Contains(ListItem.Filenameandpath,.H_-_TAB.) | String.Contains(ListItem.Filenameandpath, H_-_TAB ) | String.Contains(ListItem.Filenameandpath,_H_-_TAB_) | String.Contains(ListItem.Filenameandpath,-hou-) | String.Contains(ListItem.Filenameandpath,.hou.) | String.Contains(ListItem.Filenameandpath, hou ) | String.Contains(ListItem.Filenameandpath,_hou_) | String.Contains(ListItem.Filenameandpath,-HOU-) | String.Contains(ListItem.Filenameandpath,.HOU.) | String.Contains(ListItem.Filenameandpath, HOU ) | String.Contains(ListItem.Filenameandpath,_HOU_) | String.Contains(ListItem.Filenameandpath,-h-ou-) | String.Contains(ListItem.Filenameandpath,.h-ou.) | String.Contains(ListItem.Filenameandpath, h-ou ) | String.Contains(ListItem.Filenameandpath,_h-ou_) | String.Contains(ListItem.Filenameandpath,-H-OU-) | String.Contains(ListItem.Filenameandpath,.H-OU.) | String.Contains(ListItem.Filenameandpath, H-OU ) | String.Contains(ListItem.Filenameandpath,_H-OU_) | String.Contains(ListItem.Filenameandpath,-h.-.ou-) | String.Contains(ListItem.Filenameandpath,.h.-.ou.) | String.Contains(ListItem.Filenameandpath, h.-.ou ) | String.Contains(ListItem.Filenameandpath,_h.-.ou_) | String.Contains(ListItem.Filenameandpath,-H.-.OU-) | String.Contains(ListItem.Filenameandpath,.H.-.OU.) | String.Contains(ListItem.Filenameandpath, H.-.OU ) | String.Contains(ListItem.Filenameandpath,_H.-.OU_) | String.Contains(ListItem.Filenameandpath,-h - ou-) | String.Contains(ListItem.Filenameandpath,.h - ou.) | String.Contains(ListItem.Filenameandpath, h - ou ) | String.Contains(ListItem.Filenameandpath,_h - ou_) | String.Contains(ListItem.Filenameandpath,-H - OU-) | String.Contains(ListItem.Filenameandpath,.H - OU.) | String.Contains(ListItem.Filenameandpath, H - OU ) | String.Contains(ListItem.Filenameandpath,_H - OU_) | String.Contains(ListItem.Filenameandpath,-h_-_ou-) | String.Contains(ListItem.Filenameandpath,.h_-_ou.) | String.Contains(ListItem.Filenameandpath, h_-_ou ) | String.Contains(ListItem.Filenameandpath,_h_-_ou_) | String.Contains(ListItem.Filenameandpath,-H_-_OU-) | String.Contains(ListItem.Filenameandpath,.H_-_OU.) | String.Contains(ListItem.Filenameandpath, H_-_OU ) | String.Contains(ListItem.Filenameandpath,_H_-_OU_) | String.Contains(ListItem.Filenameandpath,-sbs-) | String.Contains(ListItem.Filenameandpath,.sbs.) | String.Contains(ListItem.Filenameandpath, sbs ) | String.Contains(ListItem.Filenameandpath,_sbs_) | String.Contains(ListItem.Filenameandpath,-SBS-) | String.Contains(ListItem.Filenameandpath,.SBS.) | String.Contains(ListItem.Filenameandpath, SBS ) | String.Contains(ListItem.Filenameandpath,_SBS_) | String.Contains(ListItem.Filenameandpath,-tab-) | String.Contains(ListItem.Filenameandpath,.tab.) | String.Contains(ListItem.Filenameandpath, tab ) | String.Contains(ListItem.Filenameandpath,_tab_) | String.Contains(ListItem.Filenameandpath,-TAB-) | String.Contains(ListItem.Filenameandpath,.TAB.) | String.Contains(ListItem.Filenameandpath, TAB ) | String.Contains(ListItem.Filenameandpath,_TAB_) | String.Contains(ListItem.Filenameandpath,-ou-) | String.Contains(ListItem.Filenameandpath,.ou.) | String.Contains(ListItem.Filenameandpath, ou ) | String.Contains(ListItem.Filenameandpath,_ou_) | String.Contains(ListItem.Filenameandpath,-OU-) | String.Contains(ListItem.Filenameandpath,.OU.) | String.Contains(ListItem.Filenameandpath, OU ) | String.Contains(ListItem.Filenameandpath,_OU_)">3D</value>
 	</variable>
 	
-		<!-- Season/Episode playing label -->
-	<variable name="Seasonplaying">
-		<value condition="Integer.IsLessOrEqual(VideoPlayer.Season,9)">$INFO[VideoPlayer.Season,S0,]</value>
-		<value condition="Integer.IsGreaterOrEqual(VideoPlayer.Season,10)">$INFO[VideoPlayer.Season,S,]</value>
+		<!-- Season/Episode label -->
+	<variable name="SEplaying">
+		<value condition="Integer.IsLessOrEqual(VideoPlayer.Season,9) + Integer.IsLessOrEqual(VideoPlayer.Episode,9) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E0,]</value>
+		<value condition="Integer.IsLessOrEqual(VideoPlayer.Season,9) + Integer.IsGreaterOrEqual(VideoPlayer.Episode,10) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E,]</value>
+		<value condition="Integer.IsGreaterOrEqual(VideoPlayer.Season,10) + Integer.IsLessOrEqual(VideoPlayer.Episode,9) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E0,]</value>
+		<value condition="Integer.IsGreaterOrEqual(VideoPlayer.Season,10) + Integer.IsGreaterOrEqual(VideoPlayer.Episode,10) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E,]</value>		
+		<value condition="String.Contains(VideoPlayer.Episode,S)">$INFO[VideoPlayer.Episode]</value>
 	</variable>
 	
-	<variable name="Episodeplaying">
-		<value condition="Integer.IsLessOrEqual(VideoPlayer.Episode,9)">$INFO[VideoPlayer.Episode,E0,]</value>
-		<value condition="Integer.IsGreaterOrEqual(VideoPlayer.Episode,10)">$INFO[VideoPlayer.Episode,E,]</value>
+	<variable name="SElist">
+		<value condition="Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0,]</value>
+		<value condition="Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E,]</value>
+		<value condition="Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E0,]</value>
+		<value condition="Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E,]</value>
+		<value condition="String.Contains(ListItem.Episode,s)">$INFO[ListItem.Episode]</value>
 	</variable>
-		
+	
+	<variable name="SEContainer10101">
+		<!-- Season + Epsioden < 10 -->
+		<value condition="!Integer.IsGreater(Container(10101).ListItem.Season,9) + !Integer.IsGreater(Container(10101).ListItem.Episode,9) + !String.Contains(Container(10101).ListItem.Episode,s)">S0$INFO[Container(10101).ListItem.Season,,]E0$INFO[Container(10101).ListItem.Episode]</value>
+		<!-- Season > 10 + Epsioden < 10 -->
+		<value condition="Integer.IsGreater(Container(10101).ListItem.Season,9) + !Integer.IsGreater(Container(10101).ListItem.Episode,9) + !String.Contains(Container(10101).ListItem.Episode,s)">S$INFO[Container(10101).ListItem.Season,,]E0$INFO[Container(10101).ListItem.Episode]</value>
+		<!-- Season > 10 + Epsioden > 10 -->
+		<value condition="Integer.IsGreater(Container(10101).ListItem.Season,9) + Integer.IsGreater(Container(10101).ListItem.Episode,9) + !String.Contains(Container(10101).ListItem.Episode,s)">S$INFO[Container(10101).ListItem.Season,,]E$INFO[Container(10101).ListItem.Episode]</value>
+		<!-- Season < 10 + Epsioden > 10 -->
+		<value condition="!Integer.IsGreater(Container(10101).ListItem.Season,9) + Integer.IsGreater(Container(10101).ListItem.Episode,9) + !String.Contains(Container(10101).ListItem.Episode,s)">S0$INFO[Container(10101).ListItem.Season,,]E$INFO[Container(10101).ListItem.Episode]</value>
+		<value condition="String.Contains(Container(10101).ListItem.Episode,s)">$INFO[Container(10101).ListItem.Episode]</value>
+	</variable>
+	
+	<variable name="SEContainer10201">
+		<value condition="!Integer.IsGreater(Container(10201).ListItem.Season,9) + !Integer.IsGreater(Container(10201).ListItem.Episode,9) + !String.Contains(Container(10201).ListItem.Episode,s)">S0$INFO[Container(10201).ListItem.Season,,]E0$INFO[Container(10201).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10201).ListItem.Season,9) + !Integer.IsGreater(Container(10201).ListItem.Episode,9) + !String.Contains(Container(10201).ListItem.Episode,s)">S$INFO[Container(10201).ListItem.Season,,]E0$INFO[Container(10201).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10201).ListItem.Season,9) + Integer.IsGreater(Container(10201).ListItem.Episode,9) + !String.Contains(Container(10201).ListItem.Episode,s)">S$INFO[Container(10201).ListItem.Season,,]E$INFO[Container(10201).ListItem.Episode]</value>
+		<value condition="!Integer.IsGreater(Container(10201).ListItem.Season,9) + Integer.IsGreater(Container(10201).ListItem.Episode,9) + !String.Contains(Container(10201).ListItem.Episode,s)">S0$INFO[Container(10201).ListItem.Season,,]E$INFO[Container(10201).ListItem.Episode]</value>
+		<value condition="String.Contains(Container(10201).ListItem.Episode,s)">$INFO[Container(10201).ListItem.Episode]</value>
+	</variable>
+	
+	<variable name="SEContainer10401">
+		<value condition="!Integer.IsGreater(Container(10401).ListItem.Season,9) + !Integer.IsGreater(Container(10401).ListItem.Episode,9) + !String.Contains(Container(10401).ListItem.Episode,s)">S0$INFO[Container(10401).ListItem.Season,,]E0$INFO[Container(10401).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10401).ListItem.Season,9) + !Integer.IsGreater(Container(10401).ListItem.Episode,9) + !String.Contains(Container(10401).ListItem.Episode,s)">S$INFO[Container(10401).ListItem.Season,,]E0$INFO[Container(10401).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10401).ListItem.Season,9) + Integer.IsGreater(Container(10401).ListItem.Episode,9) + !String.Contains(Container(10401).ListItem.Episode,s)">S$INFO[Container(10401).ListItem.Season,,]E$INFO[Container(10401).ListItem.Episode]</value>
+		<value condition="!Integer.IsGreater(Container(10401).ListItem.Season,9) + Integer.IsGreater(Container(10401).ListItem.Episode,9) + !String.Contains(Container(10401).ListItem.Episode,s)">S0$INFO[Container(10401).ListItem.Season,,]E$INFO[Container(10401).ListItem.Episode]</value>
+		<value condition="String.Contains(Container(10401).ListItem.Episode,s)">$INFO[Container(10401).ListItem.Episode]</value>
+	</variable>
+	
+	<variable name="SEContainer10801">
+		<value condition="!Integer.IsGreater(Container(10801).ListItem.Season,9) + !Integer.IsGreater(Container(10801).ListItem.Episode,9) + !String.Contains(Container(10801).ListItem.Episode,s)">S0$INFO[Container(10801).ListItem.Season,,]E0$INFO[Container(10801).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10801).ListItem.Season,9) + !Integer.IsGreater(Container(10801).ListItem.Episode,9) + !String.Contains(Container(10801).ListItem.Episode,s)">S$INFO[Container(10801).ListItem.Season,,]E0$INFO[Container(10801).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10801).ListItem.Season,9) + Integer.IsGreater(Container(10801).ListItem.Episode,9) + !String.Contains(Container(10801).ListItem.Episode,s)">S$INFO[Container(10801).ListItem.Season,,]E$INFO[Container(10801).ListItem.Episode]</value>
+		<value condition="!Integer.IsGreater(Container(10801).ListItem.Season,9) + Integer.IsGreater(Container(10801).ListItem.Episode,9) + !String.Contains(Container(10801).ListItem.Episode,s)">S0$INFO[Container(10801).ListItem.Season,,]E$INFO[Container(10801).ListItem.Episode]</value>
+		<value condition="String.Contains(Container(10801).ListItem.Episode,s)">$INFO[Container(10801).ListItem.Episode]</value>
+	</variable>
+	
+	<variable name="SEContainer10901">
+		<value condition="!Integer.IsGreater(Container(10901).ListItem.Season,9) + !Integer.IsGreater(Container(10901).ListItem.Episode,9) + !String.Contains(Container(10901).ListItem.Episode,s)">S0$INFO[Container(10901).ListItem.Season,,]E0$INFO[Container(10901).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10901).ListItem.Season,9) + !Integer.IsGreater(Container(10901).ListItem.Episode,9) + !String.Contains(Container(10901).ListItem.Episode,s)">S$INFO[Container(10901).ListItem.Season,,]E0$INFO[Container(10901).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(10901).ListItem.Season,9) + Integer.IsGreater(Container(10901).ListItem.Episode,9) + !String.Contains(Container(10901).ListItem.Episode,s)">S$INFO[Container(10901).ListItem.Season,,]E$INFO[Container(10901).ListItem.Episode]</value>
+		<value condition="!Integer.IsGreater(Container(10901).ListItem.Season,9) + Integer.IsGreater(Container(10901).ListItem.Episode,9) + !String.Contains(Container(10901).ListItem.Episode,s)">S0$INFO[Container(10901).ListItem.Season,,]E$INFO[Container(10901).ListItem.Episode]</value>
+		<value condition="String.Contains(Container(10901).ListItem.Episode,s)">$INFO[Container(10901).ListItem.Episode]</value>
+	</variable>
+	
+	<variable name="SEContainer101001">
+		<value condition="!Integer.IsGreater(Container(101001).ListItem.Season,9) + !Integer.IsGreater(Container(101001).ListItem.Episode,9) + !String.Contains(Container(101001).ListItem.Episode,s)">S0$INFO[Container(101001).ListItem.Season,,]E0$INFO[Container(101001).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(101001).ListItem.Season,9) + !Integer.IsGreater(Container(101001).ListItem.Episode,9) + !String.Contains(Container(101001).ListItem.Episode,s)">S$INFO[Container(101001).ListItem.Season,,]E0$INFO[Container(101001).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(101001).ListItem.Season,9) + Integer.IsGreater(Container(101001).ListItem.Episode,9) + !String.Contains(Container(101001).ListItem.Episode,s)">S$INFO[Container(101001).ListItem.Season,,]E$INFO[Container(101001).ListItem.Episode]</value>
+		<value condition="!Integer.IsGreater(Container(101001).ListItem.Season,9) + Integer.IsGreater(Container(101001).ListItem.Episode,9) + !String.Contains(Container(101001).ListItem.Episode,s)">S0$INFO[Container(101001).ListItem.Season,,]E$INFO[Container(101001).ListItem.Episode]</value>
+		<value condition="String.Contains(Container(101001).ListItem.Episode,s)">$INFO[Container(101001).ListItem.Episode]</value>
+	</variable>
+	
+	<variable name="SEContainer101101">
+		<value condition="!Integer.IsGreater(Container(101101).ListItem.Season,9) + !Integer.IsGreater(Container(101101).ListItem.Episode,9) + !String.Contains(Container(101101).ListItem.Episode,s)">S0$INFO[Container(101101).ListItem.Season,,]E0$INFO[Container(101101).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(101101).ListItem.Season,9) + !Integer.IsGreater(Container(101101).ListItem.Episode,9) + !String.Contains(Container(101101).ListItem.Episode,s)">S$INFO[Container(101101).ListItem.Season,,]E0$INFO[Container(101101).ListItem.Episode]</value>
+		<value condition="Integer.IsGreater(Container(101101).ListItem.Season,9) + Integer.IsGreater(Container(101101).ListItem.Episode,9) + !String.Contains(Container(101101).ListItem.Episode,s)">S$INFO[Container(101101).ListItem.Season,,]E$INFO[Container(101101).ListItem.Episode]</value>
+		<value condition="!Integer.IsGreater(Container(101101).ListItem.Season,9) + Integer.IsGreater(Container(101101).ListItem.Episode,9) + !String.Contains(Container(101101).ListItem.Episode,s)">S0$INFO[Container(101101).ListItem.Season,,]E$INFO[Container(101101).ListItem.Episode]</value>
+		<value condition="String.Contains(Container(101101).ListItem.Episode,s)">$INFO[Container(101101).ListItem.Episode]</value>
+	</variable>
+				
 	<variable name="ContentType">
 		<value condition="Container.Content(movies) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20338]</value>
 		<value condition="Container.Content(movies) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[342]</value>

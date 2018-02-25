@@ -1,5 +1,5 @@
 <template>
-
+	
 	<submenu include="widgetControl" level="1">
 		<property name="id" tag="mainmenuid" />
 		<controls>
@@ -575,7 +575,7 @@
 		<property name="submenuVisibility" tag="property" attribute="name|submenuVisibility" />
 		<property name="isWeather" tag="property" attribute="name|widget" value="WeatherWidget">True</property>
 		<property name="isWeather">False</property>
-		<variables>
+		<variables>			
 			<variable name="widgetDetails">
 				<!-- Not selected -->
 				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + String.IsEqual(Container(1000$SKINSHORTCUTS[auto-rootID]).ListItem.Property(widgetID),$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]) + !Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])">[COLOR TextColor2]$INFO[Container(1000$SKINSHORTCUTS[auto-rootID]).ListItem.Label][/COLOR]</value>
@@ -588,7 +588,16 @@
 				<!-- TVShow/Season Widget -->
 				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
 				<!-- Episodes Widget -->
-				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR](s$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]e$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode]) $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][/COLOR]</value>
+					<!-- Season + Epsioden < 10 -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season) + !Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,9) + !Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,9) + !String.Contains(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,s)">[COLOR TextColor1][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR]S0$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]E0$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode] &#8226; $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Title][/COLOR]</value>
+					<!-- Season < 10 + Epsioden > 10 -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season) + !Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,9) + Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,9) + !String.Contains(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,s)">[COLOR TextColor1][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR]S0$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]E$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode] &#8226; $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Title][/COLOR]</value>
+					<!-- Season > 10 + Epsioden < 10 -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season) + Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,9) + !Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,9) + !String.Contains(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,s)">[COLOR TextColor1][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR]S$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]E0$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode] &#8226; $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Title][/COLOR]</value>
+					<!-- Season > 10 + Epsioden > 10 -->
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season) + Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,9) + Integer.IsGreater(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,9) + !String.Contains(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,s)">[COLOR TextColor1][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR]S$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]E$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode] &#8226; $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Title][/COLOR]</value>
+				
+				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season) + String.Contains(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode,s)">[COLOR TextColor1][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.TVShowTitle][/LIGHT][CR]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Episode] &#8226; $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Title][/COLOR]</value>
 				<!-- PVR Channels - With Info -->
 				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.ChannelName) + !IsEmpty(Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][CR][LIGHT]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Title] ($INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.StartTime] - $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.EndTime])[CR]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.NextTitle] ($INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.NextStartTime] - $INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
 				<!-- PVR Channels - No Info -->
@@ -606,7 +615,11 @@
 				<value condition="[Window.IsActive(visualisation) | Skin.HasSetting(BackgroundVisualisation)] + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 				<value>$VAR[OtherBackgroundImage]</value>
 			</variable>
+			<variable name="SeasonContainerArgs">
+				<!--<value condition="Integer.IsLess(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,10)">S0$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,,]</value>-->
+				<value>S$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]</value>
+			</variable>
 		</variables>
 	</submenuOther>
-
+	
 </template>
