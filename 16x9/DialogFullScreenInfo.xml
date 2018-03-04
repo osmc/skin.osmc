@@ -15,12 +15,12 @@
 				<left>150</left>
 				<top>75</top>
 				<width>1620</width>
-				<height>234</height>
+				<height>278</height>
 
 				<!-- Background -->
 				<control type="image">
 					<width>1620</width>
-					<height>234</height>
+					<height>278</height>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 
@@ -59,13 +59,24 @@
 					<textcolor>DialogColor1</textcolor>
 					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
 				</control>
+				
+				<!-- Audio/subtitle stream -->
+				<control type="label">
+					<left>20</left>
+					<top>233</top>
+					<width>1280</width>
+					<height>30</height>
+					<font>Font27</font>
+					<textcolor>DialogColor1</textcolor>
+					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[460]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels,,$COMMA ]$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[VideoPlayer.SubtitlesLanguage,   [LIGHT]$LOCALIZE[462]:[/LIGHT] [UPPERCASE],[/UPPERCASE]]</label>
+				</control>
 
 				<!-- Icon -->
 				<control type="image">
 					<right>20</right>
 					<top>20</top>
 					<width>234</width>
-					<height>194</height>
+					<height>238</height>
 					<aspectratio align="right">keep</aspectratio>
 					<texture>$VAR[VideoPlayerIcon]</texture>
 				</control>
