@@ -1,5 +1,34 @@
-v17.0.4b
---------
+**Changes**
+
+_New_
+- music track duration added to music info dialog
+- global clock shows seconds (top right corner)
+- 3D label shown under media flags now (after first playback and/or if named according to Kodi wiki)
+- Atmos/DTS:X label shown under media flags now (if named according to Kodi wiki)
+- show codec information in music “now playing” window
+- show current audio/subtitle stream in info dialog during full screen video playback
+- add file size label next to duration label in file view
+
+_Improved_
+- show resolution with “p”-suffix (global)
+- show 4K resolution as 2160p (global)
+- adjust playback time and finish time in “now playing” dialog to match representation in full screen video playback window
+- show media flags in a two-line textbox
+- translate video/audio codecs in media flags to more understandable labels
+- add scrolling of long titles in “now playing” window for music
+- show more specific channel layout information (2.0, 5.1, 7.1, etc.)
+- replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
+- adjust representation of season/episode titles to one syntax everywhere: S01E01
+
+_Fixed_
+- window heading and system clock moved slightly down and reduced width of “now playing” dialog to avoid overlaps
+- adjust height of plot textbox in list view to avoid overlap with new media flag representation
+- use titles when available instead of item labels
+- recognize TV show specials and show them correctly (no season, just episode S1)
+- adjust width of scrolling titles in wall view and wide list view to avoid overlap with new media flags
+- “now playing” dialog now shows album/artist tags correctly even when one of them or both are not present in the currently playing music file
+
+**Changelog v17.0.4b**
 
 DialogMusicInfo.xml:
 - add track duration to music info dialog
@@ -55,3 +84,35 @@ script-skinshortcuts-static.xml:
 
 addon.xml:
 - bump version to 17.0.4b (add beta version information)
+
+**Changelog v17.0.4b2**
+
+DialogFullScreenInfo.xml:
+- add currently played audio/subtitle stream to video player info dialogue (global variables used here)
+
+DialogPlayerProcessInfo.xml:
+- add video and audio codec (global variables used here)
+
+Includes.xml:
+- adjust font size of item list count
+- delete file size label (just show size)
+- move file size label from bottom right to bottom left corner next to the duration label (under file view)
+- adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
+
+Variables.xml:
+- add variables "VideoPlayerAudioChannels", "VideoPlayerAudioCodec", "VideoPlayerCodec"
+- always use uppercase for "Sx" format of specials in relevant variables
+- add variable "SEListView" for use in episode list view
+
+Viewtype51.xml:
+- use variable "SEListView" in episode list view to only show "Episode Sx" when selecting a special
+
+Viewtype52.xml:
+- adjust width of title fadelabel to match width of scrollbar under wide list view
+- adjust width of details fadelabel to avoid collision with media flags (matching the width of the details fadelabel under Viewtype53.xml)
+
+template.xml:
+- adjust episode widget title to always use uppercase for "Sx" format of specials
+
+addon.xml:
+- bump version to 17.0.4b2
