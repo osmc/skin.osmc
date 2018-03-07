@@ -514,7 +514,16 @@
 				<width>auto</width>
 				<height>44</height>
 				<align>right</align>
-				<label>$INFO[ListItem.Size,  /  $LOCALIZE[289]: ,]</label>
+				<label>  /  </label>
+				<font>Font33</font>
+				<textcolor>TextColor2</textcolor>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + !ListItem.IsFolder + !String.IsEqual(ListItem.Size,0 B)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$INFO[ListItem.Size,$LOCALIZE[289]: ,]</label>
 				<font>Font33</font>
 				<textcolor>TextColor2</textcolor>
 				<visible>!ListItem.IsFolder + !String.IsEqual(ListItem.Size,0 B)</visible>
