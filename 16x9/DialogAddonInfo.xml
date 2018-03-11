@@ -140,12 +140,66 @@
 				</control>
 
 				<!-- Description -->
-				<control type="textbox">
+				<control type="group">
 					<top>230</top>
 					<width>1170</width>
 					<height>360</height>
 					<textcolor>DialogColor2</textcolor>
-					<label>$VAR[addonInformation]</label>
+					<control type="textbox">
+						<align>left</align>
+						<label>[LIGHT]$VAR[addonInformation][/LIGHT]</label>
+						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>[LIGHT]$VAR[addonInformation][/LIGHT]</label>
+						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<textcolor>DialogColor2</textcolor>
+						<label>[LIGHT]$VAR[addonInformation][/LIGHT]</label>
+						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font36</font>
+						<label>[LIGHT]$VAR[addonInformation][/LIGHT]</label>
+						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,XL) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					
+					<control type="textbox">
+						<align>left</align>
+						<label>$VAR[addonInformation]</label>
+						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$VAR[addonInformation]</label>
+						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$VAR[addonInformation]</label>
+						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font36</font>
+						<label>$VAR[addonInformation]</label>
+						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,XL) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
 				</control>
 
 			</control>
