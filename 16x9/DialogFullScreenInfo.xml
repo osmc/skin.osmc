@@ -49,15 +49,29 @@
 				</control>
 
 				<!-- Plot -->
-				<control type="textbox">
+				<control type="group">
 					<left>20</left>
 					<top>57</top>
 					<width>1280</width>
 					<height>163</height>
-					<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
-					<font>Font27</font>
 					<textcolor>DialogColor1</textcolor>
-					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+					<control type="textbox">
+						<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S)</visible>
+					</control>
+					<control type="textbox">
+						<font>Font30</font>
+						<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M)</visible>
+					</control>
+					<control type="textbox">
+						<font>Font33</font>
+						<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL)</visible>
+					</control>
 				</control>
 				
 				<!-- Audio/subtitle stream -->
