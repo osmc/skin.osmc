@@ -8,6 +8,7 @@ _New_
 - show codec information in music “now playing” window
 - show current audio/subtitle stream in info dialog during full screen video playback
 - add file size label next to duration label in file view
+- add adjustable font sizes/styles to plot/description texts (addon info, music info, full screen info, PVR info and video info dialog) – font sizes 27 (S), 30 (M), 33 (L) and 36 (XL) available in normal and light
 
 _Improved_
 - show resolution with “p”-suffix (global)
@@ -87,17 +88,34 @@ addon.xml:
 
 **Changelog v17.0.4b2**
 
+DialogAddonInfo.xml:
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to addon description text
+
 DialogFullScreenInfo.xml:
 - add currently played audio/subtitle stream to video player info dialogue (global variables used here)
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
+
+DialogMusicInfo.xml:
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to music plot text
 
 DialogPlayerProcessInfo.xml:
 - add video and audio codec (global variables used here)
+
+DialogPVRInfo.xml:
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to PVR plot text
+
+DialogVideoInfo.xml:
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
 
 Includes.xml:
 - adjust font size of item list count
 - delete file size label (just show size)
 - move file size label from bottom right to bottom left corner next to the duration label (under file view)
 - adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
+
+SkinSettings.xml:
+- add new button for description/plot text font size under advanced skin settings
+- add new button to toggle light font for description/plot texts under advanced skin settings
 
 Variables.xml:
 - add variables "VideoPlayerAudioChannels", "VideoPlayerAudioCodec", "VideoPlayerCodec"
@@ -110,6 +128,9 @@ Viewtype51.xml:
 Viewtype52.xml:
 - adjust width of title fadelabel to match width of scrollbar under wide list view
 - adjust width of details fadelabel to avoid collision with media flags (matching the width of the details fadelabel under Viewtype53.xml)
+
+string.po:
+- add two new localizes for new skin settings buttons (#31100 and #31101)
 
 template.xml:
 - adjust episode widget title to always use uppercase for "Sx" format of specials
