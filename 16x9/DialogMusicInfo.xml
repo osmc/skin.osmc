@@ -583,14 +583,67 @@
 					</control>
 
 				<!-- Plot -->
-				<control type="textbox">
+				<control type="group">
 					<top>370</top>
 					<width>1170</width>
 					<height>210</height>
 					<textcolor>DialogColor2</textcolor>
-					<label>$VAR[MusicInfoDescription]</label>
+					<control type="textbox">
+						<align>left</align>
+						<label>[LIGHT]$VAR[MusicInfoDescription][/LIGHT]</label>
+						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>[LIGHT]$VAR[MusicInfoDescription][/LIGHT]</label>
+						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>[LIGHT]$VAR[MusicInfoDescription][/LIGHT]</label>
+						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font36</font>
+						<label>[LIGHT]$VAR[MusicInfoDescription][/LIGHT]</label>
+						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,XL) + Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					
+					<control type="textbox">
+						<align>left</align>
+						<label>$VAR[MusicInfoDescription]</label>
+						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$VAR[MusicInfoDescription]</label>
+						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$VAR[MusicInfoDescription]</label>
+						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font36</font>
+						<label>$VAR[MusicInfoDescription]</label>
+						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,XL) + !Skin.HasSetting(PlotFontLight)</visible>
+					</control>
 				</control>
-
 			</control>
 
 			<!-- Tracks/Discography -->
