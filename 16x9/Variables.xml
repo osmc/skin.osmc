@@ -386,8 +386,8 @@
 	</variable>
 
 	<variable name="Label2-episodes">
-		<value condition="!String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered,$LOCALIZE[20416]: ,]</value>
-		<value condition="!String.IsEmpty(ListItem.Date)">$INFO[ListItem.Date,$LOCALIZE[570]: ,]</value>
+		<value condition="!String.IsEmpty(ListItem.Premiered) + Container.Content(episodes)">$INFO[ListItem.Premiered,$LOCALIZE[20416]: ,]</value>
+		<value condition="!String.IsEmpty(ListItem.Date) + Container.Content(episodes)">$INFO[ListItem.Date,$LOCALIZE[570]: ,]</value>
 	</variable>
 
 		<!-- Audio Channel labels -->
