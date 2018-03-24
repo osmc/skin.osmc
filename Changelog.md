@@ -16,6 +16,7 @@ _Improved_
 - show media flags in a two-line textbox
 - translate video/audio codecs in media flags to more understandable labels
 - add scrolling of long titles in “now playing” window for music
+- add scrolling of long album titles/artist tags in music list view
 - show more specific channel layout information (2.0, 5.1, 7.1, etc.)
 - replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
 - adjust representation of season/episode titles to one syntax everywhere: S01E01
@@ -28,20 +29,35 @@ _Fixed_
 - adjust width of scrolling titles in wall view and wide list view to avoid overlap with new media flags
 - “now playing” dialog now shows album/artist tags correctly even when one of them or both are not present in the currently playing music file
 
-**Changelog v17.0.4b**
+**Changelog v17.0.4**
+
+DialogAddonInfo.xml:
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to addon description text
+
+DialogFullScreenInfo.xml:
+- add currently played audio/subtitle stream to video player info dialogue (global variables used here)
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
+- move now playing/next window line in info view of full screen PVR playback slightly down to avoid overlap with current audio/subtitle stream info
 
 DialogMusicInfo.xml:
 - add track duration to music info dialog
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to music plot text
 
 DialogMusicInfo.xml, DialogPVRInfo.xml, DialogVideoInfo.xml:
 - replace duration label by a global variable for duration labels (for music, PVR and video)
 
+DialogPlayerProcessInfo.xml:
+- add video and audio codec (global variables used here)
+
+DialogPVRInfo.xml:
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to PVR plot text
+
 DialogVideoInfo.xml:
 - add "p" to resolution in video info dialog and alter representation of 4K resolutions to "2160p" (global variable used here)
+- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
 
 Includes.xml:
 - move window headings and system time slightly downwards to avoid collision/overlap with "now playing" dialog (if music/video/PVR titles are very long)
-- add seconds to system time (more accurate and easier to see, whether the system crashed e.g.)
 - adjust width of now playing dialog (to avoid collision with main menu items)
 - adjust now playing dialog for TV shows (old format: s1e1, new format: S01E01 - capital letters and leading zeros added)
 - add ": " to music now playing dialog when showing artist and album (a separator is useful here!)
@@ -51,10 +67,24 @@ Includes.xml:
 - add a label for Atmos/DTS:X audio streams (global variable used here)
 - adjust representation of audio codec IDs and channel layout (global variables used here)
 - move duration label a bit to the left to clarify difference to MediaFlag labels (whitespace added in between those two as well)
+- adjust font size of item list count
+- delete file size label (just show size)
+- move file size label from bottom right to bottom left corner next to the duration label (under file view)
+- adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
 
 MusicVisualisation.xml:
 - complete redo of "Now playing" label (all lines turned into fadelabels to scroll long titles, add audio information - codec, bitrate, channel layout and sample rate -, global variables used here)
 - complete redo of "Next playing" label (all lines turned into fadelabels to scroll long titles, global variables used here as labels - [CR] can't be scrolled!)
+
+MyMusicNav.xml:
+- move wall scrollbar down (for view 55)
+
+MyPrograms.xml:
+- move wall scrollbar down (for view 55)
+
+SkinSettings.xml:
+- add new button for description/plot text font size under advanced skin settings
+- add new button to toggle light font for description/plot texts under advanced skin settings
 
 Variables.xml:
 - complete redo of variable "AudioChannels" (not only stereo and surround as output, but all supported channel layouts)
@@ -68,71 +98,36 @@ Variables.xml:
 - add variables "SEplaying", "SElist" and "SEContainer" needed for "SxxExx" representation in list view and in widget titles (add line to show only episode title when ListItem.Episode contains the character "s" - for series specials)
 - adjust "Label1" variable to show titles, if present, and show episode titles as "SxxExx [separator] episode title"
 - replace "Aired on" by a LOCALIZE showing "First air date" (replacing only English line)
+- add variables "VideoPlayerAudioChannels", "VideoPlayerAudioCodec", "VideoPlayerCodec"
+- always use uppercase for "Sx" format of specials in relevant variables
+- add variable "SEListView" for use in episode list view
+- replace "Now" and "Next" in PVR full screen playback info title variable by localizes
 
 Viewtype51.xml:
 - adjust text box height of plots shown when selecting a TV show episode in list view (to avoid collision with new MediaFlags representation)
 - replace separator " / " by point separator (adapting the separator used between season and episode: "season x [separator] episode x" to the one used in list view and episode widget titles)
+- use variable "SEListView" in episode list view to only show "Episode Sx" when selecting a special
 
 Viewtype52.xml, Viewtype53.xml, Viewtype55.xml:
 - use variable "Label1" for titles
-
-template.xml:
-- add/adjust variable conditions needed for "SxxExx" representation in in widget titles when using script-skinshortcuts (add line to show only episode title when ListItem.Episode contains the character "s" - for series specials)
-
-script-skinshortcuts-static.xml:
-- replace fixed "(sxex) episode title" syntax with variable for "SxxExx [separator] episode title" (this file is used when script-skinshortcuts is not installed)
-
-addon.xml:
-- bump version to 17.0.4b (add beta version information)
-
-**Changelog v17.0.4b2**
-
-DialogAddonInfo.xml:
-- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to addon description text
-
-DialogFullScreenInfo.xml:
-- add currently played audio/subtitle stream to video player info dialogue (global variables used here)
-- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
-
-DialogMusicInfo.xml:
-- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to music plot text
-
-DialogPlayerProcessInfo.xml:
-- add video and audio codec (global variables used here)
-
-DialogPVRInfo.xml:
-- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to PVR plot text
-
-DialogVideoInfo.xml:
-- add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
-
-Includes.xml:
-- adjust font size of item list count
-- delete file size label (just show size)
-- move file size label from bottom right to bottom left corner next to the duration label (under file view)
-- adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
-
-SkinSettings.xml:
-- add new button for description/plot text font size under advanced skin settings
-- add new button to toggle light font for description/plot texts under advanced skin settings
-
-Variables.xml:
-- add variables "VideoPlayerAudioChannels", "VideoPlayerAudioCodec", "VideoPlayerCodec"
-- always use uppercase for "Sx" format of specials in relevant variables
-- add variable "SEListView" for use in episode list view
-
-Viewtype51.xml:
-- use variable "SEListView" in episode list view to only show "Episode Sx" when selecting a special
-
-Viewtype52.xml:
 - adjust width of title fadelabel to match width of scrollbar under wide list view
 - adjust width of details fadelabel to avoid collision with media flags (matching the width of the details fadelabel under Viewtype53.xml)
+
+Viewtype54.xml:
+- use fadelabel for artist/album title under album cover in music list view (enable scrolling of long titles)
+
+Viewtype55.xml:
+- move thumbs in wall view for music and programs slightly down and decrease spacing between them to correct spacing with system time and window headings
 
 string.po:
 - add two new localizes for new skin settings buttons (#31100 and #31101)
 
 template.xml:
+- add/adjust variable conditions needed for "SxxExx" representation in in widget titles when using script-skinshortcuts (add line to show only episode title when ListItem.Episode contains the character "s" - for series specials)
 - adjust episode widget title to always use uppercase for "Sx" format of specials
 
+script-skinshortcuts-static.xml:
+- replace fixed "(sxex) episode title" syntax with variable for "SxxExx [separator] episode title" (this file is used when script-skinshortcuts is not installed)
+
 addon.xml:
-- bump version to 17.0.4b2
+- bump version to 17.0.4
