@@ -2,8 +2,8 @@
 
 _New_
 - music track duration added to music info dialog
-- 3D label shown under media flags now (after first playback and/or if named according to Kodi wiki)
-- Atmos/DTS:X label shown under media flags now (if named according to Kodi wiki)
+- 3D label shown under media flags now (after first playback and/or if named according to Kodi wiki, no blanks allowed)
+- Atmos/DTS:X label shown under media flags now (if named according to Kodi wiki, no blanks allowed)
 - show codec information in music “now playing” window
 - show current audio/subtitle stream in info dialog during full screen video playback
 - add file size label next to duration label in file view
