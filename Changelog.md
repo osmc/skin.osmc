@@ -20,6 +20,7 @@ _Improved_
 - show more specific channel layout information (2.0, 5.1, 7.1, etc.)
 - replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
 - adjust representation of season/episode titles to one syntax everywhere: S01E01
+- change system clock to enable region specific time representation (e.g. 12h AM/PM or 24h)
 
 _Fixed_
 - window heading and system clock moved slightly down and reduced width of “now playing” dialog to avoid overlaps
@@ -52,6 +53,10 @@ DialogPlayerProcessInfo.xml:
 DialogPVRInfo.xml:
 - add different font sizes/styles (27, 30, 33 and 36 - light, normal) to PVR plot text
 
+DialogSubtitles.xml:
+- change filename label into fadelabel to enable scrolling
+- add scrolling to subtitle name label
+
 DialogVideoInfo.xml:
 - add "p" to resolution in video info dialog and alter representation of 4K resolutions to "2160p" (global variable used here)
 - add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
@@ -71,6 +76,7 @@ Includes.xml:
 - delete file size label (just show size)
 - move file size label from bottom right to bottom left corner next to the duration label (under file view)
 - adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
+- change info label for system clock to enable region specific time representation (e.g. 12h AM/PM or 24h)
 
 MusicVisualisation.xml:
 - complete redo of "Now playing" label (all lines turned into fadelabels to scroll long titles, add audio information - codec, bitrate, channel layout and sample rate -, global variables used here)
