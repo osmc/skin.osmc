@@ -8,6 +8,7 @@ _New_
 - show current audio/subtitle stream in info dialog during full screen video playback
 - add file size label next to duration label in file view
 - add adjustable font sizes/styles to plot/description texts (addon info, music info, full screen info, PVR info and video info dialog) – font sizes 27 (S), 30 (M), 33 (L) and 36 (XL) available in normal and light
+- add option to show date above system time
 
 _Improved_
 - show resolution with “p”-suffix (global)
@@ -20,7 +21,6 @@ _Improved_
 - show more specific channel layout information (2.0, 5.1, 7.1, etc.)
 - replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
 - adjust representation of season/episode titles to one syntax everywhere: S01E01
-- change system clock to enable region specific time representation (e.g. 12h AM/PM or 24h)
 
 _Fixed_
 - window heading and system clock moved slightly down and reduced width of “now playing” dialog to avoid overlaps
@@ -76,7 +76,7 @@ Includes.xml:
 - delete file size label (just show size)
 - move file size label from bottom right to bottom left corner next to the duration label (under file view)
 - adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
-- change info label for system clock to enable region specific time representation (e.g. 12h AM/PM or 24h)
+- add system date label to system time include in top right corner (only visible with a skin setting)
 
 MusicVisualisation.xml:
 - complete redo of "Now playing" label (all lines turned into fadelabels to scroll long titles, add audio information - codec, bitrate, channel layout and sample rate -, global variables used here)
@@ -91,6 +91,7 @@ MyPrograms.xml:
 SkinSettings.xml:
 - add new button for description/plot text font size under advanced skin settings
 - add new button to toggle light font for description/plot texts under advanced skin settings
+- add new button to toggle "Show date above system time" option under home skin settings
 
 Variables.xml:
 - complete redo of variable "AudioChannels" (not only stereo and surround as output, but all supported channel layouts)
@@ -127,6 +128,7 @@ Viewtype55.xml:
 
 string.po:
 - add two new localizes for new skin settings buttons (#31100 and #31101)
+- add new localize for new skin settings button (#31102)
 
 template.xml:
 - add/adjust variable conditions needed for "SxxExx" representation in in widget titles when using script-skinshortcuts (add line to show only episode title when ListItem.Episode contains the character "s" - for series specials)

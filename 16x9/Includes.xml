@@ -170,7 +170,19 @@
 					<label>$INFO[System.Time]</label>
 					<font>Font33</font>
 					<textcolor>DialogColor1</textcolor>
-					<visible>!Player.HasMedia | !Integer.IsGreater(Player.Duration,0)</visible>
+					<visible>[!Player.HasMedia | !Integer.IsGreater(Player.Duration,0)]</visible>
+				</control>
+				<control type="label">
+					<right>120</right>
+					<top>93</top>
+					<width>1400</width>
+					<height>66</height>
+					<aligny>top</aligny>
+					<align>right</align>
+					<label>$INFO[System.Date,[LIGHT],[/LIGHT]]</label>
+					<font>Font33</font>
+					<textcolor>DialogColor1</textcolor>
+					<visible>Skin.HasSetting(Dateaboveclock) + [!Player.HasMedia | !Integer.IsGreater(Player.Duration,0)]</visible>
 				</control>
 
 				<control type="group">
