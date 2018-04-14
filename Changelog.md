@@ -21,6 +21,7 @@ _Improved_
 - show more specific channel layout information (2.0, 5.1, 7.1, etc.)
 - replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
 - adjust representation of season/episode titles to one syntax everywhere: S01E01
+- replace "Loading…" upon widget loading at startup of mediacenter by a LOCALIZE showing "Please wait…" (replacing only English line)
 
 _Fixed_
 - window heading and system clock moved slightly down and reduced width of “now playing” dialog to avoid overlaps
@@ -77,6 +78,7 @@ Includes.xml:
 - move file size label from bottom right to bottom left corner next to the duration label (under file view)
 - adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
 - add system date label to system time include in top right corner (only visible with a skin setting)
+- adjust "now playing" dialog for audio addons which only provide a playback length of 0
 
 MusicVisualisation.xml:
 - complete redo of "Now playing" label (all lines turned into fadelabels to scroll long titles, add audio information - codec, bitrate, channel layout and sample rate -, global variables used here)
@@ -87,6 +89,10 @@ MyMusicNav.xml:
 
 MyPrograms.xml:
 - move wall scrollbar down (for view 55)
+
+script-skinshortcuts-static.xml:
+- replace fixed "(sxex) episode title" syntax with variable for "SxxExx [separator] episode title" (this file is used when script-skinshortcuts is not installed)
+- replace "Loading…" by a LOCALIZE showing "Please wait…" (replacing only English line)
 
 SkinSettings.xml:
 - add new button for description/plot text font size under advanced skin settings
@@ -133,9 +139,7 @@ string.po:
 template.xml:
 - add/adjust variable conditions needed for "SxxExx" representation in in widget titles when using script-skinshortcuts (add line to show only episode title when ListItem.Episode contains the character "s" - for series specials)
 - adjust episode widget title to always use uppercase for "Sx" format of specials
-
-script-skinshortcuts-static.xml:
-- replace fixed "(sxex) episode title" syntax with variable for "SxxExx [separator] episode title" (this file is used when script-skinshortcuts is not installed)
+- replace "Loading…" by a LOCALIZE showing "Please wait…" (replacing only English line)
 
 addon.xml:
 - bump version to 17.0.4

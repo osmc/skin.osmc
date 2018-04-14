@@ -170,7 +170,7 @@
 					<label>$INFO[System.Time]</label>
 					<font>Font33</font>
 					<textcolor>DialogColor1</textcolor>
-					<visible>[!Player.HasMedia | !Integer.IsGreater(Player.Duration,0)]</visible>
+					<visible>!Player.HasMedia</visible>
 				</control>
 				<control type="label">
 					<right>120</right>
@@ -182,11 +182,11 @@
 					<label>$INFO[System.Date,[LIGHT],[/LIGHT]]</label>
 					<font>Font33</font>
 					<textcolor>DialogColor1</textcolor>
-					<visible>Skin.HasSetting(Dateaboveclock) + [!Player.HasMedia | !Integer.IsGreater(Player.Duration,0)]</visible>
+					<visible>Skin.HasSetting(Dateaboveclock) + !Player.HasMedia</visible>
 				</control>
 
 				<control type="group">
-					<visible>Player.HasMedia + Integer.IsGreater(Player.Duration,0)</visible>
+					<visible>Player.HasMedia</visible>
 
 					<!-- Now Playing - Video -->
 					<control type="fadelabel">
@@ -216,7 +216,7 @@
 						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
 						<label>[LIGHT]$INFO[MusicPlayer.Artist,,:  ][/LIGHT]$INFO[MusicPlayer.Album]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
-						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)]</visible>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)] + Integer.IsGreater(Player.Duration,0)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
 					
@@ -230,7 +230,7 @@
 						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
 						<label>[LIGHT]$INFO[MusicPlayer.Artist][/LIGHT]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
-						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)]</visible>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)] + Integer.IsGreater(Player.Duration,0)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
 					
@@ -244,7 +244,7 @@
 						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
 						<label>$INFO[MusicPlayer.Album]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
-						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)]</visible>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)] + Integer.IsGreater(Player.Duration,0)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
 					
@@ -257,10 +257,61 @@
 						<align>right</align>
 						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
-						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)]</visible>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)] + Integer.IsGreater(Player.Duration,0)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
-
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
+						<label>[LIGHT]$INFO[MusicPlayer.Artist,,:  ][/LIGHT]$INFO[MusicPlayer.Album]</label>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
+						<label>[LIGHT]$INFO[MusicPlayer.Artist][/LIGHT]</label>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
+						<label>$INFO[MusicPlayer.Album]</label>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
+						<visible>Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
 					<!-- Now Playing - PVR Recording -->
 					<control type="fadelabel">
 						<right>170</right>
