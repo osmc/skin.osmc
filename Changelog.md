@@ -21,7 +21,7 @@ _Improved_
 - show more specific channel layout information (2.0, 5.1, 7.1, etc.)
 - replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
 - adjust representation of season/episode titles to one syntax everywhere: S01E01
-- replace "Loading…" upon widget loading at startup of mediacenter by a LOCALIZE showing "Please wait…" (replacing only English line)
+- replace "Loading…" upon widget loading at startup of mediacenter by translatable "Please wait…"
 
 _Fixed_
 - window heading and system clock moved slightly down and reduced width of “now playing” dialog to avoid overlaps
