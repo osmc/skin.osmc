@@ -197,7 +197,7 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[VideoPlayer.TVShowTitle]</label>
-						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[VideoPlayer.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
@@ -321,7 +321,7 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[Player.Title]</label>
-						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
 						<visible>Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
 						<pauseatend>5000</pauseatend>
@@ -559,19 +559,10 @@
 				<width>auto</width>
 				<height>44</height>
 				<align>right</align>
-				<label>$INFO[ListItem.Duration, , ]</label>
+				<label>$VAR[Duration]</label>
 				<font>Font33</font>
 				<textcolor>TextColor2</textcolor>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$LOCALIZE[12391]</label>
-				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
-				<visible>!String.IsEmpty(ListItem.Duration) + !String.Contains(ListItem.Duration,:) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 			</control>
 			<control type="label">
 				<width>auto</width>

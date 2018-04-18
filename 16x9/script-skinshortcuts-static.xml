@@ -10,9 +10,9 @@
 			<property name="labelID">movies</property>
 			<property name="defaultID">movies</property>
 			<visible>Library.HasContent(Movies)</visible>
-			<onclick>ActivateWindow(Videos,library://video/movies/titles.xml/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,library://video/movies/titles.xml/,return)</property>
-			<property name="list">library://video/movies/titles.xml/</property>
+			<onclick>ActivateWindow(Videos,videodb://movies/titles/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://movies/titles/,return)</property>
+			<property name="list">videodb://movies/titles/</property>
 			<visible>True</visible>
 			<property name="submenuVisibility">movies</property>
 			<property name="group">mainmenu</property>
@@ -27,9 +27,9 @@
 			<property name="labelID">tvshows</property>
 			<property name="defaultID">tvshows</property>
 			<visible>Library.HasContent(TVShows)</visible>
-			<onclick>ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,library://video/tvshows/titles.xml/,return)</property>
-			<property name="list">library://video/tvshows/titles.xml/</property>
+			<onclick>ActivateWindow(Videos,videodb://tvshows/titles/,return)</onclick>
+			<property name="path">ActivateWindow(Videos,videodb://tvshows/titles/,return)</property>
+			<property name="list">videodb://tvshows/titles/</property>
 			<visible>True</visible>
 			<property name="submenuVisibility">tvshows</property>
 			<property name="group">mainmenu</property>
@@ -37,7 +37,7 @@
 		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
-			<label>$LOCALIZE[10006]</label>
+			<label>$LOCALIZE[3]</label>
 			<label2>Common Shortcut</label2>
 			<icon>DefaultVideo.png</icon>
 			<thumb />
@@ -53,14 +53,14 @@
 		</item>
 		<item id="4">
 			<property name="id">$NUMBER[4]</property>
-			<label>$LOCALIZE[10005]</label>
+			<label>$LOCALIZE[2]</label>
 			<label2>Common Shortcut</label2>
 			<icon>DefaultMusicAlbums.png</icon>
 			<thumb />
 			<property name="labelID">music</property>
 			<property name="defaultID">music</property>
-			<onclick>ActivateWindow(Music,root)</onclick>
-			<property name="path">ActivateWindow(Music,root)</property>
+			<onclick>ActivateWindow(Music,root,return)</onclick>
+			<property name="path">ActivateWindow(Music,root,return)</property>
 			<property name="list">root</property>
 			<visible>True</visible>
 			<property name="submenuVisibility">music</property>
@@ -139,7 +139,7 @@
 			<thumb />
 			<property name="labelID">weather</property>
 			<property name="defaultID">weather</property>
-			<visible>!IsEmpty(Weather.Plugin)</visible>
+			<visible>!String.IsEmpty(Weather.Plugin)</visible>
 			<onclick>ActivateWindow(Weather)</onclick>
 			<property name="path">ActivateWindow(Weather)</property>
 			<property name="list">Weather</property>
@@ -243,7 +243,7 @@
 			<thumb />
 			<property name="labelID">345</property>
 			<property name="defaultID">345</property>
-			<visible>[Library.HasContent(Movies)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<onclick>ActivateWindow(10025,"library://video/movies/years.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/movies/years.xml/",return)</property>
 			<property name="list">library://video/movies/years.xml/</property>
@@ -260,7 +260,7 @@
 			<thumb />
 			<property name="labelID">135</property>
 			<property name="defaultID">135</property>
-			<visible>[Library.HasContent(Movies)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<onclick>ActivateWindow(10025,"library://video/movies/genres.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/movies/genres.xml/",return)</property>
 			<property name="list">library://video/movies/genres.xml/</property>
@@ -277,7 +277,7 @@
 			<thumb />
 			<property name="labelID">344</property>
 			<property name="defaultID">344</property>
-			<visible>[Library.HasContent(Movies)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<onclick>ActivateWindow(10025,"library://video/movies/actors.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/movies/actors.xml/",return)</property>
 			<property name="list">library://video/movies/actors.xml/</property>
@@ -294,7 +294,7 @@
 			<thumb />
 			<property name="labelID">20348</property>
 			<property name="defaultID">20348</property>
-			<visible>[Library.HasContent(Movies)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<onclick>ActivateWindow(10025,"library://video/movies/directors.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/movies/directors.xml/",return)</property>
 			<property name="list">library://video/movies/directors.xml/</property>
@@ -311,7 +311,7 @@
 			<thumb />
 			<property name="labelID">345</property>
 			<property name="defaultID">345</property>
-			<visible>[Library.HasContent(TVShows)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<onclick>ActivateWindow(10025,"library://video/tvshows/years.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/tvshows/years.xml/",return)</property>
 			<property name="list">library://video/tvshows/years.xml/</property>
@@ -328,7 +328,7 @@
 			<thumb />
 			<property name="labelID">135</property>
 			<property name="defaultID">135</property>
-			<visible>[Library.HasContent(TVShows)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<onclick>ActivateWindow(10025,"library://video/tvshows/genres.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/tvshows/genres.xml/",return)</property>
 			<property name="list">library://video/tvshows/genres.xml/</property>
@@ -345,7 +345,7 @@
 			<thumb />
 			<property name="labelID">344</property>
 			<property name="defaultID">344</property>
-			<visible>[Library.HasContent(TVShows)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<onclick>ActivateWindow(10025,"library://video/tvshows/actors.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/tvshows/actors.xml/",return)</property>
 			<property name="list">library://video/tvshows/actors.xml/</property>
@@ -362,7 +362,7 @@
 			<thumb />
 			<property name="labelID">20388</property>
 			<property name="defaultID">20388</property>
-			<visible>[Library.HasContent(TVShows)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<onclick>ActivateWindow(10025,"library://video/tvshows/studios.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/tvshows/studios.xml/",return)</property>
 			<property name="list">library://video/tvshows/studios.xml/</property>
@@ -382,7 +382,7 @@
 			<onclick>ActivateWindow(Videos,Addons,return)</onclick>
 			<property name="path">ActivateWindow(Videos,Addons,return)</property>
 			<property name="list">Addons</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
 			<property name="group">videos</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -395,7 +395,7 @@
 			<thumb />
 			<property name="labelID">musicvideos</property>
 			<property name="defaultID">musicvideos</property>
-			<visible>[Library.HasContent(MusicVideos)] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
+			<visible>[Library.HasContent(MusicVideos)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
 			<onclick>ActivateWindow(Videos,videodb://musicvideos/titles/,return)</onclick>
 			<property name="path">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</property>
 			<property name="list">videodb://musicvideos/titles/</property>
@@ -415,7 +415,7 @@
 			<onclick>ActivateWindow(Videos,Files,return)</onclick>
 			<property name="path">ActivateWindow(Videos,Files,return)</property>
 			<property name="list">Files</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
 			<property name="group">videos</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -431,7 +431,7 @@
 			<onclick>ActivateWindow(Music,Artists,return)</onclick>
 			<property name="path">ActivateWindow(Music,Artists,return)</property>
 			<property name="list">Artists</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -447,7 +447,7 @@
 			<onclick>ActivateWindow(Music,Albums,return)</onclick>
 			<property name="path">ActivateWindow(Music,Albums,return)</property>
 			<property name="list">Albums</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -463,7 +463,7 @@
 			<onclick>ActivateWindow(Music,Songs,return)</onclick>
 			<property name="path">ActivateWindow(Music,Songs,return)</property>
 			<property name="list">Songs</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -479,7 +479,7 @@
 			<onclick>ActivateWindow(Music,Files,Return)</onclick>
 			<property name="path">ActivateWindow(Music,Files,Return)</property>
 			<property name="list">Files</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -495,7 +495,7 @@
 			<onclick>ActivateWindow(Music,MusicLibrary,return)</onclick>
 			<property name="path">ActivateWindow(Music,MusicLibrary,return)</property>
 			<property name="list">MusicLibrary</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -511,7 +511,7 @@
 			<onclick>ActivateWindow(Music,Addons,return)</onclick>
 			<property name="path">ActivateWindow(Music,Addons,return)</property>
 			<property name="list">Addons</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -527,7 +527,7 @@
 			<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
 			<property name="path">ActivateWindow(Pictures,Addons,return)</property>
 			<property name="list">Addons</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),pictures)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),pictures)</visible>
 			<property name="group">pictures</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -540,7 +540,7 @@
 			<thumb />
 			<property name="labelID">19019</property>
 			<property name="defaultID">19019</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<onclick>ActivateWindow(TVChannels)</onclick>
 			<property name="path">ActivateWindow(TVChannels)</property>
 			<property name="list">TVChannels</property>
@@ -557,7 +557,7 @@
 			<thumb />
 			<property name="labelID">22020</property>
 			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<onclick>ActivateWindow(TVGuide)</onclick>
 			<property name="path">ActivateWindow(TVGuide)</property>
 			<property name="list">TVGuide</property>
@@ -574,7 +574,7 @@
 			<thumb />
 			<property name="labelID">19163</property>
 			<property name="defaultID">19163</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<onclick>ActivateWindow(TVRecordings)</onclick>
 			<property name="path">ActivateWindow(TVRecordings)</property>
 			<property name="list">TVRecordings</property>
@@ -591,7 +591,7 @@
 			<thumb />
 			<property name="labelID">19040</property>
 			<property name="defaultID">19040</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<onclick>ActivateWindow(TVTimers)</onclick>
 			<property name="path">ActivateWindow(TVTimers)</property>
 			<property name="list">TVTimers</property>
@@ -608,7 +608,7 @@
 			<thumb />
 			<property name="labelID">137</property>
 			<property name="defaultID">137</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<onclick>ActivateWindow(TVSearch)</onclick>
 			<property name="path">ActivateWindow(TVSearch)</property>
 			<property name="list">TVSearch</property>
@@ -625,7 +625,7 @@
 			<thumb />
 			<property name="labelID">19019</property>
 			<property name="defaultID">19019</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<onclick>ActivateWindow(RadioChannels)</onclick>
 			<property name="path">ActivateWindow(RadioChannels)</property>
 			<property name="list">RadioChannels</property>
@@ -642,7 +642,7 @@
 			<thumb />
 			<property name="labelID">22020</property>
 			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<onclick>ActivateWindow(RadioGuide)</onclick>
 			<property name="path">ActivateWindow(RadioGuide)</property>
 			<property name="list">RadioGuide</property>
@@ -659,7 +659,7 @@
 			<thumb />
 			<property name="labelID">19163</property>
 			<property name="defaultID">19163</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<onclick>ActivateWindow(RadioRecordings)</onclick>
 			<property name="path">ActivateWindow(RadioRecordings)</property>
 			<property name="list">RadioRecordings</property>
@@ -676,7 +676,7 @@
 			<thumb />
 			<property name="labelID">19040</property>
 			<property name="defaultID">19040</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<onclick>ActivateWindow(RadioTimers)</onclick>
 			<property name="path">ActivateWindow(RadioTimers)</property>
 			<property name="list">RadioTimers</property>
@@ -693,7 +693,7 @@
 			<thumb />
 			<property name="labelID">137</property>
 			<property name="defaultID">137</property>
-			<visible>[System.HasPVRAddon] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<onclick>ActivateWindow(RadioSearch)</onclick>
 			<property name="path">ActivateWindow(RadioSearch)</property>
 			<property name="list">RadioSearch</property>
@@ -713,7 +713,7 @@
 			<onclick>RipCD</onclick>
 			<property name="path">RipCD</property>
 			<property name="list">RipCD</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-341)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-341)</visible>
 			<property name="group">341</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -729,7 +729,7 @@
 			<onclick>EjectTray()</onclick>
 			<property name="path">EjectTray()</property>
 			<property name="list">EjectTray()</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-341)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-341)</visible>
 			<property name="group">341</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -745,7 +745,7 @@
 			<onclick>ActivateWindow(filemanager)</onclick>
 			<property name="path">ActivateWindow(filemanager)</property>
 			<property name="list">filemanager</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -761,7 +761,7 @@
 			<onclick>ActivateWindow(systeminfo)</onclick>
 			<property name="path">ActivateWindow(systeminfo)</property>
 			<property name="list">systeminfo</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -777,7 +777,7 @@
 			<onclick>ActivateWindow(profiles)</onclick>
 			<property name="path">ActivateWindow(profiles)</property>
 			<property name="list">profiles</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -798,10 +798,9 @@
 			<property name="widgetType">movies</property>
 			<property name="widgetPath">special://skin/extras/playlists/random_movies.xsp</property>
 			<property name="widgetTarget">videos</property>
-			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<property name="group">movies.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -819,10 +818,9 @@
 			<property name="widgetType">epsiodes</property>
 			<property name="widgetPath">videodb://recentlyaddedepisodes</property>
 			<property name="widgetTarget">videos</property>
-			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<property name="group">tvshows.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -840,10 +838,9 @@
 			<property name="widgetType">albums</property>
 			<property name="widgetPath">special://skin/extras/playlists/random_albums.xsp</property>
 			<property name="widgetTarget">music</property>
-			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -861,10 +858,9 @@
 			<property name="widgetType">program</property>
 			<property name="widgetPath">addons://sources/executable</property>
 			<property name="widgetTarget">programs</property>
-			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<property name="group">programs.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -881,10 +877,9 @@
 			<property name="widgetName">$LOCALIZE[10508]</property>
 			<property name="widgetType">custom</property>
 			<property name="widgetPath">$INCLUDE[weather-widget]</property>
-			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<property name="group">weather.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -902,10 +897,9 @@
 			<property name="widgetType">pvr</property>
 			<property name="widgetPath">pvr://channels/tv/*/</property>
 			<property name="widgetTarget">videos</property>
-			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<property name="group">14204.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -923,10 +917,9 @@
 			<property name="widgetType">pvr</property>
 			<property name="widgetPath">pvr://channels/radio/*/</property>
 			<property name="widgetTarget">videos</property>
-			<onclick>noop</onclick>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<property name="group">19021.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -941,7 +934,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -961,7 +954,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[31054]</label>
-					<onclick>noop</onclick>
 					<visible>Integer.IsGreater(Container(10101).NumItems,0) | Container(10101).IsUpdating</visible>
 					<property name="widgetID">1-1</property>
 					<property name="widgetContainer">10101</property>
@@ -972,38 +964,35 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem(-1).Property(widgetID),1-1)">Control.SetFocus(10101)</onfocus>
 			<onfocus>SetProperty(changeWidget-10001,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10001,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10001,-1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9006" type="button">
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem.Property(widgetID),1-1)">Control.SetFocus(10101)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10001).NumItems,0)">Control.SetFocus(9000)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem(1).Property(widgetID),1-1)">Control.SetFocus(10101)</onfocus>
 			<onfocus>SetProperty(changeWidget-10001,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10001,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10001,1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<include content="widgetHeading">
 				<param name="container">10001</param>
 			</include>
@@ -1014,7 +1003,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -1034,7 +1023,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[20387]</label>
-					<onclick>noop</onclick>
 					<visible>Integer.IsGreater(Container(10201).NumItems,0) | Container(10201).IsUpdating</visible>
 					<property name="widgetID">2-1</property>
 					<property name="widgetContainer">10201</property>
@@ -1045,38 +1033,35 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(10002).ListItem(-1).Property(widgetID),2-1)">Control.SetFocus(10201)</onfocus>
 			<onfocus>SetProperty(changeWidget-10002,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10002,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10002,-1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9006" type="button">
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(10002).ListItem.Property(widgetID),2-1)">Control.SetFocus(10201)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10002).NumItems,0)">Control.SetFocus(9000)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(10002).ListItem(1).Property(widgetID),2-1)">Control.SetFocus(10201)</onfocus>
 			<onfocus>SetProperty(changeWidget-10002,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10002,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10002,1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<include content="widgetHeading">
 				<param name="container">10002</param>
 			</include>
@@ -1087,7 +1072,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -1107,7 +1092,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[31056]</label>
-					<onclick>noop</onclick>
 					<visible>Integer.IsGreater(Container(10401).NumItems,0) | Container(10401).IsUpdating</visible>
 					<property name="widgetID">4-1</property>
 					<property name="widgetContainer">10401</property>
@@ -1118,38 +1102,35 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(10004).ListItem(-1).Property(widgetID),4-1)">Control.SetFocus(10401)</onfocus>
 			<onfocus>SetProperty(changeWidget-10004,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10004,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10004,-1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9006" type="button">
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(10004).ListItem.Property(widgetID),4-1)">Control.SetFocus(10401)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10004).NumItems,0)">Control.SetFocus(9000)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(10004).ListItem(1).Property(widgetID),4-1)">Control.SetFocus(10401)</onfocus>
 			<onfocus>SetProperty(changeWidget-10004,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10004,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10004,1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<include content="widgetHeading">
 				<param name="container">10004</param>
 			</include>
@@ -1160,7 +1141,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -1180,7 +1161,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[10001]</label>
-					<onclick>noop</onclick>
 					<visible>Integer.IsGreater(Container(10801).NumItems,0) | Container(10801).IsUpdating</visible>
 					<property name="widgetID">8-1</property>
 					<property name="widgetContainer">10801</property>
@@ -1191,38 +1171,35 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(10008).ListItem(-1).Property(widgetID),8-1)">Control.SetFocus(10801)</onfocus>
 			<onfocus>SetProperty(changeWidget-10008,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10008,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10008,-1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9006" type="button">
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(10008).ListItem.Property(widgetID),8-1)">Control.SetFocus(10801)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10008).NumItems,0)">Control.SetFocus(9000)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(10008).ListItem(1).Property(widgetID),8-1)">Control.SetFocus(10801)</onfocus>
 			<onfocus>SetProperty(changeWidget-10008,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10008,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10008,1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<include content="widgetHeading">
 				<param name="container">10008</param>
 			</include>
@@ -1233,7 +1210,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -1253,7 +1230,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[10508]</label>
-					<onclick>noop</onclick>
 					<visible>Integer.IsGreater(Container(10901).NumItems,0) | Container(10901).IsUpdating</visible>
 					<property name="widgetID">9-1</property>
 					<property name="widgetContainer">10901</property>
@@ -1264,38 +1240,35 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(10009).ListItem(-1).Property(widgetID),9-1)">Control.SetFocus(10901)</onfocus>
 			<onfocus>SetProperty(changeWidget-10009,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10009,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10009,-1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9006" type="button">
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1)">Control.SetFocus(10901)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10009).NumItems,0)">Control.SetFocus(9000)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(10009).ListItem(1).Property(widgetID),9-1)">Control.SetFocus(10901)</onfocus>
 			<onfocus>SetProperty(changeWidget-10009,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10009,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(10009,1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<include content="widgetHeading">
 				<param name="container">10009</param>
 			</include>
@@ -1306,7 +1279,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -1326,7 +1299,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[19217]</label>
-					<onclick>noop</onclick>
 					<visible>Integer.IsGreater(Container(101001).NumItems,0) | Container(101001).IsUpdating</visible>
 					<property name="widgetID">10-1</property>
 					<property name="widgetContainer">101001</property>
@@ -1337,38 +1309,35 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(100010).ListItem(-1).Property(widgetID),10-1)">Control.SetFocus(101001)</onfocus>
 			<onfocus>SetProperty(changeWidget-100010,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100010,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(100010,-1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9006" type="button">
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(100010).ListItem.Property(widgetID),10-1)">Control.SetFocus(101001)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(100010).NumItems,0)">Control.SetFocus(9000)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(100010).ListItem(1).Property(widgetID),10-1)">Control.SetFocus(101001)</onfocus>
 			<onfocus>SetProperty(changeWidget-100010,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100010,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(100010,1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<include content="widgetHeading">
 				<param name="container">100010</param>
 			</include>
@@ -1379,7 +1348,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -1399,7 +1368,6 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[19216]</label>
-					<onclick>noop</onclick>
 					<visible>Integer.IsGreater(Container(101101).NumItems,0) | Container(101101).IsUpdating</visible>
 					<property name="widgetID">11-1</property>
 					<property name="widgetContainer">101101</property>
@@ -1410,38 +1378,35 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(100011).ListItem(-1).Property(widgetID),11-1)">Control.SetFocus(101101)</onfocus>
 			<onfocus>SetProperty(changeWidget-100011,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100011,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(100011,-1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9006" type="button">
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(100011).ListItem.Property(widgetID),11-1)">Control.SetFocus(101101)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(100011).NumItems,0)">Control.SetFocus(9000)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(100011).ListItem(1).Property(widgetID),11-1)">Control.SetFocus(101101)</onfocus>
 			<onfocus>SetProperty(changeWidget-100011,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100011,False,10000),00:03,silent)</onfocus>
 			<onfocus>Control.Move(100011,1)</onfocus>
-			<onclick>noop</onclick>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<include content="widgetHeading">
 				<param name="container">100011</param>
 			</include>
@@ -1481,7 +1446,7 @@
 					<param name="art">$INFO[ListItem.Art(poster)]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">![IsEmpty(ListItem.Art(poster))]</param>
+					<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
@@ -1503,7 +1468,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">[ IsEmpty(ListItem.Art(poster)) ] + [ IsEmpty(ListItem.Icon) ]</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="image">
 					<left>138</left>
@@ -1524,7 +1489,7 @@
 						<param name="art">$INFO[ListItem.Art(poster)]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Art(poster))]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1544,7 +1509,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Art(poster)) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>Control.HasFocus(10101)</visible>
 				</control>
@@ -1558,7 +1523,7 @@
 						<param name="art">$INFO[ListItem.Art(poster)]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Art(poster))]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1580,7 +1545,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Art(poster)) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>!Control.HasFocus(10101)</visible>
 				</control>
@@ -1625,7 +1590,7 @@
 					<param name="art">$INFO[ListItem.Art(season.poster)]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">![IsEmpty(ListItem.Art(season.poster))]</param>
+					<param name="visible">![String.IsEmpty(ListItem.Art(season.poster))]</param>
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
@@ -1647,7 +1612,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">[ IsEmpty(ListItem.Art(season.poster)) ] + [ IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 				</include>
 				<control type="image">
 					<left>138</left>
@@ -1668,7 +1633,7 @@
 						<param name="art">$INFO[ListItem.Art(season.poster)]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Art(season.poster))]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Art(season.poster))]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1688,7 +1653,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Art(season.poster)) ] + [ IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 					</include>
 					<visible>Control.HasFocus(10201)</visible>
 				</control>
@@ -1702,7 +1667,7 @@
 						<param name="art">$INFO[ListItem.Art(season.poster)]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Art(season.poster))]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Art(season.poster))]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1724,7 +1689,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Art(season.poster)) ] + [ IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 					</include>
 					<visible>!Control.HasFocus(10201)</visible>
 				</control>
@@ -1769,7 +1734,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+					<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
@@ -1791,7 +1756,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="image">
 					<left>138</left>
@@ -1812,7 +1777,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1832,7 +1797,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>Control.HasFocus(10401)</visible>
 				</control>
@@ -1846,7 +1811,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1868,7 +1833,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>!Control.HasFocus(10401)</visible>
 				</control>
@@ -1913,7 +1878,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+					<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
@@ -1935,7 +1900,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="image">
 					<left>138</left>
@@ -1956,7 +1921,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1976,7 +1941,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>Control.HasFocus(10801)</visible>
 				</control>
@@ -1990,7 +1955,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -2012,7 +1977,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>!Control.HasFocus(10801)</visible>
 				</control>
@@ -2184,7 +2149,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+					<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
@@ -2206,7 +2171,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="image">
 					<left>138</left>
@@ -2227,7 +2192,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -2247,7 +2212,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>Control.HasFocus(101001)</visible>
 				</control>
@@ -2261,7 +2226,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -2283,7 +2248,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>!Control.HasFocus(101001)</visible>
 				</control>
@@ -2328,7 +2293,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+					<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
@@ -2350,7 +2315,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="image">
 					<left>138</left>
@@ -2371,7 +2336,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -2391,7 +2356,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>Control.HasFocus(101101)</visible>
 				</control>
@@ -2405,7 +2370,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![IsEmpty(ListItem.Icon)]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -2427,7 +2392,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<visible>!Control.HasFocus(101101)</visible>
 				</control>
@@ -2451,49 +2416,49 @@
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<visible>String.IsEqual(Container(10001).ListItem.Property(widgetID),1-1) + Container(10101).IsUpdating</visible>
 		</control>
 		<control type="image">
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<visible>String.IsEqual(Container(10002).ListItem.Property(widgetID),2-1) + Container(10201).IsUpdating</visible>
 		</control>
 		<control type="image">
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<visible>String.IsEqual(Container(10004).ListItem.Property(widgetID),4-1) + Container(10401).IsUpdating</visible>
 		</control>
 		<control type="image">
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<visible>String.IsEqual(Container(10008).ListItem.Property(widgetID),8-1) + Container(10801).IsUpdating</visible>
 		</control>
 		<control type="image">
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<visible>String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1) + Container(10901).IsUpdating</visible>
 		</control>
 		<control type="image">
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<visible>String.IsEqual(Container(100010).ListItem.Property(widgetID),10-1) + Container(101001).IsUpdating</visible>
 		</control>
 		<control type="image">
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>StringCompare(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
 			<visible>String.IsEqual(Container(100011).ListItem.Property(widgetID),11-1) + Container(101101).IsUpdating</visible>
 		</control>
 	</include>
@@ -2512,65 +2477,65 @@
 		<value condition="Control.IsVisible(10001) + String.IsEqual(Container(10001).ListItem.Property(widgetID),1-1) + !Control.HasFocus(10101)">[COLOR TextColor2]$INFO[Container(10001).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + Integer.IsEqual(Container(10101).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + False">[COLOR TextColor1]$INFO[Container(10101).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !IsEmpty(Container(10101).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10101).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10101).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10101).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !IsEmpty(Container(10101).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10101).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10101] &#8226; $INFO[Container(10101).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !IsEmpty(Container(10101).ListItem.ChannelName) + !IsEmpty(Container(10101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$INFO[Container(10101).ListItem.Title] ($INFO[Container(10101).ListItem.StartTime] - $INFO[Container(10101).ListItem.EndTime])[CR]$INFO[Container(10101).ListItem.NextTitle] ($INFO[Container(10101).ListItem.NextStartTime] - $INFO[Container(10101).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !IsEmpty(Container(10101).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !IsEmpty(Container(10101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$INFO[Container(10101).ListItem.StartDate] $INFO[Container(10101).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10101).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10101).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10101).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10101).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10101] &#8226; $INFO[Container(10101).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.ChannelName) + !String.IsEmpty(Container(10101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$INFO[Container(10101).ListItem.Title] ($INFO[Container(10101).ListItem.StartTime] - $INFO[Container(10101).ListItem.EndTime])[CR]$INFO[Container(10101).ListItem.NextTitle] ($INFO[Container(10101).ListItem.NextStartTime] - $INFO[Container(10101).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$INFO[Container(10101).ListItem.StartDate] $INFO[Container(10101).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101)">[COLOR TextColor1]$INFO[Container(10101).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10002) + String.IsEqual(Container(10002).ListItem.Property(widgetID),2-1) + !Control.HasFocus(10201)">[COLOR TextColor2]$INFO[Container(10002).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsEqual(Container(10201).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + False">[COLOR TextColor1]$INFO[Container(10201).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !IsEmpty(Container(10201).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10201).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10201).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !IsEmpty(Container(10201).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10201).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10201] &#8226; $INFO[Container(10201).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !IsEmpty(Container(10201).ListItem.ChannelName) + !IsEmpty(Container(10201).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$INFO[Container(10201).ListItem.Title] ($INFO[Container(10201).ListItem.StartTime] - $INFO[Container(10201).ListItem.EndTime])[CR]$INFO[Container(10201).ListItem.NextTitle] ($INFO[Container(10201).ListItem.NextStartTime] - $INFO[Container(10201).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !IsEmpty(Container(10201).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !IsEmpty(Container(10201).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$INFO[Container(10201).ListItem.StartDate] $INFO[Container(10201).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10201).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10201).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10201).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10201] &#8226; $INFO[Container(10201).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.ChannelName) + !String.IsEmpty(Container(10201).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$INFO[Container(10201).ListItem.Title] ($INFO[Container(10201).ListItem.StartTime] - $INFO[Container(10201).ListItem.EndTime])[CR]$INFO[Container(10201).ListItem.NextTitle] ($INFO[Container(10201).ListItem.NextStartTime] - $INFO[Container(10201).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$INFO[Container(10201).ListItem.StartDate] $INFO[Container(10201).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201)">[COLOR TextColor1]$INFO[Container(10201).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10004) + String.IsEqual(Container(10004).ListItem.Property(widgetID),4-1) + !Control.HasFocus(10401)">[COLOR TextColor2]$INFO[Container(10004).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + Integer.IsEqual(Container(10401).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + False">[COLOR TextColor1]$INFO[Container(10401).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !IsEmpty(Container(10401).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10401).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10401).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10401).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !IsEmpty(Container(10401).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10401).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10401] &#8226; $INFO[Container(10401).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !IsEmpty(Container(10401).ListItem.ChannelName) + !IsEmpty(Container(10401).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$INFO[Container(10401).ListItem.Title] ($INFO[Container(10401).ListItem.StartTime] - $INFO[Container(10401).ListItem.EndTime])[CR]$INFO[Container(10401).ListItem.NextTitle] ($INFO[Container(10401).ListItem.NextStartTime] - $INFO[Container(10401).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !IsEmpty(Container(10401).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !IsEmpty(Container(10401).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$INFO[Container(10401).ListItem.StartDate] $INFO[Container(10401).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10401).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10401).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10401).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10401).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10401] &#8226; $INFO[Container(10401).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.ChannelName) + !String.IsEmpty(Container(10401).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$INFO[Container(10401).ListItem.Title] ($INFO[Container(10401).ListItem.StartTime] - $INFO[Container(10401).ListItem.EndTime])[CR]$INFO[Container(10401).ListItem.NextTitle] ($INFO[Container(10401).ListItem.NextStartTime] - $INFO[Container(10401).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$INFO[Container(10401).ListItem.StartDate] $INFO[Container(10401).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10008) + String.IsEqual(Container(10008).ListItem.Property(widgetID),8-1) + !Control.HasFocus(10801)">[COLOR TextColor2]$INFO[Container(10008).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + Integer.IsEqual(Container(10801).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + False">[COLOR TextColor1]$INFO[Container(10801).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !IsEmpty(Container(10801).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10801).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10801).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10801).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !IsEmpty(Container(10801).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10801).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10801] &#8226; $INFO[Container(10801).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !IsEmpty(Container(10801).ListItem.ChannelName) + !IsEmpty(Container(10801).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$INFO[Container(10801).ListItem.Title] ($INFO[Container(10801).ListItem.StartTime] - $INFO[Container(10801).ListItem.EndTime])[CR]$INFO[Container(10801).ListItem.NextTitle] ($INFO[Container(10801).ListItem.NextStartTime] - $INFO[Container(10801).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !IsEmpty(Container(10801).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !IsEmpty(Container(10801).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$INFO[Container(10801).ListItem.StartDate] $INFO[Container(10801).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10801).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10801).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10801).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10801).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10801] &#8226; $INFO[Container(10801).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.ChannelName) + !String.IsEmpty(Container(10801).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$INFO[Container(10801).ListItem.Title] ($INFO[Container(10801).ListItem.StartTime] - $INFO[Container(10801).ListItem.EndTime])[CR]$INFO[Container(10801).ListItem.NextTitle] ($INFO[Container(10801).ListItem.NextStartTime] - $INFO[Container(10801).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$INFO[Container(10801).ListItem.StartDate] $INFO[Container(10801).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801)">[COLOR TextColor1]$INFO[Container(10801).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10009) + String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1) + !Control.HasFocus(10901)">[COLOR TextColor2]$INFO[Container(10009).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + Integer.IsEqual(Container(10901).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + True">[COLOR TextColor1]$INFO[Container(10901).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !IsEmpty(Container(10901).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10901).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10901).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10901).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !IsEmpty(Container(10901).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10901).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10901] &#8226; $INFO[Container(10901).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !IsEmpty(Container(10901).ListItem.ChannelName) + !IsEmpty(Container(10901).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$INFO[Container(10901).ListItem.Title] ($INFO[Container(10901).ListItem.StartTime] - $INFO[Container(10901).ListItem.EndTime])[CR]$INFO[Container(10901).ListItem.NextTitle] ($INFO[Container(10901).ListItem.NextStartTime] - $INFO[Container(10901).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !IsEmpty(Container(10901).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !IsEmpty(Container(10901).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$INFO[Container(10901).ListItem.StartDate] $INFO[Container(10901).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10901).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10901).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10901).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10901).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10901] &#8226; $INFO[Container(10901).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.ChannelName) + !String.IsEmpty(Container(10901).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$INFO[Container(10901).ListItem.Title] ($INFO[Container(10901).ListItem.StartTime] - $INFO[Container(10901).ListItem.EndTime])[CR]$INFO[Container(10901).ListItem.NextTitle] ($INFO[Container(10901).ListItem.NextStartTime] - $INFO[Container(10901).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$INFO[Container(10901).ListItem.StartDate] $INFO[Container(10901).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901)">[COLOR TextColor1]$INFO[Container(10901).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(100010) + String.IsEqual(Container(100010).ListItem.Property(widgetID),10-1) + !Control.HasFocus(101001)">[COLOR TextColor2]$INFO[Container(100010).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + Integer.IsEqual(Container(101001).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + False">[COLOR TextColor1]$INFO[Container(101001).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !IsEmpty(Container(101001).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(101001).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(101001).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(101001).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !IsEmpty(Container(101001).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(101001).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer101001] &#8226; $INFO[Container(101001).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !IsEmpty(Container(101001).ListItem.ChannelName) + !IsEmpty(Container(101001).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$INFO[Container(101001).ListItem.Title] ($INFO[Container(101001).ListItem.StartTime] - $INFO[Container(101001).ListItem.EndTime])[CR]$INFO[Container(101001).ListItem.NextTitle] ($INFO[Container(101001).ListItem.NextStartTime] - $INFO[Container(101001).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !IsEmpty(Container(101001).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !IsEmpty(Container(101001).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$INFO[Container(101001).ListItem.StartDate] $INFO[Container(101001).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(101001).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(101001).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(101001).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(101001).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer101001] &#8226; $INFO[Container(101001).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.ChannelName) + !String.IsEmpty(Container(101001).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$INFO[Container(101001).ListItem.Title] ($INFO[Container(101001).ListItem.StartTime] - $INFO[Container(101001).ListItem.EndTime])[CR]$INFO[Container(101001).ListItem.NextTitle] ($INFO[Container(101001).ListItem.NextStartTime] - $INFO[Container(101001).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$INFO[Container(101001).ListItem.StartDate] $INFO[Container(101001).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001)">[COLOR TextColor1]$INFO[Container(101001).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(100011) + String.IsEqual(Container(100011).ListItem.Property(widgetID),11-1) + !Control.HasFocus(101101)">[COLOR TextColor2]$INFO[Container(100011).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + Integer.IsEqual(Container(101101).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + False">[COLOR TextColor1]$INFO[Container(101101).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !IsEmpty(Container(101101).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(101101).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(101101).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(101101).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !IsEmpty(Container(101101).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(101101).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer101101] &#8226; $INFO[Container(101101).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !IsEmpty(Container(101101).ListItem.ChannelName) + !IsEmpty(Container(101101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$INFO[Container(101101).ListItem.Title] ($INFO[Container(101101).ListItem.StartTime] - $INFO[Container(101101).ListItem.EndTime])[CR]$INFO[Container(101101).ListItem.NextTitle] ($INFO[Container(101101).ListItem.NextStartTime] - $INFO[Container(101101).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !IsEmpty(Container(101101).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !IsEmpty(Container(101101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$INFO[Container(101101).ListItem.StartDate] $INFO[Container(101101).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(101101).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(101101).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(101101).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(101101).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer101101] &#8226; $INFO[Container(101101).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.ChannelName) + !String.IsEmpty(Container(101101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$INFO[Container(101101).ListItem.Title] ($INFO[Container(101101).ListItem.StartTime] - $INFO[Container(101101).ListItem.EndTime])[CR]$INFO[Container(101101).ListItem.NextTitle] ($INFO[Container(101101).ListItem.NextStartTime] - $INFO[Container(101101).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$INFO[Container(101101).ListItem.StartDate] $INFO[Container(101101).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101)">[COLOR TextColor1]$INFO[Container(101101).ListItem.Label][/COLOR]</value>
 	</variable>
 	<variable name="widgetBackground">

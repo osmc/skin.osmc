@@ -227,7 +227,7 @@
 	</variable>
 
 	<variable name="VideoPlayerChannelNumber">
-		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumber, (,)]</value>
+		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</value>
 	</variable>
 
 	<variable name="VideoPlayerNext">
@@ -240,28 +240,28 @@
 		<value condition="ListItem.IsParentFolder">noop</value>
 		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayProgress4.png</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWatched.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,76)">views/OverlayProgress7.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,63)">views/OverlayProgress6.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,51)">views/OverlayProgress5.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,38)">views/OverlayProgress4.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,26)">views/OverlayProgress3.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,13)">views/OverlayProgress2.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76)">views/OverlayProgress7.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,63)">views/OverlayProgress6.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,51)">views/OverlayProgress5.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38)">views/OverlayProgress4.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26)">views/OverlayProgress3.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13)">views/OverlayProgress2.png</value>
 		<value condition="ListItem.IsResumable">views/OverlayProgress1.png</value>
-		<value condition="!IsEmpty(ListItem.PlayCount)">views/OverlayProgressWatched.png</value>
+		<value condition="!String.IsEmpty(ListItem.PlayCount)">views/OverlayProgressWatched.png</value>
 	</variable>
 
 	<variable name="StatusOverlayWide">
 		<value condition="ListItem.IsParentFolder">noop</value>
 		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayProgressWide4.png</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWideWatched.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,76)">views/OverlayProgressWide7.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,63)">views/OverlayProgressWide6.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,51)">views/OverlayProgressWide5.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,38)">views/OverlayProgressWide4.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,26)">views/OverlayProgressWide3.png</value>
-		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,13)">views/OverlayProgressWide2.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76)">views/OverlayProgressWide7.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,63)">views/OverlayProgressWide6.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,51)">views/OverlayProgressWide5.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38)">views/OverlayProgressWide4.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26)">views/OverlayProgressWide3.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13)">views/OverlayProgressWide2.png</value>
 		<value condition="ListItem.IsResumable">views/OverlayProgressWide1.png</value>
-		<value condition="!IsEmpty(ListItem.PlayCount)">views/OverlayProgressWideWatched.png</value>
+		<value condition="!String.IsEmpty(ListItem.PlayCount)">views/OverlayProgressWideWatched.png</value>
 	</variable>
 
 	<variable name="CustomMenuHeading">
@@ -519,8 +519,8 @@
 
 		<!-- Audio/Video Duration -->
 	<variable name="Duration">
-		<value condition="!String.Contains(ListItem.Duration,:)">$INFO[ListItem.Duration,, ]$LOCALIZE[12391]</value>
-		<value>$INFO[ListItem.Duration]</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.Duration, , ]</value>
+		<value>$INFO[ListItem.Duration(mins), , $LOCALIZE[12391]]</value>
 	</variable>
 		
 		<!-- Video Resolution labels -->
@@ -722,7 +722,7 @@
 	</variable>
 
 	<variable name="WeatherIconsExtVar">
-		<value condition="!IsEmpty(Skin.String(weatherIcons.ext))">$INFO[Skin.String(weatherIcons.ext)]</value>
+		<value condition="!String.IsEmpty(Skin.String(weatherIcons.ext))">$INFO[Skin.String(weatherIcons.ext)]</value>
 		<value>.png</value>
 	</variable>
 
@@ -819,13 +819,13 @@
 
 	<!-- Keyboard autocompletion" -->
 	<variable name="keyboard-autocompletion">
-		<value condition="!System.HasAddon(plugin.program.autocompletion) | System.HasHiddenInput">-</value>
+		<value condition="!System.HasAddon(plugin.program.autocompletion) | System.HasHiddenInput"></value>
    		<value>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=12</value>
 	</variable>
 
 	<!-- Addon Information -->
 	<variable name="addonInformation">
-		<value condition="!IsEmpty(ListItem.AddonNews)">[B]$LOCALIZE[29916][/B][CR]$INFO[ListItem.AddonNews][CR][CR][B]$LOCALIZE[21821][/B][CR]$INFO[ListItem.AddonDescription]</value>
+		<value condition="!String.IsEmpty(ListItem.AddonNews)">[B]$LOCALIZE[29916][/B][CR]$INFO[ListItem.AddonNews][CR][CR][B]$LOCALIZE[21821][/B][CR]$INFO[ListItem.AddonDescription]</value>
 		<value>$INFO[ListItem.AddonDescription]</value>
 	</variable>
 
@@ -867,9 +867,9 @@
 
 	<!-- Media images -->
 	<variable name="mediaImages">
-		<value condition="Container.Content(Seasons) + !IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="Container.Content(Seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="Container.Content(Episodes)">$INFO[ListItem.Icon]</value>
-		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 
