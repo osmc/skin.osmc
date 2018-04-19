@@ -449,23 +449,22 @@
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDAudioNF.png</texturenofocus>
 					<onclick>ActivateWindow(124)</onclick>
 				</control>
-				<!-- Bookmarks -->
+				<!-- Subtitles -->
 				<control type="button" id="15">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus colordiffuse="DialogColor1">osd/OSDSubtitlesNF.png</texturefocus>
+					<texturenofocus colordiffuse="DialogColor2">osd/OSDSubtitlesNF.png</texturenofocus>
+					<onclick>ActivateWindow(159)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!-- Bookmarks -->
+				<control type="button" id="16">
 					<width>60</width>
 					<height>60</height>
 					<texturefocus colordiffuse="DialogColor1">osd/OSDBookmarksNF.png</texturefocus>
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDBookmarksNF.png</texturenofocus>
 					<onclick>ActivateWindow(125)</onclick>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-				</control>
-				<!-- Subtitles -->
-				<control type="button" id="16">
-					<width>60</width>
-					<height>60</height>
-					<texturefocus colordiffuse="DialogColor1">osd/OSDSubtitlesNF.png</texturefocus>
-					<texturenofocus colordiffuse="DialogColor2">osd/OSDSubtitlesNF.png</texturenofocus>
-					<onclick>Close</onclick>
-					<onclick>ActivateWindow(SubtitleSearch)</onclick>
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<!-- Channels -->
