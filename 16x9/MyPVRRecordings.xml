@@ -3,6 +3,7 @@
 	<!-- videolibrary -->
 	<backgroundcolor>0x00000000</backgroundcolor>
 	<defaultcontrol>50</defaultcontrol>
+	<views>50</views>
 
 	<controls>
 
@@ -166,8 +167,8 @@
 				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
 				<texturesliderbarfocus border="11,1,1,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib>-</textureslidernib>
-				<textureslidernibfocus>-</textureslidernibfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
 			</control>
 
@@ -233,7 +234,6 @@
 					<top>0</top>
 					<width>460</width>
 					<height>1080</height>
-					<onclick>noop</onclick>
 				</control>
 
 				<!-- Look controls -->
@@ -267,10 +267,16 @@
 						<usealttexture>Container.SortDirection(Descending)</usealttexture>
 						<visible>Control.IsEnabled(4)</visible>
 					</control>
+					<!-- Watched toggle -->
+					<control type="radiobutton" id="10">
+						<label>20367</label>
+						<height>52</height>
+						<visible>Control.IsEnabled(10)</visible>
+					</control>
 					<!-- Channel Groups -->
 					<control type="button" id="28">
 						<height>52</height>
-						<label>-</label>
+						<label></label>
 						<visible>Control.IsEnabled(28)</visible>
 					</control>
 					<!-- Group recording items by folder structure -->
@@ -296,20 +302,20 @@
 					<!-- Channels -->
 					<control type="button" id="100">
 						<height>52</height>
-						<onclick condition="Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)">NextChannelGroup</onclick>
 						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
 						<onclick>SetFocus(10)</onclick>
 						<label>19019</label>
+						<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Guide -->
 					<control type="button" id="102">
 						<height>52</height>
 						<label>22020</label>
-						<onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
 						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
 						<onclick>SetFocus(10)</onclick>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Recordings -->
 					<control type="button" id="103">
@@ -318,6 +324,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
 						<onclick>SetFocus(10)</onclick>
 						<label>19163</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Timers -->
 					<control type="button" id="35">
@@ -326,6 +333,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>19040</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Rules -->
 					<control type="button" id="36">
@@ -334,6 +342,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimerRules)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>$LOCALIZE[31022]</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Search -->
 					<control type="button" id="37">
@@ -342,6 +351,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>137</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 					</control>
 					
 				</control>

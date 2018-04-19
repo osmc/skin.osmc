@@ -3,7 +3,7 @@
 	<!-- videolibrary -->
 	<backgroundcolor>0x00000000</backgroundcolor>
 	<defaultcontrol>10</defaultcontrol>
-	<views>10,11,12,13</views>
+	<views>10</views>
 
 	<controls>
 
@@ -31,8 +31,8 @@
 					<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
 					<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
 					<texturesliderbarfocus border="11,1,1,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib>-</textureslidernib>
-					<textureslidernibfocus>-</textureslidernibfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
 					<visible>!Skin.HasSetting(Scrollbars)</visible>
 				</control>
 
@@ -93,7 +93,7 @@
 							<height>69</height>
 							<align>right</align>
 							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.ChannelNumber][/LIGHT]</label>
+							<label>[LIGHT]$INFO[ListItem.ChannelNumberLabel][/LIGHT]</label>
 						</control>
 
 					</channellayout>
@@ -125,7 +125,7 @@
 							<width>88</width>
 							<height>69</height>
 							<align>right</align>
-							<label>$INFO[ListItem.ChannelNumber]</label>
+							<label>$INFO[ListItem.ChannelNumberLabel]</label>
 							<textcolor>TextColor1</textcolor>
 						</control>
 
@@ -267,789 +267,6 @@
 
 			</control>
 
-			<control type="group">
-				<visible>Control.IsVisible(11)</visible>
-
-				<!-- Start date -->
-				<control type="label">
-					<left>120</left>
-					<top>170</top>
-					<width>800</width>
-					<height>33</height>
-					<aligny>top</aligny>
-					<font>Font33</font>
-					<label>$INFO[ListItem.StartDate]</label>
-				</control>
-
-				<!-- List -->
-				<control type="list" id="11">
-					<left>120</left>
-					<top>226</top>
-					<width>1020</width>
-					<height>648</height>
-					<onup>11</onup>
-					<ondown>11</ondown>
-					<onleft>3000</onleft>
-					<onright>70</onright>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<viewtype label="19030">list</viewtype>				
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-
-					<itemlayout width="1020" height="108">
-
-						<!-- Channel image -->
-						<control type="image">
-							<left>9</left>
-							<top>9</top>
-							<width>90</width>
-							<height>90</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
-						</control>
-
-						<!-- Start time -->
-						<control type="label">
-							<left>68</left>
-							<top>12</top>
-							<width>200</width>
-							<align>right</align>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.StartTime][/LIGHT]</label>
-						</control>
-
-						<!-- End time -->
-						<control type="label">
-							<left>68</left>
-							<top>54</top>
-							<width>200</width>
-							<height>27</height>
-							<align>right</align>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.EndTime][/LIGHT]</label>
-						</control>
-
-						<!-- Program name -->
-						<control type="label">
-							<left>308</left>
-							<top>12</top>
-							<width>712</width>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<left>308</left>
-							<top>54</top>
-							<width>712</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.Genre][/LIGHT]</label>
-						</control>
-
-						<!-- Progress -->
-						<control type="progress">
-							<left>308</left>
-							<top>93</top>
-							<width>706</width>
-							<height>6</height>
-							<colordiffuse>OverlayColorNF</colordiffuse>
-							<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-							<lefttexture>-</lefttexture>
-							<midtexture border="2">osd/OSDProgressBar.png</midtexture>
-							<righttexture>-</righttexture>
-							<info>ListItem.Progress</info>
-							<visible>ListItem.HasEpg</visible>
-						</control>
-
-					</itemlayout>
-
-					<focusedlayout width="1020" height="108">
-
-						<!-- Channel image -->
-						<control type="image">
-							<left>9</left>
-							<top>9</top>
-							<width>90</width>
-							<height>90</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
-						</control>
-
-						<!-- Start time -->
-						<control type="label">
-							<left>68</left>
-							<top>12</top>
-							<width>200</width>
-							<align>right</align>
-							<label>[B]$INFO[ListItem.StartTime][/B]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-						<!-- End time -->
-						<control type="label">
-							<left>68</left>
-							<top>54</top>
-							<width>200</width>
-							<height>27</height>
-							<align>right</align>
-							<label>$INFO[ListItem.EndTime]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-						<!-- Program name -->
-						<control type="label">
-							<left>308</left>
-							<top>12</top>
-							<width>712</width>
-							<label>$INFO[ListItem.Label]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<left>308</left>
-							<top>54</top>
-							<width>712</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>TextColor1</textcolor>
-							<label>$INFO[ListItem.Genre]</label>
-						</control>
-
-						<!-- Progress -->
-						<control type="progress">
-							<left>308</left>
-							<top>93</top>
-							<width>706</width>
-							<height>6</height>
-							<colordiffuse>OverlayColorFO</colordiffuse>
-							<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-							<lefttexture>-</lefttexture>
-							<midtexture border="2">osd/OSDProgressBar.png</midtexture>
-							<righttexture>-</righttexture>
-							<info>ListItem.Progress</info>
-							<visible>ListItem.HasEpg</visible>
-						</control>
-
-					</focusedlayout>
-
-				</control>
-
-				<!-- Scrollbar -->
-				<control type="scrollbar" id="70">
-					<left>1152</left>
-					<top>226</top>
-					<width>20</width>
-					<height>648</height>
-					<onleft>11</onleft>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>OverlayColorNF</colordiffuse>
-					<texturesliderbackground border="6,1,8,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib>-</textureslidernib>
-					<textureslidernibfocus>-</textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-
-				<!-- Channel preview & info -->
-				<control type="group">
-					<right>120</right>
-					<top>246</top>
-					<width>512</width>
-
-					<!-- Program name -->
-					<control type="label">
-						<width>512</width>
-						<label>$INFO[Container(11).ListItem.Title]</label>
-						<textcolor>TextColor1</textcolor>
-					</control>
-
-					<control type="group">
-						<top>76</top>
-
-						<!-- Plot -->
-						<control type="textbox">
-							<width>512</width>
-							<height>460</height>
-							<align>justify</align>
-							<font>Font25</font>
-							<textcolor>TextColor1</textcolor>
-							<info>Container(11).ListItem.Plot</info>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<right>0</right>
-							<top>504</top>
-							<width>512</width>
-							<height>30</height>
-							<font>Font30</font>
-							<align>right</align>
-							<label>[LIGHT]$INFO[Container(11).ListItem.Genre][/LIGHT]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-					</control>
-
-				</control>
-
-				<!-- Channel count -->
-				<control type="grouplist">
-					<right>120</right>
-					<bottom>110</bottom>
-					<width>800</width>
-					<height>44</height>
-					<itemgap>6</itemgap>
-					<align>right</align>
-					<orientation>horizontal</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-
-					<control type="label">
-						<top>3</top>
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>$INFO[Container(11).NumItems]</label>
-						<font>Font25</font>
-						<textcolor>TextColor2</textcolor>
-					</control>
-
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>$VAR[ContentType]</label>
-						<font>Font33</font>
-						<textcolor>TextColor2</textcolor>
-					</control>
-
-				</control>
-
-			</control>
-
-			<control type="group">
-				<visible>Control.IsVisible(12)</visible>
-
-				<!-- Start date -->
-				<control type="label">
-					<left>120</left>
-					<top>170</top>
-					<width>800</width>
-					<height>33</height>
-					<aligny>top</aligny>
-					<font>Font33</font>
-					<label>$INFO[ListItem.StartDate]</label>
-				</control>
-
-				<!-- List -->
-				<control type="list" id="12">
-					<left>120</left>
-					<top>226</top>
-					<width>1020</width>
-					<height>648</height>
-					<onup>12</onup>
-					<ondown>12</ondown>
-					<onleft>3000</onleft>
-					<onright>70</onright>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<viewtype label="19031">list</viewtype>				
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-
-					<itemlayout width="1020" height="108">
-
-						<!-- Channel image -->
-						<control type="image">
-							<left>9</left>
-							<top>9</top>
-							<width>90</width>
-							<height>90</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
-						</control>
-
-						<!-- Start time -->
-						<control type="label">
-							<left>68</left>
-							<top>12</top>
-							<width>200</width>
-							<align>right</align>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.StartTime][/LIGHT]</label>
-						</control>
-
-						<!-- End time -->
-						<control type="label">
-							<left>68</left>
-							<top>54</top>
-							<width>200</width>
-							<height>27</height>
-							<align>right</align>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.EndTime][/LIGHT]</label>
-						</control>
-
-						<!-- Program name -->
-						<control type="label">
-							<left>308</left>
-							<top>12</top>
-							<width>712</width>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<left>308</left>
-							<top>54</top>
-							<width>712</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.Genre][/LIGHT]</label>
-						</control>
-
-						<!-- Progress -->
-						<control type="progress">
-							<left>308</left>
-							<top>93</top>
-							<width>706</width>
-							<height>6</height>
-							<colordiffuse>OverlayColorNF</colordiffuse>
-							<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-							<lefttexture>-</lefttexture>
-							<midtexture border="2">osd/OSDProgressBar.png</midtexture>
-							<righttexture>-</righttexture>
-							<info>ListItem.Progress</info>
-							<visible>ListItem.HasEpg</visible>
-						</control>
-
-					</itemlayout>
-
-					<focusedlayout width="1020" height="108">
-
-						<!-- Channel image -->
-						<control type="image">
-							<left>9</left>
-							<top>9</top>
-							<width>90</width>
-							<height>90</height>
-							<aspectratio>keep</aspectratio>
-							<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
-						</control>
-
-						<!-- Start time -->
-						<control type="label">
-							<left>68</left>
-							<top>12</top>
-							<width>200</width>
-							<align>right</align>
-							<label>$INFO[ListItem.StartTime]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-						<!-- End time -->
-						<control type="label">
-							<left>68</left>
-							<top>54</top>
-							<width>200</width>
-							<height>27</height>
-							<align>right</align>
-							<label>$INFO[ListItem.EndTime]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-						<!-- Program name -->
-						<control type="label">
-							<left>308</left>
-							<top>12</top>
-							<width>712</width>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<left>308</left>
-							<top>54</top>
-							<width>712</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>TextColor1</textcolor>
-							<label>$INFO[ListItem.Genre]</label>
-						</control>
-
-						<!-- Progress -->
-						<control type="progress">
-							<left>308</left>
-							<top>93</top>
-							<width>706</width>
-							<height>6</height>
-							<colordiffuse>OverlayColorFO</colordiffuse>
-							<texturebg border="2">osd/OSDProgressBack.png</texturebg>
-							<lefttexture>-</lefttexture>
-							<midtexture border="2">osd/OSDProgressBar.png</midtexture>
-							<righttexture>-</righttexture>
-							<info>ListItem.Progress</info>
-							<visible>ListItem.HasEpg</visible>
-						</control>
-
-					</focusedlayout>
-
-				</control>
-
-				<!-- Scrollbar -->
-				<control type="scrollbar" id="70">
-					<left>1152</left>
-					<top>226</top>
-					<width>20</width>
-					<height>648</height>
-					<onleft>12</onleft>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>OverlayColorNF</colordiffuse>
-					<texturesliderbackground border="6,1,8,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib>-</textureslidernib>
-					<textureslidernibfocus>-</textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-
-				<!-- Channel preview & info -->
-				<control type="group">
-					<right>120</right>
-					<top>246</top>
-					<width>512</width>
-
-					<!-- Program name -->
-					<control type="label">
-						<width>512</width>
-						<label>$INFO[Container(12).ListItem.Title]</label>
-						<textcolor>TextColor1</textcolor>
-					</control>
-
-					<control type="group">
-						<top>76</top>
-
-						<!-- Plot -->
-						<control type="textbox">
-							<width>512</width>
-							<height>460</height>
-							<align>justify</align>
-							<font>Font25</font>
-							<textcolor>TextColor1</textcolor>
-							<info>Container(12).ListItem.Plot</info>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<right>0</right>
-							<top>504</top>
-							<width>512</width>
-							<height>30</height>
-							<font>Font30</font>
-							<align>right</align>
-							<label>[LIGHT]$INFO[Container(12).ListItem.Genre][/LIGHT]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-					</control>
-
-				</control>
-
-				<!-- Channel count -->
-				<control type="grouplist">
-					<right>120</right>
-					<bottom>110</bottom>
-					<width>800</width>
-					<height>44</height>
-					<itemgap>6</itemgap>
-					<align>right</align>
-					<orientation>horizontal</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-
-					<control type="label">
-						<top>3</top>
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>$INFO[Container(12).NumItems]</label>
-						<font>Font25</font>
-						<textcolor>TextColor2</textcolor>
-					</control>
-
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>$VAR[ContentType]</label>
-						<font>Font33</font>
-						<textcolor>TextColor2</textcolor>
-					</control>
-
-				</control>
-
-			</control>
-
-			<control type="group">
-				<visible>Control.IsVisible(13)</visible>
-
-				<!-- Start date -->
-				<control type="label">
-					<left>120</left>
-					<top>170</top>
-					<width>800</width>
-					<height>33</height>
-					<aligny>top</aligny>
-					<font>Font33</font>
-					<label>$INFO[ListItem.StartDate]</label>
-				</control>
-
-				<!-- List -->
-				<control type="list" id="13">
-					<left>120</left>
-					<top>226</top>
-					<width>1020</width>
-					<height>648</height>
-					<onup>13</onup>
-					<ondown>13</ondown>
-					<onleft>3000</onleft>
-					<onright>70</onright>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<viewtype label="19029">list</viewtype>				
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-
-					<itemlayout width="1020" height="108">
-
-						<!-- Start time -->
-						<control type="label">
-							<top>12</top>
-							<width>200</width>
-							<align>right</align>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.StartTime][/LIGHT]</label>
-						</control>
-
-						<!-- Duration -->
-						<control type="label">
-							<top>62</top>
-							<width>200</width>
-							<height>27</height>
-							<font>Font27</font>
-							<align>right</align>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.Duration][/LIGHT]</label>
-						</control>
-
-						<!-- Recording image -->
-						<control type="image">
-							<left>226</left>
-							<top>40</top>
-							<width>30</width>
-							<height>30</height>
-							<texture>pvr/Recording.png</texture>
-							<visible>ListItem.IsRecording</visible>
-						</control>
-
-						<!-- Timer image -->
-						<control type="image">
-							<left>221</left>
-							<top>36</top>
-							<width>38</width>
-							<height>40</height>
-							<texture>pvr/Timer.png</texture>
-							<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-						</control>
-
-						<!-- Program name -->
-						<control type="label">
-							<left>280</left>
-							<top>12</top>
-							<width>740</width>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<left>280</left>
-							<top>62</top>
-							<width>740</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>TextColor2</textcolor>
-							<label>[LIGHT]$INFO[ListItem.Genre][/LIGHT]</label>
-						</control>
-
-					</itemlayout>
-
-					<focusedlayout width="1020" height="108">
-
-						<!-- Start time -->
-						<control type="label">
-							<top>12</top>
-							<width>200</width>
-							<align>right</align>
-							<textcolor>TextColor1</textcolor>
-							<label>$INFO[ListItem.StartTime]</label>
-						</control>
-
-						<!-- Duration -->
-						<control type="label">
-							<top>62</top>
-							<width>200</width>
-							<height>27</height>
-							<font>Font27</font>
-							<align>right</align>
-							<textcolor>TextColor1</textcolor>
-							<label>$INFO[ListItem.Duration]</label>
-						</control>
-
-						<!-- Recording image -->
-						<control type="image">
-							<left>226</left>
-							<top>40</top>
-							<width>30</width>
-							<height>30</height>
-							<texture>pvr/Recording.png</texture>
-							<visible>ListItem.IsRecording</visible>
-						</control>
-
-						<!-- Timer image -->
-						<control type="image">
-							<left>221</left>
-							<top>36</top>
-							<width>38</width>
-							<height>40</height>
-							<texture>pvr/Timer.png</texture>
-							<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-						</control>
-
-						<!-- Program name -->
-						<control type="label">
-							<left>280</left>
-							<top>12</top>
-							<width>740</width>
-							<textcolor>TextColor1</textcolor>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<left>280</left>
-							<top>62</top>
-							<width>740</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>TextColor1</textcolor>
-							<label>$INFO[ListItem.Genre]</label>
-						</control>
-
-					</focusedlayout>
-
-				</control>
-
-				<!-- Scrollbar -->
-				<control type="scrollbar" id="70">
-					<left>1152</left>
-					<top>226</top>
-					<width>20</width>
-					<height>648</height>
-					<onleft>13</onleft>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>OverlayColorNF</colordiffuse>
-					<texturesliderbackground border="6,1,8,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib>-</textureslidernib>
-					<textureslidernibfocus>-</textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-
-				<!-- Channel preview & info -->
-				<control type="group">
-					<right>120</right>
-					<top>246</top>
-					<width>512</width>
-
-					<!-- Program name -->
-					<control type="label">
-						<width>512</width>
-						<label>$INFO[Container(13).ListItem.Title]</label>
-						<textcolor>TextColor1</textcolor>
-					</control>
-
-					<control type="group">
-						<top>76</top>
-
-						<!-- Plot -->
-						<control type="textbox">
-							<width>512</width>
-							<height>460</height>
-							<align>justify</align>
-							<font>Font25</font>
-							<textcolor>TextColor1</textcolor>
-							<info>Container(13).ListItem.Plot</info>
-						</control>
-
-						<!-- Genre -->
-						<control type="label">
-							<right>0</right>
-							<top>504</top>
-							<width>512</width>
-							<height>30</height>
-							<font>Font30</font>
-							<align>right</align>
-							<label>[LIGHT]$INFO[Container(13).ListItem.Genre][/LIGHT]</label>
-							<textcolor>TextColor1</textcolor>
-						</control>
-
-					</control>
-
-				</control>
-
-				<!-- Channel count -->
-				<control type="grouplist">
-					<right>120</right>
-					<bottom>110</bottom>
-					<width>800</width>
-					<height>44</height>
-					<itemgap>6</itemgap>
-					<align>right</align>
-					<orientation>horizontal</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-
-					<control type="label">
-						<top>3</top>
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>$INFO[Container(13).NumItems]</label>
-						<font>Font25</font>
-						<textcolor>TextColor2</textcolor>
-					</control>
-
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>$VAR[ContentType]</label>
-						<font>Font33</font>
-						<textcolor>TextColor2</textcolor>
-					</control>
-
-				</control>
-
-			</control>
-
 		</control>
 
 		<!-- Time -->
@@ -1080,7 +297,6 @@
 					<top>0</top>
 					<width>460</width>
 					<height>1080</height>
-					<onclick>noop</onclick>
 				</control>
 
 				<!-- Look controls -->
@@ -1100,29 +316,10 @@
 						<param name="containerID">3000</param>
 					</include>
 
-					<!-- View -->
-					<control type="button" id="2">
-						<height>52</height>
-						<visible>!Skin.HasSetting(GuideLocked)</visible>
-					</control>
-					<!-- Sort by -->
-					<control type="button" id="3">
-						<height>52</height>
-						<label>103</label>
-						<visible>Control.IsEnabled(3)</visible>
-					</control>
-					<!-- Sort ascending/descending -->
-					<control type="togglebutton" id="4">
-						<height>52</height>
-						<label>584</label>
-						<altlabel>585</altlabel>
-						<usealttexture>Container.SortDirection(Descending)</usealttexture>
-						<visible>Control.IsEnabled(4)</visible>
-					</control>
 					<!-- Channel Groups -->
 					<control type="button" id="28">
 						<height>52</height>
-						<label>-</label>
+						<label></label>
 						<visible>Control.IsEnabled(28)</visible>
 					</control>
 					<!-- Group recording items by folder structure -->
@@ -1143,20 +340,20 @@
 					<!-- Channels -->
 					<control type="button" id="100">
 						<height>52</height>
-						<onclick condition="Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)">NextChannelGroup</onclick>
 						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
 						<onclick>SetFocus(10)</onclick>
 						<label>19019</label>
+						<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Guide -->
 					<control type="button" id="102">
 						<height>52</height>
 						<label>22020</label>
-						<onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
 						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
 						<onclick>SetFocus(10)</onclick>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Recordings -->
 					<control type="button" id="103">
@@ -1165,6 +362,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
 						<onclick>SetFocus(10)</onclick>
 						<label>19163</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Timers -->
 					<control type="button" id="35">
@@ -1173,6 +371,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>19040</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Rules -->
 					<control type="button" id="36">
@@ -1181,6 +380,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimerRules)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>$LOCALIZE[31022]</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Search -->
 					<control type="button" id="37">
@@ -1189,6 +389,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>137</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 					</control>
 					
 				</control>

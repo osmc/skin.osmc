@@ -169,10 +169,10 @@
 				<height>20</height>
 				<info>Player.Progress</info>
 				<texturebg border="2" colordiffuse="DialogColor2">osd/OSDProgressBack.png</texturebg>
-				<lefttexture>-</lefttexture>
+				<lefttexture></lefttexture>
 				<midtexture border="2" colordiffuse="DialogColor1">osd/OSDProgressBar.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
+				<righttexture></righttexture>
+				<overlaytexture></overlaytexture>
 			</control>
 
 			<!--  Cache bar -->
@@ -183,10 +183,10 @@
 				<height>20</height>
 				<info>Player.ProgressCache</info>
 				<texturebg colordiffuse="DialogColor2" border="2">osd/OSDProgressBack.png</texturebg>
-				<lefttexture>-</lefttexture>
+				<lefttexture></lefttexture>
 				<midtexture colordiffuse="OSDCache" border="2">osd/OSDProgressBar.png</midtexture>
-				<righttexture>-</righttexture>
-				<overlaytexture>-</overlaytexture>
+				<righttexture></righttexture>
+				<overlaytexture></overlaytexture>
 			</control>
 
 			<!-- Current Time/End Time -->
@@ -404,9 +404,9 @@
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDRecordOffNF.png</texturenofocus>
 					<alttexturefocus colordiffuse="DialogColor1">osd/OSDRecordOnNF.png</alttexturefocus>
 					<alttexturenofocus colordiffuse="DialogColor2">osd/OSDRecordOnNF.png</alttexturenofocus>
-					<usealttexture>Player.Recording</usealttexture>
-					<onclick>PlayerControl(Record)</onclick>
-					<visible>Player.CanRecord</visible>
+					<usealttexture>PVR.IsRecordingPlayingChannel</usealttexture>
+					<onclick>PVR.ToggleRecordPlayingChannel</onclick>
+					<visible>PVR.CanRecordPlayingChannel</visible>
 				</control>
 
 			</control>
@@ -449,23 +449,22 @@
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDAudioNF.png</texturenofocus>
 					<onclick>ActivateWindow(124)</onclick>
 				</control>
-				<!-- Bookmarks -->
+				<!-- Subtitles -->
 				<control type="button" id="15">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus colordiffuse="DialogColor1">osd/OSDSubtitlesNF.png</texturefocus>
+					<texturenofocus colordiffuse="DialogColor2">osd/OSDSubtitlesNF.png</texturenofocus>
+					<onclick>ActivateWindow(159)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!-- Bookmarks -->
+				<control type="button" id="16">
 					<width>60</width>
 					<height>60</height>
 					<texturefocus colordiffuse="DialogColor1">osd/OSDBookmarksNF.png</texturefocus>
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDBookmarksNF.png</texturenofocus>
 					<onclick>ActivateWindow(125)</onclick>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-				</control>
-				<!-- Subtitles -->
-				<control type="button" id="16">
-					<width>60</width>
-					<height>60</height>
-					<texturefocus colordiffuse="DialogColor1">osd/OSDSubtitlesNF.png</texturefocus>
-					<texturenofocus colordiffuse="DialogColor2">osd/OSDSubtitlesNF.png</texturenofocus>
-					<onclick>Close</onclick>
-					<onclick>ActivateWindow(SubtitleSearch)</onclick>
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<!-- Channels -->
@@ -483,7 +482,7 @@
 					<height>60</height>
 					<texturefocus colordiffuse="DialogColor1">osd/OSDEPGNF.png</texturefocus>
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDEPGNF.png</texturenofocus>
-					<onclick>ActivateWindow(PVROSDGuide)</onclick>
+					<onclick>ActivateWindow(PVRChannelGuide)</onclick>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<!-- Teletext -->
