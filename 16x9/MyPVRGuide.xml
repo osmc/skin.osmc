@@ -340,20 +340,20 @@
 					<!-- Channels -->
 					<control type="button" id="100">
 						<height>52</height>
-						<onclick condition="Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)">NextChannelGroup</onclick>
 						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
 						<onclick>SetFocus(10)</onclick>
 						<label>19019</label>
+						<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Guide -->
 					<control type="button" id="102">
 						<height>52</height>
 						<label>22020</label>
-						<onclick condition="Window.IsActive(TVGuide) | Window.IsActive(RadioGuide)">NextChannelGroup</onclick>
 						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
 						<onclick>SetFocus(10)</onclick>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Recordings -->
 					<control type="button" id="103">
@@ -362,6 +362,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
 						<onclick>SetFocus(10)</onclick>
 						<label>19163</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Timers -->
 					<control type="button" id="35">
@@ -370,6 +371,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>19040</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Rules -->
 					<control type="button" id="36">
@@ -378,6 +380,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimerRules)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>$LOCALIZE[31022]</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
 					</control>
 					<!-- Search -->
 					<control type="button" id="37">
@@ -386,6 +389,7 @@
 						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
 						<onclick>SetFocus(50)</onclick>
 						<label>137</label>
+						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 					</control>
 					
 				</control>
