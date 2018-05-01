@@ -22,6 +22,7 @@ _Improved_
 - replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
 - adjust representation of season/episode titles to one syntax everywhere: S01E01
 - replace "Loading…" upon widget loading at startup of mediacenter by translatable "Please wait…"
+- add cycling of controls highlight in context menu
 
 _Fixed_
 - window heading and system clock moved slightly down and reduced width of “now playing” dialog to avoid overlaps
@@ -30,11 +31,15 @@ _Fixed_
 - recognize TV show specials and show them correctly (no season, just episode S1)
 - adjust width of scrolling titles in wall view and wide list view to avoid overlap with new media flags
 - “now playing” dialog now shows album/artist tags correctly even when one of them or both are not present in the currently playing music file
+- fix custom background colour option
 
 **Changelog v17.0.4**
 
 DialogAddonInfo.xml:
 - add different font sizes/styles (27, 30, 33 and 36 - light, normal) to addon description text
+
+DialogContextMenu.xml:
+- enable controls cycling from top to bottom and bottom to top in context menu
 
 DialogFullScreenInfo.xml:
 - add currently played audio/subtitle stream to video player info dialogue (global variables used here)
@@ -143,3 +148,6 @@ template.xml:
 
 addon.xml:
 - bump version to 17.0.4
+
+Textures.xbt:
+- repack content of media folder
