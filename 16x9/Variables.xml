@@ -326,7 +326,7 @@
 
 	<variable name="Label1">
 		<value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$VAR[SElist] &#8226; $INFO[ListItem.Title]</value>
+		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$VAR[SElist,, &#8226; ]$INFO[ListItem.Title]</value>
 		<value condition="String.IsEmpty(ListItem.Title)">$INFO[ListItem.Label]</value>
 	</variable>
 
@@ -594,11 +594,16 @@
 	</variable>
 	
 	<variable name="SElist">
-		<value condition="Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0,]</value>
-		<value condition="Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E,]</value>
-		<value condition="Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E0,]</value>
-		<value condition="Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E,]</value>
-		<value condition="String.Contains(ListItem.Episode,s)">$INFO[ListItem.Episode,[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="!String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0,]</value>
+		<value condition="!String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E,]</value>
+		<value condition="!String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E0,]</value>
+		<value condition="!String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E,]</value>
+		<value condition="!String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + String.Contains(ListItem.Episode,s)">$INFO[ListItem.Episode,[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle] &#8226; $INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0,]</value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle] &#8226; $INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E,]</value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle] &#8226; $INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E0,]</value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle] &#8226; $INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E,]</value>
+		<value condition="String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/) + String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle] &#8226; $INFO[ListItem.Episode,[UPPERCASE],[/UPPERCASE]]</value>
 	</variable>
 	
 	<variable name="SEContainer10101">
