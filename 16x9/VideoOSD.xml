@@ -135,18 +135,7 @@
 				<height>60</height>
 				<font>Font27</font>
 				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[Player.Time] / $INFO[Player.Duration]</label>
-				<visible>Player.HasDuration</visible>
-			</control>
-			
-			<control type="label">
-				<left>20</left>
-				<width>260</width>
-				<height>60</height>
-				<font>Font27</font>
-				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[Player.Time]]</label>
-				<visible>!Player.HasDuration</visible>
+				<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
 			</control>
 
 			<!-- Seek slider -->
@@ -197,19 +186,8 @@
 				<align>right</align>
 				<font>Font27</font>
 				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[System.Time,$LOCALIZE[142] , / ]$INFO[Player.FinishTime,$LOCALIZE[19081] ]</label>
-				<visible>Player.HasDuration</visible>
-			</control>
-			
-			<control type="label">
-				<left>1001</left>
-				<width>600</width>
-				<height>60</height>
-				<align>right</align>
-				<font>Font27</font>
-				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[System.Time,$LOCALIZE[142] ,]</label>
-				<visible>!Player.HasDuration</visible>
+				<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
+				<visible>Integer.IsGreater(Player.Duration,0)</visible>
 			</control>
 
 		</control>
