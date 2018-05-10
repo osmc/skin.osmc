@@ -529,9 +529,22 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[Player.Title]</label>
-						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
-						<visible>Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
+						<visible>Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName) + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<visible>Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName) + !Integer.IsGreater(Player.Duration,0)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
 
