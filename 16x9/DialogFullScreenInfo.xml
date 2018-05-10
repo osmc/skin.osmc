@@ -82,7 +82,7 @@
 					<height>30</height>
 					<font>Font27</font>
 					<textcolor>DialogColor1</textcolor>
-					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[460]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels,,$COMMA ]$INFO[VideoPlayer.AudioLanguage,[UPPERCASE],[/UPPERCASE]]$INFO[VideoPlayer.SubtitlesLanguage,   [LIGHT]$LOCALIZE[462]:[/LIGHT] [UPPERCASE],[/UPPERCASE]]</label>
+					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[460]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels,,]$INFO[VideoPlayer.AudioLanguage,$COMMA [UPPERCASE],[/UPPERCASE]]$INFO[VideoPlayer.SubtitlesLanguage,   [LIGHT]$LOCALIZE[462]:[/LIGHT] [UPPERCASE],[/UPPERCASE]]</label>
 				</control>
 
 				<!-- Icon -->
@@ -234,7 +234,7 @@
 						<height>60</height>
 						<font>Font27</font>
 						<textcolor>DialogColor2</textcolor>
-						<label>$INFO[Player.Time] / $INFO[Player.Duration]</label>
+						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
 					</control>
 
 					<!--  Progress bar -->
@@ -273,7 +273,8 @@
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>DialogColor2</textcolor>
-						<label>$INFO[System.Time,$LOCALIZE[142] , / ]$INFO[Player.FinishTime,$LOCALIZE[19081] ]</label>
+						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
+						<visible>Integer.IsGreater(Player.Duration,0)</visible> 
 					</control>
 
 				</control>
