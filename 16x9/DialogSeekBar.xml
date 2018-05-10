@@ -121,7 +121,7 @@
 				<height>60</height>
 				<font>Font27</font>
 				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[Player.Time] / $INFO[Player.Duration]</label>
+				<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
 			</control>
 
 			<!--  Progress bar -->
@@ -160,7 +160,8 @@
 				<align>right</align>
 				<font>Font27</font>
 				<textcolor>DialogColor2</textcolor>
-				<label>$INFO[System.Time,$LOCALIZE[142] , / ]$INFO[Player.FinishTime,$LOCALIZE[19081] ]</label>
+				<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
+				<visible>Integer.IsGreater(Player.Duration,0)</visible> 
 			</control>
 
 		</control>
