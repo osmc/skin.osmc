@@ -198,10 +198,218 @@
 						<align>right</align>
 						<label>$INFO[VideoPlayer.TVShowTitle]</label>
 						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[VideoPlayer.Title]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
 						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
-						<visible>Player.HasVideo</visible>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+										
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[System.Time,[LIGHT]$LOCALIZE[142] [/LIGHT], / ]$INFO[Player.FinishTime,[LIGHT]$LOCALIZE[19081]: [/LIGHT]]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<visible>Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+					
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
+						<pauseatend>5000</pauseatend>
+					</control>
+										
+					<control type="fadelabel">
+						<right>170</right>
+						<top>93</top>
+						<width>1400</width>
+						<height>33</height>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<visible>Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)] + !Integer.IsGreater(Player.Duration,0)</visible>
 						<pauseatend>5000</pauseatend>
 					</control>
 
