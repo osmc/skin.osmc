@@ -9,6 +9,7 @@ _New_
 - add file size label next to duration label in file view
 - add adjustable font sizes/styles to plot/description texts (addon info, music info, full screen info, PVR info and video info dialog) – font sizes 27 (S), 30 (M), 33 (L) and 36 (XL) available in normal and light
 - add option to show date above system time
+- add option to adjust OSD on-time during video pause
 
 _Improved_
 - show resolution with “p”-suffix (global)
@@ -22,6 +23,7 @@ _Improved_
 - replace “Aired on” in details of TV show episodes (in list view) by translatable “First air date”
 - adjust representation of season/episode titles to one syntax everywhere: S01E01
 - replace "Loading…" upon widget loading at startup of mediacenter by translatable "Please wait…"
+- add cycling of controls highlight in context menu
 
 _Fixed_
 - window heading and system clock moved slightly down and reduced width of “now playing” dialog to avoid overlaps
@@ -30,6 +32,8 @@ _Fixed_
 - recognize TV show specials and show them correctly (no season, just episode S1)
 - adjust width of scrolling titles in wall view and wide list view to avoid overlap with new media flags
 - “now playing” dialog now shows album/artist tags correctly even when one of them or both are not present in the currently playing music file
+- fix custom background color option
+- bring back current playlist button in music OSD functionality
 
 **Changelog v17.0.4**
 
@@ -54,6 +58,9 @@ DialogPlayerProcessInfo.xml:
 DialogPVRInfo.xml:
 - add different font sizes/styles (27, 30, 33 and 36 - light, normal) to PVR plot text
 
+DialogSeekBar.xml:
+- add different on-time settings for video pause OSD
+
 DialogSubtitles.xml:
 - change filename label into fadelabel to enable scrolling
 - add scrolling to subtitle name label
@@ -61,6 +68,10 @@ DialogSubtitles.xml:
 DialogVideoInfo.xml:
 - add "p" to resolution in video info dialog and alter representation of 4K resolutions to "2160p" (global variable used here)
 - add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
+
+Home.xml:
+- add onload to set skin string “PlotFont” to “S”, if empty
+- add onload to set skin string “HideOSD” to “Off”, if empty
 
 Includes.xml:
 - move window headings and system time slightly downwards to avoid collision/overlap with "now playing" dialog (if music/video/PVR titles are very long)
@@ -79,6 +90,9 @@ Includes.xml:
 - adjust "now playing" dialog to show information of music files without artist and/or album tag correctly
 - add system date label to system time include in top right corner (only visible with a skin setting)
 - adjust "now playing" dialog for audio addons which only provide a playback length of 0
+
+MusicOSD.xml:
+- add line to close music OSD before opening current playlist window
 
 MusicVisualisation.xml:
 - complete redo of "Now playing" label (all lines turned into fadelabels to scroll long titles, add audio information - codec, bitrate, channel layout and sample rate -, global variables used here)
@@ -136,6 +150,9 @@ string.po:
 - add two new localizes for new skin settings buttons (#31100 and #31101)
 - add new localize for new skin settings button (#31102)
 
+Textures.xbt:
+- repack content of media folder
+
 template.xml:
 - add/adjust variable conditions needed for "SxxExx" representation in in widget titles when using script-skinshortcuts (add line to show only episode title when ListItem.Episode contains the character "s" - for series specials)
 - adjust episode widget title to always use uppercase for "Sx" format of specials
@@ -148,13 +165,10 @@ addon.xml:
 
 _New_
 - add new v18 subtitle settings OSD during fullscreen video playback
+- add games section
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
-- add cycling of controls highlight in context menu
-
-_Fixed_
-- fix custom background colour option
 
 **Changelog v18.0.0**
 
@@ -198,9 +212,10 @@ DialogContextMenu.xml:
 - hide selection buttons for windows currently open in PVR context menu
 - move subtitle settings one left on fullscreen video OSD
 - rework link to new osdsubtitlesettings window
+- add GameOSD window
+- add MyGames window
+- add games to home menu
+- add games settings category
 
 addon.xml:
 - bump version to 18.0.0
-
-Textures.xbt:
-- repack content of media folder
