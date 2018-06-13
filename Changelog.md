@@ -9,6 +9,7 @@ _New_
 - add file size label next to duration label in file view
 - add adjustable font sizes/styles to plot/description texts (addon info, music info, full screen info, PVR info and video info dialog) – font sizes 27 (S), 30 (M), 33 (L) and 36 (XL) available in normal and light
 - add option to show date above system time
+- add option to adjust OSD on-time during video pause
 
 _Improved_
 - show resolution with “p”-suffix (global)
@@ -32,6 +33,7 @@ _Fixed_
 - adjust width of scrolling titles in wall view and wide list view to avoid overlap with new media flags
 - “now playing” dialog now shows album/artist tags correctly even when one of them or both are not present in the currently playing music file
 - fix custom background colour option
+- bring back current playlist button in music OSD functionality
 
 **Changelog v17.0.4**
 
@@ -59,6 +61,10 @@ DialogPlayerProcessInfo.xml:
 DialogPVRInfo.xml:
 - add different font sizes/styles (27, 30, 33 and 36 - light, normal) to PVR plot text
 
+DialogSeekBar.xml:
+- add different on-time settings for video pause OSD
+
+
 DialogSubtitles.xml:
 - change filename label into fadelabel to enable scrolling
 - add scrolling to subtitle name label
@@ -66,6 +72,11 @@ DialogSubtitles.xml:
 DialogVideoInfo.xml:
 - add "p" to resolution in video info dialog and alter representation of 4K resolutions to "2160p" (global variable used here)
 - add different font sizes/styles (27, 30, 33 and 36 - light, normal) to video plot text
+
+Home.xml:
+- add onload to set skin string “PlotFont” to “S”, if empty
+- add onload to set skin string “HideOSD” to “Off”, if empty
+
 
 Includes.xml:
 - move window headings and system time slightly downwards to avoid collision/overlap with "now playing" dialog (if music/video/PVR titles are very long)
@@ -85,6 +96,9 @@ Includes.xml:
 - add system date label to system time include in top right corner (only visible with a skin setting)
 - adjust "now playing" dialog for audio addons which only provide a playback length of 0
 
+MusicOSD.xml:
+- add line to close music OSD before opening current playlist window
+
 MusicVisualisation.xml:
 - complete redo of "Now playing" label (all lines turned into fadelabels to scroll long titles, add audio information - codec, bitrate, channel layout and sample rate -, global variables used here)
 - complete redo of "Next playing" label (all lines turned into fadelabels to scroll long titles, global variables used here as labels - [CR] can't be scrolled!)
@@ -103,6 +117,9 @@ SkinSettings.xml:
 - add new button for description/plot text font size under advanced skin settings
 - add new button to toggle light font for description/plot texts under advanced skin settings
 - add new button to toggle "Show date above system time" option under home skin settings
+- rename “Backup/Reset” section to “Reset/Debug”
+- move debug options from advanced to reset/debug section
+- add “adjust OSD on-time during video pause” option
 
 Variables.xml:
 - complete redo of variable "AudioChannels" (not only stereo and surround as output, but all supported channel layouts)
@@ -141,6 +158,9 @@ string.po:
 - add two new localizes for new skin settings buttons (#31100 and #31101)
 - add new localize for new skin settings button (#31102)
 
+Textures.xbt:
+- repack content of media folder
+
 template.xml:
 - add/adjust variable conditions needed for "SxxExx" representation in in widget titles when using script-skinshortcuts (add line to show only episode title when ListItem.Episode contains the character "s" - for series specials)
 - adjust episode widget title to always use uppercase for "Sx" format of specials
@@ -148,6 +168,3 @@ template.xml:
 
 addon.xml:
 - bump version to 17.0.4
-
-Textures.xbt:
-- repack content of media folder
