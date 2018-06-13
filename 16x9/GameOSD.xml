@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- GameOSD -->
+	<defaultcontrol always="true">5</defaultcontrol>
+	
+	<controls>
+		<!-- Window Background -->
+		<include>WindowFadeBackgroundImage</include>
+
+		<control type="group">
+
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">35221</param>
+			</include>
+			<control type="label" id="2">
+				<left>-150000</left>
+				<top>96</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Font72</font>
+				<label></label>
+
+				<!-- Game OSD Buttons Grouplist -->
+				<control type="grouplist" id="5">
+					<left>150</left>
+					<top>200</top>
+					<width>1200</width>
+					<height>654</height>
+					<itemgap>0</itemgap>
+					<onleft>3</onleft>
+					<onright>9001</onright>
+					<onup>noop</onup>
+					<ondown>9001</ondown>
+					<orientation>vertical</orientation>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+					<control type="button" id="1001">
+							<description>Resume button</description>
+							<width>300</width>
+							<height>38</height>
+							<textcolor>DialogColor2</textcolor>
+							<focusedcolor>DialogColor1</focusedcolor>
+							<label>$LOCALIZE[13404]</label>
+							<label2>Select + X</label2>
+							<onclick>Play</onclick>
+						</control>
+						<control type="button" id="1002">
+							<description>Reset button</description>
+							<width>300</width>
+							<height>38</height>
+							<textcolor>DialogColor2</textcolor>
+							<focusedcolor>DialogColor1</focusedcolor>
+							<label>$LOCALIZE[10035]</label>
+							<label2>Select + B</label2>
+							<onclick>PlayerControl(Reset)</onclick>
+						</control>
+						<control type="button" id="1003">
+							<description>Stop button</description>
+							<width>300</width>
+							<height>38</height>
+							<textcolor>DialogColor2</textcolor>
+							<focusedcolor>DialogColor1</focusedcolor>
+							<label>$LOCALIZE[35222]</label>
+							<label2>Select + Start</label2>
+							<onclick>Stop</onclick>
+						</control>
+						<control type="image" id="1004"> 
+							<width>1200</width> 
+							<height>10</height> 
+							<texture>transparent.png</texture> 
+						</control> 
+						<control type="button" id="1005">
+							<description>Video filter button</description>
+							<width>300</width>
+							<height>38</height>
+							<textcolor>DialogColor2</textcolor>
+							<focusedcolor>DialogColor1</focusedcolor>
+							<label>$LOCALIZE[230]</label>
+							<onclick>ActivateWindow(GameVideoFilter)</onclick>
+						</control>
+						<control type="button" id="1006">
+							<description>View mode button</description>
+							<width>300</width>
+							<height>38</height>
+							<textcolor>DialogColor2</textcolor>
+							<focusedcolor>DialogColor1</focusedcolor>
+							<label>$LOCALIZE[629]</label>
+							<onclick>ActivateWindow(GameViewMode)</onclick>
+						</control>
+						<control type="button" id="1007">
+							<description>Input settings button</description>
+							<width>300</width>
+							<height>38</height>
+							<textcolor>DialogColor2</textcolor>
+							<focusedcolor>DialogColor1</focusedcolor>
+							<label>$LOCALIZE[35223]</label>
+							<onclick>ActivateWindow(gamecontrollers)</onclick>
+						</control>
+					</control>
+				</control>
+		</control>
+
+	</controls>
+
+</window>
