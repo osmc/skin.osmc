@@ -4,7 +4,8 @@
 	<defaultcontrol always="true">9</defaultcontrol>
 	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1&amp;options=noGroups)</onunload>
 	<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
-	<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Off)</onload>
+	<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Always)</onload>
+	<onload condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,Always)</onload>
 
 	<controls>
 
@@ -391,7 +392,7 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31102]</label>
 					<label2>$INFO[Skin.String(HideOSD)]</label2>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,5s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),Always)">Skin.SetString(HideOSD,5s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),5s)">Skin.SetString(HideOSD,10s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),10s)">Skin.SetString(HideOSD,20s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),20s)">Skin.SetString(HideOSD,30s)</onclick>
@@ -399,7 +400,7 @@
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),1 min)">Skin.SetString(HideOSD,2 min)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),2 min)">Skin.SetString(HideOSD,3 min)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),3 min)">Skin.SetString(HideOSD,5 min)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),5 min)">Skin.SetString(HideOSD,Off)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),5 min)">Skin.SetString(HideOSD,Always)</onclick>
 					<visible>ControlGroup(9).HasFocus(12)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
