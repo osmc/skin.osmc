@@ -4,6 +4,7 @@
 	<defaultcontrol always="true">9</defaultcontrol>
 	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1&amp;options=noGroups)</onunload>
 	<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
+	<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Off)</onload>
 
 	<controls>
 
@@ -403,8 +404,19 @@
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>
-				<!-- Kiosk mode -->
+				<!-- Hide thumbnails of unwatched episodes -->
 				<control type="radiobutton" id="1304">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31103</label>
+					<onclick>Skin.ToggleSetting(HideEpisodeThumbnail)</onclick>
+					<selected>Skin.HasSetting(HideEpisodeThumbnail)</selected>
+					<visible>ControlGroup(9).HasFocus(12)</visible>
+				</control>
+				<!-- Kiosk mode -->
+				<control type="radiobutton" id="1305">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
