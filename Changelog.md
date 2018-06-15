@@ -10,6 +10,7 @@ _New_
 - add adjustable font sizes/styles to plot/description texts (addon info, music info, full screen info, PVR info and video info dialog) – font sizes 27 (S), 30 (M), 33 (L) and 36 (XL) available in normal and light
 - add option to show date above system time
 - add option to adjust OSD on-time during video pause
+- add option to hide thumbnail art of unwatched TV show episodes
 
 _Improved_
 - show resolution with “p”-suffix (global)
@@ -120,6 +121,8 @@ SkinSettings.xml:
 - rename “Backup/Reset” section to “Reset/Debug”
 - move debug options from advanced to reset/debug section
 - add “adjust OSD on-time during video pause” option
+- add onload to set skin string “HideOSD” to “Off”, if empty
+- add "hide thumbnail of unwatched episodes" option
 
 Variables.xml:
 - complete redo of variable "AudioChannels" (not only stereo and surround as output, but all supported channel layouts)
@@ -137,6 +140,7 @@ Variables.xml:
 - always use uppercase for "Sx" format of specials in relevant variables
 - add variable "SEListView" for use in episode list view
 - replace "Now" and "Next" in PVR full screen playback info title variable by localizes
+- change "mediaImages" variable to react to new skin setting
 
 Viewtype51.xml:
 - adjust text box height of plots shown when selecting a TV show episode in list view (to avoid collision with new MediaFlags representation)
@@ -157,6 +161,7 @@ Viewtype55.xml:
 string.po:
 - add two new localizes for new skin settings buttons (#31100 and #31101)
 - add new localize for new skin settings button (#31102)
+- add new localize for new skin settings button (#31103)
 
 Textures.xbt:
 - repack content of media folder
