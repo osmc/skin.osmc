@@ -3,12 +3,15 @@
 	<!-- selectdialog -->
 	<defaultcontrol always="true">3</defaultcontrol>
 	<include>WindowFadeAnimation</include>
+	
 	<controls>
-		<!-- Window Background -->
-		<include>WindowFadeBackgroundImage</include>
-
+		
 		<control type="group">
-
+			<visible>![Window.IsActive(gameviewmode) | Window.IsActive(gamevideofilter)]</visible>
+			
+			<!-- Window Background -->
+			<include>WindowFadeBackgroundImage</include>
+			
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 
@@ -265,6 +268,91 @@
 
 		</control>
 
-	</controls>
+		<control type="group">
+			<visible>Window.IsActive(gameviewmode) | Window.IsActive(gamevideofilter)</visible>
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
 
+			<!-- Window Background -->
+			<control type="image">
+				<left>0</left>
+				<top>680</top>
+				<width>1920</width>
+				<height>400</height>
+				<texture colordiffuse="$VAR[OverlayColor]" border="30">dialogs/Background.png</texture>
+			</control>
+			
+			<!-- Heading -->
+			<control type="label" id="1">
+				<left>0</left>
+				<top>710</top>
+				<width>1920</width>
+				<height>33</height>
+				<align>center</align>
+				<aligny>top</aligny>
+				<font>Font33</font>
+				<label>$INFO[Control.GetLabel(1)]</label>
+			</control>
+			<control type="panel" id="11">
+				<left>60</left>
+				<top>770</top>
+				<width>1820</width>
+				<height>250</height>
+				<orientation>horizontal</orientation>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<itemlayout width="450" height="250">
+					<control type="group">
+						<control type="gamewindow">
+							<width>356</width>
+							<height>200</height>
+							<scalingmethod>$INFO[ListItem.Property(game.scalingmethod)]</scalingmethod>
+							<viewmode>$INFO[ListItem.Property(game.viewmode)]</viewmode>
+						</control>
+						<control type="label">
+							<top>200</top>
+							<width>356</width>
+							<height>50</height>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
+							<font>Font33</font>
+							<align>center</align>
+							<textcolor>DialogColor2</textcolor>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="450" height="250">
+					<control type="group">
+						<control type="gamewindow">
+							<width>356</width>
+							<height>200</height>
+							<scalingmethod>$INFO[ListItem.Property(game.scalingmethod)]</scalingmethod>
+							<viewmode>$INFO[ListItem.Property(game.viewmode)]</viewmode>
+						</control>
+						<control type="label">
+							<top>200</top>
+							<width>356</width>
+							<height>50</height>
+							<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
+							<font>Font33</font>
+							<align>center</align>
+							<textcolor>DialogColor1</textcolor>
+							<scrollsuffix> | </scrollsuffix>
+							<scroll>True</scroll>
+							<scrollspeed>30</scrollspeed>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="textbox" id="12">
+				<top>1020</top>
+				<left>60</left>
+				<right>60</right>
+				<height>60</height>
+				<font>Font30</font>
+				<align>center</align>
+				<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
+				<visible>Window.IsActive(gamevideofilter)</visible>
+				<textcolor>DialogColor1</textcolor>
+			</control>
+		</control>
+	</controls>
 </window>
