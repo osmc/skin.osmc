@@ -677,10 +677,12 @@
 		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[19163]</value>
 		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[19029]</value>
 		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[19019]</value>
+		<value condition="Container.Content(games) + Integer.IsGreater(Container.NumItems,1)">Games</value>
+		<value condition="Container.Content(games) + !Integer.IsGreater(Container.NumItems,1)">Game</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + Integer.IsGreater(Container.NumItems,1)">Game Add-ons</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsGreater(Container.NumItems,1)">Game Add-on</value>
 		<value condition="!Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31000]</value>
 		<value condition="Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31001]</value>
-		<value condition="[Window.IsVisible(games) | Container.Content(games)] + Integer.IsGreater(Container.NumItems,1)">Games</value>
-		<value condition="[Window.IsVisible(games) | Container.Content(games)] + !Integer.IsGreater(Container.NumItems,1)">Game</value>
 	</variable>
 
 	<variable name="SystemInfoButton94">

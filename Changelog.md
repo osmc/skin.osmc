@@ -98,6 +98,10 @@ DialogContextMenu.xml:
 - add MyGames window
 - add games to home menu
 - add games settings category
+- add game view mode and game filter dialogs
+- add game widget
+- add game control types
+- fix gamecontroller dialog
 
 addon.xml:
 - bump version to 18.0.0
