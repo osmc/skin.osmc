@@ -7,7 +7,7 @@
 	<controls>
 		
 		<control type="group">
-			<visible>![Window.IsActive(gameviewmode) | Window.IsActive(gamevideofilter)]</visible>
+			<visible>!Player.HasGame</visible>
 			
 			<!-- Window Background -->
 			<include>WindowFadeBackgroundImage</include>
@@ -298,6 +298,7 @@
 				<top>770</top>
 				<width>1820</width>
 				<height>250</height>
+				<onup>Close</onup>
 				<orientation>horizontal</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<itemlayout width="450" height="250">
