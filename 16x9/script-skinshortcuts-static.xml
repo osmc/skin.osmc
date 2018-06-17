@@ -92,12 +92,12 @@
 			<property name="labelID">games</property>
 			<property name="defaultID">games</property>
 			<onclick>ActivateWindow(Games)</onclick>
-			<property name="path">ActivateWindow(Games, root)</property>
-			<property name="list">Games</property>
+			<property name="path">ActivateWindow(Games,root)</property>
+			<property name="list">addons://sources/game/</property>
 			<visible>True</visible>
 			<property name="submenuVisibility">games</property>
 			<property name="group">mainmenu</property>
-			<property name="hasSubmenu">True</property>
+			<property name="hasSubmenu">false</property>
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
@@ -862,6 +862,26 @@
 		</item>
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
+			<property name="mainmenuid">6</property>
+			<label>Widget</label>
+			<label2 />
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">widget</property>
+			<property name="defaultID">widget</property>
+			<property name="widget">addon</property>
+			<property name="widgetName">$LOCALIZE[35049]</property>
+			<property name="widgetType">program</property>
+			<property name="widgetPath">addons://sources/game/</property>
+			<property name="widgetTarget">games</property>
+			<property name="path">noop</property>
+			<property name="list">noop</property>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<property name="group">games.1</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="1">
+			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">8</property>
 			<label>Widget</label>
 			<label2 />
@@ -1149,6 +1169,75 @@
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<include content="widgetHeading">
 				<param name="container">10004</param>
+			</include>
+		</control>
+		<control id="10006" type="list">
+			<left>1300</left>
+			<top>-10000</top>
+			<width>100</width>
+			<height>300</height>
+			<scrolltime>200</scrolltime>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<defaultcontrol>1</defaultcontrol>
+			<itemlayout height="100" width="100">
+				<control type="label">
+					<width>100</width>
+					<height>100</height>
+					<textcolor>TextColor2</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="100" width="100">
+				<control type="label">
+					<width>100</width>
+					<height>100</height>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="1">
+					<label>35049</label>
+					<visible>Integer.IsGreater(Container(10601).NumItems,0) | Container(10601).IsUpdating</visible>
+					<property name="widgetID">6-1</property>
+					<property name="widgetContainer">10601</property>
+				</item>
+			</content>
+		</control>
+		<control id="9005" type="button">
+			<description>Select previous widget</description>
+			<left>500</left>
+			<top>-10000</top>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<label>Previous</label>
+			<onfocus condition="String.IsEqual(Container(10006).ListItem(-1).Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
+			<onfocus>SetProperty(changeWidget-10006,True,10000)</onfocus>
+			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10006,False,10000),00:03,silent)</onfocus>
+			<onfocus>Control.Move(10004,-1)</onfocus>
+		</control>
+		<control id="9006" type="button">
+			<description>Select current widget</description>
+			<left>700</left>
+			<top>-10000</top>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<label>Current</label>
+			<onfocus condition="String.IsEqual(Container(10006).ListItem.Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
+			<onfocus condition="Integer.IsEqual(Container(10006).NumItems,0)">Control.SetFocus(9000)</onfocus>
+		</control>
+		<control id="9007" type="button">
+			<description>Select next widget</description>
+			<left>900</left>
+			<top>-10000</top>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<label>Next</label>
+			<onfocus condition="String.IsEqual(Container(10006).ListItem(1).Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
+			<onfocus>SetProperty(changeWidget-10006,True,10000)</onfocus>
+			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10006,False,10000),00:03,silent)</onfocus>
+			<onfocus>Control.Move(10006,1)</onfocus>
+		</control>
+		<control type="group">
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<include content="widgetHeading">
+				<param name="container">10006</param>
 			</include>
 		</control>
 		<control id="10008" type="list">
@@ -1864,6 +1953,150 @@
 			</focusedlayout>
 			<content target="music">special://skin/extras/playlists/random_albums.xsp</content>
 		</control>
+		<control id="10601" type="list">
+			<viewtype label="">list</viewtype>
+			<orientation>horizontal</orientation>
+			<defaultcontrol always="true">0</defaultcontrol>
+			<scrolltime easing="out" tween="sine">240</scrolltime>
+			<include condition="True">widgetLayout-tall</include>
+			<include condition="False">widgetLayout-wide</include>
+			<include content="widgetOnControl">
+				<param name="container">10006</param>
+			</include>
+			<include condition="True" content="widgetLayoutSlide-tall">
+				<param name="container">10601</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-wide">
+				<param name="container">10601</param>
+			</include>
+			<include content="widgetAnimation">
+				<param name="container1">10006</param>
+				<param name="container2">6-1</param>
+			</include>
+			<itemlayout height="306" width="203">
+				<include content="widget-image">
+					<description>Primary art</description>
+					<param name="width">183</param>
+					<param name="height">306</param>
+					<param name="colordiffuse">DiffusePosterNF</param>
+					<param name="fallback">DefaultGameAddons.png</param>
+					<param name="art">$INFO[ListItem.Icon]</param>
+					<param name="aspectratio">keep</param>
+					<param name="shadow">noop</param>
+					<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+				</include>
+				<include content="widget-image">
+					<description>Fallback art</description>
+					<param name="width">183</param>
+					<param name="height">306</param>
+					<param name="colordiffuse">DiffusePosterNF</param>
+					<param name="fallback">DefaultGameAddons.png</param>
+					<param name="art">$INFO[ListItem.Icon]</param>
+					<param name="aspectratio">keep</param>
+					<param name="shadow">noop</param>
+					<param name="visible">IsEmpty(ListItem.Icon)</param>
+				</include>
+				<include content="widget-image">
+					<description>Catch-all art</description>
+					<param name="width">183</param>
+					<param name="height">306</param>
+					<param name="colordiffuse">DiffusePosterNF</param>
+					<param name="fallback">DefaultGameAddons.png</param>
+					<param name="art">$INFO[ListItem.Icon]</param>
+					<param name="aspectratio">keep</param>
+					<param name="shadow">noop</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+				</include>
+				<control type="image">
+					<left>138</left>
+					<top>256</top>
+					<width>35</width>
+					<height>49</height>
+					<texture>$VAR[StatusOverlayWide]</texture>
+					<visible>!Skin.HasSetting(widgetIcons)</visible>
+				</control>
+			</itemlayout>
+			<focusedlayout height="306" width="203">
+				<control type="group">
+					<include content="widget-image">
+						<description>Primary art</description>
+						<param name="width">183</param>
+						<param name="height">306</param>
+						<param name="fallback">DefaultGameAddons.png</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
+						<param name="aspectratio">keep</param>
+						<param name="shadow">noop</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+					</include>
+					<include content="widget-image">
+						<description>Fallback art</description>
+						<param name="width">183</param>
+						<param name="height">306</param>
+						<param name="fallback">DefaultGameAddons.png</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
+						<param name="aspectratio">keep</param>
+						<param name="shadow">noop</param>
+						<param name="visible">IsEmpty(ListItem.Icon)</param>
+					</include>
+					<include content="widget-image">
+						<description>Catch-all art</description>
+						<param name="width">183</param>
+						<param name="height">306</param>
+						<param name="fallback">DefaultGameAddons.png</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
+						<param name="aspectratio">keep</param>
+						<param name="shadow">noop</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+					</include>
+					<visible>Control.HasFocus(10601)</visible>
+				</control>
+				<control type="group">
+					<include content="widget-image">
+						<description>Primary art</description>
+						<param name="width">183</param>
+						<param name="height">306</param>
+						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="fallback">DefaultGameAddons.png</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
+						<param name="aspectratio">keep</param>
+						<param name="shadow">noop</param>
+						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+					</include>
+					<include content="widget-image">
+						<description>Fallback art</description>
+						<param name="width">183</param>
+						<param name="height">306</param>
+						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="fallback">DefaultGameAddons.png</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
+						<param name="aspectratio">keep</param>
+						<param name="shadow">noop</param>
+						<param name="visible">IsEmpty(ListItem.Icon)</param>
+					</include>
+					<include content="widget-image">
+						<description>Catch-all art</description>
+						<param name="width">183</param>
+						<param name="height">306</param>
+						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="fallback">DefaultGameAddons.png</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
+						<param name="aspectratio">keep</param>
+						<param name="shadow">noop</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+					</include>
+					<visible>!Control.HasFocus(10601)</visible>
+				</control>
+				<control type="image">
+					<left>138</left>
+					<top>256</top>
+					<width>35</width>
+					<height>49</height>
+					<texture>$VAR[StatusOverlayWide]</texture>
+					<visible>!Skin.HasSetting(widgetIcons)</visible>
+				</control>
+			</focusedlayout>
+			<content target="games">addons://sources/game/</content>
+		</control>
 		<control id="10801" type="list">
 			<viewtype label="">list</viewtype>
 			<orientation>horizontal</orientation>
@@ -2453,6 +2686,13 @@
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<visible>String.IsEqual(Container(10006).ListItem.Property(widgetID),6-1) + Container(10601).IsUpdating</visible>
+		</control>
+		<control type="image">
+			<width>36</width>
+			<height>36</height>
+			<texture>busy-small.gif</texture>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
 			<visible>String.IsEqual(Container(10008).ListItem.Property(widgetID),8-1) + Container(10801).IsUpdating</visible>
 		</control>
@@ -2517,6 +2757,15 @@
 		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$INFO[Container(10401).ListItem.StartDate] $INFO[Container(10401).ListItem.StartTime][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401)">[COLOR TextColor1]$INFO[Container(10401).ListItem.Label][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + String.IsEqual(Container(10006).ListItem.Property(widgetID),4-1) + !Control.HasFocus(10601)">[COLOR TextColor2]$INFO[Container(10006).ListItem.Label][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + Integer.IsEqual(Container(10601).NumItems,0)">$LOCALIZE[20186]...</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + False">[COLOR TextColor1]$INFO[Container(10601).ListItem.Property(outlook)][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.Property(WatchedEpisodes))">[COLOR TextColor1]$INFO[Container(10601).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10601).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10601).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.Season)">[COLOR TextColor1][LIGHT]$INFO[Container(10601).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10601] &#8226; $INFO[Container(10601).ListItem.Title][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.ChannelName) + !String.IsEmpty(Container(10601).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10601).ListItem.Label][CR][LIGHT]$INFO[Container(10601).ListItem.Title] ($INFO[Container(10601).ListItem.StartTime] - $INFO[Container(10601).ListItem.EndTime])[CR]$INFO[Container(10601).ListItem.NextTitle] ($INFO[Container(10601).ListItem.NextStartTime] - $INFO[Container(10601).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.ChannelName)">[COLOR TextColor1]$INFO[Container(10601).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.StartTime)">[COLOR TextColor1]$INFO[Container(10601).ListItem.Label][CR][LIGHT]$INFO[Container(10601).ListItem.StartDate] $INFO[Container(10601).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601)">[COLOR TextColor1]$INFO[Container(10601).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10008) + String.IsEqual(Container(10008).ListItem.Property(widgetID),8-1) + !Control.HasFocus(10801)">[COLOR TextColor2]$INFO[Container(10008).ListItem.Label][/COLOR]</value>
 		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + Integer.IsEqual(Container(10801).NumItems,0)">$LOCALIZE[20186]...</value>
 		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + False">[COLOR TextColor1]$INFO[Container(10801).ListItem.Property(outlook)][/COLOR]</value>
@@ -2566,6 +2815,9 @@
 		<value condition="Window.Is(Home) + Control.IsVisible(10004) + [Control.HasFocus(10401) | String.IsEqual(Skin.String(menuStyle),lumos)] + !False">$INFO[Container(10401).ListItem.Art(fanart)]</value>
 		<value condition="Window.Is(Home) + Control.IsVisible(10004) + [Control.HasFocus(10401) | String.IsEqual(Skin.String(menuStyle),lumos)] + [False + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10401).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
 		<value condition="Window.Is(Home) + Control.IsVisible(10004) + [Control.HasFocus(10401) | String.IsEqual(Skin.String(menuStyle),lumos)] + [False + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10401).ListItem.Property(weatherFanart)]/</value>
+		<value condition="Window.Is(Home) + Control.IsVisible(10006) + [Control.HasFocus(10601) | String.IsEqual(Skin.String(menuStyle),lumos)] + !False">$INFO[Container(10601).ListItem.Art(fanart)]</value>
+		<value condition="Window.Is(Home) + Control.IsVisible(10006) + [Control.HasFocus(10601) | String.IsEqual(Skin.String(menuStyle),lumos)] + [False + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10601).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
+		<value condition="Window.Is(Home) + Control.IsVisible(10006) + [Control.HasFocus(10601) | String.IsEqual(Skin.String(menuStyle),lumos)] + [False + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10601).ListItem.Property(weatherFanart)]/</value>
 		<value condition="Window.Is(Home) + Control.IsVisible(10008) + [Control.HasFocus(10801) | String.IsEqual(Skin.String(menuStyle),lumos)] + !False">$INFO[Container(10801).ListItem.Art(fanart)]</value>
 		<value condition="Window.Is(Home) + Control.IsVisible(10008) + [Control.HasFocus(10801) | String.IsEqual(Skin.String(menuStyle),lumos)] + [False + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10801).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
 		<value condition="Window.Is(Home) + Control.IsVisible(10008) + [Control.HasFocus(10801) | String.IsEqual(Skin.String(menuStyle),lumos)] + [False + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10801).ListItem.Property(weatherFanart)]/</value>
