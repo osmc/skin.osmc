@@ -1,4 +1,4 @@
-**Changes v18.0.0**
+**Changes**
 
 _New_
 - add new v18 subtitle settings OSD during fullscreen video playback
