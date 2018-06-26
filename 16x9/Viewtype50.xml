@@ -78,6 +78,22 @@
 						<scroll>True</scroll>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
+					<control type="image">
+						<left>32</left>
+						<top>0</top>
+						<width>1018</width>
+						<height>120</height>
+						<texture>$VAR[focus120]</texture>
+						<visible>Control.HasFocus(50) + !ListItem.IsParentFolder</visible>
+					</control>
+					<control type="image">
+						<left>32</left>
+						<top>0</top>
+						<width>1018</width>
+						<height>120</height>
+						<texture colordiffuse="TextColor2">$VAR[focus120]</texture>
+						<visible>!Control.HasFocus(50) + !ListItem.IsParentFolder</visible>
+					</control>
 					<!-- Watched status -->
 					<control type="image">
 						<left>0</left>

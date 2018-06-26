@@ -100,12 +100,24 @@
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<visible>Control.HasFocus(3)</visible>
 					</control>
+					<control type="image">
+						<width>1050</width>
+						<height>58</height>
+						<texture>$VAR[focus58]</texture>
+						<visible>Control.HasFocus(3)</visible>
+					</control>
 					<control type="label">
 						<width>1050</width>
 						<height>58</height>
 						<font>Font36</font>
 						<textcolor>DialogColor2</textcolor>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<visible>!Control.HasFocus(3)</visible>
+					</control>
+					<control type="image">
+						<width>1050</width>
+						<height>58</height>
+						<texture colordiffuse="DialogColor2">$VAR[focus58]</texture>
 						<visible>!Control.HasFocus(3)</visible>
 					</control>
 				</focusedlayout>
@@ -199,6 +211,14 @@
 							<label>[B]$INFO[ListItem.Label][/B]</label>
 							<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 						</control>
+						<control type="image">
+							<left>140</left>
+							<top>10</top>
+							<width>910</width>
+							<height>44</height>
+							<texture>$VAR[focus44]</texture>
+							<visible>!ListItem.IsParentFolder</visible>
+						</control>
 						<control type="label">
 							<left>140</left>
 							<top>54</top>
@@ -220,6 +240,14 @@
 							<textcolor>DialogColor2</textcolor>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
 							<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+						</control>
+						<control type="image">
+							<left>140</left>
+							<top>10</top>
+							<width>910</width>
+							<height>44</height>
+							<texture colordiffuse="DialogColor2">$VAR[focus44]</texture>
+							<visible>!ListItem.IsParentFolder</visible>
 						</control>
 						<control type="label">
 							<left>140</left>
