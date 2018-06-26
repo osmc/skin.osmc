@@ -73,6 +73,22 @@
 						<textcolor>TextColor1</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
 					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>1050</width>
+						<height>90</height>
+						<texture>$VAR[focus90]</texture>
+						<visible>Control.HasFocus(450)</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>1050</width>
+						<height>90</height>
+						<texture colordiffuse="TextColor2">$VAR[focus90]</texture>
+						<visible>!Control.HasFocus(450)</visible>
+					</control>
 				</focusedlayout>
 
 			</control>

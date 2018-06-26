@@ -26,19 +26,19 @@
 					<!-- Image - Albums -->
 					<include content="thumb+title">
 						<param name="fallback"/>
-						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(albums)</param>
 					</include>
 					<!-- Image - Addons -->
 					<include content="thumb+title">
 						<param name="fallback">DefaultAddon.png</param>
-						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(addons)</param>
 					</include>
 					<!-- Image - Artists -->
 					<include content="thumb+title">
 						<param name="fallback">DefaultUser.png</param>
-						<param name="colordiffuse">DiffusePosterNF</param>
+						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(artists)</param>
 					</include>
 					<!-- Watched status -->
@@ -63,6 +63,7 @@
 					<include content="thumb+title">
 						<param name="fallback">DefaultAddon.png</param>
 						<param name="visible">Container.Content(addons)</param>
+						<param name="focused">True</param>
 					</include>
 					<!-- Image - Artists -->
 					<include content="thumb+title">
@@ -164,7 +165,7 @@
 					<align>center</align>
 					<scroll>True</scroll>
 					<scrollspeed>30</scrollspeed>
-					<scrollsuffix> -- </scrollsuffix>
+					<scrollsuffix> | </scrollsuffix>
 				</control>
 				<control type="label">
 					<visible>Container.Content(artists) + !$PARAM[focused]</visible>
@@ -173,16 +174,16 @@
 					<align>center</align>
 				</control>
 				<control type="label">
-					<visible>Container.Content(albums) + $PARAM[focused]</visible>
+					<visible>!Container.Content(artists) + $PARAM[focused]</visible>
 					<textcolor>TextColor1</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<align>center</align>
 					<scroll>True</scroll>
 					<scrollspeed>30</scrollspeed>
-					<scrollsuffix> -- </scrollsuffix>
+					<scrollsuffix> | </scrollsuffix>
 				</control>
 				<control type="label">
-					<visible>Container.Content(albums) + !$PARAM[focused]</visible>
+					<visible>!Container.Content(artists) + !$PARAM[focused]</visible>
 					<textcolor>TextColor2</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<align>center</align>

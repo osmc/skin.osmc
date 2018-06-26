@@ -168,6 +168,20 @@
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<visible>!Control.HasFocus(450)</visible>
 					</control>
+					<control type="image">
+						<left>140</left>
+						<width>910</width>
+						<height>96</height>
+						<texture>$VAR[focus97]</texture>
+						<visible>!ListItem.IsParentFolder + Control.HasFocus(450)</visible>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<width>910</width>
+						<height>96</height>
+						<texture colordiffuse="TextColor2">$VAR[focus97]</texture>
+						<visible>!ListItem.IsParentFolder + !Control.HasFocus(450)</visible>
+					</control>
 				</focusedlayout>
 
 			</control>

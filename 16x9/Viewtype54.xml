@@ -36,7 +36,7 @@
 				<control type="fadelabel">
 					<left>0</left>
 					<top>366</top>
-					<width>450</width>
+					<width>500</width>
 					<height>45</height>
 					<font>Font33</font>
 					<textcolor>TextColor1</textcolor>
@@ -81,6 +81,20 @@
 						<textcolor>TextColor1</textcolor>
 						<scroll>True</scroll>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(54)">Conditional</animation>
+					</control>
+					<control type="image">
+						<top>25</top>
+						<width>1018</width>
+						<height>58</height>
+						<texture>$VAR[focus58]</texture>
+						<visible>Control.HasFocus(54) + !ListItem.IsParentFolder</visible>
+					</control>
+					<control type="image">
+						<top>25</top>
+						<width>1018</width>
+						<height>58</height>
+						<texturee colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<visible>!Control.HasFocus(54) + !ListItem.IsParentFolder</visible>
 					</control>
 				</focusedlayout>
 
