@@ -136,6 +136,24 @@
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<textcolor>TextColor1</textcolor>
 					</control>
+					
+					<!-- Highlighting -->
+					<control type="image">
+						<left>489</left>
+						<top>12</top>
+						<width>634</width>
+						<height>51</height>
+						<texture>$VAR[focus52]</texture>
+						<visible>Control.HasFocus(50)</visible>
+					</control>
+					<control type="image">
+						<left>489</left>
+						<top>12</top>
+						<width>634</width>
+						<height>51</height>
+						<texture colordiffuse="TextColor2">$VAR[focus52]</texture>
+						<visible>!Control.HasFocus(50)</visible>
+					</control>
 
 					<!-- Channel name -->
 					<control type="label">

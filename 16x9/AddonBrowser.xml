@@ -67,6 +67,22 @@
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
 						<visible>String.IsEmpty(ListItem.Label2)</visible>
 					</control>
+					<control type="image">
+						<left>32</left>
+						<top>0</top>
+						<width>1018</width>
+						<height>144</height>
+						<texture>$VAR[focus144]</texture>
+						<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder + Control.HasFocus(500)</visible>
+					</control>
+					<control type="image">
+						<left>32</left>
+						<top>0</top>
+						<width>1018</width>
+						<height>144</height>
+						<texture colordiffuse="TextColor2">$VAR[focus144]</texture>
+						<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder + !Control.HasFocus(500)</visible>
+					</control>
 					<control type="group">
 						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
@@ -78,6 +94,22 @@
 							<label>[B]$VAR[Label1][/B]</label>
 							<textcolor>TextColor1</textcolor>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
+						</control>
+						<control type="image">
+							<left>32</left>
+							<top>25</top>
+							<width>1018</width>
+							<height>58</height>
+							<texture>$VAR[focus58]</texture>
+							<visible>!ListItem.IsParentFolder + Control.HasFocus(500)</visible>
+						</control>
+						<control type="image">
+							<left>32</left>
+							<top>25</top>
+							<width>1018</width>
+							<height>58</height>
+							<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+							<visible>!ListItem.IsParentFolder + !Control.HasFocus(500)</visible>
 						</control>
 						<control type="label">
 							<left>32</left>
