@@ -49,7 +49,63 @@
 		<value condition="!String.IsEmpty(Skin.String(BackgroundImage))">$INFO[Skin.String(BackgroundImage),special://skin/extras/backgrounds/,.jpg]</value>
 		<value>special://skin/extras/backgrounds/1.jpg</value>
 	</variable>
+	
+	<variable name="DiffusePosterNF">
+		<value condition="String.IsEqual(Skin.String(NFDimOpac),133)">FF333333</value>
+		<value condition="String.IsEqual(Skin.String(NFDimOpac),100)">FF666666</value>
+		<value condition="String.IsEqual(Skin.String(NFDimOpac),66)">FF999999</value>
+		<value condition="String.IsEqual(Skin.String(NFDimOpac),33">FFCCCCCC</value>
+	</variable>
 
+	<variable name="focus">
+		<value condition="Skin.HasSetting(TextHighlight)"></value>
+		<value condition="!Skin.HasSetting(TextHighlight)">00FFFFFF</value>
+	</variable>
+	
+	<variable name="focus44">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus44.png</value>
+	</variable>
+	
+	<variable name="focus52">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus52.png</value>
+	</variable>
+	
+	<variable name="focus52center">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus52c.png</value>
+	</variable>
+	
+	<variable name="focus58">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus58.png</value>
+	</variable>
+	
+	<variable name="focus66">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus.png</value>
+	</variable>
+	
+	<variable name="focus72">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus72.png</value>
+	</variable>
+	
+	<variable name="focus76">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus76.png</value>
+	</variable>
+	
+	<variable name="focus90">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus90.png</value>
+	</variable>
+	
+	<variable name="focus97">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus97.png</value>
+	</variable>
+	
+	<variable name="focus120">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus120.png</value>
+	</variable>
+	
+	<variable name="focus144">
+		<value condition="Skin.HasSetting(TextHighlight)">common/focus144.png</value>
+	</variable>
+	
 	<variable name="HeadingLabel">
 		<value>$VAR[HeadingLabelPrimary]$VAR[HeadingLabelSecondary,: ,]</value>
 	</variable>
@@ -842,9 +898,8 @@
 	<!-- Media images -->
 	<variable name="mediaImages">
 		<value condition="Container.Content(Seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-		 <value condition="Container.Content(Episodes) + System.GetBool(videolibrary.showunwatchedplot)">$INFO[ListItem.Icon]</value> 
-		<!-- <value condition="Container.Content(Episodes) + [!System.GetBool(videolibrary.showunwatchedplots) + !ListItem.IsParentFolder + String.IsEmpty(ListItem.PlayCount)]"></value> --> 
-		<value condition="Container.Content(Episodes) + [Skin.HasSetting(HideEpisodeThumbnail) + !ListItem.IsParentFolder + String.IsEmpty(ListItem.PlayCount)]"></value> 
+		<value condition="Container.Content(Episodes) + [Skin.HasSetting(HideEpisodeThumbnail) + !ListItem.IsParentFolder + String.IsEmpty(ListItem.PlayCount)]"></value>
+		<value condition="Container.Content(Episodes)">$INFO[ListItem.Icon]</value> 
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>

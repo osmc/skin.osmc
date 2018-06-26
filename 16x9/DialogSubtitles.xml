@@ -70,6 +70,18 @@
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
 					</control>
+					<control type="image">
+						<width>360</width>
+						<height>66</height>
+						<texture>$VAR[focus66]</texture>
+						<visible>Control.HasFocus(150)</visible>
+					</control>
+					<control type="image">
+						<width>360</width>
+						<height>66</height>
+						<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+						<visible>!Control.HasFocus(150)</visible>
+					</control>
 				</focusedlayout>
 
 			</control>
@@ -213,6 +225,20 @@
 							<height>33</height>
 							<aspectratio>keep</aspectratio>
 							<texture>$INFO[ListItem.ActualIcon,rating,.png]</texture>
+						</control>
+						<control type="image">
+							<left>9</left>
+							<width>1231</width>
+							<height>66</height>
+							<texture>$VAR[focus66]</texture>
+							<visible>Control.HasFocus(120)</visible>
+						</control>
+						<control type="image">
+							<left>9</left>
+							<width>1231</width>
+							<height>66</height>
+							<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+							<visible>!Control.HasFocus(120)</visible>
 						</control>
 					</control>
 				</focusedlayout>
