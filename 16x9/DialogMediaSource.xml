@@ -85,6 +85,20 @@
 						<label>$INFO[ListItem.Label]</label>
 						<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(10)">Conditional</animation>
 					</control>
+						<control type="image">
+						<left>25</left>
+						<width>1200</width>
+						<height>66</height>
+						<texture>$VAR[focus66]</texture>
+						<visible>Control.HasFocus(10)</visible>
+					</control>
+					<control type="image">
+						<left>25</left>
+						<width>1200</width>
+						<height>66</height>
+						<texture colordiffuse="DialogColor2">$VAR[focus66]</texture>
+						<visible>!Control.HasFocus(10)</visible>
+					</control>
 				</focusedlayout>
 
 			</control>
