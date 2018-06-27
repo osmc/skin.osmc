@@ -11,6 +11,7 @@ _Fixed_
 - fix scrollbar in music navigation
 - fix item widths in various windows
 - fix weather window
+- fix focused items in addon list view (e.g. YouTube)
 
 **Changelog v17.0.5**
 
@@ -61,6 +62,9 @@ FileBrowser:
 
 FileManager:
 - add underline highlight to focusedlayout
+
+Font.xml:
+- add new Font73 with bold style
 
 Home.xml:
 - add onload to set NFDimOpac skin string to 100
@@ -134,6 +138,8 @@ Variables.xml:
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
+- use new Font73 for focused label
+- remove bold style from focused label
 
 Viewtype51.xml:
 - add underline highlight to focusedlayout
