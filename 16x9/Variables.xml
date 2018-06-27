@@ -50,6 +50,7 @@
 		<value>special://skin/extras/backgrounds/1.jpg</value>
 	</variable>
 	
+	<!-- Opacity Dim Factor -->
 	<variable name="DiffusePosterNF">
 		<value condition="String.IsEqual(Skin.String(NFDimOpac),133)">FF333333</value>
 		<value condition="String.IsEqual(Skin.String(NFDimOpac),100)">FF666666</value>
@@ -57,6 +58,7 @@
 		<value condition="String.IsEqual(Skin.String(NFDimOpac),33">FFCCCCCC</value>
 	</variable>
 
+	<!-- Highlighting -->
 	<variable name="focus">
 		<value condition="Skin.HasSetting(TextHighlight)"></value>
 		<value condition="!Skin.HasSetting(TextHighlight)">00FFFFFF</value>
@@ -161,6 +163,7 @@
 		<value condition="Window.IsActive(SystemSettings)">$LOCALIZE[13000]</value>
 		<value condition="Window.IsActive(SystemInfo)">$LOCALIZE[130]</value>
 		<value condition="Window.IsActive(Profiles)">$LOCALIZE[13200]</value>
+		<value condition="Window.IsActive(weather)">$INFO[Window(Weather).Property(Location)]</value>
 	</variable>
 
 	<variable name="PVRChannelIcon">
@@ -177,86 +180,6 @@
 	<variable name="Plot">
 		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
 		<value condition="!String.IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
-	</variable>
-
-	<variable name="Day0">
-		<value condition="String.IsEqual(Window(Weather).Property(Daily.1.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Daily.1.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Daily.1.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Daily.1.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Daily.1.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Daily.1.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Daily.1.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
-	</variable>
-
-	<variable name="Day1">
-		<value condition="String.IsEqual(Window(Weather).Property(Day1.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day1.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day1.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day1.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day1.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day1.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day1.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
-	</variable>
-
-	<variable name="Day2">
-		<value condition="String.IsEqual(Window(Weather).Property(Day2.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day2.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day2.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day2.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day2.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day2.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day2.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
-	</variable>
-
-	<variable name="Day3">
-		<value condition="String.IsEqual(Window(Weather).Property(Day3.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day3.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day3.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day3.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day3.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day3.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day3.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
-	</variable>
-
-	<variable name="Day4">
-		<value condition="String.IsEqual(Window(Weather).Property(Day4.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day4.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day4.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day4.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day4.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day4.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day4.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
-	</variable>
-
-	<variable name="Day5">
-		<value condition="String.IsEqual(Window(Weather).Property(Day5.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day5.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day5.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day5.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day5.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day5.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day5.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
-	</variable>
-
-	<variable name="Day6">
-		<value condition="String.IsEqual(Window(Weather).Property(Day6.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day6.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day6.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day6.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day6.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day6.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day6.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
-	</variable>
-
-	<variable name="Day7">
-		<value condition="String.IsEqual(Window(Weather).Property(Day7.Title),$LOCALIZE[11])">$LOCALIZE[41]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day7.Title),$LOCALIZE[12])">$LOCALIZE[42]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day7.Title),$LOCALIZE[13])">$LOCALIZE[43]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day7.Title),$LOCALIZE[14])">$LOCALIZE[44]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day7.Title),$LOCALIZE[15])">$LOCALIZE[45]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day7.Title),$LOCALIZE[16])">$LOCALIZE[46]</value>
-		<value condition="String.IsEqual(Window(Weather).Property(Day7.Title),$LOCALIZE[17])">$LOCALIZE[47]</value>
 	</variable>
 
 	<variable name="VideoPlayerPlot">
