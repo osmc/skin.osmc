@@ -5,8 +5,12 @@ _New_
 - add option for additional text highlight
 
 _Improved_
+- add more weather information to weather window
+
+_Fixed_
 - fix scrollbar in music navigation
 - fix item widths in various windows
+- fix weather window
 
 **Changelog v17.0.5**
 
@@ -89,6 +93,12 @@ MyPVRSearch.xml
 MyPVRTimers.xml
 - add underline highlight to focusedlayout
 
+MyWeather.xml:
+- fix day labels
+- match forcast to correct day
+- replace localize for "now" with translatable one
+- add more weather information (humidity/precepitation, sunrise/sunset)
+
 script-skinshortcuts-static.xml:
 - replace DiffusePosterNF with variable
 
@@ -120,6 +130,7 @@ Variables.xml:
 - add DiffusePosterNF variable (used for new cover art dim option)
 - add focus variables (used for new highlighting option)
 - cleanup mediaImages variable
+- remove now unused Day variables
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
