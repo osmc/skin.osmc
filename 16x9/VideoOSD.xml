@@ -411,7 +411,7 @@
 					<onclick>StereoMode</onclick>
 					<visible>VideoPlayer.IsStereoscopic</visible>
 				</control>
-				<!-- Video Settings -->
+								<!-- Video Settings -->
 				<control type="button" id="13">
 					<width>60</width>
 					<height>60</height>
@@ -480,6 +480,15 @@
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDDvdNF.png</texturenofocus>
 					<onclick>PlayerControl(ShowVideoMenu)</onclick>
 					<visible>VideoPlayer.HasMenu</visible>
+				</control>
+				<!-- Resolution select -->
+				<control type="button" id="21">
+					<width>60</width>
+					<height>60</height>
+					<texturefocus colordiffuse="DialogColor1">osd/OSDResNF.png</texturefocus>
+					<texturenofocus colordiffuse="DialogColor2">osd/OSDResNF.png</texturenofocus>
+					<onclick>PlayerResolutionSelect</onclick>
+					<visible>Player.HasResolutions</visible>
 				</control>
 
 			</control>
