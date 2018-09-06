@@ -3,6 +3,7 @@
 _New_
 - add new v18 subtitle settings OSD during fullscreen video playback
 - add new games section to match v18 requirements
+- add new resolution select button/dialog in video player
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -66,6 +67,12 @@ _Add new games section to match v18 requirements:_
 - add game widget
 - add game control types
 - fix gamecontroller dialog
+
+_Add new resolution select dialog in video player to match v18 requirements:_
+- add new button for resolution select dialog in video OSD
+
+Textures.xbt:
+- update file with new resolution select icon included
 
 addon.xml:
 - bump version to 18.0.0
