@@ -6,6 +6,7 @@ _New_
 
 _Improved_
 - add more weather information to weather window
+- refine music icons
 
 _Fixed_
 - fix scrollbar in music navigation
@@ -74,6 +75,9 @@ Include_Home_OSMC.xml:
 
 LoginScreen.xml:
 - add underline highlight to focusedlayout
+
+MusicOSD.xml:
+- make visualization settings buttons conditionally visible
 
 MusicVisualisation.xml:
 - fix width of next playing fadelabels
@@ -166,6 +170,7 @@ strings.po:
 
 Textures.xbt:
 - repack content of media folder after adding new focus textures
+- repack content of media folder after adding new music icons
 
 template.xml:
 - replace DiffusePosterNF with variable
