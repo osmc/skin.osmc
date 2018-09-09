@@ -225,6 +225,7 @@
 					<texturefocus colordiffuse="DialogColor1">osd/OSDVizSettingsNF.png</texturefocus>
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDVizSettingsNF.png</texturenofocus>
 					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+					<visible>Visualisation.Enabled</visible>
 				</control>
 				<!-- Visualisation presets list -->
 				<control type="button" id="15">
@@ -233,6 +234,7 @@
 					<texturefocus colordiffuse="DialogColor1">osd/OSDVizPreNF.png</texturefocus>
 					<texturenofocus colordiffuse="DialogColor2">osd/OSDVizPreNF.png</texturenofocus>
 					<onclick>ActivateWindow(122)</onclick>
+					<visible>Visualisation.Enabled + Visualisation.HasPresets</visible>
 				</control>
 
 			</control>
@@ -242,6 +244,109 @@
 				<right>360</right>
 				<width>60</width>
 				<height>60</height>
+				<visible>Visualisation.Enabled + Visualisation.HasPresets</visible>
+
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor2">osd/OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor1">osd/OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor2">osd/OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor1">osd/OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor2">osd/OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor1">osd/OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+
+			</control>
+			
+			<control type="group">
+				<right>300</right>
+				<width>60</width>
+				<height>60</height>
+				<visible>Visualisation.Enabled + !Visualisation.HasPresets</visible>
+
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor2">osd/OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor1">osd/OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor2">osd/OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor1">osd/OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor2">osd/OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="DialogColor1">osd/OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+
+			</control>
+			
+			<control type="group">
+				<right>240</right>
+				<width>60</width>
+				<height>60</height>
+				<visible>!Visualisation.Enabled + !Visualisation.HasPresets</visible>
 
 				<control type="image">
 					<width>60</width>
