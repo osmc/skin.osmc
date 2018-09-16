@@ -226,6 +226,7 @@
 
 	<variable name="StatusOverlay">
 		<value condition="ListItem.IsParentFolder">noop</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)">noop</value>
 		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayProgress4.png</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWatched.png</value>
 		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,76)">views/OverlayProgress7.png</value>
@@ -240,6 +241,7 @@
 
 	<variable name="StatusOverlayWide">
 		<value condition="ListItem.IsParentFolder">noop</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)">noop</value>
 		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayProgressWide4.png</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWideWatched.png</value>
 		<value condition="ListItem.IsResumable + IntegerGreaterThan(ListItem.PercentPlayed,76)">views/OverlayProgressWide7.png</value>
