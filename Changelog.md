@@ -7,6 +7,7 @@ _New_
 _Improved_
 - add more weather information to weather window
 - refine music icons
+- remove watched status for music items (in views and widgets)
 
 _Fixed_
 - fix scrollbar in music navigation
@@ -139,6 +140,7 @@ Variables.xml:
 - add focus variables (used for new highlighting option)
 - cleanup mediaImages variable
 - remove now unused Day variables
+- adjust StatusOverlay/StatusOverlayWide variables to hide watched status for music
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
