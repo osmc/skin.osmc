@@ -435,7 +435,7 @@
 		<value condition="String.IsEqual(ListItem.AudioCodec,cdda)">Audio-CD</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,dca) | String.IsEqual(ListItem.AudioCodec,dts)">DTS</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,dolbydigital)">Dolby Digital</value>
-		<value condition="String.IsEqual(ListItem.AudioCodec,dsd_lsbf_planar)">DSD</value>
+		<value condition="String.StartsWith(ListItem.AudioCodec,dsd)">DSD</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,dtshd_hra)">DTS-HD HRA</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma) | String.IsEqual(ListItem.AudioCodec,dtsma)">DTS-HD MA</value>
 		<value condition="String.IsEqual(ListItem.AudioCodec,eac3)">Dolby Digital+</value>
@@ -457,11 +457,11 @@
 		<value condition="String.IsEqual(MusicPlayer.Codec,cdda)">Audio-CD</value>
 		<value condition="String.IsEqual(MusicPlayer.Codec,dca) | String.IsEqual(MusicPlayer.Codec,dts)">DTS</value>
 		<value condition="String.IsEqual(MusicPlayer.Codec,dolbydigital)">Dolby Digital</value>
-		<value condition="String.IsEqual(MusicPlayer.Codec,dsd_lsbf_planar) + String.IsEqual(MusicPlayer.SampleRate,352.8)">DSD 64 (2.8MHz)</value>
-		<value condition="String.IsEqual(MusicPlayer.Codec,dsd_lsbf_planar) + String.IsEqual(MusicPlayer.SampleRate,705.6)">DSD 128 (5.6MHz)</value>
-		<value condition="String.IsEqual(MusicPlayer.Codec,dsd_lsbf_planar) + String.IsEqual(MusicPlayer.SampleRate,1411.2)">DSD 256 (11.2MHz)</value>
-		<value condition="String.IsEqual(MusicPlayer.Codec,dsd_lsbf_planar) + String.IsEqual(MusicPlayer.SampleRate,2822.4)">DSD 512 (22.6MHz)</value>
-		<value condition="String.IsEqual(MusicPlayer.Codec,dsd_lsbf_planar) + String.IsEqual(MusicPlayer.SampleRate,5644.8)">DSD 1024 (45.2MHz)</value>
+		<value condition="String.StartsWith(MusicPlayer.Codec,dsd) + String.IsEqual(MusicPlayer.SampleRate,352.8)">DSD 64 (2.8MHz)</value>
+		<value condition="String.StartsWith(MusicPlayer.Codec,dsd) + String.IsEqual(MusicPlayer.SampleRate,705.6)">DSD 128 (5.6MHz)</value>
+		<value condition="String.StartsWith(MusicPlayer.Codec,dsd) + String.IsEqual(MusicPlayer.SampleRate,1411.2)">DSD 256 (11.2MHz)</value>
+		<value condition="String.StartsWith(MusicPlayer.Codec,dsd) + String.IsEqual(MusicPlayer.SampleRate,2822.4)">DSD 512 (22.6MHz)</value>
+		<value condition="String.StartsWith(MusicPlayer.Codec,dsd) + String.IsEqual(MusicPlayer.SampleRate,5644.8)">DSD 1024 (45.2MHz)</value>
 		<value condition="String.IsEqual(MusicPlayer.Codec,dsd_lsbf_planar)">DSD</value>
 		<value condition="String.IsEqual(MusicPlayer.Codec,dtshd_hra)">DTS-HD HRA</value>
 		<value condition="String.IsEqual(MusicPlayer.Codec,dtshd_ma) | String.IsEqual(MusicPlayer.Codec,dtsma)">DTS-HD MA</value>
@@ -484,7 +484,7 @@
 		<value condition="String.IsEqual(VideoPlayer.AudioCodec,cdda)">Audio-CD</value>
 		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dca) | String.IsEqual(VideoPlayer.AudioCodec,dts)">DTS</value>
 		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dolbydigital)">Dolby Digital</value>
-		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dsd_lsbf_planar)">DSD</value>
+		<value condition="String.StartsWith(VideoPlayer.AudioCodec,dsd)">DSD</value>
 		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra)">DTS-HD HRA</value>
 		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma) | String.IsEqual(VideoPlayer.AudioCodec,dtsma)">DTS-HD MA</value>
 		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3)">Dolby Digital+</value>
