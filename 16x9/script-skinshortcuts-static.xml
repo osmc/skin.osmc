@@ -89,15 +89,15 @@
 			<label2>Common Shortcut</label2>
 			<icon>DefaultGameAddons.png</icon>
 			<thumb />
-			<property name="labelID">games</property>
-			<property name="defaultID">games</property>
+			<property name="labelID">15016</property>
+			<property name="defaultID">15016</property>
 			<onclick>ActivateWindow(Games)</onclick>
-			<property name="path">ActivateWindow(Games,root)</property>
-			<property name="list">addons://sources/game/</property>
+			<property name="path">ActivateWindow(Games)</property>
+			<property name="list">Games</property>
 			<visible>True</visible>
-			<property name="submenuVisibility">games</property>
+			<property name="submenuVisibility">num-15016</property>
 			<property name="group">mainmenu</property>
-			<property name="hasSubmenu">false</property>
+			<property name="hasSubmenu">False</property>
 		</item>
 		<item id="7">
 			<property name="id">$NUMBER[7]</property>
@@ -867,17 +867,17 @@
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
-			<property name="labelID">widget</property>
-			<property name="defaultID">widget</property>
-			<property name="widget">addon</property>
+			<property name="labelID">none</property>
+			<property name="defaultID" />
+			<property name="widget">GameWidget</property>
 			<property name="widgetName">$LOCALIZE[35049]</property>
-			<property name="widgetType">program</property>
+			<property name="widgetType">15016</property>
 			<property name="widgetPath">addons://sources/game/</property>
-			<property name="widgetTarget">games</property>
+			<property name="widgetTarget" />
 			<property name="path">noop</property>
 			<property name="list">noop</property>
-			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
-			<property name="group">games.1</property>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
+			<property name="group">15016.1</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="1">
@@ -1177,7 +1177,7 @@
 			<width>100</width>
 			<height>300</height>
 			<scrolltime>200</scrolltime>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
 			<defaultcontrol>1</defaultcontrol>
 			<itemlayout height="100" width="100">
 				<control type="label">
@@ -1196,7 +1196,7 @@
 			</focusedlayout>
 			<content>
 				<item id="1">
-					<label>35049</label>
+					<label>$LOCALIZE[35049]</label>
 					<visible>Integer.IsGreater(Container(10601).NumItems,0) | Container(10601).IsUpdating</visible>
 					<property name="widgetID">6-1</property>
 					<property name="widgetContainer">10601</property>
@@ -1207,7 +1207,7 @@
 			<description>Select previous widget</description>
 			<left>500</left>
 			<top>-10000</top>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
 			<label>Previous</label>
 			<onfocus condition="String.IsEqual(Container(10006).ListItem(-1).Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
 			<onfocus>SetProperty(changeWidget-10006,True,10000)</onfocus>
@@ -1218,7 +1218,7 @@
 			<description>Select current widget</description>
 			<left>700</left>
 			<top>-10000</top>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
 			<label>Current</label>
 			<onfocus condition="String.IsEqual(Container(10006).ListItem.Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10006).NumItems,0)">Control.SetFocus(9000)</onfocus>
@@ -1227,7 +1227,7 @@
 			<description>Select next widget</description>
 			<left>900</left>
 			<top>-10000</top>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
 			<label>Next</label>
 			<onfocus condition="String.IsEqual(Container(10006).ListItem(1).Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
 			<onfocus>SetProperty(changeWidget-10006,True,10000)</onfocus>
@@ -1235,7 +1235,7 @@
 			<onfocus>Control.Move(10006,1)</onfocus>
 		</control>
 		<control type="group">
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
 			<include content="widgetHeading">
 				<param name="container">10006</param>
 			</include>
@@ -2686,7 +2686,7 @@
 			<width>36</width>
 			<height>36</height>
 			<texture>busy-small.gif</texture>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),games)</visible>
+			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-1506)</visible>
 			<visible>String.IsEqual(Container(10006).ListItem.Property(widgetID),6-1) + Container(10601).IsUpdating</visible>
 		</control>
 		<control type="image">
