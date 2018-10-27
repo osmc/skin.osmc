@@ -5,6 +5,7 @@ _New_
 - add new games section to match v18 requirements
 - add new resolution select button/dialog in video player
 - add player icon to now playing dialog
+- add new dependency button in addon info dialog to match v18 requirements
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -71,6 +72,10 @@ _Add new games section to match v18 requirements:_
 
 _Add new resolution select dialog in video player to match v18 requirements:_
 - add new button for resolution select dialog in video OSD
+
+
+_Add new dependency button in addon info dialog to match v18 requirements:_
+- add new dependencies button in addon info dialog
 
 Includes.xml:
 - add player icon to now playing dialog
