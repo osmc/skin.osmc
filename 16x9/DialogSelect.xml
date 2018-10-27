@@ -7,7 +7,7 @@
 	<controls>
 		
 		<control type="group">
-			<visible>![Window.IsVisible(gameviewmode) | Window.IsVisible(gamevideofilter)]</visible>
+			<visible>![Window.IsActive(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)]</visible>
 			
 			<!-- Window Background -->
 			<include>WindowFadeBackgroundImage</include>
@@ -303,7 +303,7 @@
 		</control>
 
 		<control type="group">
-			<visible>Window.IsActive(gameviewmode) | Window.IsActive(gamevideofilter)</visible>
+			<visible>Window.IsActive(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)</visible>
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 
@@ -341,8 +341,9 @@
 							<left>47</left>
 							<width>356</width>
 							<height>200</height>
-							<scalingmethod>$INFO[ListItem.Property(game.scalingmethod)]</scalingmethod>
-							<viewmode>$INFO[ListItem.Property(game.viewmode)]</viewmode>
+							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
 						</control>
 						<control type="label">
 							<left>47</left>
@@ -362,8 +363,9 @@
 							<left>47</left>
 							<width>356</width>
 							<height>200</height>
-							<scalingmethod>$INFO[ListItem.Property(game.scalingmethod)]</scalingmethod>
-							<viewmode>$INFO[ListItem.Property(game.viewmode)]</viewmode>
+							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
 						</control>
 						<control type="label">
 							<left>47</left>
