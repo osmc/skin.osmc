@@ -8,6 +8,7 @@ _Improved_
 - add more weather information to weather window
 - refine music icons
 - remove watched status for music items (in views and widgets)
+- adjust representation of object based audio codec tags
 
 _Fixed_
 - fix scrollbar in music navigation
