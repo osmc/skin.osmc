@@ -9,21 +9,21 @@
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 			
-			<visible>![Window.IsActive(gameviewmode) | Window.IsActive(gamevideofilter)]</visible>
+			<visible>![Window.IsActive(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation) | Window.IsVisible(gamevolume)]</visible>
 
 			<!-- Window Background -->
 			<control type="image">
 				<left>730</left>
-				<top>320</top>
+				<top>230</top>
 				<width>460</width>
-				<height>460</height>
+				<height>620</height>
 				<texture colordiffuse="$VAR[OverlayColor]" border="30">dialogs/Background.png</texture>
 			</control>
 			
 			<!-- Heading -->
 			<control type="label" id="2">
 				<left>550</left>
-				<top>350</top>
+				<top>260</top>
 				<width>820</width>
 				<height>33</height>
 				<align>center</align>
@@ -35,9 +35,9 @@
 			<!-- Game OSD Buttons Grouplist -->
 			<control type="grouplist" id="5">
 				<left>750</left>
-				<top>410</top>
+				<top>320</top>
 				<width>420</width>
-				<height>330</height>
+				<height>510</height>
 				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -78,34 +78,69 @@
 					<width>420</width>
 					<height>30</height> 
 					<texture>transparent.png</texture> 
-					</control> 
+				</control> 
 				<control type="button" id="1005">
-					<description>Video filter button</description>
+					<description>Game video filter button</description>
 					<width>420</width>
 					<height>50</height>
 					<textcolor>DialogColor2</textcolor>
 					<focusedcolor>DialogColor1</focusedcolor>
-					<label>$LOCALIZE[230]</label>
+					<label>$LOCALIZE[35225]</label>
 					<font>Font33</font>
 					<onclick>ActivateWindow(GameVideoFilter)</onclick>
 				</control>
 				<control type="button" id="1006">
+					<description>Game stretch mode button</description>
+					<width>420</width>
+					<height>50</height>
+					<textcolor>DialogColor2</textcolor>
+					<focusedcolor>DialogColor1</focusedcolor>
+					<label>$LOCALIZE[35233]</label>
+					<font>Font33</font>
+					<onclick>ActivateWindow(GameStretchMode)</onclick>
+				</control>
+				<control type="button" id="1007">
 					<description>View mode button</description>
 					<width>420</width>
 					<height>50</height>
 					<textcolor>DialogColor2</textcolor>
 					<focusedcolor>DialogColor1</focusedcolor>
-					<label>$LOCALIZE[629]</label>
+					<label>$LOCALIZE[35227]</label>
 					<font>Font33</font>
-					<onclick>ActivateWindow(GameViewMode)</onclick>
+					<onclick>ActivateWindow(GameVideoRotation)</onclick>
 				</control>
-				<control type="button" id="1007">
+				<control type="button" id="1008">
+					<description>Game volume button</description>
+					<width>420</width>
+					<height>50</height>
+					<textcolor>DialogColor2</textcolor>
+					<focusedcolor>DialogColor1</focusedcolor>
+					<label>$LOCALIZE[13376]</label>
+					<font>Font33</font>
+					<onclick>ActivateWindow(GameVolume)</onclick>
+				</control>
+				<control type="image" id="1009"> 
+					<width>420</width>
+					<height>30</height> 
+					<texture>transparent.png</texture> 
+				</control>
+				<control type="button" id="1010">
+					<description>Game advanced settings button</description>
+					<width>420</width>
+					<height>50</height>
+					<textcolor>DialogColor2</textcolor>
+					<focusedcolor>DialogColor1</focusedcolor>
+					<label>$LOCALIZE[35226]</label>
+					<font>Font33</font>
+					<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
+				</control>
+				<control type="button" id="1011">
 					<description>Input settings button</description>
 					<width>420</width>
 					<height>50</height>
 					<textcolor>DialogColor2</textcolor>
 					<focusedcolor>DialogColor1</focusedcolor>
-					<label>$LOCALIZE[35223]</label>
+					<label>$LOCALIZE[35050]</label>
 					<font>Font33</font>
 					<onclick>ActivateWindow(gamecontrollers)</onclick>
 				</control>
