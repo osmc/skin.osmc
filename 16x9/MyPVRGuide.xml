@@ -233,25 +233,84 @@
 						<aspectratio align="right" aligny="top">keep</aspectratio>
 					</control>
 
-					<control type="label">
+					<control type="fadelabel">
 						<left>180</left>
 						<top>20</top>
 						<width>500</width>
 						<height>36</height>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<textcolor>TextColor1</textcolor>
+						<pauseatend>5000</pauseatend>
 					</control>
 
+					<control type="fadelabel">
+						<left>180</left>
+						<top>62</top>
+						<width>500</width>
+						<height>36</height>
+						<label>$INFO[ListItem.EpisodeName]</label>
+						<textcolor>TextColor1</textcolor>
+						<aligny>top</aligny>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
+					</control>
+					
+					<control type="label">
+						<left>180</left>
+						<top>98</top>
+						<width>500</width>
+						<height>36</height>
+						<label>$VAR[SElist]</label>
+						<textcolor>TextColor1</textcolor>
+						<aligny>top</aligny>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
+					</control>
+					
+					<control type="label">
+						<left>180</left>
+						<top>134</top>
+						<width>500</width>
+						<height>36</height>
+						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+						<textcolor>TextColor1</textcolor>
+						<aligny>top</aligny>
+						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<left>180</left>
+						<top>62</top>
+						<width>500</width>
+						<height>36</height>
+						<label>$INFO[ListItem.EpisodeName]</label>
+						<textcolor>TextColor1</textcolor>
+						<aligny>top</aligny>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
+					</control>
+					
+					<control type="label">
+						<left>180</left>
+						<top>98</top>
+						<width>500</width>
+						<height>36</height>
+						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+						<textcolor>TextColor1</textcolor>
+						<aligny>top</aligny>
+						<visible>!String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
+					</control>
+					
 					<control type="label">
 						<left>180</left>
 						<top>62</top>
 						<width>500</width>
-						<height>108</height>
-						<label>$INFO[ListItem.EpisodeName,,[CR]]$INFO[ListItem.Episode,$INFO[ListItem.Season,s,]e,[CR]]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+						<height>36</height>
+						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
 						<textcolor>TextColor1</textcolor>
 						<aligny>top</aligny>
+						<visible>String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
 					</control>
-					$INFO[ListItem.Season, • $LOCALIZE[20373] ]$INFO[ListItem.Episode, • $LOCALIZE[20359] ]
 
 					<!-- Plot -->
 					<control type="textbox">
