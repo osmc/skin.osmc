@@ -4,6 +4,7 @@ _New_
 - add option to adjust dim factor of unfocused art 
 - add option for additional text highlight
 - add channel icon to PVR info dialog
+- add new widget options (through skin.helper.widgets script)
 
 _Improved_
 - add more weather information to weather window
@@ -17,6 +18,7 @@ _Fixed_
 - fix weather window
 - fix focused items in addon list view (e.g. YouTube)
 - fix PVR views to add scrolling and adapt season/episode representation
+- fix widget details label for PVR items (when using skinshortcuts script)
 
 **Changelog v17.0.5**
 
@@ -142,6 +144,7 @@ SettingsSystemInfo.xml:
 
 SkinSettings.xml:
 - rewrite window to accomodate highlighting and immitate behaviour of other settings windows
+- add addon install command for script.skin.helper.service and script.skin.helper.widgets for new widget option when customizing main menu through script.skinshortcuts
 
 SmartPlaylistEditor.xml:
 - add underline highlight to focusedlayout
@@ -154,6 +157,7 @@ Variables.xml:
 - remove now unused Day variables
 - adjust StatusOverlay/StatusOverlayWide variables to hide watched status for music
 - add lines breaks to PVRDescription variable
+- add new addon-skinhelperwidgets variable for new recommended addon in skin settings section
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
@@ -182,13 +186,18 @@ defaults.xml:
 
 strings.po:
 - add new localizes for new skin settings buttons (#31104 and #31105)
+- add new localize for new recommended addon in skin settings section (#31106)
 
 Textures.xbt:
 - repack content of media folder after adding new focus textures
 - repack content of media folder after adding new music icons
 
+overrides.xml:
+- add new widget option for skin.helper.widgets script
+
 template.xml:
 - replace DiffusePosterNF with variable
+- fix widget details label for PVR items
 
 addon.xml:
 - bump version to 17.0.5
