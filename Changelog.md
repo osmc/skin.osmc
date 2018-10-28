@@ -3,6 +3,7 @@
 _New_
 - add option to adjust dim factor of unfocused art 
 - add option for additional text highlight
+- add channel icon to PVR info dialog
 
 _Improved_
 - add more weather information to weather window
@@ -15,6 +16,7 @@ _Fixed_
 - fix item widths in various windows
 - fix weather window
 - fix focused items in addon list view (e.g. YouTube)
+- fix PVR views to add scrolling and adapt season/episode representation
 
 **Changelog v17.0.5**
 
@@ -53,6 +55,11 @@ DialogPVRChannelsOSD:
 
 DialogPVRGroupManager:
 - add underline highlight to focusedlayout
+
+DialogPVRInfo.xml:
+- add channel icon to PVR info dialog
+- fix alligning
+- fix missing colons
 
 DialogSelect:
 - add underline highlight to focusedlayout
@@ -93,6 +100,10 @@ MyMusicPlaylistEditor.xml:
 
 MyPVRChannels.xml:
 - add underline highlight to focusedlayout
+
+MyPVRGuide.xml:
+- use variable "SEListView", if season and episode are needed
+- add scrolling to long PVR titles
 
 MyPVRRecordings.xml:
 - add underline highlight to focusedlayout
@@ -142,6 +153,7 @@ Variables.xml:
 - cleanup mediaImages variable
 - remove now unused Day variables
 - adjust StatusOverlay/StatusOverlayWide variables to hide watched status for music
+- add lines breaks to PVRDescription variable
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
