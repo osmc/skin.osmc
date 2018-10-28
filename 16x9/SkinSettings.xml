@@ -122,7 +122,7 @@
 					<label>31049</label>
 					<font>Font33</font>
 					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
-					<visible>System.HasAddon(script.skinshortcuts)</visible>
+					<visible>System.HasAddon(script.skinshortcuts) + System.HasAddon(script.skin.helper.service) + System.HasAddon(script.skin.helper.widgets)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>
@@ -132,8 +132,9 @@
 					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31030]</label>
 					<font>Font33</font>
-					<onclick>InstallAddon(script.skinshortcuts)</onclick>
-					<visible>!System.HasAddon(script.skinshortcuts)</visible>
+					<onclick>InstallAddon(script.skin.helper.service)</onclick>
+					<onclick>InstallAddon(script.skin.helper.widgets)</onclick>
+					<visible>!System.HasAddon(script.skinshortcuts) | !System.HasAddon(script.skin.helper.service) | !System.HasAddon(script.skin.helper.widgets)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>
@@ -525,12 +526,22 @@
 					<height>66</height>
 					<left>20</left>
 					<textwidth>1120</textwidth>
+					<label>$LOCALIZE[31106]</label>
+					<label2>$VAR[addon-skinhelperwidgets]</label2>
+					<onclick condition="!System.HasAddon(script.skin.helper.widgets)">InstallAddon(script.skin.helper.widgets)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
+				</control>
+				<control type="button" id="305">
+					<width>1200</width>
+					<height>66</height>
+					<left>20</left>
+					<textwidth>1120</textwidth>
 					<label>$LOCALIZE[31082]</label>
 					<label2>$VAR[addon-autocompletion]</label2>
 					<onclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
 					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
 				</control>
-				<control type="button" id="305">
+				<control type="button" id="306">
 					<width>1200</width>
 					<height>66</height>
 					<left>20</left>
