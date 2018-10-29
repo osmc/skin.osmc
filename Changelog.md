@@ -5,6 +5,7 @@ _New_
 - add option for additional text highlight
 - add channel icon to PVR info dialog
 - add new widget options (through skin.helper.widgets script)
+- add AURO media flags (based on file naming)
 
 _Improved_
 - add more weather information to weather window
@@ -158,6 +159,7 @@ Variables.xml:
 - adjust StatusOverlay/StatusOverlayWide variables to hide watched status for music
 - add lines breaks to PVRDescription variable
 - add new addon-skinhelperwidgets variable for new recommended addon in skin settings section
+- add AURO detection in file names to audio variable
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
