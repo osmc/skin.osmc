@@ -724,10 +724,12 @@
 
 			<!-- Video flags -->
 			<control type="image">
-				<width>44</width>
-				<height>44</height>
+				<width>50</width>
+				<height>35</height>
+				<top>5</top>
 				<colordiffuse>TextColor2</colordiffuse>
-				<texture>DefaultMovies.png</texture>
+				<texture>Video.png</texture>
+				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
 			<control type="label">
@@ -754,10 +756,12 @@
 
 			<!-- Audio flags -->
 			<control type="image">
-				<width>44</width>
-				<height>44</height>
+				<width>50</width>
+				<height>35</height>
+				<top>5</top>
 				<colordiffuse>TextColor2</colordiffuse>
-				<texture>DefaultAudio.png</texture>
+				<texture>AudioTrack.png</texture>
+				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
 			<control type="label">
@@ -771,7 +775,7 @@
 			</control>
 		</control>
 		<control type="grouplist">
-			<left>115</left>
+			<left>120</left>
 			<bottom>66</bottom>
 			<width>800</width>
 			<height>44</height>
@@ -784,10 +788,12 @@
 
 			<!-- Duration -->
 			<control type="image">
-				<width>44</width>
-				<height>44</height>
+				<width>45</width>
+				<height>35</height>
+				<top>5</top>
 				<colordiffuse>TextColor2</colordiffuse>
-				<texture>pvr/Timer.png</texture>
+				<texture>Duration.png</texture>
+				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 			</control>
 			<control type="label">
