@@ -12,6 +12,7 @@ _Improved_
 - refine music icons
 - remove watched status for music items (in views and widgets)
 - adjust representation of object based audio codec tags
+- refine positioning and scaling of media tag icons
 
 _Fixed_
 - fix scrollbar in music navigation
@@ -84,6 +85,9 @@ Home.xml:
 
 Include_Home_OSMC.xml:
 - add underline highlight to focusedlayout
+
+Includes.xml:
+- change formatting and position of media tag icons
 
 LoginScreen.xml:
 - add underline highlight to focusedlayout
@@ -160,6 +164,7 @@ Variables.xml:
 - add lines breaks to PVRDescription variable
 - add new addon-skinhelperwidgets variable for new recommended addon in skin settings section
 - add AURO detection in file names to audio variable
+- change language code formatting to capitalized in audiolanguage and subtitlelanguage variable
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
@@ -193,6 +198,7 @@ strings.po:
 Textures.xbt:
 - repack content of media folder after adding new focus textures
 - repack content of media folder after adding new music icons
+- repack content of media folder after adding new media tag icons
 
 overrides.xml:
 - add new widget option for skin.helper.widgets script
@@ -200,6 +206,7 @@ overrides.xml:
 template.xml:
 - replace DiffusePosterNF with variable
 - fix widget details label for PVR items
+- add conditions to prevent use of PVR widget titles for recent movies widget
 
 addon.xml:
 - bump version to 17.0.5
