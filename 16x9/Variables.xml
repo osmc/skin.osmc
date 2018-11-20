@@ -114,17 +114,19 @@
 	</variable>
 
 	<variable name="HeadingLabelPrimary">
-		<value condition="Container.Content(movies) | [String.StartsWith(Container.FolderPath,videodb://movies/) + !String.EndsWith(Container.FolderPath,videodb://movies/)]">$LOCALIZE[342]</value>
-		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.ShowTitle)">$INFO[Container.ShowTitle]</value>
-		<value condition="Container.Content(tvshows) | [String.StartsWith(Container.FolderPath,videodb://tvshows/) + !String.EndsWith(Container.FolderPath,videodb://tvshows/)]">$LOCALIZE[20343]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/video)">$LOCALIZE[1037]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/audio)">$LOCALIZE[1038]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/image)">$LOCALIZE[1039]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/executable">$LOCALIZE[1043]</value>
-		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.video)">$LOCALIZE[1037]</value>
-		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.audio)">$LOCALIZE[1038]</value>
-		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.image)">$LOCALIZE[1039]</value>
-		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.audio)">$LOCALIZE[1043]</value>
+		<value condition="Container.Content(movies) | [String.StartsWith(Container.FolderPath,videodb://movies/) + !String.EndsWith(Container.FolderPath,videodb://movies/)] | String.StartsWith(Container.FolderPath,library://video/movies)">$LOCALIZE[342]</value>
+		<value condition="[Container.Content(episodes) | Container.Content(seasons)] + !String.IsEmpty(Container.ShowTitle)">$INFO[Container.ShowTitle]</value>
+		<value condition="Container.Content(tvshows) | [String.StartsWith(Container.FolderPath,videodb://tvshows/) + !String.EndsWith(Container.FolderPath,videodb://tvshows/)] | String.StartsWith(Container.FolderPath,library://video/tvshows/) | String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/)">$LOCALIZE[20343]</value>
+		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin)">$INFO[Container.FolderName]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/video) | [String.StartsWith(Container.FolderPath,addons://sources/video) + Window.IsVisible(10106)]">$LOCALIZE[1037]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/audio) | [String.StartsWith(Container.FolderPath,addons://sources/audio) + Window.IsVisible(10106)]">$LOCALIZE[1038]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/image) | [String.StartsWith(Container.FolderPath,addons://sources/image) + Window.IsVisible(10106)]">$LOCALIZE[1039]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/executable) | [String.StartsWith(Container.FolderPath,addons://sources/executable) + Window.IsVisible(10106)]">$LOCALIZE[1043]</value>
+		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.video) | [String.StartsWith(Container.FolderPath,plugin://plugin.video) + Window.IsVisible(10106)]">$LOCALIZE[1037]</value>
+		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.audio) | [String.StartsWith(Container.FolderPath,plugin://plugin.audio) + Window.IsVisible(10106)]">$LOCALIZE[1038]</value>
+		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.image) | [String.StartsWith(Container.FolderPath,plugin://plugin.image) + Window.IsVisible(10106)]">$LOCALIZE[1039]</value>
+		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.audio) | [String.StartsWith(Container.FolderPath,plugin://plugin.audio) + Window.IsVisible(10106)]">$LOCALIZE[1043]</value>
+		<value condition="!String.IsEmpty(Container.FolderName) + ![String.StartsWith(Container.FolderPath,addons://sources/video) | String.StartsWith(Container.FolderPath,addons://sources/audio) | String.StartsWith(Container.FolderPath,addons://sources/image) | String.StartsWith(Container.FolderPath,addons://sources/executable) | String.StartsWith(Container.FolderPath,plugin://plugin)">$INFO[Container.FolderName]</value>
 		<!--value condition="Container.Content(seasons)">$LOCALIZE[33054]</value>
 		<value condition="Container.Content(episodes)">$LOCALIZE[20360]</value-->
 		<value condition="Container.Content(musicvideos)">$LOCALIZE[20389]</value>
@@ -163,8 +165,6 @@
 	</variable>
 
 	<variable name="HeadingLabelSecondary">
-		<value condition="Container.HasParent + !String.IsEmpty(Container.FolderName) + ![String.StartsWith(Container.FolderPath,addons://sources/video) | String.StartsWith(Container.FolderPath,addons://sources/audio) | String.StartsWith(Container.FolderPath,addons://sources/image) | String.StartsWith(Container.FolderPath,addons://sources/executable) | String.StartsWith(Container.FolderPath,plugin://plugin)]">$INFO[Container.FolderName]</value>
-		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin)">$INFO[Container.FolderName]</value>
 		<value condition="Window.IsActive(InterfaceSettings)">$LOCALIZE[31074]</value>
 		<value condition="Window.IsActive(PlayerSettings)">$LOCALIZE[16003]</value>
 		<value condition="Window.IsActive(MediaSettings)">$LOCALIZE[14211]</value>
