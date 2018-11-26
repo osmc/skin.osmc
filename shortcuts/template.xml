@@ -169,19 +169,19 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
-							<left>13</left>
-							<top>0</top>
+							<left>10</left>
+							<top>45</top>
 							<width>183</width>
-							<height>306</height>
+							<height>226</height>
 							<texture colordiffuse="$VAR[DiffusePosterNF]" background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
-							<left>13</left>
-							<top>0</top>
+							<left>10</left>
+							<top>45</top>
 							<width>183</width>
-							<height>306</height>
+							<height>226</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
@@ -189,7 +189,7 @@
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="label">
-							<top>249</top>
+							<top>281</top>
 							<width>203</width>
 							<height>25</height>
 							<font>Font25</font>
@@ -212,30 +212,33 @@
 							<textcolor>TextColor2</textcolor>
 						</control>
 						<control type="image">
-							<left>13</left>
-							<top>0</top>
+							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<left>10</left>
+							<top>45</top>
 							<width>183</width>
-							<height>306</height>
+							<height>226</height>
 							<texture colordiffuse="$VAR[DiffusePosterNF]" background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="image">
-							<left>13</left>
-							<top>0</top>
-							<width>183</width>
-							<height>306</height>
+							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<left>0</left>
+							<top>35</top>
+							<width>203</width>
+							<height>246</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
-							<left>13</left>
-							<top>0</top>
+							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<left>10</left>
+							<top>45</top>
 							<width>183</width>
-							<height>306</height>
+							<height>226</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
@@ -244,10 +247,11 @@
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
-							<left>13</left>
-							<top>0</top>
-							<width>183</width>
-							<height>306</height>
+							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<left>0</left>
+							<top>35</top>
+							<width>203</width>
+							<height>246</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<timeperimage>200</timeperimage>
 							<aspectratio align="center">keep</aspectratio>
@@ -255,7 +259,7 @@
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="label">
-							<top>249</top>
+							<top>281</top>
 							<width>203</width>
 							<height>25</height>
 							<font>Font25</font>
@@ -314,8 +318,10 @@
 				<itemlayout width="$SKINSHORTCUTS[layoutWidth]" height="$SKINSHORTCUTS[layoutHeight]">
 					<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 						<description>Primary art</description>
-						<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-						<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+						<param name="left">50%</param>
+						<param name="bottom">27</param>
+						<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+						<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 						<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
@@ -325,8 +331,10 @@
 					</include>
 					<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 						<description>Fallback art</description>
-						<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-						<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+						<param name="left">50%</param>
+						<param name="bottom">27</param>
+						<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+						<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 						<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
@@ -336,8 +344,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-						<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+						<param name="left">50%</param>
+						<param name="bottom">27</param>
+						<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+						<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -347,8 +357,8 @@
 					</include>
 
 					<control type="image">
-						<left>$PYTHON[int(imageWidth) - 45]</left>
-						<top>$PYTHON[int(imageHeight) - 50]</top>
+						<centerleft>75%</centerleft>
+						<bottom>-5</bottom>
 						<width>35</width>
 						<height>49</height>
 						<texture>$VAR[StatusOverlayWide]</texture>
@@ -359,10 +369,13 @@
 
 				<focusedlayout width="$SKINSHORTCUTS[layoutWidth]" height="$SKINSHORTCUTS[layoutHeight]">
 						<control type="group">
+							<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 								<description>Primary art</description>
-								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+								<param name="left">50%</param>
+								<param name="bottom">17</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
 								<param name="aspectratio">keep</param>
@@ -371,8 +384,10 @@
 							</include>
 							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 								<description>Fallback art</description>
-								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+								<param name="left">50%</param>
+								<param name="bottom">17</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
 								<param name="aspectratio">keep</param>
@@ -381,29 +396,35 @@
 							</include>
 							<include content="widget-image">
 								<description>Catch-all art</description>
-								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+								<param name="left">50%</param>
+								<param name="bottom">17</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.Icon]</param>
 								<param name="aspectratio">keep</param>
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
+							
 							<control type="image">
-								<left>$PYTHON[int(imageWidth) - 45]</left>
-								<top>$PYTHON[int(imageHeight) - 50]</top>
+								<centerleft>75%</centerleft>
+								<bottom>-15</bottom>
 								<width>35</width>
 								<height>49</height>
 								<texture>$VAR[StatusOverlayWide]</texture>
 								<visible>!Skin.HasSetting(widgetIcons)</visible>
 							</control>
+							
 							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 						</control>
 						<control type="group">
 							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 								<description>Primary art</description>
-								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+								<param name="left">50%</param>
+								<param name="bottom">27</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
@@ -413,8 +434,10 @@
 							</include>
 							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 								<description>Fallback art</description>
-								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+								<param name="left">50%</param>
+								<param name="bottom">27</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
@@ -424,8 +447,10 @@
 							</include>
 							<include content="widget-image">
 								<description>Catch-all art</description>
-								<param name="width">$SKINSHORTCUTS[imageWidth]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeight]</param>
+								<param name="left">50%</param>
+								<param name="bottom">27</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.Icon]</param>
@@ -433,15 +458,17 @@
 								<param name="shadow">$SKINSHORTCUTS[shadow]</param>
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
+							
 							<control type="image">
-								<left>$PYTHON[int(imageWidth) - 45]</left>
-								<top>$PYTHON[int(imageHeight) - 50]</top>
+								<centerleft>75%</centerleft>
+								<bottom>-5</bottom>
 								<width>35</width>
 								<height>49</height>
 								<texture>$VAR[StatusOverlayWide]</texture>
 								<visible>!Skin.HasSetting(widgetIcons)</visible>
 								<colordiffuse>OverlayColorNF</colordiffuse>
 							</control>
+							
 							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 						</control>
 
@@ -463,6 +490,7 @@
 
 		<controls>
 			<control type="image">
+				<top>20</top>
 				<width>36</width>
 				<height>36</height>
 				<texture>busy-small.gif</texture>
@@ -530,9 +558,13 @@
 		<!-- Layout - wide -->
 		<property name="layoutTop" tag="property" attribute="name|layout" value="wide">-177</property>
 		<property name="layoutWidth" tag="property" attribute="name|layout" value="wide">345</property>
-		<property name="layoutHeight" tag="property" attribute="name|layout" value="wide">219</property>
-		<property name="imageWidth" tag="property" attribute="name|layout" value="wide">325</property>
-		<property name="imageHeight" tag="property" attribute="name|layout" value="wide">216</property>
+		<property name="layoutHeight" tag="property" attribute="name|layout" value="wide">236</property>
+		
+		<property name="imageWidthNoFocus" tag="property" attribute="name|layout" value="wide">325</property>
+		<property name="imageHeightNoFocus" tag="property" attribute="name|layout" value="wide">216</property>
+		<property name="imageWidthFocus" tag="property" attribute="name|layout" value="wide">345</property>
+		<property name="imageHeightFocus" tag="property" attribute="name|layout" value="wide">236</property>
+		
 		<property name="imageEmpty" tag="property" attribute="name|layout" value="wide">wide-empty.png</property>
 		<property name="layoutFocus" tag="property" attribute="name|layout" value="wide">4</property>
 		<property name="layoutMovement" tag="property" attribute="name|layout" value="wide">widget-movement-wide</property>
@@ -540,9 +572,13 @@
 		<!-- Layout - tall -->
 		<property name="layoutTop">-306</property>
 		<property name="layoutWidth">203</property>
-		<property name="layoutHeight">306</property>
-		<property name="imageWidth">183</property>
-		<property name="imageHeight">306</property>
+		<property name="layoutHeight">326</property>	
+		
+		<property name="imageWidthNoFocus">183</property>
+		<property name="imageHeightNoFocus">306</property>
+		<property name="imageWidthFocus">203</property>
+		<property name="imageHeightFocus">326</property>
+		
 		<property name="imageEmpty">poster-empty.png</property>
 		<property name="layoutFocus">3</property>
 

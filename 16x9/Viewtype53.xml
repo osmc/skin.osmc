@@ -9,7 +9,7 @@
 			<!-- Thumbs -->
 			<control type="panel" id="53">
 				<left>150</left>
-				<top>170</top>
+				<top>185</top>
 				<width>1620</width>
 				<height>666</height>
 				<onleft>63</onleft>
@@ -37,8 +37,8 @@
 					</include>
 					<!-- Watched status -->
 					<control type="image">
-						<left>170</left>
-						<top>286</top>
+						<centerleft>75%</centerleft>
+						<bottom>-2</bottom>
 						<width>30</width>
 						<height>42</height>
 						<texture>$VAR[StatusOverlayWide]</texture>
@@ -47,23 +47,26 @@
 				</itemlayout>
 
 				<focusedlayout width="270" height="333">
-					<!-- Image - Movies -->
-					<include content="image-53">
-						<param name="fallback">DefaultMovie.png</param>
-						<param name="visible">Container.Content(movies)</param>
-					</include>
-					<!-- Image - TV -->
-					<include content="image-53">
-						<param name="fallback">DefaultTVShows.png</param>
-						<param name="visible">!Container.Content(movies)</param>
-					</include>
-					<!-- Watched status -->
-					<control type="image">
-						<left>170</left>
-						<top>286</top>
-						<width>30</width>
-						<height>42</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
+					<control type="group">
+						<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<!-- Image - Movies -->
+						<include content="image-53-focused">
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="visible">Container.Content(movies)</param>
+						</include>
+						<!-- Image - TV -->
+						<include content="image-53-focused">
+							<param name="fallback">DefaultTVShows.png</param>
+							<param name="visible">!Container.Content(movies)</param>
+						</include>
+						<!-- Watched status -->
+						<control type="image">
+							<centerleft>75%</centerleft>
+							<bottom>-12</bottom>
+							<width>30</width>
+							<height>42</height>
+							<texture>$VAR[StatusOverlayWide]</texture>
+						</control>
 					</control>
 				</focusedlayout>
 			</control>
@@ -114,12 +117,31 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<left>34</left>
-				<width>202</width>
-				<height>300</height>
+				<bottom>25</bottom>
+				<centerleft>50%</centerleft>
+				<width>182</width>
+				<height>273</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio align="center">keep</aspectratio>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="image-53-focused">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<bottom>15</bottom>
+				<centerleft>50%</centerleft>
+				<width>212</width>
+				<height>318</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
