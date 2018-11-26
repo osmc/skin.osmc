@@ -24,7 +24,7 @@
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 
-				<itemlayout width="249" height="666">
+				<itemlayout width="253" height="666">
 					<!-- Image - Movies -->
 					<include content="image-52">
 						<param name="fallback">DefaultMovie.png</param>
@@ -37,8 +37,8 @@
 					</include>
 					<!-- Watched status -->
 					<control type="image">
-						<left>177</left>
-						<top>452</top>
+						<bottom>168</bottom>
+						<centerleft>75%</centerleft>
 						<width>35</width>
 						<height>49</height>
 						<texture>$VAR[StatusOverlayWide]</texture>
@@ -61,8 +61,8 @@
 						</include>
 						<!-- Watched status -->
 						<control type="image">
-							<left>290</left>
-							<top>585</top>
+							<bottom>25</bottom>
+							<centerleft>75%</centerleft>
 							<width>35</width>
 							<height>49</height>
 							<texture>$VAR[StatusOverlayWide]</texture>
@@ -116,13 +116,13 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<left>23</left>
-				<top>135</top>
+				<bottom>200</bottom>
+				<centerleft>50%</centerleft>
 				<width>225</width>
 				<height>333</height>
 				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
-				<aspectratio align="center">keep</aspectratio>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
@@ -132,12 +132,12 @@
 		<param name="fallback">DefaultVideos.png</param>
 		<definition>
 			<control type="image">
-				<left>11</left>
-				<top>0</top>
+				<bottom>57</bottom>
+				<centerleft>50%</centerleft>
 				<width>405</width>
 				<height>600</height>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
-				<aspectratio align="center">keep</aspectratio>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 			</control>
 		</definition>
 	</include>
