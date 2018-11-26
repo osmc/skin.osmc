@@ -11,12 +11,41 @@ _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
 - adjust PVR section to match v18 requirements
 
+_Fixed_
+- show proper game widget title when not using skinshortcuts script
+
 **Changelog v18.0.0**
 
 _Adjust syntax, values, labels and infobools to match v18 requirements:_
-
 - remove hyphen as none value
 - remove <onclick>noop</onclick> (not needed anymore)
+
+_Adjust PVR section to match v18 requirements:_
+- add views 50 to PVR windows (otherwise they're empty)
+- remove deprecated views from PVR guid (everything except the EPG guide)
+- remove NextChannelGroup action of guide and channel button
+- hide selection buttons for windows currently open in PVR context menu
+
+_Add new subtitle selection to match v18 requirements:_
+- move subtitle settings one left on fullscreen video OSD
+- rework link to new osdsubtitlesettings window
+
+_Add new games section to match v18 requirements:_
+- add GameOSD window
+- add MyGames window
+- add games to home menu
+- add games settings category
+- add game view mode and game filter dialogs
+- add game widget
+- add game control types
+- fix gamecontroller dialog
+
+_Add new resolution select dialog in video player to match v18 requirements:_
+- add new button for resolution select dialog in video OSD
+
+
+_Add new dependency button in addon info dialog to match v18 requirements:_
+- add new dependencies button in addon info dialog
 
 DialogAddonSettings.xml
 - change grouplist id="9" to id="3"
@@ -50,38 +79,17 @@ DialogContextMenu.xml:
 - replace Player.CanRecord infolabel by PVR.CanRecordPlayingChannel
 - replace Movies, TV Show and Music home menu links
 
-_Adjust PVR section to match v18 requirements:_
-- add views 50 to PVR windows (otherwise they're empty)
-- remove deprecated views from PVR guid (everything except the EPG guide)
-- remove NextChannelGroup action of guide and channel button
-- hide selection buttons for windows currently open in PVR context menu
-
-_Add new subtitle selection to match v18 requirements:_
-- move subtitle settings one left on fullscreen video OSD
-- rework link to new osdsubtitlesettings window
-
-_Add new games section to match v18 requirements:_
-- add GameOSD window
-- add MyGames window
-- add games to home menu
-- add games settings category
-- add game view mode and game filter dialogs
-- add game widget
-- add game control types
-- fix gamecontroller dialog
-
-_Add new resolution select dialog in video player to match v18 requirements:_
-- add new button for resolution select dialog in video OSD
-
-
-_Add new dependency button in addon info dialog to match v18 requirements:_
-- add new dependencies button in addon info dialog
-
 Includes.xml:
 - add player icon to now playing dialog
 
+script.skinshortcuts-static-xml:
+- hack game widget to show proper widget title
+
 Textures.xbt:
 - update file with new resolution select icon included
+
+overrides.xml:
+- simplify game home menu entry and game widget
 
 addon.xml:
 - bump version to 18.0.0
