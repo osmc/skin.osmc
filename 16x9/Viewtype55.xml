@@ -11,9 +11,9 @@
 				<left>150</left>
 				<top>185</top>
 				<width>1620</width>
-				<height>750</height>
+				<height>666</height>
 				<onleft>65</onleft>
-				<onright>noop</onright>
+				<onright>3001</onright>
 				<onup>55</onup>
 				<ondown>55</ondown>
 				<pagecontrol>65</pagecontrol>
@@ -22,78 +22,76 @@
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists)</visible>
 
-				<itemlayout width="270" height="250">
+				<itemlayout width="270" height="222">
 					<!-- Image - Albums -->
-					<include content="thumb+title">
+					<include content="image-55">
 						<param name="fallback"/>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(albums)</param>
 					</include>
 					<!-- Image - Addons -->
-					<include content="thumb+title">
+					<include content="image-55">
 						<param name="fallback">DefaultAddon.png</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(addons)</param>
 					</include>
 					<!-- Image - Artists -->
-					<include content="thumb+title">
+					<include content="image-55">
 						<param name="fallback">DefaultUser.png</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(artists)</param>
 					</include>
-					<!-- Watched status -->
-					<control type="image">
-						<left>177</left>
-						<top>452</top>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<colordiffuse>OverlayColorNF</colordiffuse>
-					</control>
+					<!-- Image - Games -->
+					<include content="image-55">
+						<param name="fallback">DefaultAddonGame.png</param>
+						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+						<param name="visible">Container.Content(games)</param>
+					</include>
 				</itemlayout>
 
-				<focusedlayout width="270" height="250">
-					<!-- Image - Albums -->
-					<include content="thumb+title">
-						<param name="fallback"/>
-						<param name="visible">Container.Content(albums)</param>
-						<param name="focused">True</param>
-					</include>
-					<!-- Image - Addons -->
-					<include content="thumb+title">
-						<param name="fallback">DefaultAddon.png</param>
-						<param name="visible">Container.Content(addons)</param>
-						<param name="focused">True</param>
-					</include>
-					<!-- Image - Artists -->
-					<include content="thumb+title">
-						<param name="fallback">DefaultUser.png</param>
-						<param name="visible">Container.Content(artists)</param>
-						<param name="focused">True</param>
-					</include>
-					<!-- Watched status -->
-					<control type="image">
-						<left>177</left>
-						<top>452</top>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
+				<focusedlayout width="270" height="222">
+					<control type="group">
+						<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<!-- Image - Albums -->
+						<include content="image-55-focused">
+							<param name="fallback"/>
+							<param name="visible">Container.Content(albums)</param>
+							<param name="focused">True</param>
+						</include>
+						<!-- Image - Addons -->
+						<include content="image-55-focused">
+							<param name="fallback">DefaultAddon.png</param>
+							<param name="visible">Container.Content(addons)</param>
+							<param name="focused">True</param>
+						</include>
+						<!-- Image - Artists -->
+						<include content="image-55-focused">
+							<param name="fallback">DefaultUser.png</param>
+							<param name="visible">Container.Content(artists)</param>
+							<param name="focused">True</param>
+						</include>
+						<!-- Image - Games -->
+						<include content="image-55-focused">
+							<param name="fallback">DefaultAddonGame.png</param>
+							<param name="visible">Container.Content(games)</param>
+							<param name="focused">True</param>
+						</include>
 					</control>
 				</focusedlayout>
 			</control>
 
 			<control type="group">
-				<centerleft>50%</centerleft>
+				<!-- <centerleft>75%</centerleft> -->
+				<left>410</left>
 				<top>850</top>
-				<width>1920</width>
+				<width>920</width>
 				<height>100</height>
-				<visible>False</visible>
 
 				<!-- Title -->
-				<control type="label">
+				<control type="fadelabel">
 					<left>90</left>
 					<top>0</top>
-					<width>1740</width>
+					<width>920</width>
 					<height>72</height>
 					<font>Font72</font>
 					<align>center</align>
@@ -103,13 +101,14 @@
 				</control>
 
 				<!-- Details -->
-				<control type="label">
+				<control type="fadelabel">
 					<left>90</left>
 					<top>88</top>
-					<width>1740</width>
-					<height>27</height>
+					<width>920</width>
+					<height>54</height>
 					<font>Font27</font>
 					<align>center</align>
+					<aligny>top</aligny>
 					<label>$VAR[Label2]</label>
 					<textcolor>TextColor1</textcolor>
 					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(55)">Conditional</animation>
@@ -121,82 +120,37 @@
 
 	</include>
 
-	<include name="thumb+title">
+	<include name="image-55">
 		<param name="fallback">DefaultVideos.png</param>
 		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
-		<param name="focused">False</param>
 		<definition>
-
-			<control type="textbox">
-				<left>34</left>
-				<width>202</width>
-				<height>250</height>
-				<textcolor>$PARAM[colordiffuse]</textcolor>
-				<visible>String.IsEmpty(ListItem.Icon) | String.IsEqual(ListItem.Icon,DefaultAlbumCover.png) | String.IsEqual(ListItem.Icon,DefaultArtist.png) + !Container.Content(artists)</visible>
-				<label>[CR][LIGHT]$INFO[ListItem.Artist][/LIGHT][CR]$INFO[ListItem.Label]</label>
-				<font>font25</font>
-				<align>center</align>
-				<visible>False</visible>
-			</control>
-			<control type="textbox">
-				<left>34</left>
-				<width>202</width>
-				<height>250</height>
-				<textcolor>$PARAM[colordiffuse]</textcolor>
-				<visible>String.IsEmpty(ListItem.Icon) | String.IsEqual(ListItem.Icon,DefaultAlbumCover.png) | String.IsEqual(ListItem.Icon,DefaultArtist.png) + Container.Content(artists)</visible>
-				<label>[CR]$INFO[ListItem.Artist]</label>
-				<font>font25</font>
-				<align>center</align>
-				<visible>False</visible>
-			</control>
-
-			<control type="group" id="thumbtitle">
-				<left>30</left>
-				<right>30</right>
-				<top>202</top>
-				<height>40</height>
-				<visible>$PARAM[visible]</visible>
-				<font>font33</font>
-				<control type="label">
-					<visible>Container.Content(artists) + $PARAM[focused]</visible>
-					<textcolor>TextColor1</textcolor>
-					<label>$INFO[ListItem.Artist]</label>
-					<align>center</align>
-					<scroll>True</scroll>
-					<scrollspeed>30</scrollspeed>
-					<scrollsuffix> | </scrollsuffix>
-				</control>
-				<control type="label">
-					<visible>Container.Content(artists) + !$PARAM[focused]</visible>
-					<textcolor>TextColor2</textcolor>
-					<label>$INFO[ListItem.Artist]</label>
-					<align>center</align>
-				</control>
-				<control type="label">
-					<visible>!Container.Content(artists) + $PARAM[focused]</visible>
-					<textcolor>TextColor1</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<align>center</align>
-					<scroll>True</scroll>
-					<scrollspeed>30</scrollspeed>
-					<scrollsuffix> | </scrollsuffix>
-				</control>
-				<control type="label">
-					<visible>!Container.Content(artists) + !$PARAM[focused]</visible>
-					<textcolor>TextColor2</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<align>center</align>
-				</control>
-			</control>
-
 			<control type="image">
-				<left>34</left>
-				<width>202</width>
-				<height>202</height>
+				<bottom>10</bottom>
+				<centerleft>50%</centerleft>
+				<width>192</width>
+				<height>192</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio align="center">keep</aspectratio>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="image-55-focused">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<bottom>0</bottom>
+				<centerleft>50%</centerleft>
+				<width>222</width>
+				<height>222</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>

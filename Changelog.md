@@ -6,6 +6,7 @@ _New_
 - add channel icon to PVR info dialog
 - add new widget options (through skin.helper.widgets script)
 - add AURO media flags (based on file naming)
+- add new cover art highlighting (size change depending on focused state)
 
 _Improved_
 - add more weather information to weather window
@@ -13,6 +14,9 @@ _Improved_
 - remove watched status for music items (in views and widgets)
 - adjust representation of object based audio codec tags
 - refine positioning and scaling of media tag icons
+- adjust viewtype 55 for music and add-ons to match viewtype 53 for movies and TV shows
+- improve highlight color of selected text
+- change appearance of all progress icons to round shape
 
 _Fixed_
 - fix scrollbar in music navigation
@@ -47,6 +51,9 @@ DialogFullScreenInfo.xml:
 
 DialogMediaSource.xml:
 - add underline highlight to focusedlayout
+
+DialogVideoInfo.xml:
+- change label of ratings to "rating"
 
 DialogPVRChannelGuide:
 - add underline highlight to focusedlayout
@@ -86,6 +93,9 @@ Home.xml:
 Include_Home_OSMC.xml:
 - add underline highlight to focusedlayout
 
+Includes_Widgets.xml:
+- adjust positioning and size of focused and non-focused widget images for new cover art highlighting
+
 Includes.xml:
 - change formatting and position of media tag icons
 
@@ -100,10 +110,14 @@ MusicVisualisation.xml:
 
 MyMusicNav.xml:
 - fix conditional visibility of scrollbar
+- adjust wall scrollbar for adjusted viewtype55
 
 MyMusicPlaylistEditor.xml:
 - add underline highlight to focusedlayout
 - add focus textures with colordiffuse variable to buttons
+
+MyPrograms.xml:
+- adjust wall scrollbar for adjusted viewtype55
 
 MyPVRChannels.xml:
 - add underline highlight to focusedlayout
@@ -121,6 +135,9 @@ MyPVRSearch.xml
 MyPVRTimers.xml
 - add underline highlight to focusedlayout
 
+MyVideoNav.xml:
+- adjust wall scrollbar for adjusted viewtype53
+
 MyWeather.xml:
 - fix day labels
 - match forcast to correct day
@@ -129,6 +146,7 @@ MyWeather.xml:
 
 script-skinshortcuts-static.xml:
 - replace DiffusePosterNF with variable
+- adjust positioning and size of focused and non-focused widget images for new cover art highlighting
 
 script-skinshortcuts.xml:
 - add underline highlight to focusedlayout
@@ -165,6 +183,7 @@ Variables.xml:
 - add new addon-skinhelperwidgets variable for new recommended addon in skin settings section
 - add AURO detection in file names to audio variable
 - change language code formatting to capitalized in audiolanguage and subtitlelanguage variable
+- change SelectedColor to new, improved color
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
@@ -179,6 +198,7 @@ Viewtype52.xml:
 
 Viewtype53.xml:
 - replace DiffusePosterNF with variable
+- adjust view for new cover art highlighting
 
 Viewtype54.xml:
 - fix width of Artist info fadelabel
@@ -187,9 +207,11 @@ Viewtype54.xml:
 Viewtype55.xml:
 - replace DiffusePosterNF with variable
 - show title in wall view for addons/games as well
+- adjust view for new cover art highlighting
 
 defaults.xml:
 - remove DiffusePosterNF color
+- change SelectedColor to new, improved color
 
 strings.po:
 - add new localizes for new skin settings buttons (#31104 and #31105)
@@ -199,6 +221,7 @@ Textures.xbt:
 - repack content of media folder after adding new focus textures
 - repack content of media folder after adding new music icons
 - repack content of media folder after adding new media tag icons
+- repack content of media folder after adding new progress icons
 
 overrides.xml:
 - add new widget option for skin.helper.widgets script
@@ -207,6 +230,7 @@ template.xml:
 - replace DiffusePosterNF with variable
 - fix widget details label for PVR items
 - add conditions to prevent use of PVR widget titles for recent movies widget
+- adjust positioning and size of focused and non-focused widget images for new cover art highlighting
 
 addon.xml:
 - bump version to 17.0.5
