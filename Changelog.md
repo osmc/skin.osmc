@@ -17,6 +17,7 @@ _Improved_
 - adjust viewtype 55 for music and add-ons to match viewtype 53 for movies and TV shows
 - improve highlight color of selected text
 - change appearance of all progress icons to round shape
+- add no dimming of cover art
 
 _Fixed_
 - fix scrollbar in music navigation
@@ -168,6 +169,7 @@ SettingsSystemInfo.xml:
 SkinSettings.xml:
 - rewrite window to accomodate highlighting and immitate behaviour of other settings windows
 - add addon install command for script.skin.helper.service and script.skin.helper.widgets for new widget option when customizing main menu through script.skinshortcuts
+- add "0" state of "Adjust non-focus dim opacity" skin setting
 
 SmartPlaylistEditor.xml:
 - add underline highlight to focusedlayout
@@ -184,6 +186,7 @@ Variables.xml:
 - add AURO detection in file names to audio variable
 - change language code formatting to capitalized in audiolanguage and subtitlelanguage variable
 - change SelectedColor to new, improved color
+- add "0" condition to DiffusePosterNF variable
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
