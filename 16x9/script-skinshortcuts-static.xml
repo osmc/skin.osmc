@@ -1474,8 +1474,8 @@
 			<itemlayout height="326" width="203">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1487,8 +1487,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1500,8 +1500,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1511,23 +1511,29 @@
 					<param name="shadow">noop</param>
 					<param name="visible">[ IsEmpty(ListItem.Art(poster)) ] + [ IsEmpty(ListItem.Icon) ]</param>
 				</include>
-				<control type="image">
-					<centerleft>75%</centerleft>
-					<bottom>-5</bottom>
-					<width>35</width>
-					<height>49</height>
-					<texture>$VAR[StatusOverlayWide]</texture>
-					<visible>!Skin.HasSetting(widgetIcons)</visible>
-					<colordiffuse>OverlayColorNF</colordiffuse>
+				<control type="group">
+					<right>10</right>
+					<bottom>0</bottom>
+					<width>40</width>
+					<height>40</height>
+					<control type="image">
+						<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="90" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultMovie.png</param>
@@ -1538,8 +1544,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultMovie.png</param>
@@ -1550,8 +1556,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultMovie.png</param>
@@ -1560,13 +1566,18 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Art(poster)) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-15</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
+					<control type="group">
+						<right>0</right>
+						<bottom>0</bottom>
+						<width>45</width>
+						<height>45</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+						</control>
 					</control>
 					<visible>Control.HasFocus(10101)</visible>
 				</control>
@@ -1574,8 +1585,8 @@
 				<control type="group">
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1587,8 +1598,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1600,8 +1611,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1611,14 +1622,20 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Art(poster)) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-5</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>10</right>
+						<bottom>0</bottom>
+						<width>40</width>
+						<height>40</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 					<visible>!Control.HasFocus(10101)</visible>
 				</control>
@@ -1649,8 +1666,8 @@
 			<itemlayout height="326" width="203">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1662,8 +1679,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1675,8 +1692,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1686,23 +1703,29 @@
 					<param name="shadow">noop</param>
 					<param name="visible">[ IsEmpty(ListItem.Art(season.poster)) ] + [ IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 				</include>
-				<control type="image">
-					<centerleft>75%</centerleft>
-					<bottom>-5</bottom>
-					<width>35</width>
-					<height>49</height>
-					<texture>$VAR[StatusOverlayWide]</texture>
-					<visible>!Skin.HasSetting(widgetIcons)</visible>
-					<colordiffuse>OverlayColorNF</colordiffuse>
+				<control type="group">
+					<right>10</right>
+					<bottom>0</bottom>
+					<width>40</width>
+					<height>40</height>
+					<control type="image">
+						<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="90" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultShortcut.png</param>
@@ -1713,8 +1736,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultShortcut.png</param>
@@ -1725,8 +1748,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultShortcut.png</param>
@@ -1735,21 +1758,26 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Art(season.poster)) ] + [ IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-15</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
+					<control type="group">
+						<right>0</right>
+						<bottom>0</bottom>
+						<width>45</width>
+						<height>45</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+						</control>
 					</control>
 					<visible>Control.HasFocus(10201)</visible>
 				</control>
 				<control type="group">
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1761,8 +1789,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1774,8 +1802,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1785,14 +1813,20 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Art(season.poster)) ] + [ IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-5</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>10</right>
+						<bottom>0</bottom>
+						<width>40</width>
+						<height>40</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 					<visible>!Control.HasFocus(10201)</visible>
 				</control>
@@ -1822,8 +1856,8 @@
 			<itemlayout height="326" width="203">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1835,8 +1869,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1848,8 +1882,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1859,23 +1893,29 @@
 					<param name="shadow">noop</param>
 					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 				</include>
-				<control type="image">
-					<centerleft>75%</centerleft>
-					<bottom>-5</bottom>
-					<width>35</width>
-					<height>49</height>
-					<texture>$VAR[StatusOverlayWide]</texture>
-					<visible>!Skin.HasSetting(widgetIcons)</visible>
-					<colordiffuse>OverlayColorNF</colordiffuse>
+				<control type="group">
+					<right>10</right>
+					<bottom>0</bottom>
+					<width>40</width>
+					<height>40</height>
+					<control type="image">
+						<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="90" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
@@ -1886,8 +1926,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
@@ -1898,8 +1938,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
@@ -1908,21 +1948,26 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-15</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
+					<control type="group">
+						<right>0</right>
+						<bottom>0</bottom>
+						<width>45</width>
+						<height>45</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+						</control>
 					</control>
 					<visible>Control.HasFocus(10401)</visible>
 				</control>
 				<control type="group">
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1934,8 +1979,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1947,8 +1992,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -1958,14 +2003,20 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-5</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>10</right>
+						<bottom>0</bottom>
+						<width>40</width>
+						<height>40</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 					<visible>!Control.HasFocus(10401)</visible>
 				</control>
@@ -1995,8 +2046,8 @@
 			<itemlayout height="326" width="203">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2008,8 +2059,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2021,8 +2072,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2032,23 +2083,29 @@
 					<param name="shadow">noop</param>
 					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 				</include>
-				<control type="image">
-					<centerleft>75%</centerleft>
-					<bottom>-5</bottom>
-					<width>35</width>
-					<height>49</height>
-					<texture>$VAR[StatusOverlayWide]</texture>
-					<visible>!Skin.HasSetting(widgetIcons)</visible>
-					<colordiffuse>OverlayColorNF</colordiffuse>
+				<control type="group">
+					<right>10</right>
+					<bottom>0</bottom>
+					<width>40</width>
+					<height>40</height>
+					<control type="image">
+						<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="90" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultShortcut.png</param>
@@ -2059,8 +2116,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultShortcut.png</param>
@@ -2071,8 +2128,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultShortcut.png</param>
@@ -2081,21 +2138,26 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-15</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
+					<control type="group">
+						<right>0</right>
+						<bottom>0</bottom>
+						<width>45</width>
+						<height>45</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+						</control>
 					</control>
 					<visible>Control.HasFocus(10801)</visible>
 				</control>
 				<control type="group">
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2107,8 +2169,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2120,8 +2182,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2131,14 +2193,20 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-5</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>10</right>
+						<bottom>0</bottom>
+						<width>40</width>
+						<height>40</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 					<visible>!Control.HasFocus(10801)</visible>
 				</control>
@@ -2173,19 +2241,19 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<left>10</left>
-						<top>45</top>
-						<width>183</width>
-						<height>226</height>
+						<left>20</left>
+						<top>55</top>
+						<width>163</width>
+						<height>206</height>
 						<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="center">keep</aspectratio>
 						<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 					</control>
 					<control type="multiimage">
-						<left>10</left>
-						<top>45</top>
-						<width>183</width>
-						<height>226</height>
+						<left>20</left>
+						<top>55</top>
+						<width>163</width>
+						<height>206</height>
 						<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						<timeperimage>200</timeperimage>
@@ -2215,17 +2283,17 @@
 						<textcolor>TextColor2</textcolor>
 					</control>
 					<control type="image">
-						<left>10</left>
-						<top>45</top>
-						<width>183</width>
-						<height>226</height>
+						<left>20</left>
+						<top>55</top>
+						<width>163</width>
+						<height>206</height>
 						<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="center">keep</aspectratio>
 						<visible>!Control.HasFocus(10901)</visible>
 						<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 					</control>
 					<control type="image">
-						<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<left>0</left>
 						<top>35</top>
 						<width>203</width>
@@ -2236,10 +2304,10 @@
 						<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 					</control>
 					<control type="multiimage">
-						<left>10</left>
-						<top>45</top>
-						<width>183</width>
-						<height>226</height>
+						<left>20</left>
+						<top>55</top>
+						<width>163</width>
+						<height>206</height>
 						<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						<timeperimage>200</timeperimage>
@@ -2248,7 +2316,7 @@
 						<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 					</control>
 					<control type="multiimage">
-						<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<left>0</left>
 						<top>35</top>
 						<width>203</width>
@@ -2297,8 +2365,8 @@
 			<itemlayout height="326" width="203">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2310,8 +2378,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2323,8 +2391,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2334,23 +2402,29 @@
 					<param name="shadow">noop</param>
 					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 				</include>
-				<control type="image">
-					<centerleft>75%</centerleft>
-					<bottom>-5</bottom>
-					<width>35</width>
-					<height>49</height>
-					<texture>$VAR[StatusOverlayWide]</texture>
-					<visible>!Skin.HasSetting(widgetIcons)</visible>
-					<colordiffuse>OverlayColorNF</colordiffuse>
+				<control type="group">
+					<right>10</right>
+					<bottom>0</bottom>
+					<width>40</width>
+					<height>40</height>
+					<control type="image">
+						<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="90" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultLiveTV.png</param>
@@ -2361,8 +2435,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultLiveTV.png</param>
@@ -2373,8 +2447,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultLiveTV.png</param>
@@ -2383,21 +2457,26 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-15</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
+					<control type="group">
+						<right>0</right>
+						<bottom>0</bottom>
+						<width>45</width>
+						<height>45</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+						</control>
 					</control>
 					<visible>Control.HasFocus(101001)</visible>
 				</control>
 				<control type="group">
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2409,8 +2488,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2422,8 +2501,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2433,14 +2512,20 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-5</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>10</right>
+						<bottom>0</bottom>
+						<width>40</width>
+						<height>40</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 					<visible>!Control.HasFocus(101001)</visible>
 				</control>
@@ -2470,8 +2555,8 @@
 			<itemlayout height="326" width="203">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2483,8 +2568,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2496,8 +2581,8 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">50%</param>
-					<param name="bottom">27</param>
+					<param name="left">10</param>
+					<param name="bottom">0</param>
 					<param name="width">183</param>
 					<param name="height">306</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2507,23 +2592,29 @@
 					<param name="shadow">noop</param>
 					<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 				</include>
-				<control type="image">
-					<centerleft>75%</centerleft>
-					<bottom>-5</bottom>
-					<width>35</width>
-					<height>49</height>
-					<texture>$VAR[StatusOverlayWide]</texture>
-					<visible>!Skin.HasSetting(widgetIcons)</visible>
-					<colordiffuse>OverlayColorNF</colordiffuse>
+				<control type="group">
+					<right>10</right>
+					<bottom>0</bottom>
+					<width>40</width>
+					<height>40</height>
+					<control type="image">
+						<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="90" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultLiveTV.png</param>
@@ -2534,8 +2625,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultLiveTV.png</param>
@@ -2546,8 +2637,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">17</param>
+						<param name="left">0</param>
+						<param name="bottom">0</param>
 						<param name="width">203</param>
 						<param name="height">326</param>
 						<param name="fallback">DefaultLiveTV.png</param>
@@ -2556,21 +2647,26 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-15</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
+					<control type="group">
+						<right>0</right>
+						<bottom>0</bottom>
+						<width>45</width>
+						<height>45</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+						</control>
 					</control>
 					<visible>Control.HasFocus(101101)</visible>
 				</control>
 				<control type="group">
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2582,8 +2678,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2595,8 +2691,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">10</param>
+						<param name="bottom">0</param>
 						<param name="width">183</param>
 						<param name="height">306</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -2606,14 +2702,20 @@
 						<param name="shadow">noop</param>
 						<param name="visible">[ IsEmpty(ListItem.Icon) ] + [ IsEmpty(ListItem.Icon) ]</param>
 					</include>
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-5</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>10</right>
+						<bottom>0</bottom>
+						<width>40</width>
+						<height>40</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 					<visible>!Control.HasFocus(101101)</visible>
 				</control>

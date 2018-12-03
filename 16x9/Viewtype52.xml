@@ -35,20 +35,43 @@
 						<param name="fallback">DefaultTVShows.png</param>
 						<param name="visible">!Container.Content(movies)</param>
 					</include>
-					<!-- Watched status -->
-					<control type="image">
+					<!-- Collection -->
+					<control type="group">
+						<left>14</left>
 						<bottom>168</bottom>
-						<centerleft>75%</centerleft>
-						<width>35</width>
+						<width>49</width>
 						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+						<visible>ListItem.IsCollection</visible>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerLeft.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+						<control type="image">
+							<texture background="true">views/OverlayCollection.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+					</control>
+					<!-- Watched status -->
+					<control type="group">
+						<right>14</right>
+						<bottom>168</bottom>
+						<width>49</width>
+						<height>49</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 				</itemlayout>
 
 				<focusedlayout width="405" height="666">
 					<control type="group">
-						<animation effect="zoom" start="60" end="100" center="202,300" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="56" end="100" center="202,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<!-- Image - Movies -->
 						<include content="image-52-focus">
 							<param name="fallback">DefaultMovie.png</param>
@@ -59,13 +82,35 @@
 							<param name="fallback">DefaultTVShows.png</param>
 							<param name="visible">!Container.Content(movies)</param>
 						</include>
+						<!-- Collection -->
+						<control type="group">
+							<left>0</left>
+							<bottom>42</bottom>
+							<width>88</width>
+							<height>88</height>
+							<fadetime>200</fadetime>
+							<visible>ListItem.IsCollection</visible>
+							<control type="image">
+								<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerLeft.png</texture>
+							</control>
+							<control type="image">
+								<texture background="true">views/OverlayCollection.png</texture>
+							</control>
+						</control>
 						<!-- Watched status -->
-						<control type="image">
-							<bottom>25</bottom>
-							<centerleft>75%</centerleft>
-							<width>35</width>
-							<height>49</height>
-							<texture>$VAR[StatusOverlayWide]</texture>
+						<control type="group">
+							<right>0</right>
+							<bottom>42</bottom>
+							<width>88</width>
+							<height>88</height>
+							<fadetime>200</fadetime>
+							<control type="image">
+								<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+							</control>
+							<control type="image">
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
 					</control>
 				</focusedlayout>
@@ -116,10 +161,10 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<bottom>200</bottom>
-				<centerleft>50%</centerleft>
+				<bottom>168</bottom>
+				<left>14</left>
 				<width>225</width>
-				<height>333</height>
+				<height>350</height>
 				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
@@ -132,10 +177,10 @@
 		<param name="fallback">DefaultVideos.png</param>
 		<definition>
 			<control type="image">
-				<bottom>57</bottom>
-				<centerleft>50%</centerleft>
+				<bottom>42</bottom>
+				<left>0</left>
 				<width>405</width>
-				<height>600</height>
+				<height>615</height>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 			</control>

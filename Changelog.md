@@ -7,6 +7,7 @@ _New_
 - add new widget options (through skin.helper.widgets script)
 - add AURO media flags (based on file naming)
 - add new cover art highlighting (size change depending on focused state)
+- add new movie collection indicator
 
 _Improved_
 - add more weather information to weather window
@@ -18,6 +19,10 @@ _Improved_
 - improve highlight color of selected text
 - change appearance of all progress icons to round shape
 - add no dimming of cover art
+- dim watched and collection indicator depending on cover dimming setting
+- update watched overlay icon to match appearance of new movie collection indicator
+- add current control ID to debug overlay
+- change overlay color setting to match appearance of background color setting
 
 _Fixed_
 - fix scrollbar in music navigation
@@ -26,11 +31,15 @@ _Fixed_
 - fix focused items in addon list view (e.g. YouTube)
 - fix PVR views to add scrolling and adapt season/episode representation
 - fix widget details label for PVR items (when using skinshortcuts script)
+- fix scrollbar in file browser
 
 **Changelog v17.0.5**
 
 AddonBrowser.xml:
 - add underline highlight to focusedlayout
+
+Custom_Overlay_Debug.xml:
+- add current control ID to debug overlay
 
 Defaults.xml:
 - add focus textures with colordiffuse variable
@@ -79,8 +88,12 @@ DialogSelect:
 DialogSubtitles:
 - add underline highlight to focusedlayout
 
+DialogVideoInfo.xml:
+- add underline highlight to focusedlayout of cast list
+
 FileBrowser:
 - add underline highlight to focusedlayout
+- fix scrollbar (onright, pagecontrol)
 
 FileManager:
 - add underline highlight to focusedlayout
@@ -148,6 +161,8 @@ MyWeather.xml:
 script-skinshortcuts-static.xml:
 - replace DiffusePosterNF with variable
 - adjust positioning and size of focused and non-focused widget images for new cover art highlighting
+- update watched overlay icon
+- replace OverlayColorNF by DiffusePosterNF variable
 
 script-skinshortcuts.xml:
 - add underline highlight to focusedlayout
@@ -170,6 +185,7 @@ SkinSettings.xml:
 - rewrite window to accomodate highlighting and immitate behaviour of other settings windows
 - add addon install command for script.skin.helper.service and script.skin.helper.widgets for new widget option when customizing main menu through script.skinshortcuts
 - add "0" state of "Adjust non-focus dim opacity" skin setting
+- change overlay color setting to match appearance of background color setting
 
 SmartPlaylistEditor.xml:
 - add underline highlight to focusedlayout
@@ -187,6 +203,7 @@ Variables.xml:
 - change language code formatting to capitalized in audiolanguage and subtitlelanguage variable
 - change SelectedColor to new, improved color
 - add "0" condition to DiffusePosterNF variable
+- change OverlayColor variable to accommodate the overlay color setting change
 
 Viewtype50.xml:
 - add underline highlight to focusedlayout
@@ -195,13 +212,21 @@ Viewtype50.xml:
 
 Viewtype51.xml:
 - add underline highlight to focusedlayout
+- add new collection icon
+- replace OverlayColorNF by DiffusePosterNF variable
 
 Viewtype52.xml:
 - replace DiffusePosterNF with variable
+- add new collection icon
+- update watched overlay icon
+- replace OverlayColorNF by DiffusePosterNF variable
 
 Viewtype53.xml:
 - replace DiffusePosterNF with variable
 - adjust view for new cover art highlighting
+- add new collection icon
+- update watched overlay icon
+- replace OverlayColorNF by DiffusePosterNF variable
 
 Viewtype54.xml:
 - fix width of Artist info fadelabel
@@ -225,6 +250,7 @@ Textures.xbt:
 - repack content of media folder after adding new music icons
 - repack content of media folder after adding new media tag icons
 - repack content of media folder after adding new progress icons
+- repack content of media folder after adding new collection icon and after changing watched status icons
 
 overrides.xml:
 - add new widget option for skin.helper.widgets script
@@ -234,6 +260,8 @@ template.xml:
 - fix widget details label for PVR items
 - add conditions to prevent use of PVR widget titles for recent movies widget
 - adjust positioning and size of focused and non-focused widget images for new cover art highlighting
+- update watched overlay icon
+- replace OverlayColorNF by DiffusePosterNF variable
 
 addon.xml:
 - bump version to 17.0.5

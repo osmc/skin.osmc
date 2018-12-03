@@ -169,19 +169,19 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
-							<left>10</left>
-							<top>45</top>
-							<width>183</width>
-							<height>226</height>
+							<left>20</left>
+							<top>55</top>
+							<width>163</width>
+							<height>206</height>
 							<texture colordiffuse="$VAR[DiffusePosterNF]" background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
-							<left>10</left>
-							<top>45</top>
-							<width>183</width>
-							<height>226</height>
+							<left>20</left>
+							<top>55</top>
+							<width>163</width>
+							<height>206</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
@@ -212,18 +212,17 @@
 							<textcolor>TextColor2</textcolor>
 						</control>
 						<control type="image">
-							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-							<left>10</left>
-							<top>45</top>
-							<width>183</width>
-							<height>226</height>
+							<left>20</left>
+							<top>55</top>
+							<width>163</width>
+							<height>206</height>
 							<texture colordiffuse="$VAR[DiffusePosterNF]" background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="image">
-							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 							<left>0</left>
 							<top>35</top>
 							<width>203</width>
@@ -234,11 +233,10 @@
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
-							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-							<left>10</left>
-							<top>45</top>
-							<width>183</width>
-							<height>226</height>
+							<left>20</left>
+							<top>55</top>
+							<width>163</width>
+							<height>206</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
@@ -247,7 +245,7 @@
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
-							<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 							<left>0</left>
 							<top>35</top>
 							<width>203</width>
@@ -318,8 +316,8 @@
 				<itemlayout width="$SKINSHORTCUTS[layoutWidth]" height="$SKINSHORTCUTS[layoutHeight]">
 					<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 						<description>Primary art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+						<param name="bottom">0</param>
 						<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
 						<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -331,8 +329,8 @@
 					</include>
 					<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 						<description>Fallback art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+						<param name="bottom">0</param>
 						<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
 						<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -344,8 +342,8 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">50%</param>
-						<param name="bottom">27</param>
+						<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+						<param name="bottom">0</param>
 						<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
 						<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -356,24 +354,30 @@
 						<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 					</include>
 
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-5</bottom>
-						<width>35</width>
-						<height>49</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<visible>!Skin.HasSetting(widgetIcons)</visible>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</right>
+						<bottom>0</bottom>
+						<width>$PYTHON[int(imageWidthNoFocus) * 0.22]</width>
+						<height>$PYTHON[int(imageWidthNoFocus) * 0.22]</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 				</itemlayout>
 
 				<focusedlayout width="$SKINSHORTCUTS[layoutWidth]" height="$SKINSHORTCUTS[layoutHeight]">
 						<control type="group">
-							<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<animation effect="zoom" start="$PYTHON[100 / int(imageWidthFocus) * int(imageWidthNoFocus)]" end="100" center="$PYTHON[int(imageWidthFocus) / 2],$SKINSHORTCUTS[imageHeightFocus]" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 								<description>Primary art</description>
-								<param name="left">50%</param>
-								<param name="bottom">17</param>
+								<param name="left">0</param>
+								<param name="bottom">0</param>
 								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
@@ -384,8 +388,8 @@
 							</include>
 							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 								<description>Fallback art</description>
-								<param name="left">50%</param>
-								<param name="bottom">17</param>
+								<param name="left">0</param>
+								<param name="bottom">0</param>
 								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
@@ -396,8 +400,8 @@
 							</include>
 							<include content="widget-image">
 								<description>Catch-all art</description>
-								<param name="left">50%</param>
-								<param name="bottom">17</param>
+								<param name="left">0</param>
+								<param name="bottom">0</param>
 								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
@@ -407,13 +411,18 @@
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
 							
-							<control type="image">
-								<centerleft>75%</centerleft>
-								<bottom>-15</bottom>
-								<width>35</width>
-								<height>49</height>
-								<texture>$VAR[StatusOverlayWide]</texture>
-								<visible>!Skin.HasSetting(widgetIcons)</visible>
+							<control type="group">
+								<right>0</right>
+								<bottom>0</bottom>
+								<width>$PYTHON[int(imageWidthFocus) * 0.22]</width>
+								<height>$PYTHON[int(imageWidthFocus) * 0.22]</height>
+								<control type="image">
+									<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+									<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+								</control>
+								<control type="image">
+									<texture background="true">$VAR[StatusOverlayWide]</texture>
+								</control>
 							</control>
 							
 							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
@@ -421,8 +430,8 @@
 						<control type="group">
 							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 								<description>Primary art</description>
-								<param name="left">50%</param>
-								<param name="bottom">27</param>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
 								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -434,8 +443,8 @@
 							</include>
 							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 								<description>Fallback art</description>
-								<param name="left">50%</param>
-								<param name="bottom">27</param>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
 								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -447,8 +456,8 @@
 							</include>
 							<include content="widget-image">
 								<description>Catch-all art</description>
-								<param name="left">50%</param>
-								<param name="bottom">27</param>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
 								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
 								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
@@ -459,14 +468,20 @@
 								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
 							</include>
 							
-							<control type="image">
-								<centerleft>75%</centerleft>
-								<bottom>-5</bottom>
-								<width>35</width>
-								<height>49</height>
-								<texture>$VAR[StatusOverlayWide]</texture>
-								<visible>!Skin.HasSetting(widgetIcons)</visible>
-								<colordiffuse>OverlayColorNF</colordiffuse>
+							<control type="group">
+								<right>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</right>
+								<bottom>0</bottom>
+								<width>$PYTHON[int(imageWidthNoFocus) * 0.22]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.22]</height>
+								<control type="image">
+									<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+									<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+								</control>
+								<control type="image">
+									<texture background="true">$VAR[StatusOverlayWide]</texture>
+									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								</control>
 							</control>
 							
 							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>

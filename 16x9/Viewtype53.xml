@@ -9,7 +9,7 @@
 			<!-- Thumbs -->
 			<control type="panel" id="53">
 				<left>150</left>
-				<top>185</top>
+				<top>175</top>
 				<width>1620</width>
 				<height>666</height>
 				<onleft>63</onleft>
@@ -35,14 +35,37 @@
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">!Container.Content(movies)</param>
 					</include>
+					<!-- Collection -->
+					<control type="group">
+						<left>44</left>
+						<bottom>10</bottom>
+						<width>63</width>
+						<height>63</height>
+						<visible>ListItem.IsCollection</visible>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerLeft.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+						<control type="image">
+							<texture background="true">views/OverlayCollection.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+					</control>
 					<!-- Watched status -->
-					<control type="image">
-						<centerleft>75%</centerleft>
-						<bottom>-2</bottom>
-						<width>30</width>
-						<height>42</height>
-						<texture>$VAR[StatusOverlayWide]</texture>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+					<control type="group">
+						<right>44</right>
+						<bottom>10</bottom>
+						<width>63</width>
+						<height>63</height>
+						<control type="image">
+							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
 					</control>
 				</itemlayout>
 
@@ -59,13 +82,33 @@
 							<param name="fallback">DefaultTVShows.png</param>
 							<param name="visible">!Container.Content(movies)</param>
 						</include>
+						<!-- Collection -->
+						<control type="group">
+							<left>29</left>
+							<bottom>0</bottom>
+							<width>72</width>
+							<height>72</height>
+							<visible>ListItem.IsCollection</visible>
+							<control type="image">
+								<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerLeft.png</texture>
+							</control>
+							<control type="image">
+								<texture background="true">views/OverlayCollection.png</texture>
+							</control>
+						</control>
 						<!-- Watched status -->
-						<control type="image">
-							<centerleft>75%</centerleft>
-							<bottom>-12</bottom>
-							<width>30</width>
-							<height>42</height>
-							<texture>$VAR[StatusOverlayWide]</texture>
+						<control type="group">
+							<right>29</right>
+							<bottom>0</bottom>
+							<width>72</width>
+							<height>72</height>
+							<control type="image">
+								<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
+							</control>
+							<control type="image">
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
 					</control>
 				</focusedlayout>
@@ -117,10 +160,10 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<bottom>25</bottom>
-				<centerleft>50%</centerleft>
+				<bottom>10</bottom>
+				<left>44</left>
 				<width>182</width>
-				<height>273</height>
+				<height>288</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
@@ -135,10 +178,10 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<bottom>15</bottom>
-				<centerleft>50%</centerleft>
+				<bottom>0</bottom>
+				<left>29</left>
 				<width>212</width>
-				<height>318</height>
+				<height>333</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
