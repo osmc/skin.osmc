@@ -73,7 +73,8 @@
 				<width>20</width>
 				<height>672</height>
 				<onleft>9000</onleft>
-				<onright>450</onright>
+				<onright condition="Control.IsVisible(450)">450</onright>
+				<onright condition="Control.IsVisible(451)">451</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>OverlayColorNF</colordiffuse>
@@ -169,17 +170,19 @@
 						<visible>!Control.HasFocus(450)</visible>
 					</control>
 					<control type="image">
+						<centertop>50%</centertop>
 						<left>140</left>
 						<width>910</width>
-						<height>96</height>
-						<texture>$VAR[focus97]</texture>
+						<height>58</height>
+						<texture>$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder + Control.HasFocus(450)</visible>
 					</control>
 					<control type="image">
+						<centertop>50%</centertop>
 						<left>140</left>
 						<width>910</width>
-						<height>96</height>
-						<texture colordiffuse="TextColor2">$VAR[focus97]</texture>
+						<height>58</height>
+						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder + !Control.HasFocus(450)</visible>
 					</control>
 				</focusedlayout>
@@ -194,10 +197,11 @@
 				<height>672</height>
 				<onup>noop</onup>
 				<ondown>9000</ondown>
-				<onleft>9000</onleft>
+				<onleft>60</onleft>
 				<onright>9000</onright>
 				<orientation>vertical</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<pagecontrol>60</pagecontrol>
 
 				<itemlayout width="1170" height="96">
 					<control type="image">
@@ -263,9 +267,25 @@
 						<width>910</width>
 						<height>96</height>
 						<font>Font36</font>
-						<textcolor>DialogColor1</textcolor>
+						<textcolor>DialogColor2</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>!Control.HasFocus(451)</visible>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>910</width>
+						<height>58</height>
+						<texture>$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder + Control.HasFocus(451)</visible>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>910</width>
+						<height>58</height>
+						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder + !Control.HasFocus(451)</visible>
 					</control>
 				</focusedlayout>
 
