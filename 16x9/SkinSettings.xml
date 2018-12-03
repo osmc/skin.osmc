@@ -378,20 +378,32 @@
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(4)</visible>
 				<!-- Adjust overlay color -->
-				<control type="button" id="401">
+				<control type="radiobutton" id="401">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
 					<font>Font33</font>
-					<label>$LOCALIZE[31097]</label>
+					<label>Use default OSMC Overlay Color</label>
+					<onclick>Skin.ToggleSetting(OverlayCustomColour)</onclick>
+					<focusedcolor>TextColor1</focusedcolor>
+					<textcolor>TextColor2</textcolor>
+					<selected>!Skin.HasSetting(OverlayCustomColour)</selected>
+				</control>
+				<control type="button" id="402">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - Custom overlay color</label>
 					<label2>$VAR[OverlayColor-Name]</label2>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlay)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<visible>Skin.HasSetting(OverlayCustomColour)</visible>
 					<focusedcolor>TextColor1</focusedcolor>
 					<textcolor>TextColor2</textcolor>
 				</control>
 				<!-- Add additional text highlighting -->
-				<control type="radiobutton" id="402">
+				<control type="radiobutton" id="403">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -401,7 +413,7 @@
 					<selected>Skin.HasSetting(TextHighlight)</selected>
 				</control>
 				<!-- Adjust non-focus dim opacity -->
-				<control type="button" id="403">
+				<control type="button" id="404">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -419,7 +431,7 @@
 					<textcolor>TextColor2</textcolor>
 				</control>
 				<!-- Adjust plot/description text font size -->
-				<control type="button" id="404">
+				<control type="button" id="405">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -438,7 +450,7 @@
 					<textcolor>TextColor2</textcolor>
 				</control>
 				<!-- Adjust OSD on-time during video pause -->
-				<control type="button" id="405">
+				<control type="button" id="406">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -458,7 +470,7 @@
 					<textcolor>TextColor2</textcolor>
 				</control>
 				<!-- Hide thumbnails of unwatched episodes -->
-				<control type="radiobutton" id="406">
+				<control type="radiobutton" id="407">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -468,7 +480,7 @@
 					<selected>Skin.HasSetting(HideEpisodeThumbnail)</selected>
 				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="407">
+				<control type="radiobutton" id="409">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
