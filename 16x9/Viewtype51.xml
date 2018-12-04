@@ -8,14 +8,10 @@
 
 			<!-- Media image - not episodes -->
 			<control type="group">
-				<left>120</left>
-				<top>225</top>
-				<width>405</width>
-				<height>600</height>
 				<visible>!Container.Content(episodes)</visible>
 
 				<!-- Movies -->
-				<include content="image-51">
+				<include content="image-52">
 					<param name="fallback">DefaultMovies.png</param>
 					<param name="visible">Container.Content(movies)</param>
 				</include>
@@ -30,24 +26,30 @@
 					<param name="visible">!Container.Content(movies) + !Container.Content(albums)</param>
 				</include>
 				<!-- Collection -->
-				<control type="image">
-					<left>0</left>
-					<bottom>0</bottom>
-					<width>88</width>
-					<height>88</height>
-					<fadetime>200</fadetime>
-					<texture background="true">views/OverlayCornerLeft.png</texture>
-					<visible>ListItem.IsCollection</visible>
-					<colordiffuse>$VAR[OverlayColor]</colordiffuse>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<bottom>0</bottom>
-					<width>88</width>
-					<height>88</height>
-					<fadetime>200</fadetime>
-					<texture background="true">views/OverlayCollection.png</texture>
-					<visible>ListItem.IsCollection</visible>
+				<control type="group">
+					<left>120</left>
+					<top>225</top>
+					<width>405</width>
+					<height>600</height>
+					<control type="image">
+						<left>0</left>
+						<bottom>0</bottom>
+						<width>88</width>
+						<height>88</height>
+						<fadetime>200</fadetime>
+						<texture background="true">views/OverlayCornerLeft.png</texture>
+						<visible>ListItem.IsCollection</visible>
+						<colordiffuse>$VAR[OverlayColor]</colordiffuse>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<bottom>0</bottom>
+						<width>88</width>
+						<height>88</height>
+						<fadetime>200</fadetime>
+						<texture background="true">views/OverlayCollection.png</texture>
+						<visible>ListItem.IsCollection</visible>
+					</control>
 				</control>
 			</control>
 
@@ -212,11 +214,30 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
+				<left>120</left>
+				<top>225</top>
 				<width>405</width>
 				<height>600</height>
 				<fadetime>200</fadetime>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio  align="left" aligny="bottom">keep</aspectratio>
+				<aspectratio aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="image-52">
+		<param name="fallback">DefaultVideo.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<left>120</left>
+				<top>225</top>
+				<width>405</width>
+				<height>600</height>
+				<fadetime>200</fadetime>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
