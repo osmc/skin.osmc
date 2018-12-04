@@ -148,6 +148,7 @@
 					<label>$LOCALIZE[31096]</label>
 					<onclick>Skin.ToggleSetting(AlwaysShowSettingsLink)</onclick>
 					<selected>!Skin.HasSetting(AlwaysShowSettingsLink)</selected>
+					<visible>System.HasAddon(script.skinshortcuts)</visible>
 				</control>
 				<!-- Hide submenu headings -->
 				<control type="radiobutton" id="704">
@@ -667,13 +668,14 @@
 
 		<!-- Hide settings warning -->
 		<control type="textbox">
-			<left>600</left>
+			<left>340</left>
 			<top>894</top>
 			<width>1240</width>
 			<height>132</height>
 			<label>31051</label>
 			<textcolor>TextColor1</textcolor>
-			<visible>Container(9000).HasFocus(1) + Skin.HasSetting(AlwaysShowSettingsLink)</visible>
+			<visible>Container(9000).HasFocus(1) + Skin.HasSetting(AlwaysShowSettingsLink) + System.HasAddon(script.skinshortcuts)</visible>
+			<align>center</align>
 		</control>
 	</controls>
 
