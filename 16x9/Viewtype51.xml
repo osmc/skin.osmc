@@ -39,7 +39,6 @@
 						<fadetime>200</fadetime>
 						<texture background="true">views/OverlayCornerLeft.png</texture>
 						<visible>ListItem.IsCollection</visible>
-						<colordiffuse>$VAR[OverlayColor]</colordiffuse>
 					</control>
 					<control type="image">
 						<left>0</left>
@@ -150,6 +149,7 @@
 						<texture>$VAR[StatusOverlay]</texture>
 						<colordiffuse>OverlayColorNF</colordiffuse>
 						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+						<visible>!ListItem.IsCollection</visible>
 					</control>
 				</itemlayout>
 
@@ -200,6 +200,7 @@
 						<texture>$VAR[StatusOverlay]</texture>
 						<colordiffuse>OverlayColorFO</colordiffuse>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(51)">Conditional</animation>
+						<visible>!ListItem.IsCollection</visible>
 					</control>
 				</focusedlayout>
 
