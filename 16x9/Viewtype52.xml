@@ -43,7 +43,7 @@
 						<height>49</height>
 						<visible>ListItem.IsCollection</visible>
 						<control type="image">
-							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerLeft.png</texture>
+							<texture background="true">views/OverlayCornerLeft.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 						<control type="image">
@@ -57,8 +57,9 @@
 						<bottom>168</bottom>
 						<width>49</width>
 						<height>49</height>
+						<visible>!ListItem.IsCollection</visible>
 						<control type="image">
-							<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
 						</control>
@@ -91,7 +92,7 @@
 							<fadetime>200</fadetime>
 							<visible>ListItem.IsCollection</visible>
 							<control type="image">
-								<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerLeft.png</texture>
+								<texture background="true">views/OverlayCornerLeft.png</texture>
 							</control>
 							<control type="image">
 								<texture background="true">views/OverlayCollection.png</texture>
@@ -104,8 +105,9 @@
 							<width>88</width>
 							<height>88</height>
 							<fadetime>200</fadetime>
+							<visible>!ListItem.IsCollection</visible>
 							<control type="image">
-								<texture background="true" colordiffuse="$VAR[OverlayColor]">views/OverlayCornerRight.png</texture>
+								<texture background="true">views/OverlayCornerRight.png</texture>
 								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !IsEmpty(ListItem.PlayCount)</visible>
 							</control>
 							<control type="image">
