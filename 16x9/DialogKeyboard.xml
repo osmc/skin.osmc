@@ -485,8 +485,8 @@
 					<scroll>true</scroll>
 					<font>Font48</font>
 					<textoffsetx>20</textoffsetx>
-					<texturefocus colordiffuse="TextColor1" border="2">common/Border.png</texturefocus>
-					<texturenofocus colordiffuse="TextColor2" border="2">common/Border.png</texturenofocus>
+					<texturefocus colordiffuse="$VAR[TextColor1]" border="2">common/Border.png</texturefocus>
+					<texturenofocus colordiffuse="$VAR[TextColor2]" border="2">common/Border.png</texturenofocus>
 				</control>
 
 			</control>
@@ -515,7 +515,7 @@
 						<width>405</width>
 						<height>50</height>
 						<align>center</align>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
@@ -526,8 +526,17 @@
 						<width>405</width>
 						<height>50</height>
 						<align>center</align>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
+						<visible>Control.HasFocus(6000)</visible>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>405</width>
+						<height>50</height>
+						<align>center</align>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
 						<visible>Control.HasFocus(6000)</visible>
 					</control>
 					<control type="label">
@@ -536,8 +545,17 @@
 						<width>405</width>
 						<height>50</height>
 						<align>center</align>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
+						<visible>!Control.HasFocus(6000)</visible>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>405</width>
+						<height>50</height>
+						<align>center</align>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus52center]</texture>
 						<visible>!Control.HasFocus(6000)</visible>
 					</control>
 				</focusedlayout>

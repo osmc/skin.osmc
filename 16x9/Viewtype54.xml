@@ -30,7 +30,7 @@
 					<height>45</height>
 					<font>Font42</font>
 					<label>$INFO[ListItem.Album]</label>
-					<textcolor>TextColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<pauseatend>5000</pauseatend>
 				</control>
 				<control type="fadelabel">
@@ -39,7 +39,7 @@
 					<width>500</width>
 					<height>45</height>
 					<font>Font33</font>
-					<textcolor>TextColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.Artist]</label>
 					<pauseatend>5000</pauseatend>
 				</control>
@@ -68,7 +68,7 @@
 						<height>64</height>
 						<font>Font33</font>
 						<label>[LIGHT]$VAR[SongLabel][/LIGHT]</label>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 				</itemlayout>
 
@@ -78,22 +78,33 @@
 						<height>80</height>
 						<font>Font48</font>
 						<label>[B]$VAR[SongLabel][/B]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<scroll>True</scroll>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(54)">Conditional</animation>
+						<visible>Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
 						<top>25</top>
 						<width>1018</width>
 						<height>58</height>
-						<texture>$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 						<visible>Control.HasFocus(54) + !ListItem.IsParentFolder</visible>
 					</control>
+					<control type="label">
+						<width>1018</width>
+						<height>80</height>
+						<font>Font48</font>
+						<label>[B]$VAR[SongLabel][/B]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<scroll>True</scroll>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(54)">Conditional</animation>
+						<visible>!Control.HasFocus(54)</visible>
+					</control>
 					<control type="image">
 						<top>25</top>
 						<width>1018</width>
 						<height>58</height>
-						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
 						<visible>!Control.HasFocus(54) + !ListItem.IsParentFolder</visible>
 					</control>
 				</focusedlayout>

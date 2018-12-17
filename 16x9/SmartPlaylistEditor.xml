@@ -106,7 +106,7 @@
 						<control type="label">
 							<width>880</width>
 							<height>66</height>
-							<textcolor>DialogColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
@@ -115,20 +115,29 @@
 						<control type="label">
 							<width>880</width>
 							<height>66</height>
-							<textcolor>DialogColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(10)">Conditional</animation>
-						</control>
-						<control type="image">
-							<width>880</width>
-							<height>66</height>
-							<texture>$VAR[focus66]</texture>
 							<visible>Control.HasFocus(10)</visible>
 						</control>
 						<control type="image">
 							<width>880</width>
 							<height>66</height>
-							<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+							<visible>Control.HasFocus(10)</visible>
+						</control>
+						<control type="label">
+							<width>880</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(10)">Conditional</animation>
+							<visible>!Control.HasFocus(10)</visible>
+						</control>
+						<control type="image">
+							<width>880</width>
+							<height>66</height>
+							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
 							<visible>!Control.HasFocus(10)</visible>
 						</control>
 					</focusedlayout>
@@ -152,7 +161,7 @@
 						<width>300</width>
 						<align>right</align>
 						<label>15019</label>
-						<texturefocus colordiffuse="$VAR[focus]">common/focusright.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
 					</control>
 
 					<!-- Remove Rule Button -->
@@ -160,7 +169,7 @@
 						<width>300</width>
 						<align>right</align>
 						<label>1210</label>
-						<texturefocus colordiffuse="$VAR[focus]">common/focusright.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
 					</control>
 
 					<!-- Edit Rule Button -->
@@ -168,7 +177,7 @@
 						<width>300</width>
 						<align>right</align>
 						<label>21435</label>
-						<texturefocus colordiffuse="$VAR[focus]">common/focusright.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
 					</control>
 
 				</control>
@@ -216,7 +225,7 @@
 					<onleft>18</onleft>
 					<onup>17</onup>
 					<ondown>23</ondown>
-					<texturefocus colordiffuse="$VAR[focus]">common/focusright.png</texturefocus>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
 				</control>
 
 				<!-- Default spin control -->

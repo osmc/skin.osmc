@@ -66,7 +66,7 @@
 						<left>25</left>
 						<width>260</width>
 						<height>66</height>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$VAR[skinshortcuts-disableindicator]$VAR[skinshortcuts-itemlabel]</label>
 					</control>
 				</itemlayout>
@@ -77,49 +77,61 @@
 						<width>260</width>
 						<height>66</height>
 						<scroll>true</scroll>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$VAR[skinshortcuts-disableindicator]$VAR[skinshortcuts-itemlabel]</label>
 						<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
+						<visible>Control.HasFocus(303) | Control.HasFocus(304)</visible>
+					</control>
+					<control type="label">
+						<left>25</left>
+						<width>260</width>
+						<height>66</height>
+						<scroll>true</scroll>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$VAR[skinshortcuts-disableindicator]$VAR[skinshortcuts-itemlabel]</label>
+						<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
+						<visible>![Control.HasFocus(303) | Control.HasFocus(304)]</visible>
 					</control>
 					<control type="image">
 						<left>25</left>
 						<width>335</width>
 						<height>66</height>
-						<texture>$VAR[focus66]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
 						<visible>Control.HasFocus(303) | Control.HasFocus(304)</visible>
 					</control>
 					<control type="image">
 						<left>25</left>
 						<width>335</width>
 						<height>66</height>
-						<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
 						<visible>![Control.HasFocus(303) | Control.HasFocus(304)]</visible>
 					</control>
 					<control type="image">
 						<left>290</left>
 						<width>35</width>
 						<height>66</height>
-						<texture colordiffuse="DialogColor1">common/ArrowDownNF.png</texture>
+						<texture colordiffuse="$VAR[DialogColor1]">common/ArrowDownNF.png</texture>
 						<visible>!Control.HasFocus(304)</visible>
 					</control>
 					<control type="image">
 						<left>325</left>
 						<width>35</width>
 						<height>66</height>
-						<texture colordiffuse="DialogColor1">common/ArrowUpNF.png</texture>
+						<texture colordiffuse="$VAR[DialogColor1]">common/ArrowUpNF.png</texture>
 						<visible>!Control.HasFocus(303)</visible>
 					</control>
 					<control type="image">
 						<left>290</left>
 						<width>35</width>
 						<height>66</height>
-						<texture colordiffuse="DialogColor1">common/ArrowDownFO.png</texture>
+						<texture colordiffuse="$VAR[DialogColor1]">common/ArrowDownFO.png</texture>
 						<visible>Control.HasFocus(304)</visible>
 					</control>
 					<control type="image">
 						<left>325</left>
 						<width>35</width>
 						<height>66</height>
-						<texture colordiffuse="DialogColor1">common/ArrowUpFO.png</texture>
+						<texture colordiffuse="$VAR[DialogColor1]">common/ArrowUpFO.png</texture>
 						<visible>Control.HasFocus(303)</visible>
 					</control>
 				</focusedlayout>
@@ -198,7 +210,7 @@
 					<label>  -  $LOCALIZE[289]</label>
 					<label2>$VAR[skinshortcuts-size]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget)</enable>
-					<disabledcolor>TextColor4</disabledcolor>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
@@ -209,7 +221,7 @@
 					<label>  -  $LOCALIZE[31033]</label>
 					<label2>$VAR[skinshortcuts-art]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>TextColor4</disabledcolor>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				<!-- Fallback artwork -->
@@ -219,7 +231,7 @@
 					<label>  -  $LOCALIZE[31029]</label>
 					<label2>$VAR[skinshortcuts-fallbackart]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>TextColor4</disabledcolor>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 

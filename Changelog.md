@@ -6,13 +6,16 @@ _New_
 - add new resolution select button/dialog in video player
 - add player icon to now playing dialog
 - add new dependency button in addon info dialog to match v18 requirements
+- new color options (color sets, background gradients, adjustable opacity)
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
 - adjust PVR section to match v18 requirements
+- highlighting color now adjusts according to text color
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
+- highlighting is now more consistent
 
 **Changelog v18.0.0**
 
@@ -47,6 +50,20 @@ _Add new resolution select dialog in video player to match v18 requirements:_
 _Add new dependency button in addon info dialog to match v18 requirements:_
 - add new dependencies button in addon info dialog
 
+Addon.Browser.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+Custom_Cache_Progress.xml:
+- replace colors by new color variables
+
+Defaults.xml:
+- replace colors by new color variables
+- replace focus variable for button highlighting
+
+DialogAddonInfo.xml:
+- replace colors by new color variables
+
 DialogAddonSettings.xml
 - change grouplist id="9" to id="3"
 - change button id="13" to id="10"
@@ -61,9 +78,21 @@ DialogAddonSettings.xml
 - change button id="10" to id="28"
 - change button id="11" to id="29"
 - change button id="12" to id="30"
+- replace colors by new color variables
+
+DialogBusy.xml:
+- replace colors by new color variables
+
+DialogButtonMenu.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogConfirm.xml:
+- replace colors by new color variables
 
 DialogContextMenu.xml:
 - enable controls cycling from top to bottom and bottom to top in context menu
+- replace focus variable for button highlighting
 
 - rename DialogPVRGuideOSD.xml to DialogPVRChannelGuide.xml
 - replace infolabel ListItem.ChannelNumber by ListItem.ChannelNumberLabel
@@ -79,17 +108,271 @@ DialogContextMenu.xml:
 - replace Player.CanRecord infolabel by PVR.CanRecordPlayingChannel
 - replace Movies, TV Show and Music home menu links
 
+DialogExtendedProgressBar.xml:
+- replace colors by new color variables
+
+DialogFavourites.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogFullScreenInfo.xml:
+- replace colors by new color variables
+
+DialogGameControllers.xml:
+- replace colors by new color variables
+
+DialogKeyboard.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogMediaSources.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogMusicInfo.xml:
+- replace colors by new color variables
+
+DialogNumeric.xml:
+- replace colors by new color variables
+
+DialogPictureInfo.xml:
+- replace colors by new color variables
+
+DialogPlayerProcessInfo.xml:
+- replace colors by new color variables
+
+DialogPVRChannelGuide.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogPVRChannelManager.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogPVRChannelsOSD.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogPVRGroupManager.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogPVRGuideSearch.xml:
+- replace colors by new color variables
+
+DialogPVRInfo.xml:
+- replace colors by new color variables
+
+DialogSeekBar.xml:
+- replace colors by new color variables
+
+DialogSelect.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogSubtitles.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+DialogVideoInfo.xml:
+- replace colors by new color variables
+
+EventLog.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+FileBrowser.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+FileManager.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+GameOSD.xml:
+- replace colors by new color variables
+
+Home.xml:
+- add new onloads
+- replace colors by new color variables
+
+Include_DialogSettings.xml:
+- replace colors by new color variables
+
+Include_Home_OSMC.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
 Includes.xml:
 - add player icon to now playing dialog
+- rework Overlay include
+- remove Custom color Overlay include
+- replace colors by new color variables
+
+Includes_Widgets.xml:
+- replace colors by new color variables
+
+LoginScreen.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+MusicOSD.xml:
+- replace colors by new color variables
+
+MusicVisualisation.xml:
+- replace colors by new color variables
+
+MyGames.xml:
+- replace colors by new color variables
+
+MyMusicNav.xml:
+- replace colors by new color variables
+
+MyMusicPlaylistEditor.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+MyPics.xml:
+- replace colors by new color variables
+
+MyPlaylist.xml:
+- replace colors by new color variables
+
+MyPrograms.xml:
+- replace colors by new color variables
+
+MyPVRChannels.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+MyPVRGuide.xml:
+- replace colors by new color variables
+
+MyPVRRecordings.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+MyPVRSearch.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+MyPVRTimers.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+MyVideoNav.xml:
+- replace colors by new color variables
+
+MyWeather.xml:
+- replace colors by new color variables
+
+PlayerControls.xml:
+- replace colors by new color variables
+
+script-nextup-notification-NextUpInfo.xml:
+- replace focus variable for button highlighting
+- replace colors by new color variables
+
+script-nextup-notification-StillWatchingInfo.xml:
+- replace focus variable for button highlighting
+- replace colors by new color variables
+
+script-skin_helper_service-ColorPicker.xml:
+- replace colors by new color variables
 
 script.skinshortcuts-static-xml:
 - hack game widget to show proper widget title
+- replace colors by new color variables
+
+script-skinshortcuts.xml:
+- replace colors by new color variables
+
+Settings.xml:
+- replace colors by new color variables
+
+SettingsCategory.xml:
+- replace colors by new color variables
+- replace focus variable for button highlighting
+
+SettingsProfile.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+- replace focus variable for button highlighting
+
+SettingsScreenCalibration.xml:
+- replace colors by new color variables
+
+SettingsSystemInfo.xml:
+- replace colors by new color variables
+- replace focus variable for button highlighting
+
+SkinSettings.xml:
+- add new onloads
+- replace colors by new color variables
+- add new color category
+- add page indicators to new color category
+- rework default background image option
+- remove old background and overlay color options
+- add skin settings backup and restore option
+
+SmartPlaylistEditor.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+- replace focus variable for button highlighting
+
+SmartPlaylistRule.xml:
+- replace colors by new color variables
+
+Variables.xml:
+- add new color variables
+- add OSMCBackgroundOverlayName variable for reworked default background image option
+- remove focus variable
+- add new buttonfocus variable
+- replace colors by new color variables
+
+VideoFullScreen.xml:
+- replace colors by new color variables
+
+VideoOSD.xml:
+- replace colors by new color variables
+
+VideoOSDBookmarks.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+Viewtype50.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+Viewtype51.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+Viewtype52.xml:
+- replace colors by new color variables
+
+Viewtype53.xml:
+- replace colors by new color variables
+
+Viewtype54.xml:
+- replace colors by new color variables
+- fix highlighting in focusedlayout of grouplists
+
+Viewtype55.xml:
+- replace colors by new color variables
+
+strings.po:
+- add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
 
 Textures.xbt:
 - update file with new resolution select icon included
+- update file with new background gradient overlays and removed old background PNGs
 
 overrides.xml:
 - simplify game home menu entry and game widget
+
+template.xml:
+- replace colors by new color variables
 
 addon.xml:
 - bump version to 18.0.0

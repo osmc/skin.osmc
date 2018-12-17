@@ -49,7 +49,7 @@
 						<height>42</height>
 						<font>Font42</font>
 						<align>center</align>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
@@ -77,7 +77,7 @@
 						<height>36</height>
 						<font>Font36</font>
 						<align>center</align>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</itemlayout>
@@ -90,7 +90,7 @@
 						<font>Font42</font>
 						<align>center</align>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 					</control>
 					<control type="image">
 						<left>40</left>
@@ -117,7 +117,7 @@
 						<height>36</height>
 						<font>Font36</font>
 						<align>center</align>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</focusedlayout>
@@ -200,7 +200,7 @@
 					<height>45</height>
 					<font>Font42</font>
 					<label>$LOCALIZE[19030]: $INFO[Window(Weather).Property(Current.Condition)]</label>
-					<textcolor>TextColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -208,7 +208,7 @@
 					<width>600</width>
 					<height>45</height>
 					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$LOCALIZE[1375]: $INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits] / $LOCALIZE[402]: $INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
 				</control>
 				<control type="label">
@@ -217,7 +217,7 @@
 					<width>600</width>
 					<height>45</height>
 					<font>Font30</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$LOCALIZE[383]: $INFO[Window(Weather).Property(Current.Wind)]</label>
 				</control>
 				<control type="label">
@@ -226,7 +226,7 @@
 					<width>600</width>
 					<height>45</height>
 					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$INFO[Window(weather).Property(Current.Humidity),$LOCALIZE[406]: ,]$INFO[Window(weather).Property(Current.Precipitation), &#8226; $LOCALIZE[33021]: ,]</label>
 				</control>
 				<control type="label">
@@ -235,7 +235,7 @@
 					<width>600</width>
 					<height>45</height>
 					<font>Font30</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$INFO[Window(weather).Property(Today.Sunrise),$LOCALIZE[33027]: ,]$INFO[Window(weather).Property(Today.Sunset), &#8226; $LOCALIZE[33028]: ,]</label>
 				</control>
 				<control type="textbox">
@@ -244,7 +244,7 @@
 					<width>1600</width>
 					<height>42</height>
 					<label>$LOCALIZE[33030]: $INFO[Window(Weather).Property(Day0.Outlook)]</label>
-					<textcolor>TextColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<autoscroll>false</autoscroll>
 				</control>
 			</control>
@@ -266,7 +266,7 @@
 					<align>right</align>
 					<label>31045</label>
 					<font>Font25</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<control type="label">
 					<width>auto</width>
@@ -274,7 +274,7 @@
 					<align>right</align>
 					<label>$INFO[Window(Weather).Property(WeatherProvider)]</label>
 					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 			</control>
 
@@ -282,7 +282,7 @@
 			<control type="group" id="9002">
 				<control type="image">
 					<include>FullscreenDimensions</include>
-					<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 					<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 					<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 					<visible>ControlGroup(9002).HasFocus</visible>

@@ -42,7 +42,7 @@
 				<width>405</width>
 				<height>600</height>
 				<texture>DefaultActor.png</texture>
-				<colordiffuse>OverlayColorFO</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio aligny="center">keep</aspectratio>
 				<visible>String.Contains(ListItem.Icon,unknown-user)</visible>
 			</control>
@@ -70,7 +70,7 @@
 						<height>90</height>
 						<font>Font36</font>
 						<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 				</itemlayout>
 
@@ -82,15 +82,8 @@
 						<height>48</height>
 						<font>Font48</font>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
-					</control>
-					<control type="image">
-						<left>32</left>
-						<top>43</top>
-						<width>1018</width>
-						<height>58</height>
-						<texture>$VAR[focus58]</texture>
 						<visible>Control.HasFocus(52)</visible>
 					</control>
 					<control type="image">
@@ -98,7 +91,26 @@
 						<top>43</top>
 						<width>1018</width>
 						<height>58</height>
-						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<visible>Control.HasFocus(52)</visible>
+					</control>
+					<control type="label">
+						<left>32</left>
+						<top>43</top>
+						<width>1018</width>
+						<height>48</height>
+						<font>Font48</font>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
+						<visible>!Control.HasFocus(52)</visible>
+					</control>
+					<control type="image">
+						<left>32</left>
+						<top>43</top>
+						<width>1018</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
 						<visible>!Control.HasFocus(52)</visible>
 					</control>
 					<control type="label">
@@ -108,7 +120,7 @@
 						<height>27</height>
 						<font>Font27</font>
 						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
 					</control>
 				</focusedlayout>

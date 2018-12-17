@@ -149,7 +149,7 @@
 					<font>Font36</font>
 					<align>center</align>
 					<label>$VAR[PlayerStatus]</label>
-					<textcolor>DialogColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 
 				<!-- Pause -->
@@ -193,7 +193,7 @@
 					<font>Font27</font>
 					<align>center</align>
 					<label>[B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
-					<textcolor>DialogColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 
 			</control>
@@ -226,7 +226,7 @@
 					<width>260</width>
 					<height>60</height>
 					<font>Font27</font>
-					<textcolor>DialogColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
 				</control>
 
@@ -251,7 +251,7 @@
 					<width>920</width>
 					<height>20</height>
 					<info>Player.ProgressCache</info>
-					<texturebg colordiffuse="DialogColor2" border="2">osd/OSDProgressBack.png</texturebg>
+					<texturebg colordiffuse="$VAR[DialogColor2]" border="2">osd/OSDProgressBack.png</texturebg>
 					<lefttexture></lefttexture>
 					<midtexture colordiffuse="OSDCache" border="2">osd/OSDProgressBar.png</midtexture>
 					<righttexture></righttexture>
@@ -265,7 +265,7 @@
 					<height>60</height>
 					<align>right</align>
 					<font>Font27</font>
-					<textcolor>DialogColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
 					<visible>Integer.IsGreater(Player.Duration,0)</visible>
 				</control>
