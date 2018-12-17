@@ -95,8 +95,7 @@
 				</itemlayout>
 
 				<focusedlayout width="1440" height="108">
-					<control type="group">
-						<visible>Control.HasFocus(50)</visible>
+
 						<!-- Start date -->
 						<control type="label">
 							<left>20</left>
@@ -105,6 +104,7 @@
 							<align>right</align>
 							<label>$INFO[ListItem.StartDate]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 
 						<!-- Start time - End time -->
@@ -117,6 +117,7 @@
 							<align>right</align>
 							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 
 						<!-- Thumb -->
@@ -127,6 +128,7 @@
 							<height>102</height>
 							<aspectratio>scale</aspectratio>
 							<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 
 						<!-- Program name -->
@@ -136,6 +138,7 @@
 							<width>634</width>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 						
 						<!-- Highlighting -->
@@ -145,6 +148,7 @@
 							<width>634</width>
 							<height>51</height>
 							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 
 						<!-- Channel name -->
@@ -156,6 +160,7 @@
 							<font>Font27</font>
 							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>$INFO[ListItem.ChannelName]</label>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
 
 						<!-- Program comment -->
@@ -166,81 +171,8 @@
 							<align>right</align>
 							<label>$INFO[ListItem.Comment]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 						</control>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(50)</visible>
-						<!-- Start date -->
-						<control type="label">
-							<left>20</left>
-							<top>12</top>
-							<width>280</width>
-							<align>right</align>
-							<label>$INFO[ListItem.StartDate]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-
-						<!-- Start time - End time -->
-						<control type="label">
-							<left>20</left>
-							<top>62</top>
-							<width>280</width>
-							<height>27</height>
-							<font>Font27</font>
-							<align>right</align>
-							<textcolor>$VAR[TextColor2]</textcolor>
-							<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
-						</control>
-
-						<!-- Thumb -->
-						<control type="image">
-							<left>266</left>
-							<top>3</top>
-							<width>181</width>
-							<height>102</height>
-							<aspectratio>scale</aspectratio>
-							<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
-						</control>
-
-						<!-- Program name -->
-						<control type="label">
-							<left>489</left>
-							<top>12</top>
-							<width>634</width>
-							<label>[B]$INFO[ListItem.Label][/B]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						
-						<!-- Highlighting -->
-						<control type="image">
-							<left>489</left>
-							<top>12</top>
-							<width>634</width>
-							<height>51</height>
-							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus52]</texture>
-						</control>
-
-						<!-- Channel name -->
-						<control type="label">
-							<left>489</left>
-							<top>62</top>
-							<width>634</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>$VAR[TextColor2]</textcolor>
-							<label>$INFO[ListItem.ChannelName]</label>
-						</control>
-
-						<!-- Program comment -->
-						<control type="label">
-							<left>1020</left>
-							<top>12</top>
-							<width>400</width>
-							<align>right</align>
-							<label>$INFO[ListItem.Comment]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-					</control>
 
 				</focusedlayout>
 

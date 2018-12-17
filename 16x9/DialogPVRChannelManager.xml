@@ -66,8 +66,8 @@
 				<focusedlayout width="800" height="132">
 
 					<control type="group">
-						<animation effect="fade" start="100" end="50" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
-						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(20)">Conditional</animation>
+						<animation effect="fade" start="100" end="50" tween="cubic" easing="out" reversible="true" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
+						<animation effect="fade" start="100" end="75" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(20)">Conditional</animation>
 						<control type="image">
 							<left>3</left>
 							<top>3</top>
@@ -83,7 +83,7 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 							<selectedcolor>$VAR[TextColor1]</selectedcolor>
 							<label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
-							<visible>!ListItem.Property(Changed) + Control.HasFocus(20)</visible>
+							<visible>!ListItem.Property(Changed)</visible>
 						</control>
 						<control type="label">
 							<top>80</top>
@@ -94,41 +94,13 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 							<selectedcolor>$VAR[TextColor1]</selectedcolor>
 							<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
-							<visible>!ListItem.Property(Changed) + Control.HasFocus(20)</visible>
+							<visible>!ListItem.Property(Changed)</visible>
 						</control>
 						<control type="image">
 							<left>80</left>
 							<width>720</width>
 							<height>66</height>
 							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
-							<visible>Control.HasFocus(20)</visible>
-						</control>
-						<control type="label">
-							<left>80</left>
-							<width>720</width>
-							<height>66</height>
-							<textcolor>$VAR[TextColor2]</textcolor>
-							<selectedcolor>$VAR[TextColor2]</selectedcolor>
-							<label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
-							<visible>!ListItem.Property(Changed) + !Control.HasFocus(20)</visible>
-						</control>
-						<control type="label">
-							<top>80</top>
-							<left>20</left>
-							<width>860</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>$VAR[TextColor2]</textcolor>
-							<selectedcolor>$VAR[TextColor2]</selectedcolor>
-							<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
-							<visible>!ListItem.Property(Changed) + !Control.HasFocus(20)</visible>
-						</control>
-						<control type="image">
-							<left>80</left>
-							<width>720</width>
-							<height>66</height>
-							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
-							<visible>!Control.HasFocus(20)</visible>
 						</control>
 						<control type="label">
 							<left>80</left>

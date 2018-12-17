@@ -138,7 +138,7 @@
 						<bordersize>6</bordersize>
 						<aspectratio>scale</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
-						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(450)">Conditional</animation>
+						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
 						<visible>!String.Contains(ListItem.Icon,Default)</visible>
 					</control>
 					<control type="image">
@@ -148,7 +148,7 @@
 						<aspectratio>scale</aspectratio>
 						<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
-						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(450)">Conditional</animation>
+						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
 						<visible>String.Contains(ListItem.Icon,Default)</visible>
 					</control>
 					<control type="label">
@@ -158,7 +158,7 @@
 						<font>Font36</font>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<visible>Control.HasFocus(450)</visible>
+						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
 					</control>
 					<control type="image">
 						<centertop>50%</centertop>
@@ -166,24 +166,8 @@
 						<width>910</width>
 						<height>58</height>
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-						<visible>!ListItem.IsParentFolder + Control.HasFocus(450)</visible>
-					</control>
-					<control type="label">
-						<left>140</left>
-						<width>910</width>
-						<height>96</height>
-						<font>Font36</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<visible>!Control.HasFocus(450)</visible>
-					</control>
-					<control type="image">
-						<centertop>50%</centertop>
-						<left>140</left>
-						<width>910</width>
-						<height>58</height>
-						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
-						<visible>!ListItem.IsParentFolder + !Control.HasFocus(450)</visible>
+						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
+						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 				</focusedlayout>
 

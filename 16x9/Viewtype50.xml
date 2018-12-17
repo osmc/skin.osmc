@@ -77,7 +77,6 @@
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<scroll>True</scroll>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-						<visible>Control.HasFocus(50)</visible>
 					</control>
 					<control type="image">
 						<left>32</left>
@@ -85,7 +84,8 @@
 						<width>1018</width>
 						<height>120</height>
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
-						<visible>Control.HasFocus(50) + !ListItem.IsParentFolder</visible>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 					<!-- Watched status -->
 					<control type="image">
@@ -96,38 +96,6 @@
 						<texture>$VAR[StatusOverlay]</texture>
 						<colordiffuse>$VAR[TextColor1]</colordiffuse>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-						<visible>Control.HasFocus(50)</visible>
-					</control>
-					<control type="label">
-						<left>32</left>
-						<top>0</top>
-						<width>1018</width>
-						<height>120</height>
-						<font>Font73</font>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<scroll>True</scroll>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-						<visible>!Control.HasFocus(50)</visible>
-					</control>
-					<control type="image">
-						<left>32</left>
-						<top>0</top>
-						<width>1018</width>
-						<height>120</height>
-						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus120]</texture>
-						<visible>!Control.HasFocus(50) + !ListItem.IsParentFolder</visible>
-					</control>
-					<!-- Watched status -->
-					<control type="image">
-						<left>0</left>
-						<top>53</top>
-						<width>14</width>
-						<height>14</height>
-						<texture>$VAR[StatusOverlay]</texture>
-						<colordiffuse>$VAR[TextColor2]</colordiffuse>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-						<visible>!Control.HasFocus(50)</visible>
 					</control>
 				</focusedlayout>
 
