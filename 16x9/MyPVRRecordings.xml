@@ -102,8 +102,7 @@
 						<width>14</width>
 						<height>14</height>
 						<texture>$VAR[StatusOverlay]</texture>
-						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+						<colordiffuse>$VAR[TextColor2]</colordiffuse>
 					</control>
 				</itemlayout>
 
@@ -117,7 +116,6 @@
 						<label>[B]$VAR[Label1][/B]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<scroll>True</scroll>
-						<visible>Control.HasFocus(50)</visible>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<control type="image">
@@ -126,7 +124,8 @@
 						<width>1018</width>
 						<height>58</height>
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-						<visible>Control.HasFocus(50) + !ListItem.IsParentFolder</visible>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 					<control type="label">
 						<left>32</left>
@@ -136,7 +135,6 @@
 						<font>Font27</font>
 						<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<visible>Control.HasFocus(50)</visible>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<control type="label">
@@ -147,49 +145,6 @@
 						<font>Font27</font>
 						<label>$INFO[ListItem.ChannelName]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<visible>Control.HasFocus(50)</visible>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-					</control>
-					<control type="label">
-						<left>32</left>
-						<top>43</top>
-						<width>1018</width>
-						<height>48</height>
-						<font>Font48</font>
-						<label>[B]$VAR[Label1][/B]</label>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<scroll>True</scroll>
-						<visible>!Control.HasFocus(50)</visible>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-					</control>
-					<control type="image">
-						<left>32</left>
-						<top>43</top>
-						<width>1018</width>
-						<height>58</height>
-						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
-						<visible>!Control.HasFocus(50) + !ListItem.IsParentFolder</visible>
-					</control>
-					<control type="label">
-						<left>32</left>
-						<top>100</top>
-						<width>1018</width>
-						<height>27</height>
-						<font>Font27</font>
-						<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<visible>!Control.HasFocus(50)</visible>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-					</control>
-					<control type="label">
-						<left>32</left>
-						<top>127</top>
-						<width>1018</width>
-						<height>27</height>
-						<font>Font27</font>
-						<label>$INFO[ListItem.ChannelName]</label>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<visible>!Control.HasFocus(50)</visible>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 					<!-- Watched status -->
@@ -199,19 +154,8 @@
 						<width>14</width>
 						<height>14</height>
 						<texture>$VAR[StatusOverlay]</texture>
-						<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+						<colordiffuse>$VAR[TextColor1]</colordiffuse>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-						<visible>Control.HasFocus(50)</visible>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<top>38</top>
-						<width>14</width>
-						<height>14</height>
-						<texture>$VAR[StatusOverlay]</texture>
-						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
-						<visible>!Control.HasFocus(50)</visible>
 					</control>
 				</focusedlayout>
 

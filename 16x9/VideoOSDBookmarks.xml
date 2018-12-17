@@ -47,12 +47,6 @@
 					<width>324</width>
 					<height>242</height>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-					<visible>Control.HasFocus(11)</visible>
-				</control>
-				<control type="image">
-					<width>324</width>
-					<height>242</height>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 				<control type="image">
 					<left>6</left>
@@ -69,7 +63,7 @@
 					<height>44</height>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
-					<visible>Control.HasFocus(11)</visible>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>10</left>
@@ -77,24 +71,7 @@
 					<width>304</width>
 					<height>44</height>
 					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
-					<visible>Control.HasFocus(11)</visible>
-				</control>
-				<control type="label">
-					<left>10</left>
-					<top>190</top>
-					<width>304</width>
-					<height>44</height>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
-					<visible>!Control.HasFocus(11)</visible>
-				</control>
-				<control type="image">
-					<left>10</left>
-					<top>190</top>
-					<width>304</width>
-					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor2]">$VAR[focus44]</texture>
-					<visible>!Control.HasFocus(11)</visible>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
 				</control>
 			</focusedlayout>
 

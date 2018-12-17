@@ -99,14 +99,13 @@
 						<font>Font33</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(2)">Conditional</animation>
-						<visible>Control.HasFocus(2)</visible>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
 					</control>
 					<control type="image">
 						<width>1090</width>
 						<height>76</height>
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
-						<visible>Control.HasFocus(2)</visible>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
 					</control>
 					<control type="image">
 						<right>0</right>
@@ -114,31 +113,7 @@
 						<width>72</width>
 						<height>72</height>
 						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-						<visible>Control.HasFocus(2)</visible>
-					</control>
-					<control type="label">
-						<width>1150</width>
-						<height>76</height>
-						<font>Font33</font>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(2)">Conditional</animation>
-						<visible>!Control.HasFocus(2)</visible>
-					</control>
-					<control type="image">
-						<width>1090</width>
-						<height>76</height>
-						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus76]</texture>
-						<visible>!Control.HasFocus(2)</visible>
-					</control>
-					<control type="image">
-						<right>0</right>
-						<top>2</top>
-						<width>72</width>
-						<height>72</height>
-						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-						<visible>!Control.HasFocus(2)</visible>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
 					</control>
 				</focusedlayout>
 
