@@ -67,7 +67,7 @@
 						<width>260</width>
 						<height>66</height>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[skinshortcuts-disableindicator]$VAR[skinshortcuts-itemlabel]</label>
+						<label>$VAR[skinshortcuts-disableindicator]</label>
 					</control>
 				</itemlayout>
 
@@ -78,33 +78,21 @@
 						<height>66</height>
 						<scroll>true</scroll>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<label>$VAR[skinshortcuts-disableindicator]$VAR[skinshortcuts-itemlabel]</label>
-						<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
-						<visible>Control.HasFocus(303) | Control.HasFocus(304)</visible>
-					</control>
-					<control type="label">
-						<left>25</left>
-						<width>260</width>
-						<height>66</height>
-						<scroll>true</scroll>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[skinshortcuts-disableindicator]$VAR[skinshortcuts-itemlabel]</label>
-						<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(211)">Conditional</animation>
-						<visible>![Control.HasFocus(303) | Control.HasFocus(304)]</visible>
+						<label>$VAR[skinshortcuts-disableindicator]</label>
 					</control>
 					<control type="image">
 						<left>25</left>
 						<width>335</width>
 						<height>66</height>
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
-						<visible>Control.HasFocus(303) | Control.HasFocus(304)</visible>
+						<visible>String.IsEqual(ListItem.Property(skinshortcuts-disabled),False)</visible>
 					</control>
 					<control type="image">
 						<left>25</left>
 						<width>335</width>
 						<height>66</height>
-						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
-						<visible>![Control.HasFocus(303) | Control.HasFocus(304)]</visible>
+						<texture colordiffuse="darkred">$VAR[focus66]</texture>
+						<visible>String.IsEqual(ListItem.Property(skinshortcuts-disabled),True)</visible>
 					</control>
 					<control type="image">
 						<left>290</left>
