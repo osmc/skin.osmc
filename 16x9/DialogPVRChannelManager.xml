@@ -54,8 +54,8 @@
 							<left>80</left>
 							<width>720</width>
 							<height>66</height>
-							<textcolor>DialogColor2</textcolor>
-							<selectedcolor>DialogColor2</selectedcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<selectedcolor>$VAR[TextColor2]</selectedcolor>
 							<label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
 							<visible>!ListItem.Property(Changed)</visible>
 						</control>
@@ -80,19 +80,10 @@
 							<left>80</left>
 							<width>720</width>
 							<height>66</height>
-							<textcolor>$VAR[SelectedColor]</textcolor>
-							<selectedcolor>$VAR[SelectedColor]</selectedcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<selectedcolor>$VAR[TextColor1]</selectedcolor>
 							<label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
-							<visible>ListItem.Property(Changed)</visible>
-						</control>
-						<control type="label">
-							<left>80</left>
-							<width>720</width>
-							<height>66</height>
-							<textcolor>DialogColor1</textcolor>
-							<selectedcolor>DialogColor1</selectedcolor>
-							<label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
-							<visible>!ListItem.Property(Changed)</visible>
+							<visible>!ListItem.Property(Changed) + Control.HasFocus(20)</visible>
 						</control>
 						<control type="label">
 							<top>80</top>
@@ -100,35 +91,64 @@
 							<width>860</width>
 							<height>27</height>
 							<font>Font27</font>
-							<textcolor>$VAR[SelectedColor]</textcolor>
-							<selectedcolor>$VAR[SelectedColor]</selectedcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<selectedcolor>$VAR[TextColor1]</selectedcolor>
 							<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
-							<visible>ListItem.Property(Changed)</visible>
-						</control>
-						<control type="label">
-							<top>80</top>
-							<left>20</left>
-							<width>860</width>
-							<height>27</height>
-							<font>Font27</font>
-							<textcolor>DialogColor1</textcolor>
-							<selectedcolor>DialogColor1</selectedcolor>
-							<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
-							<visible>!ListItem.Property(Changed)</visible>
-						</control>
-							<control type="image">
-							<left>80</left>
-							<width>720</width>
-							<height>66</height>
-							<texture>$VAR[focus66]</texture>
-							<visible>Control.HasFocus(20)</visible>
+							<visible>!ListItem.Property(Changed) + Control.HasFocus(20)</visible>
 						</control>
 						<control type="image">
 							<left>80</left>
 							<width>720</width>
 							<height>66</height>
-							<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+							<visible>Control.HasFocus(20)</visible>
+						</control>
+						<control type="label">
+							<left>80</left>
+							<width>720</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<selectedcolor>$VAR[TextColor2]</selectedcolor>
+							<label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
+							<visible>!ListItem.Property(Changed) + !Control.HasFocus(20)</visible>
+						</control>
+						<control type="label">
+							<top>80</top>
+							<left>20</left>
+							<width>860</width>
+							<height>27</height>
+							<font>Font27</font>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<selectedcolor>$VAR[TextColor2]</selectedcolor>
+							<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
+							<visible>!ListItem.Property(Changed) + !Control.HasFocus(20)</visible>
+						</control>
+						<control type="image">
+							<left>80</left>
+							<width>720</width>
+							<height>66</height>
+							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
 							<visible>!Control.HasFocus(20)</visible>
+						</control>
+						<control type="label">
+							<left>80</left>
+							<width>720</width>
+							<height>66</height>
+							<textcolor>$VAR[SelectedColor]</textcolor>
+							<selectedcolor>$VAR[SelectedColor]</selectedcolor>
+							<label>$INFO[ListItem.Property(Number),(,) ]$INFO[ListItem.Property(Name)]</label>
+							<visible>ListItem.Property(Changed)</visible>
+						</control>
+						<control type="label">
+							<top>80</top>
+							<left>20</left>
+							<width>860</width>
+							<height>27</height>
+							<font>Font27</font>
+							<textcolor>$VAR[SelectedColor]</textcolor>
+							<selectedcolor>$VAR[SelectedColor]</selectedcolor>
+							<label>$LOCALIZE[19210]: $INFO[ListItem.Property(ClientName)]</label>
+							<visible>ListItem.Property(Changed)</visible>
 						</control>
 					</control>
 
@@ -155,7 +175,7 @@
 					<height>66</height>
 					<label>$LOCALIZE[19029] $LOCALIZE[33063]</label>
 					<align>center</align>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 
 				<!-- Channel activated -->

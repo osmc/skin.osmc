@@ -27,10 +27,10 @@
 					<onright>50</onright>
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
-					<colordiffuse>OverlayColorNF</colordiffuse>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 					<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
 					<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="11,1,1,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 					<textureslidernib></textureslidernib>
 					<textureslidernibfocus></textureslidernibfocus>
 					<visible>!Skin.HasSetting(Scrollbars)</visible>
@@ -82,7 +82,7 @@
 							<left>75</left>
 							<width>282</width>
 							<height>69</height>
-							<textcolor>TextColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<label>[LIGHT]$INFO[ListItem.ChannelName][/LIGHT]</label>
 						</control>
 
@@ -92,7 +92,7 @@
 							<width>88</width>
 							<height>69</height>
 							<align>right</align>
-							<textcolor>TextColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<label>[LIGHT]$INFO[ListItem.ChannelNumberLabel][/LIGHT]</label>
 						</control>
 
@@ -116,7 +116,7 @@
 							<width>282</width>
 							<height>69</height>
 							<label>[B]$INFO[ListItem.ChannelName][/B]</label>
-							<textcolor>TextColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 
 						<!-- Channel number -->
@@ -126,7 +126,7 @@
 							<height>69</height>
 							<align>right</align>
 							<label>$INFO[ListItem.ChannelNumberLabel]</label>
-							<textcolor>TextColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 
 					</focusedchannellayout>
@@ -149,7 +149,7 @@
 							<top>0</top>
 							<width>80</width>
 							<height>69</height>
-							<textcolor>TextColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 						</control>
 
@@ -193,7 +193,7 @@
 							<width>80</width>
 							<height>69</height>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
-							<textcolor>TextColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 
 						<!-- Recording image -->
@@ -239,7 +239,7 @@
 						<width>500</width>
 						<height>36</height>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<pauseatend>5000</pauseatend>
 					</control>
 
@@ -249,7 +249,7 @@
 						<width>500</width>
 						<height>36</height>
 						<label>$INFO[ListItem.EpisodeName]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<aligny>top</aligny>
 						<pauseatend>5000</pauseatend>
 						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
@@ -261,7 +261,7 @@
 						<width>500</width>
 						<height>36</height>
 						<label>$VAR[SElist]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<aligny>top</aligny>
 						<pauseatend>5000</pauseatend>
 						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
@@ -273,7 +273,7 @@
 						<width>500</width>
 						<height>36</height>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<aligny>top</aligny>
 						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
 					</control>
@@ -284,7 +284,7 @@
 						<width>500</width>
 						<height>36</height>
 						<label>$INFO[ListItem.EpisodeName]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<aligny>top</aligny>
 						<pauseatend>5000</pauseatend>
 						<visible>!String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
@@ -296,7 +296,7 @@
 						<width>500</width>
 						<height>36</height>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<aligny>top</aligny>
 						<visible>!String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
 					</control>
@@ -307,7 +307,7 @@
 						<width>500</width>
 						<height>36</height>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<aligny>top</aligny>
 						<visible>String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
 					</control>
@@ -318,7 +318,7 @@
 						<width>800</width>
 						<height>140</height>
 						<align>justify</align>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label fallback="161">$VAR[Plot]</label>
 					</control>
 
@@ -335,7 +335,7 @@
 		<control type="group" id="9002">
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9002).HasFocus</visible>

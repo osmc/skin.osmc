@@ -47,7 +47,7 @@
 						<top>12</top>
 						<width>200</width>
 						<align>right</align>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[LIGHT]$INFO[ListItem.StartTime][/LIGHT]</label>
 					</control>
 
@@ -57,7 +57,7 @@
 						<width>200</width>
 						<height>27</height>
 						<align>right</align>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[LIGHT]$INFO[ListItem.EndTime][/LIGHT]</label>
 					</control>
 
@@ -86,7 +86,7 @@
 						<left>280</left>
 						<top>12</top>
 						<width>500</width>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 					</control>
 
@@ -97,7 +97,7 @@
 						<width>740</width>
 						<height>27</height>
 						<font>Font27</font>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[LIGHT]$INFO[ListItem.ChannelName][/LIGHT]</label>
 					</control>
 
@@ -106,7 +106,7 @@
 						<left>800</left>
 						<top>12</top>
 						<width>200</width>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[LIGHT]$INFO[ListItem.Duration][/LIGHT]</label>
 					</control>
 
@@ -119,7 +119,16 @@
 						<width>200</width>
 						<align>right</align>
 						<label>$INFO[ListItem.StartTime]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<visible>Control.HasFocus(50)</visible>
+					</control>
+					<control type="label">
+						<top>12</top>
+						<width>200</width>
+						<align>right</align>
+						<label>$INFO[ListItem.StartTime]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!Control.HasFocus(50)</visible>
 					</control>
 
 					<!-- End time -->
@@ -129,7 +138,17 @@
 						<height>27</height>
 						<align>right</align>
 						<label>$INFO[ListItem.EndTime]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<visible>Control.HasFocus(50)</visible>
+					</control>
+					<control type="label">
+						<top>62</top>
+						<width>200</width>
+						<height>27</height>
+						<align>right</align>
+						<label>$INFO[ListItem.EndTime]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!Control.HasFocus(50)</visible>
 					</control>
 
 					<!-- Recording image -->
@@ -141,7 +160,7 @@
 						<texture>pvr/Recording.png</texture>
 						<visible>ListItem.IsRecording</visible>
 					</control>
-
+					
 					<!-- Timer image -->
 					<control type="image">
 						<left>221</left>
@@ -158,7 +177,16 @@
 						<top>12</top>
 						<width>500</width>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<visible>Control.HasFocus(50)</visible>
+					</control>
+					<control type="label">
+						<left>280</left>
+						<top>12</top>
+						<width>500</width>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!Control.HasFocus(50)</visible>
 					</control>
 					
 					<!-- Highlighting -->
@@ -167,7 +195,7 @@
 						<top>12</top>
 						<width>500</width>
 						<height>51</height>
-						<texture>$VAR[focus52]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
 						<visible>Control.HasFocus(50)</visible>
 					</control>
 					<control type="image">
@@ -175,7 +203,7 @@
 						<top>12</top>
 						<width>500</width>
 						<height>51</height>
-						<texture colordiffuse="TextColor2">$VAR[focus52]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus52]</texture>
 						<visible>!Control.HasFocus(50)</visible>
 					</control>
 
@@ -186,8 +214,19 @@
 						<width>740</width>
 						<height>27</height>
 						<font>Font27</font>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
+						<visible>Control.HasFocus(50)</visible>
+					</control>
+					<control type="label">
+						<left>280</left>
+						<top>62</top>
+						<width>740</width>
+						<height>27</height>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[ListItem.ChannelName]</label>
+						<visible>!Control.HasFocus(50)</visible>
 					</control>
 
 					<!-- Duration -->
@@ -196,8 +235,18 @@
 						<top>12</top>
 						<width>200</width>
 						<label>$INFO[ListItem.Duration]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<visible>Control.HasFocus(50)</visible>
 					</control>
+					<control type="label">
+						<left>800</left>
+						<top>12</top>
+						<width>200</width>
+						<label>$INFO[ListItem.Duration]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!Control.HasFocus(50)</visible>
+					</control>
+
 
 				</focusedlayout>
 
@@ -212,10 +261,10 @@
 				<onleft>50</onleft>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
-				<colordiffuse>OverlayColorNF</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 				<texturesliderbackground border="6,1,8,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
@@ -231,7 +280,7 @@
 				<control type="label">
 					<width>512</width>
 					<label>$INFO[Container(50).ListItem.Title]</label>
-					<textcolor>TextColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 				</control>
 
 				<control type="group">
@@ -244,7 +293,7 @@
 						<height>460</height>
 						<align>justify</align>
 						<font>Font25</font>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<info>Container(50).ListItem.Plot</info>
 					</control>
 
@@ -282,7 +331,7 @@
 					<align>right</align>
 					<label>$INFO[Container(50).NumItems]</label>
 					<font>Font25</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 
 				</control>
 				<control type="label">
@@ -291,7 +340,7 @@
 					<align>right</align>
 					<label>$VAR[ContentType]</label>
 					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 
 			</control>
@@ -305,7 +354,7 @@
 		<control type="group" id="9002">
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9002).HasFocus</visible>

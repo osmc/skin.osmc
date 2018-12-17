@@ -39,7 +39,7 @@
 				<top>298</top>
 				<width>360</width>
 				<height>20</height>
-				<texture border="1,12,1,1" colordiffuse="DialogOverlayColorNF">common/ScrollBackgroundHorizontal.png</texture>
+				<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 			</control>
 
 			<!-- Left list -->
@@ -59,7 +59,7 @@
 					<control type="label">
 						<width>360</width>
 						<height>66</height>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
@@ -68,18 +68,28 @@
 						<width>360</width>
 						<height>66</height>
 						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
-					</control>
-					<control type="image">
-						<width>360</width>
-						<height>66</height>
-						<texture>$VAR[focus66]</texture>
 						<visible>Control.HasFocus(150)</visible>
 					</control>
 					<control type="image">
 						<width>360</width>
 						<height>66</height>
-						<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+						<visible>Control.HasFocus(150)</visible>
+					</control>
+					<control type="label">
+						<width>360</width>
+						<height>66</height>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
+						<visible>!Control.HasFocus(150)</visible>
+					</control>
+					<control type="image">
+						<width>360</width>
+						<height>66</height>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
 						<visible>!Control.HasFocus(150)</visible>
 					</control>
 				</focusedlayout>
@@ -110,7 +120,7 @@
 				<top>298</top>
 				<width>1200</width>
 				<height>20</height>
-				<texture border="1,12,1,1" colordiffuse="DialogOverlayColorNF">common/ScrollBackgroundHorizontal.png</texture>
+				<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 			</control>
 
 			<!-- List -->
@@ -132,21 +142,21 @@
 						<top>9</top>
 						<width>48</width>
 						<height>48</height>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 						<texture>$INFO[ListItem.Thumb,language/,.png]</texture>
 					</control>
 					<control type="label">
 						<left>86</left>
 						<width>120</width>
 						<height>66</height>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
 						<left>226</left>
 						<width>70</width>
 						<height>66</height>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[CC]</label>
 						<visible>ListItem.Property(hearingimp)</visible>
 					</control>
@@ -154,7 +164,7 @@
 						<left>316</left>
 						<width>120</width>
 						<height>66</height>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>(SYNC)</label>
 						<visible>ListItem.Property(sync)</visible>
 					</control>
@@ -162,7 +172,7 @@
 						<left>456</left>
 						<width>584</width>
 						<height>66</height>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 					<control type="image">
@@ -189,31 +199,75 @@
 							<left>86</left>
 							<width>120</width>
 							<height>66</height>
-							<textcolor>DialogColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
+							<visible>Control.HasFocus(120)</visible>
 						</control>
 						<control type="label">
 							<left>226</left>
 							<width>70</width>
 							<height>66</height>
-							<textcolor>DialogColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>[CC]</label>
-							<visible>ListItem.Property(hearingimp)</visible>
+							<visible>ListItem.Property(hearingimp) + Control.HasFocus(120)</visible>
 						</control>
 						<control type="label">
 							<left>316</left>
 							<width>120</width>
 							<height>66</height>
-							<textcolor>DialogColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>(SYNC)</label>
-							<visible>ListItem.Property(sync)</visible>
+							<visible>ListItem.Property(sync) + Control.HasFocus(120)</visible>
 						</control>
 						<control type="label">
 							<left>456</left>
 							<width>584</width>
 							<height>66</height>
-							<textcolor>DialogColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
+							<scroll>True</scroll>
+							<scrollout>false</scrollout>
+							<scrollspeed>40</scrollspeed>
+							<visible>Control.HasFocus(120)</visible>
+						</control>
+						<control type="image">
+							<left>9</left>
+							<width>1231</width>
+							<height>66</height>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+							<visible>Control.HasFocus(120)</visible>
+						</control>
+						<control type="label">
+							<left>86</left>
+							<width>120</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!Control.HasFocus(120)</visible>
+						</control>
+						<control type="label">
+							<left>226</left>
+							<width>70</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>[CC]</label>
+							<visible>ListItem.Property(hearingimp) + !Control.HasFocus(120)</visible>
+						</control>
+						<control type="label">
+							<left>316</left>
+							<width>120</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>(SYNC)</label>
+							<visible>ListItem.Property(sync) + !Control.HasFocus(120)</visible>
+						</control>
+						<control type="label">
+							<left>456</left>
+							<width>584</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+							<visible>!Control.HasFocus(120)</visible>
 							<scroll>True</scroll>
 							<scrollout>false</scrollout>
 							<scrollspeed>40</scrollspeed>
@@ -230,14 +284,7 @@
 							<left>9</left>
 							<width>1231</width>
 							<height>66</height>
-							<texture>$VAR[focus66]</texture>
-							<visible>Control.HasFocus(120)</visible>
-						</control>
-						<control type="image">
-							<left>9</left>
-							<width>1231</width>
-							<height>66</height>
-							<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
 							<visible>!Control.HasFocus(120)</visible>
 						</control>
 					</control>
@@ -256,8 +303,8 @@
 				<onup>120</onup>
 				<ondown>noop</ondown>
 				<label>24120</label>
-				<textcolor>DialogColor2</textcolor>
-				<focusedcolor>DialogColor1</focusedcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<focusedcolor>$VAR[TextColor1]</focusedcolor>
 			</control>
 
 			<!-- Notification -->
@@ -268,7 +315,7 @@
 				<height>66</height>
 				<align>right</align>
 				<label>31044</label>
-				<textcolor>DialogColor1</textcolor>
+				<textcolor>$VAR[TextColor1]</textcolor>
 			</control>
 
 		</control>

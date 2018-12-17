@@ -34,9 +34,9 @@
 					<width>1220</width>
 					<height>66</height>
 					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
-					<focusedcolor>TextColor1</focusedcolor>
-					<disabledcolor>TextColor4</disabledcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
 					<label>20096</label>
 				</control>
 
@@ -45,10 +45,10 @@
 					<width>1220</width>
 					<height>66</height>
 					<font>Font33</font>
-					<textcolor>TextColor2</textcolor>
-					<focusedcolor>TextColor1</focusedcolor>
-					<invalidcolor>TextColor4</invalidcolor>
-					<disabledcolor>TextColor4</disabledcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<invalidcolor>$VAR[TextColor4]</invalidcolor>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
 					<label>33084</label>
 					<enable>!System.HasLoginScreen</enable>
 				</control>
@@ -58,7 +58,7 @@
 					<top>11</top>
 					<width>1220</width>
 					<height>20</height>
-					<texture border="1,12,1,1" colordiffuse="DialogOverlayColorNF">common/ScrollBackgroundHorizontal.png</texture>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 				</control>
 
 			</control>
@@ -80,14 +80,14 @@
 						<height>76</height>
 						<font>Font33</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 					<control type="image">
 						<right>0</right>
 						<top>2</top>
 						<width>72</width>
 						<height>72</height>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
@@ -98,16 +98,37 @@
 						<height>76</height>
 						<font>Font33</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(2)">Conditional</animation>
+						<visible>Control.HasFocus(2)</visible>
+					</control>
+					<control type="image">
+						<width>1090</width>
+						<height>76</height>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
+						<visible>Control.HasFocus(2)</visible>
 					</control>
 					<control type="image">
 						<right>0</right>
 						<top>2</top>
 						<width>72</width>
 						<height>72</height>
-						<colordiffuse>OverlayColorNF</colordiffuse>
 						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+						<visible>Control.HasFocus(2)</visible>
+					</control>
+					<control type="label">
+						<width>1150</width>
+						<height>76</height>
+						<font>Font33</font>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(2)">Conditional</animation>
+						<visible>!Control.HasFocus(2)</visible>
+					</control>
+					<control type="image">
+						<width>1090</width>
+						<height>76</height>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus76]</texture>
 						<visible>!Control.HasFocus(2)</visible>
 					</control>
 					<control type="image">
@@ -115,19 +136,8 @@
 						<top>2</top>
 						<width>72</width>
 						<height>72</height>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 						<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-						<visible>Control.HasFocus(2)</visible>
-					</control>
-					<control type="image">
-						<width>1090</width>
-						<height>76</height>
-						<texture>$VAR[focus76]</texture>
-						<visible>Control.HasFocus(2)</visible>
-					</control>
-					<control type="image">
-						<width>1090</width>
-						<height>76</height>
-						<texture colordiffuse="TextColor2">$VAR[focus76]</texture>
 						<visible>!Control.HasFocus(2)</visible>
 					</control>
 				</focusedlayout>
@@ -139,7 +149,7 @@
 		<control type="group" id="9002">
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9002).HasFocus</visible>
@@ -185,49 +195,49 @@
 						<label>31074</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(InterfaceSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="191">
 						<label>16003</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(PlayerSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="192">
 						<label>14211</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(MediaSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="193">
 						<label>31015</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(PVRSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="194">
 						<label>13200</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(Profiles)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="195">
 						<label>14036</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(ServiceSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="196">
 						<label>13000</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(SystemSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="197">
 						<label>130</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(SystemInfo)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 				</control>
 			</control>

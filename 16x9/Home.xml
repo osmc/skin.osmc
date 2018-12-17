@@ -19,6 +19,33 @@
 	
 	<!-- Adjust non-focus dim opacity -->
 	<onload condition="String.IsEmpty(Skin.String(NFDimOpac))">Skin.SetString(NFDimOpac,100)</onload>
+	
+	<!-- Skin settings background + colors -->
+	<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundImage,1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.text1))">Skin.SetString(color.text1,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.text2))">Skin.SetString(color.text2,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.text3))">Skin.SetString(color.text3,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.text4))">Skin.SetString(color.text4,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.darken))">Skin.SetString(color.darken,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.overlayfo))">Skin.SetString(color.overlayfo,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.overlaynf))">Skin.SetString(color.overlaynf,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.selected))">Skin.SetString(color.selected,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.fanartdiffuse))">Skin.SetString(color.fanartdiffuse,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.homenf))">Skin.SetString(color.homenf,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.dialog1))">Skin.SetString(color.dialog1,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.dialog2))">Skin.SetString(color.dialog2,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.disabled))">Skin.SetString(color.disabled,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.invalid))">Skin.SetString(color.invalid,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.dialogoverlayfo))">Skin.SetString(color.dialogoverlayfo,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.dialogoverlaynf))">Skin.SetString(color.dialogoverlaynf,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.background))">Skin.SetString(color.background,None)</onload>
+	<onload condition="String.IsEmpty(Skin.String(color.overlay))">Skin.SetString(color.overlay,None)</onload>
+	<onload condition="Skin.HasSetting(BackgroundCustomColour)">Skin.SetString(DefaultColors,no)</onload>
+	<onload condition="Skin.HasSetting(BackgroundCustomColour)">Skin.ToggleSetting(BackgroundCustomColour)</onload>
+	<onload condition="String.IsEmpty(Skin.String(DefaultColorSet))">Skin.SetString(DefaultColorSet,Default)</onload>
+	<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
+	<onload condition="String.IsEmpty(Skin.String(DefaultOverlayOpacity))">Skin.SetString(DefaultOverlayOpacity,High)</onload>
+	<onload condition="String.IsEmpty(Skin.String(OSMCBackgroundOverlay))">Skin.SetString(OSMCBackgroundOverlay,1)</onload>
 
 	<controls>
 
@@ -70,9 +97,9 @@
 			<width>1920</width>
 			<height>35</height>
 			<font>Font30</font>
-			<textcolor>TextColor2</textcolor>
-			<headlinecolor>TextColor2</headlinecolor>
-			<titlecolor>TextColor2</titlecolor>
+			<textcolor>$VAR[TextColor2]</textcolor>
+			<headlinecolor>$VAR[TextColor2]</headlinecolor>
+			<titlecolor>$VAR[TextColor2]</titlecolor>
 			<urlset>1</urlset>
 			<include>WindowFadeAnimation</include>
 		</control>

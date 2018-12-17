@@ -613,7 +613,7 @@
 					<onright>9000</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<texturenofocus colordiffuse="TextColor2">up.png</texturenofocus>
+					<texturenofocus colordiffuse="$VAR[TextColor2]">up.png</texturenofocus>
 					<texturefocus>up.png</texturefocus>
 					<onclick>Control.Move($PARAM[container],-1)</onclick>
 				</control>
@@ -626,7 +626,7 @@
 					<onright>9000</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
-					<texturenofocus colordiffuse="TextColor2">down.png</texturenofocus>
+					<texturenofocus colordiffuse="$VAR[TextColor2]">down.png</texturenofocus>
 					<texturefocus>down.png</texturefocus>
 					<onclick>Control.Move($PARAM[container],1)</onclick>
 				</control>
@@ -642,7 +642,7 @@
 				<align>left</align>
 				<aligny>top</aligny>
 				<label>$INFO[Container($PARAM[container]).ListItem.Label]</label>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>ControlGroup(9002).HasFocus + String.IsEqual(Window.Property(changeWidget-$PARAM[container]),True)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
@@ -657,7 +657,7 @@
 				<align>right</align>
 				<aligny>top</aligny>
 				<label>$VAR[widgetDetails]</label>
-				<textcolor>TextColor1</textcolor>
+				<textcolor>$VAR[TextColor1]</textcolor>
 			</control>
 			
 		</definition>

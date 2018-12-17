@@ -29,7 +29,7 @@
 				<control type="label">
 					<width>610</width>
 					<height>66</height>
-					<textcolor>DialogColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>31007</label>
 				</control>
 
@@ -38,7 +38,7 @@
 					<top>66</top>
 					<width>610</width>
 					<height>20</height>
-					<texture border="1,12,1,1" colordiffuse="DialogOverlayColorNF">common/ScrollBackgroundHorizontal.png</texture>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 				</control>
 
 				<!-- Left list -->
@@ -55,7 +55,7 @@
 					<itemlayout height="66" width="610">
 						<control type="label">
 							<width>610</width>
-							<textcolor>DialogColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 					</itemlayout>
@@ -63,22 +63,32 @@
 					<focusedlayout height="66" width="610">
 						<control type="label">
 							<width>610</width>
-							<textcolor>DialogColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+							<visible>Control.HasFocus(50)</visible>
 						</control>
 						<control type="image">
-								<width>610</width>
-								<height>66</height>
-								<texture>$VAR[focus66]</texture>
-								<visible>Control.HasFocus(50)</visible>
-							</control>
-							<control type="image">
-								<width>610</width>
-								<height>66</height>
-								<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
-								<visible>!Control.HasFocus(50)</visible>
-							</control>
+							<width>610</width>
+							<height>66</height>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+							<visible>Control.HasFocus(50)</visible>
+						</control>
+							<control type="label">
+							<width>610</width>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+							<visible>!Control.HasFocus(50)</visible>
+						</control>
+						<control type="image">
+							<width>610</width>
+							<height>66</height>
+							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
+							<visible>!Control.HasFocus(50)</visible>
+						</control>
 					</focusedlayout>
 
 				</control>
@@ -99,7 +109,7 @@
 						<align>right</align>
 						<font>Font25</font>
 						<label>$INFO[Container(50).NumItems]</label>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 					<control type="label">
 						<width>auto</width>
@@ -107,7 +117,7 @@
 						<align>right</align>
 						<label>31000</label>
 						<font>Font33</font>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>!Integer.IsGreater(Container(50).NumItems,1)</visible>
 					</control>
 					<control type="label">
@@ -116,7 +126,7 @@
 						<align>right</align>
 						<label>31001</label>
 						<font>Font33</font>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>Integer.IsGreater(Container(50).NumItems,1)</visible>
 					</control>
 				</control>
@@ -134,7 +144,7 @@
 					<width>360</width>
 					<height>66</height>
 					<align>center</align>
-					<textcolor>DialogColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>31008</label>
 				</control>
 
@@ -157,8 +167,8 @@
 						<top>390</top>
 						<width>320</width>
 						<font>Font25</font>
-						<textcolor>DialogColor1</textcolor>
-						<label>$INFO[Container(50).ListItem.Artist,[COLOR=SelectedColor]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.Album,[COLOR=SelectedColor]$LOCALIZE[558]: [/COLOR]]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<label>$INFO[Container(50).ListItem.Artist,[COLOR=$VAR[SelectedColor]]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.Album,[COLOR=$VAR[SelectedColor]]$LOCALIZE[558]: [/COLOR]]</label>
 					</control>
 
 				</control>
@@ -183,8 +193,8 @@
 						<width>320</width>
 						<height>330</height>
 						<font>Font25</font>
-						<textcolor>DialogColor1</textcolor>
-						<label>$INFO[Container(100).ListItem.Artist,[COLOR=SelectedColor]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(100).ListItem.Album,[COLOR=SelectedColor]$LOCALIZE[558]: [/COLOR]]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<label>$INFO[Container(100).ListItem.Artist,[COLOR=$VAR[SelectedColor]]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(100).ListItem.Album,[COLOR=$VAR[SelectedColor]]$LOCALIZE[558]: [/COLOR]]</label>
 					</control>
 
 				</control>
@@ -206,7 +216,7 @@
 						<align>center</align>
 						<label>31009</label>
 						<width>360</width>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus66c.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
 					</control>
 
 					<!-- Save Button -->
@@ -214,7 +224,7 @@
 						<align>center</align>
 						<label>31010</label>
 						<width>360</width>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus66c.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
 					</control>
 
 					<!-- Clear Button -->
@@ -222,7 +232,7 @@
 						<align>center</align>
 						<label>31011</label>
 						<width>360</width>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus66c.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
 					</control>
 
 				</control>
@@ -239,7 +249,7 @@
 				<control type="label">
 					<width>610</width>
 					<height>66</height>
-					<textcolor>DialogColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>31012</label>
 				</control>
 
@@ -248,7 +258,7 @@
 					<top>66</top>
 					<width>610</width>
 					<height>20</height>
-					<texture border="1,12,1,1" colordiffuse="DialogOverlayColorNF">common/ScrollBackgroundHorizontal.png</texture>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 				</control>
 
 				<!-- Right list -->
@@ -265,13 +275,13 @@
 					<itemlayout height="66" width="610">
 						<control type="label">
 							<width>610</width>
-							<textcolor>DialogColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
 							<width>610</width>
 							<align>right</align>
-							<textcolor>DialogColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 					</itemlayout>
@@ -281,25 +291,40 @@
 							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(100)">Conditional</animation>
 							<control type="label">
 								<width>610</width>
-								<textcolor>DialogColor1</textcolor>
+								<textcolor>$VAR[TextColor1]</textcolor>
 								<label>$INFO[ListItem.Label]</label>
+								<visible>Control.HasFocus(100)</visible>
 							</control>
 							<control type="label">
 								<width>610</width>
 								<align>right</align>
-								<textcolor>DialogColor1</textcolor>
+								<textcolor>$VAR[TextColor1]</textcolor>
 								<label>$INFO[ListItem.Label2]</label>
-							</control>
-							<control type="image">
-								<width>610</width>
-								<height>66</height>
-								<texture>$VAR[focus66]</texture>
 								<visible>Control.HasFocus(100)</visible>
 							</control>
 							<control type="image">
 								<width>610</width>
 								<height>66</height>
-								<texture colordiffuse="TextColor2">$VAR[focus66]</texture>
+								<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+								<visible>Control.HasFocus(100)</visible>
+							</control>
+							<control type="label">
+								<width>610</width>
+								<textcolor>$VAR[TextColor2]</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>!Control.HasFocus(100)</visible>
+							</control>
+							<control type="label">
+								<width>610</width>
+								<align>right</align>
+								<textcolor>$VAR[TextColor2]</textcolor>
+								<label>$INFO[ListItem.Label2]</label>
+								<visible>!Control.HasFocus(100)</visible>
+							</control>
+							<control type="image">
+								<width>610</width>
+								<height>66</height>
+								<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
 								<visible>!Control.HasFocus(100)</visible>
 							</control>
 						</control>
@@ -323,7 +348,7 @@
 						<align>right</align>
 						<font>Font25</font>
 						<label>$INFO[Container(100).NumItems]</label>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 					<control type="label">
 						<width>auto</width>
@@ -331,7 +356,7 @@
 						<align>right</align>
 						<label>31000</label>
 						<font>Font33</font>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>!Integer.IsGreater(Container(100).NumItems,1)</visible>
 					</control>
 					<control type="label">
@@ -340,7 +365,7 @@
 						<align>right</align>
 						<label>31001</label>
 						<font>Font33</font>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>Integer.IsGreater(Container(100).NumItems,1)</visible>
 					</control>
 				</control>

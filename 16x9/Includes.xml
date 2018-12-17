@@ -72,24 +72,12 @@
 			<!-- Overlay -->
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture background="true">Background.png</texture>
+				<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<animation effect="fade" start="0" end="100" time="200" condition="$PARAM[animate]">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200" delay="70" condition="$PARAM[animate]">WindowClose</animation>
 				<include>VisibleFadeAnimation</include>
 				<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo | Window.IsActive(musicosd)]]</visible>
-				<visible>!Skin.String(color.background) | !Skin.HasSetting(BackgroundCustomColour)</visible>
-			</control>
-
-			<!-- Overlay - Custom color -->
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture background="true">Background-Custom.png</texture>
-				<colordiffuse>$INFO[Skin.String(color.background)]</colordiffuse>
-				<animation effect="fade" start="0" end="100" time="200" condition="$PARAM[animate]">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200" delay="70" condition="$PARAM[animate]">WindowClose</animation>
-				<include>VisibleFadeAnimation</include>
-				<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo | Window.IsActive(musicosd)]]</visible>
-				<visible>Skin.String(color.background) + Skin.HasSetting(BackgroundCustomColour)</visible>
 			</control>
 		</definition>
 	</include>
@@ -103,7 +91,7 @@
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<include>WindowFadeAnimation</include>
-				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 			</control>
 		</control>
 	</include>
@@ -112,7 +100,7 @@
 	<include name="DialogFadeBackgroundImage">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+			<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 		</control>
@@ -169,7 +157,7 @@
 					<align>right</align>
 					<label>$INFO[System.Time]</label>
 					<font>Font33</font>
-					<textcolor>DialogColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<visible>!Player.HasMedia</visible>
 				</control>
 				<control type="label">
@@ -181,7 +169,7 @@
 					<align>right</align>
 					<label>$INFO[System.Date,[LIGHT],[/LIGHT]]</label>
 					<font>Font33</font>
-					<textcolor>DialogColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<visible>Skin.HasSetting(Dateaboveclock) + !Player.HasMedia</visible>
 				</control>
 
@@ -559,7 +547,7 @@
 						<align>right</align>
 						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
 						<font>Font33</font>
-						<textcolor>DialogColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!Player.HasGame</visible>
 					</control>
 					
@@ -581,7 +569,7 @@
 						<top>100</top>
 						<width>60</width>
 						<height>60</height>
-						<texture colordiffuse="DialogColor1">osd/OSDPlayNF.png</texture>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</texture>
 						<visible>!Player.Paused</visible>
 					</control>
 					<control type="image">
@@ -589,7 +577,7 @@
 						<top>100</top>
 						<width>60</width>
 						<height>60</height>
-						<texture colordiffuse="DialogColor1">osd/OSDPauseNF.png</texture>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texture>
 						<visible>Player.Paused</visible>
 					</control>
 
@@ -642,7 +630,7 @@
 		<align>center</align>
 		<textoffsetx>10</textoffsetx>
 		<fadetime>200</fadetime>
-		<texturefocus border="25,0,25,0">dialogs/KeyboardButton.png</texturefocus>
+		<texturefocus colordiffuse="$VAR[TextColor1]" border="25,0,25,0">dialogs/KeyboardButton.png</texturefocus>
 	</include>
 
 	<!-- OSD Play buttons -->
@@ -650,18 +638,18 @@
 		<control type="togglebutton" id="5">
 			<width>60</width>
 			<height>60</height>
-			<texturefocus colordiffuse="DialogColor1">osd/OSDPauseNF.png</texturefocus>
-			<texturenofocus colordiffuse="DialogColor2">osd/OSDPauseNF.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPauseNF.png</texturenofocus>
 			<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo</usealttexture>
-			<alttexturefocus colordiffuse="DialogColor1">osd/OSDPlayNF.png</alttexturefocus>
-			<alttexturenofocus colordiffuse="DialogColor2">osd/OSDPlayNF.png</alttexturenofocus>
+			<alttexturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</alttexturefocus>
+			<alttexturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPlayNF.png</alttexturenofocus>
 			<onclick>PlayerControl(Play)</onclick>
 		</control>
 		<control type="button" id="6">
 			<width>60</width>
 			<height>60</height>
-			<texturefocus colordiffuse="DialogColor1">osd/OSDStopNF.png</texturefocus>
-			<texturenofocus colordiffuse="DialogColor2">osd/OSDStopNF.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDStopNF.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDStopNF.png</texturenofocus>
 			<onclick>PlayerControl(Stop)</onclick>
 		</control>
 	</include>
@@ -671,8 +659,8 @@
 		<control type="button" id="5">
 			<width>60</width>
 			<height>60</height>
-			<texturefocus colordiffuse="DialogColor1">osd/OSDStopNF.png</texturefocus>
-			<texturenofocus colordiffuse="DialogColor2">osd/OSDStopNF.png</texturenofocus>
+			<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDStopNF.png</texturefocus>
+			<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDStopNF.png</texturenofocus>
 			<onclick>PlayerControl(Stop)</onclick>
 		</control>
 	</include>
@@ -696,7 +684,7 @@
 				<align>right</align>
 				<label>$INFO[Container.NumItems]</label>
 				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
@@ -704,7 +692,7 @@
 				<align>right</align>
 				<label>$VAR[ContentType]</label>
 				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
 		</control>
 	</include>
@@ -727,7 +715,7 @@
 				<width>50</width>
 				<height>35</height>
 				<top>5</top>
-				<colordiffuse>TextColor2</colordiffuse>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>Video.png</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
@@ -738,7 +726,7 @@
 				<align>right</align>
 				<label>$VAR[VideoCodec,, ]$VAR[3DMode,, ]$VAR[VideoResolution,, ]$INFO[ListItem.VideoAspect,(,:1)]</label>
 				<font>Font30</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
 		</control>
@@ -759,7 +747,7 @@
 				<width>50</width>
 				<height>35</height>
 				<top>5</top>
-				<colordiffuse>TextColor2</colordiffuse>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>AudioTrack.png</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
@@ -770,7 +758,7 @@
 				<align>right</align>
 				<label>$VAR[Audio]</label>
 				<font>Font30</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
 		</control>
@@ -791,7 +779,7 @@
 				<width>45</width>
 				<height>35</height>
 				<top>5</top>
-				<colordiffuse>TextColor2</colordiffuse>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>Duration.png</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
@@ -802,7 +790,7 @@
 				<align>right</align>
 				<label>$VAR[Duration]</label>
 				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 			</control>
 			<control type="label">
@@ -811,7 +799,7 @@
 				<align>right</align>
 				<label>  /  </label>
 				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + !ListItem.IsFolder + !String.IsEqual(ListItem.Size,0 B)</visible>
 			</control>
 			<control type="label">
@@ -820,7 +808,7 @@
 				<align>right</align>
 				<label>$INFO[ListItem.Size,$LOCALIZE[289]: ,]</label>
 				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!ListItem.IsFolder + !String.IsEqual(ListItem.Size,0 B)</visible>
 			</control>
 		</control>
@@ -862,8 +850,8 @@
 					<top>0</top>
 					<width>30</width>
 					<height>16</height>
-					<colordiffuse>TextColor2</colordiffuse>
-					<texture colordiffuse="DialogColor2">up.png</texture>
+					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<texture colordiffuse="$VAR[DialogColor2]">up.png</texture>
 
 					<visible>Container($PARAM[container]).HasPrevious</visible>
 
@@ -882,7 +870,7 @@
 					<bottom>0</bottom>
 					<width>30</width>
 					<height>16</height>
-					<texture colordiffuse="DialogColor2">down.png</texture>
+					<texture colordiffuse="$VAR[DialogColor2]">down.png</texture>
 
 					<visible>Container($PARAM[container]).HasNext</visible>
 
@@ -906,7 +894,7 @@
 				<bottom>90</bottom>
 				<width>3980</width>
 				<height>86</height>
-				<texture colordiffuse="TextColor1" border="2">common/Border.png</texture>
+				<texture colordiffuse="$VAR[TextColor1]" border="2">common/Border.png</texture>
 				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
@@ -915,7 +903,7 @@
 				<bottom>90</bottom>
 				<width>3980</width>
 				<height>86</height>
-				<texture colordiffuse="TextColor2" border="2">common/Border.png</texture>
+				<texture colordiffuse="$VAR[TextColor2]" border="2">common/Border.png</texture>
 				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
@@ -925,7 +913,7 @@
 				<width>3980</width>
 				<height>86</height>
 				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
-				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<include>VisibleFadeAnimation</include>
 			</control>
 		</definition>

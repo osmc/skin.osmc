@@ -37,7 +37,7 @@
 					<top>190</top>
 					<width>304</width>
 					<height>44</height>
-					<textcolor>DialogColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 				</control>
 			</itemlayout>
@@ -67,8 +67,34 @@
 					<top>190</top>
 					<width>304</width>
 					<height>44</height>
-					<textcolor>DialogColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
+					<visible>Control.HasFocus(11)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>190</top>
+					<width>304</width>
+					<height>44</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<visible>Control.HasFocus(11)</visible>
+				</control>
+				<control type="label">
+					<left>10</left>
+					<top>190</top>
+					<width>304</width>
+					<height>44</height>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
+					<visible>!Control.HasFocus(11)</visible>
+				</control>
+				<control type="image">
+					<left>10</left>
+					<top>190</top>
+					<width>304</width>
+					<height>44</height>
+					<texture colordiffuse="$VAR[TextColor2]">$VAR[focus44]</texture>
+					<visible>!Control.HasFocus(11)</visible>
 				</control>
 			</focusedlayout>
 

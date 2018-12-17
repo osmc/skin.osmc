@@ -43,7 +43,7 @@
 			<top>900</top>
 			<width>1220</width>
 			<height>95</height>
-			<textcolor>TextColor1</textcolor>
+			<textcolor>$VAR[TextColor1]</textcolor>
 			<font>Font27</font>
 			<visible>ControlGroup(5).HasFocus</visible>
 		</control>
@@ -71,7 +71,7 @@
 				<align>right</align>
 				<label>$LOCALIZE[31016]: </label>
 				<font>Font33</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!Control.HasFocus(20)</visible>
 			</control>
 			<control type="label">
@@ -80,7 +80,7 @@
 				<align>right</align>
 				<label>$LOCALIZE[31016]: </label>
 				<font>Font33</font>
-				<textcolor>TextColor1</textcolor>
+				<textcolor>$VAR[TextColor1]</textcolor>
 				<visible>Control.HasFocus(20)</visible>
 			</control>
 			<control type="button" id="20">
@@ -90,7 +90,7 @@
 				<font>Font33</font>
 				<onup>3</onup>
 				<onclick>SettingsLevelChange</onclick>
-				<texturefocus colordiffuse="$VAR[focus]">common/focus.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus.png</texturefocus>
 			</control>
 		</control>
 
@@ -99,7 +99,7 @@
 		<control type="group" id="9002">
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9002).HasFocus</visible>
@@ -144,55 +144,55 @@
 						<label>31074</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(InterfaceSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="91">
 						<label>16003</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(PlayerSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="92">
 						<label>14211</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(MediaSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="93">
 						<label>31015</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(PVRSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="94">
 						<label>15016</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(GameSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="95">
 						<label>13200</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(Profiles)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="96">
 						<label>14036</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(ServiceSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="97">
 						<label>13000</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(SystemSettings)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 					<control type="button" id="98">
 						<label>130</label>
 						<height>52</height>
 						<onclick>ReplaceWindow(SystemInfo)</onclick>
-						<texturefocus colordiffuse="$VAR[focus]">common/focus52.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 					</control>
 
 				</control>
@@ -206,7 +206,7 @@
 			<font>Font33</font>
 			<align>center</align>
 			<label></label>
-			<textcolor>TextColor2</textcolor>
+			<textcolor>$VAR[TextColor2]</textcolor>
 		</control>
 
 		<!-- Default group button -->
@@ -215,10 +215,10 @@
 			<height>66</height>
 			<font>Font33</font>
 			<onclick>SetFocus(5)</onclick>
-			<textcolor>TextColor2</textcolor>
-			<focusedcolor>TextColor1</focusedcolor>
-			<invalidcolor>TextColor4</invalidcolor>
-			<disabledcolor>TextColor4</disabledcolor>
+			<textcolor>$VAR[TextColor2]</textcolor>
+			<focusedcolor>$VAR[TextColor1]</focusedcolor>
+			<invalidcolor>$VAR[TextColor4]</invalidcolor>
+			<disabledcolor>$VAR[TextColor4]</disabledcolor>
 			<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(5).HasFocus | Control.HasFocus(20)">Conditional</animation>
 		</control>
 
@@ -228,10 +228,10 @@
 			<height>66</height>
 			<font>Font33</font>
 			<textwidth>900</textwidth>
-			<textcolor>TextColor2</textcolor>
-			<focusedcolor>TextColor1</focusedcolor>
-			<invalidcolor>TextColor4</invalidcolor>
-			<disabledcolor>TextColor4</disabledcolor>
+			<textcolor>$VAR[TextColor2]</textcolor>
+			<focusedcolor>$VAR[TextColor1]</focusedcolor>
+			<invalidcolor>$VAR[TextColor4]</invalidcolor>
+			<disabledcolor>$VAR[TextColor4]</disabledcolor>
 		</control>
 
 		<!-- Default radiobutton -->
@@ -240,9 +240,9 @@
 			<height>66</height>
 			<font>Font33</font>
 			<textwidth>900</textwidth>
-			<textcolor>TextColor2</textcolor>
-			<focusedcolor>TextColor1</focusedcolor>
-			<disabledcolor>TextColor4</disabledcolor>
+			<textcolor>$VAR[TextColor2]</textcolor>
+			<focusedcolor>$VAR[TextColor1]</focusedcolor>
+			<disabledcolor>$VAR[TextColor4]</disabledcolor>
 		</control>
 
 		<!-- Default spincontrolex -->
@@ -251,9 +251,9 @@
 			<height>66</height>
 			<font>Font33</font>
 			<textwidth>900</textwidth>
-			<textcolor>TextColor2</textcolor>
-			<focusedcolor>TextColor1</focusedcolor>
-			<disabledcolor>TextColor4</disabledcolor>
+			<textcolor>$VAR[TextColor2]</textcolor>
+			<focusedcolor>$VAR[TextColor1]</focusedcolor>
+			<disabledcolor>$VAR[TextColor4]</disabledcolor>
 		</control>
 
 		<!-- Default sliderex -->
@@ -262,16 +262,16 @@
 			<height>66</height>
 			<font>Font33</font>
 			<textwidth>900</textwidth>
-			<textcolor>TextColor2</textcolor>
-			<focusedcolor>TextColor1</focusedcolor>
-			<disabledcolor>TextColor4</disabledcolor>
+			<textcolor>$VAR[TextColor2]</textcolor>
+			<focusedcolor>$VAR[TextColor1]</focusedcolor>
+			<disabledcolor>$VAR[TextColor4]</disabledcolor>
 		</control>
 
 		<!-- Default image -->
 		<control type="image" id="11">
 			<width>1220</width>
 			<height>66</height>
-			<texture border="2" colordiffuse="DialogColor2">common/Divider.png</texture>
+			<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
 		</control>
 
 		<!-- Default edit -->

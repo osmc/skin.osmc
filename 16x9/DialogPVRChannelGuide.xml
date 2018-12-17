@@ -23,7 +23,7 @@
 				<width>750</width>
 				<height>48</height>
 				<font>Font33</font>
-				<textcolor>DialogColor1</textcolor>
+				<textcolor>$VAR[TextColor1]</textcolor>
 				<label>$INFO[VideoPlayer.ChannelName]</label>
 			</control>
 
@@ -34,7 +34,7 @@
 				<width>750</width>
 				<height>36</height>
 				<font>Font33</font>
-				<textcolor>DialogColor1</textcolor>
+				<textcolor>$VAR[TextColor1]</textcolor>
 				<label>[LIGHT]$INFO[Container(11).ListItem.StartDate][/LIGHT]</label>
 			</control>
 			
@@ -45,7 +45,7 @@
 				<width>650</width>
 				<height>500</height>
 				<label>$INFO[Container(11).ListItem.TVShowTitle,[B],[/B][CR]]$INFO[Container(11).ListItem.Title,[B],[/B][CR]][LIGHT]$INFO[Container(11).ListItem.Season,$LOCALIZE[20373] , / ]$INFO[Container(11).ListItem.Episode,$LOCALIZE[20359],[CR] ][/LIGHT]$INFO[Container(11).ListItem.Plot]</label>
-				<textcolor>TextColor1</textcolor>
+				<textcolor>$VAR[TextColor1]</textcolor>
 				<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
 			</control>
 
@@ -72,7 +72,7 @@
 						<height>51</height>
 						<font>Font27</font>
 						<align>right</align>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.StartTime]</label>
 					</control>
 
@@ -81,7 +81,7 @@
 						<left>160</left>
 						<width>520</width>
 						<height>51</height>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 
@@ -116,8 +116,19 @@
 						<height>51</height>
 						<font>Font27</font>
 						<align>right</align>
-						<textcolor>DialogColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$INFO[ListItem.StartTime]</label>
+						<visible>Control.HasFocus(11)</visible>
+					</control>
+					<control type="label">
+						<top>2</top>
+						<width>140</width>
+						<height>51</height>
+						<font>Font27</font>
+						<align>right</align>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[ListItem.StartTime]</label>
+						<visible>!Control.HasFocus(11)</visible>
 					</control>
 
 					<!-- Program name -->
@@ -125,8 +136,17 @@
 						<left>160</left>
 						<width>520</width>
 						<height>51</height>
-						<textcolor>DialogColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
+						<visible>Control.HasFocus(11)</visible>
+					</control>
+					<control type="label">
+						<left>160</left>
+						<width>520</width>
+						<height>51</height>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>!Control.HasFocus(11)</visible>
 					</control>
 
 					<!-- Highlighting -->
@@ -134,14 +154,14 @@
 						<top>2</top>
 						<width>680</width>
 						<height>51</height>
-						<texture>$VAR[focus52]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
 						<visible>Control.HasFocus(11)</visible>
 					</control>
 					<control type="image">
 						<top>2</top>
 						<width>680</width>
 						<height>51</height>
-						<texture colordiffuse="TextColor2">$VAR[focus52]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus52]</texture>
 						<visible>!Control.HasFocus(11)</visible>
 					</control>
 					

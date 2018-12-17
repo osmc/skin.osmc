@@ -32,7 +32,7 @@
 				<width>526</width>
 				<height>36</height>
 				<font>Font36</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$LOCALIZE[19146]</label>
 				<align>center</align>
 			</control>
@@ -53,7 +53,7 @@
 
 					<control type="label">
 						<width>526</width>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 
@@ -64,18 +64,27 @@
 					<control type="label">
 						<width>526</width>
 						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(13)">Conditional</animation>
-					</control>
-					<control type="image">
-						<width>526</width>
-						<height>58</height>
-						<texture>$VAR[focus58]</texture>
 						<visible>Control.HasFocus(13)</visible>
 					</control>
 					<control type="image">
 						<width>526</width>
 						<height>58</height>
-						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<visible>Control.HasFocus(13)</visible>
+					</control>
+					<control type="label">
+						<width>526</width>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(13)">Conditional</animation>
+						<visible>!Control.HasFocus(13)</visible>
+					</control>
+					<control type="image">
+						<width>526</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
 						<visible>!Control.HasFocus(13)</visible>
 					</control>
 
@@ -90,7 +99,7 @@
 				<width>526</width>
 				<height>36</height>
 				<font>Font36</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$INFO[Control.GetLabel(21)]</label>
 				<align>center</align>
 			</control>
@@ -111,7 +120,7 @@
 
 					<control type="label">
 						<width>526</width>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.ChannelNumberLabel,(,) ]$INFO[ListItem.ChannelName]</label>
 					</control>
 
@@ -121,19 +130,28 @@
 
 					<control type="label">
 						<width>526</width>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$INFO[ListItem.ChannelNumberLabel,(,) ]$INFO[ListItem.ChannelName]</label>
+						<visible>Control.HasFocus(11)</visible>
 						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(11)">Conditional</animation>
 					</control>
 					<control type="image">
 						<width>526</width>
 						<height>58</height>
-						<texture>$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 						<visible>Control.HasFocus(11)</visible>
+					</control>
+					<control type="label">
+						<width>526</width>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[ListItem.ChannelNumberLabel,(,) ]$INFO[ListItem.ChannelName]</label>
+						<visible>!Control.HasFocus(11)</visible>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(11)">Conditional</animation>
 					</control>
 					<control type="image">
 						<width>526</width>
 						<height>58</height>
-						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
 						<visible>!Control.HasFocus(11)</visible>
 					</control>
 
@@ -148,7 +166,7 @@
 				<width>526</width>
 				<height>36</height>
 				<font>Font36</font>
-				<textcolor>TextColor2</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$INFO[Control.GetLabel(22)]</label>
 				<align>center</align>
 			</control>
@@ -169,7 +187,7 @@
 
 					<control type="label">
 						<width>526</width>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.ChannelNumberLabel,(,) ]$INFO[ListItem.ChannelName]</label>
 					</control>
 
@@ -180,18 +198,27 @@
 					<control type="label">
 						<width>526</width>
 						<label>$INFO[ListItem.ChannelNumberLabel,(,) ]$INFO[ListItem.ChannelName]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<visible>Control.HasFocus(12)</visible>
 						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(12)">Conditional</animation>
 					</control>
 					<control type="image">
 						<width>526</width>
 						<height>58</height>
-						<texture>$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 						<visible>Control.HasFocus(12)</visible>
+					</control>
+					<control type="label">
+						<width>526</width>
+						<label>$INFO[ListItem.ChannelNumberLabel,(,) ]$INFO[ListItem.ChannelName]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!Control.HasFocus(12)</visible>
+						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(12)">Conditional</animation>
 					</control>
 					<control type="image">
 						<width>526</width>
 						<height>58</height>
-						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
 						<visible>!Control.HasFocus(12)</visible>
 					</control>
 

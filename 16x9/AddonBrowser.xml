@@ -22,7 +22,7 @@
 				<width>405</width>
 				<height>600</height>
 				<texture>$INFO[ListItem.Icon]</texture>
-				<colordiffuse>OverlayColorFO</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio aligny="center">keep</aspectratio>
 			</control>
 
@@ -51,7 +51,7 @@
 						<height>72</height>
 						<font>Font36</font>
 						<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 				</itemlayout>
 
@@ -63,24 +63,35 @@
 						<height>144</height>
 						<font>Font72</font>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
-						<visible>String.IsEmpty(ListItem.Label2)</visible>
+						<visible>String.IsEmpty(ListItem.Label2) + Control.HasFocus(500)</visible>
 					</control>
 					<control type="image">
 						<left>32</left>
 						<top>0</top>
 						<width>1018</width>
 						<height>144</height>
-						<texture>$VAR[focus144]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus144]</texture>
 						<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder + Control.HasFocus(500)</visible>
 					</control>
+					<control type="label">
+						<left>32</left>
+						<top>0</top>
+						<width>1018</width>
+						<height>144</height>
+						<font>Font72</font>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
+						<visible>String.IsEmpty(ListItem.Label2) + !Control.HasFocus(500)</visible>
+					</control>
 					<control type="image">
 						<left>32</left>
 						<top>0</top>
 						<width>1018</width>
 						<height>144</height>
-						<texture colordiffuse="TextColor2">$VAR[focus144]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus144]</texture>
 						<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder + !Control.HasFocus(500)</visible>
 					</control>
 					<control type="group">
@@ -92,24 +103,9 @@
 							<height>48</height>
 							<font>Font48</font>
 							<label>[B]$VAR[Label1][/B]</label>
-							<textcolor>TextColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
-						</control>
-						<control type="image">
-							<left>32</left>
-							<top>25</top>
-							<width>1018</width>
-							<height>58</height>
-							<texture>$VAR[focus58]</texture>
-							<visible>!ListItem.IsParentFolder + Control.HasFocus(500)</visible>
-						</control>
-						<control type="image">
-							<left>32</left>
-							<top>25</top>
-							<width>1018</width>
-							<height>58</height>
-							<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
-							<visible>!ListItem.IsParentFolder + !Control.HasFocus(500)</visible>
+							<visible>Control.HasFocus(500)</visible>
 						</control>
 						<control type="label">
 							<left>32</left>
@@ -118,8 +114,47 @@
 							<height>27</height>
 							<font>Font27</font>
 							<label>$INFO[ListItem.Label2]</label>
-							<textcolor>TextColor1</textcolor>
+							<textcolor>$VAR[TextColor1]</textcolor>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
+							<visible>Control.HasFocus(500)</visible>
+						</control>
+						<control type="image">
+							<left>32</left>
+							<top>25</top>
+							<width>1018</width>
+							<height>58</height>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+							<visible>!ListItem.IsParentFolder + Control.HasFocus(500)</visible>
+						</control>
+						<control type="label">
+							<left>32</left>
+							<top>25</top>
+							<width>1018</width>
+							<height>48</height>
+							<font>Font48</font>
+							<label>[B]$VAR[Label1][/B]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
+							<visible>!Control.HasFocus(500)</visible>
+						</control>
+						<control type="label">
+							<left>32</left>
+							<top>82</top>
+							<width>1018</width>
+							<height>27</height>
+							<font>Font27</font>
+							<label>$INFO[ListItem.Label2]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
+							<visible>!Control.HasFocus(500)</visible>
+						</control>
+						<control type="image">
+							<left>32</left>
+							<top>25</top>
+							<width>1018</width>
+							<height>58</height>
+							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
+							<visible>!ListItem.IsParentFolder + !Control.HasFocus(500)</visible>
 						</control>
 					</control>
 				</focusedlayout>
@@ -136,10 +171,10 @@
 				<onright>500</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
-				<colordiffuse>OverlayColorNF</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(500)</visible>
@@ -152,7 +187,7 @@
 			<control type="group" id="9002">
 				<control type="image">
 					<include>FullscreenDimensions</include>
-					<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 					<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 					<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 					<visible>ControlGroup(9002).HasFocus</visible>

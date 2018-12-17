@@ -51,7 +51,7 @@
 				<width>405</width>
 				<height>600</height>
 				<texture>$INFO[ListItem.Icon]</texture>
-				<colordiffuse>OverlayColorFO</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio aligny="center">keep</aspectratio>
 				<visible>String.Contains(ListItem.Icon,Default)</visible>
 			</control>
@@ -61,7 +61,7 @@
 				<width>405</width>
 				<height>600</height>
 				<texture>$INFO[ListItem.FileNameAndPath]</texture>
-				<colordiffuse>OverlayColorFO</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio aligny="center">keep</aspectratio>
 				<visible>String.IsEqual(ListItem.Path,special://skin/extras/backgrounds/)</visible>
 			</control>
@@ -77,10 +77,10 @@
 				<onright condition="Control.IsVisible(451)">451</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
-				<colordiffuse>OverlayColorNF</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="11,1,1,1" colordiffuse="DialogColor1">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
@@ -116,7 +116,7 @@
 						<height>96</height>
 						<bordersize>6</bordersize>
 						<aspectratio>scale</aspectratio>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 						<visible>String.Contains(ListItem.Icon,Default)</visible>
@@ -126,7 +126,7 @@
 						<width>910</width>
 						<height>96</height>
 						<font>Font36</font>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 					</control>
 				</itemlayout>
@@ -146,7 +146,7 @@
 						<height>96</height>
 						<bordersize>6</bordersize>
 						<aspectratio>scale</aspectratio>
-						<colordiffuse>OverlayColorFO</colordiffuse>
+						<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(450)">Conditional</animation>
 						<visible>String.Contains(ListItem.Icon,Default)</visible>
@@ -156,16 +156,24 @@
 						<width>910</width>
 						<height>96</height>
 						<font>Font36</font>
-						<textcolor>DialogColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<visible>Control.HasFocus(450)</visible>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>910</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder + Control.HasFocus(450)</visible>
 					</control>
 					<control type="label">
 						<left>140</left>
 						<width>910</width>
 						<height>96</height>
 						<font>Font36</font>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
 						<visible>!Control.HasFocus(450)</visible>
 					</control>
@@ -174,15 +182,7 @@
 						<left>140</left>
 						<width>910</width>
 						<height>58</height>
-						<texture>$VAR[focus58]</texture>
-						<visible>!ListItem.IsParentFolder + Control.HasFocus(450)</visible>
-					</control>
-					<control type="image">
-						<centertop>50%</centertop>
-						<left>140</left>
-						<width>910</width>
-						<height>58</height>
-						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder + !Control.HasFocus(450)</visible>
 					</control>
 				</focusedlayout>
@@ -218,7 +218,7 @@
 						<height>96</height>
 						<bordersize>6</bordersize>
 						<aspectratio>scale</aspectratio>
-						<colordiffuse>OverlayColorNF</colordiffuse>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 						<visible>String.Contains(ListItem.Icon,Default)</visible>
@@ -228,7 +228,7 @@
 						<width>910</width>
 						<height>96</height>
 						<font>Font36</font>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
@@ -248,7 +248,7 @@
 						<height>96</height>
 						<bordersize>6</bordersize>
 						<aspectratio>scale</aspectratio>
-						<colordiffuse>OverlayColorFO</colordiffuse>
+						<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(451)">Conditional</animation>
 						<visible>String.Contains(ListItem.Icon,Default)</visible>
@@ -258,16 +258,24 @@
 						<width>910</width>
 						<height>96</height>
 						<font>Font36</font>
-						<textcolor>DialogColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>Control.HasFocus(451)</visible>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>910</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder + Control.HasFocus(451)</visible>
 					</control>
 					<control type="label">
 						<left>140</left>
 						<width>910</width>
 						<height>96</height>
 						<font>Font36</font>
-						<textcolor>DialogColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>!Control.HasFocus(451)</visible>
 					</control>
@@ -276,15 +284,7 @@
 						<left>140</left>
 						<width>910</width>
 						<height>58</height>
-						<texture>$VAR[focus58]</texture>
-						<visible>!ListItem.IsParentFolder + Control.HasFocus(451)</visible>
-					</control>
-					<control type="image">
-						<centertop>50%</centertop>
-						<left>140</left>
-						<width>910</width>
-						<height>58</height>
-						<texture colordiffuse="TextColor2">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder + !Control.HasFocus(451)</visible>
 					</control>
 				</focusedlayout>

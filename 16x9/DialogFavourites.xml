@@ -32,7 +32,7 @@
 				<width>405</width>
 				<height>600</height>
 				<texture>$INFO[Container(450).ListItem.Icon]</texture>
-				<colordiffuse>OverlayColorFO</colordiffuse>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio aligny="center">keep</aspectratio>
 				<visible>String.Contains(Container(450).ListItem.Icon,Default)</visible>
 			</control>
@@ -58,7 +58,7 @@
 						<height>90</height>
 						<font>Font36</font>
 						<label>$VAR[Label1]</label>
-						<textcolor>TextColor2</textcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 				</itemlayout>
 
@@ -70,19 +70,31 @@
 						<height>90</height>
 						<font>Font48</font>
 						<label>$VAR[Label1]</label>
-						<textcolor>TextColor1</textcolor>
+						<textcolor>$VAR[TextColor1]</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
-					</control>
-					<control type="image">
-						<width>1050</width>
-						<height>90</height>
-						<texture>$VAR[focus90]</texture>
 						<visible>Control.HasFocus(450)</visible>
 					</control>
 					<control type="image">
 						<width>1050</width>
 						<height>90</height>
-						<texture colordiffuse="DialogColor2">$VAR[focus90]</texture>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus90]</texture>
+						<visible>Control.HasFocus(450)</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>0</top>
+						<width>1050</width>
+						<height>90</height>
+						<font>Font48</font>
+						<label>$VAR[Label1]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
+						<visible>!Control.HasFocus(450)</visible>
+					</control>
+					<control type="image">
+						<width>1050</width>
+						<height>90</height>
+						<texture colordiffuse="$VAR[TextColor2]">$VAR[focus90]</texture>
 						<visible>!Control.HasFocus(450)</visible>
 					</control>
 				</focusedlayout>

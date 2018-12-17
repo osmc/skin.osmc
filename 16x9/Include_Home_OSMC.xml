@@ -28,7 +28,7 @@
 					<height>97</height>
 					<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 					<font>Font50</font>
-					<textcolor>TextColor2</textcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 			</itemlayout>
 
@@ -40,15 +40,8 @@
 					<height>97</height>
 					<label>[B]$INFO[ListItem.Label][/B]</label>
 					<font>Font50</font>
-					<textcolor>TextColor1</textcolor>
+					<textcolor>$VAR[TextColor1]</textcolor>
 					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>400</width>
-					<height>97</height>
-					<texture>$VAR[focus97]</texture>
 					<visible>Control.HasFocus(9000)</visible>
 				</control>
 				<control type="image">
@@ -56,7 +49,26 @@
 					<top>0</top>
 					<width>400</width>
 					<height>97</height>
-					<texture colordiffuse="TextColor2">$VAR[focus97]</texture>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus97]</texture>
+					<visible>Control.HasFocus(9000)</visible>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>400</width>
+					<height>97</height>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
+					<font>Font50</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
+					<visible>!Control.HasFocus(9000)</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>400</width>
+					<height>97</height>
+					<texture colordiffuse="$VAR[TextColor2]">$VAR[focus97]</texture>
 					<visible>!Control.HasFocus(9000)</visible>
 				</control>
 			</focusedlayout>
@@ -99,7 +111,7 @@
 			<animation effect="slide" time="0" end="-10000,0" condition="Integer.IsEqual(Container(9001).NumItems,0)">Conditional</animation>
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture colordiffuse="DarkenColor">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9010).HasFocus</visible>
@@ -160,24 +172,27 @@
 							<height>52</height>
 							<label>$INFO[ListItem.Label]</label>
 							<font>Font33</font>
-							<textcolor>DialogColor2</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 						</control>
 					</itemlayout>
 
 					<focusedlayout width="460" height="52">
-						<control type="image">
+						<control type="label">
 							<top>0</top>
 							<width>460</width>
 							<height>52</height>
-							<texture>$VAR[focus52]</texture>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9001)">Conditional</animation>
 							<visible>Control.HasFocus(9001)</visible>
 						</control>
 						<control type="image">
 							<top>0</top>
 							<width>460</width>
 							<height>52</height>
-							<texture colordiffuse="DialogColor2">$VAR[focus52]</texture>
-							<visible>!Control.HasFocus(9001)</visible>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+							<visible>Control.HasFocus(9001)</visible>
 						</control>
 						<control type="label">
 							<top>0</top>
@@ -185,8 +200,16 @@
 							<height>52</height>
 							<label>$INFO[ListItem.Label]</label>
 							<font>Font33</font>
-							<textcolor>DialogColor1</textcolor>
+							<textcolor>$VAR[TextColor2]</textcolor>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9001)">Conditional</animation>
+							<visible>!Control.HasFocus(9001)</visible>
+						</control>
+						<control type="image">
+							<top>0</top>
+							<width>460</width>
+							<height>52</height>
+							<texture colordiffuse="$VAR[TextColor2]">$VAR[focus52]</texture>
+							<visible>!Control.HasFocus(9001)</visible>
 						</control>
 					</focusedlayout>
 
