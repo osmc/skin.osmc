@@ -537,7 +537,7 @@
 		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.image) | [String.StartsWith(Container.FolderPath,plugin://plugin.image) + Window.IsVisible(10106)]">$LOCALIZE[1039]</value>
 		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.audio) | [String.StartsWith(Container.FolderPath,plugin://plugin.audio) + Window.IsVisible(10106)]">$LOCALIZE[1043]</value>
 		<value condition="String.StartsWith(Container.FolderPath,plugin://plugin.game) | [String.StartsWith(Container.FolderPath,plugin://plugin.game) + Window.IsVisible(10106)]">$LOCALIZE[35049]</value>
-		<value condition="!String.IsEmpty(Container.FolderName) + ![String.StartsWith(Container.FolderPath,addons://sources/video) | String.StartsWith(Container.FolderPath,addons://sources/audio) | String.StartsWith(Container.FolderPath,addons://sources/image) | String.StartsWith(Container.FolderPath,addons://sources/executable) | String.StartsWith(Container.FolderPath,addons://sources/game) | String.StartsWith(Container.FolderPath,plugin://plugin)">$INFO[Container.FolderName]</value>
+		<value condition="!String.IsEmpty(Container.FolderName) + ![String.StartsWith(Container.FolderPath,addons://sources/video) | String.StartsWith(Container.FolderPath,addons://sources/audio) | String.StartsWith(Container.FolderPath,addons://sources/image) | String.StartsWith(Container.FolderPath,addons://sources/executable) | String.StartsWith(Container.FolderPath,addons://sources/game) | String.StartsWith(Container.FolderPath,plugin://plugin)]">$INFO[Container.FolderName]</value>
 		<!--value condition="Container.Content(seasons)">$LOCALIZE[33054]</value>
 		<value condition="Container.Content(episodes)">$LOCALIZE[20360]</value-->
 		<value condition="Container.Content(musicvideos)">$LOCALIZE[20389]</value>
@@ -1076,8 +1076,8 @@
 		<value condition="Container.Content(directors) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20348]</value>
 		<value condition="Container.Content(countries) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[574]</value>
 		<value condition="Container.Content(countries) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20451]</value>
-		<value condition="Container.Content(Addons) + !Integer.IsGreater(Container.NumItems,1) + ">$LOCALIZE[24000]</value>
-		<value condition="Container.Content(Addons) + Integer.IsGreater(Container.NumItems,1) + ">$LOCALIZE[24001]</value>
+		<value condition="Container.Content(Addons) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[24000]</value>
+		<value condition="Container.Content(Addons) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[24001]</value>
 		<value condition="Container.Content(sets) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20141]</value>
 		<value condition="Container.Content(sets) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20434]</value>
 		<value condition="Container.Content(tags) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31002]</value>
