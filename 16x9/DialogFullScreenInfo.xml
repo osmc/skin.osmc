@@ -25,21 +25,34 @@
 				</control>
 
 				<!-- Title -->
-				<control type="label">
+				<control type="fadelabel">
 					<left>20</left>
 					<top>14</top>
-					<width>1280</width>
+					<width>1300</width>
 					<height>30</height>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				
+				<!-- Live TV Title -->
+				<control type="fadelabel">
+					<left>20</left>
+					<top>14</top>
+					<width>1020</width>
+					<height>30</height>
+					<font>Font33</font>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[VideoPlayerTitle]</label>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
 				</control>
 
 				<!-- Live TV Start/End Time -->
-				<control type="label">
-					<left>20</left>
+				<control type="fadelabel">
+					<right>300</right>
 					<top>14</top>
-					<width>1280</width>
+					<width>280</width>
 					<height>30</height>
 					<font>Font33</font>
 					<align>right</align>
@@ -139,6 +152,38 @@
 
 			<control type="group">
 				<visible>!Window.IsActive(seekbar) + !Window.IsActive(videoosd)</visible>
+				<animation type="Visible">
+					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+					<effect type="fade" start="0" end="100" time="200"/>
+				</animation>
+				
+				<!-- PVR channel number input -->
+				<control type="group">
+					<left>0</left>
+					<top>0</top>
+					<width>1920</width>
+					<height>1080</height>
+					<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
+					<control type="image">
+						<centerleft>50%</centerleft>
+						<centertop>50%</centertop>
+						<width>140</width>
+						<height>140</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					</control>
+					<control type="label">
+						<label>$INFO[PVR.ChannelNumberInput]</label>
+						<centerleft>50%</centerleft>
+						<centertop>50%</centertop>
+						<align>center</align>
+						<font>Font72</font>
+						<width>140</width>
+						<height>140</height>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<aligny>center</aligny>
+					</control>
+				</control>
+				
 				<!-- Player forwarding/rewinding -->
 				<control type="group">
 					<left>150</left>
@@ -213,6 +258,35 @@
 					</control>
 
 				</control>
+				
+				<!-- Timeshift status -->
+				<control type="group">
+					<visible>Pvr.IsTimeShift</visible>
+					<left>430</left>
+					<top>870</top>
+					<width>920</width>
+					<height>60</height>
+					<animation type="Visible">
+						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					
+					<control type="image">
+						<width>920</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					</control>
+					
+					<control type="label">
+						<left>20</left>
+						<width>880</width>
+						<height>60</height>
+						<font>Font27</font>
+						<align>center</align>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$LOCALIZE[31112] $INFO[PVR.TimeshiftCur(hh:mm xx)] (-$INFO[PVR.TimeshiftOffset])</label>
+					</control>
+				</control>
 
 				<!-- Progress -->
 				<control type="group">
@@ -236,6 +310,18 @@
 						<font>Font27</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
+						<visible>!Pvr.IsPlayingTv</visible>
+					</control>
+					
+					<!--  PVR current position/Time remaining -->
+					<control type="label">
+						<left>20</left>
+						<width>260</width>
+						<height>60</height>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 					</control>
 
 					<!--  Progress bar -->
@@ -250,6 +336,22 @@
 						<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
 						<righttexture></righttexture>
 						<overlaytexture></overlaytexture>
+						<visible>!Pvr.IsPlayingTv</visible>
+					</control>
+					
+					<!--  PVR progress bar -->
+					<control type="progress">
+						<left>280</left>
+						<top>20</top>
+						<width>920</width>
+						<height>20</height>
+						<info>PVR.EpgEventProgress</info>
+						<texturebg border="2" colordiffuse="$VAR[DialogColor2]">osd/OSDProgressBack.png</texturebg>
+						<lefttexture></lefttexture>
+						<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
+						<righttexture></righttexture>
+						<overlaytexture></overlaytexture>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 					</control>
 
 					<!--  Cache bar -->
@@ -275,7 +377,19 @@
 						<font>Font27</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
-						<visible>Integer.IsGreater(Player.Duration,0)</visible>
+						<visible>Integer.IsGreater(Player.Duration,0) + !Pvr.IsPlayingTv</visible>
+					</control>
+					
+					<!-- PVR current Time/End Time -->
+					<control type="label">
+						<left>1001</left>
+						<width>600</width>
+						<height>60</height>
+						<align>right</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081] ,]</label>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 					</control>
 
 				</control>

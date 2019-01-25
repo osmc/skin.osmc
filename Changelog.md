@@ -7,6 +7,8 @@ _New_
 - add player icon to now playing dialog
 - add new dependency button in addon info dialog to match v18 requirements
 - new color options (color sets, background gradients, adjustable opacity)
+- add PVR channel number input dialog
+- add PVR timeshift status dialog
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -16,6 +18,8 @@ _Improved_
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
 - highlighting is now more consistent
+- fix current position/time remaining and current time/end time for PVR playback
+- hide deprecated previous/next channel buttons in PVR playback OSD
 
 **Changelog v18.0.0**
 
@@ -117,6 +121,12 @@ DialogFavourites.xml:
 
 DialogFullScreenInfo.xml:
 - replace colors by new color variables
+- turn title and TV channel name/number labels into fadelabels
+- add PVR channel number input dialog
+- add PVR timeshift status dialog
+- fix current position/time remaining for PVR playback
+- add PVR progress bar
+- fix current time/end time for PVR playback
 
 DialogGameControllers.xml:
 - replace colors by new color variables
@@ -165,6 +175,12 @@ DialogPVRInfo.xml:
 
 DialogSeekBar.xml:
 - replace colors by new color variables
+- fix animations
+- add PVR channel number input dialog
+- add PVR timeshift status dialog
+- fix current position/time remaining for PVR playback
+- add PVR progress bar
+- fix current time/end time for PVR playback
 
 DialogSelect.xml:
 - replace colors by new color variables
@@ -314,6 +330,7 @@ SkinSettings.xml:
 - rework default background image option
 - remove old background and overlay color options
 - add skin settings backup and restore option
+- fix onup and ondown for addons submenu
 
 SmartPlaylistEditor.xml:
 - replace colors by new color variables
@@ -329,12 +346,24 @@ Variables.xml:
 - remove focus variable
 - add new buttonfocus variable
 - replace colors by new color variables
+- change PVR video player info variable
 
 VideoFullScreen.xml:
 - replace colors by new color variables
+- add PVR timeshift status dialog
+- fix current position/time remaining for PVR playback
+- add PVR progress bar
+- fix current time/end time for PVR playback
 
 VideoOSD.xml:
 - replace colors by new color variables
+- add PVR channel number input dialog
+- fix animations
+- add PVR timeshift status dialog
+- fix current position/time remaining for PVR playback
+- add PVR progress bar
+- fix current time/end time for PVR playback
+- hide deprecated previous/next channel buttons
 
 VideoOSDBookmarks.xml:
 - replace colors by new color variables
@@ -363,6 +392,7 @@ Viewtype55.xml:
 
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
+- add new localize for new PVR timeshift status dialog (31112)
 
 Textures.xbt:
 - update file with new resolution select icon included
