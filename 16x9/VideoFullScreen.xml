@@ -55,7 +55,7 @@
 
 		<control type="group" id="1">
 			<visible>Window.IsActive(seekbar) | !String.IsEmpty(Player.SeekNumeric) | Player.DisplayAfterSeek | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
-			<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+			<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml)</visible>
 			<left>150</left>
 			<top>870</top>
 			<width>1620</width>
@@ -232,7 +232,7 @@
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
-					<visible>!Pvr.IsPlayingTv</visible>
+					<visible>!Pvr.IsPlayingTv | Pvr.IsPlayingTv + !VideoPlayer.HasEpg</visible>
 				</control>
 				
 				<!--  PVR current position/Time remaining -->
@@ -258,7 +258,7 @@
 					<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
-					<visible>!Pvr.IsPlayingTv</visible>
+					<visible>!Pvr.IsPlayingTv | Pvr.IsPlayingTv + !VideoPlayer.HasEpg</visible>
 				</control>
 				
 				<!--  PVR progress bar -->
@@ -300,7 +300,7 @@
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor2]</textcolor>
 					<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
-					<visible>Integer.IsGreater(Player.Duration,0) + !Pvr.IsPlayingTv</visible>
+					<visible>Integer.IsGreater(Player.Duration,0) + [!Pvr.IsPlayingTv | Pvr.IsPlayingTv + !VideoPlayer.HasEpg]</visible>
 				</control>
 				
 				<!-- PVR current Time/End Time -->
