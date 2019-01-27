@@ -135,6 +135,15 @@
 				<!-- Animation -->
 				<include>DialogZoomAnimation</include>
 				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+				<visible>!Window.IsVisible(10153)</visible>
+				<animation type="Visible">
+					<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+					<effect type="fade" start="0" end="100" time="300" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="zoom" start="100" end="70" center="auto" time="300" />
+					<effect type="fade" start="100" end="0" time="300" />
+				</animation>
 
 				<!-- Window Background -->
 				<control type="image">
