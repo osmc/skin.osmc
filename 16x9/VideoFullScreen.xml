@@ -55,6 +55,7 @@
 
 		<control type="group" id="1">
 			<visible>Window.IsActive(seekbar) | !String.IsEmpty(Player.SeekNumeric) | Player.DisplayAfterSeek | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
+			<visible>!Window.IsVisible(DialogSettings.xml)</visible>
 			<left>150</left>
 			<top>870</top>
 			<width>1620</width>
@@ -73,7 +74,7 @@
 			<control type="group" id="1">
 				<width>140</width>
 				<height>60</height>
-				<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml)</visible>
+				<visible>!Window.IsVisible(VideoBookmarks)</visible>
 				<visible>player.forwarding + !Player.HasGame | player.rewinding + !Player.HasGame | player.paused | player.istempo + !Player.HasGame</visible>
 				<animation type="Visible">
 					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
@@ -118,7 +119,7 @@
 				<width>140</width>
 				<height>60</height>
 				<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize)] + !Player.HasGame</visible>
-				<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml)</visible>
+				<visible>!Window.IsVisible(VideoBookmarks)</visible>
 				<animation type="Visible">
 					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 					<effect type="fade" start="0" end="100" time="200"/>
@@ -162,7 +163,7 @@
 
 			<!-- Timeshift status -->
 			<control type="group" id="1">
-				<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml)</visible>
+				<visible>!Window.IsVisible(VideoBookmarks)</visible>
 				<visible>Pvr.IsTimeShift</visible>
 				<width>380</width>
 				<height>60</height>
@@ -207,7 +208,6 @@
 				<top>75</top>
 				<width>1620</width>
 				<height>60</height>
-				<visible>!Window.IsVisible(DialogSettings.xml)</visible>
 				<animation type="Visible">
 					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 					<effect type="fade" start="0" end="100" time="200"/>
