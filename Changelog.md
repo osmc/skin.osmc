@@ -14,12 +14,14 @@ _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
 - adjust PVR section to match v18 requirements
 - highlighting color now adjusts according to text color
+- streamline OSD animations
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
 - highlighting is now more consistent
 - fix current position/time remaining and current time/end time for PVR playback
 - hide deprecated previous/next channel buttons in PVR playback OSD
+- fix background of subtitle settings window
 
 **Changelog v18.0.0**
 

@@ -53,22 +53,36 @@
 
 		</control>
 
-
-		<!-- Seek Numeric -->
 		<control type="group" id="1">
-			<visible>!String.IsEmpty(Player.SeekNumeric) + !Window.IsVisible(VideoOSD)</visible>
+			<visible>Window.IsActive(seekbar) | !String.IsEmpty(Player.SeekNumeric) | Player.DisplayAfterSeek | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
+			<left>150</left>
+			<top>870</top>
+			<width>1620</width>
+			<height>60</height>
+			<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(VideoOSD)">Conditional</animation>
 			<animation type="Visible">
 				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 				<effect type="fade" start="0" end="100" time="200"/>
 			</animation>
+			<animation type="Hidden">
+				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" time="200"/>
+			</animation>
 
 			<!-- Player forwarding/rewinding -->
 			<control type="group" id="1">
-				<left>150</left>
-				<top>870</top>
 				<width>140</width>
 				<height>60</height>
-				<visible>player.forwarding | player.rewinding | player.paused | player.istempo</visible>
+				<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml)</visible>
+				<visible>player.forwarding + !Player.HasGame | player.rewinding + !Player.HasGame | player.paused | player.istempo + !Player.HasGame</visible>
+				<animation type="Visible">
+					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+					<effect type="fade" start="0" end="100" time="200"/>
+				</animation>
+				<animation type="Hidden">
+					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+					<effect type="fade" start="100" end="0" time="200"/>
+				</animation>
 
 				<!-- Background -->
 				<control type="image" id="1">
@@ -97,13 +111,22 @@
 				</control>
 
 			</control>
-
+			
 			<!-- Player skipping -->
 			<control type="group" id="1">
-				<right>150</right>
-				<top>870</top>
+				<right>0</right>
 				<width>140</width>
 				<height>60</height>
+				<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize)] + !Player.HasGame</visible>
+				<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml)</visible>
+				<animation type="Visible">
+					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+					<effect type="fade" start="0" end="100" time="200"/>
+				</animation>
+				<animation type="Hidden">
+					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+					<effect type="fade" start="100" end="0" time="200"/>
+				</animation>
 
 				<!-- Background -->
 				<control type="image" id="1">
@@ -112,53 +135,87 @@
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 
-				<!-- Numeric seek -->
+				<!-- Status -->
 				<control type="label" id="1">
 					<width>140</width>
 					<height>60</height>
 					<font>Font27</font>
 					<align>center</align>
-					<label>$INFO[Player.SeekNumeric(hh:mm:ss)]</label>
+					<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B][B]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)][/B]</label>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>!Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize)</visible>
+				</control>
+
+				<!-- Status -->
+				<control type="label" id="1">
+					<width>140</width>
+					<height>60</height>
+					<font>Font27</font>
+					<align>center</align>
+					<visible>!String.IsEmpty(Player.SeekStepSize)</visible>
+					<label>$INFO[Player.SeekStepSize]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 
 			</control>
 
+
 			<!-- Timeshift status -->
-			<control type="group">
+			<control type="group" id="1">
+				<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml)</visible>
 				<visible>Pvr.IsTimeShift</visible>
-				<left>430</left>
-				<top>870</top>
-				<width>920</width>
+				<width>380</width>
 				<height>60</height>
+				<animation effect="slide" end="155,0" time="200" condition="player.forwarding | player.rewinding | player.paused | player.istempo">Conditional</animation>
 				<animation type="Visible">
 					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 					<effect type="fade" start="0" end="100" time="200"/>
 				</animation>
+				<animation type="Hidden">
+					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+					<effect type="fade" start="100" end="0" time="200"/>
+				</animation>
 
-				<control type="image">
-					<width>920</width>
+				<control type="image" id="1">
+					<width>380</width>
 					<height>60</height>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 				
-				<control type="label">
-					<left>20</left>
-					<width>880</width>
-					<height>60</height>
-					<font>Font27</font>
-					<align>center</align>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<label>$LOCALIZE[31112] $INFO[PVR.TimeshiftCur(hh:mm xx)] (-$INFO[PVR.TimeshiftOffset])</label>
+				<control type="group" id="1">
+					<control type="image" id="1">
+						<left>10</left>
+						<width>60</width>
+						<height>60</height>
+						<texture>osd/OSDTimeShift.png</texture>
+					</control>
+					
+					<control type="label" id="1">
+						<left>80</left>
+						<width>280</width>
+						<height>60</height>
+						<font>Font27</font>
+						<align>center</align>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[PVR.TimeshiftOffset,[B]-,[/B]] ($LOCALIZE[335]: $INFO[PVR.TimeShiftStart])</label>
+					</control>
 				</control>
 			</control>
 			
 			<!-- Progress -->
 			<control type="group" id="1">
-				<left>150</left>
-				<top>945</top>
+				<top>75</top>
 				<width>1620</width>
 				<height>60</height>
+				<visible>!Window.IsVisible(DialogSettings.xml)</visible>
+				<animation type="Visible">
+					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+					<effect type="fade" start="0" end="100" time="200"/>
+				</animation>
+				<animation type="Hidden">
+					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+					<effect type="fade" start="100" end="0" time="200"/>
+				</animation>
 
 				<!-- Background -->
 				<control type="image" id="1">
@@ -179,7 +236,7 @@
 				</control>
 				
 				<!--  PVR current position/Time remaining -->
-				<control type="label">
+				<control type="label" id="1">
 					<left>20</left>
 					<width>260</width>
 					<height>60</height>
@@ -205,7 +262,7 @@
 				</control>
 				
 				<!--  PVR progress bar -->
-				<control type="progress">
+				<control type="progress" id="1">
 					<left>280</left>
 					<top>20</top>
 					<width>920</width>
@@ -231,6 +288,7 @@
 					<midtexture colordiffuse="OSDCache" border="2">osd/OSDProgressBar.png</midtexture>
 					<righttexture></righttexture>
 					<overlaytexture></overlaytexture>
+					<visible>!Pvr.IsTimeShift + ![player.paused + Pvr.IsPlayingTv]</visible>
 				</control>
 
 				<!-- Current Time/End Time -->
@@ -246,7 +304,7 @@
 				</control>
 				
 				<!-- PVR current Time/End Time -->
-				<control type="label">
+				<control type="label" id="1">
 					<left>1001</left>
 					<width>600</width>
 					<height>60</height>
