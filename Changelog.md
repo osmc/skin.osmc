@@ -15,6 +15,8 @@ _Improved_
 - adjust PVR section to match v18 requirements
 - highlighting color now adjusts according to text color
 - streamline OSD animations
+- add missing adjustable plot fonts
+- let favourites dialog behave like a normal window
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
@@ -22,6 +24,7 @@ _Fixed_
 - fix current position/time remaining and current time/end time for PVR playback
 - hide deprecated previous/next channel buttons in PVR playback OSD
 - fix background of subtitle settings window
+- fix layout of PVR playback dialogs
 
 **Changelog v18.0.0**
 
@@ -120,6 +123,8 @@ DialogExtendedProgressBar.xml:
 DialogFavourites.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- change behaviour to mimic normal window behaviour (not dialog behaviour)
+- fix onup/ondown behaviour
 
 DialogFullScreenInfo.xml:
 - replace colors by new color variables
@@ -156,6 +161,8 @@ DialogPlayerProcessInfo.xml:
 DialogPVRChannelGuide.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- rework window layout
+- add adjustable plot font
 
 DialogPVRChannelManager.xml:
 - replace colors by new color variables
@@ -164,6 +171,8 @@ DialogPVRChannelManager.xml:
 DialogPVRChannelsOSD.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- rework window layout
+- add adjustable plot font
 
 DialogPVRGroupManager.xml:
 - replace colors by new color variables
@@ -262,17 +271,23 @@ MyPrograms.xml:
 MyPVRChannels.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- add adjustable plot font
 
 MyPVRGuide.xml:
 - replace colors by new color variables
+- remove scrollbar
+- add highlighting
+- add adjustable plot font
 
 MyPVRRecordings.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- add adjustable plot font
 
 MyPVRSearch.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- add adjustable plot font
 
 MyPVRTimers.xml:
 - replace colors by new color variables
@@ -349,6 +364,9 @@ Variables.xml:
 - add new buttonfocus variable
 - replace colors by new color variables
 - change PVR video player info variable
+- add new PVRCHannelIconDialogOSD variable
+- add new PlotDialogGuide variable
+- add new PVRDescriptionDialogGuide variable
 
 VideoFullScreen.xml:
 - replace colors by new color variables
@@ -378,6 +396,7 @@ Viewtype50.xml:
 Viewtype51.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- add adjustable plot font
 
 Viewtype52.xml:
 - replace colors by new color variables

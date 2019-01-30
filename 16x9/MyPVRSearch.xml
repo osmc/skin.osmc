@@ -166,16 +166,6 @@
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
-					
-					<!-- Highlighting -->
-					<control type="image">
-						<left>280</left>
-						<top>12</top>
-						<width>500</width>
-						<height>51</height>
-						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-					</control>
 
 					<!-- Channel name -->
 					<control type="label">
@@ -196,6 +186,16 @@
 						<width>200</width>
 						<label>$INFO[ListItem.Duration]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
+						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+					</control>
+					
+					<!-- Highlighting -->
+					<control type="image">
+						<left>280</left>
+						<top>12</top>
+						<width>720</width>
+						<height>51</height>
+						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 					</control>
 
@@ -228,7 +228,7 @@
 				<width>512</width>
 
 				<!-- Program name -->
-				<control type="label">
+				<control type="fadelabel">
 					<width>512</width>
 					<label>$INFO[Container(50).ListItem.Title]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
@@ -239,17 +239,34 @@
 					<visible>Container(50).ListItem.HasEpg</visible>
 
 					<!-- Plot -->
-					<control type="textbox">
+					<control type="group">
 						<width>512</width>
 						<height>460</height>
 						<align>justify</align>
-						<font>Font25</font>
-						<textcolor>$VAR[TextColor1]</textcolor>
-						<info>Container(50).ListItem.Plot</info>
+						<control type="textbox">
+							<info>Container(50).ListItem.Plot</info>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+							<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+						</control>
+						<control type="textbox">
+							<font>Font30</font>
+							<info>Container(50).ListItem.Plot</info>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+							<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+						</control>
+						<control type="textbox">
+							<font>Font33</font>
+							<info>Container(50).ListItem.Plot</info>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+							<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+						</control>
 					</control>
 
 					<!-- Next program -->
-					<control type="label">
+					<control type="fadelabel">
 						<right>0</right>
 						<top>504</top>
 						<width>512</width>

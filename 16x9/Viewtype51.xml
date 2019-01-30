@@ -101,14 +101,31 @@
 				</control>
 				
 				<!-- Episode Plot -->
-				<control type="textbox">
+				<control type="group">
 					<left>0</left>
 					<top>474</top>
 					<width>450</width>
 					<height>190</height>
-					<label>$VAR[Plot]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+					<control type="textbox">
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					</control>
+					<control type="textbox">
+						<font>Font30</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					</control>
+					<control type="textbox">
+						<font>Font33</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					</control>
 				</control>
 
 			</control>
