@@ -593,6 +593,11 @@
 		<value condition="ListItem.IsEncrypted">pvr/encrypted.png</value>
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
+	
+	<variable name="PVRChannelIconDialogOSD">
+		<value condition="Container(11).ListItem.IsEncrypted">pvr/encrypted.png</value>
+		<value>$INFO[Container(11).ListItem.Thumb]</value>
+	</variable>
 
 	<variable name="BackgroundImage">
 		<value condition="String.IsEqual(Window.Property(xmlfile),Home.xml) + !String.IsEmpty(Container(9000).ListItem.Property(background))">$INFO[Container(9000).ListItem.Property(background)]</value>
@@ -603,6 +608,11 @@
 	<variable name="Plot">
 		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
 		<value condition="!String.IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
+	</variable>
+	
+	<variable name="PlotDialogGuide">
+		<value condition="!String.IsEmpty(Container(11).ListItem.Plot)">$INFO[Container(11).ListItem.Plot]</value>
+		<value condition="!String.IsEmpty(Container(11).ListItem.PlotOutline)">$INFO[Container(11).ListItem.PlotOutline]</value>
 	</variable>
 
 	<variable name="VideoPlayerPlot">
@@ -1224,6 +1234,13 @@
 	</variable>
 	<variable name="PVRSeasonEpisode">
 		<value condition="!String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , / ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
+	</variable>
+	
+	<variable name="PVRDescriptionDialogGuide">
+		<value>$INFO[Container(11).ListItem.TVShowTitle,[B],[/B][CR][CR]]$INFO[Container(11).ListItem.Title,[B],[/B][CR][CR]]$VAR[PVRSeasonEpisodeDialogGuide,[LIGHT],[/LIGHT][CR][CR]]$VAR[PlotDialogGuide]</value>
+	</variable>
+	<variable name="PVRSeasonEpisodeDialogGuide">
+		<value condition="!String.IsEmpty(Container(11).ListItem.Season)">$INFO[Container(11).ListItem.Season,$LOCALIZE[20373] , / ]$INFO[Container(11).ListItem.Episode,$LOCALIZE[20359] ]</value>
 	</variable>
 
 	<!-- Music Next Playing -->
