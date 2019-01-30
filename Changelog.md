@@ -413,7 +413,6 @@ Viewtype55.xml:
 
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
-- add new localize for new PVR timeshift status dialog (31112)
 
 Textures.xbt:
 - update file with new resolution select icon included
