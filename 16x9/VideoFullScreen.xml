@@ -75,7 +75,7 @@
 				<width>140</width>
 				<height>60</height>
 				<visible>!Window.IsVisible(VideoBookmarks)</visible>
-				<visible>[player.forwarding | player.rewinding | player.istempo] + !Player.HasGame | player.paused</visible>
+				<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek] + !Player.HasGame + !Player.Seeking | player.paused</visible>
 				<animation type="Visible">
 					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 					<effect type="fade" start="0" end="100" time="200"/>
@@ -100,6 +100,13 @@
 					<align>center</align>
 					<label>$VAR[PlayerStatus]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>player.forwarding | player.rewinding | player.istempo</visible>
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="200"/>
+					</animation>
 				</control>
 
 				<!-- Pause -->
@@ -109,6 +116,27 @@
 					<height>60</height>
 					<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texture>
 					<visible>player.paused</visible>
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="200"/>
+					</animation>
+				</control>
+				
+				<!-- Play after seek -->
+				<control type="image" id="1">
+					<left>40</left>
+					<width>60</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</texture>
+					<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" time="200"/>
+					</animation>
 				</control>
 
 			</control>
