@@ -21,6 +21,7 @@
 	<onload condition="String.IsEmpty(Skin.String(NFDimOpac))">Skin.SetString(NFDimOpac,100)</onload>
 	
 	<!-- Skin settings background + colors -->
+	<onload condition="String.IsEmpty(Skin.String(WelcomeDialogShown)) + !System.HasAddon(service.osmc.settings)">ActivateWindow(1101)</onload>
 	<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundImage,1)</onload>
 	<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundImage,1)</onload>
 	<onload condition="String.IsEmpty(Skin.String(BackgroundDefaultImage))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
