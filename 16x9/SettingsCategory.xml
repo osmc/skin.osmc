@@ -2,6 +2,7 @@
 <window>
 	<!-- settingscategory -->
 	<backgroundcolor>0x00000000</backgroundcolor>
+	<onload condition="String.IsEmpty(Skin.String(WelcomeDialogShown)) + !System.HasAddon(service.osmc.settings)">ActivateWindow(1101)</onload>
 	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1&amp;options=noGroups)</onunload>
 	<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
 	<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Always)</onload>

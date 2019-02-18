@@ -9,6 +9,7 @@ _New_
 - new color options (color sets, background gradients, adjustable opacity)
 - add PVR channel number input dialog
 - add PVR timeshift status dialog
+- ddd welcome dialog on non-OSMC devices
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -62,9 +63,13 @@ _Add new dependency button in addon info dialog to match v18 requirements:_
 Addon.Browser.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- add onload to show welcome screen after installing the skin from zip
 
 Custom_Cache_Progress.xml:
 - replace colors by new color variables
+
+Custom_Welcom.xml
+- add new Welcome dialog for non-OSMC devices
 
 Defaults.xml:
 - replace colors by new color variables
@@ -222,6 +227,7 @@ GameOSD.xml:
 Home.xml:
 - add new onloads
 - replace colors by new color variables
+- add onload to show welcome screen when Home screen first shows up
 
 Include_DialogSettings.xml:
 - replace colors by new color variables
@@ -326,6 +332,7 @@ Settings.xml:
 SettingsCategory.xml:
 - replace colors by new color variables
 - replace focus variable for button highlighting
+- add onload to show welcome screen after activating the skin from settings
 
 SettingsProfile.xml:
 - replace colors by new color variables
