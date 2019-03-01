@@ -9,7 +9,8 @@ _New_
 - new color options (color sets, background gradients, adjustable opacity)
 - add PVR channel number input dialog
 - add PVR timeshift status dialog
-- ddd welcome dialog on non-OSMC devices
+- add welcome dialog on non-OSMC devices
+- add director button to video info dialog
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -18,6 +19,7 @@ _Improved_
 - streamline OSD animations
 - add missing adjustable plot fonts
 - let favourites dialog behave like a normal window
+- add file path and name to refresh button in video info dialog
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
@@ -68,7 +70,7 @@ Addon.Browser.xml:
 Custom_Cache_Progress.xml:
 - replace colors by new color variables
 
-Custom_Welcom.xml
+Custom_Welcome.xml
 - add new Welcome dialog for non-OSMC devices
 
 Defaults.xml:
@@ -208,6 +210,8 @@ DialogSubtitles.xml:
 
 DialogVideoInfo.xml:
 - replace colors by new color variables
+- add director button
+- add file path and name to refresh button
 
 EventLog.xml:
 - replace colors by new color variables
