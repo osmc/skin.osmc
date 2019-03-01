@@ -47,6 +47,19 @@
 					<aspectratio aligny="center">keep</aspectratio>
 				</control>
 			</control>
+			
+			<control type="fadelabel">
+				<left>150</left>
+				<bottom>180</bottom>
+				<width>1620</width>
+				<height>36</height>
+				<font>Font27</font>
+				<align>center</align>
+				<label>$INFO[ListItem.FileNameAndPath]</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<pauseatend>5000</pauseatend>
+				<visible>Control.HasFocus(6)</visible>
+			</control>
 
 			<!-- Info -->
 			<control type="group">
@@ -438,6 +451,12 @@
 					<width>Auto</width>
 					<label>206</label>
 					<onclick condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SetFocus(50)</onclick>
+				</control>
+				<!-- Director Button -->
+				<control type="button" id="13">
+					<width>Auto</width>
+					<label>20339</label>
+					<visible>!String.IsEmpty(ListItem.Director)</visible>
 				</control>
 				<!-- Refresh Button -->
 				<control type="button" id="6">
