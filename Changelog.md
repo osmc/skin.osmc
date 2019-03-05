@@ -11,6 +11,7 @@ _New_
 - add PVR timeshift status dialog
 - add welcome dialog on non-OSMC devices
 - add director button to video info dialog
+- add new views (wide low, wall small, wall low)
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -20,6 +21,8 @@ _Improved_
 - add missing adjustable plot fonts
 - let favourites dialog behave like a normal window
 - add file path and name to refresh button in video info dialog
+- add song/album year to music player
+- add wide list as music view
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
@@ -245,6 +248,9 @@ Includes.xml:
 - rework Overlay include
 - remove Custom color Overlay include
 - replace colors by new color variables
+- add new include files
+- fix position and size of duration icon
+- prevent size from being shown when file is 0B on all platforms
 
 Includes_Widgets.xml:
 - replace colors by new color variables
@@ -258,12 +264,15 @@ MusicOSD.xml:
 
 MusicVisualisation.xml:
 - replace colors by new color variables
+- add song/album year
 
 MyGames.xml:
 - replace colors by new color variables
 
 MyMusicNav.xml:
 - replace colors by new color variables
+- add wide list to music
+- add new scrollbar for new view
 
 MyMusicPlaylistEditor.xml:
 - replace colors by new color variables
@@ -305,6 +314,10 @@ MyPVRTimers.xml:
 
 MyVideoNav.xml:
 - replace colors by new color variables
+- add new wide list low view to video
+- add new wall low view to video
+- add new wall small view to video
+- add new scrollbars for new views
 
 MyWeather.xml:
 - replace colors by new color variables
@@ -411,6 +424,8 @@ Viewtype51.xml:
 
 Viewtype52.xml:
 - replace colors by new color variables
+- add albums and artists as allowed container content to conditional visibility
+- add required image thumbs for artists and albums
 
 Viewtype53.xml:
 - replace colors by new color variables
@@ -422,8 +437,18 @@ Viewtype54.xml:
 Viewtype55.xml:
 - replace colors by new color variables
 
+Viewtype56.xml:
+- new wide list low view
+
+Viewtype56.xml:
+- new wall low view
+
+Viewtype58.xml:
+- new wall small view
+
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
+- add new localizes for new views (31112, 31113, 31114)
 
 Textures.xbt:
 - update file with new resolution select icon included

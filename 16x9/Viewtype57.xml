@@ -1,56 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="Viewtype52">
+	<include name="Viewtype57">
 
 		<control type="group">
-			<visible>Control.IsVisible(52)</visible>
+			<visible>Control.IsVisible(57)</visible>
 
-			<!-- Wide list -->
-			<control type="fixedlist" id="52">
-				<left>0</left>
-				<top>120</top>
-				<width>1920</width>
-				<height>750</height>
-				<onup condition="!Skin.HasSetting(KioskMode)">3001</onup>
-				<ondown>61</ondown>
-				<onleft>52</onleft>
-				<onright>52</onright>
-				<pagecontrol>61</pagecontrol>
+			<!-- Thumbs -->
+			<control type="panel" id="57">
+				<left>150</left>
+				<top>420</top>
+				<width>1620</width>
+				<height>400</height>
+				<onleft>67</onleft>
+				<onright condition="!Skin.HasSetting(KioskMode)">3001</onright>
+				<onup>57</onup>
+				<ondown>57</ondown>
+				<pagecontrol>67</pagecontrol>
 				<preloaditems>4</preloaditems>
-				<focusposition>3</focusposition>
-				<orientation>horizontal</orientation>
-				<viewtype label="539">list</viewtype>
+				<viewtype label="$LOCALIZE[31113]">icon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(artists)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 
-				<itemlayout width="253" height="666">
+				<itemlayout width="162" height="200">
 					<!-- Image - Movies -->
-					<include content="image-52">
+					<include content="image-57">
 						<param name="fallback">DefaultMovie.png</param>
+						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(movies)</param>
 					</include>
-					<!-- Image - Albums -->
-					<include content="image-52">
-						<param name="fallback">DefaultAlbumCover.png</param>
-						<param name="visible">Container.Content(albums)</param>
-					</include>
-					<!-- Image - Artists -->
-					<include content="image-52">
-						<param name="fallback">DefaultUser.png</param>
-						<param name="visible">Container.Content(artists)</param>
-					</include>
-					<!-- Image - TV Shows -->
-					<include content="image-52">
+					<!-- Image - TV -->
+					<include content="image-57">
 						<param name="fallback">DefaultTVShows.png</param>
-						<param name="visible">Container.Content(tvshows)</param>
+						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+						<param name="visible">!Container.Content(movies)</param>
 					</include>
 					<!-- Collection -->
 					<control type="group">
-						<left>14</left>
-						<bottom>168</bottom>
-						<width>49</width>
-						<height>49</height>
+						<left>24</left>
+						<bottom>6</bottom>
+						<width>51</width>
+						<height>51</height>
 						<visible>ListItem.IsCollection</visible>
 						<control type="image">
 							<texture background="true">views/OverlayCornerLeft.png</texture>
@@ -63,15 +53,15 @@
 					</control>
 					<!-- Watched status -->
 					<control type="group">
-						<right>14</right>
-						<bottom>168</bottom>
-						<width>49</width>
-						<height>49</height>
+						<right>24</right>
+						<bottom>6</bottom>
+						<width>51</width>
+						<height>51</height>
 						<visible>!ListItem.IsCollection</visible>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-							<visible>!ListItem.IsCollection + [[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)]</visible>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
 						</control>
 						<control type="image">
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
@@ -80,36 +70,26 @@
 					</control>
 				</itemlayout>
 
-				<focusedlayout width="405" height="666">
+				<focusedlayout width="162" height="200">
 					<control type="group">
-						<animation effect="zoom" start="56" end="100" center="202,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="100" end="87" center="auto" time="30" tween="linear" reversible="false">Unfocus</animation>
 						<!-- Image - Movies -->
-						<include content="image-52-focus">
+						<include content="image-57-focused">
 							<param name="fallback">DefaultMovie.png</param>
 							<param name="visible">Container.Content(movies)</param>
 						</include>
-						<!-- Image - Albums -->
-						<include content="image-52-focus">
-							<param name="fallback">DefaultAlbumCover.png</param>
-							<param name="visible">Container.Content(albums)</param>
-						</include>
-						<!-- Image - Artists -->
-						<include content="image-52-focus">
-							<param name="fallback">DefaultUser.png</param>
-							<param name="visible">Container.Content(artists)</param>
-						</include>
-						<!-- Image - TV Shows -->
-						<include content="image-52-focus">
+						<!-- Image - TV -->
+						<include content="image-57-focused">
 							<param name="fallback">DefaultTVShows.png</param>
-							<param name="visible">Container.Content(tvshows)</param>
+							<param name="visible">!Container.Content(movies)</param>
 						</include>
 						<!-- Collection -->
 						<control type="group">
-							<left>0</left>
-							<bottom>42</bottom>
-							<width>88</width>
-							<height>88</height>
-							<fadetime>200</fadetime>
+							<left>15</left>
+							<bottom>0</bottom>
+							<width>60</width>
+							<height>60</height>
 							<visible>ListItem.IsCollection</visible>
 							<control type="image">
 								<texture background="true">views/OverlayCornerLeft.png</texture>
@@ -120,11 +100,10 @@
 						</control>
 						<!-- Watched status -->
 						<control type="group">
-							<right>0</right>
-							<bottom>42</bottom>
-							<width>88</width>
-							<height>88</height>
-							<fadetime>200</fadetime>
+							<right>15</right>
+							<bottom>0</bottom>
+							<width>60</width>
+							<height>60</height>
 							<visible>!ListItem.IsCollection</visible>
 							<control type="image">
 								<texture background="true">views/OverlayCornerRight.png</texture>
@@ -136,31 +115,31 @@
 						</control>
 					</control>
 				</focusedlayout>
-
 			</control>
 
 			<control type="group">
-				<centerleft>50%</centerleft>
-				<top>800</top>
-				<width>1920</width>
+				<!-- <centerleft>75%</centerleft> -->
+				<left>410</left>
+				<top>850</top>
+				<width>920</width>
 				<height>100</height>
 
 				<!-- Title -->
 				<control type="fadelabel">
-					<left>120</left>
+					<left>90</left>
 					<top>0</top>
-					<width>1680</width>
+					<width>920</width>
 					<height>72</height>
 					<font>Font72</font>
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[Label1]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(57)">Conditional</animation>
 				</control>
 
 				<!-- Details -->
 				<control type="fadelabel">
-					<left>500</left>
+					<left>90</left>
 					<top>88</top>
 					<width>920</width>
 					<height>54</height>
@@ -169,7 +148,7 @@
 					<aligny>top</aligny>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(57)">Conditional</animation>
 				</control>
 
 			</control>
@@ -178,33 +157,36 @@
 
 	</include>
 
-	<include name="image-52">
+	<include name="image-57">
 		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<bottom>168</bottom>
-				<left>14</left>
-				<width>225</width>
-				<height>350</height>
-				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<bottom>6</bottom>
+				<left>24</left>
+				<width>114</width>
+				<height>173</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
 	</include>
-
-	<include name="image-52-focus">
+	
+	<include name="image-57-focused">
 		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<bottom>42</bottom>
-				<left>0</left>
-				<width>405</width>
-				<height>615</height>
-				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<bottom>0</bottom>
+				<left>15</left>
+				<width>132</width>
+				<height>200</height>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 			</control>
