@@ -12,6 +12,7 @@ _New_
 - add welcome dialog on non-OSMC devices
 - add director button to video info dialog
 - add new views (wide low, wall small, wall low)
+- add new sub-menu indicator icon
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -69,6 +70,7 @@ Addon.Browser.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - add onload to show welcome screen after installing the skin from zip
+- add submenu indicator
 
 Custom_Cache_Progress.xml:
 - replace colors by new color variables
@@ -135,6 +137,7 @@ DialogFavourites.xml:
 - fix highlighting in focusedlayout of grouplists
 - change behaviour to mimic normal window behaviour (not dialog behaviour)
 - fix onup/ondown behaviour
+- add submenu indicator
 
 DialogFullScreenInfo.xml:
 - replace colors by new color variables
@@ -219,6 +222,7 @@ DialogVideoInfo.xml:
 EventLog.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- add submenu indicator include
 
 FileBrowser.xml:
 - replace colors by new color variables
@@ -227,6 +231,9 @@ FileBrowser.xml:
 FileManager.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+
+Font.xml:
+- change systeminfo font from LiberationMono-Regular.ttf to SourceSansPro-Regular.tff (default font)
 
 GameOSD.xml:
 - replace colors by new color variables
@@ -242,6 +249,8 @@ Include_DialogSettings.xml:
 Include_Home_OSMC.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- change submenu animations for new submenu indicator behaviour
+- add submenu indicator
 
 Includes.xml:
 - add player icon to now playing dialog
@@ -251,6 +260,7 @@ Includes.xml:
 - add new include files
 - fix position and size of duration icon
 - prevent size from being shown when file is 0B on all platforms
+- add new SubmenuIndicator include
 
 Includes_Widgets.xml:
 - replace colors by new color variables
@@ -268,11 +278,13 @@ MusicVisualisation.xml:
 
 MyGames.xml:
 - replace colors by new color variables
+- add submenu indicator include
 
 MyMusicNav.xml:
 - replace colors by new color variables
 - add wide list to music
 - add new scrollbar for new view
+- add submenu indicator include
 
 MyMusicPlaylistEditor.xml:
 - replace colors by new color variables
@@ -280,37 +292,47 @@ MyMusicPlaylistEditor.xml:
 
 MyPics.xml:
 - replace colors by new color variables
+- add submenu indicator include
 
 MyPlaylist.xml:
 - replace colors by new color variables
+- add submenu indicator include
 
 MyPrograms.xml:
 - replace colors by new color variables
+- add submenu indicator include
 
 MyPVRChannels.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - add adjustable plot font
+- add submenu indicator include
 
 MyPVRGuide.xml:
 - replace colors by new color variables
 - remove scrollbar
 - add highlighting
 - add adjustable plot font
+- add submenu indicator
 
 MyPVRRecordings.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - add adjustable plot font
+- add submenu indicator include
+- add submenu indicator include
 
 MyPVRSearch.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - add adjustable plot font
+- add submenu indicator include
+- add submenu indicator include
 
 MyPVRTimers.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- add submenu indicator include
 
 MyVideoNav.xml:
 - replace colors by new color variables
@@ -318,9 +340,11 @@ MyVideoNav.xml:
 - add new wall low view to video
 - add new wall small view to video
 - add new scrollbars for new views
+- add submenu indicator include
 
 MyWeather.xml:
 - replace colors by new color variables
+- add submenu indicator include
 
 PlayerControls.xml:
 - replace colors by new color variables
@@ -350,11 +374,13 @@ SettingsCategory.xml:
 - replace colors by new color variables
 - replace focus variable for button highlighting
 - add onload to show welcome screen after activating the skin from settings
+- add submenu indicator
 
 SettingsProfile.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - replace focus variable for button highlighting
+- add submenu indicator
 
 SettingsScreenCalibration.xml:
 - replace colors by new color variables
@@ -362,6 +388,7 @@ SettingsScreenCalibration.xml:
 SettingsSystemInfo.xml:
 - replace colors by new color variables
 - replace focus variable for button highlighting
+- add submenu indicator
 
 SkinSettings.xml:
 - add new onloads
@@ -416,35 +443,44 @@ VideoOSDBookmarks.xml:
 Viewtype50.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- remove onright submenu
 
 Viewtype51.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - add adjustable plot font
+- remove onright submenu
 
 Viewtype52.xml:
 - replace colors by new color variables
 - add albums and artists as allowed container content to conditional visibility
 - add required image thumbs for artists and albums
+- remove onup submenu
 
 Viewtype53.xml:
 - replace colors by new color variables
+- remove onright submenu
 
 Viewtype54.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- remove onright submenu
 
 Viewtype55.xml:
 - replace colors by new color variables
+- remove onright submenu
 
 Viewtype56.xml:
 - new wide list low view
+- remove onup submenu
 
-Viewtype56.xml:
+Viewtype57.xml:
 - new wall low view
+- remove onright submenu
 
 Viewtype58.xml:
 - new wall small view
+- remove onright submenu
 
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
@@ -453,6 +489,7 @@ strings.po:
 Textures.xbt:
 - update file with new resolution select icon included
 - update file with new background gradient overlays and removed old background PNGs
+- update file with new submenu indicator icons
 
 overrides.xml:
 - simplify game home menu entry and game widget
