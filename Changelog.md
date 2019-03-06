@@ -24,6 +24,7 @@ _Improved_
 - add file path and name to refresh button in video info dialog
 - add song/album year to music player
 - add wide list as music view
+- add music OSD album art size switch
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
@@ -275,6 +276,7 @@ MusicOSD.xml:
 MusicVisualisation.xml:
 - replace colors by new color variables
 - add song/album year
+- add bigger cover art
 
 MyGames.xml:
 - replace colors by new color variables
@@ -320,13 +322,11 @@ MyPVRRecordings.xml:
 - fix highlighting in focusedlayout of grouplists
 - add adjustable plot font
 - add submenu indicator include
-- add submenu indicator include
 
 MyPVRSearch.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - add adjustable plot font
-- add submenu indicator include
 - add submenu indicator include
 
 MyPVRTimers.xml:
@@ -399,6 +399,7 @@ SkinSettings.xml:
 - remove old background and overlay color options
 - add skin settings backup and restore option
 - fix onup and ondown for addons submenu
+- add new adjust music OSD album art size option to advanced skin settings
 
 SmartPlaylistEditor.xml:
 - replace colors by new color variables
@@ -485,6 +486,7 @@ Viewtype58.xml:
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
 - add new localizes for new views (31112, 31113, 31114)
+- add new localize for new music OSD album art size option (31115)
 
 Textures.xbt:
 - update file with new resolution select icon included
