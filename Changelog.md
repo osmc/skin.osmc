@@ -11,7 +11,7 @@ _New_
 - add PVR timeshift status dialog
 - add welcome dialog on non-OSMC devices
 - add director button to video info dialog
-- add new views (wide low, wall small, wall low)
+- add new views (wide low, wall small, wall low, wall info, list info)
 - add new sub-menu indicator icon
 
 _Improved_
@@ -341,6 +341,8 @@ MyVideoNav.xml:
 - add new wall small view to video
 - add new scrollbars for new views
 - add submenu indicator include
+- add new list info view to video
+- add new wall info view to video
 
 MyWeather.xml:
 - replace colors by new color variables
@@ -471,22 +473,33 @@ Viewtype55.xml:
 - replace colors by new color variables
 - remove onright submenu
 
-Viewtype56.xml:
+Viewtype56.xml -> Viewtype521.xml:
 - new wide list low view
 - remove onup submenu
+- rename to Viewtype521
 
-Viewtype57.xml:
+Viewtype57.xml -> Viewtype533.xml:
 - new wall low view
 - remove onright submenu
+- rename to Viewtype533
 
-Viewtype58.xml:
+Viewtype58.xml -> Viewtype532.xml:
 - new wall small view
 - remove onright submenu
+- rename to Viewtype532
+
+Viewtype511.xml:
+- new list info view
+
+Viewtype531.xml:
+- new wall info view
 
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
 - add new localizes for new views (31112, 31113, 31114)
 - add new localize for new music OSD album art size option (31115)
+- change localizes for views (31112, 31113, 31114)
+- add new localizes for new views (31116, 31117)
 
 Textures.xbt:
 - update file with new resolution select icon included
