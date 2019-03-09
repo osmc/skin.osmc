@@ -13,6 +13,7 @@ _New_
 - add director button to video info dialog
 - add new views (wide low, wall small, wall low, wall info, list info)
 - add new sub-menu indicator icon
+- add "Random TV shows" widget as new standard for TV shows home menu entry
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -365,6 +366,7 @@ script-skin_helper_service-ColorPicker.xml:
 script.skinshortcuts-static-xml:
 - hack game widget to show proper widget title
 - replace colors by new color variables
+- change standard TV shows widget to "Random TV shows"
 
 script-skinshortcuts.xml:
 - replace colors by new color variables
@@ -421,6 +423,7 @@ Variables.xml:
 - add new PVRCHannelIconDialogOSD variable
 - add new PlotDialogGuide variable
 - add new PVRDescriptionDialogGuide variable
+- fix StatusOverlay and StatusOverlayWide variables for resumable items
 
 VideoFullScreen.xml:
 - replace colors by new color variables
@@ -494,12 +497,16 @@ Viewtype511.xml:
 Viewtype531.xml:
 - new wall info view
 
+random_TV_shows.xsp:
+- add new "Random TV shows" smart playlist for new standard TV shows widget
+
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
 - add new localizes for new views (31112, 31113, 31114)
 - add new localize for new music OSD album art size option (31115)
 - change localizes for views (31112, 31113, 31114)
 - add new localizes for new views (31116, 31117)
+- add new localize for new standard TV shows widget (31118)
 
 Textures.xbt:
 - update file with new resolution select icon included
@@ -508,6 +515,7 @@ Textures.xbt:
 
 overrides.xml:
 - simplify game home menu entry and game widget
+- change standard TV shows widget to "Random TV shows"
 
 template.xml:
 - replace colors by new color variables
