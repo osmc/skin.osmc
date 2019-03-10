@@ -14,6 +14,7 @@ _New_
 - add new views (wide low, wall small, wall low, wall info, list info)
 - add new sub-menu indicator icon
 - add "Random TV shows" widget as new standard for TV shows home menu entry
+- add new dialog navigation indicators
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -34,6 +35,7 @@ _Fixed_
 - hide deprecated previous/next channel buttons in PVR playback OSD
 - fix background of subtitle settings window
 - fix layout of PVR playback dialogs
+- fix dialog list navigation
 
 **Changelog v18.0.0**
 
@@ -77,6 +79,21 @@ Addon.Browser.xml:
 Custom_Cache_Progress.xml:
 - replace colors by new color variables
 
+Custom_Customization.xml:
+- add new dialog prompt for required script install for home menu customization on non-OSMC devices
+
+Custom_Skin_Helper_Service.xml:
+- add new dialog prompt for Skin Helper Service script install on non-OSMC devices
+
+Custom_Skin_Helper_Service_Skin_Backup.xml:
+- add new dialog prompt for Skin Helper Service Skin Backup script install on non-OSMC devices
+
+Custom_Skin_Helper_Service_Widgets.xml:
+- add new dialog prompt for Skin Helper Service Widgets script install on non-OSMC devices
+
+Custom_Skin_Shortcuts.xml:
+- add new dialog prompt for Skin Shortcuts script install on non-OSMC devices
+
 Custom_Welcome.xml
 - add new Welcome dialog for non-OSMC devices
 
@@ -102,6 +119,8 @@ DialogAddonSettings.xml
 - change button id="11" to id="29"
 - change button id="12" to id="30"
 - replace colors by new color variables
+- fix ondown, onup and onleft of lists
+- add new navigation indicator
 
 DialogBusy.xml:
 - replace colors by new color variables
@@ -116,7 +135,6 @@ DialogConfirm.xml:
 DialogContextMenu.xml:
 - enable controls cycling from top to bottom and bottom to top in context menu
 - replace focus variable for button highlighting
-
 - rename DialogPVRGuideOSD.xml to DialogPVRChannelGuide.xml
 - replace infolabel ListItem.ChannelNumber by ListItem.ChannelNumberLabel
 - replace infolabel VideoPlayer.ChannelNumber by VideoPlayer.ChannelNumberLabel
@@ -152,6 +170,8 @@ DialogFullScreenInfo.xml:
 
 DialogGameControllers.xml:
 - replace colors by new color variables
+- fix ondown and onup of lists
+- add new navigation indicator
 
 DialogKeyboard.xml:
 - replace colors by new color variables
@@ -160,15 +180,20 @@ DialogKeyboard.xml:
 DialogMediaSources.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix ondown and onleft of lists
 
 DialogMusicInfo.xml:
 - replace colors by new color variables
+- remove unused tracks/discography list (id 50)
 
 DialogNumeric.xml:
 - replace colors by new color variables
 
 DialogPictureInfo.xml:
 - replace colors by new color variables
+- fix ondown and onup of the list
+- add missing hightlighting
+- add new navigation indicator
 
 DialogPlayerProcessInfo.xml:
 - replace colors by new color variables
@@ -182,6 +207,8 @@ DialogPVRChannelGuide.xml:
 DialogPVRChannelManager.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix ondown, onup, onleft and onright of lists
+- add new navigation indicator
 
 DialogPVRChannelsOSD.xml:
 - replace colors by new color variables
@@ -192,9 +219,12 @@ DialogPVRChannelsOSD.xml:
 DialogPVRGroupManager.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix ondown, onup, onleft and onright of lists
+- add new navigation indicator
 
 DialogPVRGuideSearch.xml:
 - replace colors by new color variables
+- fix onleft and onright of lists
 
 DialogPVRInfo.xml:
 - replace colors by new color variables
@@ -211,15 +241,22 @@ DialogSeekBar.xml:
 DialogSelect.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix ondown and onup of lists
+- add new navigation indicator
 
 DialogSubtitles.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix ondown, onup and onleft of lists
+- add new navigation indicator
 
 DialogVideoInfo.xml:
 - replace colors by new color variables
 - add director button
 - add file path and name to refresh button
+- fix ondown, onup and onleft of lists
+- add scrollbar to actor list
+- add new navigation indicator
 
 EventLog.xml:
 - replace colors by new color variables
@@ -229,10 +266,13 @@ EventLog.xml:
 FileBrowser.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix ondown and onup of lists
+- add new navigation indicator
 
 FileManager.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix ondown and onup of lists
 
 Font.xml:
 - change systeminfo font from LiberationMono-Regular.ttf to SourceSansPro-Regular.tff (default font)
@@ -253,6 +293,7 @@ Include_Home_OSMC.xml:
 - fix highlighting in focusedlayout of grouplists
 - change submenu animations for new submenu indicator behaviour
 - add submenu indicator
+- add scrolling to focused main menu list labels
 
 Includes.xml:
 - add player icon to now playing dialog
@@ -263,6 +304,8 @@ Includes.xml:
 - fix position and size of duration icon
 - prevent size from being shown when file is 0B on all platforms
 - add new SubmenuIndicator include
+- fix duration icon of media flags
+- add new dialogButtonIndicator include
 
 Includes_Widgets.xml:
 - replace colors by new color variables
@@ -270,6 +313,8 @@ Includes_Widgets.xml:
 LoginScreen.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix onright of the list
+- add submenu indicator
 
 MusicOSD.xml:
 - replace colors by new color variables
@@ -288,10 +333,12 @@ MyMusicNav.xml:
 - add wide list to music
 - add new scrollbar for new view
 - add submenu indicator include
+- add clean library option to sub-menu
 
 MyMusicPlaylistEditor.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
+- fix onup and ondown of button list
 
 MyPics.xml:
 - replace colors by new color variables
@@ -344,6 +391,7 @@ MyVideoNav.xml:
 - add submenu indicator include
 - add new list info view to video
 - add new wall info view to video
+- add clean library option to sub-menu
 
 MyWeather.xml:
 - replace colors by new color variables
@@ -404,11 +452,14 @@ SkinSettings.xml:
 - add skin settings backup and restore option
 - fix onup and ondown for addons submenu
 - add new adjust music OSD album art size option to advanced skin settings
+- change onclicks of customization and skin helper addon-related options for non-OSMC devices (where the scripts are not pre-installed) to open new dialogs
+- un-comment skinhelper widgets button
 
 SmartPlaylistEditor.xml:
 - replace colors by new color variables
 - fix highlighting in focusedlayout of grouplists
 - replace focus variable for button highlighting
+- fix onup and ondown of the list
 
 SmartPlaylistRule.xml:
 - replace colors by new color variables
@@ -424,6 +475,8 @@ Variables.xml:
 - add new PlotDialogGuide variable
 - add new PVRDescriptionDialogGuide variable
 - fix StatusOverlay and StatusOverlayWide variables for resumable items
+- fix Duration variable formatting used for media flags
+- un-comment addon-skinhelperwidgets variable
 
 VideoFullScreen.xml:
 - replace colors by new color variables
@@ -497,8 +550,17 @@ Viewtype511.xml:
 Viewtype531.xml:
 - new wall info view
 
+last_watched_TV_shows.xsp:
+- add new "Last watched TV shows" smart playlist for widgets
+
+random_artists.xsp:
+- add new "Random artists" smart playlist for widgets
+
 random_TV_shows.xsp:
 - add new "Random TV shows" smart playlist for new standard TV shows widget
+
+recent_watched_TV_shows.xsp:
+- add new "Recent TV shows" smart playlist for widgets
 
 strings.po:
 - add new localizes for reworked skin settings (31052, 31097, 31107, 31108, 31109, 31110, 31111)
@@ -512,10 +574,12 @@ Textures.xbt:
 - update file with new resolution select icon included
 - update file with new background gradient overlays and removed old background PNGs
 - update file with new submenu indicator icons
+- update file with new navigation indicator icons
 
 overrides.xml:
 - simplify game home menu entry and game widget
 - change standard TV shows widget to "Random TV shows"
+- remove unused Skin helper widgets node
 
 template.xml:
 - replace colors by new color variables

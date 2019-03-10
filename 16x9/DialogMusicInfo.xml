@@ -679,44 +679,6 @@
 				</control>
 			</control>
 
-			<!-- Tracks/Discography -->
-			<control type="list" id="50">
-				<left>600</left>
-				<top>235</top>
-				<width>1170</width>
-				<height>580</height>
-				<onup>noop</onup>
-				<ondown>9000</ondown>
-				<onleft>9000</onleft>
-				<onright>9000</onright>
-				<orientation>vertical</orientation>
-				<viewtype label="">list</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[21887]) | String.IsEqual(Control.GetLabel(5),$LOCALIZE[183])</visible>
-
-				<itemlayout width="1170" height="58">
-					<control type="label">
-						<width>1170</width>
-						<height>58</height>
-						<font>Font36</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoTracks]</label>
-					</control>
-				</itemlayout>
-
-				<focusedlayout width="1170" height="58">
-					<control type="label">
-						<width>1170</width>
-						<height>58</height>
-						<font>Font36</font>
-						<textcolor>$VAR[TextColor1]</textcolor>
-						<label>$VAR[MusicInfoTracks]</label>
-						<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(50)">Conditional</animation>
-					</control>
-				</focusedlayout>
-
-			</control>
-
 			<!-- Button grouplist background -->
 			<include content="dialogButtonBackground">
 				<param name="id">9000</param>
@@ -731,7 +693,6 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
-				<onup condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[21887]) | String.IsEqual(Control.GetLabel(5),$LOCALIZE[183])">50</onup>
 
 				<!-- Refresh Button -->
 				<control type="button" id="6">
