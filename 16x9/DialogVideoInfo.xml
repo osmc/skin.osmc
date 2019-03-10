@@ -371,12 +371,13 @@
 				<top>235</top>
 				<width>1170</width>
 				<height>580</height>
-				<onup>noop</onup>
-				<ondown>9000</ondown>
-				<onleft>9000</onleft>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onleft>60</onleft>
 				<onright>9000</onright>
 				<orientation>vertical</orientation>
 				<viewtype label="">list</viewtype>
+				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 
@@ -422,6 +423,25 @@
 				</focusedlayout>
 
 			</control>
+			
+			<!-- Scrollbar -->
+			<control type="scrollbar" id="60">
+				<left>563</left>
+				<top>235</top>
+				<width>20</width>
+				<height>580</height>
+				<onleft>9000</onleft>
+				<onright>50</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			</control>
 
 			<!-- Button grouplist background -->
 			<include content="dialogButtonBackground">
@@ -451,6 +471,7 @@
 					<width>Auto</width>
 					<label>206</label>
 					<onclick condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SetFocus(50)</onclick>
+					<visible>!String.IsEmpty(ListItem.Cast)</visible>
 				</control>
 				<!-- Director Button -->
 				<control type="button" id="13">
@@ -492,6 +513,11 @@
 				</control>
 
 			</control>
+			
+			<!-- Button grouplist indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9000).HasFocus</param>
+			</include>
 
 		</control>
 

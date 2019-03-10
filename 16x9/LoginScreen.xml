@@ -56,7 +56,7 @@
 				<onup>52</onup>
 				<ondown>52</ondown>
 				<onleft>ActivateWindow(shutdownmenu)</onleft>
-				<onright>ActivateWindow(shutdownmenu)</onright>
+				<onright>noop</onright>
 				<focusposition>3</focusposition>
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
@@ -105,6 +105,20 @@
 					</control>
 				</focusedlayout>
 
+			</control>
+			
+			<control type="group">
+				<visible>Control.HasFocus(52) + !Window.IsVisible(shutdownmenu)</visible>
+				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
+				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
+				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+				<control type="image">
+					<left>10</left>
+					<centertop>50%</centertop>
+					<width>30</width>
+					<height>30</height>
+					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+				</control>
 			</control>
 
 		</control>

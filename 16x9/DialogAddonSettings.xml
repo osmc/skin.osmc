@@ -24,10 +24,10 @@
 				<width>360</width>
 				<height>660</height>
 				<itemgap>0</itemgap>
-				<onleft>noop</onleft>
+				<onleft>9001</onleft>
 				<onright>5</onright>
-				<onup>noop</onup>
-				<ondown>9001</ondown>
+				<onup>3</onup>
+				<ondown>3</ondown>
 				<orientation>vertical</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 			</control>
@@ -47,8 +47,8 @@
 				<itemgap>0</itemgap>
 				<onleft>3</onleft>
 				<onright>9001</onright>
-				<onup>noop</onup>
-				<ondown>9001</ondown>
+				<onup>5</onup>
+				<ondown>5</ondown>
 				<orientation>vertical</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 			</control>
@@ -136,6 +136,11 @@
 				</control>
 
 			</control>
+			
+			<!-- Button grouplist indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9001).HasFocus</param>
+			</include>
 
 		</control>
 
