@@ -17,6 +17,25 @@
 			<control type="group">
 				<visible>Control.IsVisible(10)</visible>
 
+				<!-- Scrollbar (list) -->
+				<control type="scrollbar" id="60">
+					<left>70</left>
+					<top>230</top>
+					<width>20</width>
+					<height>552</height>
+					<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
+					<onright>10</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
+					<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+					<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars)</visible>
+				</control>
+				
 				<!-- EPG Grid -->
 				<control type="epggrid" id="10">
 					<left>120</left>
@@ -25,11 +44,12 @@
 					<height>606</height>
 					<onup>10</onup>
 					<ondown>10</ondown>
-					<onleft>3000</onleft>
-					<onright>3000</onright>
-					<onback>3000</onback>
+					<onleft>10</onleft>
+					<onright>10</onright>
+					<onback>60</onback>
 					<rulerunit>12</rulerunit>
 					<timeblocks>54</timeblocks>
+					<pagecontrol>60</pagecontrol>
 					<viewtype label="19032">list</viewtype>
 					<progresstexture border="4,61,4,4">pvr/ProgressTimeline.png</progresstexture>
 					<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -97,6 +117,7 @@
 							<height>69</height>
 							<label>[B]$INFO[ListItem.ChannelName][/B]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 						</control>
 
 						<!-- Channel number -->
@@ -107,6 +128,7 @@
 							<align>right</align>
 							<label>$INFO[ListItem.ChannelNumberLabel]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 						</control>
 						
 						<!-- Highlighting -->
@@ -184,6 +206,7 @@
 							<height>69</height>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 						</control>
 
 						<!-- Recording image -->
@@ -341,18 +364,31 @@
 		
 		<!-- Submenu indicator -->
 		<control type="group">
-				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(contextmenu) + !Skin.HasSetting(KioskMode)</visible>
-				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
-				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
-				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
-				<control type="image">
-					<left>10</left>
-					<centertop>50%</centertop>
-					<width>30</width>
-					<height>30</height>
-					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-return.png</texture>
-				</control>
+			<visible>!Window.IsVisible(contextmenu) + !Skin.HasSetting(KioskMode) + Control.HasFocus(10)</visible>
+			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
+			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
+			<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+			<control type="image">
+				<left>10</left>
+				<centertop>50%</centertop>
+				<width>30</width>
+				<height>30</height>
+				<texture colordiffuse="$VAR[DialogColor2]">sub-menu-return.png</texture>
 			</control>
+		</control>
+		<control type="group">
+			<visible>!Window.IsVisible(contextmenu) + Control.HasFocus(60)</visible>
+			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
+			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
+			<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+			<control type="image">
+				<left>10</left>
+				<centertop>50%</centertop>
+				<width>30</width>
+				<height>30</height>
+				<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+			</control>
+		</control>
 
 		<!-- Options -->
 		<control type="group" id="9002">
@@ -411,8 +447,25 @@
 						<label>19270</label>
 						<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
 					</control>
-
+					
 					<control type="image" id="81">
+						<left>0</left>
+						<top>0</top>
+						<width>410</width>
+						<height>10</height>
+						<texture>transparent.png</texture>
+					</control>
+					
+					<!-- Scrollbars -->
+					<control type="radiobutton" id="94">
+						<height>52</height>
+						<label>31005</label>
+						<onclick>Skin.ToggleSetting(Scrollbars)</onclick>
+						<selected>!Skin.HasSetting(Scrollbars)</selected>
+					</control>
+
+
+					<control type="image" id="95">
 						<left>0</left>
 						<top>0</top>
 						<width>410</width>
