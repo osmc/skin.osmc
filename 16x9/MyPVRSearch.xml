@@ -34,7 +34,7 @@
 				<onup>50</onup>
 				<ondown>50</ondown>
 				<onleft>3000</onleft>
-				<onright>70</onright>
+				<onright condition="!Skin.HasSetting(KioskMode)">70</onright>
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<viewtype label="535">list</viewtype>				
@@ -360,11 +360,28 @@
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
-					<defaultcontrol always="true">99</defaultcontrol>
+					<defaultcontrol always="true">3</defaultcontrol>
 
 					<include content="SideMenuAnimation">
 						<param name="containerID">3000</param>
 					</include>
+					
+					<!-- Scrollbars -->
+					<control type="radiobutton" id="1">
+						<label>31005</label>
+						<height>52</height>
+						<onclick>Skin.ToggleSetting(Scrollbars)</onclick>
+						<selected>!Skin.HasSetting(Scrollbars)</selected>
+					</control>
+
+
+					<control type="image" id="2">
+						<left>0</left>
+						<top>0</top>
+						<width>410</width>
+						<height>10</height>
+						<texture>transparent.png</texture>
+					</control>
 
 					<!-- Sort by -->
 					<control type="button" id="3">
