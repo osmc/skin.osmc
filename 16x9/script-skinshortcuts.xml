@@ -30,7 +30,7 @@
 				<top>-10</top>
 				<width>1</width>
 				<height>1</height>
-				<onleft>noop</onleft>
+				<onleft>9001</onleft>
 				<onright>303</onright>
 				<onup>Control.Move(211,-1)</onup>
 				<ondown>Control.Move(211,1)</ondown>
@@ -54,9 +54,10 @@
 				<centertop>50%</centertop>
 				<width>360</width>
 				<height>660</height>
-				<onleft>noop</onleft>
+				<onleft>9001</onleft>
 				<onright>304</onright>
-				<onup>noop</onup>
+				<onup>211</onup>
+				<ondown>211</ondown>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus">Conditional</animation>
@@ -134,9 +135,9 @@
 				<height>660</height>
 				<itemgap>0</itemgap>
 				<onleft>303</onleft>
-				<onright>noop</onright>
-				<onup>noop</onup>
-				<ondown>9001</ondown>
+				<onright>9001</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -242,6 +243,11 @@
 			<!-- Button grouplist background -->
 			<include content="dialogButtonBackground">
 				<param name="id">9001</param>
+			</include>
+			
+			<!-- Button grouplist indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9001).HasFocus</param>
 			</include>
 
 			<!-- Buttons -->

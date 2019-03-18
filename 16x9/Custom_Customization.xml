@@ -24,17 +24,65 @@
 		</control>
 
 		<!-- Details -->
-		<control type="textbox" id="9">
-			<centerleft>50%</centerleft>
-			<centertop>50%</centertop>
-			<width>1880</width>
-			<height>600</height>
-			<align>center</align>
-			<aligny>center</aligny>
-			<font>Font36</font>
-			<autoscroll>False</autoscroll>
-			<textcolor>$VAR[TextColor1]</textcolor>
-			<label>Please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT][CR][CR]Please install the following add-ons from that repo:[CR][LIGHT]Skin Shortcuts 1.0.18[/LIGHT][CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT][CR][LIGHT]Skin Helper Service Widgets 1.0.38[/LIGHT]</label>
+		<control type="group">
+			<visible>!String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18) + !String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + !System.HasAddon(service.osmc.settings)</visible>
+			<control type="textbox">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>1880</width>
+				<height>600</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font36</font>
+				<autoscroll>False</autoscroll>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>Please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT][CR][CR]Please install the following add-ons from that repo:[CR][LIGHT]Skin Shortcuts 1.0.18[/LIGHT][CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT][CR][CR]Or enable these add-ons, if they are already installed.</label>
+			</control>
+		</control>
+		<control type="group">
+			<visible>!String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18) + String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + !System.HasAddon(service.osmc.settings)</visible>
+			<control type="textbox">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>1880</width>
+				<height>600</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font36</font>
+				<autoscroll>False</autoscroll>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>Please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT][CR][CR]Please install the following add-on from that repo:[CR][LIGHT]Skin Shortcuts 1.0.18[/LIGHT][CR][CR]Or enable this add-on, if it is already installed.</label>
+			</control>
+		</control>
+		<control type="group">
+			<visible>String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18) + !String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + !System.HasAddon(service.osmc.settings)</visible>
+			<control type="textbox">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>1880</width>
+				<height>600</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font36</font>
+				<autoscroll>False</autoscroll>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>Please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT][CR][CR]Please install the following add-on from that repo:[CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT][CR][CR]Or enable this add-on, if it is already installed.</label>
+			</control>
+		</control>
+		<control type="group">
+			<visible>!System.HasAddon(script.skin.helper.service) + System.HasAddon(service.osmc.settings)</visible>
+			<control type="textbox">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>1880</width>
+				<height>600</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font36</font>
+				<autoscroll>False</autoscroll>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>Please activate the following add-on under [I]Settings/Add-on browser/My add-ons/Context menus[/I] :[CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT]</label>
+			</control>
 		</control>
 
 		<!-- Button grouplist background -->

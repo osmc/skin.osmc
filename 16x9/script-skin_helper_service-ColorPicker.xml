@@ -18,10 +18,10 @@
 				<width>360</width>
 				<height>660</height>
 				<itemgap>0</itemgap>
-				<onleft>noop</onleft>
+				<onleft>9001</onleft>
 				<onright>3110</onright>
-				<onup>noop</onup>
-				<ondown>9001</ondown>
+				<onup>9</onup>
+				<ondown>9</ondown>
 				<orientation>vertical</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
@@ -86,7 +86,9 @@
 				<height>646</height>
 				<orientation>vertical</orientation>
 				<onleft>9</onleft>
-				<ondown>9001</ondown>
+				<ondown>3110</ondown>
+				<onup>3110</onup>
+				<onright>9001</onright>
 				<preloaditems>4</preloaditems>
 				<itemlayout height="38" width="39">
 					<control type="image">
@@ -110,6 +112,11 @@
 			<!-- Button grouplist background -->
 			<include content="dialogButtonBackground">
 				<param name="id">9001</param>
+			</include>
+			
+			<!-- Button grouplist indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9001).HasFocus</param>
 			</include>
 
 			<!-- Buttons -->
