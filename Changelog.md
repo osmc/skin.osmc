@@ -87,8 +87,12 @@ Custom_Customization.xml:
 Custom_Skin_Helper_Service.xml:
 - add new dialog prompt for Skin Helper Service script install on non-OSMC devices
 
-Custom_Skin_Helper_Service_Skin_Backup.xml:
+Custom_Skin_Helper_Skin_Backup_Open.xml:
+- add new dialog for Backup option under Reset/Debug in skin settings
+
+Custom_Skin_Helper_Service_Skin_Backup.xml -> Custom_Skin_Helper_Skin_Backup_Settings.xml:
 - add new dialog prompt for Skin Helper Service Skin Backup script install on non-OSMC devices
+- rename dialog
 
 Custom_Skin_Helper_Service_Widgets.xml:
 - add new dialog prompt for Skin Helper Service Widgets script install on non-OSMC devices
@@ -585,6 +589,8 @@ strings.po:
 - change localizes for views (31112, 31113, 31114)
 - add new localizes for new views (31116, 31117)
 - add new localize for new standard TV shows widget (31118)
+- add new localize for adjusted skin settings add-ons list (31119 + 31120)
+- add new localize for disabled, pre-installed skin scripts on OSMC devices (31121)
 
 Textures.xbt:
 - update file with new resolution select icon included
