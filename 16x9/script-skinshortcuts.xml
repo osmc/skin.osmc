@@ -171,7 +171,7 @@
 				<control type="button" id="405">
 					<width>1220</width>
 					<height>60</height>
-					<label>$LOCALIZE[31071]</label>
+					<label>$ADDON[script.skinshortcuts 32072]</label>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 
@@ -192,6 +192,15 @@
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
+				<!-- Change label-->
+				<control type="button" id="604">
+					<width>1220</width>
+					<height>40</height>
+					<label>  -  $ADDON[script.skinshortcuts 32025]</label>
+                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$ADDON[script.skinshortcuts 32025],property=widgetName)</onclick>
+                    <visible>String.EndsWith(Window.Property(groupname),.1)</visible>
+				</control>
+				
 				<!-- Change size option -->
 				<control type="button" id="601">
 					<width>1220</width>
@@ -213,6 +222,7 @@
 					<disabledcolor>$VAR[TextColor4]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
+				
 				<!-- Fallback artwork -->
 				<control type="button" id="603">
 					<width>1220</width>
