@@ -2,7 +2,7 @@
 <window type="dialog" id="1102">
 	<!-- yesnodialog -->
 	<include>WindowFadeAnimation</include>
-	<defaultcontrol always="true">9001</defaultcontrol>
+	<defaultcontrol always="true">10</defaultcontrol>
 	<controls>
 
 		<!-- Background -->
@@ -25,7 +25,7 @@
 
 		<!-- Details -->
 		<control type="group">
-			<visible>!String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18) + !String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + !System.HasAddon(service.osmc.settings)</visible>
+			<visible>[System.HasAddon(script.skin.helper.service) + System.HasAddon(script.skinshortcuts) + [!String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) | !String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18) | !String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + !String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18)] | !System.HasAddon(script.skin.helper.service) | !System.HasAddon(script.skinshortcuts)] + !System.HasAddon(service.osmc.settings)</visible>
 			<control type="textbox">
 				<centerleft>50%</centerleft>
 				<centertop>50%</centertop>
@@ -36,39 +36,10 @@
 				<font>Font36</font>
 				<autoscroll>False</autoscroll>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>Please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT][CR][CR]Please install the following add-ons from that repo:[CR][LIGHT]Skin Shortcuts 1.0.18[/LIGHT][CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT][CR][CR]Or enable these add-ons, if they are already installed.</label>
+				<label>Please make sure that the following add-ons are installed with the correct version and enabled:[CR][CR][LIGHT]Skin Shortcuts 1.0.18[/LIGHT][CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT][CR][CR]To aquire the correct add-on versions, please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT]</label>
 			</control>
 		</control>
-		<control type="group">
-			<visible>!String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18) + String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + !System.HasAddon(service.osmc.settings)</visible>
-			<control type="textbox">
-				<centerleft>50%</centerleft>
-				<centertop>50%</centertop>
-				<width>1880</width>
-				<height>600</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font36</font>
-				<autoscroll>False</autoscroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>Please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT][CR][CR]Please install the following add-on from that repo:[CR][LIGHT]Skin Shortcuts 1.0.18[/LIGHT][CR][CR]Or enable this add-on, if it is already installed.</label>
-			</control>
-		</control>
-		<control type="group">
-			<visible>String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18) + !String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + !System.HasAddon(service.osmc.settings)</visible>
-			<control type="textbox">
-				<centerleft>50%</centerleft>
-				<centertop>50%</centertop>
-				<width>1880</width>
-				<height>600</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<font>Font36</font>
-				<autoscroll>False</autoscroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>Please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT][CR][CR]Please install the following add-on from that repo:[CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT][CR][CR]Or enable this add-on, if it is already installed.</label>
-			</control>
-		</control>
+		
 		<control type="group">
 			<visible>!System.HasAddon(script.skin.helper.service) + System.HasAddon(service.osmc.settings)</visible>
 			<control type="textbox">
@@ -81,7 +52,7 @@
 				<font>Font36</font>
 				<autoscroll>False</autoscroll>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>Please activate the following add-on under [I]Settings/Add-on browser/My add-ons/Context menus[/I] :[CR][LIGHT]Skin Helper Service 1.1.24[/LIGHT]</label>
+				<label>Please enable the following add-on under [I]Settings/Add-on browser/My add-ons/Context menus[/I] :[CR][LIGHT]Skin Helper Service[/LIGHT]</label>
 			</control>
 		</control>
 
@@ -99,12 +70,21 @@
 			<orientation>horizontal</orientation>
 			<align>center</align>
 			<itemgap>30</itemgap>
-			<control type="button">
+			<control type="button" id="10">
 				<width>auto</width>
 				<font>Font36</font>
 				<align>center</align>
 				<onclick>Dialog.Close(1102)</onclick>
 				<label>OK</label>
+			</control>
+			<control type="button" id="11">
+				<visible>[System.HasAddon(script.skin.helper.service) + !String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + System.HasAddon(script.skinshortcuts) + String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18)] | [System.HasAddon(script.skin.helper.service) + String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + System.HasAddon(script.skinshortcuts) + !String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18)] | [System.HasAddon(script.skin.helper.service) + !String.IsEqual(System.AddonVersion(script.skin.helper.service),1.1.24) + System.HasAddon(script.skinshortcuts) + !String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18)]</visible>
+				<width>auto</width>
+				<font>Font36</font>
+				<align>center</align>
+				<onclick>Dialog.Close(1102)</onclick>
+				<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
+				<label>Open anyway</label>
 			</control>
 		</control>
 

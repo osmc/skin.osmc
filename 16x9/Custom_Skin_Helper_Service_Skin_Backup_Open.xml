@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="1105">
+<window type="dialog" id="1107">
 	<!-- yesnodialog -->
 	<include>WindowFadeAnimation</include>
 	<defaultcontrol always="true">10</defaultcontrol>
@@ -9,7 +9,7 @@
 		<include>WindowFadeBackgroundImage</include>
 
 		<include content="Time">
-			<param name="heading">31106</param>
+			<param name="heading">31097</param>
 		</include>
 
 		<!-- Heading -->
@@ -25,7 +25,7 @@
 
 		<!-- Details -->
 		<control type="group">
-			<visible>[!System.HasAddon(script.skin.helper.widgets) | System.HasAddon(script.skin.helper.widgets) + !String.IsEqual(System.AddonVersion(script.skin.helper.widgets),1.0.38)] + !System.HasAddon(service.osmc.settings)</visible>
+			<visible>[!System.HasAddon(script.skin.helper.skinbackup) | System.HasAddon(script.skin.helper.skinbackup) + !String.IsEqual(System.AddonVersion(script.skin.helper.skinbackup),1.0.19)] + !System.HasAddon(service.osmc.settings)</visible>
 			<control type="textbox">
 				<centerleft>50%</centerleft>
 				<centertop>50%</centertop>
@@ -36,11 +36,11 @@
 				<font>Font36</font>
 				<autoscroll>False</autoscroll>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>Please make sure that the following add-on is installed with the correct version and enabled:[CR][CR][LIGHT]Skin Helper Service Widgets 1.0.38[/LIGHT][CR][CR]To aquire the correct add-on version, please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT]</label>
+				<label>Please make sure that the following add-ons are installed with the correct version and enabled:[CR][CR][LIGHT]Skin Helper Service Skin Backup 1.0.19[/LIGHT][CR][CR]To aquire the correct add-on version, please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT]</label>
 			</control>
 		</control>
 		<control type="group">
-			<visible>!System.HasAddon(script.skin.helper.widgets) + System.HasAddon(service.osmc.settings)</visible>
+			<visible>!System.HasAddon(script.skin.helper.skinbackup) + System.HasAddon(service.osmc.settings)</visible>
 			<control type="textbox">
 				<centerleft>50%</centerleft>
 				<centertop>50%</centertop>
@@ -51,7 +51,7 @@
 				<font>Font36</font>
 				<autoscroll>False</autoscroll>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>Please enable the following add-on under [I]Settings/Add-on browser/My add-ons/Context menus[/I] :[CR][LIGHT]Skin Helper Service Widgets[/LIGHT]</label>
+				<label>Please enable the following add-on under [I]Settings/Add-on browser/My add-ons/Context menus[/I] :[CR][LIGHT]Skin Helper Service Skin Backup[/LIGHT]</label>
 			</control>
 		</control>
 
@@ -73,16 +73,16 @@
 				<width>auto</width>
 				<font>Font36</font>
 				<align>center</align>
-				<onclick>Dialog.Close(1105)</onclick>
+				<onclick>Dialog.Close(1107)</onclick>
 				<label>OK</label>
 			</control>
 			<control type="button" id="11">
-				<visible>System.HasAddon(script.skin.helper.widgets) + !String.IsEqual(System.AddonVersion(script.skin.helper.widgets),1.0.38)</visible>
+				<visible>System.HasAddon(script.skin.helper.skinbackup) + !String.IsEqual(System.AddonVersion(script.skin.helper.skinbackup),1.0.19)</visible>
 				<width>auto</width>
 				<font>Font36</font>
 				<align>center</align>
-				<onclick>Dialog.Close(1105)</onclick>
-				<onclick>Addon.OpenSettings(script.skin.helper.widgets)</onclick>
+				<onclick>Dialog.Close(1107)</onclick>
+				<onclick>RunScript(script.skin.helper.skinbackup)</onclick>
 				<label>Open anyway</label>
 			</control>
 		</control>
