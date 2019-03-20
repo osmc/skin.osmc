@@ -588,7 +588,7 @@
 			<left>590</left>
 			<top>680</top>
 			<width>1218</width>
-			<height>280</height>
+			<height>326</height>
 			<include content="widgetHeading-content">
 				<param name="container">$PARAM[container]</param>
 			</include>
@@ -597,67 +597,195 @@
 
 	<include name="widgetHeading-content">
 		<definition>
-			<visible>Integer.IsGreater(Container($PARAM[container]).NumItems,0)</visible>
-			<include>VisibleFadeAnimation</include>
+			<animation type="Visible">
+				<effect type="fade" start="0" end="100" time="200" />
+				<effect type="slide" start="1800,0" end="0,0" time="400" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="fade" start="100" end="0" time="200" />
+				<effect type="slide" start="0,0" end="1800,0" time="400" />
+			</animation>
 
-			<!-- Indicators -->
+			
+			<!-- Widget has focus -->
+			<control type="grouplist">
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<animation type="Conditional" condition="ControlGroup(9002).HasFocus">
+					<effect type="fade" start="0" end="100" time="200" />
+					<effect type="slide" start="1800,0" end="0,0" time="400" />
+				</animation>
+				<animation type="Conditional" condition="!ControlGroup(9002).HasFocus">
+					<effect type="fade" start="100" end="0" time="200" />
+					<effect type="slide" start="0,0" end="1800,0" time="400" />
+				</animation>
+
+				<!-- Widget details -->
+				<control type="textbox">
+					<width>1218</width>
+					<height>auto</height>
+					<font>Font33</font>
+					<align>right</align>
+					<aligny>top</aligny>
+					<label>$VAR[widgetDetails]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Indicators + Widget heading -->
+				<control type="grouplist">
+					<height>46</height>
+					<width>1218</width>
+					<itemgap>10</itemgap>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<visible>Integer.IsGreater(Container($PARAM[container]).NumItems,1)</visible>
+					<control type="label">
+						<width>auto</width>
+						<height>46</height>
+						<font>Font33</font>
+						<align>right</align>
+						<aligny>top</aligny>
+						<label>$INFO[Container($PARAM[container]).ListItem.Label]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+					<control type="button">
+						<top>15</top>
+						<width>30</width>
+						<height>16</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<texturenofocus colordiffuse="$VAR[TextColor2]">up.png</texturenofocus>
+						<texturefocus>up.png</texturefocus>
+						<onclick>Control.Move($PARAM[container],-1)</onclick>
+					</control>
+					<control type="button">
+						<top>15</top>
+						<width>30</width>
+						<height>16</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<texturenofocus colordiffuse="$VAR[TextColor2]">down.png</texturenofocus>
+						<texturefocus>down.png</texturefocus>
+						<onclick>Control.Move($PARAM[container],1)</onclick>
+					</control>
+				</control>
+				
+				<!-- Widget heading -->
+				<control type="label">
+					<width>1218</width>
+					<height>46</height>
+					<font>Font33</font>
+					<align>right</align>
+					<aligny>top</aligny>
+					<visible>Integer.IsEqual(Container($PARAM[container]).NumItems,1)</visible>
+					<label>$INFO[Container($PARAM[container]).ListItem.Label]</label>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				
+			</control>
+			<!-- Reloading indicator -->
 			<control type="group">
-				<visible>Integer.IsGreater(Container($PARAM[container]).NumItems,1)</visible>
-				<include>VisibleFadeAnimation</include>
-				<control type="button">
-					<top>15</top>
-					<left>0</left>
-					<width>30</width>
-					<height>16</height>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<onup>9000</onup>
-					<ondown>9000</ondown>
-					<texturenofocus colordiffuse="$VAR[TextColor2]">up.png</texturenofocus>
-					<texturefocus>up.png</texturefocus>
-					<onclick>Control.Move($PARAM[container],-1)</onclick>
-				</control>
-				<control type="button">
-					<top>15</top>
-					<left>40</left>
-					<width>30</width>
-					<height>16</height>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<onup>9000</onup>
-					<ondown>9000</ondown>
-					<texturenofocus colordiffuse="$VAR[TextColor2]">down.png</texturenofocus>
-					<texturefocus>down.png</texturefocus>
-					<onclick>Control.Move($PARAM[container],1)</onclick>
-				</control>
+				<animation type="Conditional" condition="ControlGroup(9002).HasFocus">
+					<effect type="fade" start="0" end="100" time="200" />
+					<effect type="slide" start="1800,0" end="0,0" time="400" />
+				</animation>
+				<animation type="Conditional" condition="!ControlGroup(9002).HasFocus">
+					<effect type="fade" start="100" end="0" time="200" />
+					<effect type="slide" start="0,0" end="1800,0" time="400" />
+				</animation>
+				<left>1230</left>
+				<top>-12</top>
+				<include>skinshortcuts-template-reloading</include>
 			</control>
-
-			<!-- Widget heading -->
-			<control type="label">
-				<top>0</top>
-				<left>80</left>
-				<width>auto</width>
-				<height>132</height>
-				<font>Font33</font>
-				<align>left</align>
-				<aligny>top</aligny>
-				<label>$INFO[Container($PARAM[container]).ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>ControlGroup(9002).HasFocus + String.IsEqual(Window.Property(changeWidget-$PARAM[container]),True)</visible>
-				<include>VisibleFadeAnimation</include>
+			
+			<!-- Widget does not have focus -->
+			<control type="group">
+				<animation type="Conditional" condition="!ControlGroup(9002).HasFocus">
+					<effect type="fade" start="0" end="100" time="200" />
+					<effect type="slide" start="1800,0" end="0,0" time="400" />
+				</animation>
+				<animation type="Conditional" condition="ControlGroup(9002).HasFocus">
+					<effect type="fade" start="100" end="0" time="200" />
+					<effect type="slide" start="0,0" end="1800,0" time="400" />
+				</animation>
+				
+				<!-- Indicators + Widget heading -->
+				<control type="grouplist">
+					<height>46</height>
+					<width>1218</width>
+					<itemgap>10</itemgap>
+					<align>right</align>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<visible>Integer.IsGreater(Container($PARAM[container]).NumItems,1)</visible>
+					<control type="label">
+						<width>auto</width>
+						<height>46</height>
+						<font>Font33</font>
+						<align>right</align>
+						<aligny>top</aligny>
+						<label>$INFO[Container($PARAM[container]).ListItem.Label]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+					<control type="button">
+						<top>15</top>
+						<width>30</width>
+						<height>16</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<texturenofocus colordiffuse="$VAR[TextColor2]">up.png</texturenofocus>
+						<texturefocus>up.png</texturefocus>
+						<onclick>Control.Move($PARAM[container],-1)</onclick>
+					</control>
+					<control type="button">
+						<top>15</top>
+						<width>30</width>
+						<height>16</height>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<texturenofocus colordiffuse="$VAR[TextColor2]">down.png</texturenofocus>
+						<texturefocus>down.png</texturefocus>
+						<onclick>Control.Move($PARAM[container],1)</onclick>
+					</control>
+				</control>
+				
+				<!-- Widget heading -->
+				<control type="label">
+					<width>1218</width>
+					<height>46</height>
+					<font>Font33</font>
+					<align>right</align>
+					<aligny>top</aligny>
+					<visible>Integer.IsEqual(Container($PARAM[container]).NumItems,1)</visible>
+					<label>$INFO[Container($PARAM[container]).ListItem.Label]</label>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<scroll>true</scroll>
+				</control>
+				
 			</control>
-
-			<!-- Widget details -->
-			<control type="fadelabel">
-				<top>0</top>
-				<right>0</right>
-				<width>1080</width>
-				<height>132</height>
-				<font>Font33</font>
-				<align>right</align>
-				<aligny>top</aligny>
-				<label>$VAR[widgetDetails]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
+			<!-- Reloading indicator -->
+			<control type="group">
+				<animation type="Conditional" condition="!ControlGroup(9002).HasFocus">
+					<effect type="fade" start="0" end="100" time="200" />
+					<effect type="slide" start="1800,0" end="0,0" time="400" />
+				</animation>
+				<animation type="Conditional" condition="ControlGroup(9002).HasFocus">
+					<effect type="fade" start="100" end="0" time="200" />
+					<effect type="slide" start="0,0" end="1800,0" time="400" />
+				</animation>
+				<left>1230</left>
+				<top>-12</top>
+				<include>skinshortcuts-template-reloading</include>
 			</control>
 			
 		</definition>

@@ -27,6 +27,7 @@ _Improved_
 - add song/album year to music player
 - add wide list as music view
 - add music OSD album art size switch
+- adjust widget headings to always show and adjust animations to match widget animations
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
@@ -294,6 +295,7 @@ Include_Home_OSMC.xml:
 - change submenu animations for new submenu indicator behaviour
 - add submenu indicator
 - add scrolling to focused main menu list labels
+- remove reloading indicator for widgets
 
 Includes.xml:
 - add player icon to now playing dialog
@@ -309,6 +311,9 @@ Includes.xml:
 
 Includes_Widgets.xml:
 - replace colors by new color variables
+- always show widget headings (when focused and non-focused)
+- add reload indicator to widget headings
+- change widget heading animations to match widget animations
 
 LoginScreen.xml:
 - replace colors by new color variables
@@ -415,6 +420,9 @@ script.skinshortcuts-static-xml:
 - hack game widget to show proper widget title
 - replace colors by new color variables
 - change standard TV shows widget to "Random TV shows"
+- adjust game widget heading to match new widget headings
+- remove special non-focused heading
+- add location to weather widget heading
 
 script-skinshortcuts.xml:
 - replace colors by new color variables
@@ -583,6 +591,8 @@ overrides.xml:
 
 template.xml:
 - replace colors by new color variables
+- remove special non-focused heading
+- add location to weather widget heading
 
 addon.xml:
 - bump version to 18.0.0
