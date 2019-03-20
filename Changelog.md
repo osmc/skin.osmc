@@ -28,6 +28,7 @@ _Improved_
 - add wide list as music view
 - add music OSD album art size switch
 - adjust widget headings to always show and adjust animations to match widget animations
+- add option to change widget labels
 
 _Fixed_
 - show proper game widget title when not using skinshortcuts script
@@ -415,6 +416,8 @@ script-nextup-notification-StillWatchingInfo.xml:
 
 script-skin_helper_service-ColorPicker.xml:
 - replace colors by new color variables
+- fix ondown, onup, onright and onleft of lists
+- add new navigation indicator include
 
 script.skinshortcuts-static-xml:
 - hack game widget to show proper widget title
@@ -426,6 +429,9 @@ script.skinshortcuts-static-xml:
 
 script-skinshortcuts.xml:
 - replace colors by new color variables
+- fix ondown, onup, onright and onleft of lists
+- add new navigation indicator include
+- add option to change widget labels
 
 Settings.xml:
 - replace colors by new color variables
@@ -462,6 +468,8 @@ SkinSettings.xml:
 - add new adjust music OSD album art size option to advanced skin settings
 - change onclicks of customization and skin helper addon-related options for non-OSMC devices (where the scripts are not pre-installed) to open new dialogs
 - un-comment skinhelper widgets button
+- add page indicators to longer add-ons category
+- rework add-ons category
 
 SmartPlaylistEditor.xml:
 - replace colors by new color variables
