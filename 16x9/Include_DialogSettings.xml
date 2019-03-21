@@ -23,8 +23,8 @@
 					<itemgap>0</itemgap>
 					<onleft>9001</onleft>
 					<onright>9001</onright>
-					<onup>noop</onup>
-					<ondown>9001</ondown>
+					<onup>5</onup>
+					<ondown>5</ondown>
 					<orientation>vertical</orientation>
 					<scrolltime tween="sine" easing="out">240</scrolltime>
 				</control>
@@ -77,6 +77,11 @@
 					<height>20</height>
 					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 				</control>
+				
+				<!-- Button grouplist indicator -->
+				<include content="dialogButtonIndicator">
+					<param name="visibility">!ControlGroup(9001).HasFocus</param>
+				</include>
 
 				<!-- Button grouplist background -->
 				<include content="dialogButtonBackground">
@@ -172,8 +177,8 @@
 					<width>820</width>
 					<height>780</height>
 					<itemgap>0</itemgap>
-					<onleft>9001</onleft>
-					<onright>9001</onright>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
 					<onup>noop</onup>
 					<ondown>9001</ondown>
 					<orientation>vertical</orientation>
