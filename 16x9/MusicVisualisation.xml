@@ -50,34 +50,33 @@
 				<left>980</left>
 				<top>340</top>
 				<hight>200</hight>
+				<!-- Artist -->
 				<control type="fadelabel">
 					<width>700</width>
 					<pauseatend>5000</pauseatend>
 					<label>$INFO[MusicPlayer.Artist]</label>
 					<visible>!String.IsEmpty(MusicPlayer.Artist)</visible>
 				</control>
+				<!-- Album + Year -->
 				<control type="fadelabel">
 					<width>700</width>
 					<pauseatend>5000</pauseatend>
-					<label>$INFO[MusicPlayer.Album]</label>
+					<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year, (,)]</label>
 					<visible>!String.IsEmpty(MusicPlayer.Album)</visible>
 				</control>
-				<control type="fadelabel">
-					<width>700</width>
-					<pauseatend>5000</pauseatend>
-					<label>$INFO[MusicPlayer.Year,[LIGHT],[/LIGHT]]</label>
-					<visible>!String.IsEmpty(MusicPlayer.Year)</visible>
-				</control>
+				<!-- Track/Title -->
 				<control type="fadelabel">
 					<width>700</width>
 					<pauseatend>5000</pauseatend>
 					<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title]</label>
 				</control>
+				<!-- Radio channel title -->
 				<control type="fadelabel">
 					<width>700</width>
 					<label>$INFO[VideoPlayer.ChannelName,[LIGHT],[/LIGHT]]</label>
 					<visible>!String.IsEmpty(VideoPlayer.ChannelName)</visible>
 				</control>
+				<!-- File information -->
 				<control type="label">
 					<width>700</width>
 					<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.BitRate,[LIGHT](,kBit/s)[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.SampleRate,[LIGHT],kHz[/LIGHT]]</label>

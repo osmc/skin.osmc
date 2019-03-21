@@ -38,6 +38,7 @@ _Fixed_
 - fix background of subtitle settings window
 - fix layout of PVR playback dialogs
 - fix dialog list navigation
+- change font size of media tags to prevent overlap with titles/details
 
 **Changelog v18.0.0**
 
@@ -282,6 +283,7 @@ FileManager.xml:
 
 Font.xml:
 - change systeminfo font from LiberationMono-Regular.ttf to SourceSansPro-Regular.tff (default font)
+- add new font 29 for media tags
 
 GameOSD.xml:
 - replace colors by new color variables
@@ -293,6 +295,8 @@ Home.xml:
 
 Include_DialogSettings.xml:
 - replace colors by new color variables
+- fix ondown, onup, onleft and onright of lists
+- add new navigation indicator include
 
 Include_Home_OSMC.xml:
 - replace colors by new color variables
@@ -313,6 +317,7 @@ Includes.xml:
 - add new SubmenuIndicator include
 - fix duration icon of media flags
 - add new dialogButtonIndicator include
+- change font of media tags to prevent overlap in certain views
 
 Includes_Widgets.xml:
 - replace colors by new color variables
@@ -331,7 +336,7 @@ MusicOSD.xml:
 
 MusicVisualisation.xml:
 - replace colors by new color variables
-- add song/album year
+- add album year
 - add bigger cover art
 
 MyGames.xml:
