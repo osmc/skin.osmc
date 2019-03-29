@@ -79,6 +79,9 @@ Addon.Browser.xml:
 - add onload to show welcome screen after installing the skin from zip
 - add submenu indicator
 
+Custom_Backup.xml:
+- add new dialog prompt when skin helper service skin backup script is disabled
+
 Custom_Cache_Progress.xml:
 - replace colors by new color variables
 
