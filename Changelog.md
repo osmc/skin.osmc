@@ -83,23 +83,10 @@ Custom_Cache_Progress.xml:
 - replace colors by new color variables
 
 Custom_Customization.xml:
-- add new dialog prompt for required script install for home menu customization on non-OSMC devices
+- add new dialog prompt when skin helper script is disabled
 
-Custom_Skin_Helper_Service.xml:
-- add new dialog prompt for Skin Helper Service script install on non-OSMC devices
-
-Custom_Skin_Helper_Skin_Backup_Open.xml:
-- add new dialog for Backup option under Reset/Debug in skin settings
-
-Custom_Skin_Helper_Service_Skin_Backup.xml -> Custom_Skin_Helper_Skin_Backup_Settings.xml:
-- add new dialog prompt for Skin Helper Service Skin Backup script install on non-OSMC devices
-- rename dialog
-
-Custom_Skin_Helper_Service_Widgets.xml:
-- add new dialog prompt for Skin Helper Service Widgets script install on non-OSMC devices
-
-Custom_Skin_Shortcuts.xml:
-- add new dialog prompt for Skin Shortcuts script install on non-OSMC devices
+Custom_Disabled_Add-on.xml:
+- add new dialog prompt when supported skin add-ons are disabled
 
 Custom_Welcome.xml
 - add new Welcome dialog for non-OSMC devices
@@ -475,10 +462,10 @@ SkinSettings.xml:
 - add skin settings backup and restore option
 - fix onup and ondown for addons submenu
 - add new adjust music OSD album art size option to advanced skin settings
-- change onclicks of customization and skin helper addon-related options for non-OSMC devices (where the scripts are not pre-installed) to open new dialogs
 - un-comment skinhelper widgets button
 - add page indicators to longer add-ons category
 - rework add-ons category
+- comment out next-up notification add-on (it's broken)
 
 SmartPlaylistEditor.xml:
 - replace colors by new color variables
@@ -594,8 +581,7 @@ strings.po:
 - change localizes for views (31112, 31113, 31114)
 - add new localizes for new views (31116, 31117)
 - add new localize for new standard TV shows widget (31118)
-- add new localize for adjusted skin settings add-ons list (31119 + 31120)
-- add new localize for disabled, pre-installed skin scripts on OSMC devices (31121)
+- add new localize for adjusted skin settings add-ons list (31119)
 
 Textures.xbt:
 - update file with new resolution select icon included

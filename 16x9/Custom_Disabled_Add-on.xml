@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="1103">
+<window type="dialog" id="1102">
 	<!-- yesnodialog -->
 	<include>WindowFadeAnimation</include>
 	<defaultcontrol always="true">10</defaultcontrol>
@@ -9,7 +9,7 @@
 		<include>WindowFadeBackgroundImage</include>
 
 		<include content="Time">
-			<param name="heading">31079</param>
+			<param name="heading">Enable add-on</param>
 		</include>
 
 		<!-- Heading -->
@@ -24,17 +24,19 @@
 		</control>
 
 		<!-- Details -->
-		<control type="textbox">
-			<centerleft>50%</centerleft>
-			<centertop>50%</centertop>
-			<width>1880</width>
-			<height>600</height>
-			<align>center</align>
-			<aligny>center</aligny>
-			<font>Font36</font>
-			<autoscroll>False</autoscroll>
-			<textcolor>$VAR[TextColor1]</textcolor>
-			<label>Please make sure that the following add-on is installed with the correct version and enabled:[CR][CR][LIGHT]Skin Shortcuts 1.0.18[/LIGHT][CR][CR]To aquire the correct add-on version, please install Marcelveldt's BETA repository:[CR][LIGHT]https://github.com/kodi-community-addons/repository.marcelveldt[/LIGHT]</label>
+		<control type="group">
+			<control type="textbox">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>1880</width>
+				<height>600</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font36</font>
+				<autoscroll>False</autoscroll>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>Please enable the add-on under Settings/Add-on browser/My add-ons to be able to use it.</label>
+			</control>
 		</control>
 
 		<!-- Button grouplist background -->
@@ -55,17 +57,16 @@
 				<width>auto</width>
 				<font>Font36</font>
 				<align>center</align>
-				<onclick>Dialog.Close(1103)</onclick>
+				<onclick>Dialog.Close(1102)</onclick>
 				<label>OK</label>
 			</control>
 			<control type="button" id="11">
-				<visible>System.HasAddon(script.skinshortcuts) + !String.IsEqual(System.AddonVersion(script.skinshortcuts),1.0.18)</visible>
 				<width>auto</width>
 				<font>Font36</font>
 				<align>center</align>
-				<onclick>Dialog.Close(1103)</onclick>
-				<onclick>Addon.OpenSettings(script.skinshortcuts)</onclick>
-				<label>Open anyway</label>
+				<onclick>Dialog.Close(1102)</onclick>
+				<onclick>ActivateWindow(addonbrowser)</onclick>
+				<label>Open Add-on browser</label>
 			</control>
 		</control>
 
