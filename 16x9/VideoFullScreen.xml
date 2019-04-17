@@ -172,7 +172,7 @@
 					<align>center</align>
 					<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>String.IsEmpty(Player.SeekStepSize)</visible>
+					<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize)</visible>
 				</control>
 
 				<!-- Status -->
