@@ -55,6 +55,7 @@
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackwardEnd.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickBackwardEnd.png</texturenofocus>
 					<onclick>PlayerControl(Previous)</onclick>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 				<!-- Rewind -->
 				<control type="togglebutton" id="2">
@@ -68,6 +69,7 @@
 					<alttexturenofocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(1)</usealttexture>
 					<onclick>PlayerControl(Rewind)</onclick>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 				<!-- Tempo Down -->
 				<control type="togglebutton" id="3">
@@ -81,6 +83,7 @@
 					<alttexturenofocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(1) | Control.HasFocus(2)</usealttexture>
 					<onclick>PlayerControl(TempoDown)</onclick>
+					<visible>Player.SeekEnabled</visible>
 					<enable>Player.TempoEnabled</enable>
 				</control>
 
@@ -103,6 +106,7 @@
 					<alttexturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</alttexturefocus>
 					<alttexturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPlayNF.png</alttexturenofocus>
 					<onclick>PlayerControl(Play)</onclick>
+					<visible>Player.PauseEnabled</visible>
 				</control>
 				<!-- Stop -->
 				<control type="button" id="5">
@@ -134,6 +138,7 @@
 					<alttexturenofocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(7) | Control.HasFocus(8)</usealttexture>
 					<onclick>PlayerControl(TempoUp)</onclick>
+					<visible>Player.SeekEnabled</visible>
 					<enable>Player.TempoEnabled</enable>
 				</control>
 				<!-- Fast Forward -->
@@ -148,6 +153,7 @@
 					<alttexturenofocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(8)</usealttexture>
 					<onclick>PlayerControl(Forward)</onclick>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 				<!-- Next -->
 				<control type="button" id="8">
@@ -158,6 +164,7 @@
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForwardEnd.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickForwardEnd.png</texturenofocus>
 					<onclick>PlayerControl(Next)</onclick>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 
 			</control>

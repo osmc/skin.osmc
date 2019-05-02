@@ -15,6 +15,7 @@ _New_
 - add new sub-menu indicator icon
 - add "Random TV shows" widget as new standard for TV shows home menu entry
 - add new dialog navigation indicators
+- add ratings toggle for IMDb, Metacritic, Rotten Tomatoes and TVDb
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -39,6 +40,7 @@ _Fixed_
 - fix layout of PVR playback dialogs
 - fix dialog list navigation
 - change font size of media tags to prevent overlap with titles/details
+- only offer rip CD feature when an audio CD is present
 
 **Changelog v18.0.0**
 
@@ -254,6 +256,7 @@ DialogVideoInfo.xml:
 - fix ondown, onup and onleft of lists
 - add scrollbar to actor list
 - add new navigation indicator
+- add new ratings toggle for IMDb, Metacritic, Rotten Tomatoes and TVDb
 
 EventLog.xml:
 - replace colors by new color variables
@@ -425,6 +428,7 @@ script.skinshortcuts-static-xml:
 - adjust game widget heading to match new widget headings
 - remove special non-focused heading
 - add location to weather widget heading
+- fix conditional visibility for Rip CD feature (only show for audio CDs)
 
 script-skinshortcuts.xml:
 - replace colors by new color variables
@@ -585,12 +589,16 @@ strings.po:
 - add new localizes for new views (31116, 31117)
 - add new localize for new standard TV shows widget (31118)
 - add new localize for adjusted skin settings add-ons list (31119)
+- add new localizes for new ratings toggle (31120, 31121, 31122)
 
 Textures.xbt:
 - update file with new resolution select icon included
 - update file with new background gradient overlays and removed old background PNGs
 - update file with new submenu indicator icons
 - update file with new navigation indicator icons
+
+341.DATA.xml:
+- fix conditional visibility for Rip CD feature (only show for audio CDs)
 
 overrides.xml:
 - simplify game home menu entry and game widget
