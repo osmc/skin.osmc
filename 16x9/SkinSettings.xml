@@ -34,6 +34,8 @@
 	<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
 	<onload condition="String.IsEmpty(Skin.String(DefaultOverlayOpacity))">Skin.SetString(DefaultOverlayOpacity,High)</onload>
 	<onload condition="String.IsEmpty(Skin.String(OSMCBackgroundOverlay))">Skin.SetString(OSMCBackgroundOverlay,1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(videoinfostartduration))">Skin.SetString(videoinfostartduration,10s)</onload>
+	<onload condition="String.IsEmpty(Skin.String(videoinfoendduration))">Skin.SetString(videoinfoendduration,10s)</onload>
 
 	<controls>
 	
@@ -86,35 +88,40 @@
 					<!-- Home items -->
 					<item id="1">
 						<label>$LOCALIZE[10000]</label>
-						<onclick>Control.SetFocus(700)</onclick>
+						<onclick>Control.SetFocus(800)</onclick>
 					</item>
 					<!-- Background -->
 					<item id="2">
 						<label>$LOCALIZE[33068]</label>
-						<onclick>Control.SetFocus(600)</onclick>
+						<onclick>Control.SetFocus(700)</onclick>
 					</item>
 					<!-- Colors -->
 					<item id="3">
 						<label>$LOCALIZE[14078]</label>
+						<onclick>Control.SetFocus(600)</onclick>
+					</item>
+					<!-- OSD -->
+					<item id="4">
+						<label>$LOCALIZE[478]</label>
 						<onclick>Control.SetFocus(500)</onclick>
 					</item>
 					<!-- Weather -->
-					<item id="4">
+					<item id="5">
 						<label>$LOCALIZE[8]</label>
 						<onclick>Control.SetFocus(400)</onclick>
 					</item>
 					<!-- Advanced -->
-					<item id="5">
+					<item id="6">
 						<label>$LOCALIZE[10038]</label>
 						<onclick>Control.SetFocus(300)</onclick>
 					</item>
 					<!-- Add-ons -->
-					<item id="6">
+					<item id="7">
 						<label>$LOCALIZE[24001]</label>
 						<onclick>Control.SetFocus(200)</onclick>
 					</item>
 					<!-- Reset/Debug -->
-					<item id="7">
+					<item id="8">
 						<label>$LOCALIZE[31107]</label>
 						<onclick>Control.SetFocus(100)</onclick>
 					</item>
@@ -136,7 +143,7 @@
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture colordiffuse="$VAR[DialogColor2]">up.png</texture>
 
-				<visible>Container(500).HasPrevious + Container(9000).HasFocus(3) | Container(200).HasPrevious + Container(9000).HasFocus(6)</visible>
+				<visible>Container(600).HasPrevious + Container(9000).HasFocus(3) | Container(200).HasPrevious + Container(9000).HasFocus(7) | Container(500).HasPrevious + Container(9000).HasFocus(4)</visible>
 
 				<animation type="Visible">
 					<effect type="Fade" start="0" end="100" time="200"/>
@@ -155,7 +162,7 @@
 				<height>16</height>
 				<texture colordiffuse="$VAR[DialogColor2]">down.png</texture>
 
-				<visible>Container(500).HasNext + Container(9000).HasFocus(3) | Container(200).HasNext + Container(9000).HasFocus(6)</visible>
+				<visible>Container(600).HasNext + Container(9000).HasFocus(3) | Container(200).HasNext + Container(9000).HasFocus(7) | Container(500).HasNext + Container(9000).HasFocus(4)</visible>
 
 				<animation type="Visible">
 					<effect type="Fade" start="0" end="100" time="200"/>
@@ -171,7 +178,7 @@
 		<!-- Home items -->
 		<control type="group" id="10000">
 			<left>550</left>
-			<control type="grouplist" id="700">
+			<control type="grouplist" id="800">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -179,14 +186,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>700</onup>
-				<ondown>700</ondown>
+				<onup>800</onup>
+				<ondown>800</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(1)</visible>
 				<!-- Edit menu-->
-				<control type="button" id="701">
+				<control type="button" id="801">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -197,7 +204,7 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<control type="button" id="702">
+				<control type="button" id="802">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -211,7 +218,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Always show settings link -->
-				<control type="radiobutton" id="703">
+				<control type="radiobutton" id="803">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -222,7 +229,7 @@
 					<visible>System.HasAddon(script.skinshortcuts)</visible>
 				</control>
 				<!-- Show date above system time -->
-				<control type="radiobutton" id="704">
+				<control type="radiobutton" id="804">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -234,7 +241,7 @@
 			</control>
 
 			<!-- Background -->
-			<control type="grouplist" id="600">
+			<control type="grouplist" id="700">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -242,14 +249,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>600</onup>
-				<ondown>600</ondown>
+				<onup>700</onup>
+				<ondown>700</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(2)</visible>
 				<!-- Background image -->
-				<control type="radiobutton" id="601">
+				<control type="radiobutton" id="701">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -258,7 +265,7 @@
 					<onclick>Skin.SetString(BackgroundDefaultImage,yes)</onclick>
 					<selected>String.IsEqual(Skin.String(BackgroundDefaultImage),yes)</selected>
 				</control>
-				<control type="button" id="602">
+				<control type="button" id="702">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -274,7 +281,7 @@
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),yes)</visible>
 				</control>
 				<!-- Custom background image -->
-				<control type="radiobutton" id="603">
+				<control type="radiobutton" id="703">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -283,7 +290,7 @@
 					<onclick>Skin.SetString(BackgroundDefaultImage,no)</onclick>
 					<selected>String.IsEqual(Skin.String(BackgroundDefaultImage),no)</selected>
 				</control>
-				<control type="button" id="604">
+				<control type="button" id="704">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -296,7 +303,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Display fanart -->
-				<control type="radiobutton" id="605">
+				<control type="radiobutton" id="705">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -306,7 +313,7 @@
 					<selected>!Skin.HasSetting(HideFanart)</selected>
 				</control>
 				<!-- Background video -->
-				<control type="radiobutton" id="606">
+				<control type="radiobutton" id="706">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -316,7 +323,7 @@
 					<selected>Skin.HasSetting(BackgroundVideo)</selected>
 				</control>
 				<!-- Background visualisation -->
-				<control type="radiobutton" id="607">
+				<control type="radiobutton" id="707">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -326,7 +333,7 @@
 					<selected>Skin.HasSetting(BackgroundVisualisation)</selected>
 				</control>
 				<!-- Enable artist slideshow -->
-				<control type="radiobutton" id="608">
+				<control type="radiobutton" id="708">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -338,7 +345,7 @@
 			</control>
 			
 			<!-- Colors -->
-			<control type="grouplist" id="500">
+			<control type="grouplist" id="600">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -346,14 +353,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>500</onup>
-				<ondown>500</ondown>
+				<onup>600</onup>
+				<ondown>600</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(3)</visible>
 				<!-- Default colors -->
-				<control type="radiobutton" id="501">
+				<control type="radiobutton" id="601">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -363,7 +370,7 @@
 					<selected>String.IsEqual(Skin.String(DefaultColors),yes)</selected>
 				</control>
 				<!-- Default color sets -->
-				<control type="button" id="502">
+				<control type="button" id="602">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -384,7 +391,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Background opacity -->
-				<control type="button" id="503">
+				<control type="button" id="603">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -400,7 +407,7 @@
 					<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]</visible>
 				</control>
 				<!-- Overlay opacity -->
-				<control type="button" id="504">
+				<control type="button" id="604">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -416,7 +423,7 @@
 					<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]</visible>
 				</control>
 				<!-- Background color gradient -->
-				<control type="button" id="505">
+				<control type="button" id="605">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -432,7 +439,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom colors -->
-				<control type="radiobutton" id="506">
+				<control type="radiobutton" id="606">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -442,7 +449,7 @@
 					<selected>String.IsEqual(Skin.String(DefaultColors),no)</selected>
 				</control>
 				<!-- Custom background color -->
-				<control type="button" id="507">
+				<control type="button" id="607">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -456,7 +463,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom overlay color -->
-				<control type="button" id="508">
+				<control type="button" id="608">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -470,7 +477,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom focus text color -->
-				<control type="button" id="509">
+				<control type="button" id="609">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -484,7 +491,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom non-focus text color -->
-				<control type="button" id="510">
+				<control type="button" id="610">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -498,7 +505,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom selected text color -->
-				<control type="button" id="511">
+				<control type="button" id="611">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -512,7 +519,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom disabled text color -->
-				<control type="button" id="512">
+				<control type="button" id="612">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -524,6 +531,214 @@
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+			</control>
+			
+			<!-- OSD -->
+			<control type="grouplist" id="500">
+				<left>0</left>
+				<top>228</top>
+				<width>1220</width>
+				<height>660</height>
+				<itemgap>0</itemgap>
+				<onleft>9000</onleft>
+				<onright>noop</onright>
+				<onup>500</onup>
+				<ondown>500</ondown>
+				<orientation>vertical</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container(9000).HasFocus(4)</visible>
+				<!-- OSD info video start -->
+				<control type="radiobutton" id="501">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31123</label>
+					<onclick>Skin.ToggleSetting(videoinfostart)</onclick>
+					<selected>Skin.HasSetting(videoinfostart)</selected>
+				</control>
+				<!-- Movies -->
+				<control type="radiobutton" id="502">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31124]</label>
+					<onclick>Skin.ToggleSetting(videoinfostartmovies)</onclick>
+					<selected>Skin.HasSetting(videoinfostartmovies)</selected>
+					<visible>Skin.HasSetting(videoinfostart)</visible>
+				</control>
+				<!-- TV shows -->
+				<control type="radiobutton" id="503">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31125]</label>
+					<onclick>Skin.ToggleSetting(videoinfostarttvshow)</onclick>
+					<selected>Skin.HasSetting(videoinfostarttvshow)</selected>
+					<visible>Skin.HasSetting(videoinfostart)</visible>
+				</control>
+				<!-- Live TV -->
+				<control type="radiobutton" id="504">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31126]</label>
+					<onclick>Skin.ToggleSetting(videoinfostartlivetv)</onclick>
+					<selected>Skin.HasSetting(videoinfostartlivetv)</selected>
+					<visible>Skin.HasSetting(videoinfostart)</visible>
+				</control>
+				<!-- Music videos -->
+				<control type="radiobutton" id="505">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31127]</label>
+					<onclick>Skin.ToggleSetting(videoinfostartmusicvideo)</onclick>
+					<selected>Skin.HasSetting(videoinfostartmusicvideo)</selected>
+					<visible>Skin.HasSetting(videoinfostart)</visible>
+				</control>
+				<!-- Other videos -->
+				<control type="radiobutton" id="506">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31128]</label>
+					<onclick>Skin.ToggleSetting(videoinfostartfiles)</onclick>
+					<selected>Skin.HasSetting(videoinfostartfiles)</selected>
+					<visible>Skin.HasSetting(videoinfostart)</visible>
+				</control>
+				<!-- OSD info video start duration -->
+				<control type="button" id="507">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31129]</label>
+					<label2>$INFO[Skin.String(videoinfostartduration)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(videoinfostartduration),10s)">Skin.SetString(videoinfostartduration,15s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videoinfostartduration),15s)">Skin.SetString(videoinfostartduration,20s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videoinfostartduration),20s)">Skin.SetString(videoinfostartduration,5s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videoinfostartduration),5s)">Skin.SetString(videoinfostartduration,10s)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>Skin.HasSetting(videoinfostart)</visible>
+				</control>
+				<!-- OSD info PVR channel switch -->
+				<control type="radiobutton" id="508">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31130]</label>
+					<onclick>Skin.ToggleSetting(videoinfolivetvswitch)</onclick>
+					<selected>Skin.HasSetting(videoinfolivetvswitch)</selected>
+				</control>
+				<!-- OSD info video end -->
+				<control type="radiobutton" id="509">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31131</label>
+					<onclick>Skin.ToggleSetting(videoinfoend)</onclick>
+					<selected>Skin.HasSetting(videoinfoend)</selected>
+				</control>
+				<!-- Movies -->
+				<control type="radiobutton" id="510">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31124]</label>
+					<onclick>Skin.ToggleSetting(videoinfoendmovie)</onclick>
+					<selected>Skin.HasSetting(videoinfoendmovie)</selected>
+					<visible>Skin.HasSetting(videoinfoend)</visible>
+				</control>
+				<!-- TV shows -->
+				<control type="radiobutton" id="511">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31125]</label>
+					<onclick>Skin.ToggleSetting(videoinfoendtvshow)</onclick>
+					<selected>Skin.HasSetting(videoinfoendtvshow)</selected>
+					<visible>Skin.HasSetting(videoinfoend)</visible>
+				</control>
+				<!-- Music videos -->
+				<control type="radiobutton" id="512">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31127]</label>
+					<onclick>Skin.ToggleSetting(videoinfoendmusicvideo)</onclick>
+					<selected>Skin.HasSetting(videoinfoendmusicvideo)</selected>
+					<visible>Skin.HasSetting(videoinfoend)</visible>
+				</control>
+				<!-- Other videos -->
+				<control type="radiobutton" id="513">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31128]</label>
+					<onclick>Skin.ToggleSetting(videoinfoendfiles)</onclick>
+					<selected>Skin.HasSetting(videoinfoendfiles)</selected>
+					<visible>Skin.HasSetting(videoinfoend)</visible>
+				</control>
+				<!-- OSD info video start duration -->
+				<control type="button" id="514">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31132]</label>
+					<label2>$INFO[Skin.String(videoinfoendduration)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(videoinfoendduration),10s)">Skin.SetString(videoinfoendduration,15s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videoinfoendduration),15s)">Skin.SetString(videoinfoendduration,20s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videoinfoendduration),20s)">Skin.SetString(videoinfoendduration,5s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videoinfoendduration),5s)">Skin.SetString(videoinfoendduration,10s)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>Skin.HasSetting(videoinfoend)</visible>
+				</control>
+				<!-- Adjust OSD on-time during video pause -->
+				<control type="button" id="515">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31102]</label>
+					<label2>$INFO[Skin.String(HideOSD)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),Always)">Skin.SetString(HideOSD,5s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),5s)">Skin.SetString(HideOSD,10s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),10s)">Skin.SetString(HideOSD,20s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),20s)">Skin.SetString(HideOSD,30s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),30s)">Skin.SetString(HideOSD,1 min)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),1 min)">Skin.SetString(HideOSD,2 min)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),2 min)">Skin.SetString(HideOSD,3 min)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),3 min)">Skin.SetString(HideOSD,5 min)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(HideOSD),5 min)">Skin.SetString(HideOSD,Always)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<!-- Adjust music OSD album art size -->
+				<control type="radiobutton" id="516">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>31115</label>
+					<onclick>Skin.ToggleSetting(MusicOSDSize)</onclick>
+					<selected>Skin.HasSetting(MusicOSDSize)</selected>
 				</control>
 			</control>
 
@@ -541,7 +756,7 @@
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container(9000).HasFocus(4)</visible>
+				<visible>Container(9000).HasFocus(5)</visible>
 				<!-- Weather icons-->
 				<control type="button" id="401">
 					<width>1220</width>
@@ -593,7 +808,7 @@
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container(9000).HasFocus(5)</visible>
+				<visible>Container(9000).HasFocus(6)</visible>
 				<!-- Add additional text highlighting -->
 				<control type="radiobutton" id="301">
 					<width>1220</width>
@@ -640,38 +855,8 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Adjust music OSD album art size -->
-				<control type="radiobutton" id="304">
-					<width>1220</width>
-					<height>66</height>
-					<textwidth>1120</textwidth>
-					<font>Font33</font>
-					<label>31115</label>
-					<onclick>Skin.ToggleSetting(MusicOSDSize)</onclick>
-					<selected>Skin.HasSetting(MusicOSDSize)</selected>
-				</control>
-				<!-- Adjust OSD on-time during video pause -->
-				<control type="button" id="305">
-					<width>1220</width>
-					<height>66</height>
-					<textwidth>1120</textwidth>
-					<font>Font33</font>
-					<label>$LOCALIZE[31102]</label>
-					<label2>$INFO[Skin.String(HideOSD)]</label2>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),Always)">Skin.SetString(HideOSD,5s)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),5s)">Skin.SetString(HideOSD,10s)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),10s)">Skin.SetString(HideOSD,20s)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),20s)">Skin.SetString(HideOSD,30s)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),30s)">Skin.SetString(HideOSD,1 min)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),1 min)">Skin.SetString(HideOSD,2 min)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),2 min)">Skin.SetString(HideOSD,3 min)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),3 min)">Skin.SetString(HideOSD,5 min)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(HideOSD),5 min)">Skin.SetString(HideOSD,Always)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
-				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="306">
+				<control type="radiobutton" id="304">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -696,7 +881,7 @@
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container(9000).HasFocus(6)</visible>
+				<visible>Container(9000).HasFocus(7)</visible>
 				<!-- Recommended -->
 				<control type="label" id="201">
 					<width>1220</width>
@@ -811,7 +996,7 @@
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container(9000).HasFocus(7)</visible>
+				<visible>Container(9000).HasFocus(8)</visible>
 				<!-- Backup -->
 				<control type="button" id="101">
 					<width>1220</width>

@@ -16,6 +16,7 @@ _New_
 - add "Random TV shows" widget as new standard for TV shows home menu entry
 - add new dialog navigation indicators
 - add ratings toggle for IMDb, Metacritic, Rotten Tomatoes and TVDb
+- add new video player OSD settings (show OSD after beginning of playback and before end of playback)
 
 _Improved_
 - adjust syntax, values, labels and infobools to match v18 requirements
@@ -80,6 +81,7 @@ Addon.Browser.xml:
 - fix highlighting in focusedlayout of grouplists
 - add onload to show welcome screen after installing the skin from zip
 - add submenu indicator
+- add onloads for new OSD settings
 
 Custom_Backup.xml:
 - add new dialog prompt when skin helper service skin backup script is disabled
@@ -166,6 +168,7 @@ DialogFullScreenInfo.xml:
 - fix current position/time remaining for PVR playback
 - add PVR progress bar
 - fix current time/end time for PVR playback
+- remove info dialog
 
 DialogGameControllers.xml:
 - replace colors by new color variables
@@ -236,6 +239,7 @@ DialogSeekBar.xml:
 - fix current position/time remaining for PVR playback
 - add PVR progress bar
 - fix current time/end time for PVR playback
+- remove PVR channel number input dialog
 
 DialogSelect.xml:
 - replace colors by new color variables
@@ -285,6 +289,7 @@ Home.xml:
 - add new onloads
 - replace colors by new color variables
 - add onload to show welcome screen when Home screen first shows up
+- add onloads for new OSD settings
 
 Include_DialogSettings.xml:
 - replace colors by new color variables
@@ -323,6 +328,7 @@ LoginScreen.xml:
 - fix highlighting in focusedlayout of grouplists
 - fix onright of the list
 - add submenu indicator
+- add onloads for new OSD settings
 
 MusicOSD.xml:
 - replace colors by new color variables
@@ -473,6 +479,8 @@ SkinSettings.xml:
 - add page indicators to longer add-ons category
 - rework add-ons category
 - comment out next-up notification add-on (it's broken)
+- add onloads for new OSD settings
+- add new OSD settings section
 
 SmartPlaylistEditor.xml:
 - replace colors by new color variables
@@ -496,6 +504,7 @@ Variables.xml:
 - fix StatusOverlay and StatusOverlayWide variables for resumable items
 - fix Duration variable formatting used for media flags
 - un-comment addon-skinhelperwidgets variable
+- update VideoPlayerPlot, VideoPlayerTitle and VideoPlayerNext variables for new OSD settings
 
 VideoFullScreen.xml:
 - replace colors by new color variables
@@ -503,6 +512,9 @@ VideoFullScreen.xml:
 - fix current position/time remaining for PVR playback
 - add PVR progress bar
 - fix current time/end time for PVR playback
+- add onloads for OSD settings alarm
+- adjust conditional visibility of progress bar and info dialog for new OSD settings
+- add elements formerly present in fullscreen info and seekbar dialog
 
 VideoOSD.xml:
 - replace colors by new color variables
@@ -590,6 +602,7 @@ strings.po:
 - add new localize for new standard TV shows widget (31118)
 - add new localize for adjusted skin settings add-ons list (31119)
 - add new localizes for new ratings toggle (31120, 31121, 31122)
+- add new localizes for new OSD settings (31123, 31124, 31125, 31126, 31127, 31128, 31129, 31130, 31131, 31132)
 
 Textures.xbt:
 - update file with new resolution select icon included
