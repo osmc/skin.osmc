@@ -54,100 +54,18 @@
 		</control>
 
 		<control type="group" id="1">
-			<visible>Window.IsActive(seekbar) | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
-			<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml)</visible>
 			<left>150</left>
-			<top>870</top>
+			<top>75</top>
 			<width>1620</width>
-			<height>60</height>
-			<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(VideoOSD)">Conditional</animation>
-			<animation type="Visible">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
-			</animation>
-			<animation type="Hidden">
-				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-				<effect type="fade" start="100" end="0" time="200"/>
-			</animation>
-
-			<!-- Player forwarding/rewinding -->
-			<control type="group" id="1">
-				<width>140</width>
-				<height>60</height>
-				<visible>!Window.IsVisible(VideoBookmarks)</visible>
-				<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek] + !Player.HasGame + !Player.Seeking | player.paused</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
-
-				<!-- Background -->
-				<control type="image" id="1">
-					<width>140</width>
-					<height>60</height>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-				</control>
-
-				<!-- Status -->
-				<control type="label" id="1">
-					<width>140</width>
-					<height>60</height>
-					<font>Font36</font>
-					<align>center</align>
-					<label>$VAR[PlayerStatus]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>player.forwarding | player.rewinding | player.istempo</visible>
-					<animation type="Visible">
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
-				</control>
-
-				<!-- Pause -->
-				<control type="image" id="1">
-					<left>40</left>
-					<width>60</width>
-					<height>60</height>
-					<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texture>
-					<visible>player.paused</visible>
-					<animation type="Visible">
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
-				</control>
-				
-				<!-- Play after seek -->
-				<control type="image" id="1">
-					<left>40</left>
-					<width>60</width>
-					<height>60</height>
-					<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</texture>
-					<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
-					<animation type="Visible">
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
-				</control>
-
-			</control>
+			<height>855</height>
 			
-			<!-- Player skipping -->
 			<control type="group" id="1">
-				<right>0</right>
-				<width>140</width>
+				<top>795</top>
+				<width>1620</width>
 				<height>60</height>
-				<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize)] + !Player.HasGame</visible>
-				<visible>!Window.IsVisible(visualisation) + !Window.IsVisible(VideoBookmarks)</visible>
+				<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(VideoOSD)">Conditional</animation>
+				<visible>Window.IsActive(seekbar) | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
+				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml)</visible>
 				<animation type="Visible">
 					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
 					<effect type="fade" start="0" end="100" time="200"/>
@@ -157,193 +75,316 @@
 					<effect type="fade" start="100" end="0" time="200"/>
 				</animation>
 
-				<!-- Background -->
-				<control type="image" id="1">
-					<width>140</width>
-					<height>60</height>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-				</control>
-
-				<!-- Status -->
-				<control type="label" id="1">
-					<width>140</width>
-					<height>60</height>
-					<font>Font27</font>
-					<align>center</align>
-					<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize)</visible>
-				</control>
-
-				<!-- Status -->
-				<control type="label" id="1">
-					<width>140</width>
-					<height>60</height>
-					<font>Font27</font>
-					<align>center</align>
-					<label>$INFO[Player.SeekStepSize]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>!String.IsEmpty(Player.SeekStepSize)</visible>
-				</control>
-
-			</control>
-
-
-			<!-- Timeshift status -->
-			<control type="group" id="1">
-				<visible>!Window.IsVisible(VideoBookmarks)</visible>
-				<visible>Pvr.IsTimeShift</visible>
-				<width>380</width>
-				<height>60</height>
-				<animation effect="slide" end="155,0" time="200" condition="player.forwarding | player.rewinding | player.paused | player.istempo">Conditional</animation>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
-
-				<control type="image" id="1">
-					<width>380</width>
-					<height>60</height>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-				</control>
-				
+				<!-- Player forwarding/rewinding -->
 				<control type="group" id="1">
+					<width>140</width>
+					<height>60</height>
+					<visible>!Window.IsVisible(VideoBookmarks)</visible>
+					<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek] + !Player.HasGame + !Player.Seeking | player.paused</visible>
+					<animation type="Visible">
+						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+						<effect type="fade" start="100" end="0" time="200"/>
+					</animation>
+
+					<!-- Background -->
 					<control type="image" id="1">
-						<left>10</left>
+						<width>140</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					</control>
+
+					<!-- Status -->
+					<control type="label" id="1">
+						<width>140</width>
+						<height>60</height>
+						<font>Font36</font>
+						<align>center</align>
+						<label>$VAR[PlayerStatus]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>player.forwarding | player.rewinding | player.istempo</visible>
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="200"/>
+						</animation>
+						<animation type="Hidden">
+							<effect type="fade" start="100" end="0" time="200"/>
+						</animation>
+					</control>
+
+					<!-- Pause -->
+					<control type="image" id="1">
+						<left>40</left>
 						<width>60</width>
 						<height>60</height>
-						<texture>osd/OSDTimeShift.png</texture>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texture>
+						<visible>player.paused</visible>
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="200"/>
+						</animation>
+						<animation type="Hidden">
+							<effect type="fade" start="100" end="0" time="200"/>
+						</animation>
 					</control>
 					
+					<!-- Play after seek -->
+					<control type="image" id="1">
+						<left>40</left>
+						<width>60</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</texture>
+						<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="200"/>
+						</animation>
+						<animation type="Hidden">
+							<effect type="fade" start="100" end="0" time="200"/>
+						</animation>
+					</control>
+
+				</control>
+				
+				<!-- Player skipping -->
+				<control type="group" id="1">
+					<right>0</right>
+					<width>140</width>
+					<height>60</height>
+					<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize)] + !Player.HasGame</visible>
+					<visible>!Window.IsVisible(visualisation) + !Window.IsVisible(VideoBookmarks)</visible>
+					<animation type="Visible">
+						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+						<effect type="fade" start="100" end="0" time="200"/>
+					</animation>
+
+					<!-- Background -->
+					<control type="image" id="1">
+						<width>140</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					</control>
+
+					<!-- Status -->
 					<control type="label" id="1">
-						<left>80</left>
-						<width>280</width>
+						<width>140</width>
+						<height>60</height>
+						<font>Font27</font>
+						<align>center</align>
+						<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize)</visible>
+					</control>
+
+					<!-- Status -->
+					<control type="label" id="1">
+						<width>140</width>
+						<height>60</height>
+						<font>Font27</font>
+						<align>center</align>
+						<label>$INFO[Player.SeekStepSize]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!String.IsEmpty(Player.SeekStepSize)</visible>
+					</control>
+
+				</control>
+
+
+				<!-- Timeshift status -->
+				<control type="group" id="1">
+					<visible>!Window.IsVisible(VideoBookmarks)</visible>
+					<visible>Pvr.IsTimeShift</visible>
+					<width>380</width>
+					<height>60</height>
+					<animation effect="slide" end="155,0" time="200" condition="player.forwarding | player.rewinding | player.paused | player.istempo | Player.DisplayAfterSeek">Conditional</animation>
+					<animation type="Visible">
+						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+						<effect type="fade" start="100" end="0" time="200"/>
+					</animation>
+
+					<control type="image" id="1">
+						<width>380</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					</control>
+					
+					<control type="group" id="1">
+						<control type="image" id="1">
+							<left>10</left>
+							<width>60</width>
+							<height>60</height>
+							<texture>osd/OSDTimeShift.png</texture>
+						</control>
+						
+						<control type="label" id="1">
+							<left>80</left>
+							<width>280</width>
+							<height>60</height>
+							<font>Font27</font>
+							<align>center</align>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>$INFO[PVR.TimeshiftOffset,[B]-,[/B]] ($LOCALIZE[335]: $INFO[PVR.TimeShiftStart])</label>
+						</control>
+					</control>
+				</control>
+				
+				<!-- Progress -->
+				<control type="group" id="1">
+					<top>75</top>
+					<width>1620</width>
+					<height>60</height>
+					<animation type="Visible">
+						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+						<effect type="fade" start="0" end="100" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+						<effect type="fade" start="100" end="0" time="200"/>
+					</animation>
+
+					<!-- Background -->
+					<control type="image" id="1">
+						<width>1620</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<visible>Pvr.IsPlayingTv | Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+						<control type="image" id="1">
+						<width>180</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+					<control type="image" id="1">
+						<left>1280</left>
+						<width>340</width>
+						<height>60</height>
+						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+
+					<!--  Current position/Time remaining -->
+					<control type="label" id="1">
+						<left>20</left>
+						<width>260</width>
+						<height>60</height>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
+						<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+					<control type="label" id="1">
+						<left>20</left>
+						<width>140</width>
 						<height>60</height>
 						<font>Font27</font>
 						<align>center</align>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[PVR.TimeshiftOffset,[B]-,[/B]] ($LOCALIZE[335]: $INFO[PVR.TimeShiftStart])</label>
+						<label>$INFO[Player.Time]</label>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
 					</control>
+					
+					<!--  PVR current position/Time remaining -->
+					<control type="label" id="1">
+						<left>20</left>
+						<width>260</width>
+						<height>60</height>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
+						<visible>Pvr.IsPlayingTv</visible>
+					</control>
+
+					<!--  Progress bar -->
+					<control type="progress" id="1">
+						<left>280</left>
+						<top>20</top>
+						<width>920</width>
+						<height>20</height>
+						<info>Player.Progress</info>
+						<texturebg border="2" colordiffuse="$VAR[DialogColor2]">osd/OSDProgressBack.png</texturebg>
+						<lefttexture></lefttexture>
+						<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
+						<righttexture></righttexture>
+						<overlaytexture></overlaytexture>
+						<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+					
+					<!--  PVR progress bar -->
+					<control type="progress" id="1">
+						<left>280</left>
+						<top>20</top>
+						<width>920</width>
+						<height>20</height>
+						<info>PVR.EpgEventProgress</info>
+						<texturebg border="2" colordiffuse="$VAR[DialogColor2]">osd/OSDProgressBack.png</texturebg>
+						<lefttexture></lefttexture>
+						<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
+						<righttexture></righttexture>
+						<overlaytexture></overlaytexture>
+						<visible>Pvr.IsPlayingTv</visible>
+					</control>
+
+					<!--  Cache bar -->
+					<control type="progress" id="1">
+						<left>280</left>
+						<top>20</top>
+						<width>920</width>
+						<height>20</height>
+						<info>Player.ProgressCache</info>
+						<texturebg colordiffuse="$VAR[DialogColor2]" border="2">osd/OSDProgressBack.png</texturebg>
+						<lefttexture></lefttexture>
+						<midtexture colordiffuse="OSDCache" border="2">osd/OSDProgressBar.png</midtexture>
+						<righttexture></righttexture>
+						<overlaytexture></overlaytexture>
+						<visible>!Pvr.IsTimeShift + Pvr.IsPlayingTv | Integer.IsGreater(Player.Duration,0) + !Pvr.IsPlayingTv</visible>
+					</control>
+
+					<!-- Current Time/End Time -->
+					<control type="label" id="1">
+						<left>1001</left>
+						<width>600</width>
+						<height>60</height>
+						<align>right</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
+						<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+					<control type="label" id="1">
+						<left>1301</left>
+						<width>300</width>
+						<height>60</height>
+						<align>center</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[System.Time,$LOCALIZE[142] ,]</label>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+					
+					<!-- PVR current Time/End Time -->
+					<control type="label" id="1">
+						<left>1001</left>
+						<width>600</width>
+						<height>60</height>
+						<align>right</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081] ,]</label>
+						<visible>Pvr.IsPlayingTv</visible>
+					</control>
+
 				</control>
 			</control>
 			
-			<!-- Progress -->
-			<control type="group" id="1">
-				<top>75</top>
-				<width>1620</width>
-				<height>60</height>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
-
-				<!-- Background -->
-				<control type="image" id="1">
-					<width>1620</width>
-					<height>60</height>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-				</control>
-
-				<!--  Current position/Time remaining -->
-				<control type="label" id="1">
-					<left>20</left>
-					<width>260</width>
-					<height>60</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
-					<visible>!Pvr.IsPlayingTv | Pvr.IsPlayingTv + !VideoPlayer.HasEpg</visible>
-				</control>
-				
-				<!--  PVR current position/Time remaining -->
-				<control type="label" id="1">
-					<left>20</left>
-					<width>260</width>
-					<height>60</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
-					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
-				</control>
-
-				<!--  Progress bar -->
-				<control type="progress" id="1">
-					<left>280</left>
-					<top>20</top>
-					<width>920</width>
-					<height>20</height>
-					<info>Player.Progress</info>
-					<texturebg border="2" colordiffuse="$VAR[DialogColor2]">osd/OSDProgressBack.png</texturebg>
-					<lefttexture></lefttexture>
-					<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
-					<righttexture></righttexture>
-					<overlaytexture></overlaytexture>
-					<visible>!Pvr.IsPlayingTv | Pvr.IsPlayingTv + !VideoPlayer.HasEpg</visible>
-				</control>
-				
-				<!--  PVR progress bar -->
-				<control type="progress" id="1">
-					<left>280</left>
-					<top>20</top>
-					<width>920</width>
-					<height>20</height>
-					<info>PVR.EpgEventProgress</info>
-					<texturebg border="2" colordiffuse="$VAR[DialogColor2]">osd/OSDProgressBack.png</texturebg>
-					<lefttexture></lefttexture>
-					<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
-					<righttexture></righttexture>
-					<overlaytexture></overlaytexture>
-					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
-				</control>
-
-				<!--  Cache bar -->
-				<control type="progress" id="1">
-					<left>280</left>
-					<top>20</top>
-					<width>920</width>
-					<height>20</height>
-					<info>Player.ProgressCache</info>
-					<texturebg colordiffuse="$VAR[DialogColor2]" border="2">osd/OSDProgressBack.png</texturebg>
-					<lefttexture></lefttexture>
-					<midtexture colordiffuse="OSDCache" border="2">osd/OSDProgressBar.png</midtexture>
-					<righttexture></righttexture>
-					<overlaytexture></overlaytexture>
-					<visible>!Pvr.IsTimeShift + ![player.paused + Pvr.IsPlayingTv]</visible>
-				</control>
-
-				<!-- Current Time/End Time -->
-				<control type="label" id="1">
-					<left>1001</left>
-					<width>600</width>
-					<height>60</height>
-					<align>right</align>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
-					<visible>Integer.IsGreater(Player.Duration,0) + [!Pvr.IsPlayingTv | Pvr.IsPlayingTv + !VideoPlayer.HasEpg]</visible>
-				</control>
-				
-				<!-- PVR current Time/End Time -->
-				<control type="label" id="1">
-					<left>1001</left>
-					<width>600</width>
-					<height>60</height>
-					<align>right</align>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081] ,]</label>
-					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
-				</control>
-
-			</control>
 		</control>
 
 	</controls>

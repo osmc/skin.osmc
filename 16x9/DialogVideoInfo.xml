@@ -4,6 +4,7 @@
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SendClick(50)</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
+	<onload condition="String.IsEmpty(Skin.String(Ratings))">Skin.SetString(Ratings,imdb)</onload>
 	<onunload condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SendClick(50)</onunload>
 
 	<controls>
@@ -227,13 +228,13 @@
 					<control type="group">
 						<height>36</height>
 						<width>1170</width>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes)</visible>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
 						<control type="label">
 							<width>200</width>
 							<height>36</height>
 							<align>right</align>
 							<font>Font36</font>
-							<label>563</label>
+							<label>$LOCALIZE[563]</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
 						</control>
 						<control type="label">
@@ -242,6 +243,94 @@
 							<height>36</height>
 							<font>Font36</font>
 							<label>$INFO[ListItem.RatingAndVotes]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<control type="group">
+						<height>36</height>
+						<width>1170</width>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEqual(Skin.String(Ratings),imdb)</visible>
+						<control type="label">
+							<width>200</width>
+							<height>36</height>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[563]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>950</width>
+							<height>36</height>
+							<font>Font36</font>
+							<label>$INFO[ListItem.RatingAndVotes(imdb)]$COMMA $LOCALIZE[368]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<control type="group">
+						<height>36</height>
+						<width>1170</width>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEqual(Skin.String(Ratings),metacritic)</visible>
+						<control type="label">
+							<width>200</width>
+							<height>36</height>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[563]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>950</width>
+							<height>36</height>
+							<font>Font36</font>
+							<label>$INFO[ListItem.RatingAndVotes(metacritic)]$COMMA $LOCALIZE[31120]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<control type="group">
+						<height>36</height>
+						<width>1170</width>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEqual(Skin.String(Ratings),rottentomatoes)</visible>
+						<control type="label">
+							<width>200</width>
+							<height>36</height>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[563]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>950</width>
+							<height>36</height>
+							<font>Font36</font>
+							<label>$INFO[ListItem.RatingAndVotes(rottentomatoes)]$COMMA $LOCALIZE[31121]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<control type="group">
+						<height>36</height>
+						<width>1170</width>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEqual(Skin.String(Ratings),themoviedb)</visible>
+						<control type="label">
+							<width>200</width>
+							<height>36</height>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[563]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>950</width>
+							<height>36</height>
+							<font>Font36</font>
+							<label>$INFO[ListItem.RatingAndVotes(themoviedb)]$COMMA $LOCALIZE[31122]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -479,8 +568,26 @@
 					<label>20339</label>
 					<visible>!String.IsEmpty(ListItem.Director)</visible>
 				</control>
+				<!-- Ratings Button -->
+				<control type="button" id="15">
+					<width>Auto</width>
+					<label>563</label>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),imdb) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic))">Skin.SetString(Ratings,metacritic)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),imdb) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))">Skin.SetString(Ratings,rottentomatoes)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),imdb) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">Skin.SetString(Ratings,themoviedb)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),metacritic) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))">Skin.SetString(Ratings,rottentomatoes)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),metacritic) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">Skin.SetString(Ratings,themoviedb)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),metacritic) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + !String.IsEmpty(ListItem.RatingAndVotes(imdb))">Skin.SetString(Ratings,imdb)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),rottentomatoes) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">Skin.SetString(Ratings,themoviedb)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),rottentomatoes) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + !String.IsEmpty(ListItem.RatingAndVotes(imdb))">Skin.SetString(Ratings,imdb)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),rottentomatoes) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic))">Skin.SetString(Ratings,metacritic)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),themoviedb) + !String.IsEmpty(ListItem.RatingAndVotes(imdb))">Skin.SetString(Ratings,imdb)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),themoviedb) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic))">Skin.SetString(Ratings,metacritic)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(Ratings),themoviedb) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))">Skin.SetString(Ratings,rottentomatoes)</onclick>
+					<visible>!String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) | !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+				</control>
 				<!-- Refresh Button -->
-				<control type="button" id="6">
+				<control type="button" id="14">
 					<width>Auto</width>
 					<label>184</label>
 				</control>
