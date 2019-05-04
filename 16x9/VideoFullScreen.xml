@@ -459,6 +459,7 @@
 					<top>57</top>
 					<width>1280</width>
 					<height>163</height>
+					<visible>!VideoPlayer.Content(musicvideos)</visible>
 					<control type="textbox" id="1">
 						<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
@@ -480,6 +481,68 @@
 						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
 					</control>
 				</control>
+				<!-- Music video information -->
+				<control type="group" id="1">
+					<left>20</left>
+					<top>57</top>
+					<width>1280</width>
+					<height>163</height>
+					<visible>VideoPlayer.Content(musicvideos)</visible>
+					<control type="grouplist" id="1">
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Artist]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
+						</control>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
+						</control>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Genre]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+						</control>
+					</control>
+					<control type="grouplist" id="1">
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Artist]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
+						</control>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
+						</control>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Genre]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+						</control>
+					</control>
+					<control type="grouplist" id="1">
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Artist]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
+						</control>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
+						</control>
+						<control type="fadelabel" id="1">
+							<pauseatend>5000</pauseatend>
+							<label>$INFO[VideoPlayer.Genre]</label>
+							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+						</control>
+					</control>
+				</control>
 				
 				<!-- Audio/subtitle stream -->
 				<control type="label" id="1">
@@ -490,6 +553,18 @@
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[460]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels,,]$VAR[AudioLanguage]$VAR[SubtitleLanguage]</label>
+					<visible>!VideoPlayer.Content(musicvideos)</visible>
+				</control>
+				<!-- Audio information -->
+				<control type="label" id="1">
+					<left>20</left>
+					<top>233</top>
+					<width>1280</width>
+					<height>30</height>
+					<font>Font27</font>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[VideoPlayerAudioCodec,[LIGHT],[/LIGHT]  ]$VAR[VideoPlayerAudioChannels,[LIGHT],[/LIGHT]  ]$INFO[Player.Process(AudioSamplerate),[LIGHT],kHz[/LIGHT]]</label>
+					<visible>VideoPlayer.Content(musicvideos)</visible>
 				</control>
 
 				<!-- Icon -->
