@@ -62,12 +62,14 @@
 					<height>420</height>
 					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
 					<control type="textbox">
+						<align>left</align>
 						<label>$VAR[Plot]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
 					</control>
 					<control type="textbox">
+						<align>left</align>
 						<font>Font30</font>
 						<label>$VAR[Plot]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
@@ -75,6 +77,7 @@
 						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
 					</control>
 					<control type="textbox">
+						<align>left</align>
 						<font>Font33</font>
 						<label>$VAR[Plot]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
@@ -89,19 +92,19 @@
 			<!-- Thumbs -->
 			<control type="panel" id="531">
 				<left>750</left>
-				<centertop>50%</centertop>
+				<top>175</top>
 				<width>1020</width>
-				<height>720</height>
-				<onleft>60</onleft>
+				<height>666</height>
+				<onleft>69</onleft>
 				<onup>531</onup>
 				<ondown>531</ondown>
-				<pagecontrol>60</pagecontrol>
+				<pagecontrol>69</pagecontrol>
 				<preloaditems>4</preloaditems>
-				<viewtype label="$LOCALIZE[31116]">list</viewtype>
+				<viewtype label="$LOCALIZE[31133]">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 
-				<itemlayout width="170" height="240">
+				<itemlayout width="255" height="333">
 					<!-- Image - Movies -->
 					<include content="image-531">
 						<param name="fallback">DefaultMovie.png</param>
@@ -116,10 +119,10 @@
 					</include>
 					<!-- Collection -->
 					<control type="group">
-						<left>17</left>
+						<left>44</left>
 						<bottom>10</bottom>
-						<width>61</width>
-						<height>61</height>
+						<width>63</width>
+						<height>63</height>
 						<visible>ListItem.IsCollection</visible>
 						<control type="image">
 							<texture background="true">views/OverlayCornerLeft.png</texture>
@@ -132,10 +135,10 @@
 					</control>
 					<!-- Watched status -->
 					<control type="group">
-						<right>16</right>
+						<right>44</right>
 						<bottom>10</bottom>
-						<width>61</width>
-						<height>61</height>
+						<width>63</width>
+						<height>63</height>
 						<visible>!ListItem.IsCollection</visible>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
@@ -149,10 +152,10 @@
 					</control>
 				</itemlayout>
 
-				<focusedlayout width="170" height="240">
+				<focusedlayout width="255" height="333">
 					<control type="group">
-						<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-						<animation effect="zoom" start="100" end="87" center="auto" time="30" tween="linear" reversible="false">Unfocus</animation>
+						<animation effect="zoom" start="88" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="100" end="88" center="auto" time="30" tween="linear" reversible="false">Unfocus</animation>
 						<!-- Image - Movies -->
 						<include content="image-531-focused">
 							<param name="fallback">DefaultMovie.png</param>
@@ -165,7 +168,7 @@
 						</include>
 						<!-- Collection -->
 						<control type="group">
-							<left>6</left>
+							<left>29</left>
 							<bottom>0</bottom>
 							<width>72</width>
 							<height>72</height>
@@ -179,7 +182,7 @@
 						</control>
 						<!-- Watched status -->
 						<control type="group">
-							<right>6</right>
+							<right>29</right>
 							<bottom>0</bottom>
 							<width>72</width>
 							<height>72</height>
@@ -207,9 +210,9 @@
 		<definition>
 			<control type="image">
 				<bottom>10</bottom>
-				<left>17</left>
-				<width>137</width>
-				<height>208</height>
+				<left>44</left>
+				<width>182</width>
+				<height>288</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
@@ -225,9 +228,9 @@
 		<definition>
 			<control type="image">
 				<bottom>0</bottom>
-				<left>6</left>
-				<width>158</width>
-				<height>240</height>
+				<left>29</left>
+				<width>212</width>
+				<height>333</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>

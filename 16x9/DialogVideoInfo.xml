@@ -2,10 +2,12 @@
 <window>
 	<!-- movieinformation -->
 	<defaultcontrol always="true">8</defaultcontrol>
+	<onload condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onload>
 	<onload condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SendClick(50)</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
 	<onload condition="String.IsEmpty(Skin.String(Ratings))">Skin.SetString(Ratings,imdb)</onload>
 	<onunload condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SendClick(50)</onunload>
+	<onunload>ClearProperty(extended,12003)</onunload>
 
 	<controls>
 		<!-- Window Background -->
@@ -23,7 +25,7 @@
 
 			<!-- Poster image -->
 			<control type="group">
-				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
 				<control type="image">
 					<left>150</left>
 					<top>225</top>
@@ -37,14 +39,14 @@
 
 			<!-- Actor image -->
 			<control type="group">
-				<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+				<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
 				<control type="image">
-					<left>120</left>
+					<left>150</left>
 					<top>225</top>
 					<width>405</width>
 					<height>600</height>
+					<fadetime>100</fadetime>
 					<texture>$INFO[Container(50).ListItem.Icon]</texture>
-					<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 				</control>
 			</control>
@@ -66,12 +68,12 @@
 			<control type="group">
 				<left>600</left>
 				<top>235</top>
-				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
 
 				<!-- Details -->
 				<control type="grouplist">
 					<width>1170</width>
-					<height>336</height>
+					<height>456</height>
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
@@ -223,18 +225,18 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
-
+					
 					<!-- Rating -->
 					<control type="group">
 						<height>36</height>
 						<width>1170</width>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+						<visible>!String.IsEmpty(ListItem.Rating)</visible>
 						<control type="label">
 							<width>200</width>
 							<height>36</height>
 							<align>right</align>
 							<font>Font36</font>
-							<label>$LOCALIZE[563]</label>
+							<label>563</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
 						</control>
 						<control type="label">
@@ -242,95 +244,7 @@
 							<width>950</width>
 							<height>36</height>
 							<font>Font36</font>
-							<label>$INFO[ListItem.RatingAndVotes]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-					
-					<control type="group">
-						<height>36</height>
-						<width>1170</width>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEqual(Skin.String(Ratings),imdb)</visible>
-						<control type="label">
-							<width>200</width>
-							<height>36</height>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[563]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="label">
-							<left>220</left>
-							<width>950</width>
-							<height>36</height>
-							<font>Font36</font>
-							<label>$INFO[ListItem.RatingAndVotes(imdb)]$COMMA $LOCALIZE[368]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-					
-					<control type="group">
-						<height>36</height>
-						<width>1170</width>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEqual(Skin.String(Ratings),metacritic)</visible>
-						<control type="label">
-							<width>200</width>
-							<height>36</height>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[563]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="label">
-							<left>220</left>
-							<width>950</width>
-							<height>36</height>
-							<font>Font36</font>
-							<label>$INFO[ListItem.RatingAndVotes(metacritic)]$COMMA $LOCALIZE[31120]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-					
-					<control type="group">
-						<height>36</height>
-						<width>1170</width>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEqual(Skin.String(Ratings),rottentomatoes)</visible>
-						<control type="label">
-							<width>200</width>
-							<height>36</height>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[563]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="label">
-							<left>220</left>
-							<width>950</width>
-							<height>36</height>
-							<font>Font36</font>
-							<label>$INFO[ListItem.RatingAndVotes(rottentomatoes)]$COMMA $LOCALIZE[31121]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-					
-					<control type="group">
-						<height>36</height>
-						<width>1170</width>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEqual(Skin.String(Ratings),themoviedb)</visible>
-						<control type="label">
-							<width>200</width>
-							<height>36</height>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[563]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="label">
-							<left>220</left>
-							<width>950</width>
-							<height>36</height>
-							<font>Font36</font>
-							<label>$INFO[ListItem.RatingAndVotes(themoviedb)]$COMMA $LOCALIZE[31122]</label>
+							<label>$INFO[ListItem.Rating]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -380,18 +294,41 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
+					
+					<!-- Audio -->
+					<control type="group">
+						<height>36</height>
+						<width>1170</width>
+						<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+						<control type="label">
+							<width>200</width>
+							<height>36</height>
+							<align>right</align>
+							<font>Font36</font>
+							<label>292</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="label">
+							<left>220</left>
+							<width>950</width>
+							<height>36</height>
+							<font>Font36</font>
+							<label>$VAR[Audio]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
 
 				</control>
 
 				<!-- Plot -->
 				<control type="group">
-					<top>370</top>
+					<top>394</top>
 					<width>1170</width>
-					<height>210</height>
+					<height>186</height>
 					<control type="textbox">
 						<align>left</align>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>[LIGHT]$VAR[Plot][/LIGHT]</label>
+						<label>[LIGHT]$VAR[PlotInfoDialog][/LIGHT]</label>
 						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,S light)</visible>
 					</control>
@@ -399,7 +336,7 @@
 						<align>left</align>
 						<font>Font30</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>[LIGHT]$VAR[Plot][/LIGHT]</label>
+						<label>[LIGHT]$VAR[PlotInfoDialog][/LIGHT]</label>
 						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,M light)</visible>
 					</control>
@@ -407,7 +344,7 @@
 						<align>left</align>
 						<font>Font33</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>[LIGHT]$VAR[Plot][/LIGHT]</label>
+						<label>[LIGHT]$VAR[PlotInfoDialog][/LIGHT]</label>
 						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,L light)</visible>
 					</control>
@@ -415,7 +352,7 @@
 						<align>left</align>
 						<font>Font36</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>[LIGHT]$VAR[Plot][/LIGHT]</label>
+						<label>[LIGHT]$VAR[PlotInfoDialog][/LIGHT]</label>
 						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,XL light)</visible>
 					</control>
@@ -423,7 +360,7 @@
 					<control type="textbox">
 						<align>left</align>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[Plot]</label>
+						<label>$VAR[PlotInfoDialog]</label>
 						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,S)</visible>
 					</control>
@@ -431,7 +368,7 @@
 						<align>left</align>
 						<font>Font30</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[Plot]</label>
+						<label>$VAR[PlotInfoDialog]</label>
 						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,M)</visible>
 					</control>
@@ -439,7 +376,7 @@
 						<align>left</align>
 						<font>Font33</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[Plot]</label>
+						<label>$VAR[PlotInfoDialog]</label>
 						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,L)</visible>
 					</control>
@@ -447,7 +384,7 @@
 						<align>left</align>
 						<font>Font36</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[Plot]</label>
+						<label>$VAR[PlotInfoDialog]</label>
 						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
 						<visible>Skin.String(PlotFont,XL)</visible>
 					</control>
@@ -456,9 +393,9 @@
 
 			<!-- Cast -->
 			<control type="list" id="50">
-				<left>600</left>
+				<left>630</left>
 				<top>235</top>
-				<width>1170</width>
+				<width>1140</width>
 				<height>580</height>
 				<onup>50</onup>
 				<ondown>50</ondown>
@@ -468,7 +405,7 @@
 				<viewtype label="">list</viewtype>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+				<visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
 
 				<itemlayout width="1170" height="58">
 					<control type="label">
@@ -515,7 +452,7 @@
 			
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
-				<left>563</left>
+				<left>593</left>
 				<top>235</top>
 				<width>20</width>
 				<height>580</height>
@@ -529,7 +466,156 @@
 				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+			</control>
+			
+			<!-- Extended info -->
+			<control type="group">
+				<left>150</left>
+				<top>235</top>
+				<visible>!String.IsEmpty(Window(12003).Property(extended))</visible>
+
+				<!-- Details -->
+				<control type="grouplist">
+					<width>500</width>
+					<height>580</height>
+					<itemgap>12</itemgap>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					
+					<!-- Ratings -->
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$LOCALIZE[563]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) | !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$INFO[ListItem.RatingAndVotes]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$INFO[ListItem.RatingAndVotes(imdb)]$COMMA $LOCALIZE[368]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(imdb))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$INFO[ListItem.RatingAndVotes(metacritic)]$COMMA $LOCALIZE[31120]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(metacritic))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$INFO[ListItem.RatingAndVotes(rottentomatoes)]$COMMA $LOCALIZE[31121]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$INFO[ListItem.RatingAndVotes(themoviedb)]$COMMA $LOCALIZE[31122]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+					</control>
+					
+					<control type="image">
+						<height>14</height>
+						<texture>transparent.png</texture>
+					</control>
+					
+					<!-- Audio tracks -->
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>292</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.1))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$VAR[AudioCodec.1,, ]$VAR[AudioChannels.1,, ]$INFO[ListItem.Property(AudioLanguage.1),([UPPERCASE],[/UPPERCASE])]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.1))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$VAR[AudioCodec.2,, ]$VAR[AudioChannels.2,, ]$INFO[ListItem.Property(AudioLanguage.2),([UPPERCASE],[/UPPERCASE])]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.2))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$VAR[AudioCodec.3,, ]$VAR[AudioChannels.3,, ]$INFO[ListItem.Property(AudioLanguage.3),([UPPERCASE],[/UPPERCASE])]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.3))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$VAR[AudioCodec.4,, ]$VAR[AudioChannels.4]$INFO[ListItem.Property(AudioLanguage.4),([UPPERCASE],[/UPPERCASE])]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.4))</visible>
+					</control>
+					
+					<control type="image">
+						<height>14</height>
+						<texture>transparent.png</texture>
+					</control>
+
+					<!-- Subtitles -->
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>287</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+					</control>
+					<control type="fadelabel">
+						<height>36</height>
+						<font>Font36</font>
+						<label>$INFO[ListItem.Property(SubtitleLanguage.1),[UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Property(SubtitleLanguage.2),$COMMA [UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Property(SubtitleLanguage.3),$COMMA [UPPERCASE],[/UPPERCASE]]$INFO[ListItem.Property(SubtitleLanguage.4),$COMMA [UPPERCASE],[/UPPERCASE]]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<pauseatend>5000</pauseatend>
+						<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+					</control>
+
+				</control>
+
+				<!-- Plot -->
+				<control type="textbox">
+					<width>1034</width>
+					<height>580</height>
+					<left>565</left>
+					<align>left</align>
+					<font>Font36</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<label>$VAR[Plot]</label>
+					<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+				</control>
 			</control>
 
 			<!-- Button grouplist background -->
@@ -560,41 +646,38 @@
 					<width>Auto</width>
 					<label>206</label>
 					<onclick condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SetFocus(50)</onclick>
-					<visible>!String.IsEmpty(ListItem.Cast)</visible>
+					<visible>!String.IsEmpty(ListItem.Cast) + String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 				<!-- Director Button -->
 				<control type="button" id="13">
 					<width>Auto</width>
 					<label>20339</label>
-					<visible>!String.IsEmpty(ListItem.Director)</visible>
+					<visible>!String.IsEmpty(ListItem.Director) + String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
-				<!-- Ratings Button -->
+				<!-- Extended info Button -->
 				<control type="button" id="15">
 					<width>Auto</width>
-					<label>563</label>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),imdb) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic))">Skin.SetString(Ratings,metacritic)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),imdb) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))">Skin.SetString(Ratings,rottentomatoes)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),imdb) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">Skin.SetString(Ratings,themoviedb)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),metacritic) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))">Skin.SetString(Ratings,rottentomatoes)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),metacritic) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">Skin.SetString(Ratings,themoviedb)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),metacritic) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + !String.IsEmpty(ListItem.RatingAndVotes(imdb))">Skin.SetString(Ratings,imdb)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),rottentomatoes) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))">Skin.SetString(Ratings,themoviedb)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),rottentomatoes) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + !String.IsEmpty(ListItem.RatingAndVotes(imdb))">Skin.SetString(Ratings,imdb)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),rottentomatoes) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic))">Skin.SetString(Ratings,metacritic)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),themoviedb) + !String.IsEmpty(ListItem.RatingAndVotes(imdb))">Skin.SetString(Ratings,imdb)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),themoviedb) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic))">Skin.SetString(Ratings,metacritic)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(Ratings),themoviedb) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))">Skin.SetString(Ratings,rottentomatoes)</onclick>
-					<visible>!String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) | !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+					<label>22082</label>
+					<onclick>SetProperty(extended,14115,12003)</onclick>
+					<visible>String.IsEmpty(Window(12003).Property(extended)) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !Container.Content(musicvideos)</visible>
+				</control>
+				<control type="button" id="16">
+					<width>Auto</width>
+					<label>210</label>
+					<onclick>ClearProperty(extended,12003)</onclick>
+					<visible>!String.IsEmpty(Window(12003).Property(extended)) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !Container.Content(musicvideos)</visible>
 				</control>
 				<!-- Refresh Button -->
 				<control type="button" id="14">
 					<width>Auto</width>
 					<label>184</label>
+					<visible>String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 				<!-- Get Thumb Button -->
 				<control type="button" id="10">
 					<width>Auto</width>
 					<label>13511</label>
+					<visible>String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 				<!-- Artwork Downloader Button -->
 				<control type="button" id="20">
@@ -602,13 +685,13 @@
 					<label>31043</label>
 					<onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
 					<onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)] + String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 				<!-- Trailer Button -->
 				<control type="button" id="11">
 					<width>Auto</width>
 					<label>20410</label>
-					<visible>!String.IsEmpty(ListItem.Trailer)</visible>
+					<visible>!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 				<!-- Cinema Experience Button -->
 				<control type="button" id="21">
@@ -616,7 +699,7 @@
 					<label>31066</label>
 					<onclick>Dialog.Close(MovieInformation)</onclick>
 					<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 
 			</control>
