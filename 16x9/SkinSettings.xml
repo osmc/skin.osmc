@@ -36,6 +36,7 @@
 	<onload condition="String.IsEmpty(Skin.String(OSMCBackgroundOverlay))">Skin.SetString(OSMCBackgroundOverlay,1)</onload>
 	<onload condition="String.IsEmpty(Skin.String(videoinfostartduration))">Skin.SetString(videoinfostartduration,10s)</onload>
 	<onload condition="String.IsEmpty(Skin.String(videoinfoendduration))">Skin.SetString(videoinfoendduration,10s)</onload>
+	<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
 
 	<controls>
 	
@@ -855,8 +856,21 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
+				<!-- Adjust representation of video duration -->
+				<control type="button" id="304">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>$LOCALIZE[31134]</label>
+					<label2>$INFO[Skin.String(videodurationformat)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(videodurationformat),Minutes)">Skin.SetString(videodurationformat,Hours and minutes)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videodurationformat),Hours and minutes)">Skin.SetString(videodurationformat,Minutes)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="304">
+				<control type="radiobutton" id="305">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>

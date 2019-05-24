@@ -1,128 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="Viewtype533">
+	<include name="Viewtype534">
 
 		<control type="group">
-			<visible>Control.IsVisible(533)</visible>
+			<visible>Control.IsVisible(534)</visible>
 
-			<!-- Movie/TV show info -->
-			<control type="group">
-				<left>120</left>
-				<top>190</top>
-				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
-				
-				<!-- Title -->
-				<control type="fadelabel">
-					<left>0</left>
-					<top>52</top>
-					<width>450</width>
-					<height>45</height>
-					<font>Font42</font>
-					<align>center</align>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<label>$VAR[Label1]</label>
-					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
-				</control>
-				
-				<!-- Title -->
-				<control type="fadelabel">
-					<left>0</left>
-					<top>350</top>
-					<width>450</width>
-					<height>45</height>
-					<font>Font42</font>
-					<align>center</align>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<label>$VAR[Label1]</label>
-					<pauseatend>5000</pauseatend>
-					<visible>String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.PlotOutline)</visible>
-				</control>
-
-				<!-- Details -->
-				<control type="fadelabel">
-					<left>0</left>
-					<top>131</top>
-					<width>450</width>
-					<height>54</height>
-					<font>Font27</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$VAR[Label2]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<pauseatend>5000</pauseatend>
-					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
-				</control>
-				
-				<!-- Plot -->
-				<control type="group">
-					<left>0</left>
-					<top>194</top>
-					<width>450</width>
-					<height>420</height>
-					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
-					<control type="textbox">
-						<align>left</align>
-						<label>$VAR[Plot]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
-						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font30</font>
-						<label>$VAR[Plot]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
-						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font33</font>
-						<label>$VAR[Plot]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
-						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
-					</control>
-				</control>
-
-			</control>
-			
-			
 			<!-- Thumbs -->
-			<control type="panel" id="533">
-				<left>750</left>
-				<centertop>50%</centertop>
-				<width>1020</width>
-				<height>720</height>
-				<onleft>60</onleft>
-				<onup>533</onup>
-				<ondown>533</ondown>
-				<pagecontrol>60</pagecontrol>
+			<control type="panel" id="534">
+				<left>150</left>
+				<top>420</top>
+				<width>1620</width>
+				<height>400</height>
+				<onleft>67</onleft>
+				<onup>534</onup>
+				<ondown>534</ondown>
+				<pagecontrol>67</pagecontrol>
 				<preloaditems>4</preloaditems>
-				<viewtype label="$LOCALIZE[31116]">list</viewtype>
+				<viewtype label="$LOCALIZE[31113]">icon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 
-				<itemlayout width="170" height="240">
+				<itemlayout width="162" height="200">
 					<!-- Image - Movies -->
-					<include content="image-533">
+					<include content="image-534">
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">Container.Content(movies)</param>
 					</include>
 					<!-- Image - TV -->
-					<include content="image-533">
+					<include content="image-534">
 						<param name="fallback">DefaultTVShows.png</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="visible">!Container.Content(movies)</param>
 					</include>
 					<!-- Collection -->
 					<control type="group">
-						<left>17</left>
-						<bottom>10</bottom>
-						<width>61</width>
-						<height>61</height>
+						<left>24</left>
+						<bottom>6</bottom>
+						<width>51</width>
+						<height>51</height>
 						<visible>ListItem.IsCollection</visible>
 						<control type="image">
 							<texture background="true">views/OverlayCornerLeft.png</texture>
@@ -135,10 +52,10 @@
 					</control>
 					<!-- Watched status -->
 					<control type="group">
-						<right>16</right>
-						<bottom>10</bottom>
-						<width>61</width>
-						<height>61</height>
+						<right>24</right>
+						<bottom>6</bottom>
+						<width>51</width>
+						<height>51</height>
 						<visible>!ListItem.IsCollection</visible>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
@@ -152,26 +69,26 @@
 					</control>
 				</itemlayout>
 
-				<focusedlayout width="170" height="240">
+				<focusedlayout width="162" height="200">
 					<control type="group">
 						<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<animation effect="zoom" start="100" end="87" center="auto" time="30" tween="linear" reversible="false">Unfocus</animation>
 						<!-- Image - Movies -->
-						<include content="image-533-focused">
+						<include content="image-534-focused">
 							<param name="fallback">DefaultMovie.png</param>
 							<param name="visible">Container.Content(movies)</param>
 						</include>
 						<!-- Image - TV -->
-						<include content="image-533-focused">
+						<include content="image-534-focused">
 							<param name="fallback">DefaultTVShows.png</param>
 							<param name="visible">!Container.Content(movies)</param>
 						</include>
 						<!-- Collection -->
 						<control type="group">
-							<left>6</left>
+							<left>15</left>
 							<bottom>0</bottom>
-							<width>72</width>
-							<height>72</height>
+							<width>60</width>
+							<height>60</height>
 							<visible>ListItem.IsCollection</visible>
 							<control type="image">
 								<texture background="true">views/OverlayCornerLeft.png</texture>
@@ -182,10 +99,10 @@
 						</control>
 						<!-- Watched status -->
 						<control type="group">
-							<right>6</right>
+							<right>15</right>
 							<bottom>0</bottom>
-							<width>72</width>
-							<height>72</height>
+							<width>60</width>
+							<height>60</height>
 							<visible>!ListItem.IsCollection</visible>
 							<control type="image">
 								<texture background="true">views/OverlayCornerRight.png</texture>
@@ -199,20 +116,58 @@
 				</focusedlayout>
 			</control>
 
+			<control type="group">
+				<!-- <centerleft>75%</centerleft> -->
+				<left>410</left>
+				<top>850</top>
+				<width>920</width>
+				<height>100</height>
+
+				<!-- Title -->
+				<control type="fadelabel">
+					<left>90</left>
+					<top>0</top>
+					<width>920</width>
+					<height>72</height>
+					<font>Font72</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(534)">Conditional</animation>
+				</control>
+
+				<!-- Details -->
+				<control type="fadelabel">
+					<left>90</left>
+					<top>88</top>
+					<width>920</width>
+					<height>54</height>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(534)">Conditional</animation>
+				</control>
+
+			</control>
+
 		</control>
 
 	</include>
 
-	<include name="image-533">
+	<include name="image-534">
 		<param name="fallback">DefaultVideos.png</param>
 		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<bottom>10</bottom>
-				<left>17</left>
-				<width>137</width>
-				<height>208</height>
+				<bottom>6</bottom>
+				<left>24</left>
+				<width>114</width>
+				<height>173</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
@@ -221,16 +176,16 @@
 		</definition>
 	</include>
 	
-	<include name="image-533-focused">
+	<include name="image-534-focused">
 		<param name="fallback">DefaultVideos.png</param>
 		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
 				<bottom>0</bottom>
-				<left>6</left>
-				<width>158</width>
-				<height>240</height>
+				<left>15</left>
+				<width>132</width>
+				<height>200</height>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
