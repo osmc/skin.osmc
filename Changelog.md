@@ -5,9 +5,11 @@ _New_
 - add new second video info dialog screen (with extended rating, audio and subtitle information and bigger plot text box)
 - add new wall info view (based on wall view)
 - add new adjust representation of video duration setting
+- add new font (OpenSans)
 
 _Improved_
 - add audio information to video info dialog
+- use font type for bold, light and italic instead of label formatting (where possible)
 
 _Fixed_
 - only offer rip CD feature when an audio CD is present
@@ -17,15 +19,40 @@ _Fixed_
 Addon.Browser.xml:
 - add onloads for new OSD settings
 - add onload for new video duration setting
+- replace label formatting with light font
+- replace label formatting with bold font
 
 DialogAddonInfo.xml:
 - fix syntax
+- replace label formatting with light font
+
+DialogFavourites.xml:
+- replace label formatting with light font
+- replace old bold font
 
 DialogFullScreenInfo.xml:
 - remove info dialog
 
+DialogMusicInfo.xml:
+- replace label formatting with light font
+
+DialogPlayerProcessInfo.xml:
+- replace label formatting with light font
+
+DialogPVRChannelGuide.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+
+DialogPVRInfo.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+
 DialogSeekBar.xml:
 - remove PVR channel number input dialog
+
+DialogSelect.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
 
 DialogVideoInfo.xml:
 - add onload and onunload for new second info screen
@@ -38,6 +65,25 @@ DialogVideoInfo.xml:
 - add second info screen (with extended rating, audio and subtitle information and bigger plot text box)
 - add conditional visiblity to only show play and return button in second info screen
 - add extended info button
+- replace label formatting with light font
+
+EventLog.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+
+FileBrowser.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+
+FileManager.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+
+Font.xml:
+- add new font (OpenSans)
+- make former default font legacy font
+- add bold, light and italic version to each font size
+- remove old bold fonts
 
 Home.xml:
 - add onloads for new OSD settings
@@ -45,14 +91,57 @@ Home.xml:
 
 Includes.xml:
 - add new include file for new view
+- replace label formatting with light font
+
+Includes_Widgets.xml:
+- replace label formatting with bold font
+
+Include_Home_OSMC.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
 
 LoginScreen.xml:
 - add onloads for new OSD settings
 - add onload for new video duration setting
+- replace label formatting with light font
+- replace label formatting with bold font
+
+MusicVisualisation.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+
+MyPVRChannels.xml:
+- fix alignment of plot textbox
+- replace label formatting with light font
+- replace label formatting with bold font
+
+MyPVRGuide.xml:
+- fix alignment of plot textbox
+- replace label formatting with light font
+- replace label formatting with bold font
+
+MyPVRRecordings.xml:
+- fix alignment of plot textbox
+- replace label formatting with light font
+- replace label formatting with bold font
+
+MyPVRSearch.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+ 
+MyPVRTimers.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
 
 MyVideoNav.xml:
 - add new view 534 and rename 531, 532 and 533
 - add new scrollbar for new wall info view (old wall info is now wall small info)
+
+script-nextup-notification-NextUpInfo.xml:
+- replace label formatting with light font
+
+script-nextup-notification-StillWatchingInfo.xml:
+- replace label formatting with light font
 
 script.skinshortcuts-static-xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
@@ -65,6 +154,7 @@ SkinSettings.xml:
 - add new OSD settings section
 - add onload for new video duration setting
 - add new adjust representation of video duration setting
+- replace label formatting with italic font
 
 Variables.xml:
 - update VideoPlayerPlot, VideoPlayerTitle and VideoPlayerNext variables for new OSD settings
@@ -77,12 +167,22 @@ VideoFullScreen.xml:
 - add onloads for OSD settings alarm
 - adjust conditional visibility of progress bar and info dialog for new OSD settings
 - add elements formerly present in fullscreen info and seekbar dialog
+- replace label formatting with bold font
+- replace label formatting with light font
+
+Viewtype50.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
 
 Viewtype51.xml:
 - fix alignment of plot textbox
+- replace label formatting with light font
+- replace label formatting with bold font
 
 Viewtype511.xml:
 - fix alignment of plot textbox
+- replace label formatting with light font
+- replace label formatting with bold font
 
 Viewtype531.xml:
 - fix alignment of plot textbox
@@ -93,6 +193,43 @@ Viewtype533.xml:
 
 Viewtype534.xml:
 - new viewtype file for old wall low view
+
+Viewtype54.xml:
+- replace label formatting with light font
+- replace label formatting with bold font
+
+OpenSans-Bold.ttf:
+- add new font file
+
+OpenSans-BoldItalic.ttf:
+- add new font file
+
+OpenSans-ExtraBold.ttf:
+- add new font file
+
+OpenSans-ExtraBoldItalic.ttf:
+- add new font file
+
+OpenSans-Italic.ttf:
+- add new font file
+
+OpenSans-Light.ttf:
+- add new font file
+
+OpenSans-LightItalic.ttf:
+- add new font file
+
+OpenSans-Regular.ttf:
+- add new font file
+
+OpenSans-Semibold.ttf:
+- add new font file
+
+OpenSans-SemiboldItalic.ttf:
+- add new font file
+
+SourceSansPro-Regular.ttf:
+- add new font file
 
 strings.po:
 - add new localizes for extended ratings in second video info dialog screen (31120, 31121, 31122)
