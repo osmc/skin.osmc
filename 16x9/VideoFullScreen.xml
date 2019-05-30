@@ -110,7 +110,7 @@
 					<control type="label" id="1">
 						<width>140</width>
 						<height>60</height>
-						<font>Font36</font>
+						<font>Font36-bold</font>
 						<align>center</align>
 						<label>$VAR[PlayerStatus]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
@@ -182,9 +182,9 @@
 					<control type="label" id="1">
 						<width>140</width>
 						<height>60</height>
-						<font>Font27</font>
+						<font>Font27-bold</font>
 						<align>center</align>
-						<label>[B]$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)][/B]</label>
+						<label>$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize)</visible>
 					</control>
@@ -446,7 +446,7 @@
 					<top>14</top>
 					<width>280</width>
 					<height>30</height>
-					<font>Font33</font>
+					<font>Font33-bold</font>
 					<align>right</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[VideoPlayerChannelNumber]</label>
@@ -461,21 +461,22 @@
 					<height>163</height>
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
 					<control type="textbox" id="1">
-						<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
+						<font>Font27-light</font>
+						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
 					</control>
 					<control type="textbox" id="1">
-						<font>Font30</font>
-						<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
+						<font>Font30-light</font>
+						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
 					</control>
 					<control type="textbox" id="1">
-						<font>Font33</font>
-						<label>[LIGHT]$VAR[VideoPlayerPlot][/LIGHT]</label>
+						<font>Font33-light</font>
+						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
@@ -610,7 +611,8 @@
 						<height>40</height>
 						<left>20</left>
 						<align>right</align>
-						<label>[LIGHT]Press Select for details[/LIGHT]</label>
+						<font>Font33-light</font>
+						<label>Press Select for details</label>
 						<font>Font25</font>
 					</control>
 
