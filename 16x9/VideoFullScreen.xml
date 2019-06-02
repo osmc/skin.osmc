@@ -160,7 +160,7 @@
 					<right>0</right>
 					<width>140</width>
 					<height>60</height>
-					<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize)] + !Player.HasGame</visible>
+					<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize) | !String.IsEmpty(Player.SeekNumeric)] + !Player.HasGame</visible>
 					<visible>!Window.IsVisible(visualisation) + !Window.IsVisible(VideoBookmarks)</visible>
 					<animation type="Visible">
 						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
@@ -186,7 +186,13 @@
 						<align>center</align>
 						<label>$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize)</visible>
+						<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize) + [String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(Player.SeekNumeric) + Window.IsVisible(fullscreeninfo)]</visible>
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="200"/>
+						</animation>
+						<animation type="Hidden">
+							<effect type="fade" start="100" end="0" time="200"/>
+						</animation>
 					</control>
 
 					<!-- Status -->
@@ -197,7 +203,30 @@
 						<align>center</align>
 						<label>$INFO[Player.SeekStepSize]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<visible>!String.IsEmpty(Player.SeekStepSize)</visible>
+						<visible>!String.IsEmpty(Player.SeekStepSize) + String.IsEmpty(Player.SeekNumeric)</visible>
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="200"/>
+						</animation>
+						<animation type="Hidden">
+							<effect type="fade" start="100" end="0" time="200"/>
+						</animation>
+					</control>
+					
+					<!-- Status -->
+					<control type="label" id="1">
+						<width>140</width>
+						<height>60</height>
+						<font>Font27-bold</font>
+						<align>center</align>
+						<label>$INFO[Player.SeekNumeric]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!String.IsEmpty(Player.SeekNumeric) + !Window.IsVisible(fullscreeninfo)</visible>
+						<animation type="Visible">
+							<effect type="fade" start="0" end="100" time="200"/>
+						</animation>
+						<animation type="Hidden">
+							<effect type="fade" start="100" end="0" time="200"/>
+						</animation>
 					</control>
 
 				</control>
