@@ -39,21 +39,23 @@
 				<visible>!$PARAM[animate]</visible>
 			</control>
 
-			<!-- Water Image -->
+			<!-- Default background image -->
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture background="true">$VAR[OSMCBackgroundImage]</texture>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 				<visible>!$PARAM[animate]</visible>
 			</control>
-
-			<!-- Background Image -->
-			<control type="image" id="10000">
+			
+			<!-- Custom background image -->
+			<control type="multiimage" id="10000">
 				<include>FullscreenDimensions</include>
-				<texture background="true" fallback="transparent.png">$VAR[widgetBackground]</texture>
-				<fadetime>400</fadetime>
-				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-				<visible>!Skin.HasSetting(HideFanart)</visible>
+				<imagepath background="true" fallback="transparent.png">$VAR[widgetBackground]</imagepath>
+				<aspectratio>keep</aspectratio>
+				<include>CustomBackgroundFolderDuration</include>
+				<fadetime>2000</fadetime>
+				<randomize>true</randomize>
+				<loop>yes</loop>
 				<animation effect="fade" start="0" end="100" time="200" delay="70" condition="$PARAM[animate]">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200" condition="$PARAM[animate]">WindowClose</animation>
 			</control>
@@ -119,6 +121,43 @@
 			<texture border="20">dialogs/OptionsBackground.png</texture>
 		</control>
 	</include>
+
+	<!-- Multi image custom background duration -->
+	<include name="CustomBackgroundFolderDuration">
+        <include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),5s)">CustomBackgroundFolderDuration5</include>
+        <include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),6s)">CustomBackgroundFolderDuration6</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),8s)">CustomBackgroundFolderDuration8</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),10s)">CustomBackgroundFolderDuration10</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),15s)">CustomBackgroundFolderDuration15</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),20s)">CustomBackgroundFolderDuration20</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),30s)">CustomBackgroundFolderDuration30</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),1 min)">CustomBackgroundFolderDuration60</include>
+    </include>
+	
+	<include name="CustomBackgroundFolderDuration5">
+        <timeperimage>5000</timeperimage>
+    </include>
+    <include name="CustomBackgroundFolderDuration6">
+        <timeperimage>6000</timeperimage>
+    </include>
+    <include name="CustomBackgroundFolderDuration8">
+        <timeperimage>8000</timeperimage>
+    </include>
+    <include name="CustomBackgroundFolderDuration10">
+        <timeperimage>10000</timeperimage>
+    </include>
+    <include name="CustomBackgroundFolderDuration15">
+        <timeperimage>15000</timeperimage>
+    </include>
+    <include name="CustomBackgroundFolderDuration20">
+        <timeperimage>20000</timeperimage>
+    </include>
+    <include name="CustomBackgroundFolderDuration30">
+        <timeperimage>30000</timeperimage>
+    </include>
+    <include name="CustomBackgroundFolderDuration60">
+        <timeperimage>60000</timeperimage>
+    </include>
 
 	<!-- Time -->
 	<include name="Time">
@@ -988,6 +1027,44 @@
 			</control>
 		</definition>
 	</include>
+	
+	<!-- Skin settings, background + colors -->
+	<include name="Onloads">
+		<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
+		<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Always)</onload>
+		<onload condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,Always)</onload>
+		<onload condition="String.IsEmpty(Skin.String(NFDimOpac))">Skin.SetString(NFDimOpac,100)</onload>
+		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundImage,1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundImage,1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(BackgroundDefaultImage))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text1))">Skin.SetString(color.text1,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text2))">Skin.SetString(color.text2,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text3))">Skin.SetString(color.text3,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text4))">Skin.SetString(color.text4,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.darken))">Skin.SetString(color.darken,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.overlayfo))">Skin.SetString(color.overlayfo,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.overlaynf))">Skin.SetString(color.overlaynf,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.selected))">Skin.SetString(color.selected,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.fanartdiffuse))">Skin.SetString(color.fanartdiffuse,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.homenf))">Skin.SetString(color.homenf,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialog1))">Skin.SetString(color.dialog1,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialog2))">Skin.SetString(color.dialog2,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.disabled))">Skin.SetString(color.disabled,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.invalid))">Skin.SetString(color.invalid,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialogoverlayfo))">Skin.SetString(color.dialogoverlayfo,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialogoverlaynf))">Skin.SetString(color.dialogoverlaynf,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.background))">Skin.SetString(color.background,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.overlay))">Skin.SetString(color.overlay,None)</onload>
+		<onload condition="String.IsEqual(Skin.String(DefaultColorSet),Default)">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultColorSet))">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultColors))">Skin.SetString(DefaultColors,yes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultOverlayOpacity))">Skin.SetString(DefaultOverlayOpacity,High)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OSMCBackgroundOverlay))">Skin.SetString(OSMCBackgroundOverlay,1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(videoinfostartduration))">Skin.SetString(videoinfostartduration,10s)</onload>
+		<onload condition="String.IsEmpty(Skin.String(videoinfoendduration))">Skin.SetString(videoinfoendduration,10s)</onload>
+		<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(CustomBackgroundFolderDuration))">Skin.SetString(CustomBackgroundFolderDuration,30s)</onload>
+	</include>
 
-			
 </includes>
