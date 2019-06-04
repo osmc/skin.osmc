@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- skinsettings -->
+	<!-- Skin settings -->
 	<defaultcontrol always="true">9000</defaultcontrol>
+	
+	<!-- Skin Shortcuts -->
 	<onunload condition="System.HasAddon(script.skinshortcuts)">RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu&amp;levels=1&amp;options=noGroups)</onunload>
-	<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
-	<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Always)</onload>
-	<onload condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,Always)</onload>
-	<onload condition="String.IsEmpty(Skin.String(NFDimOpac))">Skin.SetString(NFDimOpac,100)</onload>
-	<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundImage,1)</onload>
-	<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundImage,1)</onload>
-	<onload condition="String.IsEmpty(Skin.String(BackgroundDefaultImage))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.text1))">Skin.SetString(color.text1,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.text2))">Skin.SetString(color.text2,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.text3))">Skin.SetString(color.text3,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.text4))">Skin.SetString(color.text4,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.darken))">Skin.SetString(color.darken,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.overlayfo))">Skin.SetString(color.overlayfo,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.overlaynf))">Skin.SetString(color.overlaynf,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.selected))">Skin.SetString(color.selected,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.fanartdiffuse))">Skin.SetString(color.fanartdiffuse,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.homenf))">Skin.SetString(color.homenf,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.dialog1))">Skin.SetString(color.dialog1,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.dialog2))">Skin.SetString(color.dialog2,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.disabled))">Skin.SetString(color.disabled,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.invalid))">Skin.SetString(color.invalid,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.dialogoverlayfo))">Skin.SetString(color.dialogoverlayfo,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.dialogoverlaynf))">Skin.SetString(color.dialogoverlaynf,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.background))">Skin.SetString(color.background,None)</onload>
-	<onload condition="String.IsEmpty(Skin.String(color.overlay))">Skin.SetString(color.overlay,None)</onload>
-	<onload condition="String.IsEqual(Skin.String(DefaultColorSet),Default)">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
-	<onload condition="String.IsEmpty(Skin.String(DefaultColorSet))">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
-	<onload condition="String.IsEmpty(Skin.String(DefaultColors))">Skin.SetString(DefaultColors,yes)</onload>
-	<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
-	<onload condition="String.IsEmpty(Skin.String(DefaultOverlayOpacity))">Skin.SetString(DefaultOverlayOpacity,High)</onload>
-	<onload condition="String.IsEmpty(Skin.String(OSMCBackgroundOverlay))">Skin.SetString(OSMCBackgroundOverlay,1)</onload>
-	<onload condition="String.IsEmpty(Skin.String(videoinfostartduration))">Skin.SetString(videoinfostartduration,10s)</onload>
-	<onload condition="String.IsEmpty(Skin.String(videoinfoendduration))">Skin.SetString(videoinfoendduration,10s)</onload>
-	<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
+	
+	<!-- Skin settings, background + colors -->
+	<include>Onloads</include>
 
 	<controls>
 	
@@ -89,42 +60,42 @@
 					<!-- Home items -->
 					<item id="1">
 						<label>$LOCALIZE[10000]</label>
-						<onclick>Control.SetFocus(800)</onclick>
+						<onclick>Control.SetFocus(100)</onclick>
 					</item>
 					<!-- Background -->
 					<item id="2">
 						<label>$LOCALIZE[33068]</label>
-						<onclick>Control.SetFocus(700)</onclick>
+						<onclick>Control.SetFocus(200)</onclick>
 					</item>
 					<!-- Colors -->
 					<item id="3">
 						<label>$LOCALIZE[14078]</label>
-						<onclick>Control.SetFocus(600)</onclick>
+						<onclick>Control.SetFocus(300)</onclick>
 					</item>
 					<!-- OSD -->
 					<item id="4">
 						<label>$LOCALIZE[478]</label>
-						<onclick>Control.SetFocus(500)</onclick>
+						<onclick>Control.SetFocus(400)</onclick>
 					</item>
 					<!-- Weather -->
 					<item id="5">
 						<label>$LOCALIZE[8]</label>
-						<onclick>Control.SetFocus(400)</onclick>
+						<onclick>Control.SetFocus(500)</onclick>
 					</item>
 					<!-- Advanced -->
 					<item id="6">
 						<label>$LOCALIZE[10038]</label>
-						<onclick>Control.SetFocus(300)</onclick>
+						<onclick>Control.SetFocus(600)</onclick>
 					</item>
 					<!-- Add-ons -->
 					<item id="7">
 						<label>$LOCALIZE[24001]</label>
-						<onclick>Control.SetFocus(200)</onclick>
+						<onclick>Control.SetFocus(700)</onclick>
 					</item>
 					<!-- Reset/Debug -->
 					<item id="8">
 						<label>$LOCALIZE[31107]</label>
-						<onclick>Control.SetFocus(100)</onclick>
+						<onclick>Control.SetFocus(800)</onclick>
 					</item>
 				</content>
 			</control>
@@ -144,7 +115,7 @@
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture colordiffuse="$VAR[DialogColor2]">up.png</texture>
 
-				<visible>Container(600).HasPrevious + Container(9000).HasFocus(3) | Container(200).HasPrevious + Container(9000).HasFocus(7) | Container(500).HasPrevious + Container(9000).HasFocus(4)</visible>
+				<visible>Container(300).HasPrevious + Container(9000).HasFocus(3) | Container(700).HasPrevious + Container(9000).HasFocus(7) | Container(400).HasPrevious + Container(9000).HasFocus(4)</visible>
 
 				<animation type="Visible">
 					<effect type="Fade" start="0" end="100" time="200"/>
@@ -163,7 +134,7 @@
 				<height>16</height>
 				<texture colordiffuse="$VAR[DialogColor2]">down.png</texture>
 
-				<visible>Container(600).HasNext + Container(9000).HasFocus(3) | Container(200).HasNext + Container(9000).HasFocus(7) | Container(500).HasNext + Container(9000).HasFocus(4)</visible>
+				<visible>Container(300).HasNext + Container(9000).HasFocus(3) | Container(700).HasNext + Container(9000).HasFocus(7) | Container(400).HasNext + Container(9000).HasFocus(4)</visible>
 
 				<animation type="Visible">
 					<effect type="Fade" start="0" end="100" time="200"/>
@@ -179,7 +150,7 @@
 		<!-- Home items -->
 		<control type="group" id="10000">
 			<left>550</left>
-			<control type="grouplist" id="800">
+			<control type="grouplist" id="100">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -187,14 +158,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>800</onup>
-				<ondown>800</ondown>
+				<onup>100</onup>
+				<ondown>100</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(1)</visible>
 				<!-- Edit menu-->
-				<control type="button" id="801">
+				<control type="button" id="101">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -205,7 +176,7 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<control type="button" id="802">
+				<control type="button" id="102">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -219,7 +190,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Always show settings link -->
-				<control type="radiobutton" id="803">
+				<control type="radiobutton" id="103">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -230,7 +201,7 @@
 					<visible>System.HasAddon(script.skinshortcuts)</visible>
 				</control>
 				<!-- Show date above system time -->
-				<control type="radiobutton" id="804">
+				<control type="radiobutton" id="104">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -242,7 +213,7 @@
 			</control>
 
 			<!-- Background -->
-			<control type="grouplist" id="700">
+			<control type="grouplist" id="200">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -250,14 +221,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>700</onup>
-				<ondown>700</ondown>
+				<onup>200</onup>
+				<ondown>200</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(2)</visible>
-				<!-- Background image -->
-				<control type="radiobutton" id="701">
+				<!-- Default background image -->
+				<control type="radiobutton" id="201">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -266,7 +237,7 @@
 					<onclick>Skin.SetString(BackgroundDefaultImage,yes)</onclick>
 					<selected>String.IsEqual(Skin.String(BackgroundDefaultImage),yes)</selected>
 				</control>
-				<control type="button" id="702">
+				<control type="button" id="202">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -282,7 +253,7 @@
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),yes)</visible>
 				</control>
 				<!-- Custom background image -->
-				<control type="radiobutton" id="703">
+				<control type="radiobutton" id="203">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -291,20 +262,73 @@
 					<onclick>Skin.SetString(BackgroundDefaultImage,no)</onclick>
 					<selected>String.IsEqual(Skin.String(BackgroundDefaultImage),no)</selected>
 				</control>
-				<control type="button" id="704">
+				<!-- Single custom background image -->
+				<control type="radiobutton" id="204">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
 					<font>Font33</font>
-					<label> - $LOCALIZE[1024]</label>
+					<label> - $LOCALIZE[31135]</label>
+					<onclick>Skin.SetString(BackgroundSingleImage,yes)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no)</visible>
+					<selected>String.IsEqual(Skin.String(BackgroundSingleImage),yes)</selected>
+				</control>
+				<control type="button" id="205">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>    - $LOCALIZE[1024]</label>
 					<label2>$INFO[Skin.String(CustomBackground)]</label2>
 					<onclick>Skin.SetImage(CustomBackground)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes)</visible>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<!-- Multiple custom background images -->
+				<control type="radiobutton" id="206">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31136]</label>
+					<onclick>Skin.SetString(BackgroundSingleImage,no)</onclick>
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no)</visible>
+					<selected>String.IsEqual(Skin.String(BackgroundSingleImage),no)</selected>
+				</control>
+				<control type="button" id="207">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>    - $LOCALIZE[1024]</label>
+					<label2>$INFO[Skin.String(CustomBackgroundFolder)]</label2>
+					<onclick>Skin.SetPath(CustomBackgroundFolder)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no)</visible>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<control type="button" id="208">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>    - $LOCALIZE[31137]</label>
+					<label2>$INFO[Skin.String(CustomBackgroundFolderDuration)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),1 min)">Skin.SetString(CustomBackgroundFolderDuration,5s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),5s)">Skin.SetString(CustomBackgroundFolderDuration,6s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),6s)">Skin.SetString(CustomBackgroundFolderDuration,8s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),8s)">Skin.SetString(CustomBackgroundFolderDuration,10s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),10s)">Skin.SetString(CustomBackgroundFolderDuration,15s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),15s)">Skin.SetString(CustomBackgroundFolderDuration,20s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),20s)">Skin.SetString(CustomBackgroundFolderDuration,30s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),30s)">Skin.SetString(CustomBackgroundFolderDuration,1 min)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Display fanart -->
-				<control type="radiobutton" id="705">
+				<control type="radiobutton" id="209">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -314,7 +338,7 @@
 					<selected>!Skin.HasSetting(HideFanart)</selected>
 				</control>
 				<!-- Background video -->
-				<control type="radiobutton" id="706">
+				<control type="radiobutton" id="210">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -324,7 +348,7 @@
 					<selected>Skin.HasSetting(BackgroundVideo)</selected>
 				</control>
 				<!-- Background visualisation -->
-				<control type="radiobutton" id="707">
+				<control type="radiobutton" id="211">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -334,7 +358,7 @@
 					<selected>Skin.HasSetting(BackgroundVisualisation)</selected>
 				</control>
 				<!-- Enable artist slideshow -->
-				<control type="radiobutton" id="708">
+				<control type="radiobutton" id="212">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -346,7 +370,7 @@
 			</control>
 			
 			<!-- Colors -->
-			<control type="grouplist" id="600">
+			<control type="grouplist" id="300">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -354,14 +378,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>600</onup>
-				<ondown>600</ondown>
+				<onup>300</onup>
+				<ondown>300</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(3)</visible>
 				<!-- Default colors -->
-				<control type="radiobutton" id="601">
+				<control type="radiobutton" id="301">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -371,7 +395,7 @@
 					<selected>String.IsEqual(Skin.String(DefaultColors),yes)</selected>
 				</control>
 				<!-- Default color sets -->
-				<control type="button" id="602">
+				<control type="button" id="302">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -392,7 +416,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Background opacity -->
-				<control type="button" id="603">
+				<control type="button" id="303">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -408,7 +432,7 @@
 					<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]</visible>
 				</control>
 				<!-- Overlay opacity -->
-				<control type="button" id="604">
+				<control type="button" id="304">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -424,7 +448,7 @@
 					<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]</visible>
 				</control>
 				<!-- Background color gradient -->
-				<control type="button" id="605">
+				<control type="button" id="305">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -440,7 +464,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom colors -->
-				<control type="radiobutton" id="606">
+				<control type="radiobutton" id="306">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -450,7 +474,7 @@
 					<selected>String.IsEqual(Skin.String(DefaultColors),no)</selected>
 				</control>
 				<!-- Custom background color -->
-				<control type="button" id="607">
+				<control type="button" id="307">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -464,7 +488,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom overlay color -->
-				<control type="button" id="608">
+				<control type="button" id="308">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -478,7 +502,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom focus text color -->
-				<control type="button" id="609">
+				<control type="button" id="309">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -492,7 +516,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom non-focus text color -->
-				<control type="button" id="610">
+				<control type="button" id="310">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -506,7 +530,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom selected text color -->
-				<control type="button" id="611">
+				<control type="button" id="311">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -520,7 +544,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Custom disabled text color -->
-				<control type="button" id="612">
+				<control type="button" id="312">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -536,7 +560,7 @@
 			</control>
 			
 			<!-- OSD -->
-			<control type="grouplist" id="500">
+			<control type="grouplist" id="400">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -544,14 +568,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>500</onup>
-				<ondown>500</ondown>
+				<onup>400</onup>
+				<ondown>400</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(4)</visible>
 				<!-- OSD info video start -->
-				<control type="radiobutton" id="501">
+				<control type="radiobutton" id="401">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -561,7 +585,7 @@
 					<selected>Skin.HasSetting(videoinfostart)</selected>
 				</control>
 				<!-- Movies -->
-				<control type="radiobutton" id="502">
+				<control type="radiobutton" id="402">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -572,7 +596,7 @@
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- TV shows -->
-				<control type="radiobutton" id="503">
+				<control type="radiobutton" id="403">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -583,7 +607,7 @@
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- Live TV -->
-				<control type="radiobutton" id="504">
+				<control type="radiobutton" id="404">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -594,7 +618,7 @@
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- Music videos -->
-				<control type="radiobutton" id="505">
+				<control type="radiobutton" id="405">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -605,7 +629,7 @@
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- Other videos -->
-				<control type="radiobutton" id="506">
+				<control type="radiobutton" id="406">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -616,7 +640,7 @@
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- OSD info video start duration -->
-				<control type="button" id="507">
+				<control type="button" id="407">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -632,7 +656,7 @@
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- OSD info PVR channel switch -->
-				<control type="radiobutton" id="508">
+				<control type="radiobutton" id="408">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -642,7 +666,7 @@
 					<selected>Skin.HasSetting(videoinfolivetvswitch)</selected>
 				</control>
 				<!-- OSD info video end -->
-				<control type="radiobutton" id="509">
+				<control type="radiobutton" id="409">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -652,7 +676,7 @@
 					<selected>Skin.HasSetting(videoinfoend)</selected>
 				</control>
 				<!-- Movies -->
-				<control type="radiobutton" id="510">
+				<control type="radiobutton" id="410">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -663,7 +687,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- TV shows -->
-				<control type="radiobutton" id="511">
+				<control type="radiobutton" id="411">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -674,7 +698,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- Music videos -->
-				<control type="radiobutton" id="512">
+				<control type="radiobutton" id="412">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -685,7 +709,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- Other videos -->
-				<control type="radiobutton" id="513">
+				<control type="radiobutton" id="413">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -696,7 +720,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- OSD info video start duration -->
-				<control type="button" id="514">
+				<control type="button" id="414">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -712,7 +736,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- Adjust OSD on-time during video pause -->
-				<control type="button" id="515">
+				<control type="button" id="415">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -732,7 +756,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Adjust music OSD album art size -->
-				<control type="radiobutton" id="516">
+				<control type="radiobutton" id="416">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -744,7 +768,7 @@
 			</control>
 
 			<!-- Weather -->
-			<control type="grouplist" id="400">
+			<control type="grouplist" id="500">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -752,14 +776,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>400</onup>
-				<ondown>400</ondown>
+				<onup>500</onup>
+				<ondown>500</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(5)</visible>
 				<!-- Weather icons-->
-				<control type="button" id="401">
+				<control type="button" id="501">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -772,7 +796,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Weather fanart -->
-				<control type="button" id="402">
+				<control type="button" id="502">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -785,7 +809,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Warning label for multi-image fanart -->
-				<control type="label" id="403">
+				<control type="label" id="503">
 					<width>1220</width>
 					<height>30</height>
 					<font>Font33</font>
@@ -796,7 +820,7 @@
 			</control>
 
 			<!-- Advanced -->
-			<control type="grouplist" id="300">
+			<control type="grouplist" id="600">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -804,14 +828,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>300</onup>
-				<ondown>300</ondown>
+				<onup>600</onup>
+				<ondown>600</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(6)</visible>
 				<!-- Add additional text highlighting -->
-				<control type="radiobutton" id="301">
+				<control type="radiobutton" id="601">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -821,7 +845,7 @@
 					<selected>Skin.HasSetting(TextHighlight)</selected>
 				</control>
 				<!-- Adjust non-focus dim opacity -->
-				<control type="button" id="302">
+				<control type="button" id="602">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -838,7 +862,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Adjust plot/description text font size -->
-				<control type="button" id="303">
+				<control type="button" id="603">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -857,7 +881,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Adjust representation of video duration -->
-				<control type="button" id="304">
+				<control type="button" id="604">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -870,7 +894,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="305">
+				<control type="radiobutton" id="605">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -882,7 +906,7 @@
 			</control>
 
 			<!-- Addons -->
-			<control type="grouplist" id="200">
+			<control type="grouplist" id="700">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -890,14 +914,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>200</onup>
-				<ondown>200</ondown>
+				<onup>700</onup>
+				<ondown>700</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(7)</visible>
 				<!-- Recommended -->
-				<control type="label" id="201">
+				<control type="label" id="701">
 					<width>1220</width>
 					<height>62</height>
 					<font>Font33-italic</font>
@@ -905,7 +929,7 @@
 					<label>$LOCALIZE[31080]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<control type="button" id="202">
+				<control type="button" id="702">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -915,7 +939,7 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skinshortcuts)) + !System.HasAddon(script.skinshortcuts)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
 				</control>
-				<control type="button" id="203">
+				<control type="button" id="703">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -925,7 +949,7 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
 				</control>
-				<control type="button" id="204">
+				<control type="button" id="704">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -935,7 +959,7 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
 				</control>
-				<control type="button" id="205">
+				<control type="button" id="705">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -946,7 +970,7 @@
 					<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">Addon.OpenSettings(script.skin.helper.skinbackup)</onclick>
 				</control>
 				<!-- Supported -->
-				<control type="label" id="206">
+				<control type="label" id="706">
 					<width>1220</width>
 					<height>62</height>
 					<font>Font33-italic</font>
@@ -954,7 +978,7 @@
 					<label>$LOCALIZE[31084]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<control type="button" id="207">
+				<control type="button" id="707">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -964,7 +988,7 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + !System.HasAddon(plugin.program.autocompletion)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
 				</control>
-				<control type="button" id="208">
+				<control type="button" id="708">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -974,7 +998,7 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.image.resource.select)) + !System.HasAddon(script.image.resource.select)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
 				</control>
-				<!-- <control type="button" id="209">
+				<!-- <control type="button" id="709">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -984,7 +1008,7 @@
 					<onclick condition="String.IsEmpty(System.AddonVersion(service.nextup.notification)) + System.HasAddon(service.nextup.notification)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(service.nextup.notification)">Addon.OpenSettings(service.nextup.notification)</onclick>
 				</control> -->
-				<control type="button" id="210">
+				<control type="button" id="710">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -997,7 +1021,7 @@
 			</control>
 
 			<!-- Reset/Debug -->
-			<control type="grouplist" id="100">
+			<control type="grouplist" id="800">
 				<left>0</left>
 				<top>228</top>
 				<width>1220</width>
@@ -1005,14 +1029,14 @@
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
-				<onup>100</onup>
-				<ondown>100</ondown>
+				<onup>800</onup>
+				<ondown>800</ondown>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container(9000).HasFocus(8)</visible>
 				<!-- Backup -->
-				<control type="button" id="101">
+				<control type="button" id="801">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1024,7 +1048,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Reset all -->
-				<control type="button" id="102">
+				<control type="button" id="802">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1035,7 +1059,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Reset skin settings -->
-				<control type="button" id="103">
+				<control type="button" id="803">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1046,7 +1070,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Enable Debug Grid -->
-				<control type="radiobutton" id="104">
+				<control type="radiobutton" id="804">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1056,7 +1080,7 @@
 					<selected>Skin.HasSetting(GuideLocked)</selected>
 				</control>
 				<!-- Enable Debug Grid -->
-				<control type="radiobutton" id="105">
+				<control type="radiobutton" id="805">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1066,7 +1090,7 @@
 					<selected>Skin.HasSetting(DebugGrid)</selected>
 				</control>
 				<!-- Disable Debug Info -->
-				<control type="radiobutton" id="106">
+				<control type="radiobutton" id="806">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
