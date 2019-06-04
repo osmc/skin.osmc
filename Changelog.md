@@ -5,7 +5,6 @@ _New_
 - add new second video info dialog screen (with extended rating, audio and subtitle information and bigger plot text box)
 - add new wall info view (based on wall view)
 - add new adjust representation of video duration setting
-- add new font (OpenSans)
 - add new multi image (folder) background option
 
 _Improved_
@@ -81,10 +80,7 @@ FileManager.xml:
 - replace label formatting with bold font
 
 Font.xml:
-- add new font (OpenSans)
-- make former default font legacy font
 - add bold, light and italic version to each font size
-- remove old bold fonts
 
 Home.xml:
 - move skin-related onloads to include
@@ -205,38 +201,17 @@ Viewtype54.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
 
-OpenSans-Bold.ttf:
-- add new font file
+SourceSansPro-Italic.ttf:
+- add new font style file
 
-OpenSans-BoldItalic.ttf:
-- add new font file
-
-OpenSans-ExtraBold.ttf:
-- add new font file
-
-OpenSans-ExtraBoldItalic.ttf:
-- add new font file
-
-OpenSans-Italic.ttf:
-- add new font file
-
-OpenSans-Light.ttf:
-- add new font file
-
-OpenSans-LightItalic.ttf:
-- add new font file
-
-OpenSans-Regular.ttf:
-- add new font file
-
-OpenSans-Semibold.ttf:
-- add new font file
-
-OpenSans-SemiboldItalic.ttf:
-- add new font file
+SourceSansPro-Light.ttf:
+- add new font style file
 
 SourceSansPro-Regular.ttf:
 - add new font file
+
+SourceSansPro-Semibold.ttf:
+- add new font style file
 
 strings.po:
 - add new localizes for extended ratings in second video info dialog screen (31120, 31121, 31122)
