@@ -39,23 +39,41 @@
 				<visible>!$PARAM[animate]</visible>
 			</control>
 
-			<!-- Default background image -->
+			<!-- Single background image -->
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture background="true">$VAR[OSMCBackgroundImage]</texture>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
+				<visible>String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))</visible>
 				<visible>!$PARAM[animate]</visible>
+				<aspectratio>keep</aspectratio>
+				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			</control>
-			
-			<!-- Custom background image -->
-			<control type="multiimage" id="10000">
+			<!-- Multiple background images -->
+			<control type="multiimage">
 				<include>FullscreenDimensions</include>
-				<imagepath background="true" fallback="transparent.png">$VAR[widgetBackground]</imagepath>
+				<imagepath background="true">$VAR[OSMCBackgroundImage]</imagepath>
+				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
+				<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder))</visible>
+				<visible>!$PARAM[animate]</visible>
 				<aspectratio>keep</aspectratio>
 				<include>CustomBackgroundFolderDuration</include>
 				<fadetime>2000</fadetime>
 				<randomize>true</randomize>
 				<loop>yes</loop>
+				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			</control>
+			
+			<!-- Fanart -->
+			<control type="image" id="10000">
+				<include>FullscreenDimensions</include>
+				<texture background="true" fallback="transparent.png">$VAR[widgetBackground]</texture>
+				<aspectratio>keep</aspectratio>
+				<fadetime>400</fadetime>
+				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
+				<visible>!Skin.HasSetting(HideFanart)</visible>
 				<animation effect="fade" start="0" end="100" time="200" delay="70" condition="$PARAM[animate]">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200" condition="$PARAM[animate]">WindowClose</animation>
 			</control>
@@ -121,11 +139,11 @@
 			<texture border="20">dialogs/OptionsBackground.png</texture>
 		</control>
 	</include>
-
+	
 	<!-- Multi image custom background duration -->
 	<include name="CustomBackgroundFolderDuration">
-        <include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),5s)">CustomBackgroundFolderDuration5</include>
-        <include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),6s)">CustomBackgroundFolderDuration6</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),5s)">CustomBackgroundFolderDuration5</include>
+		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),6s)">CustomBackgroundFolderDuration6</include>
 		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),8s)">CustomBackgroundFolderDuration8</include>
 		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),10s)">CustomBackgroundFolderDuration10</include>
 		<include condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),15s)">CustomBackgroundFolderDuration15</include>
@@ -135,28 +153,28 @@
     </include>
 	
 	<include name="CustomBackgroundFolderDuration5">
-        <timeperimage>5000</timeperimage>
+		<timeperimage>5000</timeperimage>
     </include>
     <include name="CustomBackgroundFolderDuration6">
-        <timeperimage>6000</timeperimage>
+		<timeperimage>6000</timeperimage>
     </include>
     <include name="CustomBackgroundFolderDuration8">
-        <timeperimage>8000</timeperimage>
+		<timeperimage>8000</timeperimage>
     </include>
     <include name="CustomBackgroundFolderDuration10">
-        <timeperimage>10000</timeperimage>
+		<timeperimage>10000</timeperimage>
     </include>
     <include name="CustomBackgroundFolderDuration15">
-        <timeperimage>15000</timeperimage>
+		<timeperimage>15000</timeperimage>
     </include>
     <include name="CustomBackgroundFolderDuration20">
-        <timeperimage>20000</timeperimage>
+		<timeperimage>20000</timeperimage>
     </include>
     <include name="CustomBackgroundFolderDuration30">
-        <timeperimage>30000</timeperimage>
+		<timeperimage>30000</timeperimage>
     </include>
     <include name="CustomBackgroundFolderDuration60">
-        <timeperimage>60000</timeperimage>
+		<timeperimage>60000</timeperimage>
     </include>
 
 	<!-- Time -->
@@ -1035,6 +1053,7 @@
 		<onload condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,Always)</onload>
 		<onload condition="String.IsEmpty(Skin.String(NFDimOpac))">Skin.SetString(NFDimOpac,100)</onload>
 		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundImage,1)</onload>
+		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundSingleImage,yes)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundImage,1)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BackgroundDefaultImage))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
 		<onload condition="String.IsEmpty(Skin.String(color.text1))">Skin.SetString(color.text1,None)</onload>

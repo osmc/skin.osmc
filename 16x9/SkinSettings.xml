@@ -285,8 +285,18 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
+				<control type="button" id="206">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>    - $LOCALIZE[31139]</label>
+					<onclick>Skin.Reset(CustomBackground)</onclick>
+					<onclick>Control.SetFocus(205)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes) + !String.IsEmpty(Skin.String(CustomBackground))</visible>
+				</control>
 				<!-- Multiple custom background images -->
-				<control type="radiobutton" id="206">
+				<control type="radiobutton" id="207">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -296,7 +306,7 @@
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no)</visible>
 					<selected>String.IsEqual(Skin.String(BackgroundSingleImage),no)</selected>
 				</control>
-				<control type="button" id="207">
+				<control type="button" id="208">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -308,7 +318,17 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<control type="button" id="208">
+				<control type="button" id="209">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label>    - $LOCALIZE[31139]</label>
+					<onclick>Skin.Reset(CustomBackgroundFolder)</onclick>
+					<onclick>Control.SetFocus(208)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder))</visible>
+				</control>
+				<control type="button" id="210">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -328,7 +348,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Display fanart -->
-				<control type="radiobutton" id="209">
+				<control type="radiobutton" id="211">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -338,7 +358,7 @@
 					<selected>!Skin.HasSetting(HideFanart)</selected>
 				</control>
 				<!-- Background video -->
-				<control type="radiobutton" id="210">
+				<control type="radiobutton" id="212">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -348,7 +368,7 @@
 					<selected>Skin.HasSetting(BackgroundVideo)</selected>
 				</control>
 				<!-- Background visualisation -->
-				<control type="radiobutton" id="211">
+				<control type="radiobutton" id="213">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -358,7 +378,7 @@
 					<selected>Skin.HasSetting(BackgroundVisualisation)</selected>
 				</control>
 				<!-- Enable artist slideshow -->
-				<control type="radiobutton" id="212">
+				<control type="radiobutton" id="214">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
