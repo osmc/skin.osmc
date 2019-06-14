@@ -6,6 +6,7 @@ _New_
 - add new wall info view (based on wall view)
 - add new adjust representation of video duration setting
 - add new multi image (folder) background option
+- add new individual background option for home menu entries
 
 _Improved_
 - add audio information to video info dialog
@@ -92,6 +93,7 @@ Includes.xml:
 - change background image include for new multi image (folder) background option
 - add CustomBackgroundFolderDuration include for new multi image (folder) background option
 - add new Onloads include for skin-related onloads
+- change fanart image control to multi image control
 
 Includes_Widgets.xml:
 - replace label formatting with bold font
@@ -143,6 +145,10 @@ script-nextup-notification-NextUpInfo.xml:
 script-nextup-notification-StillWatchingInfo.xml:
 - replace label formatting with light font
 
+script.skinshortcuts.xml:
+- add edit background option to home menu customization dialog
+- add edit background duration option to home menu customization dialog
+
 script.skinshortcuts-static-xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
 
@@ -157,6 +163,8 @@ SkinSettings.xml:
 - clean-up window header
 - change IDs of skin settings categories
 - change background settings for new multi image (folder) background option
+- add skin helper backgrounds script as requirement for home menu customization
+- add skin helper backgrounds script as recommended addon
 
 Variables.xml:
 - update VideoPlayerPlot, VideoPlayerTitle and VideoPlayerNext variables for new OSD settings
@@ -165,6 +173,7 @@ Variables.xml:
 - add new AudioCodec.1-.4 variables for new second info dialog screen
 - adjust Duration variable for new video duration setting
 - change OSMCBackgroundImage variable for new multi image (folder) background option
+- add new addon-skinhelperbackgrounds variable for new recommended addon
 
 VideoFullScreen.xml:
 - add onloads for OSD settings alarm
@@ -220,9 +229,17 @@ strings.po:
 - add new localize for new wall info view (31133)
 - add new localize for new video duration setting (31134)
 - add new localizes for new multi image (folder) background option (31135, 31136, 31137, 31138)
+- add new localizes for reset path of new background option (31139)
+- add new localizes for new recommended addon (31140)
 
 341.DATA.xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
+
+overrides.xml:
+- add background smartshortcuts and background browse overrides
+
+template.xml:
+- add value to widgetbackground variable for new background option
 
 addon.xml:
 - bump version to 18.0.1

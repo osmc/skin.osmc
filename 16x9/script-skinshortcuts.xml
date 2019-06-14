@@ -166,6 +166,35 @@
 					<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
 					<visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
+				
+				<!-- Edit background -->
+				<control type="button" id="310">
+					<width>1220</width>
+					<height>40</height>
+					<label>  -  $ADDON[script.skinshortcuts 32045]</label>
+					<label2>$INFO[Container(211).ListItem.Property(background)]</label2>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				</control>
+				
+				<!-- Edit background duration -->
+				<control type="button" id="210">
+					<width>1220</width>
+					<height>40</height>
+					<font>Font33</font>
+					<label>  -  $LOCALIZE[31137]</label>
+					<label2>$INFO[Skin.String(IndividualBackgroundFolderDuration)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),1 min)">Skin.SetString(IndividualBackgroundFolderDuration,5s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),5s)">Skin.SetString(IndividualBackgroundFolderDuration,6s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),6s)">Skin.SetString(IndividualBackgroundFolderDuration,8s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),8s)">Skin.SetString(IndividualBackgroundFolderDuration,10s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),10s)">Skin.SetString(IndividualBackgroundFolderDuration,15s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),15s)">Skin.SetString(IndividualBackgroundFolderDuration,20s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),20s)">Skin.SetString(IndividualBackgroundFolderDuration,30s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),30s)">Skin.SetString(IndividualBackgroundFolderDuration,1 min)</onclick>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				</control>
 
 				<!-- Edit submenu -->
 				<control type="button" id="405">

@@ -172,7 +172,7 @@
 					<label>31049</label>
 					<font>Font33</font>
 					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
-					<visible>System.HasAddon(script.skinshortcuts) + System.HasAddon(script.skin.helper.service)</visible>
+					<visible>System.HasAddon(script.skinshortcuts) + System.HasAddon(script.skin.helper.service) + System.HasAddon(script.skin.helper.backgrounds)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
@@ -184,8 +184,9 @@
 					<font>Font33</font>
 					<onclick>InstallAddon(script.skinshortcuts)</onclick>
 					<onclick>InstallAddon(script.skin.helper.service)</onclick>
-					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service)">ActivateWindow(1103)</onclick>
-					<visible>!System.HasAddon(script.skinshortcuts) | !System.HasAddon(script.skin.helper.service)</visible>
+					<onclick>InstallAddon(script.skin.helper.backgrounds)</onclick>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service) + !System.HasAddon(script.skin.helper.backgrounds)">ActivateWindow(1103)</onclick>
+					<visible>!System.HasAddon(script.skinshortcuts) | !System.HasAddon(script.skin.helper.service) | !System.HasAddon(script.skin.helper.backgrounds)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
@@ -973,13 +974,23 @@
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
+					<label> - $LOCALIZE[31140]</label>
+					<label2>$VAR[addon-skinhelperbackgrounds]</label2>
+					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.backgrounds)) + !System.HasAddon(script.skin.helper.backgrounds)">InstallAddon(script.skin.helper.backgrounds)</onclick>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.backgrounds)) + !System.HasAddon(script.skin.helper.backgrounds)">ActivateWindow(1102)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.backgrounds)">Addon.OpenSettings(script.skin.helper.backgrounds)</onclick>
+				</control>
+				<control type="button" id="705">
+					<width>1200</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
 					<label> - $LOCALIZE[31106]</label>
 					<label2>$VAR[addon-skinhelperwidgets]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">InstallAddon(script.skin.helper.widgets)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
 				</control>
-				<control type="button" id="705">
+				<control type="button" id="706">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -990,7 +1001,7 @@
 					<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">Addon.OpenSettings(script.skin.helper.skinbackup)</onclick>
 				</control>
 				<!-- Supported -->
-				<control type="label" id="706">
+				<control type="label" id="707">
 					<width>1220</width>
 					<height>62</height>
 					<font>Font33-italic</font>
@@ -998,7 +1009,7 @@
 					<label>$LOCALIZE[31084]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<control type="button" id="707">
+				<control type="button" id="708">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1008,7 +1019,7 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + !System.HasAddon(plugin.program.autocompletion)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
 				</control>
-				<control type="button" id="708">
+				<control type="button" id="709">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1018,7 +1029,7 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.image.resource.select)) + !System.HasAddon(script.image.resource.select)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
 				</control>
-				<!-- <control type="button" id="709">
+				<!-- <control type="button" id="710">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1028,7 +1039,7 @@
 					<onclick condition="String.IsEmpty(System.AddonVersion(service.nextup.notification)) + System.HasAddon(service.nextup.notification)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(service.nextup.notification)">Addon.OpenSettings(service.nextup.notification)</onclick>
 				</control> -->
-				<control type="button" id="710">
+				<control type="button" id="711">
 					<width>1200</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
