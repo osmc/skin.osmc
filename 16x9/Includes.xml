@@ -71,7 +71,7 @@
 				<include>FullscreenDimensions</include>
 				<texture background="true">$INFO[Container(9000).ListItem.Property(background)]</texture>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + !String.EndsWith(Container(9000).ListItem.Property(background),\)</visible>
+				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + ![String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)]</visible>
 				<visible>!$PARAM[animate]</visible>
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
@@ -84,7 +84,7 @@
 				<include>FullscreenDimensions</include>
 				<imagepath background="true">$INFO[Container(9000).ListItem.Property(background)]</imagepath>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + String.EndsWith(Container(9000).ListItem.Property(background),\)</visible>
+				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + [String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)]</visible>
 				<visible>!$PARAM[animate]</visible>
 				<aspectratio>keep</aspectratio>
 				<include>CustomBackgroundFolderDuration</include>
