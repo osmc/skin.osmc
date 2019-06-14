@@ -499,7 +499,7 @@
 						<label>$INFO[ListItem.RatingAndVotes]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<pauseatend>5000</pauseatend>
-						<visible>String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
 					</control>
 					<control type="fadelabel">
 						<height>36</height>
@@ -537,6 +537,7 @@
 					<control type="image">
 						<height>14</height>
 						<texture>transparent.png</texture>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) | !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
 					</control>
 					
 					<!-- Audio tracks -->
@@ -584,6 +585,7 @@
 					<control type="image">
 						<height>14</height>
 						<texture>transparent.png</texture>
+						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.1))</visible>
 					</control>
 
 					<!-- Subtitles -->
