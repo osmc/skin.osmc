@@ -208,21 +208,23 @@
 						<height>36</height>
 						<width>1170</width>
 						<visible>!String.IsEmpty(ListItem.Duration)</visible>
-						<control type="label">
+						<control type="fadelabel">
 							<width>200</width>
 							<height>36</height>
 							<align>right</align>
 							<font>Font36</font>
 							<label>180</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-						<control type="label">
+						<control type="fadelabel">
 							<left>220</left>
 							<width>950</width>
 							<height>36</height>
 							<font>Font36</font>
 							<label>$VAR[Duration]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 					
@@ -231,21 +233,23 @@
 						<height>36</height>
 						<width>1170</width>
 						<visible>!String.IsEmpty(ListItem.Rating)</visible>
-						<control type="label">
+						<control type="fadelabel">
 							<width>200</width>
 							<height>36</height>
 							<align>right</align>
 							<font>Font36</font>
 							<label>563</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-						<control type="label">
+						<control type="fadelabel">
 							<left>220</left>
 							<width>950</width>
 							<height>36</height>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Rating]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 
@@ -254,21 +258,23 @@
 						<height>36</height>
 						<width>1170</width>
 						<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
-						<control type="label">
+						<control type="fadelabel">
 							<width>200</width>
 							<height>36</height>
 							<align>right</align>
 							<font>Font36</font>
 							<label>20074</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-						<control type="label">
+						<control type="fadelabel">
 							<left>220</left>
 							<width>950</width>
 							<height>36</height>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Mpaa]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 
@@ -277,21 +283,23 @@
 						<height>36</height>
 						<width>1170</width>
 						<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-						<control type="label">
+						<control type="fadelabel">
 							<width>200</width>
 							<height>36</height>
 							<align>right</align>
 							<font>Font36</font>
 							<label>169</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-						<control type="label">
+						<control type="fadelabel">
 							<left>220</left>
 							<width>950</width>
 							<height>36</height>
 							<font>Font36</font>
 							<label>$VAR[VideoResolution,,]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 					
@@ -300,21 +308,23 @@
 						<height>36</height>
 						<width>1170</width>
 						<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-						<control type="label">
+						<control type="fadelabel">
 							<width>200</width>
 							<height>36</height>
 							<align>right</align>
 							<font>Font36</font>
 							<label>292</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-						<control type="label">
+						<control type="fadelabel">
 							<left>220</left>
 							<width>950</width>
 							<height>36</height>
 							<font>Font36</font>
 							<label>$VAR[Audio]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 
@@ -409,22 +419,24 @@
 				<visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
 
 				<itemlayout width="1170" height="58">
-					<control type="label">
+					<control type="fadelabel">
 						<width>1170</width>
 						<height>58</height>
 						<font>Font36</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
+						<pauseatend>5000</pauseatend>
 					</control>
 				</itemlayout>
 
 				<focusedlayout width="1170" height="58">
-					<control type="label">
+					<control type="fadelabel">
 						<width>1170</width>
 						<height>58</height>
 						<font>Font36</font>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
+						<pauseatend>5000</pauseatend>
 						<visible>Control.HasFocus(50)</visible>
 					</control>
 					<control type="image">
@@ -433,12 +445,13 @@
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 						<visible>Control.HasFocus(50)</visible>
 					</control>
-					<control type="label">
+					<control type="fadelabel">
 						<width>1170</width>
 						<height>58</height>
 						<font>Font36</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
+						<pauseatend>5000</pauseatend>
 						<visible>!Control.HasFocus(50)</visible>
 					</control>
 					<control type="image">
