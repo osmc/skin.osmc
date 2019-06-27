@@ -172,7 +172,7 @@
 					<label>31049</label>
 					<font>Font33</font>
 					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
-					<visible>System.HasAddon(script.skinshortcuts) + System.HasAddon(script.skin.helper.service) + System.HasAddon(script.skin.helper.backgrounds)</visible>
+					<visible>System.HasAddon(script.skinshortcuts) + System.HasAddon(script.skin.helper.service)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
@@ -184,9 +184,8 @@
 					<font>Font33</font>
 					<onclick>InstallAddon(script.skinshortcuts)</onclick>
 					<onclick>InstallAddon(script.skin.helper.service)</onclick>
-					<onclick>InstallAddon(script.skin.helper.backgrounds)</onclick>
-					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service) + !System.HasAddon(script.skin.helper.backgrounds)">ActivateWindow(1103)</onclick>
-					<visible>!System.HasAddon(script.skinshortcuts) | !System.HasAddon(script.skin.helper.service) | !System.HasAddon(script.skin.helper.backgrounds)</visible>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service)">ActivateWindow(1103)</onclick>
+					<visible>!System.HasAddon(script.skinshortcuts) | !System.HasAddon(script.skin.helper.service)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
