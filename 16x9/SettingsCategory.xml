@@ -18,7 +18,10 @@
 		<include>WindowBackgroundImage</include>
 
 		<!-- Time -->
-		<include>Time</include>
+		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
+			<include>Time</include>
+		</control>
 
 		<!-- Main list (Left) -->
 		<control type="grouplist" id="3">
@@ -32,6 +35,7 @@
 			<ondown>20</ondown>
 			<orientation>vertical</orientation>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 		</control>
 
 		<!-- Sub list (Right) -->
@@ -44,6 +48,7 @@
 			<onleft>3</onleft>
 			<onright>998</onright>
 			<orientation>vertical</orientation>
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 		</control>
 
 		<!-- Settings description -->
@@ -55,15 +60,19 @@
 			<textcolor>$VAR[TextColor1]</textcolor>
 			<font>Font27</font>
 			<visible>ControlGroup(5).HasFocus</visible>
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 		</control>
 
 		<!-- Indicators -->
-		<include content="Indicators">
-			<param name="left">500</param>
-			<param name="top">253</param>
-			<param name="height">610</param>
-			<param name="container">5</param>
-		</include>
+		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
+			<include content="Indicators">
+				<param name="left">500</param>
+				<param name="top">253</param>
+				<param name="height">610</param>
+				<param name="container">5</param>
+			</include>
+		</control>
 
 		<control type="grouplist">
 			<left>120</left>
@@ -74,6 +83,7 @@
 			<align>left</align>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<control type="label">
 				<width>auto</width>
 				<height>44</height>
@@ -106,6 +116,7 @@
 		<!-- Submenu indicator -->
 		<control type="group">
 				<visible>!ControlGroup(9002).HasFocus + !ControlGroup(5).HasFocus + !Control.HasFocus(20)</visible>
+				<include>WindowFadeAnimationModalDialogOnTop</include>
 				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
@@ -120,6 +131,7 @@
 
 		<!-- Options -->
 		<control type="group" id="9002">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>

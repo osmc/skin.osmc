@@ -2,15 +2,17 @@
 <window>
 	<!-- selectdialog -->
 	<defaultcontrol always="true">3</defaultcontrol>
-	<include>WindowFadeAnimation</include>
 	
 	<controls>
 		
+		<!-- Window Background -->
+		<control type="group">
+			<include>WindowFadeBackgroundImage</include>
+			<visible>![Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)]</visible>
+		</control>
+		
 		<control type="group">
 			<visible>![Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)]</visible>
-			
-			<!-- Window Background -->
-			<include>WindowFadeBackgroundImage</include>
 			
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>

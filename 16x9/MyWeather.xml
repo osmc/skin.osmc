@@ -8,21 +8,21 @@
 
 		<!-- Hidden button -->
 		<control type="button" id="100">
-			<onclick condition="!Skin.HasSetting(KioskMode)">SetFocus(3001)</onclick>
-			<onup condition="!Skin.HasSetting(KioskMode)">3001</onup>
-			<ondown condition="!Skin.HasSetting(KioskMode)">3001</ondown>
 			<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-			<onright condition="!Skin.HasSetting(KioskMode)">3001</onright>
 		</control>
 
 		<!-- Background -->
 		<include>WindowBackgroundImage</include>
 
 		<!-- Time -->
-		<include>Time</include>
+		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
+			<include>Time</include>
+		</control>
 
 		<!-- Main group -->
 		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<include>WindowFadeAnimation</include>
 
 			<!-- View -->

@@ -33,6 +33,7 @@
 		<param name="isHomeWindow">False</param>
 		<param name="animate">False</param>
 		<definition>
+			<!-- Background video -->
 			<control type="videowindow">
 				<include>FullscreenDimensions</include>
 				<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo)</visible>
@@ -44,7 +45,7 @@
 				<include>FullscreenDimensions</include>
 				<texture background="true">$VAR[OSMCBackgroundImage]</texture>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-				<visible>[String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
+				<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
 				<visible>!$PARAM[animate]</visible>
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
@@ -71,12 +72,11 @@
 				<include>FullscreenDimensions</include>
 				<texture background="true">$INFO[Container(9000).ListItem.Property(background)]</texture>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + ![String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)]</visible>
-				<visible>!$PARAM[animate]</visible>
+				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + ![String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)] + Window.IsVisible(Home)</visible>
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" time="200" delay="70" condition="$PARAM[animate]">WindowOpen</animation>
+				<animation effect="fade" start="0" end="100" time="200" delay="70">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			</control>
 			<!-- Multiple individual background images -->
@@ -84,8 +84,7 @@
 				<include>FullscreenDimensions</include>
 				<imagepath background="true">$INFO[Container(9000).ListItem.Property(background)]</imagepath>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + [String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)]</visible>
-				<visible>!$PARAM[animate]</visible>
+				<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + [String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)] + Window.IsVisible(Home)</visible>
 				<aspectratio>keep</aspectratio>
 				<include>IndividualBackgroundFolderDuration</include>
 				<fadetime>2000</fadetime>
@@ -93,7 +92,7 @@
 				<loop>yes</loop>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" time="200" delay="70" condition="$PARAM[animate]">WindowOpen</animation>
+				<animation effect="fade" start="0" end="100" time="200" delay="70">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			</control>
 			
@@ -131,10 +130,10 @@
 				<include>FullscreenDimensions</include>
 				<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
-				<animation effect="fade" start="0" end="100" time="200" condition="$PARAM[animate]">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200" delay="70" condition="$PARAM[animate]">WindowClose</animation>
 				<include>VisibleFadeAnimation</include>
 				<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo | Window.IsActive(musicosd)]]</visible>
+				<visible>!$PARAM[animate]</visible>
+				<visible>!System.HasActiveModalDialog | Window.IsTopMost(contextmenu) | Window.IsTopMost(shutdownmenu)</visible>
 			</control>
 		</definition>
 	</include>
@@ -145,10 +144,12 @@
 			<include content="WindowBackgroundImage">
 				<param name="animate">True</param>
 			</include>
+			<!-- Overlay -->
 			<control type="image">
 				<include>FullscreenDimensions</include>
+				<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<include>WindowFadeAnimation</include>
-				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 			</control>
 		</control>
 	</include>
@@ -722,6 +723,9 @@
 		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
 		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 	</include>
+	<include name="WindowFadeAnimationModalDialogOnTop">
+		<animation effect="fade" start="100" end="0" time="200" condition="System.HasActiveModalDialog + !Window.IsTopMost(contextmenu) + !Window.IsTopMost(shutdownmenu)">Conditional</animation>
+	</include>
 
 	<!-- Visible animation -->
 	<include name="VisibleFadeAnimation">
@@ -1022,27 +1026,45 @@
 	<include name="dialogButtonBackground">
 		<definition>
 			<control type="image">
-				<left>-1000</left>
-				<bottom>90</bottom>
-				<width>3980</width>
-				<height>86</height>
-				<texture colordiffuse="$VAR[TextColor1]" border="2">common/Border.png</texture>
+				<left>0</left>
+				<bottom>174</bottom>
+				<width>1920</width>
+				<height>2</height>
+				<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
 				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 			<control type="image">
-				<left>-1000</left>
-				<bottom>90</bottom>
-				<width>3980</width>
-				<height>86</height>
-				<texture colordiffuse="$VAR[TextColor2]" border="2">common/Border.png</texture>
+				<left>0</left>
+				<bottom>174</bottom>
+				<width>1920</width>
+				<height>2</height>
+				<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
 				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 			<control type="image">
 				<left>0</left>
 				<bottom>90</bottom>
-				<width>3980</width>
+				<width>1920</width>
+				<height>2</height>
+				<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
+				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
+				<include>VisibleFadeAnimation</include>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<bottom>90</bottom>
+				<width>1920</width>
+				<height>2</height>
+				<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
+				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
+				<include>VisibleFadeAnimation</include>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<bottom>90</bottom>
+				<width>1920</width>
 				<height>86</height>
 				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>

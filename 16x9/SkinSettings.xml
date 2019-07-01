@@ -14,11 +14,15 @@
 		<!-- Background -->
 		<include>WindowBackgroundImage</include>
 		
-		<include content="Time">
-			<param name="heading">$LOCALIZE[20077]</param>
-		</include>
+		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
+			<include content="Time">
+				<param name="heading">$LOCALIZE[20077]</param>
+			</include>
+		</control>
 		
 		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<left>120</left>
 			<control type="list" id="9000">
 				<left>0</left>
@@ -103,6 +107,7 @@
 		
 		<!-- Indicators -->
 		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<left>500</left>
 			<top>253</top>
 			<width>30</width>
@@ -149,6 +154,7 @@
 		
 		<!-- Home items -->
 		<control type="group" id="10000">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<left>550</left>
 			<control type="grouplist" id="100">
 				<left>0</left>
@@ -1141,6 +1147,7 @@
 			<label>31051</label>
 			<textcolor>$VAR[TextColor1]</textcolor>
 			<visible>Container(9000).HasFocus(1) + Skin.HasSetting(AlwaysShowSettingsLink) + System.HasAddon(script.skinshortcuts)</visible>
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<align>center</align>
 		</control>
 	</controls>
