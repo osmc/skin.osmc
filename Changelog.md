@@ -7,6 +7,7 @@ _New_
 - add new adjust representation of video duration setting
 - add new multi image (folder) background option
 - add new individual background option for home menu entries
+- add new options for music OSD to automatically show
 
 _Improved_
 - add audio information to video info dialog
@@ -24,6 +25,9 @@ Addon.Browser.xml:
 - move skin-related onloads to include
 - clean-up window header
 - add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
+
+Custom_AutoMusicVis.xml:
+- add new custom dialog for new music OSD auto option
 
 DialogAddonInfo.xml:
 - fix syntax
@@ -114,6 +118,7 @@ Includes.xml:
 - replace DialogTextBackground.png of WindowFadeBackgroundImage include by overlay image
 - add new WindowFadeAnimationModalDialogOnTop include
 - fix dialogButtonBackground include (remove border and only show two horizontal lines as borders)
+- add new onload for new music OSD auto option
 
 Includes_Widgets.xml:
 - replace label formatting with bold font
@@ -225,6 +230,10 @@ SkinSettings.xml:
 - add skin helper backgrounds script as requirement for home menu customization
 - add skin helper backgrounds script as recommended addon
 - add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
+- add new captions for video and music OSD sections
+- add new option to show music OSD when new playback is started
+- add new option to show music OSD after set time during playback
+- add new toggle to adjust time after which music OSD appears during playback
 
 SmartPlaylistEditor.xml:
 - add animation to main group to hide window elements when dialog is on top
@@ -296,6 +305,7 @@ strings.po:
 - add new localizes for new multi image (folder) background option (31135, 31136, 31137, 31138)
 - add new localizes for reset path of new background option (31139)
 - add new localizes for new recommended addon (31140)
+- add new localizes for new music OSD options (31074, 31141, 31142, 31143, 31144, 31145)
 
 341.DATA.xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)

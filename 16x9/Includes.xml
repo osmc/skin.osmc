@@ -133,7 +133,7 @@
 				<include>VisibleFadeAnimation</include>
 				<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo | Window.IsActive(musicosd)]]</visible>
 				<visible>!$PARAM[animate]</visible>
-				<visible>!System.HasActiveModalDialog | String.StartsWith(Container.FolderPath,plugin://) | Window.IsTopMost(contextmenu) | Window.IsTopMost(shutdownmenu)</visible>
+				<visible>!System.HasActiveModalDialog | String.StartsWith(Container.FolderPath,plugin://) | Window.IsTopMost(contextmenu) | Window.IsTopMost(shutdownmenu) | Window.IsTopMost(favourites) | Player.ShowInfo + Window.IsTopMost(musicosd) | Window.IsTopMost(notification)</visible>
 			</control>
 		</definition>
 	</include>
@@ -1179,6 +1179,7 @@
 		<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
 		<onload condition="String.IsEmpty(Skin.String(CustomBackgroundFolderDuration))">Skin.SetString(CustomBackgroundFolderDuration,30s)</onload>
 		<onload condition="String.IsEmpty(Skin.String(IndividualBackgroundFolderDuration))">Skin.SetString(IndividualBackgroundFolderDuration,30s)</onload>
+		<onload condition="String.IsEmpty(Skin.String(AutoMusicVisPlaybackDuration))">Skin.SetString(AutoMusicVisPlaybackDuration,60s)</onload>
 	</include>
 
 </includes>
