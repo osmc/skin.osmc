@@ -10,11 +10,15 @@
 		<include>WindowBackgroundImage</include>
 
 		<!-- Time -->
-		<include>Time</include>
+		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
+			<include>Time</include>
+		</control>
 
 
 		<!-- Default list -->
 		<control type="group" id="50">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<control type="grouplist" id="500">
 				<left>550</left>
 				<top>228</top>
@@ -122,6 +126,7 @@
 		
 		<!-- Submenu indicator -->
 		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<visible>!ControlGroup(9002).HasFocus</visible>
 			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
@@ -137,6 +142,7 @@
 
 		<!-- Options -->
 		<control type="group" id="9002">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>

@@ -12,6 +12,7 @@
 
 		<!-- Main group -->
 		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<include>WindowFadeAnimation</include>
 
 			<control type="group">
@@ -371,10 +372,14 @@
 		</control>
 
 		<!-- Time -->
-		<include>Time</include>
+		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
+			<include>Time</include>
+		</control>
 		
 		<!-- Submenu indicator -->
 		<control type="group">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<visible>!Window.IsVisible(contextmenu) + !Skin.HasSetting(KioskMode) + Control.HasFocus(10)</visible>
 			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
@@ -403,6 +408,7 @@
 
 		<!-- Options -->
 		<control type="group" id="9002">
+			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>

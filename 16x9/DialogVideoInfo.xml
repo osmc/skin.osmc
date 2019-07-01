@@ -5,7 +5,6 @@
 	<onload condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onload>
 	<onload condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SendClick(50)</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
-	<onload condition="String.IsEmpty(Skin.String(Ratings))">Skin.SetString(Ratings,imdb)</onload>
 	<onunload condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SendClick(50)</onunload>
 	<onunload>ClearProperty(extended,12003)</onunload>
 
