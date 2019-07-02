@@ -231,7 +231,6 @@ SkinSettings.xml:
 - add skin helper backgrounds script as recommended addon
 - add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 - add new captions for video and music OSD sections
-- add new option to show music OSD when new playback is started
 - add new option to show music OSD after set time during playback
 - add new toggle to adjust time after which music OSD appears during playback
 
