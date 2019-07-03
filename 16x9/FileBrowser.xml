@@ -2,16 +2,16 @@
 <window>
 	<!-- filebrowser -->
 	<defaultcontrol always="true">450</defaultcontrol>
-	<include>WindowFadeAnimation</include>
 
 	<controls>
-		<!-- Window Background -->
-		<include>WindowFadeBackgroundImage</include>
 
 		<control type="group">
-
+		
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
+			
+			<!-- Dialog fanart -->
+			<include>DialogFanart</include>
 
 			<!-- Heading -->
 			<include content="Time">
@@ -106,7 +106,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 						<visible>!String.Contains(ListItem.Icon,Default)</visible>
@@ -115,7 +115,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
@@ -136,7 +136,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
 						<visible>!String.Contains(ListItem.Icon,Default)</visible>
@@ -145,7 +145,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(450)">Conditional</animation>
@@ -192,7 +192,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 						<visible>!String.Contains(ListItem.Icon,Default)</visible>
@@ -201,7 +201,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
@@ -222,7 +222,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(451)">Conditional</animation>
 						<visible>!String.Contains(ListItem.Icon,Default)</visible>
@@ -231,7 +231,7 @@
 						<width>96</width>
 						<height>96</height>
 						<bordersize>6</bordersize>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>keep</aspectratio>
 						<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 						<texture>$INFO[ListItem.Icon]</texture>
 						<animation effect="fade" start="100" end="75" condition="!Control.HasFocus(451)">Conditional</animation>
@@ -312,7 +312,7 @@
 
 				<!-- Mirror image -->
 				<control type="radiobutton" id="416">
-					<width>auto</width>
+					<width>200</width>
 					<label>749</label>
 					<visible>Control.IsEnabled(416)</visible>
 				</control>

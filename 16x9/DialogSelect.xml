@@ -5,23 +5,21 @@
 	
 	<controls>
 		
-		<!-- Window Background -->
-		<control type="group">
-			<include>WindowFadeBackgroundImage</include>
-			<visible>![Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)]</visible>
-		</control>
-		
 		<control type="group">
 			<visible>![Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)]</visible>
 			
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
-
+			
+			<!-- Dialog fanart -->
+			<include>DialogFanart</include>
+			
 			<!-- Heading -->
 			<include content="Time">
 				<param name="heading">$INFO[Control.GetLabel(1)]</param>
 			</include>
 
+			<!-- Heading -->
 			<control type="label" id="1">
 				<left>-15000</left>
 				<top>96</top>
