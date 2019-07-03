@@ -30,14 +30,11 @@
 
 	<!-- Window background image -->
 	<include name="WindowBackgroundImage">
-		<param name="isHomeWindow">False</param>
-		<param name="animate">False</param>
 		<definition>
 			<!-- Background video -->
 			<control type="videowindow">
 				<include>FullscreenDimensions</include>
 				<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo)</visible>
-				<visible>!$PARAM[animate]</visible>
 			</control>
 
 			<!-- Single background image -->
@@ -46,7 +43,6 @@
 				<texture background="true">$VAR[OSMCBackgroundImage]</texture>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 				<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
-				<visible>!$PARAM[animate]</visible>
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -57,7 +53,6 @@
 				<imagepath background="true">$VAR[OSMCBackgroundImage]</imagepath>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 				<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
-				<visible>!$PARAM[animate]</visible>
 				<aspectratio>keep</aspectratio>
 				<include>CustomBackgroundFolderDuration</include>
 				<fadetime>2000</fadetime>
@@ -76,8 +71,6 @@
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" time="200" delay="70">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			</control>
 			<!-- Multiple individual background images -->
 			<control type="multiimage">
@@ -92,8 +85,6 @@
 				<loop>yes</loop>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-				<animation effect="fade" start="0" end="100" time="200" delay="70">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			</control>
 			
 			<!-- Fanart -->
@@ -104,8 +95,8 @@
 				<fadetime>400</fadetime>
 				<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 				<visible>!Skin.HasSetting(HideFanart)</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="70" condition="$PARAM[animate]">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200" condition="$PARAM[animate]">WindowClose</animation>
+				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			</control>
 
 			<!-- Artists Slideshow -->
@@ -130,27 +121,45 @@
 				<include>FullscreenDimensions</include>
 				<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
-				<include>VisibleFadeAnimation</include>
 				<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo | Window.IsActive(musicosd)]]</visible>
-				<visible>!$PARAM[animate]</visible>
-				<visible>!System.HasActiveModalDialog | String.StartsWith(Container.FolderPath,plugin://) | Window.IsTopMost(contextmenu) | Window.IsTopMost(shutdownmenu) | Window.IsTopMost(favourites) | Player.ShowInfo + Window.IsTopMost(musicosd) | Window.IsTopMost(notification)</visible>
 			</control>
 		</definition>
 	</include>
-
-	<!-- Window background image with fade animation -->
-	<include name="WindowFadeBackgroundImage">
-		<control type="group">
-			<include content="WindowBackgroundImage">
-				<param name="animate">True</param>
-			</include>
-			<!-- Overlay -->
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
-				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
-				<include>WindowFadeAnimation</include>
-			</control>
+	
+	<!-- Dialog fanart -->
+	<include name="DialogFanart">
+		<include>DialogFadeBackgroundImage</include>
+		<!-- Overlay -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+			<visible>!Skin.HasSetting(HideFanart)</visible>
+			<include>WindowFadeAnimation</include>
+		</control>
+		<!-- Fanart -->
+		<control type="image" id="10000">
+			<include>FullscreenDimensions</include>
+			<texture background="true" fallback="transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+			<aspectratio>scale</aspectratio>
+			<fadetime>400</fadetime>
+			<visible>!Skin.HasSetting(HideFanart)</visible>
+			<include>WindowFadeAnimation</include>
+			<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
+			<include>VisibleFadeAnimation</include>
+			<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo) + Skin.HasSetting(BackgroundVideoPlusFanart) | !Player.HasVideo | Player.HasVideo + !Skin.HasSetting(BackgroundVideo)</visible>
+		</control>
+		<include>DialogFadeBackgroundImage</include>
+		<!-- Overlay -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+			<visible>!Skin.HasSetting(HideFanart)</visible>
+			<include>WindowFadeAnimation</include>
+			<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
+			<include>VisibleFadeAnimation</include>
+			<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo) + Skin.HasSetting(BackgroundVideoPlusFanart) | !Player.HasVideo | Player.HasVideo + !Skin.HasSetting(BackgroundVideo)</visible>
 		</control>
 	</include>
 
@@ -722,9 +731,6 @@
 	<include name="WindowFadeAnimation">
 		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
 		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-	</include>
-	<include name="WindowFadeAnimationModalDialogOnTop">
-		<animation effect="fade" start="100" end="0" time="200" condition="System.HasActiveModalDialog + !Window.IsTopMost(contextmenu) + !Window.IsTopMost(shutdownmenu)">Conditional</animation>
 	</include>
 
 	<!-- Visible animation -->

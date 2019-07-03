@@ -20,7 +20,6 @@
 
 		<!-- Main group -->
 		<control type="group">
-			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<animation effect="fade" start="0" end="100" time="200" condition="!Window.Previous(musicplaylisteditor)">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200" condition="!Window.Next(musicplaylisteditor)">WindowClose</animation>
 
@@ -100,14 +99,10 @@
 		</control>
 
 		<!-- Time -->
-		<control type="group">
-			<include>WindowFadeAnimationModalDialogOnTop</include>
-			<include>Time</include>
-		</control>
+		<include>Time</include>
 
 		<!-- Options -->
 		<control type="group" id="9002">
-			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>

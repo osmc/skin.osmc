@@ -8,6 +8,7 @@ _New_
 - add new multi image (folder) background option
 - add new individual background option for home menu entries
 - add new options for music OSD to automatically show
+- add new option to show dialog fanart during background video playback
 
 _Improved_
 - add audio information to video info dialog
@@ -24,14 +25,44 @@ Addon.Browser.xml:
 - replace label formatting with bold font
 - move skin-related onloads to include
 - clean-up window header
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 Custom_AutoMusicVis.xml:
 - add new custom dialog for new music OSD auto option
 
+Custom_Backup.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+Custom_Customization.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+Custom_Disabled_Add-on.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+Custom_Welcome.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
 DialogAddonInfo.xml:
 - fix syntax
 - replace label formatting with light font
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogAddonSettings.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogAddonSettings.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogConfirm.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+- move DialogZoomAnimation include to affect background as well
 
 DialogFavourites.xml:
 - replace label formatting with light font
@@ -41,8 +72,30 @@ DialogFavourites.xml:
 DialogFullScreenInfo.xml:
 - remove info dialog
 
+DialogGameControllers.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogKeyboard.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogMediaSource.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
 DialogMusicInfo.xml:
 - replace label formatting with light font
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogNumeric.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogPictureInfo.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
 DialogPlayerProcessInfo.xml:
 - replace label formatting with light font
@@ -51,9 +104,23 @@ DialogPVRChannelGuide.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
 
+DialogPVRChannelManager.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogPVRGroupManager.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
+DialogPVRGuideSearch.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
 DialogPVRInfo.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
 DialogSeekBar.xml:
 - remove PVR channel number input dialog
@@ -62,11 +129,17 @@ DialogSelect.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
 - remove WindowFadeAnimation include
-- move WindowBackgroundImage include out of main group
+- remove Window Background section
+- add new DialogFanart include
 
 DialogSubtitles.xml:
-- remove hacked WindowBackgroundImage include
-- add back default WindowBackgroundImage include
+- remove deprecated WindowFadeBackgroundImage include
+- remove deprecated animations
+- add new dialog background
+
+DialogTextViewer.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
 DialogVideoInfo.xml:
 - add onload and onunload for new second info screen
@@ -81,6 +154,8 @@ DialogVideoInfo.xml:
 - add extended info button
 - replace label formatting with light font
 - remove deprecated onload
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
 EventLog.xml:
 - replace label formatting with light font
@@ -89,11 +164,13 @@ EventLog.xml:
 FileBrowser.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
+- remove WindowFadeAnimation include
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
 FileManager.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 Font.xml:
 - add bold, light and italic version to each font size
@@ -101,7 +178,6 @@ Font.xml:
 Home.xml:
 - move skin-related onloads to include
 - clean-up window header
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 Includes.xml:
 - add new include file for new view
@@ -109,22 +185,22 @@ Includes.xml:
 - change background image include for new multi image (folder) background option
 - add CustomBackgroundFolderDuration include for new multi image (folder) background option
 - add new Onloads include for skin-related onloads
-- change fanart image control to multi image control
-- fix single background image conditional visibility
-- fix conditional visbilities of individual images controls
-- fix animations of individual images controls
-- remove animations of overlay image control
-- fix conditional visbilities of overlay image control
 - replace DialogTextBackground.png of WindowFadeBackgroundImage include by overlay image
-- add new WindowFadeAnimationModalDialogOnTop include
 - fix dialogButtonBackground include (remove border and only show two horizontal lines as borders)
 - add new onload for new music OSD auto option
+- simplify WindowBackgroundImage include (remove params and animations not needed)
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
-Includes_Widgets.xml:
-- replace label formatting with bold font
+Include_DialogSettings.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
 Include_Home_OSMC.xml:
 - replace label formatting with light font
+- replace label formatting with bold font
+
+Includes_Widgets.xml:
 - replace label formatting with bold font
 
 LoginScreen.xml:
@@ -137,60 +213,35 @@ MusicVisualisation.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
 
-MyGames.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
-MyMusicNav.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
-MyMusicPlaylistEditor.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
-MyPics.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
-MyPlaylist.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
-MyPrograms.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
 MyPVRChannels.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 MyPVRGuide.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 MyPVRRecordings.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 MyPVRSearch.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
  
 MyPVRTimers.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 MyVideoNav.xml:
 - add new view 534 and rename 531, 532 and 533
 - add new scrollbar for new wall info view (old wall info is now wall small info)
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 MyWeather.xml:
 - remove onclick, onup, ondown and onright
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 script-nextup-notification-NextUpInfo.xml:
 - replace label formatting with light font
@@ -198,12 +249,17 @@ script-nextup-notification-NextUpInfo.xml:
 script-nextup-notification-StillWatchingInfo.xml:
 - replace label formatting with light font
 
+script-skin_helper_service-ColorPicker.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
+
 script.skinshortcuts.xml:
 - add edit background option to home menu customization dialog
 - add edit background duration option to home menu customization dialog
 - remove WindowFadeBackgroundImage include
-- add background and overlay image and controls
-- add animation to main group to hide window elements when dialog is on top
+- move DialogZoomAnimation include to affect background as well
+- remove WindowFadeAnimation include
+- add new dialog background
 
 script.skinshortcuts-static-xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
@@ -212,13 +268,6 @@ script.skinshortcuts-static-xml:
 SettingsCategory.xml:
 - move skin-related onloads to include
 - clean-up window header
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
-SettingsProfile.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
-
-SettingsSystemInfo.xml:
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 
 SkinSettings.xml:
 - add new adjust representation of video duration setting
@@ -229,14 +278,19 @@ SkinSettings.xml:
 - change background settings for new multi image (folder) background option
 - add skin helper backgrounds script as requirement for home menu customization
 - add skin helper backgrounds script as recommended addon
-- add new WindowFadeAnimationModalDialogOnTop include to hide window elements when dialog is on top
 - add new captions for video and music OSD sections
-- add new option to show music OSD when new playback is started
 - add new option to show music OSD after set time during playback
 - add new toggle to adjust time after which music OSD appears during playback
+- add new option to show dialog fanart during background video playback
 
 SmartPlaylistEditor.xml:
-- add animation to main group to hide window elements when dialog is on top
+- remove deprecated WindowFadeBackgroundImage include
+- remove deprecated animation
+- add new DialogFanart include
+
+SmartPlaylistRule.xml:
+- remove deprecated WindowFadeBackgroundImage include
+- add new DialogFanart include
 
 Variables.xml:
 - update VideoPlayerPlot, VideoPlayerTitle and VideoPlayerNext variables for new OSD settings
@@ -306,6 +360,7 @@ strings.po:
 - add new localizes for reset path of new background option (31139)
 - add new localizes for new recommended addon (31140)
 - add new localizes for new music OSD options (31074, 31141, 31142, 31143, 31144, 31145)
+- add new localize for new background video plus fanart option (31146)
 
 341.DATA.xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
@@ -320,3 +375,6 @@ template.xml:
 addon.xml:
 - bump version to 18.0.1
 - fix fanart asset
+
+fanart.jpg:
+- add new addon asset

@@ -5,23 +5,21 @@
 	
 	<controls>
 		<control type="group">
-			
-		<!-- Window Background -->
-		<include>WindowFadeBackgroundImage</include>
 
 			<control type="group">
-				<visible>!Window.IsVisible(10103)</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
-					<effect type="fade" start="0" end="100" time="300" />
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="70" center="auto" time="300" />
-					<effect type="fade" start="100" end="0" time="300" />
-				</animation>
-
 				<!-- Animation -->
 				<include>DialogZoomAnimation</include>
+				
+				<!-- Dialog background -->
+				<include>DialogFadeBackgroundImage</include>
+				<include>DialogFadeBackgroundImage</include>
+				<!-- Overlay -->
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+					<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+					<include>WindowFadeAnimation</include>
+				</control>
 
 				<!-- Heading -->
 				<include content="Time">

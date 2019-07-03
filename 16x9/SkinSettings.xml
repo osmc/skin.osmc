@@ -14,15 +14,11 @@
 		<!-- Background -->
 		<include>WindowBackgroundImage</include>
 		
-		<control type="group">
-			<include>WindowFadeAnimationModalDialogOnTop</include>
-			<include content="Time">
-				<param name="heading">$LOCALIZE[20077]</param>
-			</include>
-		</control>
+		<include content="Time">
+			<param name="heading">$LOCALIZE[20077]</param>
+		</include>
 		
 		<control type="group">
-			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<left>120</left>
 			<control type="list" id="9000">
 				<left>0</left>
@@ -107,7 +103,6 @@
 		
 		<!-- Indicators -->
 		<control type="group">
-			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<left>500</left>
 			<top>253</top>
 			<width>30</width>
@@ -154,7 +149,6 @@
 		
 		<!-- Home items -->
 		<control type="group" id="10000">
-			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<left>550</left>
 			<control type="grouplist" id="100">
 				<left>0</left>
@@ -373,8 +367,19 @@
 					<onclick>Skin.ToggleSetting(BackgroundVideo)</onclick>
 					<selected>Skin.HasSetting(BackgroundVideo)</selected>
 				</control>
-				<!-- Background visualisation -->
+				<!-- Background video plus fanart -->
 				<control type="radiobutton" id="213">
+					<width>1220</width>
+					<height>66</height>
+					<textwidth>1120</textwidth>
+					<font>Font33</font>
+					<label> - $LOCALIZE[31146]</label>
+					<onclick>Skin.ToggleSetting(BackgroundVideoPlusFanart)</onclick>
+					<selected>Skin.HasSetting(BackgroundVideoPlusFanart)</selected>
+					<visible>Skin.HasSetting(BackgroundVideo)</visible>
+				</control>
+				<!-- Background visualisation -->
+				<control type="radiobutton" id="214">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -384,7 +389,7 @@
 					<selected>Skin.HasSetting(BackgroundVisualisation)</selected>
 				</control>
 				<!-- Enable artist slideshow -->
-				<control type="radiobutton" id="214">
+				<control type="radiobutton" id="215">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -799,18 +804,8 @@
 					<label>$LOCALIZE[31145]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Automatically show music OSD when starting playback -->
-				<control type="radiobutton" id="418">
-					<width>1220</width>
-					<height>66</height>
-					<textwidth>1120</textwidth>
-					<font>Font33</font>
-					<label>$LOCALIZE[31141]</label>
-					<onclick>Skin.ToggleSetting(AutoMusicVisStart)</onclick>
-					<selected>Skin.HasSetting(AutoMusicVisStart)</selected>
-				</control>
 				<!-- Automatically show music OSD during playback -->
-				<control type="radiobutton" id="419">
+				<control type="radiobutton" id="418">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -819,7 +814,7 @@
 					<onclick>Skin.ToggleSetting(AutoMusicVisPlayback)</onclick>
 					<selected>Skin.HasSetting(AutoMusicVisPlayback)</selected>
 				</control>
-				<control type="button" id="420">
+				<control type="button" id="419">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -836,7 +831,7 @@
 					<visible>Skin.HasSetting(AutoMusicVisPlayback)</visible>
 				</control>
 				<!-- Adjust music OSD album art size -->
-				<control type="radiobutton" id="421">
+				<control type="radiobutton" id="420">
 					<width>1220</width>
 					<height>66</height>
 					<textwidth>1120</textwidth>
@@ -1201,7 +1196,6 @@
 			<label>31051</label>
 			<textcolor>$VAR[TextColor1]</textcolor>
 			<visible>Container(9000).HasFocus(1) + Skin.HasSetting(AlwaysShowSettingsLink) + System.HasAddon(script.skinshortcuts)</visible>
-			<include>WindowFadeAnimationModalDialogOnTop</include>
 			<align>center</align>
 		</control>
 	</controls>
