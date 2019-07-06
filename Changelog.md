@@ -8,12 +8,11 @@ _New_
 - add new multi image (folder) background option
 - add new individual background option for home menu entries
 - add new options for music OSD to automatically show
-- add new option to show dialog fanart during background video playback
 
 _Improved_
 - add audio information to video info dialog
 - use font type for bold, light and italic instead of label formatting (where possible)
-- hide elements of windows and dialogs, if another dialog is shown on top
+- prevent stacking of window/dialog text during background video playback
 
 _Fixed_
 - only offer rip CD feature when an audio CD is present
@@ -281,7 +280,6 @@ SkinSettings.xml:
 - add new captions for video and music OSD sections
 - add new option to show music OSD after set time during playback
 - add new toggle to adjust time after which music OSD appears during playback
-- add new option to show dialog fanart during background video playback
 
 SmartPlaylistEditor.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -331,7 +329,6 @@ Viewtype533.xml:
 
 Viewtype534.xml:
 - new viewtype file for old wall low view
-
 Viewtype54.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
@@ -360,7 +357,6 @@ strings.po:
 - add new localizes for reset path of new background option (31139)
 - add new localizes for new recommended addon (31140)
 - add new localizes for new music OSD options (31074, 31141, 31142, 31143, 31144, 31145)
-- add new localize for new background video plus fanart option (31146)
 
 341.DATA.xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
