@@ -26,6 +26,36 @@
 					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				
+				<!-- Details -->
+				<control type="fadelabel">
+					<left>0</left>
+					<top>131</top>
+					<width>450</width>
+					<height>27</height>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
+				</control>
+				
+				<!-- User Rating -->
+				<control type="fadelabel">
+					<left>0</left>
+					<top>173</top>
+					<width>450</width>
+					<height>27</height>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				
 				<!-- Title -->
 				<control type="fadelabel">
 					<left>0</left>
@@ -39,20 +69,37 @@
 					<pauseatend>5000</pauseatend>
 					<visible>String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
-
-				<!-- Details -->
-				<control type="fadelabel">
+				
+				<!-- Plot -->
+				<control type="group">
 					<left>0</left>
-					<top>131</top>
+					<top>234</top>
 					<width>450</width>
-					<height>54</height>
-					<font>Font27</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$VAR[Label2]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<pauseatend>5000</pauseatend>
-					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
+					<height>380</height>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+					<control type="textbox">
+						<align>left</align>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					</control>
 				</control>
 				
 				<!-- Plot -->
@@ -61,7 +108,7 @@
 					<top>194</top>
 					<width>450</width>
 					<height>420</height>
-					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + [!Skin.HasSetting(UserRating) | String.IsEmpty(ListItem.UserRating)]</visible>
 					<control type="textbox">
 						<align>left</align>
 						<label>$VAR[Plot]</label>

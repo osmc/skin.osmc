@@ -679,6 +679,12 @@
 					<onclick>ClearProperty(extended,12003)</onclick>
 					<visible>!String.IsEmpty(Window(12003).Property(extended)) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !Container.Content(musicvideos)</visible>
 				</control>
+				<!-- User rating Button -->
+				<control type="button" id="7">
+					<width>Auto</width>
+					<label>38018</label>
+					<visible>Skin.HasSetting(UserRating) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				</control>
 				<!-- Refresh Button -->
 				<control type="button" id="6">
 					<width>Auto</width>
