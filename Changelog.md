@@ -8,12 +8,12 @@ _New_
 - add new multi image (folder) background option
 - add new individual background option for home menu entries
 - add new options for music OSD to automatically show
-- add new option to show dialog fanart during background video playback
+- add user rating to music and video library
 
 _Improved_
 - add audio information to video info dialog
 - use font type for bold, light and italic instead of label formatting (where possible)
-- hide elements of windows and dialogs, if another dialog is shown on top
+- prevent stacking of window/dialog text during background video playback
 
 _Fixed_
 - only offer rip CD feature when an audio CD is present
@@ -88,6 +88,7 @@ DialogMusicInfo.xml:
 - replace label formatting with light font
 - remove deprecated WindowFadeBackgroundImage include
 - add new DialogFanart include
+- add user rating button
 
 DialogNumeric.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -156,6 +157,7 @@ DialogVideoInfo.xml:
 - remove deprecated onload
 - remove deprecated WindowFadeBackgroundImage include
 - add new DialogFanart include
+- add user rating button
 
 EventLog.xml:
 - replace label formatting with light font
@@ -281,7 +283,7 @@ SkinSettings.xml:
 - add new captions for video and music OSD sections
 - add new option to show music OSD after set time during playback
 - add new toggle to adjust time after which music OSD appears during playback
-- add new option to show dialog fanart during background video playback
+- add new user rating option
 
 SmartPlaylistEditor.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -300,6 +302,11 @@ Variables.xml:
 - adjust Duration variable for new video duration setting
 - change OSMCBackgroundImage variable for new multi image (folder) background option
 - add new addon-skinhelperbackgrounds variable for new recommended addon
+- add user rating to VideoInfoLabel variable
+- add user rating to MusicInfoLabel variable
+- add user rating to Label2 variable
+- add user rating to Label2-episodes variable
+- add new LabelUserRating variable
 
 VideoFullScreen.xml:
 - add onloads for OSD settings alarm
@@ -325,16 +332,20 @@ Viewtype511.xml:
 Viewtype531.xml:
 - fix alignment of plot textbox
 - adjust size and amount of movie poster thumbs for new wall info view
+- add user rating
 
 Viewtype533.xml:
 - make old wall info view new wall small info view
+- add user rating
 
 Viewtype534.xml:
 - new viewtype file for old wall low view
-
 Viewtype54.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
+
+Viewtype54.xml:
+- add user rating
 
 remove Default.png file
 
@@ -360,7 +371,7 @@ strings.po:
 - add new localizes for reset path of new background option (31139)
 - add new localizes for new recommended addon (31140)
 - add new localizes for new music OSD options (31074, 31141, 31142, 31143, 31144, 31145)
-- add new localize for new background video plus fanart option (31146)
+- add new localize for new user rating option (31146)
 
 341.DATA.xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
