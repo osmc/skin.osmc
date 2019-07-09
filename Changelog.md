@@ -9,6 +9,7 @@ _New_
 - add new individual background option for home menu entries
 - add new options for music OSD to automatically show
 - add user rating to music and video library
+- add new sub-menu player controls
 
 _Improved_
 - add audio information to video info dialog
@@ -68,6 +69,7 @@ DialogFavourites.xml:
 - replace label formatting with light font
 - replace old bold font
 - remove onright of list
+- add new sub-menu player controls
 
 DialogFullScreenInfo.xml:
 - remove info dialog
@@ -162,6 +164,7 @@ DialogVideoInfo.xml:
 EventLog.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
+- add new sub-menu player controls include
 
 FileBrowser.xml:
 - replace label formatting with light font
@@ -193,6 +196,7 @@ Includes.xml:
 - simplify WindowBackgroundImage include (remove params and animations not needed)
 - remove deprecated WindowFadeBackgroundImage include
 - add new DialogFanart include
+- add new OSDDialogControls include for new sub-menu player controls
 
 Include_DialogSettings.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -215,35 +219,58 @@ MusicVisualisation.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
 
+MyGames.xml:
+- add new sub-menu player controls include
+
+MyMusicNav.xml:
+- add new sub-menu player controls include
+
+MyPics.xml:
+- add new sub-menu player controls include
+
+MyPlaylist.xml:
+- fix onup and ondown of sub-menu
+- add new sub-menu player controls include
+
+MyPrograms.xml:
+- add new sub-menu player controls include
+
 MyPVRChannels.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
+- add new sub-menu player controls include
 
 MyPVRGuide.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
+- add new sub-menu player controls include
 
 MyPVRRecordings.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
+- add new sub-menu player controls include
 
 MyPVRSearch.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
+- add new sub-menu player controls include
  
 MyPVRTimers.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
+- add new sub-menu player controls include
 
 MyVideoNav.xml:
 - add new view 534 and rename 531, 532 and 533
 - add new scrollbar for new wall info view (old wall info is now wall small info)
+- add new sub-menu player controls include
 
 MyWeather.xml:
 - remove onclick, onup, ondown and onright
+- add new sub-menu player controls include
 
 script-nextup-notification-NextUpInfo.xml:
 - replace label formatting with light font
@@ -270,6 +297,13 @@ script.skinshortcuts-static-xml:
 SettingsCategory.xml:
 - move skin-related onloads to include
 - clean-up window header
+- add new sub-menu player controls include
+
+SettingsProfile.xml:
+- add new sub-menu player controls include
+
+SettingsSystemInfo.xml:
+- add new sub-menu player controls include
 
 SkinSettings.xml:
 - add new adjust representation of video duration setting
@@ -284,6 +318,7 @@ SkinSettings.xml:
 - add new option to show music OSD after set time during playback
 - add new toggle to adjust time after which music OSD appears during playback
 - add new user rating option
+- add option to hide new sub-menu player controls
 
 SmartPlaylistEditor.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -372,6 +407,10 @@ strings.po:
 - add new localizes for new recommended addon (31140)
 - add new localizes for new music OSD options (31074, 31141, 31142, 31143, 31144, 31145)
 - add new localize for new user rating option (31146)
+- add new localize for new sub-menu player controls hide option (31147)
+
+Textures.xbt:
+- repack content of media folder after adding new sub-menu player control fullscreen toggle icon
 
 341.DATA.xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
