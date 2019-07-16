@@ -9,7 +9,7 @@ _New_
 - add new individual background option for home menu entries
 - add new options for music OSD to automatically show
 - add user rating to music and video library
-- add new sub-menu player controls
+- add new side-menu player controls
 
 _Improved_
 - add audio information to video info dialog
@@ -26,6 +26,9 @@ Addon.Browser.xml:
 - replace label formatting with bold font
 - move skin-related onloads to include
 - clean-up window header
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 Custom_AutoMusicVis.xml:
 - add new custom dialog for new music OSD auto option
@@ -69,7 +72,12 @@ DialogFavourites.xml:
 - replace label formatting with light font
 - replace old bold font
 - remove onright of list
-- add new sub-menu player controls
+- add item count
+- adjust conditional visibility of submenu indicator to hide it when container is empty
+- fix top positioning of look controls
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 DialogFullScreenInfo.xml:
 - remove info dialog
@@ -164,7 +172,9 @@ DialogVideoInfo.xml:
 EventLog.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 FileBrowser.xml:
 - replace label formatting with light font
@@ -196,7 +206,8 @@ Includes.xml:
 - simplify WindowBackgroundImage include (remove params and animations not needed)
 - remove deprecated WindowFadeBackgroundImage include
 - add new DialogFanart include
-- add new OSDDialogControls include for new sub-menu player controls
+- add new SideMenuControls include for new sub-menu player controls
+- add new SideMenuControlsSpacer include for new sub-menu player controls
 
 Include_DialogSettings.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -220,57 +231,83 @@ MusicVisualisation.xml:
 - replace label formatting with bold font
 
 MyGames.xml:
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyMusicNav.xml:
-- add new sub-menu player controls include
+- fix width of options hidden side-menu button
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyPics.xml:
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyPlaylist.xml:
 - fix onup and ondown of sub-menu
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyPrograms.xml:
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyPVRChannels.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyPVRGuide.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyPVRRecordings.xml:
 - fix alignment of plot textbox
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyPVRSearch.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
  
 MyPVRTimers.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyVideoNav.xml:
 - add new view 534 and rename 531, 532 and 533
 - add new scrollbar for new wall info view (old wall info is now wall small info)
-- add new sub-menu player controls include
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 MyWeather.xml:
 - remove onclick, onup, ondown and onright
-- add new sub-menu player controls include
+- fix top positioning of look controls
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 script-nextup-notification-NextUpInfo.xml:
 - replace label formatting with light font
@@ -297,13 +334,22 @@ script.skinshortcuts-static-xml:
 SettingsCategory.xml:
 - move skin-related onloads to include
 - clean-up window header
-- add new sub-menu player controls include
+- fix top positioning of look controls
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 SettingsProfile.xml:
-- add new sub-menu player controls include
+- fix top positioning of look controls
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 SettingsSystemInfo.xml:
-- add new sub-menu player controls include
+- fix top positioning of look controls
+- add animation to shift up side-menu controls when side-menu player controls are active
+- add SideMenuControlsSpacer include
+- add SideMenuControls include
 
 SkinSettings.xml:
 - add new adjust representation of video duration setting
@@ -342,6 +388,7 @@ Variables.xml:
 - add user rating to Label2 variable
 - add user rating to Label2-episodes variable
 - add new LabelUserRating variable
+- add new ContentTypeFavourites variable for favourites dialog
 
 VideoFullScreen.xml:
 - add onloads for OSD settings alarm

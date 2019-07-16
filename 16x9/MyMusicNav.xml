@@ -124,7 +124,7 @@
 				<control type="button">
 					<left>0</left>
 					<top>0</top>
-					<width>460</width>
+					<width>450</width>
 					<height>1080</height>
 					<texturefocus>noop</texturefocus>
 				</control>
@@ -244,7 +244,13 @@
 						<label>589</label>
 					</control>
 					
-					<include>OSDDialogControls</include>
+					<animation effect="slide" end="0,-138" time="200" condition="Player.HasMedia + !Skin.HasSetting(SubMenuControls)">Conditional</animation>
+					
+					<include content="SideMenuControlsSpacer">
+						<param name="containerID">3001</param>
+					</include>
+					
+					<include>SideMenuControls</include>
 					
 				</control>
 			</control>

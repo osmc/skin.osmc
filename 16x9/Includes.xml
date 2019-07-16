@@ -817,47 +817,136 @@
 		</control>
 	</include>
 
-	<!-- Side menu ontrols -->
-	<include name="OSDDialogControls">
-		<!-- Spacer -->
-		<control type="image" id="80001">
-			<left>0</left>
-			<top>0</top>
-			<width>410</width>
-			<height>20</height>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-		</control>
-	
-		<!-- Heading -->
-		<control type="label" id="80002">
-			<width>410</width>
-			<height>33</height>
-			<align>center</align>
-			<label>10114</label>
-			<font>Font33</font>
-			<textcolor>$VAR[TextColor2]</textcolor>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+	<!-- Side menu controls -->
+	<include name="SideMenuControls">
+		<control type="group" id="70000">
+			<!-- Divider -->
+			<control type="image" id="80013">
+				<top>0</top>
+				<width>410</width>
+				<height>66</height>
+				<texture colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			
+			<!-- Spacer -->
+			<control type="image" id="80014">
+				<top>66</top>
+				<width>410</width>
+				<height>21</height>
+				<texture>transparent.png</texture>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			
+			<!-- Icon -->
+			<control type="image" id="80015">
+				<top>87</top>
+				<width>410</width>
+				<height>100</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$VAR[VideoPlayerIcon]</texture>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			
+			<!-- Spacer -->
+			<control type="image" id="80016">
+				<top>187</top>
+				<width>410</width>
+				<height>10</height>
+				<texture>transparent.png</texture>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+		
+			<!-- Heading -->
+			<control type="label" id="80017">
+				<top>197</top>
+				<width>410</width>
+				<height>33</height>
+				<align>center</align>
+				<label>$INFO[Player.Title]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			
+			<!-- Spacer -->
+			<control type="image" id="80018">
+				<top>230</top>
+				<width>410</width>
+				<height>10</height>
+				<texture>transparent.png</texture>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			
+			<!--  Current position/Time remaining -->
+			<control type="label" id="80019">
+				<top>240</top>
+				<width>410</width>
+				<height>33</height>
+				<font>Font33</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
+				<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			<control type="label" id="80020">
+				<top>240</top>
+				<width>410</width>
+				<height>33</height>
+				<font>Font33</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[Player.Time]</label>
+				<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			
+			<!--  PVR current position/Time remaining -->
+			<control type="label" id="80021">
+				<top>240</top>
+				<width>410</width>
+				<height>33</height>
+				<font>Font33</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
+				<visible>Pvr.IsPlayingTv</visible>
+				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			</control>
+			
 		</control>
 		
 		<!-- Spacer -->
-		<control type="image" id="80003">
-			<left>0</left>
-			<top>0</top>
+		<control type="image" id="80022">
+			<top>273</top>
 			<width>410</width>
-			<height>10</height>
+			<height>283</height>
 			<texture>transparent.png</texture>
 			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
 		</control>
-	
+			
 		<!-- Player controls -->
 		<control type="grouplist" id="90000">
+			<top>283</top>
 			<width>410</width>
 			<height>60</height>
 			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
 			<align>center</align>
+			<defaultcontrol always="true">90001</defaultcontrol>
 			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
 			
 			<!-- Fullscreen toggle -->
 			<control type="button" id="90001">
@@ -869,9 +958,7 @@
 			</control>
 
 			<!-- Spacer -->
-			<control type="image" id="80004">
-				<left>0</left>
-				<top>0</top>
+			<control type="image" id="80023">
 				<width>7</width>
 				<height>60</height>
 				<texture>transparent.png</texture>
@@ -913,12 +1000,11 @@
 			</control>
 
 			<!-- Spacer -->
-			<control type="image" id="80005">
-				<left>0</left>
-				<top>0</top>
+			<control type="image" id="80024">
 				<width>7</width>
 				<height>60</height>
 				<texture>transparent.png</texture>
+				<visible>Player.SeekEnabled</visible>
 			</control>
 			
 			<!-- Play/Pause -->
@@ -944,12 +1030,11 @@
 			</control>
 
 			<!-- Spacer -->
-			<control type="image" id="80006">
-				<left>0</left>
-				<top>0</top>
+			<control type="image" id="80025">
 				<width>7</width>
 				<height>60</height>
 				<texture>transparent.png</texture>
+				<visible>Player.SeekEnabled</visible>
 			</control>
 
 			<!-- Tempo Up -->
@@ -986,7 +1071,107 @@
 				<onclick>PlayerControl(Next)</onclick>
 				<visible>Player.SeekEnabled</visible>
 			</control>
-
+				
+		</control>
+	</include>
+	
+	<!-- Side menu animation/spacer when player controls are visible -->
+	<include name="SideMenuControlsSpacer">
+		<!-- Spacer -->
+		<control type="image" id="80001">
+			<width>410</width>
+			<height>26</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,13)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80002">
+			<width>410</width>
+			<height>52</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,12)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80003">
+			<width>410</width>
+			<height>78</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,11)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80004">
+			<width>410</width>
+			<height>104</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,10)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80005">
+			<width>410</width>
+			<height>130</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,9)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80006">
+			<width>410</width>
+			<height>156</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,8)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80007">
+			<width>410</width>
+			<height>182</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,7)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80008">
+			<width>410</width>
+			<height>208</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,6)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80009">
+			<width>410</width>
+			<height>234</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,5)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80010">
+			<width>410</width>
+			<height>260</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,4)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80011">
+			<width>410</width>
+			<height>286</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,3)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80012">
+			<width>410</width>
+			<height>312</height>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,2)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
 		</control>
 	</include>
 
@@ -1161,7 +1346,6 @@
 		<animation effect="slide" end="0,442" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,3)">Conditional</animation>
 		<animation effect="slide" end="0,468" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,2)">Conditional</animation>
 		<animation effect="slide" end="0,494" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,1)">Conditional</animation>
-
 	</include>
 
 	<include name="Indicators">

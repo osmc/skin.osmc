@@ -157,6 +157,7 @@
 					<!-- Look controls -->
 					<control type="grouplist" id="3001">
 						<left>20</left>
+						<top>20</top>
 						<width>410</width>
 						<height>1040</height>
 						<onleft>3</onleft>
@@ -226,7 +227,13 @@
 							<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 						</control>
 
-						<include>OSDDialogControls</include>
+					<animation effect="slide" end="0,-128" time="200" condition="Player.HasMedia + !Skin.HasSetting(SubMenuControls)">Conditional</animation>
+					
+					<include content="SideMenuControlsSpacer">
+						<param name="containerID">3001</param>
+					</include>
+					
+					<include>SideMenuControls</include>
 
 					</control>
 				</control>
