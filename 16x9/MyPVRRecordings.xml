@@ -403,7 +403,13 @@
 						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
 					</control>
 					
-					<include>OSDDialogControls</include>
+					<animation effect="slide" end="0,-143" time="200" condition="Player.HasMedia + !Skin.HasSetting(SubMenuControls)">Conditional</animation>
+					
+					<include content="SideMenuControlsSpacer">
+						<param name="containerID">3000</param>
+					</include>
+					
+					<include>SideMenuControls</include>
 					
 				</control>
 			</control>
