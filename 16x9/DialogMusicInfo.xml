@@ -29,6 +29,20 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 			</control>
 
+			<!-- Play count and last played date & time -->
+			<control type="fadelabel">
+				<left>150</left>
+				<bottom>180</bottom>
+				<width>1620</width>
+				<height>36</height>
+				<font>Font27</font>
+				<align>center</align>
+				<label>$INFO[ListItem.LastPlayed,$LOCALIZE[568]: ,]$INFO[ListItem.PlayCount, &#8226; $LOCALIZE[576]: ,]</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<pauseatend>5000</pauseatend>
+				<visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
+			</control>
+
 			<!-- Info -->
 			<control type="group">
 				<left>600</left>

@@ -10,11 +10,14 @@ _New_
 - add new options for music OSD to automatically show
 - add user rating to music and video library
 - add new side-menu player controls
+- add new options to hide watched indicator in video library and listened to indicator in music library
 
 _Improved_
 - add audio information to video info dialog
 - use font type for bold, light and italic instead of label formatting (where possible)
 - prevent stacking of window/dialog text during background video playback
+- show special watched indicator icons for videos watched more than once
+- add listened to indicator for music
 
 _Fixed_
 - only offer rip CD feature when an audio CD is present
@@ -99,6 +102,7 @@ DialogMusicInfo.xml:
 - remove deprecated WindowFadeBackgroundImage include
 - add new DialogFanart include
 - add user rating button
+- add play count and last played date & time information
 
 DialogNumeric.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -168,6 +172,7 @@ DialogVideoInfo.xml:
 - remove deprecated WindowFadeBackgroundImage include
 - add new DialogFanart include
 - add user rating button
+- add play count and last played date & time information
 
 EventLog.xml:
 - replace label formatting with light font
@@ -240,6 +245,8 @@ MyMusicNav.xml:
 - add animation to shift up side-menu controls when side-menu player controls are active
 - add SideMenuControlsSpacer include
 - add SideMenuControls include
+- remove clean library option from side-menu
+- hide update library option from side-menu in add-on view
 
 MyPics.xml:
 - add animation to shift up side-menu controls when side-menu player controls are active
@@ -301,6 +308,8 @@ MyVideoNav.xml:
 - add animation to shift up side-menu controls when side-menu player controls are active
 - add SideMenuControlsSpacer include
 - add SideMenuControls include
+- remove clean library option from side-menu
+- hide update library option from side-menu in add-on view
 
 MyWeather.xml:
 - remove onclick, onup, ondown and onright
@@ -330,6 +339,7 @@ script.skinshortcuts.xml:
 script.skinshortcuts-static-xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
 - remove background fallback of widgetBackground variable (empty value)
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
 
 SettingsCategory.xml:
 - move skin-related onloads to include
@@ -364,7 +374,8 @@ SkinSettings.xml:
 - add new option to show music OSD after set time during playback
 - add new toggle to adjust time after which music OSD appears during playback
 - add new user rating option
-- add option to hide new sub-menu player controls
+- add new option to hide new sub-menu player controls
+- add new options to hide watched indicator in video library and listened to indicator in music library
 
 SmartPlaylistEditor.xml:
 - remove deprecated WindowFadeBackgroundImage include
@@ -389,6 +400,7 @@ Variables.xml:
 - add user rating to Label2-episodes variable
 - add new LabelUserRating variable
 - add new ContentTypeFavourites variable for favourites dialog
+- update StatusOverlay and StatusOverlayWide variables with new watched indicator icons (watched more than once)
 
 VideoFullScreen.xml:
 - add onloads for OSD settings alarm
@@ -411,23 +423,42 @@ Viewtype511.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
 
+Viewtype52.xml:
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
+
+Viewtype521.xml:
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
+
+Viewtype53.xml:
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
+
 Viewtype531.xml:
 - fix alignment of plot textbox
 - adjust size and amount of movie poster thumbs for new wall info view
 - add user rating
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
+
+Viewtype532.xml:
+- fix size of collection and watched/listened to indicators
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
 
 Viewtype533.xml:
 - make old wall info view new wall small info view
 - add user rating
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
 
 Viewtype534.xml:
 - new viewtype file for old wall low view
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
+
 Viewtype54.xml:
 - replace label formatting with light font
 - replace label formatting with bold font
-
-Viewtype54.xml:
 - add user rating
+- add back watched/listened to indicator
+
+Viewtype55.xml:
+- add back watched/listened to indicator
 
 remove Default.png file
 
@@ -455,9 +486,11 @@ strings.po:
 - add new localizes for new music OSD options (31074, 31141, 31142, 31143, 31144, 31145)
 - add new localize for new user rating option (31146)
 - add new localize for new sub-menu player controls hide option (31147)
+- add new localizes for new hide watched indicator in video library and hide listened to indicator in music library options (31148, 31149)
 
 Textures.xbt:
 - repack content of media folder after adding new sub-menu player control fullscreen toggle icon
+- repack content of media folder after adding new watched indicator icons (watched more than once)
 
 341.DATA.xml:
 - fix conditional visibility for Rip CD feature (only show for audio CDs)
@@ -468,6 +501,7 @@ overrides.xml:
 template.xml:
 - add value to widgetbackground variable for new background option
 - remove background fallback of widgetBackground variable (empty value)
+- add conditional visibility to watched/listened to indicator background for new option to hide these indicators
 
 addon.xml:
 - bump version to 18.0.1

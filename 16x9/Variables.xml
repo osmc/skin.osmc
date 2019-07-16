@@ -654,7 +654,8 @@
 
 	<variable name="StatusOverlay">
 		<value condition="ListItem.IsParentFolder">noop</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)">noop</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + Skin.HasSetting(MusicListenedToStatus)">noop</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + Skin.HasSetting(VideoWatchedStatus)">noop</value>
 		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayProgress4.png</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWatched.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76)">views/OverlayProgress7.png</value>
@@ -663,21 +664,26 @@
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38)">views/OverlayProgress4.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26)">views/OverlayProgress3.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13)">views/OverlayProgress2.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,0)">views/OverlayProgress1.png</value>
 		<value condition="ListItem.IsResumable">views/OverlayResumable.png</value>
 		<value condition="!String.IsEmpty(ListItem.PlayCount)">views/OverlayProgressWatched.png</value>
 	</variable>
 
 	<variable name="StatusOverlayWide">
 		<value condition="ListItem.IsParentFolder">noop</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)">noop</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + Skin.HasSetting(MusicListenedToStatus)">noop</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + Skin.HasSetting(VideoWatchedStatus)">noop</value>
 		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayProgressWide4.png</value>
-		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWideWatched.png</value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) + ListItem.IsResumable + Integer.IsGreaterOrEqual(ListItem.PlayCount,1)">views/OverlayResumableWideMore.png</value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Integer.IsEqual(ListItem.PlayCount,1)">views/OverlayProgressWideWatched.png</value>
+		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) + Integer.IsGreater(ListItem.PlayCount,1)">views/OverlayProgressWideWatchedMore.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76)">views/OverlayProgressWide7.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,63)">views/OverlayProgressWide6.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,51)">views/OverlayProgressWide5.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38)">views/OverlayProgressWide4.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26)">views/OverlayProgressWide3.png</value>
 		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13)">views/OverlayProgressWide2.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,0)">views/OverlayProgressWide1.png</value>
 		<value condition="ListItem.IsResumable">views/OverlayResumableWide.png</value>
 		<value condition="!String.IsEmpty(ListItem.PlayCount)">views/OverlayProgressWideWatched.png</value>
 	</variable>
