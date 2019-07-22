@@ -67,6 +67,8 @@
 				<top>25</top>
 				<width>750</width>
 				<height>630</height>
+				<onleft>60</onleft>
+				<pagecontrol>60</pagecontrol>
 				<focusposition>2</focusposition>
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
@@ -91,16 +93,6 @@
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-					</control>
-					<!-- Watched status -->
-					<control type="image">
-						<left>0</left>
-						<top>38</top>
-						<width>14</width>
-						<height>14</height>
-						<texture>$VAR[StatusOverlay]</texture>
-						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-						<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
 					</control>
 
 					<control type="label">
@@ -154,16 +146,6 @@
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
 					</control>
-					<!-- Watched status -->
-					<control type="image">
-						<left>0</left>
-						<top>61</top>
-						<width>14</width>
-						<height>14</height>
-						<texture>$VAR[StatusOverlay]</texture>
-						<colordiffuse>$VAR[TextColor1]</colordiffuse>
-						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-					</control>
 					<control type="label">
 						<left>32</left>
 						<top>43</top>
@@ -177,6 +159,24 @@
 					</control>
 				</focusedlayout>
 
+			</control>
+
+			<!-- Scrollbar (list) -->
+			<control type="scrollbar" id="60">
+				<left>700</left>
+				<top>45</top>
+				<width>20</width>
+				<height>590</height>
+				<onright>11</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
 			</control>
 
 		</control>
