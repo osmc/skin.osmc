@@ -70,6 +70,7 @@
 			<label2>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits] ($INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits])</label2>
 			<icon>$VAR[weatherIcons]$INFO[Window(Weather).Property(Current.FanartCode)]$VAR[WeatherIconsExtVar]</icon>
 			<property name="weatherIconMulti">$VAR[weatherIcons]$INFO[Window(Weather).Property(Current.FanartCode)]/</property>
+			<visible>!String.IsEmpty(Window(Weather).Property(Current.Temperature))</visible>
 			<property name="weatherFanart">$INFO[Window(Weather).Property(Current.FanartCode)]</property>
 			<property name="outlook">$INFO[Window(Weather).Property(Current.Condition)]</property>
 		</item>
@@ -701,7 +702,7 @@
 					<effect type="slide" start="0,0" end="1800,0" time="400" />
 				</animation>
 				<left>1230</left>
-				<top>-12</top>
+				<top>3</top>
 				<include>skinshortcuts-template-reloading</include>
 			</control>
 			
@@ -785,7 +786,7 @@
 					<effect type="slide" start="0,0" end="1800,0" time="400" />
 				</animation>
 				<left>1230</left>
-				<top>-12</top>
+				<top>3</top>
 				<include>skinshortcuts-template-reloading</include>
 			</control>
 			
