@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="HomeOSMC">
+		<!-- Widget control -->
+		<include>skinshortcuts-template-widgetControl</include>
+
+		<!-- Main list -->
+		<control type="list" id="9000">
+			<left>120</left>
+			<top>240</top>
+			<width>400</width>
+			<height>679</height>
+			<focusposition>7</focusposition>
+			<defaultcontrol>1</defaultcontrol>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<onleft>9001</onleft>
+			<onright condition="Control.IsVisible(9006)">9006</onright>
+			<orientation>vertical</orientation>
+			<scrolltime tween="sine" easing="out">240</scrolltime>
+
+			<itemlayout width="400" height="97">
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>400</width>
+					<height>97</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font50-light</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+			</itemlayout>
+
+			<focusedlayout width="400" height="97">
+				<control type="label">
+					<left>0</left>
+					<top>0</top>
+					<width>400</width>
+					<height>97</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font50-bold</font>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>400</width>
+					<height>97</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus97]</texture>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
+				</control>
+			</focusedlayout>
+
+			<content>
+				<include>skinshortcuts-mainmenu</include>
+				<item>
+					<label>$LOCALIZE[10004]</label>
+					<icon>DefaultShortcut.png</icon>
+					<thumb />
+					<onclick>ActivateWindow(Settings)</onclick>
+					<visible>System.HasAddon(script.skinshortcuts) + !Skin.HasSetting(AlwaysShowSettingsLink) + !Skin.HasSetting(HasSettingsLink)</visible>
+				</item>
+			</content>
+
+		</control>
+
+		<!-- Indicators -->
+		<include content="Indicators">
+			<param name="left">120</param>
+			<param name="top">200</param>
+			<param name="height">759</param>
+			<param name="container">9000</param>
+		</include>
+
+		<!-- Widgets -->
+		<control type="group" id="9002">
+			<include>skinshortcuts-template-vertical</include>
+		</control>
+
+		<!-- Sub Menu -->
+		<control type="group" id="9010">
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>1080</height>
+				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+				<visible>ControlGroup(9010).HasFocus</visible>
+			</control>
+			<control type="group">
+				<visible>Control.HasFocus(9000)</visible>
+				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
+				<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsEqual(Container(9001).NumItems,0)">Conditional</animation>
+				<animation effect="slide" time="200" start="-200,0" end="0,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowOpen</animation>
+				<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowClose</animation>
+				<control type="image">
+					<left>10</left>
+					<centertop>50%</centertop>
+					<width>30</width>
+					<height>30</height>
+					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+				</control>
+			</control>
+			<control type="group">
+				<left>-450</left>
+				<top>0</top>
+				<animation effect="slide" start="0,0" end="450,0" time="200" condition="ControlGroup(9010).HasFocus">Conditional</animation>
+				<control type="button">
+					<left>0</left>
+					<top>0</top>
+					<width>460</width>
+					<height>1080</height>
+					<texturefocus>noop</texturefocus>
+				</control>
+
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>450</width>
+					<height>1080</height>
+					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+				</control>
+
+				<control type="list" id="9001">
+					<left>20</left>
+					<top>20</top>
+					<width>410</width>
+					<height>1040</height>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<orientation>vertical</orientation>
+					<defaultcontrol always="true">1</defaultcontrol>
+
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,20)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,19)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,18)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,17)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,16)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,15)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,14)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,13)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,12)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,11)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,10)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,9)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,8)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,7)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,6)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,5)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,4)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,3)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,2)">Conditional</animation>
+
+					<itemlayout width="410" height="52">
+						<control type="label">
+							<top>0</top>
+							<width>410</width>
+							<height>52</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+					</itemlayout>
+
+					<focusedlayout width="410" height="52">
+						<control type="label">
+							<top>0</top>
+							<width>410</width>
+							<height>52</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<visible>Control.HasFocus(9001)</visible>
+						</control>
+						<control type="image">
+							<top>0</top>
+							<width>410</width>
+							<height>52</height>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+							<visible>Control.HasFocus(9001)</visible>
+						</control>
+						<control type="label">
+							<top>0</top>
+							<width>410</width>
+							<height>52</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<visible>!Control.HasFocus(9001)</visible>
+						</control>
+					</focusedlayout>
+
+					<content>
+						<include>skinshortcuts-submenu</include>
+					</content>
+
+				</control>
+			</control>
+		</control>
+
+	</include>
+</includes>

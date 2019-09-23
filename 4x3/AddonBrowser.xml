@@ -43,7 +43,7 @@
 			<control type="fixedlist" id="500">
 				<left>750</left>
 				<centertop>50%</centertop>
-				<width>1050</width>
+				<width>480</width>
 				<height>720</height>
 				<onup>500</onup>
 				<ondown>500</ondown>
@@ -56,11 +56,11 @@
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>!String.IsEmpty(Container.FolderPath)</visible>
 
-				<itemlayout height="72" width="1050">
+				<itemlayout height="72" width="480">
 					<control type="label">
 						<left>32</left>
 						<top>0</top>
-						<width>1018</width>
+						<width>448</width>
 						<height>72</height>
 						<font>Font36-light</font>
 						<label>$INFO[ListItem.Label]</label>
@@ -68,11 +68,11 @@
 					</control>
 				</itemlayout>
 
-				<focusedlayout height="144" width="1050">
-					<control type="label">
+				<focusedlayout height="144" width="480">
+					<control type="fadelabel">
 						<left>32</left>
 						<top>0</top>
-						<width>1018</width>
+						<width>448</width>
 						<height>144</height>
 						<font>Font72-bold</font>
 						<label>$INFO[ListItem.Label]</label>
@@ -83,7 +83,7 @@
 					<control type="image">
 						<left>32</left>
 						<top>0</top>
-						<width>1018</width>
+						<width>448</width>
 						<height>144</height>
 						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus144]</texture>
 						<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
@@ -91,20 +91,20 @@
 					</control>
 					<control type="group">
 						<visible>!String.IsEmpty(ListItem.Label2)</visible>
-						<control type="label">
+						<control type="fadelabel">
 							<left>32</left>
 							<top>25</top>
-							<width>1018</width>
+							<width>448</width>
 							<height>48</height>
 							<font>Font48-bold</font>
 							<label>$VAR[Label1]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>
 						</control>
-						<control type="label">
+						<control type="fadelabel">
 							<left>32</left>
 							<top>82</top>
-							<width>1018</width>
+							<width>448</width>
 							<height>27</height>
 							<font>Font27</font>
 							<label>$INFO[ListItem.Label2]</label>
@@ -114,7 +114,7 @@
 						<control type="image">
 							<left>32</left>
 							<top>25</top>
-							<width>1018</width>
+							<width>448</width>
 							<height>58</height>
 							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 							<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(500)">Conditional</animation>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- fullscreeninfo -->
+	<defaultcontrol>100</defaultcontrol>
+	<animation type="WindowOpen">
+		<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+		<effect type="fade" start="0" end="100" time="200"/>
+	</animation>
+	<animation type="WindowClose">
+		<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+		<effect type="fade" start="100" end="0" time="200"/>
+	</animation>
+
+	<controls>
+
+		<control type="group">
+			<!-- Info -->
+			<control type="group">
+				<left>150</left>
+				<top>75</top>
+				<width>1140</width>
+				<height>234</height>
+
+				<!-- Background -->
+				<control type="image">
+					<width>1140</width>
+					<height>234</height>
+					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+				</control>
+
+				<!-- Icon -->
+				<control type="image">
+					<right>20</right>
+					<top>20</top>
+					<width>234</width>
+					<height>194</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>$VAR[VideoPlayerIcon]</texture>
+				</control>
+
+				<!-- Video/Audio info -->
+				<control type="grouplist">
+					<left>20</left>
+					<top>14</top>
+					<itemgap>0</itemgap>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[Player.Process(videodecoder),[LIGHT]$LOCALIZE[31087]:[/LIGHT] ]$VAR[VideoHWDecoder, (,)]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>				
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[Player.Process(pixformat),[LIGHT]$LOCALIZE[31088]:[/LIGHT] ]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>					
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[Player.Process(deintmethod),[LIGHT]$LOCALIZE[16038]:[/LIGHT] ]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>					
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[Player.Process(VideoDecoder),[LIGHT]$LOCALIZE[38031]:[/LIGHT] ,]$INFO[Player.Process(videowidth),$COMMA ,x]$INFO[Player.Process(videoheight),, px]$INFO[Player.Process(videodar),$COMMA ,:1]$INFO[Player.Process(videofps),$COMMA , FPS]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>					
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[Player.Process(audiodecoder),[LIGHT]$LOCALIZE[460]:[/LIGHT] ,]$INFO[Player.Process(audiochannels),$COMMA ,]$INFO[Player.Process(audiobitspersample),$COMMA , bits]$INFO[Player.Process(audiosamplerate),$COMMA , Hz ]</label>
+						<font>Font25</font>
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<label>$INFO[System.Memory(used.percent),[LIGHT]$LOCALIZE[31089]:[/LIGHT] ,  ]$INFO[System.CpuUsage,[LIGHT]$LOCALIZE[13271][/LIGHT] ]</label>
+						<font>Font25</font>
+					</control>
+				</control>
+
+				<!-- PVR info -->
+				<control type="grouplist">
+					<left>20</left>
+					<top>14</top>
+					<itemgap>0</itemgap>
+					<visible>VideoPlayer.Content(livetv)</visible>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[PVR.ActStreamServiceName,[LIGHT]$LOCALIZE[19099]:[/LIGHT] ]  $INFO[PVR.ActStreamProviderName,[LIGHT]$LOCALIZE[19101]:[/LIGHT] ]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>				
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[PVR.ActStreamDevice,[LIGHT]$LOCALIZE[19006]:[/LIGHT] ] $INFO[PVR.ActStreamStatus,(,)]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>					
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[PVR.ActStreamClient,[LIGHT]$LOCALIZE[19012]:[/LIGHT] ]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>					
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[PVR.ActStreamEncryptionName,[LIGHT]$LOCALIZE[19015]:[/LIGHT] ]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>					
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[PVR.ActStreamBer,[LIGHT]$LOCALIZE[19010]:[/LIGHT] ]  $INFO[PVR.ActStreamUnc,[LIGHT]$LOCALIZE[19011]:[/LIGHT] ]  $INFO[PVR.ActStreamMux,[LIGHT]$LOCALIZE[19100]:[/LIGHT] ]</label>
+						<font>Font25</font>
+						<visible>Player.HasVideo</visible>					
+					</control>
+					<control type="label">
+						<width>800</width>
+						<height>35</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[PVR.ActStreamSignal,[LIGHT]$LOCALIZE[19008]:[/LIGHT] ]  $INFO[PVR.ActStreamSNR,[LIGHT]$LOCALIZE[19009]:[/LIGHT] ]</label>
+						<font>Font25</font>
+					</control>
+				</control>
+
+				<!-- Background -->
+				<control type="image">
+					<width>1140</width>
+					<height>40</height>
+					<top>249</top>
+					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+				</control>
+
+				<control type="label">
+					<width>800</width>
+					<height>40</height>
+					<top>249</top>
+					<left>20</left>
+					<label>Click OK to toggle player debug information</label>
+					<font>Font25-light</font>
+				</control>
+			</control>
+
+			<control type="button" id="100">
+				<left>-10000</left>
+				<top>-10000</top>
+				<width>1</width>
+				<height>1</height>
+				<label>noop</label>
+				<onclick>PlayerDebug</onclick>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>
