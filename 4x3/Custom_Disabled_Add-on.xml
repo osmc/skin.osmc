@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1102">
+	<!-- Disabled addon -->
+	<defaultcontrol always="true">10</defaultcontrol>
+	
+	<controls>
+
+		<!-- Animation -->
+		<include>DialogZoomAnimation</include>
+		
+		<!-- Dialog fanart -->
+		<include>DialogFanart</include>
+
+		<!-- Heading -->
+		<include content="Time">
+			<param name="heading">Enable add-on</param>
+		</include>
+
+		<!-- Heading -->
+		<control type="label" id="1">
+			<left>-15000</left>
+			<top>40</top>
+			<width>600</width>
+			<height>48</height>
+			<align>center</align>
+			<font>Font48</font>
+			<textcolor>$VAR[TextColor1]</textcolor>
+		</control>
+
+		<!-- Details -->
+		<control type="group">
+			<control type="textbox">
+				<centerleft>50%</centerleft>
+				<centertop>50%</centertop>
+				<width>1400</width>
+				<height>600</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>Font36</font>
+				<autoscroll>False</autoscroll>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>Please enable the add-on under Settings/Add-on browser/My add-ons to be able to use it.</label>
+			</control>
+		</control>
+
+		<!-- Button grouplist background -->
+		<include content="dialogButtonBackground">
+			<param name="id">9001</param>
+		</include>
+
+		<!-- Buttons -->
+		<control type="grouplist" id="9001">
+			<left>120</left>
+			<bottom>100</bottom>
+			<width>1200</width>
+			<height>66</height>
+			<orientation>horizontal</orientation>
+			<align>center</align>
+			<itemgap>30</itemgap>
+			<control type="button" id="10">
+				<width>auto</width>
+				<font>Font36</font>
+				<align>center</align>
+				<onclick>Dialog.Close(1102)</onclick>
+				<label>OK</label>
+			</control>
+			<control type="button" id="11">
+				<width>auto</width>
+				<font>Font36</font>
+				<align>center</align>
+				<onclick>Dialog.Close(1102)</onclick>
+				<onclick>ActivateWindow(addonbrowser)</onclick>
+				<label>Open Add-on browser</label>
+			</control>
+		</control>
+
+	</controls>
+
+</window>
