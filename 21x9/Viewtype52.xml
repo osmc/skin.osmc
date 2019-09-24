@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype52">
+		
+		<!-- Wide -->
+		<control type="group">
+			<visible>Control.IsVisible(52)</visible>
+
+			<control type="fixedlist" id="52">
+				<left>0</left>
+				<top>120</top>
+				<width>2560</width>
+				<height>750</height>
+				<ondown>61</ondown>
+				<onleft>52</onleft>
+				<onright>52</onright>
+				<pagecontrol>61</pagecontrol>
+				<preloaditems>5</preloaditems>
+				<focusposition>4</focusposition>
+				<orientation>horizontal</orientation>
+				<viewtype label="539">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(artists)</visible>
+
+				<itemlayout width="269" height="666">
+					<!-- Image - Movies -->
+					<include content="image-52">
+						<param name="fallback">DefaultMovie.png</param>
+						<param name="visible">Container.Content(movies)</param>
+					</include>
+					<!-- Image - Albums -->
+					<include content="image-52">
+						<param name="fallback">DefaultAlbumCover.png</param>
+						<param name="visible">Container.Content(albums)</param>
+					</include>
+					<!-- Image - Artists -->
+					<include content="image-52">
+						<param name="fallback">DefaultUser.png</param>
+						<param name="visible">Container.Content(artists)</param>
+					</include>
+					<!-- Image - TV Shows -->
+					<include content="image-52">
+						<param name="fallback">DefaultTVShows.png</param>
+						<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+					</include>
+					<!-- Collection -->
+					<control type="group">
+						<left>22</left>
+						<bottom>168</bottom>
+						<width>49</width>
+						<height>49</height>
+						<visible>ListItem.IsCollection</visible>
+						<control type="image">
+							<texture background="true">views/OverlayCornerLeft.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+						<control type="image">
+							<texture background="true">views/OverlayCollection.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+					</control>
+					<!-- Watched status -->
+					<control type="group">
+						<right>22</right>
+						<bottom>168</bottom>
+						<width>49</width>
+						<height>49</height>
+						<visible>!ListItem.IsCollection</visible>
+						<control type="image">
+							<texture background="true">views/OverlayCornerRight.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						</control>
+						<control type="image">
+							<texture background="true">$VAR[StatusOverlayWide]</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+					</control>
+				</itemlayout>
+
+				<focusedlayout width="405" height="666">
+					<control type="group">
+						<animation effect="zoom" start="56" end="100" center="202,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<!-- Image - Movies -->
+						<include content="image-52-focus">
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="visible">Container.Content(movies)</param>
+						</include>
+						<!-- Image - Albums -->
+						<include content="image-52-focus">
+							<param name="fallback">DefaultAlbumCover.png</param>
+							<param name="visible">Container.Content(albums)</param>
+						</include>
+						<!-- Image - Artists -->
+						<include content="image-52-focus">
+							<param name="fallback">DefaultUser.png</param>
+							<param name="visible">Container.Content(artists)</param>
+						</include>
+						<!-- Image - TV Shows -->
+						<include content="image-52-focus">
+							<param name="fallback">DefaultTVShows.png</param>
+							<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+						</include>
+						<!-- Collection -->
+						<control type="group">
+							<left>0</left>
+							<bottom>42</bottom>
+							<width>88</width>
+							<height>88</height>
+							<fadetime>200</fadetime>
+							<visible>ListItem.IsCollection</visible>
+							<control type="image">
+								<texture background="true">views/OverlayCornerLeft.png</texture>
+							</control>
+							<control type="image">
+								<texture background="true">views/OverlayCollection.png</texture>
+							</control>
+						</control>
+						<!-- Watched status -->
+						<control type="group">
+							<right>0</right>
+							<bottom>42</bottom>
+							<width>88</width>
+							<height>88</height>
+							<fadetime>200</fadetime>
+							<visible>!ListItem.IsCollection</visible>
+							<control type="image">
+								<texture background="true">views/OverlayCornerRight.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
+						</control>
+					</control>
+				</focusedlayout>
+
+			</control>
+
+			<control type="group">
+				<centerleft>50%</centerleft>
+				<top>800</top>
+				<width>2560</width>
+				<height>100</height>
+
+				<!-- Title -->
+				<control type="fadelabel">
+					<left>120</left>
+					<top>0</top>
+					<width>2320</width>
+					<height>72</height>
+					<font>Font72</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
+				</control>
+
+				<!-- Details -->
+				<control type="fadelabel">
+					<left>500</left>
+					<top>88</top>
+					<width>1560</width>
+					<height>54</height>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
+				</control>
+
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-52">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<bottom>168</bottom>
+				<left>22</left>
+				<width>225</width>
+				<height>350</height>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="image-52-focus">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<bottom>42</bottom>
+				<left>0</left>
+				<width>405</width>
+				<height>615</height>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+</includes>

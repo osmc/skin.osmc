@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- subtitlesearch -->
+	<defaultcontrol>150</defaultcontrol>
+	
+	<controls>
+		<control type="group">
+
+			<control type="group">
+				<!-- Animation -->
+				<include>DialogZoomAnimation</include>
+				
+				<!-- Dialog background -->
+				<include>DialogFadeBackgroundImage</include>
+				<include>DialogFadeBackgroundImage</include>
+				<!-- Overlay -->
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+					<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+					<include>WindowFadeAnimation</include>
+				</control>
+
+				<!-- Heading -->
+				<include content="Time">
+					<param name="heading">$INFO[Control.GetLabel(100)]</param>
+				</include>
+				
+				<control type="label" id="100">
+					<left>-15000</left>
+					<top>96</top>
+					<width>2260</width>
+					<height>72</height>
+					<font>Font72</font>
+				</control>
+
+				<!-- Left heading -->
+				<control type="label">
+					<left>150</left>
+					<top>228</top>
+					<width>360</width>
+					<height>66</height>
+					<label>24018</label>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<left>150</left>
+					<top>298</top>
+					<width>360</width>
+					<height>20</height>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+
+				<!-- Left list -->
+				<control type="list" id="150">
+					<left>150</left>
+					<top>337</top>
+					<width>360</width>
+					<height>528</height>
+					<onleft>160</onleft>
+					<onright>120</onright>
+					<onup>150</onup>
+					<ondown>150</ondown>
+					<orientation>vertical</orientation>
+					<viewtype label="list">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<itemlayout width="360" height="66">
+						<control type="label">
+							<width>360</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="360" height="66">
+						<control type="label">
+							<width>360</width>
+							<height>66</height>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
+						</control>
+						<control type="image">
+							<width>360</width>
+							<height>66</height>
+							<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
+						</control>
+					</focusedlayout>
+
+				</control>
+
+				<!-- Video label -->
+				<control type="fadelabel">
+					<left>600</left>
+					<top>228</top>
+					<width>1120</width>
+					<height>66</height>
+					<label>$INFO[Player.Filename]</label>
+				</control>
+
+				<!-- Number label -->
+				<control type="label" id="140">
+					<left>1720</left>
+					<top>228</top>
+					<width>720</width>
+					<height>66</height>
+					<align>right</align>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<left>600</left>
+					<top>298</top>
+					<width>1840</width>
+					<height>20</height>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+
+				<!-- Right list -->
+				<control type="list" id="120">
+					<left>600</left>
+					<top>337</top>
+					<width>1840</width>
+					<height>528</height>
+					<onleft>150</onleft>
+					<onright>160</onright>
+					<onup>120</onup>
+					<ondown>120</ondown>
+					<orientation>vertical</orientation>
+					<viewtype label="list">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<itemlayout width="1840" height="66">
+						<control type="image">
+							<left>9</left>
+							<top>9</top>
+							<width>48</width>
+							<height>48</height>
+							<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+							<texture>$INFO[ListItem.Thumb,language/,.png]</texture>
+						</control>
+						<control type="label">
+							<left>86</left>
+							<width>120</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>226</left>
+							<width>70</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>[CC]</label>
+							<visible>ListItem.Property(hearingimp)</visible>
+						</control>
+						<control type="label">
+							<left>316</left>
+							<width>120</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>(SYNC)</label>
+							<visible>ListItem.Property(sync)</visible>
+						</control>
+						<control type="label">
+							<left>456</left>
+							<width>1224</width>
+							<height>66</height>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+						<control type="image">
+							<left>1698</left>
+							<top>17</top>
+							<width>182</width>
+							<height>33</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.ActualIcon,rating,.png]</texture>
+						</control>
+					</itemlayout>
+
+					<focusedlayout width="1840" height="66">
+						<control type="group">
+							<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(120)">Conditional</animation>
+							<control type="image">
+								<left>9</left>
+								<top>9</top>
+								<width>48</width>
+								<height>48</height>
+								<texture>$INFO[ListItem.Thumb,language/,.png]</texture>
+							</control>
+							<control type="label">
+								<left>86</left>
+								<width>120</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor1]</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>Control.HasFocus(120)</visible>
+							</control>
+							<control type="label">
+								<left>226</left>
+								<width>70</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor1]</textcolor>
+								<label>[CC]</label>
+								<visible>ListItem.Property(hearingimp) + Control.HasFocus(120)</visible>
+							</control>
+							<control type="label">
+								<left>316</left>
+								<width>120</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor1]</textcolor>
+								<label>(SYNC)</label>
+								<visible>ListItem.Property(sync) + Control.HasFocus(120)</visible>
+							</control>
+							<control type="label">
+								<left>456</left>
+								<width>1224</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor1]</textcolor>
+								<label>$INFO[ListItem.Label2]</label>
+								<scroll>True</scroll>
+								<scrollout>false</scrollout>
+								<scrollspeed>40</scrollspeed>
+								<visible>Control.HasFocus(120)</visible>
+							</control>
+							<control type="image">
+								<left>9</left>
+								<width>1871</width>
+								<height>66</height>
+								<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+								<visible>Control.HasFocus(120)</visible>
+							</control>
+							<control type="label">
+								<left>86</left>
+								<width>120</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor2]</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<visible>!Control.HasFocus(120)</visible>
+							</control>
+							<control type="label">
+								<left>226</left>
+								<width>70</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor2]</textcolor>
+								<label>[CC]</label>
+								<visible>ListItem.Property(hearingimp) + !Control.HasFocus(120)</visible>
+							</control>
+							<control type="label">
+								<left>316</left>
+								<width>120</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor2]</textcolor>
+								<label>(SYNC)</label>
+								<visible>ListItem.Property(sync) + !Control.HasFocus(120)</visible>
+							</control>
+							<control type="label">
+								<left>456</left>
+								<width>1224</width>
+								<height>66</height>
+								<textcolor>$VAR[TextColor2]</textcolor>
+								<label>$INFO[ListItem.Label2]</label>
+								<visible>!Control.HasFocus(120)</visible>
+								<scroll>True</scroll>
+								<scrollout>false</scrollout>
+								<scrollspeed>40</scrollspeed>
+							</control>
+							<control type="image">
+								<left>1698</left>
+								<top>17</top>
+								<width>182</width>
+								<height>33</height>
+								<aspectratio>keep</aspectratio>
+								<texture>$INFO[ListItem.ActualIcon,rating,.png]</texture>
+							</control>
+							<control type="image">
+								<left>9</left>
+								<width>1871</width>
+								<height>66</height>
+								<texture colordiffuse="$VAR[TextColor2]">$VAR[focus66]</texture>
+								<visible>!Control.HasFocus(120)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+
+				</control>
+
+				<!-- Manual search button -->
+				<control type="button" id="160">
+					<left>600</left>
+					<top>926</top>
+					<width>920</width>
+					<height>66</height>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>150</onup>
+					<ondown>noop</ondown>
+					<label>24120</label>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+				</control>
+
+				<!-- Notification -->
+				<control type="label" id="130">
+					<left>1520</left>
+					<top>926</top>
+					<width>920</width>
+					<height>66</height>
+					<align>right</align>
+					<label>31044</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Button grouplist indicator -->
+				<include content="dialogButtonIndicator">
+					<param name="visibility">!Control.HasFocus(160)</param>
+				</include>
+
+			</control>
+		</control>
+
+	</controls>
+
+</window>
