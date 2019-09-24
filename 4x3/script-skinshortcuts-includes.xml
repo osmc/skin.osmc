@@ -3,7 +3,7 @@
 	<include name="skinshortcuts-mainmenu">
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
-			<label>Movies</label>
+			<label>$LOCALIZE[20342]</label>
 			<label2>Common Shortcut</label2>
 			<icon>DefaultMovies.png</icon>
 			<thumb />
@@ -772,7 +772,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">1</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -815,7 +815,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">2</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -837,7 +837,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">4</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -858,7 +858,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">6</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -878,7 +878,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">9</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -900,7 +900,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">10</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -920,7 +920,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">11</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -941,7 +941,7 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">12</property>
-			<label>Widget</label>
+			<label>$LOCALIZE[31160]</label>
 			<label2 />
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
@@ -1017,7 +1017,7 @@
 					<property name="widgetContainer">10101</property>
 				</item>
 				<item id="2">
-					<label>Recently added movies</label>
+					<label>$LOCALIZE[31167]</label>
 					<visible>Integer.IsGreater(Container(10102).NumItems,0) | Container(10102).IsUpdating</visible>
 					<property name="widgetID">1-2</property>
 					<property name="widgetContainer">10102</property>
@@ -1029,7 +1029,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem(-1).Property(widgetID),1-1)">Control.SetFocus(10101)</onfocus>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem(-1).Property(widgetID),1-2)">Control.SetFocus(10102)</onfocus>
 			<onfocus>SetProperty(changeWidget-10001,True,10000)</onfocus>
@@ -1041,7 +1041,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem.Property(widgetID),1-1)">Control.SetFocus(10101)</onfocus>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem.Property(widgetID),1-2)">Control.SetFocus(10102)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10001).NumItems,0)">Control.SetFocus(9000)</onfocus>
@@ -1051,7 +1051,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem(1).Property(widgetID),1-1)">Control.SetFocus(10101)</onfocus>
 			<onfocus condition="String.IsEqual(Container(10001).ListItem(1).Property(widgetID),1-2)">Control.SetFocus(10102)</onfocus>
 			<onfocus>SetProperty(changeWidget-10001,True,10000)</onfocus>
@@ -1101,7 +1101,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(10002).ListItem(-1).Property(widgetID),2-1)">Control.SetFocus(10201)</onfocus>
 			<onfocus>SetProperty(changeWidget-10002,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10002,False,10000),00:03,silent)</onfocus>
@@ -1112,7 +1112,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(10002).ListItem.Property(widgetID),2-1)">Control.SetFocus(10201)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10002).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1121,7 +1121,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(10002).ListItem(1).Property(widgetID),2-1)">Control.SetFocus(10201)</onfocus>
 			<onfocus>SetProperty(changeWidget-10002,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10002,False,10000),00:03,silent)</onfocus>
@@ -1170,7 +1170,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-2)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(10004).ListItem(-1).Property(widgetID),4-1)">Control.SetFocus(10401)</onfocus>
 			<onfocus>SetProperty(changeWidget-10004,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10004,False,10000),00:03,silent)</onfocus>
@@ -1181,7 +1181,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-2)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(10004).ListItem.Property(widgetID),4-1)">Control.SetFocus(10401)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10004).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1190,7 +1190,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-2)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(10004).ListItem(1).Property(widgetID),4-1)">Control.SetFocus(10401)</onfocus>
 			<onfocus>SetProperty(changeWidget-10004,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10004,False,10000),00:03,silent)</onfocus>
@@ -1239,7 +1239,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(10006).ListItem(-1).Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
 			<onfocus>SetProperty(changeWidget-10006,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10006,False,10000),00:03,silent)</onfocus>
@@ -1250,7 +1250,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(10006).ListItem.Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10006).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1259,7 +1259,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(10006).ListItem(1).Property(widgetID),6-1)">Control.SetFocus(10601)</onfocus>
 			<onfocus>SetProperty(changeWidget-10006,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10006,False,10000),00:03,silent)</onfocus>
@@ -1308,7 +1308,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(10009).ListItem(-1).Property(widgetID),9-1)">Control.SetFocus(10901)</onfocus>
 			<onfocus>SetProperty(changeWidget-10009,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10009,False,10000),00:03,silent)</onfocus>
@@ -1319,7 +1319,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1)">Control.SetFocus(10901)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(10009).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1328,7 +1328,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),programs)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(10009).ListItem(1).Property(widgetID),9-1)">Control.SetFocus(10901)</onfocus>
 			<onfocus>SetProperty(changeWidget-10009,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-10009,False,10000),00:03,silent)</onfocus>
@@ -1377,7 +1377,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(100010).ListItem(-1).Property(widgetID),10-1)">Control.SetFocus(101001)</onfocus>
 			<onfocus>SetProperty(changeWidget-100010,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100010,False,10000),00:03,silent)</onfocus>
@@ -1388,7 +1388,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(100010).ListItem.Property(widgetID),10-1)">Control.SetFocus(101001)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(100010).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1397,7 +1397,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(100010).ListItem(1).Property(widgetID),10-1)">Control.SetFocus(101001)</onfocus>
 			<onfocus>SetProperty(changeWidget-100010,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100010,False,10000),00:03,silent)</onfocus>
@@ -1446,7 +1446,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(100011).ListItem(-1).Property(widgetID),11-1)">Control.SetFocus(101101)</onfocus>
 			<onfocus>SetProperty(changeWidget-100011,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100011,False,10000),00:03,silent)</onfocus>
@@ -1457,7 +1457,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(100011).ListItem.Property(widgetID),11-1)">Control.SetFocus(101101)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(100011).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1466,7 +1466,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(100011).ListItem(1).Property(widgetID),11-1)">Control.SetFocus(101101)</onfocus>
 			<onfocus>SetProperty(changeWidget-100011,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100011,False,10000),00:03,silent)</onfocus>
@@ -1515,7 +1515,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(100012).ListItem(-1).Property(widgetID),12-1)">Control.SetFocus(101201)</onfocus>
 			<onfocus>SetProperty(changeWidget-100012,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100012,False,10000),00:03,silent)</onfocus>
@@ -1526,7 +1526,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(100012).ListItem.Property(widgetID),12-1)">Control.SetFocus(101201)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(100012).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1535,7 +1535,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(100012).ListItem(1).Property(widgetID),12-1)">Control.SetFocus(101201)</onfocus>
 			<onfocus>SetProperty(changeWidget-100012,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100012,False,10000),00:03,silent)</onfocus>
@@ -1584,7 +1584,7 @@
 			<left>500</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),plugin-video-zdf-de-2016)</visible>
-			<label>Previous</label>
+			<label>$LOCALIZE[31157]</label>
 			<onfocus condition="String.IsEqual(Container(100016).ListItem(-1).Property(widgetID),16-1)">Control.SetFocus(101601)</onfocus>
 			<onfocus>SetProperty(changeWidget-100016,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100016,False,10000),00:03,silent)</onfocus>
@@ -1595,7 +1595,7 @@
 			<left>700</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),plugin-video-zdf-de-2016)</visible>
-			<label>Current</label>
+			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(100016).ListItem.Property(widgetID),16-1)">Control.SetFocus(101601)</onfocus>
 			<onfocus condition="Integer.IsEqual(Container(100016).NumItems,0)">Control.SetFocus(9000)</onfocus>
 		</control>
@@ -1604,7 +1604,7 @@
 			<left>900</left>
 			<top>-10000</top>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),plugin-video-zdf-de-2016)</visible>
-			<label>Next</label>
+			<label>$LOCALIZE[31159]</label>
 			<onfocus condition="String.IsEqual(Container(100016).ListItem(1).Property(widgetID),16-1)">Control.SetFocus(101601)</onfocus>
 			<onfocus>SetProperty(changeWidget-100016,True,10000)</onfocus>
 			<onfocus>AlarmClock(changeWidgetTimer,SetProperty(changeWidget-100016,False,10000),00:03,silent)</onfocus>
