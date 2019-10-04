@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype511">
+
+		<!-- List info -->
+		<control type="group">
+			<visible>Control.IsVisible(511)</visible>
+
+			<!-- Media image -->
+			<control type="group">
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<!-- Image - Movies -->
+				<include content="image-511">
+					<param name="fallback">DefaultMovies.png</param>
+					<param name="visible">Container.Content(movies)</param>
+				</include>
+				<!-- Image - TV -->
+				<include content="image-511">
+					<param name="fallback">DefaultTVShows.png</param>
+					<param name="visible">!Container.Content(movies)</param>
+				</include>
+				<!-- Collection -->
+				<control type="group">
+					<include>Viewtype511_coords1</include>
+					<control type="image">
+						<include>Viewtype511_coords2</include>
+						<fadetime>200</fadetime>
+						<texture background="true">views/OverlayCornerLeft.png</texture>
+						<visible>ListItem.IsCollection</visible>
+					</control>
+					<control type="image">
+						<include>Viewtype511_coords2</include>
+						<fadetime>200</fadetime>
+						<texture background="true">views/OverlayCollection.png</texture>
+						<visible>ListItem.IsCollection</visible>
+					</control>
+				</control>
+			</control>
+				
+			<!-- Plot -->
+			<control type="group">
+				<include>Viewtype511_coords3</include>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<control type="textbox">
+					<align>left</align>
+					<font>Font27</font>
+					<label>$VAR[Plot]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+					<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+				</control>
+				<control type="textbox">
+					<align>left</align>
+					<font>Font30</font>
+					<label>$VAR[Plot]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+					<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+				</control>
+				<control type="textbox">
+					<align>left</align>
+					<font>Font33</font>
+					<label>$VAR[Plot]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+					<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+				</control>
+			</control>
+
+			<!-- List -->
+			<control type="fixedlist" id="511">
+				<include>Viewtype511_coords4</include>
+				<onup>511</onup>
+				<ondown>511</ondown>
+				<onleft>60</onleft>
+				<pagecontrol>60</pagecontrol>
+				<focusposition>4</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="$LOCALIZE[31117]">icon</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+
+				<include>Viewtype511_coords5</include>
+
+				<include>Viewtype511_coords6</include>
+
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-511">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype511_coords7</include>
+				<fadetime>200</fadetime>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+</includes>

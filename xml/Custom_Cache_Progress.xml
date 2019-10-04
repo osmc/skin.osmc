@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1100">
+	<zorder>100</zorder>
+	<visible>Player.Caching</visible>
+	<onload>SetProperty(isCaching,False,10000)</onload>
+	<onload>AlarmClock(isCachingTimer,SetProperty(isCaching,True,10000),00:01,silent)</onload>
+	<onunload>SetProperty(isCaching,False,10000)</onunload>
+	<onunload>CancelAlarm(isCachingTimer,silent)</onunload>
+	<controls>
+		<control type="group">
+			<visible>Player.Caching + String.IsEqual(Window(10000).Property(isCaching),True)</visible>
+			<left>1920</left>
+			<width>550</width>
+			<animation effect="slide" end="-550,0" time="200">Visible</animation>
+			<animation effect="slide" end="0,0" time="200">Hidden</animation>
+
+			<control type="image">
+				<include>Custom_Cache_Progress_coords1</include>
+				<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+			</control>
+
+			<!-- Heading -->
+			<control type="label">
+				<include>Custom_Cache_Progress_coords2</include>
+				<align>left</align>
+				<scroll>true</scroll>
+				<font>Font27</font>
+				<label>$LOCALIZE[15107]</label>
+			</control>
+
+			<!-- Progress -->
+			<control type="progress">
+				<description>Progressbar</description>
+				<include>Custom_Cache_Progress_coords3</include>
+				<visible>true</visible>
+				<midtexture colordiffuse="$VAR[DialogColor1]">common/white.png</midtexture>
+				<info>Player.Progress</info>
+			</control>
+			<control type="progress">
+				<description>Progressbar</description>
+				<include>Custom_Cache_Progress_coords3</include>
+				<visible>true</visible>
+				<midtexture colordiffuse="OSDCache">common/white.png</midtexture>
+				<info>Player.ProgressCache</info>
+			</control>
+		</control>
+
+	</controls>
+
+</window>

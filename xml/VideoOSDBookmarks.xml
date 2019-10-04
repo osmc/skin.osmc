@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- videobookmarks -->
+	<defaultcontrol always="true">2</defaultcontrol>
+
+	<controls>
+		
+		<control type="list" id="11">
+			<include>VideoOSDBookmarks_coords1</include>
+			<onleft>noop</onleft>
+			<onright>noop</onright>
+			<ondown>9001</ondown>
+			<onup>noop</onup>
+			<orientation>horizontal</orientation>
+			<viewtype label="535">list</viewtype>
+			<scrolltime tween="sine" easing="out">240</scrolltime>
+			<animation type="WindowOpen">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+				<effect type="fade" start="0" end="100" time="200"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" time="200"/>
+			</animation>
+
+			<include>VideoOSDBookmarks_coords2</include>
+
+			<include>VideoOSDBookmarks_coords3</include>
+
+		</control>
+
+		<control type="group">
+			<include>VideoOSDBookmarks_coords4</include>
+			<animation type="WindowOpen">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
+				<effect type="fade" start="0" end="100" time="200"/>
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
+				<effect type="fade" start="100" end="0" time="200"/>
+			</animation>
+
+			<!-- Background -->
+			<control type="image">
+				<include>VideoOSDBookmarks_coords5</include>
+				<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+			</control>
+
+			<!-- Button grouplist -->
+			<control type="grouplist" id="9001">
+				<include>VideoOSDBookmarks_coords6</include>
+				<itemgap>20</itemgap>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<onup>11</onup>
+				<ondown>close</ondown>
+				<orientation>horizontal</orientation>
+
+				<!-- Create Bookmark button -->
+				<control type="button" id="2">
+					<include>VideoOSDBookmarks_coords7</include>
+					<label>294</label>
+				</control>
+
+				<!-- Clear Bookmark button -->
+				<control type="button" id="3">
+					<include>VideoOSDBookmarks_coords7</include>
+					<label>296</label>
+				</control>
+
+				<!-- Use current for episode thumb -->
+				<control type="button" id="4">
+					<include>VideoOSDBookmarks_coords7</include>
+					<label>20406</label>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

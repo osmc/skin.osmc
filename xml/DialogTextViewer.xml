@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- textviewer -->
+	<defaultcontrol always="true">61</defaultcontrol>
+
+	<controls>
+
+		<control type="group">
+
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
+			
+			<!-- Dialog fanart -->
+			<include>DialogFanart</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$INFO[Control.GetLabel(1)]</param>
+			</include>
+
+			<!-- Heading -->
+			<control type="label" id="1">
+				<left>-150000</left>
+				<top>96</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Font72</font>
+			</control>
+
+			<!-- Info -->
+			<control type="textbox" id="5">
+				<include>DialogTextViewer_coords1</include>
+				<pagecontrol>61</pagecontrol>
+			</control>
+
+			<!-- Scrollbar -->
+			<control type="scrollbar" id="61">
+				<include>DialogTextViewer_coords2</include>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

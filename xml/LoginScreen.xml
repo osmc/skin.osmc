@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- Login screen -->
+	<backgroundcolor>0x00000000</backgroundcolor>
+	<defaultcontrol always="true">52</defaultcontrol>
+	
+	<!--Welcome screen -->
+	<onload condition="String.IsEmpty(Skin.String(WelcomeDialogShown)) + !System.HasAddon(service.osmc.settings)">ActivateWindow(1101)</onload>
+
+	<!-- Skin settings, background + colors -->
+	<include>Onloads</include>
+
+	<controls>
+
+		<!-- Background -->
+		<include>WindowBackgroundImage</include>
+
+		<!-- Time -->
+		<include>Time</include>
+
+		<!-- Logo -->
+		<control type="image">
+			<include>LoginScreen_coords1</include>
+			<texture>logo.png</texture>
+			<include>WindowFadeAnimation</include>
+		</control>
+
+		<!-- Main group -->
+		<control type="group">
+			<include>WindowFadeAnimation</include>
+
+			<!-- Image -->
+			<control type="image">
+				<include>LoginScreen_coords2</include>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<aspectratio aligny="center">keep</aspectratio>
+				<visible>!String.Contains(ListItem.Icon,unknown-user)</visible>
+			</control>
+			<control type="image">
+				<include>LoginScreen_coords2</include>
+				<texture>DefaultActor.png</texture>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+				<aspectratio aligny="center">keep</aspectratio>
+				<visible>String.Contains(ListItem.Icon,unknown-user)</visible>
+			</control>
+
+			<!-- View -->
+			<control type="fixedlist" id="52">
+				<include>LoginScreen_coords3</include>
+				<onup>52</onup>
+				<ondown>52</ondown>
+				<onleft>ActivateWindow(shutdownmenu)</onleft>
+				<onright>noop</onright>
+				<focusposition>3</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+
+				<include>LoginScreen_coords4</include>
+
+				<include>LoginScreen_coords5</include>
+
+			</control>
+			
+			<control type="group">
+				<visible>Control.HasFocus(52) + !Window.IsVisible(shutdownmenu)</visible>
+				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
+				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
+				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+				<control type="image">
+					<left>10</left>
+					<centertop>50%</centertop>
+					<width>30</width>
+					<height>30</height>
+					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+				</control>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

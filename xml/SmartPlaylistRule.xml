@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- smartplaylistrule -->
+	<defaultcontrol always="true">15</defaultcontrol>
+
+	<controls>
+
+		<control type="group">
+
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
+			
+			<!-- Dialog fanart -->
+			<include>DialogFanart</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">21421</param>
+			</include>
+
+			<!-- Control group -->
+			<control type="group">
+				<include>SmartPlaylistRule_coords1</include>
+
+				<!-- Rule match label -->
+				<control type="label">
+					<include>SmartPlaylistRule_coords2</include>
+					<label>21422</label>
+					<textcolor>$VAR[SelectedColor]</textcolor>
+				</control>
+
+				<!-- Rule Field -->
+				<control type="button" id="15">
+					<include>SmartPlaylistRule_coords3</include>
+					<onup>noop</onup>
+					<ondown>16</ondown>
+					<onright>noop</onright>
+					<onleft>noop</onleft>
+				</control>
+
+				<!-- Rule Field label -->
+				<control type="label">
+					<include>SmartPlaylistRule_coords3</include>
+					<height>66</height>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[Control.GetLabel(15)]</label>
+					<visible>Control.HasFocus(15)</visible>
+				</control>
+				<control type="label">
+					<include>SmartPlaylistRule_coords3</include>
+					<height>66</height>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<label>$INFO[Control.GetLabel(15)]</label>
+					<visible>!Control.HasFocus(15)</visible>
+				</control>
+
+				<!-- Rule operator -->
+				<control type="button" id="16">
+					<include>SmartPlaylistRule_coords4</include>
+					<onup>15</onup>
+					<ondown>17</ondown>
+					<onright>noop</onright>
+					<onleft>noop</onleft>
+				</control>
+
+				<!-- Rule Field label -->
+				<control type="label">
+					<include>SmartPlaylistRule_coords4</include>
+					<height>66</height>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[Control.GetLabel(16)]</label>
+					<visible>Control.HasFocus(16)</visible>
+				</control>
+				<control type="label">
+					<include>SmartPlaylistRule_coords4</include>
+					<height>66</height>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<label>$INFO[Control.GetLabel(16)]</label>
+					<visible>!Control.HasFocus(16)</visible>
+				</control>
+
+				<!-- Value edit -->
+				<control type="edit" id="17">
+					<include>SmartPlaylistRule_coords5</include>
+					<label></label>
+					<onup>16</onup>
+					<ondown>20</ondown>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<texturefocus colordiffuse="$VAR[TextColor1]" border="2">common/Border.png</texturefocus>
+					<texturenofocus colordiffuse="$VAR[TextColor2]" border="2">common/Border.png</texturenofocus>
+					<align>left</align>
+				</control>
+
+				<!-- Browse Button -->
+				<control type="button" id="20">
+					<include>SmartPlaylistRule_coords6</include>
+					<label>1024</label>
+					<onup>17</onup>
+					<ondown>9001</ondown>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+				</control>
+
+			</control>
+
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9001</param>
+			</include>
+
+			<!-- Buttons -->
+			<control type="grouplist" id="9001">
+				<include>DialogButtons</include>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>20</onup>
+
+				<!-- OK Button -->
+				<control type="button" id="18">
+					<width>auto</width>
+					<label>186</label>
+				</control>
+
+				<!-- Cancel Button -->
+				<control type="button" id="19">
+					<width>auto</width>
+					<label>222</label>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- contextmenu -->
+	<defaultcontrol always="true">996</defaultcontrol>
+	<coordinates>
+		<origin x="0" y="0"/>
+	</coordinates>
+
+	<controls>
+
+		<!-- Background image -->
+		<include>DialogFadeBackgroundImage</include>
+		<control type="group">
+			<animation effect="slide" start="-450,0" end="0,0" time="200">WindowOpen</animation>
+			<animation effect="slide" start="0,0" end="-450,0" time="200">WindowClose</animation>
+			
+			<!-- Background -->
+			<control type="image">
+				<include>DialogContextMenu_coords1</include>
+				<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+			</control>
+			
+
+			<!-- Dialog group -->
+			<control type="group">
+				<include>DialogContextMenu_coords2</include>
+
+				<include content="SideMenuAnimation">
+					<param name="containerID">996</param>
+				</include>
+
+				<!-- Default grouplist -->
+				<control type="grouplist" id="996">
+					<include>DialogContextMenu_coords3</include>
+					<onright>Close</onright>
+					<onleft>Close</onleft>
+					<itemgap>0</itemgap>
+				</control>
+
+				<!-- Default button -->
+				<control type="button" id="1000">
+					<include>DialogContextMenu_coords4</include>
+					<align>center</align>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
+				</control>
+
+			</control>
+		</control>
+
+	</controls>
+
+</window>

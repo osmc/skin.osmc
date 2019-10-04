@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- musicplaylisteditor -->
+	<backgroundcolor>0x00000000</backgroundcolor>
+	<onload>SetFocus(50)</onload>
+	<onload>SetFocus(6)</onload>
+
+	<controls>
+
+		<!-- Fake previous window (music library) -->
+		<!-- Background -->
+		<include>WindowBackgroundImage</include>
+
+		<!-- Playlist editor controls -->
+		<control type="group">
+			<include>WindowFadeAnimation</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$LOCALIZE[10503]</param>
+			</include>
+
+			<!-- Left group -->
+			<control type="group">
+				<include>MyMusicPlaylistEditor_coords1</include>
+
+				<!-- Heading -->
+				<control type="label">
+					<include>MyMusicPlaylistEditor_coords2</include>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>31007</label>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<include>MyMusicPlaylistEditor_coords3</include>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+
+				<!-- Left list -->
+				<control type="list" id="50">
+					<include>MyMusicPlaylistEditor_coords4</include>
+					<onleft>noop</onleft>
+					<onright>9000</onright>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<scrolltime>200</scrolltime>
+
+					<include>MyMusicPlaylistEditor_coords5</include>
+
+					<include>MyMusicPlaylistEditor_coords6</include>
+
+				</control>
+
+				<!-- Number label -->
+				<control type="grouplist">
+					<include>MyMusicPlaylistEditor_coords7</include>
+					<align>left</align>
+					<itemgap>6</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<top>3</top>
+						<width>auto</width>
+						<height>44</height>
+						<align>left</align>
+						<font>Font25</font>
+						<label>$INFO[Container(50).NumItems]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>left</align>
+						<label>31000</label>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!Integer.IsGreater(Container(50).NumItems,1)</visible>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>left</align>
+						<label>31001</label>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>Integer.IsGreater(Container(50).NumItems,1)</visible>
+					</control>
+				</control>
+
+			</control>
+
+			<!-- Middle group -->
+			<control type="group">
+				<include>MyMusicPlaylistEditor_coords8</include>
+
+				<!-- Heading -->
+				<control type="label">
+					<include>MyMusicPlaylistEditor_coords9</include>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>31008</label>
+				</control>
+
+				<control type="group">
+					<visible>Control.HasFocus(50)</visible>
+
+					<!-- Image -->
+					<control type="image">
+						<include>MyMusicPlaylistEditor_coords10</include>
+						<texture fallback="DefaultAddonMusic.png">$INFO[Container(50).ListItem.Icon]</texture>
+						<aspectratio aligny="top">scale</aspectratio>
+					</control>
+
+					<!-- Details -->
+					<control type="textbox">
+						<include>MyMusicPlaylistEditor_coords11</include>
+						<font>Font25</font>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<label>$INFO[Container(50).ListItem.Artist,[COLOR=$VAR[SelectedColor]]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.Album,[COLOR=$VAR[SelectedColor]]$LOCALIZE[558]: [/COLOR]]</label>
+					</control>
+
+				</control>
+
+				<control type="group">
+					<visible>Control.HasFocus(100)</visible>
+
+					<!-- Image -->
+					<control type="image">
+						<include>MyMusicPlaylistEditor_coords10</include>
+						<texture fallback="DefaultAddonMusic.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio aligny="top">scale</aspectratio>
+					</control>
+
+					<!-- Details -->
+					<control type="textbox">
+						<include>MyMusicPlaylistEditor_coords11</include>
+						<font>Font25</font>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<label>$INFO[Container(100).ListItem.Artist,[COLOR=$VAR[SelectedColor]]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(100).ListItem.Album,[COLOR=$VAR[SelectedColor]]$LOCALIZE[558]: [/COLOR]]</label>
+					</control>
+
+				</control>
+
+				<!-- Middle grouplist -->
+				<control type="grouplist" id="9000">
+					<include>MyMusicPlaylistEditor_coords12</include>
+					<itemgap>0</itemgap>
+					<onleft>50</onleft>
+					<onright>100</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+					<orientation>vertical</orientation>
+
+					<!-- Open Button -->
+					<control type="button" id="6">
+						<align>center</align>
+						<label>31009</label>
+						<include>MyMusicPlaylistEditor_coords13</include>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+					</control>
+
+					<!-- Save Button -->
+					<control type="button" id="7">
+						<align>center</align>
+						<label>31010</label>
+						<include>MyMusicPlaylistEditor_coords13</include>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+					</control>
+
+					<!-- Clear Button -->
+					<control type="button" id="8">
+						<align>center</align>
+						<label>31011</label>
+						<include>MyMusicPlaylistEditor_coords13</include>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+					</control>
+
+				</control>
+
+			</control>
+
+			<!-- Right group -->
+			<control type="group">
+				<include>MyMusicPlaylistEditor_coords14</include>
+
+				<!-- Heading -->
+				<control type="label">
+					<include>MyMusicPlaylistEditor_coords2</include>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>31012</label>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<include>MyMusicPlaylistEditor_coords3</include>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+
+				<!-- Right list -->
+				<control type="list" id="100">
+					<include>MyMusicPlaylistEditor_coords4</include>
+					<onleft>9000</onleft>
+					<onright>noop</onright>
+					<onup>100</onup>
+					<ondown>100</ondown>
+					<scrolltime>200</scrolltime>
+
+					<include>MyMusicPlaylistEditor_coords15</include>
+
+					<include>MyMusicPlaylistEditor_coords16</include>
+
+				</control>
+
+				<!-- Number label -->
+				<control type="grouplist">
+					<include>MyMusicPlaylistEditor_coords7</include>
+					<align>right</align>
+					<itemgap>6</itemgap>
+					<orientation>horizontal</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<control type="label">
+						<top>3</top>
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<font>Font25</font>
+						<label>$INFO[Container(100).NumItems]</label>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31000</label>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>!Integer.IsGreater(Container(100).NumItems,1)</visible>
+					</control>
+					<control type="label">
+						<width>auto</width>
+						<height>44</height>
+						<align>right</align>
+						<label>31001</label>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<visible>Integer.IsGreater(Container(100).NumItems,1)</visible>
+					</control>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

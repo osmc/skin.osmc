@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- osdvideosettings -->
+	<defaultcontrol always="true">11</defaultcontrol>
+	<include>DialogZoomAnimation</include>
+	<zorder>0</zorder>
+	
+	<controls>
+
+		<!-- Menu -->
+		<control type="group">
+			<include>DialogPVRChannelGuide_coords1</include>
+
+			<!-- Background -->
+			<control type="image">
+				<include>DialogPVRChannelGuide_coords2</include>
+				<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+			</control>
+
+			<!-- Heading label -->
+			<control type="label" id="2">
+				<include>DialogPVRChannelGuide_coords3</include>
+				<font>Font33-bold</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$VAR[VideoPlayerChannelNumber]</label>
+			</control>
+
+			<!-- Date label -->
+			<control type="label" id="2">
+				<include>DialogPVRChannelGuide_coords4</include>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[Container(11).ListItem.StartDate]</label>
+			</control>
+			
+			<!-- Icon -->
+			<control type="image">
+				<include>DialogPVRChannelGuide_coords5</include>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[VideoPlayerIcon]</texture>
+			</control>
+			
+			<!-- Episode Information -->
+			<control type="group">
+				<include>DialogPVRChannelGuide_coords6</include>
+				<control type="textbox">
+					<align>left</align>
+					<font>Font27</font>
+					<label>$VAR[PVRDescriptionDialogGuide]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+					<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+				</control>
+				<control type="textbox">
+					<align>left</align>
+					<font>Font30</font>
+					<label>$VAR[PVRDescriptionDialogGuide]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+					<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+				</control>
+				<control type="textbox">
+					<align>left</align>
+					<font>Font33</font>
+					<label>$VAR[PVRDescriptionDialogGuide]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+					<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+				</control>
+			</control>
+
+			<!-- List -->
+			<control type="list" id="11">
+				<include>DialogPVRChannelGuide_coords7</include>
+				<onleft>60</onleft>
+				<pagecontrol>60</pagecontrol>
+				<onup>11</onup>
+				<ondown>11</ondown>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+
+				<include>DialogPVRChannelGuide_coords8</include>
+
+				<include>DialogPVRChannelGuide_coords9</include>
+
+			</control>
+
+			<!-- Scrollbar (list) -->
+			<control type="scrollbar" id="60">
+				<include>DialogPVRChannelGuide_coords10</include>
+				<onright>11</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

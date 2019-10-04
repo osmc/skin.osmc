@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- smartplaylisteditor -->
+	<defaultcontrol always="true">22</defaultcontrol>
+
+	<controls>
+
+		<control type="group">
+
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
+			
+			<!-- Dialog fanart -->
+			<include>DialogFanart</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$INFO[Control.GetLabel(2)]</param>
+			</include>
+			<control type="label" id="2">
+				<left>-150000</left>
+				<top>96</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Font72</font>
+				<label></label>
+			</control>
+
+			<!-- Left group -->
+			<control type="group">
+				<include>SmartPlaylistEditor_coords1</include>
+
+				<!-- Name Label -->
+				<control type="fadelabel">
+					<include>SmartPlaylistEditor_coords2</include>
+					<label>21433</label>
+					<align>right</align>
+					<textcolor>$VAR[SelectedColor]</textcolor>
+				</control>
+
+				<!-- Rules label -->
+				<control type="fadelabel">
+					<include>SmartPlaylistEditor_coords3</include>
+					<label>21434</label>
+					<align>right</align>
+					<textcolor>$VAR[SelectedColor]</textcolor>
+				</control>
+
+				<!-- Name Label -->
+				<control type="fadelabel">
+					<include>SmartPlaylistEditor_coords4</include>
+					<label>31048</label>
+					<align>right</align>
+					<textcolor>$VAR[SelectedColor]</textcolor>
+				</control>
+
+			</control>
+
+			<!-- Right group -->
+			<control type="group">
+				<include>SmartPlaylistEditor_coords5</include>
+
+				<!-- Set Playlist type -->
+				<control type="button" id="22">
+					<include>SmartPlaylistEditor_coords6</include>
+					<label>467</label>
+					<onright>noop</onright>
+					<onleft>noop</onleft>
+					<onup>noop</onup>
+					<ondown>12</ondown>
+				</control>
+
+				<!-- Name Button -->
+				<control type="button" id="12">
+					<include>SmartPlaylistEditor_coords7</include>
+					<onup>22</onup>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<ondown>10</ondown>
+				</control>
+
+				<!-- Rules list -->
+				<control type="list" id="10">
+					<include>SmartPlaylistEditor_coords8</include>
+					<onup>12</onup>
+					<ondown>16</ondown>
+					<onleft>noop</onleft>
+					<onright>9000</onright>
+
+					<include>SmartPlaylistEditor_coords9</include>
+
+					<include>SmartPlaylistEditor_coords10</include>
+
+				</control>
+
+				<control type="grouplist" id="9000">
+					<include>SmartPlaylistEditor_coords11</include>
+					<itemgap>0</itemgap>
+					<onleft>10</onleft>
+					<onright>noop</onright>
+					<onup>22</onup>
+					<ondown>16</ondown>
+					<orientation>vertical</orientation>
+
+					<!-- Add Rule Button -->
+					<control type="button" id="13">
+						<include>SmartPlaylistEditor_coords12</include>
+						<align>right</align>
+						<label>15019</label>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
+					</control>
+
+					<!-- Remove Rule Button -->
+					<control type="button" id="14">
+						<include>SmartPlaylistEditor_coords12</include>
+						<align>right</align>
+						<label>1210</label>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
+					</control>
+
+					<!-- Edit Rule Button -->
+					<control type="button" id="15">
+						<include>SmartPlaylistEditor_coords12</include>
+						<align>right</align>
+						<label>21435</label>
+						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
+					</control>
+
+				</control>
+
+				<!-- Default spin control -->
+				<control type="button" id="16">
+					<include>SmartPlaylistEditor_coords13</include>
+					<label>21424</label>
+					<onright>noop</onright>
+					<onleft>noop</onleft>
+					<onup>10</onup>
+					<ondown>17</ondown>
+				</control>
+
+				<!-- Default spin control -->
+				<control type="button" id="17">
+					<include>SmartPlaylistEditor_coords14</include>
+					<label>21427</label>
+					<onright>noop</onright>
+					<onleft>noop</onleft>
+					<onup>16</onup>
+					<ondown>18</ondown>
+				</control>
+
+				<!-- Default spin control -->
+				<control type="button" id="18">
+					<include>SmartPlaylistEditor_coords15</include>
+					<label>21429</label>
+					<onright>19</onright>
+					<onleft>noop</onleft>
+					<onup>17</onup>
+					<ondown>23</ondown>
+				</control>
+
+				<!-- Default toggle -->
+				<control type="button" id="19">
+					<include>SmartPlaylistEditor_coords16</include>
+					<align>right</align>
+					<onright>noop</onright>
+					<onleft>18</onleft>
+					<onup>17</onup>
+					<ondown>23</ondown>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focusright.png</texturefocus>
+				</control>
+
+				<!-- Default spin control -->
+				<control type="button" id="23">
+					<include>SmartPlaylistEditor_coords17</include>
+					<label>21458</label>
+					<onright>24</onright>
+					<onleft>noop</onleft>
+					<onup>18</onup>
+					<ondown>9001</ondown>
+				</control>
+
+				<!-- Default radio button -->
+				<control type="radiobutton" id="24">
+					<include>SmartPlaylistEditor_coords18</include>
+					<label>21459</label>
+					<onright>noop</onright>
+					<onleft>23</onleft>
+					<onup>18</onup>
+					<ondown>9001</ondown>
+				</control>
+
+			</control>
+
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9001</param>
+			</include>
+
+			<!-- Buttons -->
+			<control type="grouplist" id="9001">
+				<include>DialogButtons</include>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>23</onup>
+
+				<!-- OK Button -->
+				<control type="button" id="20">
+					<width>auto</width>
+					<label>186</label>
+				</control>
+
+				<!-- Cancel Button -->
+				<control type="button" id="21">
+					<width>auto</width>
+					<label>222</label>
+				</control>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="MyPVRGuide_coords1">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords1_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords1_16:9">
+		<left>70</left>
+		<top>230</top>
+		<width>20</width>
+		<height>552</height>
+	</include>
+	<include name="MyPVRGuide_coords1_21:9">
+		<left>70</left>
+		<top>230</top>
+		<width>20</width>
+		<height>552</height>
+	</include>
+	<include name="MyPVRGuide_coords1_4:3">
+		<left>70</left>
+		<top>230</top>
+		<width>20</width>
+		<height>552</height>
+	</include>
+	
+	<include name="MyPVRGuide_coords2">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords2_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords2_16:9">
+		<left>120</left>
+		<top>174</top>
+		<width>1680</width>
+		<height>606</height>
+	</include>
+	<include name="MyPVRGuide_coords2_21:9">
+		<left>120</left>
+		<top>174</top>
+		<width>2320</width>
+		<height>606</height>
+	</include>
+	<include name="MyPVRGuide_coords2_4:3">
+		<left>120</left>
+		<top>174</top>
+		<width>1200</width>
+		<height>606</height>
+	</include>
+	
+	<include name="MyPVRGuide_coords3">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords3_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords3_16:9">
+		<rulerlayout width="100" height="54">
+
+			<control type="label" id="2">
+				<width>100</width>
+				<height>33</height>
+				<font>Font33-light</font>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+		</rulerlayout>
+	</include>
+	<include name="MyPVRGuide_coords3_21:9">
+		<rulerlayout width="100" height="54">
+
+			<control type="label" id="2">
+				<width>100</width>
+				<height>33</height>
+				<font>Font33-light</font>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+		</rulerlayout>
+	</include>
+	<include name="MyPVRGuide_coords3_4:3">
+		<rulerlayout width="100" height="54">
+
+			<control type="label" id="2">
+				<width>100</width>
+				<height>33</height>
+				<font>Font33-light</font>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+		</rulerlayout>
+	</include>
+	
+	<include name="MyPVRGuide_coords4">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords4_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords4_16:9">
+		<channellayout width="450" height="69">
+
+			<!-- Channel image -->
+			<control type="image">
+				<left>1</left>
+				<top>1</top>
+				<width>67</width>
+				<height>67</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
+			</control>
+
+			<!-- Channel name -->
+			<control type="label">
+				<left>75</left>
+				<width>282</width>
+				<height>69</height>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelName]</label>
+			</control>
+
+			<!-- Channel number -->
+			<control type="label">
+				<left>350</left>
+				<width>88</width>
+				<height>69</height>
+				<align>right</align>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+			</control>
+
+		</channellayout>
+	</include>
+	<include name="MyPVRGuide_coords4_21:9">
+		<channellayout width="450" height="69">
+
+			<!-- Channel image -->
+			<control type="image">
+				<left>1</left>
+				<top>1</top>
+				<width>67</width>
+				<height>67</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
+			</control>
+
+			<!-- Channel name -->
+			<control type="label">
+				<left>75</left>
+				<width>282</width>
+				<height>69</height>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelName]</label>
+			</control>
+
+			<!-- Channel number -->
+			<control type="label">
+				<left>350</left>
+				<width>88</width>
+				<height>69</height>
+				<align>right</align>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+			</control>
+
+		</channellayout>
+	</include>
+	<include name="MyPVRGuide_coords4_4:3">
+		<channellayout width="450" height="69">
+
+			<!-- Channel image -->
+			<control type="image">
+				<left>1</left>
+				<top>1</top>
+				<width>67</width>
+				<height>67</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
+			</control>
+
+			<!-- Channel name -->
+			<control type="label">
+				<left>75</left>
+				<width>282</width>
+				<height>69</height>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelName]</label>
+			</control>
+
+			<!-- Channel number -->
+			<control type="label">
+				<left>350</left>
+				<width>88</width>
+				<height>69</height>
+				<align>right</align>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+			</control>
+
+		</channellayout>
+	</include>
+	
+	<include name="MyPVRGuide_coords5">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords5_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords5_16:9">
+		<focusedchannellayout width="450" height="69">
+
+			<!-- Channel image -->
+			<control type="image">
+				<left>1</left>
+				<top>1</top>
+				<width>67</width>
+				<height>67</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
+			</control>
+
+			<!-- Channel name -->
+			<control type="fadelabel">
+				<left>75</left>
+				<width>282</width>
+				<height>69</height>
+				<font>Font33-bold</font>
+				<label>$INFO[ListItem.ChannelName]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+			<!-- Channel number -->
+			<control type="label">
+				<left>350</left>
+				<width>88</width>
+				<height>69</height>
+				<align>right</align>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+			
+			<!-- Highlighting -->
+			<control type="image">
+				<left>75</left>
+				<top>5</top>
+				<width>363</width>
+				<height>58</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+		</focusedchannellayout>
+	</include>
+	<include name="MyPVRGuide_coords5_21:9">
+		<focusedchannellayout width="450" height="69">
+
+			<!-- Channel image -->
+			<control type="image">
+				<left>1</left>
+				<top>1</top>
+				<width>67</width>
+				<height>67</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
+			</control>
+
+			<!-- Channel name -->
+			<control type="fadelabel">
+				<left>75</left>
+				<width>282</width>
+				<height>69</height>
+				<font>Font33-bold</font>
+				<label>$INFO[ListItem.ChannelName]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+			<!-- Channel number -->
+			<control type="label">
+				<left>350</left>
+				<width>88</width>
+				<height>69</height>
+				<align>right</align>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+			
+			<!-- Highlighting -->
+			<control type="image">
+				<left>75</left>
+				<top>5</top>
+				<width>363</width>
+				<height>58</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+		</focusedchannellayout>
+	</include>
+	<include name="MyPVRGuide_coords5_4:3">
+		<focusedchannellayout width="450" height="69">
+
+			<!-- Channel image -->
+			<control type="image">
+				<left>1</left>
+				<top>1</top>
+				<width>67</width>
+				<height>67</height>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
+			</control>
+
+			<!-- Channel name -->
+			<control type="fadelabel">
+				<left>75</left>
+				<width>282</width>
+				<height>69</height>
+				<font>Font33-bold</font>
+				<label>$INFO[ListItem.ChannelName]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+			<!-- Channel number -->
+			<control type="label">
+				<left>350</left>
+				<width>88</width>
+				<height>69</height>
+				<align>right</align>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+			
+			<!-- Highlighting -->
+			<control type="image">
+				<left>75</left>
+				<top>5</top>
+				<width>363</width>
+				<height>58</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+		</focusedchannellayout>
+	</include>
+	
+	<include name="MyPVRGuide_coords6">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords6_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords6_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords6_16:9">
+		<itemlayout width="100" height="69">
+
+			<!-- Background -->
+			<control type="image" id="14">
+				<left>1</left>
+				<top>1</top>
+				<width>98</width>
+				<height>67</height>
+				<colordiffuse>55ffffff</colordiffuse>
+				<texture border="2">pvr/ProgressBack.png</texture>
+			</control>
+
+			<!-- Program name -->
+			<control type="label" id="1">
+				<left>10</left>
+				<top>0</top>
+				<width>80</width>
+				<height>69</height>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Timer image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Timer.png</texture>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+		</itemlayout>
+	</include>
+	<include name="MyPVRGuide_coords6_21:9">
+		<itemlayout width="100" height="69">
+
+			<!-- Background -->
+			<control type="image" id="14">
+				<left>1</left>
+				<top>1</top>
+				<width>98</width>
+				<height>67</height>
+				<colordiffuse>55ffffff</colordiffuse>
+				<texture border="2">pvr/ProgressBack.png</texture>
+			</control>
+
+			<!-- Program name -->
+			<control type="label" id="1">
+				<left>10</left>
+				<top>0</top>
+				<width>80</width>
+				<height>69</height>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Timer image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Timer.png</texture>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+		</itemlayout>
+	</include>
+	<include name="MyPVRGuide_coords6_4:3">
+		<itemlayout width="100" height="69">
+
+			<!-- Background -->
+			<control type="image" id="14">
+				<left>1</left>
+				<top>1</top>
+				<width>98</width>
+				<height>67</height>
+				<colordiffuse>55ffffff</colordiffuse>
+				<texture border="2">pvr/ProgressBack.png</texture>
+			</control>
+
+			<!-- Program name -->
+			<control type="label" id="1">
+				<left>10</left>
+				<top>0</top>
+				<width>80</width>
+				<height>69</height>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Timer image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Timer.png</texture>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+		</itemlayout>
+	</include>
+	
+	<include name="MyPVRGuide_coords7">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords7_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords7_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords7_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords7_16:9">
+		<focusedlayout width="100" height="69">
+
+			<!-- Background -->
+			<control type="image" id="14">
+				<left>1</left>
+				<top>1</top>
+				<width>98</width>
+				<height>67</height>
+				<texture border="2">pvr/ProgressBack.png</texture>
+			</control>
+
+			<!-- Program name -->
+			<control type="fadelabel" id="1">
+				<left>10</left>
+				<top>0</top>
+				<width>80</width>
+				<height>69</height>
+				<font>Font33-bold</font>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Timer image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Timer.png</texture>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+		</focusedlayout>
+	</include>
+	<include name="MyPVRGuide_coords7_21:9">
+		<focusedlayout width="100" height="69">
+
+			<!-- Background -->
+			<control type="image" id="14">
+				<left>1</left>
+				<top>1</top>
+				<width>98</width>
+				<height>67</height>
+				<texture border="2">pvr/ProgressBack.png</texture>
+			</control>
+
+			<!-- Program name -->
+			<control type="fadelabel" id="1">
+				<left>10</left>
+				<top>0</top>
+				<width>80</width>
+				<height>69</height>
+				<font>Font33-bold</font>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Timer image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Timer.png</texture>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+		</focusedlayout>
+	</include>
+	<include name="MyPVRGuide_coords7_4:3">
+		<focusedlayout width="100" height="69">
+
+			<!-- Background -->
+			<control type="image" id="14">
+				<left>1</left>
+				<top>1</top>
+				<width>98</width>
+				<height>67</height>
+				<texture border="2">pvr/ProgressBack.png</texture>
+			</control>
+
+			<!-- Program name -->
+			<control type="fadelabel" id="1">
+				<left>10</left>
+				<top>0</top>
+				<width>80</width>
+				<height>69</height>
+				<font>Font33-bold</font>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Timer image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Timer.png</texture>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+		</focusedlayout>
+	</include>
+	
+	<include name="MyPVRGuide_coords8">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords8_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords8_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords8_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords8_16:9">
+		<left>120</left>
+		<top>840</top>
+	</include>
+	<include name="MyPVRGuide_coords8_21:9">
+		<left>120</left>
+		<top>840</top>
+	</include>
+	<include name="MyPVRGuide_coords8_4:3">
+		<left>120</left>
+		<top>840</top>
+	</include>
+	
+	<include name="MyPVRGuide_coords9">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords9_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords9_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords9_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords9_16:9">
+		<width>120</width>
+		<height>120</height>
+	</include>
+	<include name="MyPVRGuide_coords9_21:9">
+		<width>120</width>
+		<height>120</height>
+	</include>
+	<include name="MyPVRGuide_coords9_4:3">
+		<width>120</width>
+		<height>120</height>
+	</include>
+	
+	<include name="MyPVRGuide_coords10">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords10_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords10_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords10_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords10_16:9">
+		<left>180</left>
+		<top>20</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords10_21:9">
+		<left>180</left>
+		<top>20</top>
+		<width>770</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords10_4:3">
+		<left>180</left>
+		<top>20</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	
+	<include name="MyPVRGuide_coords11">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords11_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords11_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords11_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords11_16:9">
+		<left>180</left>
+		<top>62</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords11_21:9">
+		<left>180</left>
+		<top>62</top>
+		<width>770</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords11_4:3">
+		<left>180</left>
+		<top>62</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	
+	<include name="MyPVRGuide_coords12">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords12_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords12_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords12_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords12_16:9">
+		<left>180</left>
+		<top>98</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords12_21:9">
+		<left>180</left>
+		<top>98</top>
+		<width>770</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords12_4:3">
+		<left>180</left>
+		<top>98</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	
+	<include name="MyPVRGuide_coords13">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords13_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords13_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords13_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords13_16:9">
+		<left>180</left>
+		<top>134</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords13_21:9">
+		<left>180</left>
+		<top>134</top>
+		<width>770</width>
+		<height>36</height>
+	</include>
+	<include name="MyPVRGuide_coords13_4:3">
+		<left>180</left>
+		<top>134</top>
+		<width>500</width>
+		<height>36</height>
+	</include>
+	
+	<include name="MyPVRGuide_coords14">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRGuide_coords14_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRGuide_coords14_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRGuide_coords14_4:3</include>
+	</include>
+	<include name="MyPVRGuide_coords14_16:9">
+		<left>880</left>
+		<width>800</width>
+		<height>140</height>
+	</include>
+	<include name="MyPVRGuide_coords14_21:9">
+		<left>1150</left>
+		<width>1169</width>
+		<height>140</height>
+	</include>
+	<include name="MyPVRGuide_coords14_4:3">
+		<left>880</left>
+		<width>320</width>
+		<height>140</height>
+	</include>
+
+</includes>
