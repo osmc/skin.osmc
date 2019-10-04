@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="MyWeather_coords1">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords1_4:3</include>
+	</include>
+	<include name="MyWeather_coords1_16:9">
+		<left>120</left>
+		<top>288</top>
+		<width>1680</width>
+		<height>400</height>
+	</include>
+	<include name="MyWeather_coords1_21:9">
+		<left>120</left>
+		<top>288</top>
+		<width>2320</width>
+		<height>400</height>
+	</include>
+	<include name="MyWeather_coords1_4:3">
+		<left>120</left>
+		<top>288</top>
+		<width>1200</width>
+		<height>400</height>
+	</include>
+	
+	<include name="MyWeather_coords2">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords2_4:3</include>
+	</include>
+	<include name="MyWeather_coords2_16:9">
+		<itemlayout width="280" height="400">
+			<control type="label">
+				<top>2</top>
+				<width>280</width>
+				<height>42</height>
+				<font>Font42</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="image">
+				<left>40</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="multiimage">
+				<left>40</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+				<timeperimage>200</timeperimage>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="label">
+				<top>320</top>
+				<width>280</width>
+				<height>36</height>
+				<font>Font36</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</itemlayout>
+	</include>
+	<include name="MyWeather_coords2_21:9">
+		<itemlayout width="386" height="400">
+			<control type="label">
+				<top>2</top>
+				<width>386</width>
+				<height>42</height>
+				<font>Font42</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="image">
+				<left>93</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="multiimage">
+				<left>93</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+				<timeperimage>200</timeperimage>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="label">
+				<top>320</top>
+				<width>386</width>
+				<height>36</height>
+				<font>Font36</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</itemlayout>
+	</include>
+	<include name="MyWeather_coords2_4:3">
+		<itemlayout width="200" height="400">
+			<control type="label">
+				<top>2</top>
+				<width>200</width>
+				<height>42</height>
+				<font>Font42</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>90</top>
+				<width>180</width>
+				<height>180</height>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="multiimage">
+				<left>10</left>
+				<top>90</top>
+				<width>180</width>
+				<height>180</height>
+				<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+				<timeperimage>200</timeperimage>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="label">
+				<top>320</top>
+				<width>200</width>
+				<height>36</height>
+				<font>Font36</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</itemlayout>
+	</include>
+	
+	<include name="MyWeather_coords3">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords3_4:3</include>
+	</include>
+	<include name="MyWeather_coords3_16:9">
+		<focusedlayout width="280" height="400">
+			<control type="label">
+				<top>2</top>
+				<width>280</width>
+				<height>42</height>
+				<font>Font42</font>
+				<align>center</align>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+			</control>
+			<control type="image">
+				<left>40</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="multiimage">
+				<left>40</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+				<timeperimage>200</timeperimage>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="label">
+				<top>320</top>
+				<width>280</width>
+				<height>36</height>
+				<font>Font36</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="MyWeather_coords3_21:9">
+		<focusedlayout width="386" height="400">
+			<control type="label">
+				<top>2</top>
+				<width>386</width>
+				<height>42</height>
+				<font>Font42</font>
+				<align>center</align>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+			</control>
+			<control type="image">
+				<left>93</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="multiimage">
+				<left>93</left>
+				<top>80</top>
+				<width>200</width>
+				<height>200</height>
+				<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+				<timeperimage>200</timeperimage>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="label">
+				<top>320</top>
+				<width>386</width>
+				<height>36</height>
+				<font>Font36</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="MyWeather_coords3_4:3">
+		<focusedlayout width="200" height="400">
+			<control type="label">
+				<top>2</top>
+				<width>200</width>
+				<height>42</height>
+				<font>Font42</font>
+				<align>center</align>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+			</control>
+			<control type="image">
+				<left>10</left>
+				<top>90</top>
+				<width>180</width>
+				<height>180</height>
+				<texture background="true">$INFO[ListItem.Icon]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="multiimage">
+				<left>10</left>
+				<top>90</top>
+				<width>180</width>
+				<height>180</height>
+				<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+				<timeperimage>200</timeperimage>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+			</control>
+			<control type="label">
+				<top>320</top>
+				<width>200</width>
+				<height>36</height>
+				<font>Font36</font>
+				<align>center</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</focusedlayout>
+	</include>
+	
+	<include name="MyWeather_coords4">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords4_4:3</include>
+	</include>
+	<include name="MyWeather_coords4_16:9">
+		<left>120</left>
+		<bottom>120</bottom>
+		<width>220</width>
+		<height>220</height>
+	</include>
+	<include name="MyWeather_coords4_21:9">
+		<left>120</left>
+		<bottom>120</bottom>
+		<width>220</width>
+		<height>220</height>
+	</include>
+	<include name="MyWeather_coords4_4:3">
+		<left>120</left>
+		<bottom>120</bottom>
+		<width>220</width>
+		<height>220</height>
+	</include>
+	
+	<include name="MyWeather_coords5">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords5_4:3</include>
+	</include>
+	<include name="MyWeather_coords5_16:9">
+		<left>420</left>
+		<top>438</top>
+	</include>
+	<include name="MyWeather_coords5_21:9">
+		<left>420</left>
+		<top>438</top>
+	</include>
+	<include name="MyWeather_coords5_4:3">
+		<left>420</left>
+		<top>438</top>
+	</include>
+	
+	<include name="MyWeather_coords6">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords6_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords6_4:3</include>
+	</include>
+	<include name="MyWeather_coords6_16:9">
+		<left>0</left>
+		<top>314</top>
+		<width>1600</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords6_21:9">
+		<left>0</left>
+		<top>314</top>
+		<width>2240</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords6_4:3">
+		<left>0</left>
+		<top>314</top>
+		<width>900</width>
+		<height>45</height>
+	</include>
+	
+	<include name="MyWeather_coords7">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords7_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords7_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords7_4:3</include>
+	</include>
+	<include name="MyWeather_coords7_16:9">
+		<left>0</left>
+		<top>366</top>
+		<width>600</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords7_21:9">
+		<left>0</left>
+		<top>366</top>
+		<width>920</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords7_4:3">
+		<left>0</left>
+		<top>366</top>
+		<width>440</width>
+		<height>45</height>
+	</include>
+	
+	<include name="MyWeather_coords8">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords8_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords8_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords8_4:3</include>
+	</include>
+	<include name="MyWeather_coords8_16:9">
+		<left>0</left>
+		<top>420</top>
+		<width>600</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords8_21:9">
+		<left>0</left>
+		<top>420</top>
+		<width>920</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords8_4:3">
+		<left>0</left>
+		<top>420</top>
+		<width>440</width>
+		<height>45</height>
+	</include>
+	
+	<include name="MyWeather_coords9">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords9_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords9_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords9_4:3</include>
+	</include>
+	<include name="MyWeather_coords9_16:9">
+		<left>600</left>
+		<top>366</top>
+		<width>600</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords9_21:9">
+		<left>920</left>
+		<top>366</top>
+		<width>920</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords9_4:3">
+		<left>460</left>
+		<top>366</top>
+		<width>440</width>
+		<height>45</height>
+	</include>
+	
+	<include name="MyWeather_coords10">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords10_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords10_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords10_4:3</include>
+	</include>
+	<include name="MyWeather_coords10_16:9">
+		<left>600</left>
+		<top>420</top>
+		<width>600</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords10_21:9">
+		<left>920</left>
+		<top>420</top>
+		<width>920</width>
+		<height>45</height>
+	</include>
+	<include name="MyWeather_coords10_4:3">
+		<left>460</left>
+		<top>420</top>
+		<width>440</width>
+		<height>45</height>
+	</include>
+	
+	<include name="MyWeather_coords11">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords11_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords11_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords11_4:3</include>
+	</include>
+	<include name="MyWeather_coords11_16:9">
+		<left>0</left>
+		<top>474</top>
+		<width>1600</width>
+		<height>42</height>
+	</include>
+	<include name="MyWeather_coords11_21:9">
+		<left>0</left>
+		<top>474</top>
+		<width>2240</width>
+		<height>42</height>
+	</include>
+	<include name="MyWeather_coords11_4:3">
+		<left>0</left>
+		<top>474</top>
+		<width>900</width>
+		<height>42</height>
+	</include>
+	
+	<include name="MyWeather_coords12">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyWeather_coords12_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyWeather_coords12_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyWeather_coords12_4:3</include>
+	</include>
+	<include name="MyWeather_coords12_16:9">
+		<right>120</right>
+	<bottom>110</bottom>
+	<width>800</width>
+	<height>44</height>
+	</include>
+	<include name="MyWeather_coords12_21:9">
+		<right>120</right>
+	<bottom>110</bottom>
+	<width>2240</width>
+	<height>44</height>
+	</include>
+	<include name="MyWeather_coords12_4:3">
+		<right>120</right>
+	<bottom>110</bottom>
+	<width>1200</width>
+	<height>44</height>
+	</include>
+
+</includes>

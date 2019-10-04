@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	
+	<include name="Viewtype534_coords1">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords1_4:3</include>
+	</include>
+	<include name="Viewtype534_coords1_16:9">
+		<left>150</left>
+		<top>420</top>
+		<width>1620</width>
+		<height>400</height>
+	</include>
+	<include name="Viewtype534_coords1_21:9">
+		<left>150</left>
+		<top>420</top>
+		<width>2260</width>
+		<height>400</height>
+	</include>
+	<include name="Viewtype534_coords1_4:3">
+		<left>150</left>
+		<top>420</top>
+		<width>1140</width>
+		<height>400</height>
+	</include>
+	
+	<include name="Viewtype534_coords2">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords2_4:3</include>
+	</include>
+	<include name="Viewtype534_coords2_16:9">
+		<itemlayout width="162" height="200">
+			<!-- Image - Movies -->
+			<include content="image-534">
+				<param name="fallback">DefaultMovie.png</param>
+				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+				<param name="visible">Container.Content(movies)</param>
+			</include>
+			<!-- Image - TV -->
+			<include content="image-534">
+				<param name="fallback">DefaultTVShows.png</param>
+				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+				<param name="visible">!Container.Content(movies)</param>
+			</include>
+			<!-- Collection -->
+			<control type="group">
+				<left>24</left>
+				<bottom>6</bottom>
+				<width>51</width>
+				<height>51</height>
+				<visible>ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerLeft.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+				<control type="image">
+					<texture background="true">views/OverlayCollection.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+			<!-- Watched status -->
+			<control type="group">
+				<right>24</right>
+				<bottom>6</bottom>
+				<width>51</width>
+				<height>51</height>
+				<visible>!ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerRight.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+				</control>
+				<control type="image">
+					<texture background="true">$VAR[StatusOverlayWide]</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+		</itemlayout>
+	</include>
+	<include name="Viewtype534_coords2_21:9">
+		<itemlayout width="161" height="200">
+			<!-- Image - Movies -->
+			<include content="image-534">
+				<param name="fallback">DefaultMovie.png</param>
+				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+				<param name="visible">Container.Content(movies)</param>
+			</include>
+			<!-- Image - TV -->
+			<include content="image-534">
+				<param name="fallback">DefaultTVShows.png</param>
+				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+				<param name="visible">!Container.Content(movies)</param>
+			</include>
+			<!-- Collection -->
+			<control type="group">
+				<left>24</left>
+				<bottom>6</bottom>
+				<width>51</width>
+				<height>51</height>
+				<visible>ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerLeft.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+				<control type="image">
+					<texture background="true">views/OverlayCollection.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+			<!-- Watched status -->
+			<control type="group">
+				<right>23</right>
+				<bottom>6</bottom>
+				<width>51</width>
+				<height>51</height>
+				<visible>!ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerRight.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+				</control>
+				<control type="image">
+					<texture background="true">$VAR[StatusOverlayWide]</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+				</itemlayout>
+	</include>
+	<include name="Viewtype534_coords2_4:3">
+		<itemlayout width="162" height="200">
+			<!-- Image - Movies -->
+			<include content="image-534">
+				<param name="fallback">DefaultMovie.png</param>
+				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+				<param name="visible">Container.Content(movies)</param>
+			</include>
+			<!-- Image - TV -->
+			<include content="image-534">
+				<param name="fallback">DefaultTVShows.png</param>
+				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+				<param name="visible">!Container.Content(movies)</param>
+			</include>
+			<!-- Collection -->
+			<control type="group">
+				<left>24</left>
+				<bottom>6</bottom>
+				<width>51</width>
+				<height>51</height>
+				<visible>ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerLeft.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+				<control type="image">
+					<texture background="true">views/OverlayCollection.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+			<!-- Watched status -->
+			<control type="group">
+				<right>24</right>
+				<bottom>6</bottom>
+				<width>51</width>
+				<height>51</height>
+				<visible>!ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerRight.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+				</control>
+				<control type="image">
+					<texture background="true">$VAR[StatusOverlayWide]</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+		</itemlayout>
+	</include>
+	
+	<include name="Viewtype534_coords3">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords3_4:3</include>
+	</include>
+	<include name="Viewtype534_coords3_16:9">
+		<focusedlayout width="162" height="200">
+			<control type="group">
+				<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+				<animation effect="zoom" start="100" end="87" center="auto" time="30" tween="linear" reversible="false">Unfocus</animation>
+				<!-- Image - Movies -->
+				<include content="image-534-focused">
+					<param name="fallback">DefaultMovie.png</param>
+					<param name="visible">Container.Content(movies)</param>
+				</include>
+				<!-- Image - TV -->
+				<include content="image-534-focused">
+					<param name="fallback">DefaultTVShows.png</param>
+					<param name="visible">!Container.Content(movies)</param>
+				</include>
+				<!-- Collection -->
+				<control type="group">
+					<left>15</left>
+					<bottom>0</bottom>
+					<width>60</width>
+					<height>60</height>
+					<visible>ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerLeft.png</texture>
+					</control>
+					<control type="image">
+						<texture background="true">views/OverlayCollection.png</texture>
+					</control>
+				</control>
+				<!-- Watched status -->
+				<control type="group">
+					<right>15</right>
+					<bottom>0</bottom>
+					<width>60</width>
+					<height>60</height>
+					<visible>!ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerRight.png</texture>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Viewtype534_coords3_21:9">
+		<focusedlayout width="161" height="200">
+			<control type="group">
+				<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+				<animation effect="zoom" start="100" end="87" center="auto" time="30" tween="linear" reversible="false">Unfocus</animation>
+				<!-- Image - Movies -->
+				<include content="image-534-focused">
+					<param name="fallback">DefaultMovie.png</param>
+					<param name="visible">Container.Content(movies)</param>
+				</include>
+				<!-- Image - TV -->
+				<include content="image-534-focused">
+					<param name="fallback">DefaultTVShows.png</param>
+					<param name="visible">!Container.Content(movies)</param>
+				</include>
+				<!-- Collection -->
+				<control type="group">
+					<left>15</left>
+					<bottom>0</bottom>
+					<width>60</width>
+					<height>60</height>
+					<visible>ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerLeft.png</texture>
+					</control>
+					<control type="image">
+						<texture background="true">views/OverlayCollection.png</texture>
+					</control>
+				</control>
+				<!-- Watched status -->
+				<control type="group">
+					<right>14</right>
+					<bottom>0</bottom>
+					<width>60</width>
+					<height>60</height>
+					<visible>!ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerRight.png</texture>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Viewtype534_coords3_4:3">
+		<focusedlayout width="162" height="200">
+			<control type="group">
+				<animation effect="zoom" start="87" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+				<animation effect="zoom" start="100" end="87" center="auto" time="30" tween="linear" reversible="false">Unfocus</animation>
+				<!-- Image - Movies -->
+				<include content="image-534-focused">
+					<param name="fallback">DefaultMovie.png</param>
+					<param name="visible">Container.Content(movies)</param>
+				</include>
+				<!-- Image - TV -->
+				<include content="image-534-focused">
+					<param name="fallback">DefaultTVShows.png</param>
+					<param name="visible">!Container.Content(movies)</param>
+				</include>
+				<!-- Collection -->
+				<control type="group">
+					<left>15</left>
+					<bottom>0</bottom>
+					<width>60</width>
+					<height>60</height>
+					<visible>ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerLeft.png</texture>
+					</control>
+					<control type="image">
+						<texture background="true">views/OverlayCollection.png</texture>
+					</control>
+				</control>
+				<!-- Watched status -->
+				<control type="group">
+					<right>15</right>
+					<bottom>0</bottom>
+					<width>60</width>
+					<height>60</height>
+					<visible>!ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerRight.png</texture>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	
+	<include name="Viewtype534_coords4">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords4_4:3</include>
+	</include>
+	<include name="Viewtype534_coords4_16:9">
+		<left>410</left>
+		<top>850</top>
+		<width>920</width>
+		<height>100</height>
+	</include>
+	<include name="Viewtype534_coords4_21:9">
+		<left>410</left>
+		<top>850</top>
+		<width>1560</width>
+		<height>100</height>
+	</include>
+	<include name="Viewtype534_coords4_4:3">
+		<left>410</left>
+		<top>850</top>
+		<width>440</width>
+		<height>100</height>
+	</include>
+	
+	<include name="Viewtype534_coords5">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords5_4:3</include>
+	</include>
+	<include name="Viewtype534_coords5_16:9">
+		<left>90</left>
+		<top>0</top>
+		<width>920</width>
+		<height>72</height>
+	</include>
+	<include name="Viewtype534_coords5_21:9">
+		<left>90</left>
+		<top>0</top>
+		<width>1560</width>
+		<height>72</height>
+	</include>
+	<include name="Viewtype534_coords5_4:3">
+		<left>90</left>
+		<top>0</top>
+		<width>440</width>
+		<height>72</height>
+	</include>
+	
+	<include name="Viewtype534_coords6">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords6_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords6_4:3</include>
+	</include>
+	<include name="Viewtype534_coords6_16:9">
+		<left>90</left>
+		<top>88</top>
+		<width>920</width>
+		<height>54</height>
+	</include>
+	<include name="Viewtype534_coords6_21:9">
+		<left>90</left>
+		<top>88</top>
+		<width>1560</width>
+		<height>54</height>
+	</include>
+	<include name="Viewtype534_coords6_4:3">
+		<left>130</left>
+		<top>88</top>
+		<width>360</width>
+		<height>54</height>
+	</include>
+	
+	<include name="Viewtype534_coords7">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords7_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords7_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords7_4:3</include>
+	</include>
+	<include name="Viewtype534_coords7_16:9">
+		<bottom>6</bottom>
+		<left>24</left>
+		<width>114</width>
+		<height>173</height>
+	</include>
+	<include name="Viewtype534_coords7_21:9">
+		<bottom>6</bottom>
+		<left>24</left>
+		<width>114</width>
+		<height>173</height>
+	</include>
+	<include name="Viewtype534_coords7_4:3">
+		<bottom>6</bottom>
+		<left>24</left>
+		<width>114</width>
+		<height>173</height>
+	</include>
+	
+	<include name="Viewtype534_coords8">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype534_coords8_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords8_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords8_4:3</include>
+	</include>
+	<include name="Viewtype534_coords8_16:9">
+		<bottom>0</bottom>
+		<left>15</left>
+		<width>132</width>
+		<height>200</height>
+	</include>
+	<include name="Viewtype534_coords8_21:9">
+		<bottom>0</bottom>
+		<left>15</left>
+		<width>132</width>
+		<height>200</height>
+	</include>
+	<include name="Viewtype534_coords8_4:3">
+		<bottom>0</bottom>
+		<left>15</left>
+		<width>132</width>
+		<height>200</height>
+	</include>
+
+</includes>

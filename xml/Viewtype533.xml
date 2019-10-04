@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype533">
+
+		<!-- Wall small info -->
+		<control type="group">
+			<visible>Control.IsVisible(533)</visible>
+
+			<!-- Movie/TV show info -->
+			<control type="group">
+				<include>Viewtype533_coords1</include>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype533_coords2</include>
+					<font>Font42</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
+				</control>
+				
+				<!-- Details -->
+				<control type="fadelabel">
+					<include>Viewtype533_coords3</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
+				</control>
+				
+				<!-- User Rating -->
+				<control type="fadelabel">
+					<include>Viewtype533_coords4</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype533_coords5</include>
+					<font>Font42</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<pauseatend>5000</pauseatend>
+					<visible>String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.PlotOutline)</visible>
+				</control>
+				
+				<!-- Plot -->
+				<control type="group">
+					<include>Viewtype533_coords6</include>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+					<control type="textbox">
+						<align>left</align>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					</control>
+				</control>
+				
+				<!-- Plot -->
+				<control type="group">
+					<include>Viewtype533_coords7</include>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + [!Skin.HasSetting(UserRating) | String.IsEmpty(ListItem.UserRating)]</visible>
+					<control type="textbox">
+						<align>left</align>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$VAR[Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					</control>
+				</control>
+
+			</control>
+			
+			
+			<!-- Thumbs -->
+			<control type="panel" id="533">
+				<include>Viewtype533_coords8</include>
+				<onleft>60</onleft>
+				<onup>533</onup>
+				<ondown>533</ondown>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<viewtype label="$LOCALIZE[31116]">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+
+				<include>Viewtype533_coords9</include>
+
+				<include>Viewtype533_coords10</include>
+				
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-533">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype533_coords11</include>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="image-533-focused">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype533_coords12</include>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+</includes>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- profilesettings -->
+	<defaultcontrol always="true">5</defaultcontrol>
+
+	<controls>
+
+		<control type="group">
+
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
+			
+			<!-- Dialog fanart -->
+			<include>DialogFanart</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$INFO[Control.GetLabel(2)]</param>
+			</include>
+
+			<!-- Game Controller -->
+            <control type="gamecontroller" id="31">
+				<include>DialogGameControllers_coords1</include>
+            </control>
+
+			<!-- Controllers Grouplist -->
+			<control type="grouplist" id="3">
+				<include>DialogGameControllers_coords2</include>
+				<itemgap>0</itemgap>
+				<onleft>9001</onleft>
+				<onright>5</onright>
+				<onup>3</onup>
+				<ondown>3</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+			</control>
+
+			<!-- Controller Buttons Grouplist -->
+			<control type="grouplist" id="5">
+				<include>DialogGameControllers_coords3</include>
+				<itemgap>0</itemgap>
+				<onleft>3</onleft>
+				<onright>9001</onright>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+			</control>
+
+			<!-- Default label -->
+			<control type="label" id="14">
+				<include>DialogGameControllers_coords4</include>
+				<font>Font33</font>
+				<align>center</align>
+				<label></label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+			</control>
+
+			<!-- Settings category heading label -->
+			<control type="label" id="8">
+				<include>DialogGameControllers_coords5</include>
+				<font>Font33</font>
+				<align>center</align>
+				<label></label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+
+			<!-- Default button -->
+			<control type="button" id="7">
+				<include>DialogGameControllers_coords4</include>
+			</control>
+			<control type="button" id="10">
+				<include>DialogGameControllers_coords4</include>
+			</control>
+
+			<!-- Default image -->
+			<control type="image" id="9">
+				<include>DialogGameControllers_coords6</include>
+				<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+			</control>
+
+			
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9001</param>
+			</include>
+
+			<!-- Buttons -->
+			<control type="grouplist" id="9001">
+				<include>DialogButtons</include>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>3</onup>
+				<defaultcontrol>28</defaultcontrol>
+
+				<!-- Help Button -->
+				<control type="button" id="17">
+					<width>Auto</width>
+					<label>$LOCALIZE[10043]</label>
+				</control>
+
+				<!-- OK Button -->
+				<control type="button" id="18">
+					<width>Auto</width>
+					<label>$LOCALIZE[186]</label>
+				</control>
+
+				<!-- Reset Button -->
+				<control type="button" id="19">
+					<width>Auto</width>
+					<label>$LOCALIZE[13007]</label>
+				</control>
+
+				<!-- Get More Button -->
+				<control type="button" id="20">
+					<width>Auto</width>
+					<label>$LOCALIZE[21452]</label>
+				</control>
+
+			</control>
+			
+			<!-- Button grouplist indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9001).HasFocus</param>
+			</include>
+
+			<!-- Heading -->
+			<control type="label" id="2">
+				<left>-10000</left>
+				<top>-10000</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Font72</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>35050</label>
+			</control>
+		</control>
+
+	</controls>
+
+</window>

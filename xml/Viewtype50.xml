@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype50">
+
+		<!-- List (songs & files) -->
+		<control type="group">
+			<visible>Control.IsVisible(50)</visible>
+
+			<!-- Image -->
+			<include content="image-50">
+				<param name="fallback">DefaultFolder.png</param>
+				<param name="visible">!Container.Content(songs)</param>
+			</include>
+
+			<!-- List -->
+			<control type="fixedlist" id="50">
+				<include>Viewtype50_coords1</include>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<onleft>60</onleft>
+				<pagecontrol>60</pagecontrol>
+				<focusposition>5</focusposition>
+				<orientation>vertical</orientation>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>[Container.Content(songs) + Window.IsVisible(musicplaylist)] | [!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Window.IsVisible(pictures)] | Container.Content(games) | Window.IsVisible(games)</visible>
+
+				<include>Viewtype50_coords2</include>
+
+				<include>Viewtype50_coords3</include>
+
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-50">
+		<param name="fallback">DefaultVideo.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype50_coords4</include>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio aligny="center">keep</aspectratio>
+			</control>
+		</definition>
+	</include>
+
+</includes>

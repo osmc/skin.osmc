@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype534">
+		
+		<!-- Wall low -->
+		<control type="group">
+			<visible>Control.IsVisible(534)</visible>
+
+			<control type="panel" id="534">
+				<include>Viewtype534_coords1</include>
+				<onleft>67</onleft>
+				<onup>534</onup>
+				<ondown>534</ondown>
+				<pagecontrol>67</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<viewtype label="$LOCALIZE[31113]">icon</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+
+				<include>Viewtype534_coords2</include>
+
+				<include>Viewtype534_coords3</include>
+				
+			</control>
+
+			<control type="group">
+				<include>Viewtype534_coords4</include>
+
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype534_coords5</include>
+					<font>Font72</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(534)">Conditional</animation>
+				</control>
+
+				<!-- Details -->
+				<control type="fadelabel">
+					<include>Viewtype534_coords6</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(534)">Conditional</animation>
+				</control>
+
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-534">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype534_coords7</include>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="image-534-focused">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype534_coords8</include>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+</includes>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="DialogSettings_Default">
+	
+		<controls>
+
+			<control type="group">
+			
+				<!-- Animation -->
+				<include>DialogZoomAnimation</include>
+				
+				<!-- Dialog fanart -->
+				<include>DialogFanart</include>
+
+				<!-- Heading -->
+				<include content="Time">
+					<param name="heading">$INFO[Control.GetLabel(2)]</param>
+				</include>
+
+				<!-- Grouplist -->
+				<control type="grouplist" id="5">
+					<include>DialogSettings_coords1</include>
+					<itemgap>0</itemgap>
+					<onleft>9001</onleft>
+					<onright>9001</onright>
+					<onup>5</onup>
+					<ondown>5</ondown>
+					<orientation>vertical</orientation>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+				</control>
+
+				<!-- Default label -->
+				<control type="label" id="14">
+					<include>DialogSettings_coords2</include>
+					<font>Font33</font>
+					<align>center</align>
+					<label></label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+
+				<!-- Default button -->
+				<control type="button" id="7">
+					<include>DialogSettings_coords3</include>
+				</control>
+
+				<!-- Default radiobutton -->
+				<control type="radiobutton" id="8">
+					<include>DialogSettings_coords4</include>
+				</control>
+
+				<!-- Default spincontrolex -->
+				<control type="spincontrolex" id="9">
+					<include>DialogSettings_coords4</include>
+				</control>
+
+				<!-- Default edit -->
+				<control type="edit" id="12">
+					<include>DialogSettings_coords3</include>
+				</control>
+
+				<!-- Default slider -->
+				<control type="sliderex" id="13"> 
+					<include>DialogSettings_coords3</include>
+				</control>
+
+				<!-- Default image -->
+				<control type="image" id="11">
+					<include>DialogSettings_coords5</include>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+				
+				<!-- Button grouplist indicator -->
+				<include content="dialogButtonIndicator">
+					<param name="visibility">!ControlGroup(9001).HasFocus</param>
+				</include>
+
+				<!-- Button grouplist background -->
+				<include content="dialogButtonBackground">
+					<param name="id">9001</param>
+				</include>
+
+				<!-- Buttons -->
+				<control type="grouplist" id="9001">
+					<include>DialogButtons</include>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+					<itemgap>30</itemgap>
+					<onup>5</onup>
+					<defaultcontrol>28</defaultcontrol>
+
+					<!-- OK Button -->
+					<control type="button" id="28">
+						<width>Auto</width>
+					</control>
+
+					<!-- Cancel Button -->
+					<control type="button" id="29">
+						<width>Auto</width>
+					</control>
+
+					<!-- Clear Button -->
+					<control type="button" id="30">
+						<width>Auto</width>
+					</control>
+
+				</control>
+
+				<!-- Heading -->
+				<control type="label" id="2">
+					<left>-10000</left>
+					<top>-10000</top>
+					<width>1620</width>
+					<height>72</height>
+					<font>Font72</font>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label></label>
+				</control>
+			</control>
+
+		</controls>
+	</include>
+
+	<include name="DialogSettings_OSD">
+		<controls>
+
+			<control type="group">
+				<!-- Animation -->
+				<include>DialogZoomAnimation</include>
+				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(SliderDialog) | Window.IsVisible(FileBrowser)">Conditional</animation>
+				<visible>!Window.IsVisible(10153) + !Window.IsVisible(DialogSelect.xml)</visible>
+				<animation type="Visible">
+					<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+					<effect type="fade" start="0" end="100" time="300" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="zoom" start="100" end="70" center="auto" time="300" />
+					<effect type="fade" start="100" end="0" time="300" />
+				</animation>
+
+				<!-- Window Background -->
+				<control type="image">
+					<include>DialogSettings_coords6</include>
+					<texture colordiffuse="$VAR[OverlayColor]" border="30">dialogs/Background.png</texture>
+				</control>
+
+				<!-- Heading -->
+				<control type="label" id="2">
+					<include>DialogSettings_coords7</include>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Font33</font>
+				</control>
+
+				<!-- Grouplist -->
+				<control type="grouplist" id="5">
+					<include>DialogSettings_coords8</include>
+					<itemgap>0</itemgap>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>noop</onup>
+					<ondown>9001</ondown>
+					<orientation>vertical</orientation>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+				</control>
+
+				<!-- Default label -->
+				<control type="label" id="14">
+					<include>DialogSettings_coords9</include>
+					<font>Font33</font>
+					<align>center</align>
+					<label></label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+
+				<!-- Default button -->
+				<control type="button" id="7">
+					<include>DialogSettings_coords10</include>
+				</control>
+
+				<!-- Default radiobutton -->
+				<control type="radiobutton" id="8">
+					<include>DialogSettings_coords11</include>
+				</control>
+
+				<!-- Default spincontrolex -->
+				<control type="spincontrolex" id="9">
+					<include>DialogSettings_coords11</include>
+				</control>
+
+				<!-- Default edit -->
+				<control type="edit" id="12">
+					<include>DialogSettings_coords10</include>
+				</control>
+
+				<!-- Default slider -->
+				<control type="sliderex" id="13"> 
+					<include>DialogSettings_coords10</include>
+				</control>
+
+				<!-- Default image -->
+				<control type="image" id="11">
+					<include>DialogSettings_coords12</include>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+
+				<!-- Button grouplist -->
+				<control type="grouplist" id="9001">
+					<include>DialogSettings_coords13</include>
+					<itemgap>30</itemgap>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>5</onup>
+					<ondown>noop</ondown>
+					<defaultcontrol>28</defaultcontrol>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+
+					<!-- OK Button -->
+					<control type="button" id="28">
+						<width>Auto</width>
+					</control>
+
+					<!-- Cancel Button -->
+					<control type="button" id="29">
+						<width>Auto</width>
+					</control>
+
+					<!-- Clear Button -->
+					<control type="button" id="30">
+						<width>Auto</width>
+					</control>
+
+				</control>
+
+			</control>
+
+		</controls>
+	</include>
+
+</includes>

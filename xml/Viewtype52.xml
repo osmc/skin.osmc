@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype52">
+		
+		<!-- Wide -->
+		<control type="group">
+			<visible>Control.IsVisible(52)</visible>
+
+			<control type="fixedlist" id="52">
+				<include>Viewtype52_coords1</include>
+				<ondown>61</ondown>
+				<onleft>52</onleft>
+				<onright>52</onright>
+				<pagecontrol>61</pagecontrol>
+				<orientation>horizontal</orientation>
+				<viewtype label="539">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(albums) | Container.Content(artists)</visible>
+
+				<include>Viewtype52_coords2</include>
+
+				<include>Viewtype52_coords3</include>
+
+			</control>
+
+			<control type="group">
+				<include>Viewtype52_coords4</include>
+
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype52_coords5</include>
+					<font>Font72</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
+				</control>
+
+				<!-- Details -->
+				<control type="fadelabel">
+					<include>Viewtype52_coords6</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<pauseatend>5000</pauseatend>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
+				</control>
+
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-52">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype52_coords7</include>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="image-52-focus">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype52_coords8</include>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+</includes>

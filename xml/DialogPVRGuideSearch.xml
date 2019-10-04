@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- pvrguidesearch -->
+	<defaultcontrol always="true">9</defaultcontrol>
+
+	<controls>
+
+		<control type="group">
+
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
+			
+			<!-- Dialog fanart -->
+			<include>DialogFanart</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$LOCALIZE[19142]</param>
+			</include>
+
+			<!-- Search -->
+			<control type="edit" id="9">
+				<include>DialogPVRGuideSearch_coords1</include>
+				<onup>noop</onup>
+				<ondown>9001</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<texturefocus colordiffuse="$VAR[TextColor1]" border="2">common/Border.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[TextColor2]" border="2">common/Border.png</texturenofocus>
+			</control>
+
+			<!-- Search help -->
+			<control type="label">
+				<include>DialogPVRGuideSearch_coords2</include>
+				<font>Font27</font>
+				<label>$LOCALIZE[19001] $LOCALIZE[19002]</label>
+			</control>
+
+			<!-- Left group -->
+			<control type="grouplist" id="9001">
+				<include>DialogPVRGuideSearch_coords3</include>
+				<onleft>noop</onleft>
+				<onright>9002</onright>
+				<onup>9</onup>
+				<ondown>9000</ondown>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+
+				<!-- Include Description -->
+				<control type="radiobutton" id="10">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>12</onright>
+					<label>19134</label>
+				</control>
+
+				<!-- Case Sensitive -->
+				<control type="radiobutton" id="11">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>13</onright>
+					<label>19135</label>
+				</control>
+
+				<!-- Start Date -->
+				<control type="edit" id="14">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>16</onright>
+					<texturenofocus></texturenofocus>
+					<label>19128</label>
+				</control>
+
+				<!-- Stop Date -->
+				<control type="edit" id="15">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>17</onright>
+					<texturenofocus></texturenofocus>
+					<label>19129</label>
+				</control>
+
+				<!-- Genre -->
+				<control type="spincontrolex" id="18">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>19</onright>
+					<label>515</label>
+				</control>
+
+				<!-- Include unknown Genres -->
+				<control type="radiobutton" id="20">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>21</onright>
+					<label>19132</label>
+				</control>
+
+				<!-- FTA only -->
+				<control type="radiobutton" id="22">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>23</onright>
+					<label>19123</label>
+				</control>
+
+				<!-- Ignore Timers -->
+				<control type="radiobutton" id="24">
+					<include>DialogPVRGuideSearch_coords4</include>
+					<onright>27</onright>
+					<label>19124</label>
+				</control>
+			</control>
+
+			<!-- Right group -->
+			<control type="grouplist" id="9002">
+				<include>DialogPVRGuideSearch_coords5</include>
+				<onleft>9001</onleft>
+				<onright>noop</onright>
+				<onup>9</onup>
+				<ondown>9000</ondown>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+
+				<!-- Min Duration -->
+				<control type="spincontrolex" id="12">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>10</onleft>
+					<label>19130</label>
+				</control>
+
+				<!-- Max Duration -->
+				<control type="spincontrolex" id="13">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>11</onleft>
+					<label>19131</label>
+				</control>
+
+				<!-- Start time -->
+				<control type="edit" id="16">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>14</onleft>
+					<texturenofocus></texturenofocus>
+					<label>19126</label>
+				</control>
+
+				<!-- Stop time -->
+				<control type="edit" id="17">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>15</onleft>
+					<texturenofocus></texturenofocus>
+					<label>19127</label>
+				</control>
+
+				<!-- Avoid repeats -->
+				<control type="radiobutton" id="19">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>18</onleft>
+					<label>19121</label>
+				</control>
+
+				<!-- Groups -->
+				<control type="spincontrolex" id="21">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>20</onleft>
+					<label>19141</label>
+				</control>
+
+				<!-- Channels -->
+				<control type="spincontrolex" id="23">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>22</onleft>
+					<label>19148</label>
+				</control>
+
+				<!-- Ignore Recordings -->
+				<control type="radiobutton" id="27">
+					<include>DialogPVRGuideSearch_coords6</include>
+					<onleft>24</onleft>
+					<label>19125</label>
+				</control>
+
+			</control>
+
+			<!-- Button grouplist background -->
+			<include content="dialogButtonBackground">
+				<param name="id">9000</param>
+			</include>
+
+			<!-- Button grouplist -->
+			<control type="grouplist" id="9000">
+				<include>DialogButtons</include>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>9001</onup>
+
+				<!-- Search Button -->
+				<control type="button" id="26">
+					<width>auto</width>
+					<label>137</label>
+				</control>
+
+				<!-- Cancel Button -->
+				<control type="button" id="25">
+					<width>auto</width>
+					<label>222</label>
+				</control>
+
+				<!-- Defaults Button -->
+				<control type="button" id="28">
+					<width>auto</width>
+					<label>13007</label>
+				</control>
+
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>

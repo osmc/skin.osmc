@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- subtitlesearch -->
+	<defaultcontrol>150</defaultcontrol>
+	
+	<controls>
+		<control type="group">
+
+			<control type="group">
+				<!-- Animation -->
+				<include>DialogZoomAnimation</include>
+				
+				<!-- Dialog background -->
+				<include>DialogFadeBackgroundImage</include>
+				<include>DialogFadeBackgroundImage</include>
+				<!-- Overlay -->
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+					<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+					<include>WindowFadeAnimation</include>
+				</control>
+
+				<!-- Heading -->
+				<include content="Time">
+					<param name="heading">$INFO[Control.GetLabel(100)]</param>
+				</include>
+				
+				<control type="label" id="100">
+					<left>-15000</left>
+					<top>96</top>
+					<width>1620</width>
+					<height>72</height>
+					<font>Font72</font>
+				</control>
+
+				<!-- Left heading -->
+				<control type="label">
+					<include>DialogSubtitles_coords1</include>
+					<label>24018</label>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<include>DialogSubtitles_coords2</include>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+
+				<!-- Left list -->
+				<control type="list" id="150">
+					<include>DialogSubtitles_coords3</include>
+					<onleft>160</onleft>
+					<onright>120</onright>
+					<onup>150</onup>
+					<ondown>150</ondown>
+					<orientation>vertical</orientation>
+					<viewtype label="list">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<include>DialogSubtitles_coords4</include>
+					
+					<include>DialogSubtitles_coords5</include>
+
+				</control>
+
+				<!-- Video label -->
+				<control type="fadelabel">
+					<include>DialogSubtitles_coords6</include>
+					<label>$INFO[Player.Filename]</label>
+				</control>
+
+				<!-- Number label -->
+				<control type="label" id="140">
+					<include>DialogSubtitles_coords7</include>
+					<align>right</align>
+				</control>
+
+				<!-- Seperator -->
+				<control type="image">
+					<include>DialogSubtitles_coords8</include>
+					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+				</control>
+
+				<!-- Right list -->
+				<control type="list" id="120">
+					<include>DialogSubtitles_coords9</include>
+					<onleft>150</onleft>
+					<onright>160</onright>
+					<onup>120</onup>
+					<ondown>120</ondown>
+					<orientation>vertical</orientation>
+					<viewtype label="list">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<include>DialogSubtitles_coords10</include>
+
+					<include>DialogSubtitles_coords11</include>
+
+				</control>
+
+				<!-- Manual search button -->
+				<control type="button" id="160">
+					<include>DialogSubtitles_coords12</include>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>150</onup>
+					<ondown>noop</ondown>
+					<label>24120</label>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+				</control>
+
+				<!-- Notification -->
+				<control type="label" id="130">
+					<include>DialogSubtitles_coords13</include>
+					<align>right</align>
+					<label>31044</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Button grouplist indicator -->
+				<include content="dialogButtonIndicator">
+					<param name="visibility">!Control.HasFocus(160)</param>
+				</include>
+
+			</control>
+		</control>
+
+	</controls>
+
+</window>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- filemanager -->
+	<defaultcontrol always="true">20</defaultcontrol>
+
+	<controls>
+
+		<!-- Background -->
+		<include>WindowBackgroundImage</include>
+
+		<!-- Time -->
+		<control type="group">
+			<include content="Time">
+				<param name="heading">$LOCALIZE[7]</param>
+			</include>
+		</control>
+
+		<!-- Left group -->
+		<control type="group">
+			<include>FileManager_coords1</include>
+
+			<!-- Root label -->
+			<control type="label" id="101">
+				<include>FileManager_coords2</include>
+				<haspath>true</haspath>
+				<textcolor>$VAR[TextColor1]</textcolor>
+			</control>
+
+			<!-- Seperator -->
+			<control type="image">
+				<include>FileManager_coords3</include>
+				<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+			</control>
+
+			<!-- Left list -->
+			<control type="list" id="20">
+				<include>FileManager_coords4</include>
+				<onleft>noop</onleft>
+				<onright>21</onright>
+				<onup>20</onup>
+				<ondown>20</ondown>
+
+				<include>FileManager_coords5</include>
+
+				<include>FileManager_coords6</include>
+
+			</control>
+
+			<!-- Number label -->
+			<control type="grouplist">
+				<include>FileManager_coords7</include>
+				<align>left</align>
+				<itemgap>6</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="label">
+					<top>3</top>
+					<width>auto</width>
+					<height>44</height>
+					<align>left</align>
+					<font>Font25</font>
+					<label>$INFO[Container(20).NumItems]</label>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>44</height>
+					<align>left</align>
+					<label>31000</label>
+					<font>Font33</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>!Integer.IsGreater(Container(20).NumItems,1)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>44</height>
+					<align>left</align>
+					<label>31001</label>
+					<font>Font33</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>Integer.IsGreater(Container(20).NumItems,1)</visible>
+				</control>
+			</control>
+
+		</control>
+
+		<!-- Right group -->
+		<control type="group">
+			<include>FileManager_coords8</include>
+
+			<!-- Root label -->
+			<control type="label" id="102">
+				<include>FileManager_coords9</include>
+				<haspath>true</haspath>
+				<textcolor>$VAR[TextColor1]</textcolor>
+			</control>
+
+			<!-- Seperator -->
+			<control type="image">
+				<include>FileManager_coords10</include>
+				<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+			</control>
+
+			<!-- Right list -->
+			<control type="list" id="21">
+				<include>FileManager_coords11</include>
+				<onleft>20</onleft>
+				<onright>noop</onright>
+				<onup>21</onup>
+				<ondown>21</ondown>
+
+				<include>FileManager_coords12</include>
+
+				<include>FileManager_coords13</include>
+
+			</control>
+
+			<!-- Number label -->
+			<control type="grouplist">
+				<include>FileManager_coords14</include>
+				<align>right</align>
+				<itemgap>6</itemgap>
+				<orientation>horizontal</orientation>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="label">
+					<top>3</top>
+					<width>auto</width>
+					<height>44</height>
+					<align>right</align>
+					<font>Font25</font>
+					<label>$INFO[Container(21).NumItems]</label>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>44</height>
+					<align>right</align>
+					<label>31000</label>
+					<font>Font33</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>!Integer.IsGreater(Container(21).NumItems,1)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>44</height>
+					<align>right</align>
+					<label>31001</label>
+					<font>Font33</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>Integer.IsGreater(Container(21).NumItems,1)</visible>
+				</control>
+			</control>
+
+		</control>
+
+	</controls>
+
+</window>
