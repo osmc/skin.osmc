@@ -7,10 +7,7 @@
 
 		<!-- Main list -->
 		<control type="list" id="9000">
-			<left>120</left>
-			<top>240</top>
-			<width>400</width>
-			<height>679</height>
+			<include>Home_coords1</include>
 			<focusposition>7</focusposition>
 			<defaultcontrol>1</defaultcontrol>
 			<onup>9000</onup>
@@ -20,39 +17,9 @@
 			<orientation>vertical</orientation>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
 
-			<itemlayout width="400" height="97">
-				<control type="label">
-					<left>0</left>
-					<top>0</top>
-					<width>400</width>
-					<height>97</height>
-					<label>$INFO[ListItem.Label]</label>
-					<font>Font50-light</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-				</control>
-			</itemlayout>
+			<include>Home_coords2</include>
 
-			<focusedlayout width="400" height="97">
-				<control type="label">
-					<left>0</left>
-					<top>0</top>
-					<width>400</width>
-					<height>97</height>
-					<label>$INFO[ListItem.Label]</label>
-					<font>Font50-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<scroll>True</scroll>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>400</width>
-					<height>97</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus97]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
-				</control>
-			</focusedlayout>
+			<include>Home_coords3</include>
 
 			<content>
 				<include>skinshortcuts-mainmenu</include>
@@ -68,12 +35,7 @@
 		</control>
 
 		<!-- Indicators -->
-		<include content="Indicators">
-			<param name="left">120</param>
-			<param name="top">200</param>
-			<param name="height">759</param>
-			<param name="container">9000</param>
-		</include>
+		<include>Home_coords4</include>
 
 		<!-- Widgets -->
 		<control type="group" id="9002">
@@ -106,50 +68,23 @@
 				<top>0</top>
 				<animation effect="slide" start="0,0" end="450,0" time="200" condition="ControlGroup(9010).HasFocus">Conditional</animation>
 				<control type="button">
-					<left>0</left>
-					<top>0</top>
-					<width>460</width>
-					<height>1080</height>
+					<include>OptionsSideMenu1</include>
 					<texturefocus>noop</texturefocus>
 				</control>
 
 				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>450</width>
-					<height>1080</height>
+					<include>OptionsSideMenu1</include>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 
 				<control type="list" id="9001">
-					<left>20</left>
-					<top>20</top>
-					<width>410</width>
-					<height>1040</height>
+					<include>OptionsSideMenu3</include>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
 					<orientation>vertical</orientation>
 					<defaultcontrol always="true">1</defaultcontrol>
 
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,20)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,19)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,18)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,17)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,16)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,15)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,14)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,13)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,12)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,11)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,10)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,9)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,8)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,7)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,6)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,5)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,4)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,3)">Conditional</animation>
-					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,2)">Conditional</animation>
+					<include>Home_OptionsSideMenuAnimation</include>
 
 					<itemlayout width="410" height="52">
 						<control type="label">

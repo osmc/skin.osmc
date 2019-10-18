@@ -85,45 +85,46 @@
 		<!-- Indicators -->
 		<control type="group">
 			<include>SkinSettings_coords5</include>
-			<control type="image">
-				<include>SkinSettings_coords6</include>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<texture colordiffuse="$VAR[DialogColor2]">up.png</texture>
-
-				<visible>Container(300).HasPrevious + Container(9000).HasFocus(3) | Container(700).HasPrevious + Container(9000).HasFocus(7) | Container(400).HasPrevious + Container(9000).HasFocus(4)</visible>
-
-				<animation type="Visible">
-					<effect type="Fade" start="0" end="100" time="200"/>
-					<effect type="slide" start="0,10" end="0,0" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="Fade" start="100" end="0" time="200"/>
-					<effect type="slide" start="0,0" end="0,-10" time="200"/>
-				</animation>
-
-			</control>
-			<control type="image">
-				<include>SkinSettings_coords6</include>
-				<texture colordiffuse="$VAR[DialogColor2]">down.png</texture>
-
-				<visible>Container(300).HasNext + Container(9000).HasFocus(3) | Container(700).HasNext + Container(9000).HasFocus(7) | Container(400).HasNext + Container(9000).HasFocus(4)</visible>
-
-				<animation type="Visible">
-					<effect type="Fade" start="0" end="100" time="200"/>
-					<effect type="slide" start="0,-10" end="0,0" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="Fade" start="100" end="0" time="200"/>
-					<effect type="slide" start="0,0" end="0,10" time="200"/>
-				</animation>
-			</control>
+			<visible>Container(9000).HasFocus(1)</visible>
+		</control>
+		<control type="group">
+			<include>SkinSettings_coords6</include>
+			<visible>Container(9000).HasFocus(2)</visible>
+		</control>
+		<control type="group">
+			<include>SkinSettings_coords7</include>
+			<visible>Container(9000).HasFocus(3)</visible>
+		</control>
+			<control type="group">
+			<include>SkinSettings_coords8</include>
+			<visible>Container(9000).HasFocus(4)</visible>
+		</control>
+		<control type="group">
+			<include>SkinSettings_coords9</include>
+			<visible>Container(9000).HasFocus(5)</visible>
+		</control>
+		<control type="group">
+			<include>SkinSettings_coords10</include>
+			<visible>Container(9000).HasFocus(6)</visible>
+		</control>
+		<control type="group">
+			<include>SkinSettings_coords11</include>
+			<visible>Container(9000).HasFocus(7)</visible>
+		</control>
+		<control type="group">
+			<include>SkinSettings_coords12</include>
+			<visible>Container(9000).HasFocus(8)</visible>
+		</control>
+		<control type="group">
+			<include>SkinSettings_coords13</include>
+			<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(10000).HasFocus">Conditional</animation>
 		</control>
 		
 		<!-- Home items -->
 		<control type="group" id="10000">
-			<include>SkinSettings_coords7</include>
+			<include>SkinSettings_coords14</include>
 			<control type="grouplist" id="100">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -135,7 +136,7 @@
 				<visible>Container(9000).HasFocus(1)</visible>
 				<!-- Edit menu-->
 				<control type="button" id="101">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label>31049</label>
 					<font>Font33</font>
 					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
@@ -144,7 +145,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<control type="button" id="102">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label>$LOCALIZE[31030]</label>
 					<font>Font33</font>
 					<onclick>InstallAddon(script.skinshortcuts)</onclick>
@@ -156,7 +157,7 @@
 				</control>
 				<!-- Always show settings link -->
 				<control type="radiobutton" id="103">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31096]</label>
 					<onclick>Skin.ToggleSetting(AlwaysShowSettingsLink)</onclick>
@@ -165,7 +166,7 @@
 				</control>
 				<!-- Show date above system time -->
 				<control type="radiobutton" id="104">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31101</label>
 					<onclick>Skin.ToggleSetting(Dateaboveclock)</onclick>
@@ -175,7 +176,7 @@
 
 			<!-- Background -->
 			<control type="grouplist" id="200">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -187,14 +188,14 @@
 				<visible>Container(9000).HasFocus(2)</visible>
 				<!-- Default background image -->
 				<control type="radiobutton" id="201">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[13278]</label>
 					<onclick>Skin.SetString(BackgroundDefaultImage,yes)</onclick>
 					<selected>String.IsEqual(Skin.String(BackgroundDefaultImage),yes)</selected>
 				</control>
 				<control type="button" id="202">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[33068]</label>
 					<label2>$INFO[Skin.String(BackgroundImage)]</label2>
@@ -208,7 +209,7 @@
 				</control>
 				<!-- Custom background image -->
 				<control type="radiobutton" id="203">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[636]</label>
 					<onclick>Skin.SetString(BackgroundDefaultImage,no)</onclick>
@@ -216,7 +217,7 @@
 				</control>
 				<!-- Single custom background image -->
 				<control type="radiobutton" id="204">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31135]</label>
 					<onclick>Skin.SetString(BackgroundSingleImage,yes)</onclick>
@@ -224,7 +225,7 @@
 					<selected>String.IsEqual(Skin.String(BackgroundSingleImage),yes)</selected>
 				</control>
 				<control type="button" id="205">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>    - $LOCALIZE[1024]</label>
 					<label2>$INFO[Skin.String(CustomBackground)]</label2>
@@ -234,7 +235,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<control type="button" id="206">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>    - $LOCALIZE[31139]</label>
 					<onclick>Skin.Reset(CustomBackground)</onclick>
@@ -243,7 +244,7 @@
 				</control>
 				<!-- Multiple custom background images -->
 				<control type="radiobutton" id="207">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31136]</label>
 					<onclick>Skin.SetString(BackgroundSingleImage,no)</onclick>
@@ -251,7 +252,7 @@
 					<selected>String.IsEqual(Skin.String(BackgroundSingleImage),no)</selected>
 				</control>
 				<control type="button" id="208">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>    - $LOCALIZE[1024]</label>
 					<label2>$INFO[Skin.String(CustomBackgroundFolder)]</label2>
@@ -261,7 +262,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<control type="button" id="209">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>    - $LOCALIZE[31139]</label>
 					<onclick>Skin.Reset(CustomBackgroundFolder)</onclick>
@@ -269,7 +270,7 @@
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder))</visible>
 				</control>
 				<control type="button" id="210">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>    - $LOCALIZE[31137]</label>
 					<label2>$INFO[Skin.String(CustomBackgroundFolderDuration)]</label2>
@@ -287,7 +288,7 @@
 				</control>
 				<!-- Display fanart -->
 				<control type="radiobutton" id="211">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31099]</label>
 					<onclick>Skin.ToggleSetting(HideFanart)</onclick>
@@ -295,7 +296,7 @@
 				</control>
 				<!-- Background video -->
 				<control type="radiobutton" id="212">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31027</label>
 					<onclick>Skin.ToggleSetting(BackgroundVideo)</onclick>
@@ -303,7 +304,7 @@
 				</control>
 				<!-- Background visualisation -->
 				<control type="radiobutton" id="213">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31028</label>
 					<onclick>Skin.ToggleSetting(BackgroundVisualisation)</onclick>
@@ -311,7 +312,7 @@
 				</control>
 				<!-- Enable artist slideshow -->
 				<control type="radiobutton" id="214">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31034</label>
 					<onclick>Skin.ToggleSetting(EnableArtistFanart)</onclick>
@@ -321,7 +322,7 @@
 			
 			<!-- Colors -->
 			<control type="grouplist" id="300">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -333,7 +334,7 @@
 				<visible>Container(9000).HasFocus(3)</visible>
 				<!-- Default colors -->
 				<control type="radiobutton" id="301">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[13278]</label>
 					<onclick>Skin.SetString(DefaultColors,yes)</onclick>
@@ -341,7 +342,7 @@
 				</control>
 				<!-- Default color sets -->
 				<control type="button" id="302">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31108]</label>
 					<label2>$INFO[Skin.String(DefaultColorSet)]</label2>
@@ -360,7 +361,7 @@
 				</control>
 				<!-- Background opacity -->
 				<control type="button" id="303">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31109]</label>
 					<label2>$INFO[Skin.String(DefaultBackgroundOpacity)]</label2>
@@ -374,7 +375,7 @@
 				</control>
 				<!-- Overlay opacity -->
 				<control type="button" id="304">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31110]</label>
 					<label2>$INFO[Skin.String(DefaultOverlayOpacity)]</label2>
@@ -388,7 +389,7 @@
 				</control>
 				<!-- Background color gradient -->
 				<control type="button" id="305">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31111]</label>
 					<label2>$VAR[OSMCBackgroundOverlayName]</label2>
@@ -402,7 +403,7 @@
 				</control>
 				<!-- Custom colors -->
 				<control type="radiobutton" id="306">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[636]</label>
 					<onclick>Skin.SetString(DefaultColors,no)</onclick>
@@ -410,7 +411,7 @@
 				</control>
 				<!-- Custom background color -->
 				<control type="button" id="307">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31162]</label>
 					<label2>$VAR[BackgroundColor-Name]</label2>
@@ -422,7 +423,7 @@
 				</control>
 				<!-- Custom overlay color -->
 				<control type="button" id="308">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31062]</label>
 					<label2>$VAR[OverlayColor-Name]</label2>
@@ -434,7 +435,7 @@
 				</control>
 				<!-- Custom focus text color -->
 				<control type="button" id="309">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31163]</label>
 					<label2>$VAR[TextColor1-Name]</label2>
@@ -446,7 +447,7 @@
 				</control>
 				<!-- Custom non-focus text color -->
 				<control type="button" id="310">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31164]</label>
 					<label2>$VAR[TextColor2-Name]</label2>
@@ -458,7 +459,7 @@
 				</control>
 				<!-- Custom selected text color -->
 				<control type="button" id="311">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31165]</label>
 					<label2>$VAR[SelectedColor-Name]</label2>
@@ -470,7 +471,7 @@
 				</control>
 				<!-- Custom disabled text color -->
 				<control type="button" id="312">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31166]</label>
 					<label2>$VAR[TextColor4-Name]</label2>
@@ -484,7 +485,7 @@
 			
 			<!-- OSD -->
 			<control type="grouplist" id="400">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -496,7 +497,7 @@
 				<visible>Container(9000).HasFocus(4)</visible>
 				<!-- Video OSD -->
 				<control type="label" id="401">
-					<include>SkinSettings_coords10</include>
+					<include>SkinSettings_coords17</include>
 					<font>Font33-italic</font>
 					<align>left</align>
 					<label>$LOCALIZE[31144]</label>
@@ -504,7 +505,7 @@
 				</control>
 				<!-- OSD info video start -->
 				<control type="radiobutton" id="402">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31123</label>
 					<onclick>Skin.ToggleSetting(videoinfostart)</onclick>
@@ -512,7 +513,7 @@
 				</control>
 				<!-- Movies -->
 				<control type="radiobutton" id="403">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31124]</label>
 					<onclick>Skin.ToggleSetting(videoinfostartmovies)</onclick>
@@ -521,7 +522,7 @@
 				</control>
 				<!-- TV shows -->
 				<control type="radiobutton" id="404">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31125]</label>
 					<onclick>Skin.ToggleSetting(videoinfostarttvshow)</onclick>
@@ -530,7 +531,7 @@
 				</control>
 				<!-- Live TV -->
 				<control type="radiobutton" id="405">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31126]</label>
 					<onclick>Skin.ToggleSetting(videoinfostartlivetv)</onclick>
@@ -539,7 +540,7 @@
 				</control>
 				<!-- Music videos -->
 				<control type="radiobutton" id="406">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31127]</label>
 					<onclick>Skin.ToggleSetting(videoinfostartmusicvideo)</onclick>
@@ -548,7 +549,7 @@
 				</control>
 				<!-- Other videos -->
 				<control type="radiobutton" id="407">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31128]</label>
 					<onclick>Skin.ToggleSetting(videoinfostartfiles)</onclick>
@@ -557,7 +558,7 @@
 				</control>
 				<!-- OSD info video start duration -->
 				<control type="button" id="408">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31129]</label>
 					<label2>$INFO[Skin.String(videoinfostartduration)]</label2>
@@ -571,7 +572,7 @@
 				</control>
 				<!-- OSD info PVR channel switch -->
 				<control type="radiobutton" id="409">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31130]</label>
 					<onclick>Skin.ToggleSetting(videoinfolivetvswitch)</onclick>
@@ -579,7 +580,7 @@
 				</control>
 				<!-- OSD info video end -->
 				<control type="radiobutton" id="410">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31131</label>
 					<onclick>Skin.ToggleSetting(videoinfoend)</onclick>
@@ -587,7 +588,7 @@
 				</control>
 				<!-- Movies -->
 				<control type="radiobutton" id="411">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31124]</label>
 					<onclick>Skin.ToggleSetting(videoinfoendmovie)</onclick>
@@ -596,7 +597,7 @@
 				</control>
 				<!-- TV shows -->
 				<control type="radiobutton" id="412">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31125]</label>
 					<onclick>Skin.ToggleSetting(videoinfoendtvshow)</onclick>
@@ -605,7 +606,7 @@
 				</control>
 				<!-- Music videos -->
 				<control type="radiobutton" id="413">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31127]</label>
 					<onclick>Skin.ToggleSetting(videoinfoendmusicvideo)</onclick>
@@ -614,7 +615,7 @@
 				</control>
 				<!-- Other videos -->
 				<control type="radiobutton" id="414">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31128]</label>
 					<onclick>Skin.ToggleSetting(videoinfoendfiles)</onclick>
@@ -623,7 +624,7 @@
 				</control>
 				<!-- OSD info video start duration -->
 				<control type="button" id="415">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31132]</label>
 					<label2>$INFO[Skin.String(videoinfoendduration)]</label2>
@@ -637,7 +638,7 @@
 				</control>
 				<!-- Adjust OSD on-time during video pause -->
 				<control type="button" id="416">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31102]</label>
 					<label2>$INFO[Skin.String(HideOSD)]</label2>
@@ -656,7 +657,7 @@
 				</control>
 				<!-- Music OSD -->
 				<control type="label" id="417">
-					<include>SkinSettings_coords10</include>
+					<include>SkinSettings_coords17</include>
 					<font>Font33-italic</font>
 					<align>left</align>
 					<label>$LOCALIZE[31145]</label>
@@ -664,14 +665,14 @@
 				</control>
 				<!-- Automatically show music OSD during playback -->
 				<control type="radiobutton" id="418">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31142]</label>
 					<onclick>Skin.ToggleSetting(AutoMusicVisPlayback)</onclick>
 					<selected>Skin.HasSetting(AutoMusicVisPlayback)</selected>
 				</control>
 				<control type="button" id="419">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31143]</label>
 					<label2>$INFO[Skin.String(AutoMusicVisPlaybackDuration)]</label2>
@@ -686,7 +687,7 @@
 				</control>
 				<!-- Adjust music OSD album art size -->
 				<control type="radiobutton" id="420">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31115</label>
 					<onclick>Skin.ToggleSetting(MusicOSDSize)</onclick>
@@ -696,7 +697,7 @@
 
 			<!-- Weather -->
 			<control type="grouplist" id="500">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -708,7 +709,7 @@
 				<visible>Container(9000).HasFocus(5)</visible>
 				<!-- Weather icons-->
 				<control type="button" id="501">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31067]</label>
 					<label2>$VAR[weather-icons]</label2>
@@ -719,7 +720,7 @@
 				</control>
 				<!-- Weather fanart -->
 				<control type="button" id="502">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherFanart&amp;type=resource.images.weatherfanart)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
@@ -730,7 +731,7 @@
 				</control>
 				<!-- Warning label for multi-image fanart -->
 				<control type="label" id="503">
-					<include>SkinSettings_coords10</include>
+					<include>SkinSettings_coords17</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31094]</label>
 					<visible>Skin.HasSetting(weatherFanart.multi)</visible>
@@ -740,7 +741,7 @@
 
 			<!-- Advanced -->
 			<control type="grouplist" id="600">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -752,7 +753,7 @@
 				<visible>Container(9000).HasFocus(6)</visible>
 				<!-- Hide additional text highlighting -->
 				<control type="radiobutton" id="601">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31105</label>
 					<onclick>Skin.ToggleSetting(TextHighlight)</onclick>
@@ -760,7 +761,7 @@
 				</control>
 				<!-- Hide video watched status in library -->
 				<control type="radiobutton" id="602">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31148</label>
 					<onclick>Skin.ToggleSetting(VideoWatchedStatus)</onclick>
@@ -768,7 +769,7 @@
 				</control>
 				<!-- Hide music listened to status in library -->
 				<control type="radiobutton" id="603">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31149</label>
 					<onclick>Skin.ToggleSetting(MusicListenedToStatus)</onclick>
@@ -776,7 +777,7 @@
 				</control>
 				<!-- Hide sub-menu player controls -->
 				<control type="radiobutton" id="604">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31147</label>
 					<onclick>Skin.ToggleSetting(SubMenuControls)</onclick>
@@ -784,7 +785,7 @@
 				</control>
 				<!-- Show user rating -->
 				<control type="radiobutton" id="605">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31146</label>
 					<onclick>Skin.ToggleSetting(UserRating)</onclick>
@@ -792,7 +793,7 @@
 				</control>
 				<!-- Adjust non-focus dim opacity -->
 				<control type="button" id="606">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31104]</label>
 					<label2>$INFO[Skin.String(NFDimOpac),,%]</label2>
@@ -807,7 +808,7 @@
 				</control>
 				<!-- Adjust plot/description text font size -->
 				<control type="button" id="607">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31100]</label>
 					<label2>$INFO[Skin.String(PlotFont),Size ,]</label2>
@@ -824,7 +825,7 @@
 				</control>
 				<!-- Adjust representation of video duration -->
 				<control type="button" id="608">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31134]</label>
 					<label2>$INFO[Skin.String(videodurationformat)]</label2>
@@ -835,7 +836,7 @@
 				</control>
 				<!-- Kiosk mode -->
 				<control type="radiobutton" id="609">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31057</label>
 					<onclick>Skin.ToggleSetting(KioskMode)</onclick>
@@ -845,7 +846,7 @@
 
 			<!-- Addons -->
 			<control type="grouplist" id="700">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -857,14 +858,14 @@
 				<visible>Container(9000).HasFocus(7)</visible>
 				<!-- Recommended -->
 				<control type="label" id="701">
-					<include>SkinSettings_coords10</include>
+					<include>SkinSettings_coords17</include>
 					<font>Font33-italic</font>
 					<align>left</align>
 					<label>$LOCALIZE[31080]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<control type="button" id="702">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31079]</label>
 					<label2>$VAR[addon-skinshortcuts]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skinshortcuts)) + !System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
@@ -872,7 +873,7 @@
 					<onclick condition="System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
 				</control>
 				<control type="button" id="703">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31081]</label>
 					<label2>$VAR[addon-skinhelper]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
@@ -880,7 +881,7 @@
 					<onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
 				</control>
 				<control type="button" id="704">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31140]</label>
 					<label2>$VAR[addon-skinhelperbackgrounds]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.backgrounds)) + !System.HasAddon(script.skin.helper.backgrounds)">InstallAddon(script.skin.helper.backgrounds)</onclick>
@@ -888,7 +889,7 @@
 					<onclick condition="System.HasAddon(script.skin.helper.backgrounds)">Addon.OpenSettings(script.skin.helper.backgrounds)</onclick>
 				</control>
 				<control type="button" id="705">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31106]</label>
 					<label2>$VAR[addon-skinhelperwidgets]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">InstallAddon(script.skin.helper.widgets)</onclick>
@@ -896,7 +897,7 @@
 					<onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
 				</control>
 				<control type="button" id="706">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31097]</label>
 					<label2>$VAR[addon-skinhelperbackup]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
@@ -905,14 +906,14 @@
 				</control>
 				<!-- Supported -->
 				<control type="label" id="707">
-					<include>SkinSettings_coords10</include>
+					<include>SkinSettings_coords17</include>
 					<font>Font33-italic</font>
 					<align>left</align>
 					<label>$LOCALIZE[31084]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<control type="button" id="708">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31082]</label>
 					<label2>$VAR[addon-autocompletion]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + !System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
@@ -920,7 +921,7 @@
 					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
 				</control>
 				<control type="button" id="709">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31083]</label>
 					<label2>$VAR[addon-imageselect]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.image.resource.select)) + !System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
@@ -928,7 +929,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
 				</control>
 				<!-- <control type="button" id="710">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31085]</label>
 					<label2>$VAR[addon-nextup]</label2>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(service.nextup.notification)) + System.HasAddon(service.nextup.notification)">InstallAddon(service.nextup.notification)</onclick>
@@ -936,7 +937,7 @@
 					<onclick condition="System.HasAddon(service.nextup.notification)">Addon.OpenSettings(service.nextup.notification)</onclick>
 				</control> -->
 				<control type="button" id="711">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31086]</label>
 					<label2>$VAR[addon-artistslideshow]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.artistslideshow)) + !System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</onclick>
@@ -947,7 +948,7 @@
 
 			<!-- Reset/Debug -->
 			<control type="grouplist" id="800">
-				<include>SkinSettings_coords8</include>
+				<include>SkinSettings_coords15</include>
 				<itemgap>0</itemgap>
 				<onleft>9000</onleft>
 				<onright>noop</onright>
@@ -959,7 +960,7 @@
 				<visible>Container(9000).HasFocus(8)</visible>
 				<!-- Backup -->
 				<control type="button" id="801">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">ActivateWindow(1104)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup)</onclick>
@@ -969,7 +970,7 @@
 				</control>
 				<!-- Reset all -->
 				<control type="button" id="802">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
 					<label>$ADDON[script.skinshortcuts 32037]</label>
 					<visible>System.HasAddon(script.skinshortcuts)</visible>
@@ -978,7 +979,7 @@
 				</control>
 				<!-- Reset skin settings -->
 				<control type="button" id="803">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<label>31058</label>
 					<onclick>Skin.ResetSettings</onclick>
 					<onclick>ReloadSkin()</onclick>
@@ -987,7 +988,7 @@
 				</control>
 				<!-- Lock PVR guide view -->
 				<control type="radiobutton" id="804">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31098]</label>
 					<onclick>Skin.ToggleSetting(GuideLocked)</onclick>
@@ -995,7 +996,7 @@
 				</control>
 				<!-- Enable Debug Grid -->
 				<control type="radiobutton" id="805">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31041</label>
 					<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
@@ -1003,7 +1004,7 @@
 				</control>
 				<!-- Disable Debug Info -->
 				<control type="radiobutton" id="806">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31042</label>
 					<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
@@ -1011,7 +1012,7 @@
 				</control>
 				<!-- Reload skin -->
 				<control type="button" id="807">
-					<include>SkinSettings_coords9</include>
+					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>20183</label>
 					<onclick>ReloadSkin()</onclick>
@@ -1023,7 +1024,7 @@
 
 		<!-- Hide settings warning -->
 		<control type="textbox">
-			<include>SkinSettings_coords11</include>
+			<include>SkinSettings_coords18</include>
 			<label>31051</label>
 			<textcolor>$VAR[TextColor1]</textcolor>
 			<visible>Container(9000).HasFocus(1) + Skin.HasSetting(AlwaysShowSettingsLink) + System.HasAddon(script.skinshortcuts)</visible>
