@@ -208,46 +208,51 @@
 	
 	<!-- Dialog fanart -->
 	<include name="DialogFanart">
-		<control type="group">
+		<!-- Single background image -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture background="true">$VAR[OSMCBackgroundImage]</texture>
+			<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
+			<aspectratio>scale</aspectratio>
+			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
 			<include>WindowFadeAnimation</include>
-			<!-- Single background image -->
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture background="true">$VAR[OSMCBackgroundImage]</texture>
-				<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
-				<aspectratio>scale</aspectratio>
-				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-			</control>
-			<!-- Multiple background images -->
-			<control type="multiimage">
-				<include>FullscreenDimensions</include>
-				<imagepath background="true">$VAR[OSMCBackgroundImage]</imagepath>
-				<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
-				<aspectratio>scale</aspectratio>
-				<include>CustomBackgroundFolderDuration</include>
-				<fadetime>2000</fadetime>
-				<randomize>true</randomize>
-				<loop>yes</loop>
-				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-			</control>
-			<!-- Fanart -->
-			<control type="image" id="10000">
-				<include>FullscreenDimensions</include>
-				<texture background="true" fallback="transparent.png">$INFO[ListItem.Art(fanart)]</texture>
-				<aspectratio>scale</aspectratio>
-				<fadetime>400</fadetime>
-				<visible>!Skin.HasSetting(HideFanart)</visible>
-				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-			</control>
-			<!-- Overlay -->
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
-				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
-			</control>
+		</control>
+		<!-- Multiple background images -->
+		<control type="multiimage">
+			<include>FullscreenDimensions</include>
+			<imagepath background="true">$VAR[OSMCBackgroundImage]</imagepath>
+			<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
+			<aspectratio>scale</aspectratio>
+			<include>CustomBackgroundFolderDuration</include>
+			<fadetime>2000</fadetime>
+			<randomize>true</randomize>
+			<loop>yes</loop>
+			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+			<include>WindowFadeAnimation</include>
+		</control>
+		<!-- Fanart -->
+		<control type="image" id="10000">
+			<include>FullscreenDimensions</include>
+			<texture background="true" fallback="transparent.png">$INFO[ListItem.Art(fanart)]</texture>
+			<aspectratio>scale</aspectratio>
+			<fadetime>400</fadetime>
+			<visible>!Skin.HasSetting(HideFanart)</visible>
+			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="300">Hidden</animation>
+			<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100">WindowClose</animation>
+		</control>
+		<!-- Overlay -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
+			<animation effect="fade" start="100" end="0" time="300">Hidden</animation>
+			<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100">WindowClose</animation>
 		</control>
 	</include>
 
@@ -731,11 +736,11 @@
 	<include name="DialogZoomAnimation">
 		<animation type="WindowOpen">
 			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
-			<effect type="fade" start="0" end="100" time="300" />
+			<effect type="fade" start="0" end="100" time="50" delay="50" />
 		</animation>
 		<animation type="WindowClose">
 			<effect type="zoom" start="100" end="70" center="auto" time="300" />
-			<effect type="fade" start="100" end="0" time="300" />
+			<effect type="fade" start="100" end="0" time="150" delay="150" />
 		</animation>
 	</include>
 
@@ -743,11 +748,11 @@
 	<include name="OptionsAnimation">
 		<animation type="Visible">
 			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
-			<effect type="fade" start="0" end="100" time="300" />
+			<effect type="fade" start="0" end="100" time="150" delay="150" />
 		</animation>
 		<animation type="Hidden">
-			<effect type="zoom" start="100" end="70" center="auto" time="100" />
-			<effect type="fade" start="100" end="0" time="100" />
+			<effect type="zoom" start="100" end="70" center="auto" time="300" />
+			<effect type="fade" start="100" end="0" time="150" delay="150" />
 		</animation>
 	</include>
 
@@ -1231,29 +1236,6 @@
 				<visible>!ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
 		</control>
-	</include>
-
-	<!-- Side menu animation -->
-	<include name="SideMenuAnimation">
-		<animation effect="slide" end="0,26" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,19)">Conditional</animation>
-		<animation effect="slide" end="0,52" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,18)">Conditional</animation>
-		<animation effect="slide" end="0,78" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,17)">Conditional</animation>
-		<animation effect="slide" end="0,104" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,16)">Conditional</animation>
-		<animation effect="slide" end="0,130" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,15)">Conditional</animation>
-		<animation effect="slide" end="0,156" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,14)">Conditional</animation>
-		<animation effect="slide" end="0,182" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,13)">Conditional</animation>
-		<animation effect="slide" end="0,208" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,12)">Conditional</animation>
-		<animation effect="slide" end="0,234" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,11)">Conditional</animation>
-		<animation effect="slide" end="0,260" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,10)">Conditional</animation>
-		<animation effect="slide" end="0,286" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,9)">Conditional</animation>
-		<animation effect="slide" end="0,312" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,8)">Conditional</animation>
-		<animation effect="slide" end="0,338" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,7)">Conditional</animation>
-		<animation effect="slide" end="0,364" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,6)">Conditional</animation>
-		<animation effect="slide" end="0,390" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,5)">Conditional</animation>
-		<animation effect="slide" end="0,416" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,4)">Conditional</animation>
-		<animation effect="slide" end="0,442" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,3)">Conditional</animation>
-		<animation effect="slide" end="0,468" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,2)">Conditional</animation>
-		<animation effect="slide" end="0,494" time="0" condition="String.IsEqual(Container($PARAM[containerID]).NumItems,1)">Conditional</animation>
 	</include>
 
 	<include name="Indicators">
