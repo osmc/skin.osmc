@@ -9,10 +9,12 @@ _Improved_
 - rework skin structure for Transiflex localization
 - improve widget icon animations
 - rework dialog animations to prevent bright transition
+- add heading to right list of home menu customization dialog
 
 _Fixed_
 - don't show parts of weather widget during widget loading
 - localize all labels
+- adjust home menu customization dialog to match behaviour of other settings windows
 
 **Changelog v18.1.0**
 
@@ -21,6 +23,7 @@ _rename languages folder for Transiflex localization_
 strings.po:
 - add new localizes for not yet localized labels (31150-31169)
 - add new localizes for second video info dialog screen (31170, 31171)
+- add new localize for skinshortcuts dialog (31172)
 
 _move 16x9 folder contents to new xml folder and add new aspect ratio modes by moving all coordinates to seperate files_
 
@@ -45,6 +48,13 @@ MyPVRChannels.xml:
 
 MyPVRRecordings.xml:
 - adjust watched/listened to indicators for new icon file dimensions
+
+script-skinshortcuts.xml:
+- change inital focus to left list
+- add heading for right list
+- change localize of change label and change layout buttons
+- adjust buttons sizes
+- remove label2 of select widget button
 
 script-skinshortcuts-static.xml:
 - replace old busy-small.gif with default OSMC busy.gif
