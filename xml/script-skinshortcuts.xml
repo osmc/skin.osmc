@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- script-skinshortcuts -->
-	<defaultcontrol always="true">9000</defaultcontrol>
+	<defaultcontrol always="true">303</defaultcontrol>
 
 	<controls>
 
@@ -138,6 +138,24 @@
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
+				<!-- Heading -->
+				<control type="label" id="1">
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<include>script-skinshortcuts_coords5</include>
+					<label>$INFO[Container(211).ListItem.Label]</label>
+					<scroll>True</scroll>
+					<visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
+				</control>
+				
+				<!-- Heading -->
+				<control type="label" id="2">
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<include>script-skinshortcuts_coords5</include>
+					<label>$INFO[Container(211).ListItem.Property(widgetName)]</label>
+					<scroll>True</scroll>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
+				</control>
+
 				<!-- Change shortcut -->
 				<control type="button" id="401">
 					<include>script-skinshortcuts_coords5</include>
@@ -148,7 +166,7 @@
 				<!-- Change label -->
 				<control type="button" id="305">
 					<include>script-skinshortcuts_coords6</include>
-					<label>  -  $ADDON[script.skinshortcuts 32025]</label>
+					<label>  -  $LOCALIZE[528]</label>
 					<visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
@@ -203,24 +221,23 @@
 
 				<!-- Select widget -->
 				<control type="button" id="312">
-					<include>script-skinshortcuts_coords5</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>$ADDON[script.skinshortcuts 32044]</label>
-					<label2>$INFO[Container(211).ListItem.Property(widgetName)]</label2>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
 				<!-- Change label-->
 				<control type="button" id="604">
 					<include>script-skinshortcuts_coords6</include>
-					<label>  -  $ADDON[script.skinshortcuts 32025]</label>
-                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$ADDON[script.skinshortcuts 32025],property=widgetName)</onclick>
+					<label>  -  $LOCALIZE[528]</label>
+                    <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[528],property=widgetName)</onclick>
                     <visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				
-				<!-- Change size option -->
+				<!-- Change layout -->
 				<control type="button" id="601">
 					<include>script-skinshortcuts_coords6</include>
-					<label>  -  $LOCALIZE[289]</label>
+					<label>  -  $LOCALIZE[31172]</label>
 					<label2>$VAR[skinshortcuts-size]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget)</enable>
 					<disabledcolor>$VAR[TextColor4]</disabledcolor>
@@ -257,7 +274,7 @@
 				<!-- Delete -->
 				<control type="button" id="302">
 					<include>script-skinshortcuts_coords6</include>
-					<label>  -  $ADDON[script.skinshortcuts 32001]</label>
+					<label>$ADDON[script.skinshortcuts 32001]</label>
 				</control>
 			</control>
 
