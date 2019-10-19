@@ -169,8 +169,8 @@
 							<top>55</top>
 							<width>163</width>
 							<height>206</height>
-							<texture colordiffuse="$VAR[DiffusePosterNF]" background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">keep</aspectratio>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
@@ -181,7 +181,7 @@
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<aspectratio align="center">keep</aspectratio>
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="label">
@@ -212,19 +212,19 @@
 							<top>55</top>
 							<width>163</width>
 							<height>206</height>
-							<texture colordiffuse="$VAR[DiffusePosterNF]" background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">keep</aspectratio>
 							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="image">
-							<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 							<left>0</left>
 							<top>35</top>
 							<width>203</width>
 							<height>246</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<aspectratio align="center">keep</aspectratio>
 							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
@@ -236,19 +236,19 @@
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<aspectratio align="center">keep</aspectratio>
 							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
 						<control type="multiimage">
-							<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 							<left>0</left>
 							<top>35</top>
 							<width>203</width>
 							<height>246</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<timeperimage>200</timeperimage>
-							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<aspectratio align="center">keep</aspectratio>
 							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 						</control>
@@ -370,13 +370,15 @@
 
 				<focusedlayout width="$SKINSHORTCUTS[layoutWidth]" height="$SKINSHORTCUTS[layoutHeight]">
 						<control type="group">
-							<animation effect="zoom" start="$PYTHON[100 / int(imageWidthFocus) * int(imageWidthNoFocus)]" end="100" center="$PYTHON[int(imageWidthFocus) / 2],$SKINSHORTCUTS[imageHeightFocus]" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<animation effect="zoom" start="100" end="111" center="$PYTHON[int(imageWidthFocus) / 2],$SKINSHORTCUTS[imageHeightFocus]" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+							<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+							<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 								<description>Primary art</description>
-								<param name="left">0</param>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
 								<param name="bottom">0</param>
-								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
 								<param name="aspectratio">keep</param>
@@ -385,10 +387,10 @@
 							</include>
 							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
 								<description>Fallback art</description>
-								<param name="left">0</param>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
 								<param name="bottom">0</param>
-								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
 								<param name="aspectratio">keep</param>
@@ -397,10 +399,10 @@
 							</include>
 							<include content="widget-image">
 								<description>Catch-all art</description>
-								<param name="left">0</param>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
 								<param name="bottom">0</param>
-								<param name="width">$SKINSHORTCUTS[imageWidthFocus]</param>
-								<param name="height">$SKINSHORTCUTS[imageHeightFocus]</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
 								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
 								<param name="art">$INFO[ListItem.Icon]</param>
 								<param name="aspectratio">keep</param>
@@ -409,10 +411,10 @@
 							</include>
 							
 							<control type="group">
-								<right>0</right>
+								<right>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</right>
 								<bottom>0</bottom>
-								<width>$PYTHON[int(imageWidthFocus) * 0.22]</width>
-								<height>$PYTHON[int(imageWidthFocus) * 0.22]</height>
+								<width>$PYTHON[int(imageWidthNoFocus) * 0.22]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.22]</height>
 								<control type="image">
 									<texture background="true">views/OverlayCornerRight.png</texture>
 									<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -422,10 +424,10 @@
 									<texture background="true">$VAR[StatusOverlayWide]</texture>
 								</control>
 							</control>
-							
-							<visible>Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
+
 						</control>
 						<control type="group">
+							<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
 								<description>Primary art</description>
 								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
@@ -483,7 +485,6 @@
 								</control>
 							</control>
 							
-							<visible>!Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
 						</control>
 
 				</focusedlayout>
