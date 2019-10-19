@@ -1672,13 +1672,15 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Art(poster)]</param>
 						<param name="aspectratio">keep</param>
@@ -1687,10 +1689,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -1699,10 +1701,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -1710,10 +1712,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>0</right>
+						<right>10</right>
 						<bottom>0</bottom>
-						<width>45</width>
-						<height>45</height>
+						<width>40</width>
+						<height>40</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -1723,10 +1725,10 @@
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 						</control>
 					</control>
-					<visible>Control.HasFocus(10101)</visible>
 				</control>
 				
 				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
 						<param name="left">10</param>
@@ -1782,7 +1784,6 @@
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 					</control>
-					<visible>!Control.HasFocus(10101)</visible>
 				</control>
 				
 			</focusedlayout>
@@ -1867,13 +1868,15 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Art(season.poster)]</param>
 						<param name="aspectratio">keep</param>
@@ -1882,10 +1885,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Art(tvshow.poster)]</param>
 						<param name="aspectratio">keep</param>
@@ -1894,10 +1897,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -1905,10 +1908,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 					</include>
 					<control type="group">
-						<right>0</right>
+						<right>10</right>
 						<bottom>0</bottom>
-						<width>45</width>
-						<height>45</height>
+						<width>40</width>
+						<height>40</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -1918,9 +1921,9 @@
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 						</control>
 					</control>
-					<visible>Control.HasFocus(10201)</visible>
 				</control>
 				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
 						<param name="left">10</param>
@@ -1976,7 +1979,6 @@
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 					</control>
-					<visible>!Control.HasFocus(10201)</visible>
 				</control>
 			</focusedlayout>
 			<content target="videos">special://skin/extras/playlists/random_TV_shows.xsp</content>
@@ -2060,13 +2062,15 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2075,10 +2079,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2087,10 +2091,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2098,10 +2102,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>0</right>
+						<right>10</right>
 						<bottom>0</bottom>
-						<width>45</width>
-						<height>45</height>
+						<width>40</width>
+						<height>40</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2111,9 +2115,9 @@
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 						</control>
 					</control>
-					<visible>Control.HasFocus(10401)</visible>
 				</control>
 				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
 						<param name="left">10</param>
@@ -2169,7 +2173,6 @@
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 					</control>
-					<visible>!Control.HasFocus(10401)</visible>
 				</control>
 			</focusedlayout>
 			<content target="music">special://skin/extras/playlists/random_albums.xsp</content>
@@ -2253,13 +2256,15 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2268,10 +2273,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2280,10 +2285,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2291,10 +2296,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>0</right>
+						<right>10</right>
 						<bottom>0</bottom>
-						<width>45</width>
-						<height>45</height>
+						<width>40</width>
+						<height>40</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2304,9 +2309,9 @@
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 						</control>
 					</control>
-					<visible>Control.HasFocus(10601)</visible>
 				</control>
 				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
 						<param name="left">10</param>
@@ -2362,7 +2367,6 @@
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 					</control>
-					<visible>!Control.HasFocus(10601)</visible>
 				</control>
 			</focusedlayout>
 			<content target="">addons://sources/game/</content>
@@ -2446,13 +2450,15 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2461,10 +2467,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2473,10 +2479,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2484,10 +2490,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>0</right>
+						<right>10</right>
 						<bottom>0</bottom>
-						<width>45</width>
-						<height>45</height>
+						<width>40</width>
+						<height>40</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2497,9 +2503,9 @@
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 						</control>
 					</control>
-					<visible>Control.HasFocus(10801)</visible>
 				</control>
 				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
 						<param name="left">10</param>
@@ -2555,7 +2561,6 @@
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 					</control>
-					<visible>!Control.HasFocus(10801)</visible>
 				</control>
 			</focusedlayout>
 			<content target="programs">addons://sources/executable</content>
@@ -2640,7 +2645,7 @@
 						<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
 					</control>
 					<control type="image">
-						<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<left>0</left>
 						<top>35</top>
 						<width>203</width>
@@ -2663,7 +2668,7 @@
 						<visible>Skin.HasSetting(weatherIcons.multi)</visible>
 					</control>
 					<control type="multiimage">
-						<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<left>0</left>
 						<top>35</top>
 						<width>203</width>
@@ -2768,13 +2773,15 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2783,10 +2790,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2795,10 +2802,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2806,10 +2813,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>0</right>
+						<right>10</right>
 						<bottom>0</bottom>
-						<width>45</width>
-						<height>45</height>
+						<width>40</width>
+						<height>40</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2819,9 +2826,9 @@
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 						</control>
 					</control>
-					<visible>Control.HasFocus(101001)</visible>
 				</control>
 				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
 						<param name="left">10</param>
@@ -2877,7 +2884,6 @@
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 					</control>
-					<visible>!Control.HasFocus(101001)</visible>
 				</control>
 			</focusedlayout>
 			<content target="videos">pvr://channels/tv/*/</content>
@@ -2961,13 +2967,15 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
-					<animation effect="zoom" start="80" end="100" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2976,10 +2984,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2988,10 +2996,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">0</param>
+						<param name="left">10</param>
 						<param name="bottom">0</param>
-						<param name="width">203</param>
-						<param name="height">326</param>
+						<param name="width">183</param>
+						<param name="height">306</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2999,10 +3007,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>0</right>
+						<right>10</right>
 						<bottom>0</bottom>
-						<width>45</width>
-						<height>45</height>
+						<width>40</width>
+						<height>40</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -3012,9 +3020,9 @@
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 						</control>
 					</control>
-					<visible>Control.HasFocus(101101)</visible>
 				</control>
 				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
 						<param name="left">10</param>
@@ -3070,7 +3078,6 @@
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
 					</control>
-					<visible>!Control.HasFocus(101101)</visible>
 				</control>
 			</focusedlayout>
 			<content target="videos">pvr://channels/radio/*/</content>
