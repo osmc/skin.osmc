@@ -10,6 +10,7 @@ _Improved_
 - improve widget icon animations
 - rework dialog animations to prevent bright transition
 - add heading to right list of home menu customization dialog
+- Option to show lock icon for encrypted PVR channels
 
 _Fixed_
 - don't show parts of weather widget during widget loading
