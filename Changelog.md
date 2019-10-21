@@ -2,6 +2,7 @@
 
 _New_
 - add 21:9 and 4:3 modes
+- add option to show lock icon for encrypted PVR channels (show encrypted channel icons by default)
 
 _Improved_
 - use OSMC busy spinner for widget loading
