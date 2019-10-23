@@ -36,8 +36,15 @@
 			<!-- Icon -->
 			<control type="image">
 				<include>DialogPVRChannelGuide_coords5</include>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[VideoPlayerIcon]</texture>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[VideoPlayerIcon]</texture>
+				<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+			</control>
+			<control type="image">
+				<include>DialogPVRChannelGuide_coords5</include>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.EPGEventIcon]</texture>
+				<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
 			</control>
 			
 			<!-- Episode Information -->

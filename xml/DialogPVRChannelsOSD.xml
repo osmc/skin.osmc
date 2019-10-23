@@ -20,8 +20,15 @@
 			<!-- Icon -->
 			<control type="image">
 				<include>DialogPVRChannelsOSD_coords3</include>
-				<aspectratio align="right">keep</aspectratio>
-				<texture>$VAR[PVRChannelIconDialogOSD]</texture>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIconDialogOSD]</texture>
+				<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+			</control>
+			<control type="image">
+				<include>DialogPVRChannelsOSD_coords3</include>
+				<aspectratio>keep</aspectratio>
+				<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.EPGEventIcon]</texture>
+				<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
 			</control>
 
 			<!-- Episode Information -->

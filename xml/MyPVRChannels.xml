@@ -22,9 +22,15 @@
 				<control type="group">
 					<control type="image">
 						<include>MyPVRChannels_coords2</include>
-						<fadetime>200</fadetime>
-						<texture>$VAR[PVRChannelIcon]</texture>
+						<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
 						<aspectratio aligny="center">keep</aspectratio>
+						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+					</control>
+					<control type="image">
+						<include>MyPVRChannels_coords2</include>
+						<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.EPGEventIcon]</texture>
+						<aspectratio aligny="center">keep</aspectratio>
+						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
 					</control>
 				</control>
 
