@@ -69,7 +69,14 @@
 						<include>MyPVRGuide_coords9</include>
 						<aspectratio>keep</aspectratio>
 						<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio align="right" aligny="top">keep</aspectratio>
+						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+					</control>
+					
+					<control type="image">
+						<include>MyPVRGuide_coords9</include>
+						<aspectratio>keep</aspectratio>
+						<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.EPGEventIcon]</texture>
+						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
 					</control>
 
 					<control type="fadelabel">
@@ -84,57 +91,50 @@
 						<include>MyPVRGuide_coords11</include>
 						<label>$INFO[ListItem.EpisodeName]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<aligny>top</aligny>
 						<pauseatend>5000</pauseatend>
-						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
+						<visible>!String.IsEmpty(ListItem.EpisodeName)</visible>
 					</control>
 					
-					<control type="label">
+					<control type="fadelabel">
 						<include>MyPVRGuide_coords12</include>
-						<label>$VAR[SElist]</label>
+						<font>Font33-light</font>
+						<label>$INFO[ListItem.Genre]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<aligny>top</aligny>
-						<pauseatend>5000</pauseatend>
-						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
+						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
 					<control type="label">
 						<include>MyPVRGuide_coords13</include>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<aligny>top</aligny>
-						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Episode)</visible>
+						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
 					<control type="fadelabel">
 						<include>MyPVRGuide_coords11</include>
-						<label>$INFO[ListItem.EpisodeName]</label>
+						<font>Font33-light</font>
+						<label>$INFO[ListItem.Genre]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<aligny>top</aligny>
-						<pauseatend>5000</pauseatend>
-						<visible>!String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
+						<visible>String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
 					<control type="label">
 						<include>MyPVRGuide_coords12</include>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<aligny>top</aligny>
-						<visible>!String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
+						<visible>String.IsEmpty(ListItem.EpisodeName) | String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
-					<control type="label">
+					<control type="fadelabel">
 						<include>MyPVRGuide_coords11</include>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<aligny>top</aligny>
-						<visible>String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Episode)</visible>
+						<visible>String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 
 					<!-- Plot -->
 					<control type="group">
 						<include>MyPVRGuide_coords14</include>
-						<align>justify</align>
 						<control type="textbox">
 							<font>Font27</font>
 							<align>left</align>
