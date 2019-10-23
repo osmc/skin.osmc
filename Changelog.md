@@ -25,6 +25,8 @@ strings.po:
 - add new localizes for not yet localized labels (31150-31169)
 - add new localizes for second video info dialog screen (31170, 31171)
 - add new localize for skinshortcuts dialog (31172)
+- add new localize for skin settings advanced section (31173)
+- add new localize for new encrypted PVR channel setting (31174)
 
 _move 16x9 folder contents to new xml folder and add new aspect ratio modes by moving all coordinates to seperate files_
 
@@ -64,10 +66,12 @@ script-skinshortcuts-static.xml:
 SkinSettings.xml:
 - add skin reload button to debug section
 - add Disabled option to Adjust OSD on-time during video pause button
+- add new encrypted PVR channel setting
 
 Variables.xml:
 - adjust StatusOverlay and StatusOverlayWide variables to show correct icon for in progress TV shows
 - change 3DMode variable for consistency (naming as per Kodi wiki) and to show more specific 3D information (HSBS, HTAB, SBS, TAB)
+- change PVRChannelIcon and PVRChannelIconDialogOSD variables for new encrypted PVR channel setting
 
 Textures.xbt:
 - repack content of media folder after fixing watched indicator icons
