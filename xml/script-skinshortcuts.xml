@@ -264,6 +264,42 @@
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
+				<!-- Widget sort by -->
+				<control type="button" id="502">
+					<include>script-skinshortcuts_coords6</include>
+					<label>  -  $LOCALIZE[31175]</label>
+					<label2>$VAR[WidgetSortByLabel]</label2>
+					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
+					<onclick>SetProperty(chooseProperty,widgetSortBy)</onclick>
+					<onclick>SendClick(404)</onclick>
+				</control>
+				
+				<!-- Widget sort direction -->
+				<control type="button" id="503">
+					<include>script-skinshortcuts_coords6</include>
+					<label>  -  $LOCALIZE[31176]</label>
+					<label2>$VAR[WidgetSortDirectionLabel]</label2>
+					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
+					<onclick>SetProperty(chooseProperty,widgetSortDirection)</onclick>
+					<onclick>SendClick(404)</onclick>
+				</control>
+				
+				<!--Widget limit items -->
+				<control type="button" id="504">
+					<include>script-skinshortcuts_coords6</include>
+					<label>  -  $LOCALIZE[31177]</label>
+					<label2>$VAR[WidgetLimitLabel]</label2>
+					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
+					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
+					<onclick>SetProperty(chooseProperty,widgetLimit)</onclick>
+					<onclick>SendClick(404)</onclick>
+				</control>
+
 				<!-- Enable/Disable -->
 				<control type="radiobutton" id="313">
 					<include>script-skinshortcuts_coords5</include>

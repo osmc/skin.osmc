@@ -275,6 +275,9 @@
 		<condition tag="property" attribute="name|widgetPath" />
 
 		<property name="id" tag="mainmenuid" />
+		<property name="sortby" tag="property" attribute="name|widgetSortBy" />
+		<property name="limit" tag="property" attribute="name|widgetLimit" />
+        <property name="sortdirection" tag="property" attribute="name|widgetSortDirection" />
 		
 		<propertyGroup>mainmenuWidgets</propertyGroup>
 		<propertyGroup>lumosLayout</propertyGroup>
@@ -489,7 +492,7 @@
 
 				</focusedlayout>
 
-				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
+				<content limit="$SKINSHORTCUTS[limit]" sortby="$SKINSHORTCUTS[sortby]" sortorder="$SKINSHORTCUTS[sortdirection]" target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[path]</content>
 			</control>
 
 		</controls>
