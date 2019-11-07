@@ -4,6 +4,7 @@
 	<backgroundcolor>0x00000000</backgroundcolor>
 	<defaultcontrol always="true">450</defaultcontrol>
 	<controls>
+	
 		<!-- Window Background -->
 		<include>WindowBackgroundImage</include>
 
@@ -52,7 +53,7 @@
 			<control type="scrollbar" id="60">
 				<include>DialogFavourites_coords5</include>
 				<onright>450</onright>
-				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
+				<onleft condition="!Skin.HasSetting(KioskMode) + Player.HasMedia + !Skin.HasSetting(SubMenuControls)">3001</onleft>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
@@ -94,7 +95,7 @@
 			
 			<!-- Submenu indicator -->
 			<control type="group">
-				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(contextmenu) + !String.IsEqual(Container(450).NumItems,0)</visible>
+				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(contextmenu) + !String.IsEqual(Container(450).NumItems,0) + Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
 				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
@@ -146,14 +147,6 @@
 						<param name="containerID">3001</param>
 					</include>
 
-					<!-- Scrollbars -->
-					<control type="radiobutton" id="94">
-						<label>31005</label>
-						<height>52</height>
-						<onclick>Skin.ToggleSetting(Scrollbars)</onclick>
-						<selected>!Skin.HasSetting(Scrollbars)</selected>
-					</control>
-					
 					<include content="SideMenuControlsAnimationSpacer">
 						<param name="containerID">3001</param>
 					</include>

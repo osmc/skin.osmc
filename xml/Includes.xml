@@ -107,6 +107,13 @@
 
 	<!-- Window background image -->
 	<include name="WindowBackgroundImage">
+		<!-- Black background image -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture background="true">common/white.png</texture>
+			<colordiffuse>FF000000</colordiffuse>
+			<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo)</visible>
+		</control>
 		<!-- Background video -->
 		<control type="videowindow">
 			<include>FullscreenDimensions</include>
@@ -963,6 +970,13 @@
 			<include>SideMenuControlsSpacer_coords12</include>
 			<texture>transparent.png</texture>
 			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,2)</visible>
+			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+		</control>
+		<!-- Spacer -->
+		<control type="image" id="80013">
+			<include>SideMenuControlsSpacer_coords13</include>
+			<texture>transparent.png</texture>
+			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,1)</visible>
 			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
 		</control>
 	</include>

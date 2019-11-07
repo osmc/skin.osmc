@@ -110,7 +110,7 @@
 			<onclick>RunScript(service.osmc.settings)</onclick>
 			<property name="path">RunScript(service.osmc.settings)</property>
 			<property name="list">RunScript(service.osmc.settings)</property>
-			<visible>True</visible>
+			<visible>System.HasAddon(service.osmc.settings)</visible>
 			<property name="submenuVisibility">service-osmc-settings</property>
 			<property name="group">mainmenu</property>
 			<property name="hasSubmenu">False</property>
@@ -809,10 +809,10 @@
 			<thumb />
 			<property name="labelID">widget</property>
 			<property name="defaultID">widget</property>
-			<property name="widget">playlist</property>
+			<property name="widget">library</property>
 			<property name="widgetName">$LOCALIZE[31054]</property>
 			<property name="widgetType">movies</property>
-			<property name="widgetPath">special://skin/extras/playlists/random_movies.xsp</property>
+			<property name="widgetPath">special://skin/extras/playlists/movies_random.xsp</property>
 			<property name="widgetTarget">videos</property>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
@@ -832,7 +832,7 @@
 			<property name="widget">library</property>
 			<property name="widgetName">$LOCALIZE[31118]</property>
 			<property name="widgetType">tvshows</property>
-			<property name="widgetPath">special://skin/extras/playlists/random_TV_shows.xsp</property>
+			<property name="widgetPath">special://skin/extras/playlists/tvshows_random.xsp</property>
 			<property name="widgetTarget">videos</property>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
@@ -849,10 +849,10 @@
 			<thumb />
 			<property name="labelID">widget</property>
 			<property name="defaultID">widget</property>
-			<property name="widget">playlist</property>
+			<property name="widget">library</property>
 			<property name="widgetName">$LOCALIZE[31056]</property>
 			<property name="widgetType">albums</property>
-			<property name="widgetPath">special://skin/extras/playlists/random_albums.xsp</property>
+			<property name="widgetPath">special://skin/extras/playlists/albums_random.xsp</property>
 			<property name="widgetTarget">music</property>
 			<property name="path">noop</property>
 			<property name="list">noop</property>
@@ -1787,7 +1787,7 @@
 				</control>
 				
 			</focusedlayout>
-			<content target="videos">special://skin/extras/playlists/random_movies.xsp</content>
+			<content target="videos">special://skin/extras/playlists/movies_random.xsp</content>
 		</control>
 		<control id="10201" type="list">
 			<viewtype label="">list</viewtype>
@@ -1981,7 +1981,7 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<content target="videos">special://skin/extras/playlists/random_TV_shows.xsp</content>
+			<content target="videos">special://skin/extras/playlists/tvshows_random.xsp</content>
 		</control>
 		<control id="10401" type="list">
 			<viewtype label="">list</viewtype>
@@ -2175,7 +2175,7 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<content target="music">special://skin/extras/playlists/random_albums.xsp</content>
+			<content target="music">special://skin/extras/playlists/albums_random.xsp</content>
 		</control>
 		<control id="10601" type="list">
 			<viewtype label="">list</viewtype>

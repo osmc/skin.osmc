@@ -1,88 +1,130 @@
 **Changes**
 
 _New_
-- add 21:9 and 4:3 modes
-- add option to show lock icon for encrypted PVR channels (show encrypted channel icons by default)
+- add new pre-defined widgets
 
 _Improved_
-- use OSMC busy spinner for widget loading
-- add Disabled option to Adjust OSD on-time during video pause button
-- rework skin structure for Transiflex localization
-- improve widget icon animations
-- rework dialog animations to prevent bright transition
-- add heading to right list of home menu customization dialog
+- rework home menu customization dialogs
+- improve sort by and sort order toggles
 
 _Fixed_
-- don't show parts of weather widget during widget loading
-- localize all labels
-- adjust home menu customization dialog to match behaviour of other settings windows
+- move hide scrollbars setting to skin settings window
+- hide MyOSMC home menu entry and widget on non-OSMC systems
 
-**Changelog v18.1.0**
+**Changelog v18.2.0**
 
-_rename languages folder for Transiflex localization_
+_add new skin playlists and update existing ones_
 
 strings.po:
-- add new localizes for not yet localized labels (31150-31169)
-- add new localizes for second video info dialog screen (31170, 31171)
-- add new localize for skinshortcuts dialog (31172)
-- add new localize for skin settings advanced section (31173)
-- add new localize for new encrypted PVR channel setting (31174)
+- change localize for new hide scrollbars option (31005)
+- add new localizes for new widget sort by, widget sort direction and widget limit options (31175, 31176, 31177)
+- add new localizes for new pre-defined widgets and reworked home menu customization dialogs (31178-31232)
+- add new localizes for improved sort by and sort order toggles (31233, 31234)
 
-_move 16x9 folder contents to new xml folder and add new aspect ratio modes by moving all coordinates to seperate files_
+AddonBrowser.xml:
+- remove deprecated view toggle
+- remove hide scrollbar toggle
+- fix side-menu coordinates
+- add new "Sort order" localize to sort order toggle
 
-DialogPVRChannelGuide.xml:
-- add scrollbar to channel list
+Coordinates_Includes.xml:
+- add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
 
-DialogPVRChannelsOSD.xml:
-- add scrollbar to program list
+DialogFavourites.xml:
+- change conditional onleft of scrollbar (submenu is only present during playback with active side-menu controls)
+- change conditional visibility of submenu indicator (submenu is only present during playback with active side-menu controls)
+- remove hide scrollbar toggle
 
-DialogVideoInfo.xml:
-- replace extended info button localizes
+EventLog.xml:
+- add new "Sort order" localize to sort order toggle
 
 Includes.xml:
-- rework dialog animations to prevent bright transition
+- add black background layer behind background video playback to WindowBackgroundImage include
+- add 13th spacer to SideMenuControlsSpacer include for only one item in side/context menu
 
-Includes_Widgets.xml:
-- add conditional visibility to first weather widget panel
-- move updating indicator down
+MyGames.xml:
+- add new "View: " localize to view toggle
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
+
+MyMusicNav.xml:
+- add new "View: " localize to view toggle
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
+
+MyPics.xml:
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
+
+MyPlaylist.xml:
+- fix side-menu coordinates
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
+
+MyPrograms.xml:
+- add new "View: " localize to view toggle
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
 
 MyPVRChannels.xml:
-- remove watched status overlay
+- fix side-menu coordinates
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
+
+MyPVRGuide.xml:
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
 
 MyPVRRecordings.xml:
-- adjust watched/listened to indicators for new icon file dimensions
+- fix side-menu coordinates
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
 
-script-skinshortcuts.xml:
-- change inital focus to left list
-- add heading for right list
-- change localize of change label and change layout buttons
-- adjust buttons sizes
-- remove label2 of select widget button
+MyPVRSearch.xml:
+- fix side-menu coordinates
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
+
+MyPVRTimers.xml:
+- fix side-menu coordinates
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
+
+MyVideoNav.xml:
+- add new "View: " localize to view toggle
+- remove hide scrollbar toggle
+- add new "Sort order" localize to sort order toggle
 
 script-skinshortcuts-static.xml:
-- replace old busy-small.gif with default OSMC busy.gif
-- improve widget icon animations
+- add conditional visibility to MyOSMC home menu entry
+- point default movies and TV show widgets to new skin playlists
+- change content lines to point to new skin playlists
+
+script-skinshortcuts.xml:
+- add new widget sort by, widget sort direction and widget limit options
 
 SkinSettings.xml:
-- add skin reload button to debug section
-- add Disabled option to Adjust OSD on-time during video pause button
-- add new encrypted PVR channel setting
+- add hide scrollbars setting formerly found in other windows
 
 Variables.xml:
-- adjust StatusOverlay and StatusOverlayWide variables to show correct icon for in progress TV shows
-- change 3DMode variable for consistency (naming as per Kodi wiki) and to show more specific 3D information (HSBS, HTAB, SBS, TAB)
-- change PVRChannelIcon and PVRChannelIconDialogOSD variables for new encrypted PVR channel setting
+- add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options
 
 Textures.xbt:
-- repack content of media folder after fixing watched indicator icons
+- update textures file with new, bigger OSMC logo file
+
+mainmenu.DATA.xml:
+- add conditional visibility to MyOSMC home menu entry
+
+overrides.xml:
+- add general and widget groupings to sort user dialogs for home menu entries and widgets in home menu customization dialog
+- point default movies and TV show widgets to new skin playlists
+- change default music widget group to circumvent v18 skinshortcuts bug (missing/wrong localize for "music")
+- remove unused "square" widget icon layout
+- add new widget sort by, widget sort direction and widget limit properties
 
 template.xml:
-- move updating indicator up
-- replace old busy-small.gif with default OSMC busy.gif
-- improve widget icon animations
-
-_add resources folder_
+- add new widget sort by, widget sort direction and widget limit properties
+- change content line for new widget sort by, widget sort direction and widget limit properties
 
 addon.xml:
-- rework syntax
-- bump version to 18.1.0
+- bump version to 18.2.0

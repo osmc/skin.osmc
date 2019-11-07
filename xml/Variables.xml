@@ -1344,7 +1344,6 @@
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.landscape))">TV Show Landscape</value>
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),FAKELANDSCAPE)">Fake Landscape</value>
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),FAKETVLANDSCAPE)">Fake TV Show Landscape</value>
-
 		<value>Icon</value>
 	</variable>
 
@@ -1368,8 +1367,42 @@
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.landscape))">TV Show Landscape</value>
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),FAKELANDSCAPE)">Fake Landscape</value>
 		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),FAKETVLANDSCAPE)">Fake TV Show Landscape</value>
-
 		<value>Icon</value>
+	</variable>
+
+	<variable name="WidgetSortByLabel">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),title)">$LOCALIZE[369]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastplayed)">$LOCALIZE[568]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastused)">$LOCALIZE[12012]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),installdate)">$LOCALIZE[12013]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastupdated)">$LOCALIZE[12014]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),tvshowtitle)">$LOCALIZE[36902]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),date)">$LOCALIZE[552]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),artist)">$LOCALIZE[557]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),album)">$LOCALIZE[558]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),tracknumber)">$LOCALIZE[554]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),channelnumber)">$LOCALIZE[19029]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),year)">$LOCALIZE[345]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),dateAdded)">$LOCALIZE[570]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),random)">$LOCALIZE[590]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),genre)">$LOCALIZE[515]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),playcount)">$LOCALIZE[567]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),studio)">$LOCALIZE[572]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),country)">$LOCALIZE[574]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),rating)">$LOCALIZE[563]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),userrating)">$LOCALIZE[33067]</value>
+		<value>$LOCALIZE[16018]</value>
+	</variable>
+	
+	<variable name="WidgetSortDirectionLabel">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),ascending)">$LOCALIZE[584]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),descending)">$LOCALIZE[585]</value>
+		<value>$LOCALIZE[16018]</value>
+	</variable>
+	
+	<variable name="WidgetLimitLabel">
+		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetLimit))">$INFO[Container(211).ListItem.Property(widgetLimit)]</value>
+		<value>$LOCALIZE[16018]</value>
 	</variable>
 
 	<!-- Busy spinner -->
@@ -1378,7 +1411,7 @@
 		<value>busy.gif</value>
 	</variable>
 
-	<!-- Keyboard autocompletion" -->
+	<!-- Keyboard autocompletion -->
 	<variable name="keyboard-autocompletion">
 		<value condition="!System.HasAddon(plugin.program.autocompletion) | System.HasHiddenInput"></value>
    		<value>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=12</value>
