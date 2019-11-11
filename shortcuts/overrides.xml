@@ -36,55 +36,50 @@
 				<content>upnp-music</content>
 			</node>
 		</node>
-		<!-- Picture sources -->
+		<!-- Picture -->
 		<node label="1">
-			<shortcut label="1039" type="32020" icon="DefaultAddonPicture.png">ActivateWindow(Pictures,Addons,return)</shortcut>
-			<node label="32075">
-				<content>picturesources</content>
-			</node>
-		</node>
-		<node label="32017" condition="System.GetBool(pvrmanager.enabled)">
-			<content>pvr</content>
-			<node label="19023">
-				<content>pvr-tv</content>
-			</node>
-			<node label="19024">
-				<content>pvr-radio</content>
-			</node>
+			<content>picturesources</content>
 		</node>
 		<!-- Games -->
 		<node label="10821">
-			<shortcut label="35049" type="10821" icon="DefaultAddonGame.png">ActivateWindow(Games,Addons,return)</shortcut>
+			<shortcut label="35049" icon="DefaultAddonGame.png">ActivateWindow(Games,Addons,return)</shortcut>
 			<shortcut label="$LOCALIZE[10821]" icon="DefaultFolder.png">ActivateWindow(games,return)</shortcut>
 		</node>
 		<!-- PVR -->
-		<node label="31015" condition="PVR.HasTVChannels">
-			<content>pvr</content>
-			<node label="19023">
-				<content>pvr-tv</content>
+		<node label="14204" condition="PVR.HasTVChannels | PVR.HasRadioChannels">
+			<!-- PVR - Live TV -->
+			<node label="31015" condition="PVR.HasTVChannels">
+				<content>pvr</content>
+				<node label="19023">
+					<content>pvr-tv</content>
+				</node>
 			</node>
-		</node>
-		<node label="19021" condition="PVR.HasRadioChannels">
+			<!-- PVR - Radio -->
+			<node label="19021" condition="PVR.HasRadioChannels">
 			<content>radio</content>
-			<node label="19024">
-				<content>pvr-radio</content>
+				<node label="19024">
+					<content>pvr-radio</content>
+				</node>
 			</node>
 		</node>
 		<!-- Add-ons -->
 		<node label="24001">
 			<node label="1037">
+				<shortcut label="1037" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
 				<content>addon-video</content>
 			</node>
 			<node label="1038">
+				<shortcut label="1038" icon="DefaultAddonMusic.png">ActivateWindow(MusicLibrary,Addons,return)</shortcut>
 				<content>addon-audio</content>
 			</node>
 			<node label="1039">
+				<shortcut label="1039" icon="DefaultAddonPicture.png">ActivateWindow(Pictures,Addons,return)</shortcut>
 				<content>addon-image</content>
 			</node>
 			<node label="1043">
+				<shortcut label="1043" icon="DefaultAddonProgram.png">ActivateWindow(Programs,Addons,return)</shortcut>
 				<content>addon-program</content>
 			</node>
-			<shortcut label="1039" type="32021" icon="DefaultAddonProgram.png">ActivateWindow(Programs,Addons,return)</shortcut>
 		</node>
 		<!-- Settings -->
 		<node label="10004">
@@ -94,9 +89,14 @@
 		<node label="31232">
 			<content>commands</content>
 		</node>
-		<!-- Skin-helper widgets -->
-		<shortcut label="$LOCALIZE[31231]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
-		<shortcut label="$LOCALIZE[31231]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,extendedinfo,smartshortcuts</shortcut>
+		<node label="31231">
+			<!-- Skin-helper script -->
+			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
+			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
+			<!-- Extended info script -->
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="!System.HasAddon(script.extendedinfo)">::INSTALL::script.extendedinfo</shortcut>
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
+		</node>
 	</groupings>
 
 	<!-- Additional widgets -->
@@ -125,95 +125,43 @@
 	
 	<!-- Widget Grouping -->
 	<widget-groupings>
-		<!-- Default Widgets -->
-		<node label="$LOCALIZE[31178]" icon="DefaultFolder.png">
-			<!-- Movies -->
-			<node label="$LOCALIZE[342]" icon="DefaultMovies.png">
-				<shortcut widget="NewMovies" label="$LOCALIZE[31179]" icon="DefaultRecentlyAddedMovies.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/xsp/movies_recentlyadded.xsp</shortcut>
-				<shortcut widget="RecentMovies" label="$LOCALIZE[31180]" icon="DefaultMusicRecentlyPlayed.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/xsp/movies_recentlyplayed.xsp</shortcut>
-				<shortcut widget="RandomMovies" label="$LOCALIZE[31181]" icon="DefaultMovies.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/xsp/movies_random.xsp</shortcut>
-				<shortcut widget="InProgressMovies" label="$LOCALIZE[31182]" icon="DefaultInProgressShows.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/xsp/movies_inprogress.xsp</shortcut>
-				<shortcut widget="TopRatedMovies" label="$LOCALIZE[31183]" icon="DefaultMusicTop100Albums.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/xsp/movies_toprated.xsp</shortcut>
-				<shortcut widget="Top250Movies" label="$LOCALIZE[31184]" icon="DefaultMusicTop100Albums.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/xsp/movies_top250.xsp</shortcut>
-				<shortcut widget="UnwatchedMovies" label="$LOCALIZE[31185]" icon="DefaultMovies.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">special://skin/xsp/movies_unwatched.xsp</shortcut>
-				<shortcut widget="MovieNodes" label="$LOCALIZE[31186]" icon="DefaultMovies.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">library://video/movies/</shortcut>
-				<shortcut widget="MovieGenres" label="$LOCALIZE[31187]" icon="DefaultGenre.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">library://video/movies/genres.xml</shortcut>
-				<shortcut widget="MovieSets" label="$LOCALIZE[31188]" icon="DefaultSets.png" widgetType="movies" widgetTarget="video" condition="Library.HasContent(movies)">videodb://movies/sets/</shortcut>
-			</node>
-			<!-- TV Shows -->
-			<node label="$LOCALIZE[31189]" icon="DefaultTVShows.png">
-				<shortcut widget="NewTvShows" label="$LOCALIZE[31190]" icon="DefaultRecentlyAddedEpisodes.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/tvshows_recentlyadded.xsp</shortcut>
-				<shortcut widget="RecentTvShows" label="$LOCALIZE[31191]" icon="DefaultMusicRecentlyPlayed.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/tvshows_recentlyplayed.xsp</shortcut>
-				<shortcut widget="RandomTvShows" label="$LOCALIZE[31192]" icon="DefaultTVShows.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/tvshows_random.xsp</shortcut>
-				<shortcut widget="InProgressTVShows" label="$LOCALIZE[31193]" icon="DefaultInProgressShows.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">library://video/tvshows/inprogressshows.xml</shortcut>
-				<shortcut widget="TopRatedTvShows" label="$LOCALIZE[31194]" icon="DefaultMusicTop100Albums.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/tvshows_toprated.xsp</shortcut>
-				<shortcut widget="UnwatchedTVShows" label="$LOCALIZE[31195]" icon="DefaultTVShows.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/tvshows_unwatched.xsp</shortcut>
-                <shortcut widget="TvShowNodes" label="$LOCALIZE[31196]" icon="DefaultTVShows.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">library://video/tvshows/</shortcut>
-				<shortcut widget="TvShowGenres" label="$LOCALIZE[31197]" icon="DefaultGenre.png" widgetType="tvshows" widgetTarget="video" condition="Library.HasContent(tvshows)">library://video/tvshows/genres.xml</shortcut>
-			</node>
-			<!-- Episodes -->
-			<node label="$LOCALIZE[20360]" icon="DefaultTVShows.png">
-				<shortcut widget="NewEpisodes" label="$LOCALIZE[31198]" icon="DefaultRecentlyAddedEpisodes.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/episodes_recentlyadded.xsp</shortcut>
-				<shortcut widget="RecentEpisodes" label="$LOCALIZE[31199]" icon="DefaultMusicRecentlyPlayed.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/episodes_recentlyplayed.xsp</shortcut>
-				<shortcut widget="RandomEpisodes" label="$LOCALIZE[31200]" icon="DefaultTVShows.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/episodes_random.xsp</shortcut>
-				<shortcut widget="InProgressEpisodes" label="$LOCALIZE[31201]" icon="DefaultInProgressShows.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/episodes_inprogress.xsp</shortcut>
-				<shortcut widget="TopRatedEpisodes" label="$LOCALIZE[31202]" icon="DefaultMusicTop100Albums.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/episodes_toprated.xsp</shortcut>
-				<shortcut widget="UnwatchedEpisodes" label="$LOCALIZE[31203]" icon="DefaultTVShows.png" widgetType="episodes" widgetTarget="video" condition="Library.HasContent(tvshows)">special://skin/xsp/episodes_unwatched.xsp</shortcut>
-			</node>
-			<!-- Artists -->
-			<node label="$LOCALIZE[133]" icon="DefaultMusicArtists.png">
-				<shortcut widget="NewArtists" label="$LOCALIZE[31204]" icon="DefaultMusicArtists.png" widgetType="artists" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/artists_recentlyadded.xsp</shortcut>
-				<shortcut widget="RandomArtists" label="$LOCALIZE[31205]" icon="DefaultMusicArtists.png" widgetType="artists" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/artists_random.xsp</shortcut>
-				<shortcut widget="MusicNodes" label="$LOCALIZE[31206]" icon="DefaultMusicAlbums.png" widgetType="artists" widgetTarget="music" condition="Library.HasContent(music)">library://music/</shortcut>
-			</node>
-			<!-- Albums -->
-			<node label="$LOCALIZE[132]" icon="DefaultMusicAlbums.png">
-				<shortcut widget="NewAlbums" label="$LOCALIZE[31207]" icon="DefaultMusicRecentlyAdded.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">musicdb://recentlyaddedalbums/</shortcut>
-				<shortcut widget="RecentAlbums" label="$LOCALIZE[31208]" icon="DefaultMusicRecentlyPlayed.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">musicdb://recentlyplayedalbums/</shortcut>
-				<shortcut widget="RecentlyReleasedAlbums" label="$LOCALIZE[31209]" icon="DefaultMusicAlbums.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/albumd_recentlyreleased.xsp</shortcut>
-                <shortcut widget="TopAlbums" label="$LOCALIZE[31210]" icon="DefaultMusicTop100Albums.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">musicdb://top100/albums/</shortcut>
-				<shortcut widget="RandomAlbums" label="$LOCALIZE[31211]" icon="DefaultMusicAlbums.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/albums_random.xsp</shortcut>
-				<shortcut widget="MostPlayedAlbums" label="$LOCALIZE[31212]" icon="DefaultMusicRecentlyPlayed.png" widgetType="albums" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/albums_mostplayed.xsp</shortcut>
-			</node>
-			<!-- Songs -->
-			<node label="$LOCALIZE[134]" icon="DefaultMusicSongs.png">
-				<shortcut widget="NewSongs" label="$LOCALIZE[31213]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/songs_recentlyadded.xsp</shortcut>
-				<shortcut widget="RecentlyReleasedSongs" label="$LOCALIZE[31214]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/songs_recentlyreleased.xsp</shortcut>
-				<shortcut widget="MostPlayedSongs" label="$LOCALIZE[31215]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/songs_mostplayed.xsp</shortcut>
-				<shortcut widget="RandomSongs" label="$LOCALIZE[31216]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music" condition="Library.HasContent(music)">special://skin/xsp/songs_random.xsp</shortcut>
-			</node>
-			<!-- Music videos -->
-			<node label="$LOCALIZE[20389]" icon="DefaultMusicVideos.png">
-				<shortcut widget="NewMusicVideos" label="$LOCALIZE[31217]" icon="DefaultRecentlyAddedMusicVideos.png" widgetType="musicvideos" widgetTarget="video" condition="Library.HasContent(musicvideos)">special://skin/xsp/musicvideos_recentlyadded.xsp</shortcut>
-				<shortcut widget="InProgressMusicVideos" label="$LOCALIZE[31218]" icon="DefaultMusicVideos.png" widgetType="musicvideos" widgetTarget="video" condition="Library.HasContent(musicvideos)">special://skin/xsp/musicvideos_inprogress.xsp</shortcut>
-				<shortcut widget="RandomMusicVideos" label="$LOCALIZE[31219]" icon="DefaultMusicVideos.png" widgetType="musicvideos" widgetTarget="video" condition="Library.HasContent(musicvideos)">special://skin/xsp/musicvideos_random.xsp</shortcut>
-				<shortcut widget="UnwatchedMusicVideos" label="$LOCALIZE[31220]" icon="DefaultMusicVideos.png" widgetType="musicvideos" widgetTarget="video" condition="Library.HasContent(musicvideos)">special://skin/xsp/musicvideos_unwatched.xsp</shortcut>
-			</node>
-			<!-- PVR - TV -->
-			<node label="$LOCALIZE[31221]" icon="DefaultAddonPVRClient.png">
-				<shortcut widget="LastPlayedChannels" label="$LOCALIZE[31222]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr" condition="Pvr.HasTVChannels">pvr://channels/tv/*?view=lastplayed</shortcut>
-				<shortcut widget="AllChannels" label="$LOCALIZE[19217]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr" condition="Pvr.HasTVChannels">pvr://channels/tv/*</shortcut>
-                <shortcut widget="TVChannelGroups" label="$LOCALIZE[19173]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="tvguide" condition="Pvr.HasTVChannels">pvr://channels/tv/</shortcut>
-				<shortcut widget="ActiveRecordings" label="$LOCALIZE[31223]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr" condition="Pvr.HasTVChannels">pvr://recordings/tv/active?view=flat</shortcut>
-				<shortcut widget="GroupedActiveRecordings" label="$LOCALIZE[31224]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr" condition="Pvr.HasTVChannels">pvr://recordings/tv/active?view=grouped</shortcut>
-				<shortcut widget="DeletedRecordings" label="$LOCALIZE[19184]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr" condition="Pvr.HasTVChannels">pvr://recordings/tv/deleted?view=flat</shortcut>
-				<shortcut widget="GroupedDeletedRecordings" label="$LOCALIZE[31225]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr" condition="Pvr.HasTVChannels">pvr://recordings/tv/deleted?view=grouped</shortcut>
-				<shortcut widget="TVTimers" label="$LOCALIZE[10703]" icon="DefaultAddonPVRClient.png" widgetTarget="pvr" widgetType="tv" condition="Pvr.HasTVChannels">pvr://timers/tv/timers</shortcut>
-			</node>
-			<!-- PVR - Radio -->
-			<node label="$LOCALIZE[19021]" icon="DefaultAddonPVRClient.png">
-				<shortcut widget="LastPlayedRadioChannels" label="$LOCALIZE[31226]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr" condition="Pvr.HasRadioChannels">pvr://channels/radio/*?view=lastplayed</shortcut>
-                <shortcut widget="AllRadioChannels" label="$LOCALIZE[19216]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr" condition="Pvr.HasRadioChannels">pvr://channels/radio/*</shortcut>
-				<shortcut widget="RadioChannelGroups" label="$LOCALIZE[19174]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="radioguide" condition="Pvr.HasRadioChannels">pvr://channels/radio/</shortcut>
-                <shortcut widget="ActiveRadioRecordings" label="$LOCALIZE[31227]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr" condition="Pvr.HasRadioChannels">pvr://recordings/radio/active?view=flat</shortcut>
-				<shortcut widget="GroupedActiveRadioRecordings" label="$LOCALIZE[31228]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr" condition="Pvr.HasRadioChannels">pvr://recordings/radio/active?view=grouped</shortcut>
-				<shortcut widget="DeletedRadioRecordings" label="$LOCALIZE[19184]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr" condition="Pvr.HasRadioChannels">pvr://recordings/radio/deleted?view=flat</shortcut>
-				<shortcut widget="GroupedDeletedRadioRecordings" label="$LOCALIZE[31229]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr" condition="Pvr.HasRadioChannels">pvr://recordings/radio/deleted?view=grouped</shortcut>
-				<shortcut widget="RadioTimers" label="$LOCALIZE[10708]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr" condition="Pvr.HasRadioChannels">pvr://timers/radio/timers</shortcut>
-			</node>
-		</node>
 		<!-- Video -->
 		<node label="3">
+			<node label="$LOCALIZE[31178]" condition="Library.HasContent(movies) | Library.HasContent(tvshows)">
+				<!-- Movies -->
+				<node label="$LOCALIZE[342]" condition="Library.HasContent(movies)">
+					<shortcut widget="NewMovies" label="$LOCALIZE[31179]" icon="DefaultRecentlyAddedMovies.png" widgetType="movies" widgetTarget="video">special://skin/xsp/movies_recentlyadded.xsp</shortcut>
+					<shortcut widget="RecentMovies" label="$LOCALIZE[31180]" icon="DefaultMusicRecentlyPlayed.png" widgetType="movies" widgetTarget="video">special://skin/xsp/movies_recentlyplayed.xsp</shortcut>
+					<shortcut widget="RandomMovies" label="$LOCALIZE[31181]" icon="DefaultMovies.png" widgetType="movies" widgetTarget="video">special://skin/xsp/movies_random.xsp</shortcut>
+					<shortcut widget="InProgressMovies" label="$LOCALIZE[31182]" icon="DefaultInProgressShows.png" widgetType="movies" widgetTarget="video">special://skin/xsp/movies_inprogress.xsp</shortcut>
+					<shortcut widget="TopRatedMovies" label="$LOCALIZE[31183]" icon="DefaultMusicTop100Albums.png" widgetType="movies" widgetTarget="video">special://skin/xsp/movies_toprated.xsp</shortcut>
+					<shortcut widget="Top250Movies" label="$LOCALIZE[31184]" icon="DefaultMusicTop100Albums.png" widgetType="movies" widgetTarget="video">special://skin/xsp/movies_top250.xsp</shortcut>
+					<shortcut widget="UnwatchedMovies" label="$LOCALIZE[31185]" icon="DefaultMovies.png" widgetType="movies" widgetTarget="video">special://skin/xsp/movies_unwatched.xsp</shortcut>
+					<shortcut widget="MovieNodes" label="$LOCALIZE[31186]" icon="DefaultMovies.png" widgetType="movies" widgetTarget="video">library://video/movies/</shortcut>
+					<shortcut widget="MovieGenres" label="$LOCALIZE[31187]" icon="DefaultGenre.png" widgetType="movies" widgetTarget="video">library://video/movies/genres.xml</shortcut>
+					<shortcut widget="MovieSets" label="$LOCALIZE[31188]" icon="DefaultSets.png" widgetType="movies" widgetTarget="video">videodb://movies/sets/</shortcut>
+				</node>
+				<!-- TV Shows -->
+				<node label="$LOCALIZE[31189]" condition="Library.HasContent(tvshows)">
+					<shortcut widget="NewTvShows" label="$LOCALIZE[31190]" icon="DefaultRecentlyAddedEpisodes.png" widgetType="tvshows" widgetTarget="video">special://skin/xsp/tvshows_recentlyadded.xsp</shortcut>
+					<shortcut widget="RecentTvShows" label="$LOCALIZE[31191]" icon="DefaultMusicRecentlyPlayed.png" widgetType="tvshows" widgetTarget="video">special://skin/xsp/tvshows_recentlyplayed.xsp</shortcut>
+					<shortcut widget="RandomTvShows" label="$LOCALIZE[31192]" icon="DefaultTVShows.png" widgetType="tvshows" widgetTarget="video">special://skin/xsp/tvshows_random.xsp</shortcut>
+					<shortcut widget="InProgressTVShows" label="$LOCALIZE[31193]" icon="DefaultInProgressShows.png" widgetType="tvshows" widgetTarget="video">library://video/tvshows/inprogressshows.xml</shortcut>
+					<shortcut widget="TopRatedTvShows" label="$LOCALIZE[31194]" icon="DefaultMusicTop100Albums.png" widgetType="tvshows" widgetTarget="video">special://skin/xsp/tvshows_toprated.xsp</shortcut>
+					<shortcut widget="UnwatchedTVShows" label="$LOCALIZE[31195]" icon="DefaultTVShows.png" widgetType="tvshows" widgetTarget="video">special://skin/xsp/tvshows_unwatched.xsp</shortcut>
+					<shortcut widget="TvShowNodes" label="$LOCALIZE[31196]" icon="DefaultTVShows.png" widgetType="tvshows" widgetTarget="video">library://video/tvshows/</shortcut>
+					<shortcut widget="TvShowGenres" label="$LOCALIZE[31197]" icon="DefaultGenre.png" widgetType="tvshows" widgetTarget="video">library://video/tvshows/genres.xml</shortcut>
+				</node>
+				<!-- Episodes -->
+				<node label="$LOCALIZE[20360]" condition="Library.HasContent(tvshows)">
+					<shortcut widget="NewEpisodes" label="$LOCALIZE[31198]" icon="DefaultRecentlyAddedEpisodes.png" widgetType="episodes" widgetTarget="video">special://skin/xsp/episodes_recentlyadded.xsp</shortcut>
+					<shortcut widget="RecentEpisodes" label="$LOCALIZE[31199]" icon="DefaultMusicRecentlyPlayed.png" widgetType="episodes" widgetTarget="video">special://skin/xsp/episodes_recentlyplayed.xsp</shortcut>
+					<shortcut widget="RandomEpisodes" label="$LOCALIZE[31200]" icon="DefaultTVShows.png" widgetType="episodes" widgetTarget="video">special://skin/xsp/episodes_random.xsp</shortcut>
+					<shortcut widget="InProgressEpisodes" label="$LOCALIZE[31201]" icon="DefaultInProgressShows.png" widgetType="episodes" widgetTarget="video">special://skin/xsp/episodes_inprogress.xsp</shortcut>
+					<shortcut widget="TopRatedEpisodes" label="$LOCALIZE[31202]" icon="DefaultMusicTop100Albums.png" widgetType="episodes" widgetTarget="video">special://skin/xsp/episodes_toprated.xsp</shortcut>
+					<shortcut widget="UnwatchedEpisodes" label="$LOCALIZE[31203]" icon="DefaultTVShows.png" widgetType="episodes" widgetTarget="video">special://skin/xsp/episodes_unwatched.xsp</shortcut>
+				</node>
+			</node>
 			<content>video</content>
 			<node label="136">
 				<content>playlist-video</content>
@@ -225,6 +173,37 @@
 		</node>
 		<!-- Music -->
 		<node label="2">
+			<node label="$LOCALIZE[31178]" condition="Library.HasContent(music) | Library.HasContent(musicvideos)">
+				<!-- Artists -->
+				<node label="$LOCALIZE[133]" condition="Library.HasContent(music)">
+					<shortcut widget="NewArtists" label="$LOCALIZE[31204]" icon="DefaultMusicArtists.png" widgetType="artists" widgetTarget="music">special://skin/xsp/artists_recentlyadded.xsp</shortcut>
+					<shortcut widget="RandomArtists" label="$LOCALIZE[31205]" icon="DefaultMusicArtists.png" widgetType="artists" widgetTarget="music">special://skin/xsp/artists_random.xsp</shortcut>
+					<shortcut widget="MusicNodes" label="$LOCALIZE[31206]" icon="DefaultMusicAlbums.png" widgetType="artists" widgetTarget="music">library://music/</shortcut>
+				</node>
+				<!-- Albums -->
+				<node label="$LOCALIZE[132]" condition="Library.HasContent(music)">
+					<shortcut widget="NewAlbums" label="$LOCALIZE[31207]" icon="DefaultMusicRecentlyAdded.png" widgetType="albums" widgetTarget="music">musicdb://recentlyaddedalbums/</shortcut>
+					<shortcut widget="RecentAlbums" label="$LOCALIZE[31208]" icon="DefaultMusicRecentlyPlayed.png" widgetType="albums" widgetTarget="music">musicdb://recentlyplayedalbums/</shortcut>
+					<shortcut widget="RecentlyReleasedAlbums" label="$LOCALIZE[31209]" icon="DefaultMusicAlbums.png" widgetType="albums" widgetTarget="music">special://skin/xsp/albumd_recentlyreleased.xsp</shortcut>
+					<shortcut widget="TopAlbums" label="$LOCALIZE[31210]" icon="DefaultMusicTop100Albums.png" widgetType="albums" widgetTarget="music">musicdb://top100/albums/</shortcut>
+					<shortcut widget="RandomAlbums" label="$LOCALIZE[31211]" icon="DefaultMusicAlbums.png" widgetType="albums" widgetTarget="music">special://skin/xsp/albums_random.xsp</shortcut>
+					<shortcut widget="MostPlayedAlbums" label="$LOCALIZE[31212]" icon="DefaultMusicRecentlyPlayed.png" widgetType="albums" widgetTarget="music">special://skin/xsp/albums_mostplayed.xsp</shortcut>
+				</node>
+				<!-- Songs -->
+				<node label="$LOCALIZE[134]" condition="Library.HasContent(music)">
+					<shortcut widget="NewSongs" label="$LOCALIZE[31213]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music">special://skin/xsp/songs_recentlyadded.xsp</shortcut>
+					<shortcut widget="RecentlyReleasedSongs" label="$LOCALIZE[31214]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music">special://skin/xsp/songs_recentlyreleased.xsp</shortcut>
+					<shortcut widget="MostPlayedSongs" label="$LOCALIZE[31215]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music">special://skin/xsp/songs_mostplayed.xsp</shortcut>
+					<shortcut widget="RandomSongs" label="$LOCALIZE[31216]" icon="DefaultMusicSongs.png" widgetType="songs" widgetTarget="music">special://skin/xsp/songs_random.xsp</shortcut>
+				</node>
+				<!-- Music videos -->
+				<node label="$LOCALIZE[20389]" condition="Library.HasContent(musicvideos)">
+					<shortcut widget="NewMusicVideos" label="$LOCALIZE[31217]" icon="DefaultRecentlyAddedMusicVideos.png" widgetType="musicvideos" widgetTarget="video">special://skin/xsp/musicvideos_recentlyadded.xsp</shortcut>
+					<shortcut widget="InProgressMusicVideos" label="$LOCALIZE[31218]" icon="DefaultMusicVideos.png" widgetType="musicvideos" widgetTarget="video">special://skin/xsp/musicvideos_inprogress.xsp</shortcut>
+					<shortcut widget="RandomMusicVideos" label="$LOCALIZE[31219]" icon="DefaultMusicVideos.png" widgetType="musicvideos" widgetTarget="video">special://skin/xsp/musicvideos_random.xsp</shortcut>
+					<shortcut widget="UnwatchedMusicVideos" label="$LOCALIZE[31220]" icon="DefaultMusicVideos.png" widgetType="musicvideos" widgetTarget="video">special://skin/xsp/musicvideos_unwatched.xsp</shortcut>
+				</node>
+			</node>
 			<content>music</content>
 			<node label="136">
 				<content>playlist-audio</content>
@@ -236,39 +215,69 @@
 		</node>
 		<!-- Picture sources -->
 		<node label="1">
-			<shortcut label="$LOCALIZE[1039]" widget="addon" icon="DefaultAddonPicture.png" widgetType="addons" widgetTarget="pictures">addons://sources/image/</shortcut>
-			<node label="32075">
-				<content>picturesources</content>
-			</node>
+			<content>picturesources</content>
 		</node>
 		<!-- Games -->
 		<node label="10821">
 			<shortcut label="$LOCALIZE[35049]" widget="addon" icon="DefaultAddonGame.png" widgetType="addons" widgetTarget="games">addons://sources/game</shortcut>
 			<shortcut label="$LOCALIZE[10821]" icon="DefaultFolder.png" widget="gamesources" widgetType="games" widgetTarget="games">sources://games/</shortcut>
 		</node>
+		<!-- PVR -->
+		<node label="14204" condition="PVR.HasTVChannels | PVR.HasRadioChannels">
+			<!-- PVR - Live TV -->
+			<node label="$LOCALIZE[31015]" condition="Pvr.HasTVChannels">
+				<shortcut widget="LastPlayedChannels" label="$LOCALIZE[31222]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*?view=lastplayed</shortcut>
+				<shortcut widget="AllChannels" label="$LOCALIZE[19217]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*</shortcut>
+				<shortcut widget="TVChannelGroups" label="$LOCALIZE[19173]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="tvguide">pvr://channels/tv/</shortcut>
+				<shortcut widget="ActiveRecordings" label="$LOCALIZE[31223]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=flat</shortcut>
+				<shortcut widget="GroupedActiveRecordings" label="$LOCALIZE[31224]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=grouped</shortcut>
+				<shortcut widget="DeletedRecordings" label="$LOCALIZE[19184]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=flat</shortcut>
+				<shortcut widget="GroupedDeletedRecordings" label="$LOCALIZE[31225]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=grouped</shortcut>
+				<shortcut widget="TVTimers" label="$LOCALIZE[10703]" icon="DefaultAddonPVRClient.png" widgetTarget="pvr" widgetType="tv">pvr://timers/tv/timers</shortcut>
+			</node>
+			<!-- PVR - Radio -->
+			<node label="$LOCALIZE[19021]" condition="Pvr.HasRadioChannels">
+				<shortcut widget="LastPlayedRadioChannels" label="$LOCALIZE[31226]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*?view=lastplayed</shortcut>
+				<shortcut widget="AllRadioChannels" label="$LOCALIZE[19216]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*</shortcut>
+				<shortcut widget="RadioChannelGroups" label="$LOCALIZE[19174]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="radioguide">pvr://channels/radio/</shortcut>
+				<shortcut widget="ActiveRadioRecordings" label="$LOCALIZE[31227]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=flat</shortcut>
+				<shortcut widget="GroupedActiveRadioRecordings" label="$LOCALIZE[31228]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=grouped</shortcut>
+				<shortcut widget="DeletedRadioRecordings" label="$LOCALIZE[19184]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=flat</shortcut>
+				<shortcut widget="GroupedDeletedRadioRecordings" label="$LOCALIZE[31229]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=grouped</shortcut>
+				<shortcut widget="RadioTimers" label="$LOCALIZE[10708]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://timers/radio/timers</shortcut>
+			</node>
+		</node>
 		<!-- Add-ons -->
 		<node label="24001">
 			<node label="1037">
+				<shortcut label="$LOCALIZE[1037]" icon="DefaultAddonVideo.png" widget="addon" widgetType="addons" widgetTarget="programs">addons://sources/video/</shortcut>
 				<content>addon-video</content>
 			</node>
 			<node label="1038">
+				<shortcut label="$LOCALIZE[1038]" icon="DefaultAddonMusic.png" widget="addon" widgetType="addons" widgetTarget="programs">addons://sources/music/</shortcut>
 				<content>addon-audio</content>
 			</node>
 			<node label="1039">
+				<shortcut label="$LOCALIZE[1039]" icon="DefaultAddonPicture.png" widget="addon" widgetType="addons" widgetTarget="programs">addons://sources/image/</shortcut>
 				<content>addon-image</content>
 			</node>
 			<node label="1043">
+				<shortcut label="$LOCALIZE[1043]" icon="DefaultAddonProgram.png" widget="addon" widgetType="addons" widgetTarget="programs">addons://sources/executable/</shortcut>
 				<content>addon-program</content>
 			</node>
-			<shortcut label="$LOCALIZE[1043]" widget="addon" icon="DefaultAddonProgram.png" widgetType="addons" widgetTarget="programs">addons://sources/executable/</shortcut>
 		</node>
-		<!-- Skin-helper widgets -->
-		<shortcut label="$LOCALIZE[31230]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
-		<shortcut label="$LOCALIZE[31230]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets,extendedinfo,smartshortcuts</shortcut>
-		<!-- Weather -->
-		<shortcut widget="WeatherWidget" label="$LOCALIZE[10508]" widgetType="custom" icon="DefaultWeather.png">$INCLUDE[weather-widget]</shortcut>
-		<!-- My OSMC -->
-		<shortcut widget="OSMCWidget" label="$LOCALIZE[31091]" widgetType="custom" icon="logo_big.png" condition="System.HasAddon(service.osmc.settings)">$INCLUDE[osmc-widget]</shortcut>
+		<node label="31230">
+			<!-- Skin-helper script -->
+			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
+			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
+			<!-- Extended info script -->
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="!System.HasAddon(script.extendedinfo)">::INSTALL::script.extendedinfo</shortcut>
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
+			<!-- Weather -->
+			<shortcut widget="WeatherWidget" label="$LOCALIZE[10508]" widgetType="custom" icon="DefaultWeather.png">$INCLUDE[weather-widget]</shortcut>
+			<!-- My OSMC -->
+			<shortcut widget="OSMCWidget" label="$LOCALIZE[31091]" widgetType="custom" icon="logo_big.png" condition="System.HasAddon(service.osmc.settings)">$INCLUDE[osmc-widget]</shortcut>
+		</node>
 	</widget-groupings>
 	
 	<!-- Size -->
