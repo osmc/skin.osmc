@@ -20,6 +20,7 @@ strings.po:
 - add new localizes for new widget sort by, widget sort direction and widget limit options (31175, 31176, 31177)
 - add new localizes for new pre-defined widgets and reworked home menu customization dialogs (31178-31232)
 - add new localizes for improved sort by and sort order toggles (31233, 31234)
+- add new localizes for additional widgets per script (31235, 31236)
 
 AddonBrowser.xml:
 - remove deprecated view toggle

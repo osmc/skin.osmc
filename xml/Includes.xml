@@ -587,6 +587,137 @@
 		</definition>
 	</include>
 
+	<!-- Item count -->
+	<include name="ItemCount">
+		<control type="grouplist">
+			<include>ItemCount_coords</include>
+			<itemgap>6</itemgap>
+			<align>right</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$INFO[Container.NumItems]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$VAR[ContentType]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+		</control>
+	</include>
+
+	<!-- Media Flags -->
+	<include name="MediaFlags">
+		<control type="grouplist">
+			<include>MediaFlags_coords1</include>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+
+			<!-- Video flags -->
+			<control type="image">
+				<include>MediaFlags_coords2</include>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<texture>Video.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
+				<font>Font29</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+			</control>
+		</control>
+
+		<control type="grouplist">
+			<include>MediaFlags_coords3</include>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+
+			<!-- Audio flags -->
+			<control type="image">
+				<include>MediaFlags_coords2</include>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<texture>AudioTrack.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$VAR[Audio]</label>
+				<font>Font29</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+			</control>
+		</control>
+		
+		<control type="grouplist">
+			<include>MediaFlags_coords4</include>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+			<animation effect="slide" time="0" start="0,0" end="0,-44" condition="String.IsEmpty(ListItem.VideoCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
+
+			<!-- Duration -->
+			<control type="image">
+				<include>MediaFlags_coords5</include>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<texture>Duration.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$VAR[Duration]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>  /  </label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + !ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>44</height>
+				<align>right</align>
+				<label>$INFO[ListItem.Size,$LOCALIZE[289]: ,]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>!ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
+			</control>
+		</control>
+	</include>
+
 	<!-- Window animation -->
 	<include name="WindowFadeAnimation">
 		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
@@ -978,137 +1109,6 @@
 			<texture>transparent.png</texture>
 			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,1)</visible>
 			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-	</include>
-
-	<!-- Item count -->
-	<include name="ItemCount">
-		<control type="grouplist">
-			<include>ItemCount_coords</include>
-			<itemgap>6</itemgap>
-			<align>right</align>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$INFO[Container.NumItems]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$VAR[ContentType]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-			</control>
-		</control>
-	</include>
-
-	<!-- Media Flags -->
-	<include name="MediaFlags">
-		<control type="grouplist">
-			<include>MediaFlags_coords1</include>
-			<itemgap>0</itemgap>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-
-			<!-- Video flags -->
-			<control type="image">
-				<include>MediaFlags_coords2</include>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<texture>Video.png</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$VAR[VideoCodec,,]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, ,:1]</label>
-				<font>Font29</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
-			</control>
-		</control>
-
-		<control type="grouplist">
-			<include>MediaFlags_coords3</include>
-			<itemgap>0</itemgap>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-
-			<!-- Audio flags -->
-			<control type="image">
-				<include>MediaFlags_coords2</include>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<texture>AudioTrack.png</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$VAR[Audio]</label>
-				<font>Font29</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-			</control>
-		</control>
-		
-		<control type="grouplist">
-			<include>MediaFlags_coords4</include>
-			<itemgap>0</itemgap>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			<animation effect="slide" time="0" start="0,0" end="0,-44" condition="String.IsEmpty(ListItem.VideoCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
-
-			<!-- Duration -->
-			<control type="image">
-				<include>MediaFlags_coords5</include>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<texture>Duration.png</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$VAR[Duration]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>  /  </label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + !ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>44</height>
-				<align>right</align>
-				<label>$INFO[ListItem.Size,$LOCALIZE[289]: ,]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-			</control>
 		</control>
 	</include>
 
