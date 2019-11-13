@@ -8,7 +8,8 @@ _Improved_
 - rework home menu customization dialogs
 - improve sort by and sort order toggles
 - improve video info dialog (animations and buttons)
-- improve aligment and positioning of item count and media flags
+- improve alignment and positioning of item count and media flags
+- smooth transitions between views
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
@@ -25,6 +26,7 @@ strings.po:
 - add new localizes for improved sort by and sort order toggles (31233, 31234)
 - add new localizes for additional widgets per script (31235, 31236)
 - add new localize hide media flags setting (31237)
+- add new localizes for Transiflex translation (31238-31266)
 
 AddonBrowser.xml:
 - remove deprecated view toggle
@@ -42,7 +44,7 @@ DialogFavourites.xml:
 - remove hide scrollbar toggle
 
 DialogVideoInfo.xml:
-- add fade animation to togglable dialog elemtents (plot, cast, extended info)
+- add fade animation to togglable dialog elements (plot, cast, extended info)
 - show all buttons all the time
 - improve extended info button to keep focus
 
@@ -60,25 +62,30 @@ MyGames.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
+- add animation for view change
 
 MyMusicNav.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
+- add animation for view change
 
 MyPics.xml:
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
+- add animation for view change
 
 MyPlaylist.xml:
 - fix side-menu coordinates
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
+- add animation for view change
 
 MyPrograms.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
+- add animation for view change
 
 MyPVRChannels.xml:
 - fix side-menu coordinates
@@ -108,6 +115,7 @@ MyVideoNav.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
+- add animation for view change
 
 script-skinshortcuts-static.xml:
 - add conditional visibility to MyOSMC home menu entry
@@ -124,6 +132,43 @@ SkinSettings.xml:
 Variables.xml:
 - add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options
 - improve duration variable
+- replace text by localizes for Transiflex translation
+
+Viewtype50.xml:
+- add animation for view change
+
+Viewtype51.xml:
+- add animation for view change
+
+Viewtype52.xml:
+- add animation for view change
+
+Viewtype53.xml:
+- add animation for view change
+
+Viewtype54.xml:
+- add animation for view change
+
+Viewtype55.xml:
+- add animation for view change
+
+Viewtype511.xml:
+- add animation for view change
+
+Viewtype521.xml:
+- add animation for view change
+
+Viewtype531.xml:
+- add animation for view change
+
+Viewtype532.xml:
+- add animation for view change
+
+Viewtype533.xml:
+- add animation for view change
+
+Viewtype534.xml:
+- add animation for view change
 
 Textures.xbt:
 - update textures file with new, bigger OSMC logo file

@@ -17,13 +17,11 @@
 		<!-- Background -->
 		<include>WindowBackgroundImage</include>
 		
-		<control type="group">
-			
+		<!-- Time -->
+		<include>Time</include>
 
-			<!-- Time -->
-			<control type="group">
-				<include>Time</include>
-			</control>
+		<control type="group">
+			<include>WindowFadeAnimation</include>
 
 			<!-- Main list (Left) -->
 			<control type="grouplist" id="3">
@@ -50,7 +48,6 @@
 				<include>SettingsCategory_coords3</include>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<font>Font27</font>
-				<visible>ControlGroup(5).HasFocus</visible>>
 			</control>
 
 			<!-- Indicators -->
@@ -148,7 +145,7 @@
 						<scrolltime>200</scrolltime>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
-						<defaultcontrol always="true">99</defaultcontrol>
+						<defaultcontrol always="true">90</defaultcontrol>
 
 						<include content="SideMenuAnimation">
 							<param name="containerID">3001</param>
@@ -210,13 +207,7 @@
 							<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52.png</texturefocus>
 						</control>
 
-					<animation effect="slide" end="0,-128" time="200" condition="Player.HasMedia + !Skin.HasSetting(SubMenuControls)">Conditional</animation>
-					
-					<include content="SideMenuControlsSpacer">
-						<param name="containerID">3001</param>
-					</include>
-					
-					<include>SideMenuControls</include>
+						<include>SideMenuControls</include>
 
 					</control>
 				</control>

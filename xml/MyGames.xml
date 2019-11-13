@@ -32,6 +32,7 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(50)</visible>
+				<include>VisibleFadeAnimationLong</include>
 			</control>
 
 			<!-- Scrollbar (wall) -->
@@ -48,6 +49,7 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(55)</visible>
+				<include>VisibleFadeAnimationLong</include>
 			</control>
 
 			<!-- Item count -->
@@ -172,12 +174,6 @@
 						<onclick>ActivateWindow(addonbrowser,addons://more/game/,return)</onclick>
 						<visible>Container.Content(addons)</visible>
 					</control>
-					
-					<animation effect="slide" end="0,-138" time="200" condition="Player.HasMedia + !Skin.HasSetting(SubMenuControls)">Conditional</animation>
-					
-					<include content="SideMenuControlsSpacer">
-						<param name="containerID">3001</param>
-					</include>
 					
 					<include>SideMenuControls</include>
 					
