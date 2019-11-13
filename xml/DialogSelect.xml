@@ -8,123 +8,126 @@
 		<control type="group">
 			<visible>![Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)]</visible>
 			
-			<!-- Animation -->
-			<include>DialogZoomAnimation</include>
-			
 			<!-- Dialog fanart -->
 			<include>DialogFanart</include>
 			
-			<!-- Heading -->
-			<include content="Time">
-				<param name="heading">$INFO[Control.GetLabel(1)]</param>
-			</include>
-
-			<!-- Heading -->
-			<control type="label" id="1">
-				<left>-15000</left>
-				<top>96</top>
-				<width>1620</width>
-				<height>72</height>
-				<font>Font72</font>
-			</control>
-
-			<!-- Image -->
-			<control type="image">
-				<include>DialogSelect_coords1</include>
-				<texture>$INFO[Container(6).ListItem.Icon]</texture>
-				<aspectratio aligny="center">keep</aspectratio>
-				<visible>Control.IsVisible(6) + !String.Contains(Container(6).ListItem.Icon,Default)</visible>
-			</control>
-			<control type="image">
-				<include>DialogSelect_coords1</include>
-				<texture>$INFO[Container(6).ListItem.Icon]</texture>
-				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
-				<aspectratio aligny="center">keep</aspectratio>
-				<visible>Control.IsVisible(6) + String.Contains(Container(6).ListItem.Icon,Default)</visible>
-			</control>
-
-			<!-- Scrollbar -->
-			<control type="scrollbar" id="60">
-				<include>DialogSelect_coords2</include>
-				<onleft>5</onleft>
-				<onright condition="Control.IsVisible(3)">3</onright>
-				<onright condition="Control.IsVisible(6)">6</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars)</visible>
-			</control>
-
-			<!-- List -->
-			<control type="list" id="3">
-				<include>DialogSelect_coords3</include>
-				<onup>3</onup>
-				<ondown>3</ondown>
-				<onleft>60</onleft>
-				<onright>9001</onright>
-				<orientation>vertical</orientation>
-				<viewtype label="list">list</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<pagecontrol>60</pagecontrol>
-
-				<include>DialogSelect_coords4</include>
-
-				<include>DialogSelect_coords5</include>
-
-			</control>
-
-			<!-- List -->
-			<control type="list" id="6">
-				<include>DialogSelect_coords6</include>
-				<onup>6</onup>
-				<ondown>6</ondown>
-				<onleft>60</onleft>
-				<onright>9001</onright>
-				<orientation>vertical</orientation>
-				<pagecontrol>60</pagecontrol>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
-
-				<include>DialogSelect_coords7</include>
-
-				<include>DialogSelect_coords8</include>
-
-			</control>
-
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9001</param>
-			</include>
-
-			<!-- Button grouplist -->
-			<control type="grouplist" id="9001">
-				<include>DialogButtons</include>
-				<itemgap>30</itemgap>
-				<onup condition="Control.IsVisible(3)">3</onup>
-				<onup condition="Control.IsVisible(6)">6</onup>
-				<orientation>horizontal</orientation>
-				<align>center</align>
-
-				<!-- Cancel Button -->
-				<control type="button" id="7">
-					<width>Auto</width>
-				</control>
-
-				<!-- Get more Button -->
-				<control type="button" id="5">
-					<width>Auto</width>
-				</control>
-
-			</control>
+			<control type="group">
+				<!-- Animation -->
+				<include>DialogZoomAnimation</include>
 			
-			<!-- Button grouplist indicator -->
-			<include content="dialogButtonIndicator">
-				<param name="visibility">!ControlGroup(9001).HasFocus</param>
-			</include>
+				<!-- Heading -->
+				<include content="Time">
+					<param name="heading">$INFO[Control.GetLabel(1)]</param>
+				</include>
+
+				<!-- Heading -->
+				<control type="label" id="1">
+					<left>-15000</left>
+					<top>96</top>
+					<width>1620</width>
+					<height>72</height>
+					<font>Font72</font>
+				</control>
+
+				<!-- Image -->
+				<control type="image">
+					<include>DialogSelect_coords1</include>
+					<texture>$INFO[Container(6).ListItem.Icon]</texture>
+					<aspectratio aligny="center">keep</aspectratio>
+					<visible>Control.IsVisible(6) + !String.Contains(Container(6).ListItem.Icon,Default)</visible>
+				</control>
+				<control type="image">
+					<include>DialogSelect_coords1</include>
+					<texture>$INFO[Container(6).ListItem.Icon]</texture>
+					<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+					<aspectratio aligny="center">keep</aspectratio>
+					<visible>Control.IsVisible(6) + String.Contains(Container(6).ListItem.Icon,Default)</visible>
+				</control>
+
+				<!-- Scrollbar -->
+				<control type="scrollbar" id="60">
+					<include>DialogSelect_coords2</include>
+					<onleft>5</onleft>
+					<onright condition="Control.IsVisible(3)">3</onright>
+					<onright condition="Control.IsVisible(6)">6</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
+					<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+					<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars)</visible>
+				</control>
+
+				<!-- List -->
+				<control type="list" id="3">
+					<include>DialogSelect_coords3</include>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<onleft>60</onleft>
+					<onright>9001</onright>
+					<orientation>vertical</orientation>
+					<viewtype label="list">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+					<pagecontrol>60</pagecontrol>
+
+					<include>DialogSelect_coords4</include>
+
+					<include>DialogSelect_coords5</include>
+
+				</control>
+
+				<!-- List -->
+				<control type="list" id="6">
+					<include>DialogSelect_coords6</include>
+					<onup>6</onup>
+					<ondown>6</ondown>
+					<onleft>60</onleft>
+					<onright>9001</onright>
+					<orientation>vertical</orientation>
+					<pagecontrol>60</pagecontrol>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<include>DialogSelect_coords7</include>
+
+					<include>DialogSelect_coords8</include>
+
+				</control>
+
+				<!-- Button grouplist background -->
+				<include content="dialogButtonBackground">
+					<param name="id">9001</param>
+				</include>
+
+				<!-- Button grouplist -->
+				<control type="grouplist" id="9001">
+					<include>DialogButtons</include>
+					<itemgap>30</itemgap>
+					<onup condition="Control.IsVisible(3)">3</onup>
+					<onup condition="Control.IsVisible(6)">6</onup>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+
+					<!-- Cancel Button -->
+					<control type="button" id="7">
+						<width>Auto</width>
+					</control>
+
+					<!-- Get more Button -->
+					<control type="button" id="5">
+						<width>Auto</width>
+					</control>
+
+				</control>
+				
+				<!-- Button grouplist indicator -->
+				<include content="dialogButtonIndicator">
+					<param name="visibility">!ControlGroup(9001).HasFocus</param>
+				</include>
+				
+			</control>
 
 		</control>
 

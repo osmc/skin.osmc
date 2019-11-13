@@ -105,6 +105,93 @@
 	<include file="Coordinates_VideoOSD.xml" />
 	<include file="Coordinates_VideoOSDBookmarks.xml" />
 
+	<!-- Onloads -->
+	<include name="Onloads">
+		<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
+		<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Always)</onload>
+		<onload condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,Always)</onload>
+		<onload condition="String.IsEmpty(Skin.String(NFDimOpac))">Skin.SetString(NFDimOpac,100)</onload>
+		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom) + !String.IsEmpty(Skin.String(CustomBackground))">Skin.SetString(BackgroundDefaultImage,no)</onload>
+		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom) + String.IsEmpty(Skin.String(CustomBackground))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(BackgroundSingleImage))">Skin.SetString(BackgroundSingleImage,yes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundImage,1)</onload>
+		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundImage,1)</onload>
+		<onload condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes) + String.IsEmpty(Skin.String(CustomBackground))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
+		<onload condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text1))">Skin.SetString(color.text1,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text2))">Skin.SetString(color.text2,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text3))">Skin.SetString(color.text3,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.text4))">Skin.SetString(color.text4,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.darken))">Skin.SetString(color.darken,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.overlayfo))">Skin.SetString(color.overlayfo,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.overlaynf))">Skin.SetString(color.overlaynf,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.selected))">Skin.SetString(color.selected,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.fanartdiffuse))">Skin.SetString(color.fanartdiffuse,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.homenf))">Skin.SetString(color.homenf,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialog1))">Skin.SetString(color.dialog1,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialog2))">Skin.SetString(color.dialog2,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.disabled))">Skin.SetString(color.disabled,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.invalid))">Skin.SetString(color.invalid,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialogoverlayfo))">Skin.SetString(color.dialogoverlayfo,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.dialogoverlaynf))">Skin.SetString(color.dialogoverlaynf,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.background))">Skin.SetString(color.background,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.overlay))">Skin.SetString(color.overlay,None)</onload>
+		<onload condition="String.IsEqual(Skin.String(DefaultColorSet),Default)">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultColorSet))">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultColors))">Skin.SetString(DefaultColors,yes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultOverlayOpacity))">Skin.SetString(DefaultOverlayOpacity,High)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OSMCBackgroundOverlay))">Skin.SetString(OSMCBackgroundOverlay,1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(videoinfostartduration))">Skin.SetString(videoinfostartduration,10s)</onload>
+		<onload condition="String.IsEmpty(Skin.String(videoinfoendduration))">Skin.SetString(videoinfoendduration,10s)</onload>
+		<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
+		<onload condition="String.IsEmpty(Skin.String(CustomBackgroundFolderDuration))">Skin.SetString(CustomBackgroundFolderDuration,30s)</onload>
+		<onload condition="String.IsEmpty(Skin.String(IndividualBackgroundFolderDuration))">Skin.SetString(IndividualBackgroundFolderDuration,30s)</onload>
+		<onload condition="String.IsEmpty(Skin.String(AutoMusicVisPlaybackDuration))">Skin.SetString(AutoMusicVisPlaybackDuration,60s)</onload>
+	</include>
+	
+	<!-- Window animation -->
+	<include name="WindowFadeAnimation">
+		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	</include>
+
+	<!-- Visible animation -->
+	<include name="VisibleFadeAnimation">
+		<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+		<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+	</include>
+	
+	<include name="VisibleFadeAnimationLong">
+		<animation effect="fade" start="0" end="100" time="400">Visible</animation>
+		<animation effect="fade" start="100" end="0" time="400">Hidden</animation>
+	</include>
+
+	<!-- Dialog animation -->
+	<include name="DialogZoomAnimation">
+		<animation type="WindowOpen">
+			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+			<effect type="fade" start="0" end="100" time="300" />
+		</animation>
+		<animation type="WindowClose">
+			<effect type="zoom" start="100" end="70" center="auto" time="300" />
+			<effect type="fade" start="100" end="0" time="300" />
+		</animation>
+	</include>
+
+	<!-- Options animation -->
+	<include name="OptionsAnimation">
+		<animation type="Visible">
+			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+			<effect type="fade" start="0" end="100" time="150" delay="150" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="zoom" start="100" end="70" center="auto" time="300" />
+			<effect type="fade" start="100" end="0" time="150" delay="150" />
+		</animation>
+	</include>
+
 	<!-- Window background image -->
 	<include name="WindowBackgroundImage">
 		<!-- Black background image -->
@@ -219,25 +306,21 @@
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture background="true">$VAR[OSMCBackgroundImage]</texture>
-			<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
+			<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background)) + String.IsEmpty(ListItem.Art(fanart))</visible>
 			<aspectratio>scale</aspectratio>
-			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
-			<include>WindowFadeAnimation</include>
+			<include>DialogZoomAnimation</include>
 		</control>
 		<!-- Multiple background images -->
 		<control type="multiimage">
 			<include>FullscreenDimensions</include>
 			<imagepath background="true">$VAR[OSMCBackgroundImage]</imagepath>
-			<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
+			<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background)) + String.IsEmpty(ListItem.Art(fanart))</visible>
 			<aspectratio>scale</aspectratio>
 			<include>CustomBackgroundFolderDuration</include>
 			<fadetime>2000</fadetime>
 			<randomize>true</randomize>
 			<loop>yes</loop>
-			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
-			<include>WindowFadeAnimation</include>
+			<include>DialogZoomAnimation</include>
 		</control>
 		<!-- Fanart -->
 		<control type="image" id="10000">
@@ -246,20 +329,21 @@
 			<aspectratio>scale</aspectratio>
 			<fadetime>400</fadetime>
 			<visible>!Skin.HasSetting(HideFanart)</visible>
-			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="300">Hidden</animation>
-			<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100">WindowClose</animation>
+			<include>DialogZoomAnimation</include>
 		</control>
 		<!-- Overlay -->
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
 			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
-			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="300">Hidden</animation>
-			<animation effect="fade" start="0" end="100" time="150">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="200" delay="100">WindowClose</animation>
+			<animation type="WindowOpen">
+				<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+				<effect type="fade" start="0" end="100" time="300" tween="quadratic" easing="out" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" start="100" end="70" center="auto" time="300" />
+				<effect type="fade" start="100" end="0" time="300" tween="quadratic" easing="in" />
+			</animation>
 		</control>
 	</include>
 
@@ -587,37 +671,6 @@
 		</definition>
 	</include>
 
-	<!-- Item count -->
-	<include name="ItemCount">
-		<control type="grouplist">
-			<include>ItemCount_coords</include>
-			<itemgap>6</itemgap>
-			<align>right</align>
-			<aligny>bottom</aligny>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<label>$INFO[Container.NumItems]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<label>$VAR[ContentType]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-			</control>
-		</control>
-	</include>
-
 	<!-- Media Flags -->
 	<include name="MediaFlags">
 		<!-- Video flags -->
@@ -687,7 +740,7 @@
 			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
 			<animation effect="slide" time="0" start="0,0" end="0,-40" condition="Skin.HasSetting(HideMediaFlags) | String.IsEmpty(ListItem.VideoCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
 			<control type="image">
-				<include>MediaFlags_coords5</include>
+				<include>MediaFlags_coords2</include>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>Duration.png</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
@@ -726,40 +779,35 @@
 		</control>
 	</include>
 
-	<!-- Window animation -->
-	<include name="WindowFadeAnimation">
-		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
-		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-	</include>
-
-	<!-- Visible animation -->
-	<include name="VisibleFadeAnimation">
-		<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-		<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-	</include>
-
-	<!-- Dialog animation -->
-	<include name="DialogZoomAnimation">
-		<animation type="WindowOpen">
-			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
-			<effect type="fade" start="0" end="100" time="50" delay="50" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="zoom" start="100" end="70" center="auto" time="300" />
-			<effect type="fade" start="100" end="0" time="150" delay="150" />
-		</animation>
-	</include>
-
-	<!-- Options animation -->
-	<include name="OptionsAnimation">
-		<animation type="Visible">
-			<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
-			<effect type="fade" start="0" end="100" time="150" delay="150" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="zoom" start="100" end="70" center="auto" time="300" />
-			<effect type="fade" start="100" end="0" time="150" delay="150" />
-		</animation>
+	<!-- Item count -->
+	<include name="ItemCount">
+		<control type="grouplist">
+			<include>ItemCount_coords</include>
+			<itemgap>6</itemgap>
+			<align>right</align>
+			<aligny>bottom</aligny>
+			<orientation>horizontal</orientation>
+			<usecontrolcoords>true</usecontrolcoords>
+			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
+			<control type="label">
+				<width>auto</width>
+				<height>36</height>
+				<align>right</align>
+				<aligny>bottom</aligny>
+				<label>$INFO[Container.NumItems]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+			<control type="label">
+				<width>auto</width>
+				<height>36</height>
+				<align>right</align>
+				<aligny>bottom</aligny>
+				<label>$VAR[ContentType]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+		</control>
 	</include>
 
 	<!-- Keyboard buttons -->
@@ -803,116 +851,27 @@
 
 	<!-- Side menu controls -->
 	<include name="SideMenuControls">
-		<control type="group" id="70000">
-			<!-- Divider -->
-			<control type="image" id="80013">
-				<include>SideMenuControls_coords1</include>
-				<texture colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			
-			<!-- Spacer -->
-			<control type="image" id="80014">
-				<include>SideMenuControls_coords2</include>
-				<texture>transparent.png</texture>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			
-			<!-- Icon -->
-			<control type="image" id="80015">
-				<include>SideMenuControls_coords3</include>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture>$INFO[Player.Icon]</texture>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			
-			<!-- Spacer -->
-			<control type="image" id="80016">
-				<include>SideMenuControls_coords4</include>
-				<texture>transparent.png</texture>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-		
-			<!-- Heading -->
-			<control type="label" id="80017">
-				<include>SideMenuControls_coords5</include>
-				<align>center</align>
-				<label>$INFO[Player.Title]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			
-			<!-- Spacer -->
-			<control type="image" id="80018">
-				<include>SideMenuControls_coords6</include>
-				<texture>transparent.png</texture>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			
-			<!-- Current position/Time remaining -->
-			<control type="label" id="80019">
-				<include>SideMenuControls_coords7</include>
-				<font>Font33</font>
-				<align>center</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
-				<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			<control type="label" id="80020">
-				<include>SideMenuControls_coords7</include>
-				<font>Font33</font>
-				<align>center</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<label>$INFO[Player.Time]</label>
-				<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			
-			<!-- PVR current position/Time remaining -->
-			<control type="label" id="80021">
-				<include>SideMenuControls_coords7</include>
-				<font>Font33</font>
-				<align>center</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
-				<visible>Pvr.IsPlayingTv</visible>
-				<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-				<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-			</control>
-			
-		</control>
-		
+	
 		<!-- Spacer -->
-		<control type="image" id="80022">
-			<include>SideMenuControls_coords8</include>
-			<texture>transparent.png</texture>
+		<control type="image" id="80001">
+			<include>SideMenuControls_coords1</include>
+			<texture colordiffuse="$VAR[OverlayColor]">transparent.png</texture>
 			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			<animation effect="slide" start="-450,0" end="0,0" time="200">VisibleChange</animation>
 		</control>
-			
+		
 		<!-- Player controls -->
 		<control type="grouplist" id="90000">
-			<include>SideMenuControls_coords9</include>
+			<include>SideMenuControls_coords2</include>
 			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
 			<align>center</align>
-			<defaultcontrol always="true">90001</defaultcontrol>
 			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
+			<animation effect="slide" start="-450,0" end="0,0" time="200">VisibleChange</animation>
 			
 			<!-- Fullscreen toggle -->
 			<control type="button" id="90001">
-				<include>SideMenuControls_coords10</include>
+				<include>SideMenuControls_coords3</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDFullscreenNF.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDFullscreenNF.png</texturenofocus>
 				<onclick>Fullscreen</onclick>
@@ -920,13 +879,13 @@
 
 			<!-- Spacer -->
 			<control type="image" id="80023">
-				<include>SideMenuControls_coords11</include>
+				<include>SideMenuControls_coords4</include>
 				<texture>transparent.png</texture>
 			</control>
 
 			<!-- Skip Back -->
 			<control type="button" id="90002">
-				<include>SideMenuControls_coords12</include>
+				<include>SideMenuControls_coords5</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackwardEnd.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickBackwardEnd.png</texturenofocus>
 				<onclick>PlayerControl(Previous)</onclick>
@@ -934,7 +893,7 @@
 			</control>
 			<!-- Rewind -->
 			<control type="togglebutton" id="90003">
-				<include>SideMenuControls_coords13</include>
+				<include>SideMenuControls_coords6</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackward.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickBackward.png</texturenofocus>
 				<alttexturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackward.png</alttexturefocus>
@@ -945,7 +904,7 @@
 			</control>
 			<!-- Tempo Down -->
 			<control type="togglebutton" id="90004">
-				<include>SideMenuControls_coords13</include>
+				<include>SideMenuControls_coords6</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackward.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickBackward.png</texturenofocus>
 				<alttexturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackward.png</alttexturefocus>
@@ -958,14 +917,14 @@
 
 			<!-- Spacer -->
 			<control type="image" id="80024">
-				<include>SideMenuControls_coords11</include>
+				<include>SideMenuControls_coords4</include>
 				<texture>transparent.png</texture>
 				<visible>Player.SeekEnabled</visible>
 			</control>
 			
 			<!-- Play/Pause -->
 			<control type="togglebutton" id="90005">
-				<include>SideMenuControls_coords10</include>
+				<include>SideMenuControls_coords3</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPauseNF.png</texturenofocus>
 				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo</usealttexture>
@@ -977,7 +936,7 @@
 			
 			<!-- Stop -->
 			<control type="button" id="90006">
-				<include>SideMenuControls_coords10</include>
+				<include>SideMenuControls_coords3</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDStopNF.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDStopNF.png</texturenofocus>
 				<onclick>PlayerControl(Stop)</onclick>
@@ -985,14 +944,14 @@
 
 			<!-- Spacer -->
 			<control type="image" id="80025">
-				<include>SideMenuControls_coords11</include>
+				<include>SideMenuControls_coords4</include>
 				<texture>transparent.png</texture>
 				<visible>Player.SeekEnabled</visible>
 			</control>
 
 			<!-- Tempo Up -->
 			<control type="togglebutton" id="90007">
-				<include>SideMenuControls_coords13</include>
+				<include>SideMenuControls_coords6</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForward.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickForward.png</texturenofocus>
 				<alttexturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForward.png</alttexturefocus>
@@ -1004,7 +963,7 @@
 			</control>
 			<!-- Fast Forward -->
 			<control type="togglebutton" id="90008">
-				<include>SideMenuControls_coords13</include>
+				<include>SideMenuControls_coords6</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForward.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickForward.png</texturenofocus>
 				<alttexturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForward.png</alttexturefocus>
@@ -1015,7 +974,7 @@
 			</control>
 			<!-- Next -->
 			<control type="button" id="90009">
-				<include>SideMenuControls_coords12</include>
+				<include>SideMenuControls_coords5</include>
 				<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForwardEnd.png</texturefocus>
 				<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickForwardEnd.png</texturenofocus>
 				<onclick>PlayerControl(Next)</onclick>
@@ -1025,151 +984,6 @@
 		</control>
 	</include>
 	
-	<!-- Side menu animation/spacer when player controls are visible -->
-	<include name="SideMenuControlsSpacer">
-		<!-- Spacer -->
-		<control type="image" id="80001">
-			<include>SideMenuControlsSpacer_coords1</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,13)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80002">
-			<include>SideMenuControlsSpacer_coords2</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,12)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80003">
-			<include>SideMenuControlsSpacer_coords3</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,11)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80004">
-			<include>SideMenuControlsSpacer_coords4</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,10)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80005">
-			<include>SideMenuControlsSpacer_coords5</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,9)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80006">
-			<include>SideMenuControlsSpacer_coords6</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,8)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80007">
-			<include>SideMenuControlsSpacer_coords7</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,7)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80008">
-			<include>SideMenuControlsSpacer_coords8</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,6)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80009">
-			<include>SideMenuControlsSpacer_coords9</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,5)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80010">
-			<include>SideMenuControlsSpacer_coords10</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,4)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80011">
-			<include>SideMenuControlsSpacer_coords11</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,3)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80012">
-			<include>SideMenuControlsSpacer_coords12</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,2)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-		<!-- Spacer -->
-		<control type="image" id="80013">
-			<include>SideMenuControlsSpacer_coords13</include>
-			<texture>transparent.png</texture>
-			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls) + String.IsEqual(Container($PARAM[containerID]).NumItems,1)</visible>
-			<animation effect="slide" start="0,226" end="0,0" time="200">VisibleChange</animation>
-		</control>
-	</include>
-
-	<!-- List indicators -->
-	<include name="Indicators">
-		<definition>
-			<control type="group">
-				<left>$PARAM[left]</left>
-				<top>$PARAM[top]</top>
-				<width>30</width>
-				<height>$PARAM[height]</height>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>30</width>
-					<height>16</height>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
-					<texture colordiffuse="$VAR[DialogColor2]">up.png</texture>
-
-					<visible>Container($PARAM[container]).HasPrevious</visible>
-
-					<animation type="Visible">
-						<effect type="Fade" start="0" end="100" time="200"/>
-						<effect type="slide" start="0,10" end="0,0" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="Fade" start="100" end="0" time="200"/>
-						<effect type="slide" start="0,0" end="0,-10" time="200"/>
-					</animation>
-
-				</control>
-				<control type="image">
-					<left>0</left>
-					<bottom>0</bottom>
-					<width>30</width>
-					<height>16</height>
-					<texture colordiffuse="$VAR[DialogColor2]">down.png</texture>
-
-					<visible>Container($PARAM[container]).HasNext</visible>
-
-					<animation type="Visible">
-						<effect type="Fade" start="0" end="100" time="200"/>
-						<effect type="slide" start="0,-10" end="0,0" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="Fade" start="100" end="0" time="200"/>
-						<effect type="slide" start="0,0" end="0,10" time="200"/>
-					</animation>
-				</control>
-			</control>
-		</definition>
-	</include>
-
 	<!-- Dialog button background -->
 	<include name="dialogButtonBackground">
 		<definition>
@@ -1271,50 +1085,54 @@
 		</definition>
 	</include>
 	
-	<!-- Skin settings, background + colors -->
-	<include name="Onloads">
-		<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
-		<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Always)</onload>
-		<onload condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,Always)</onload>
-		<onload condition="String.IsEmpty(Skin.String(NFDimOpac))">Skin.SetString(NFDimOpac,100)</onload>
-		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom) + !String.IsEmpty(Skin.String(CustomBackground))">Skin.SetString(BackgroundDefaultImage,no)</onload>
-		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom) + String.IsEmpty(Skin.String(CustomBackground))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
-		<onload condition="String.IsEmpty(Skin.String(BackgroundSingleImage))">Skin.SetString(BackgroundSingleImage,yes)</onload>
-		<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
-		<onload condition="String.IsEmpty(Skin.String(BackgroundImage))">Skin.SetString(BackgroundImage,1)</onload>
-		<onload condition="String.IsEqual(Skin.String(BackgroundImage),custom)">Skin.SetString(BackgroundImage,1)</onload>
-		<onload condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes) + String.IsEmpty(Skin.String(CustomBackground))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
-		<onload condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))">Skin.SetString(BackgroundDefaultImage,yes)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.text1))">Skin.SetString(color.text1,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.text2))">Skin.SetString(color.text2,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.text3))">Skin.SetString(color.text3,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.text4))">Skin.SetString(color.text4,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.darken))">Skin.SetString(color.darken,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.overlayfo))">Skin.SetString(color.overlayfo,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.overlaynf))">Skin.SetString(color.overlaynf,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.selected))">Skin.SetString(color.selected,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.fanartdiffuse))">Skin.SetString(color.fanartdiffuse,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.homenf))">Skin.SetString(color.homenf,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.dialog1))">Skin.SetString(color.dialog1,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.dialog2))">Skin.SetString(color.dialog2,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.disabled))">Skin.SetString(color.disabled,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.invalid))">Skin.SetString(color.invalid,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.dialogoverlayfo))">Skin.SetString(color.dialogoverlayfo,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.dialogoverlaynf))">Skin.SetString(color.dialogoverlaynf,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.background))">Skin.SetString(color.background,None)</onload>
-		<onload condition="String.IsEmpty(Skin.String(color.overlay))">Skin.SetString(color.overlay,None)</onload>
-		<onload condition="String.IsEqual(Skin.String(DefaultColorSet),Default)">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
-		<onload condition="String.IsEmpty(Skin.String(DefaultColorSet))">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
-		<onload condition="String.IsEmpty(Skin.String(DefaultColors))">Skin.SetString(DefaultColors,yes)</onload>
-		<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
-		<onload condition="String.IsEmpty(Skin.String(DefaultOverlayOpacity))">Skin.SetString(DefaultOverlayOpacity,High)</onload>
-		<onload condition="String.IsEmpty(Skin.String(OSMCBackgroundOverlay))">Skin.SetString(OSMCBackgroundOverlay,1)</onload>
-		<onload condition="String.IsEmpty(Skin.String(videoinfostartduration))">Skin.SetString(videoinfostartduration,10s)</onload>
-		<onload condition="String.IsEmpty(Skin.String(videoinfoendduration))">Skin.SetString(videoinfoendduration,10s)</onload>
-		<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
-		<onload condition="String.IsEmpty(Skin.String(CustomBackgroundFolderDuration))">Skin.SetString(CustomBackgroundFolderDuration,30s)</onload>
-		<onload condition="String.IsEmpty(Skin.String(IndividualBackgroundFolderDuration))">Skin.SetString(IndividualBackgroundFolderDuration,30s)</onload>
-		<onload condition="String.IsEmpty(Skin.String(AutoMusicVisPlaybackDuration))">Skin.SetString(AutoMusicVisPlaybackDuration,60s)</onload>
+	<!-- List indicators -->
+	<include name="Indicators">
+		<definition>
+			<control type="group">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>30</width>
+				<height>$PARAM[height]</height>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>30</width>
+					<height>16</height>
+					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<texture colordiffuse="$VAR[DialogColor2]">up.png</texture>
+
+					<visible>Container($PARAM[container]).HasPrevious</visible>
+
+					<animation type="Visible">
+						<effect type="Fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="0,10" end="0,0" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="Fade" start="100" end="0" time="200"/>
+						<effect type="slide" start="0,0" end="0,-10" time="200"/>
+					</animation>
+
+				</control>
+				<control type="image">
+					<left>0</left>
+					<bottom>0</bottom>
+					<width>30</width>
+					<height>16</height>
+					<texture colordiffuse="$VAR[DialogColor2]">down.png</texture>
+
+					<visible>Container($PARAM[container]).HasNext</visible>
+
+					<animation type="Visible">
+						<effect type="Fade" start="0" end="100" time="200"/>
+						<effect type="slide" start="0,-10" end="0,0" time="200"/>
+					</animation>
+					<animation type="Hidden">
+						<effect type="Fade" start="100" end="0" time="200"/>
+						<effect type="slide" start="0,0" end="0,10" time="200"/>
+					</animation>
+				</control>
+			</control>
+		</definition>
 	</include>
 
 </includes>
