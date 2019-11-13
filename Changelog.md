@@ -2,10 +2,13 @@
 
 _New_
 - add new pre-defined widgets
+- add setting to hide media flags
 
 _Improved_
 - rework home menu customization dialogs
 - improve sort by and sort order toggles
+- improve video info dialog (animations and buttons)
+- improve aligment and positioning of item count and media flags
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
@@ -21,6 +24,7 @@ strings.po:
 - add new localizes for new pre-defined widgets and reworked home menu customization dialogs (31178-31232)
 - add new localizes for improved sort by and sort order toggles (31233, 31234)
 - add new localizes for additional widgets per script (31235, 31236)
+- add new localize hide media flags setting (31237)
 
 AddonBrowser.xml:
 - remove deprecated view toggle
@@ -30,11 +34,17 @@ AddonBrowser.xml:
 
 Coordinates_Includes.xml:
 - add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
+- change positioning of media flags (aligned with item count)
 
 DialogFavourites.xml:
 - change conditional onleft of scrollbar (submenu is only present during playback with active side-menu controls)
 - change conditional visibility of submenu indicator (submenu is only present during playback with active side-menu controls)
 - remove hide scrollbar toggle
+
+DialogVideoInfo.xml:
+- add fade animation to togglable dialog elemtents (plot, cast, extended info)
+- show all buttons all the time
+- improve extended info button to keep focus
 
 EventLog.xml:
 - add new "Sort order" localize to sort order toggle
@@ -42,6 +52,9 @@ EventLog.xml:
 Includes.xml:
 - add black background layer behind background video playback to WindowBackgroundImage include
 - add 13th spacer to SideMenuControlsSpacer include for only one item in side/context menu
+- fix alignment of item count and media flags
+- add new hide media flags functionality
+- change seperator of duration/size label
 
 MyGames.xml:
 - add new "View: " localize to view toggle
@@ -106,12 +119,15 @@ script-skinshortcuts.xml:
 
 SkinSettings.xml:
 - add hide scrollbars setting formerly found in other windows
+- add new hide media flags setting
 
 Variables.xml:
 - add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options
+- improve duration variable
 
 Textures.xbt:
 - update textures file with new, bigger OSMC logo file
+- update textures file with improved media flags icons
 
 mainmenu.DATA.xml:
 - add conditional visibility to MyOSMC home menu entry
