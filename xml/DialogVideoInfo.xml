@@ -25,6 +25,7 @@
 			<!-- Poster image -->
 			<control type="group">
 				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
 					<fadetime>100</fadetime>
@@ -36,6 +37,7 @@
 			<!-- Actor image -->
 			<control type="group">
 				<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
 					<fadetime>100</fadetime>
@@ -53,6 +55,7 @@
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<pauseatend>5000</pauseatend>
 				<visible>Control.HasFocus(6)</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 
 			<!-- Play count and last played date & time -->
@@ -65,12 +68,14 @@
 				<pauseatend>5000</pauseatend>
 				<visible>!Control.HasFocus(6)</visible>
 				<visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 
 			<!-- Info -->
 			<control type="group">
 				<include>DialogVideoInfo_coords3</include>
 				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				<include>VisibleFadeAnimation</include>
 
 				<!-- Details -->
 				<control type="grouplist">
@@ -373,6 +378,7 @@
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible allowhiddenfocus="true">String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				<include>VisibleFadeAnimation</include>
 
 				<include>DialogVideoInfo_coords10</include>
 
@@ -394,12 +400,14 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 			
 			<!-- Extended info -->
 			<control type="group">
 				<include>DialogVideoInfo_coords13</include>
 				<visible>!String.IsEmpty(Window(12003).Property(extended))</visible>
+				<include>VisibleFadeAnimation</include>
 
 				<!-- Details -->
 				<control type="grouplist">
@@ -568,44 +576,41 @@
 					<width>Auto</width>
 					<label>206</label>
 					<onclick condition="String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])">SetFocus(50)</onclick>
-					<visible>!String.IsEmpty(ListItem.Cast) + String.IsEmpty(Window(12003).Property(extended))</visible>
+					<onclick>ClearProperty(extended,12003)</onclick>
+					<visible>!String.IsEmpty(ListItem.Cast)</visible>
 				</control>
 				<!-- Director Button -->
 				<control type="button" id="13">
 					<width>Auto</width>
 					<label>20339</label>
-					<visible>!String.IsEmpty(ListItem.Director) + String.IsEmpty(Window(12003).Property(extended))</visible>
+					<onclick>ClearProperty(extended,12003)</onclick>
+					<visible>!String.IsEmpty(ListItem.Director)</visible>
 				</control>
 				<!-- Extended info Button -->
-				<control type="button" id="15">
+				<control type="togglebutton" id="15">
 					<width>Auto</width>
 					<label>31170</label>
-					<onclick>SetProperty(extended,14115,12003)</onclick>
-					<visible>String.IsEmpty(Window(12003).Property(extended)) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !Container.Content(musicvideos)</visible>
-				</control>
-				<control type="button" id="16">
-					<width>Auto</width>
-					<label>31171</label>
-					<onclick>ClearProperty(extended,12003)</onclick>
-					<visible>!String.IsEmpty(Window(12003).Property(extended)) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !Container.Content(musicvideos)</visible>
+					<altlabel>31171</altlabel>
+					<onclick condition="String.IsEmpty(Window(12003).Property(extended))">SetProperty(extended,14115,12003)</onclick>
+					<onclick condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onclick>
+					<usealttexture>!String.IsEmpty(Window(12003).Property(extended))</usealttexture>
+					<visible>!Container.Content(musicvideos)</visible>
 				</control>
 				<!-- User rating Button -->
 				<control type="button" id="7">
 					<width>Auto</width>
 					<label>38018</label>
-					<visible>Skin.HasSetting(UserRating) + String.IsEmpty(Window(12003).Property(extended))</visible>
+					<visible>Skin.HasSetting(UserRating)</visible>
 				</control>
 				<!-- Refresh Button -->
 				<control type="button" id="6">
 					<width>Auto</width>
 					<label>184</label>
-					<visible>String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 				<!-- Get Thumb Button -->
 				<control type="button" id="10">
 					<width>Auto</width>
 					<label>13511</label>
-					<visible>String.IsEmpty(Window(12003).Property(extended))</visible>
 				</control>
 				<!-- Artwork Downloader Button -->
 				<control type="button" id="20">
@@ -613,13 +618,13 @@
 					<label>31043</label>
 					<onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
 					<onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)] + String.IsEmpty(Window(12003).Property(extended))</visible>
+					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<!-- Trailer Button -->
 				<control type="button" id="11">
 					<width>Auto</width>
 					<label>20410</label>
-					<visible>!String.IsEmpty(ListItem.Trailer) + String.IsEmpty(Window(12003).Property(extended))</visible>
+					<visible>!String.IsEmpty(ListItem.Trailer)</visible>
 				</control>
 				<!-- Cinema Experience Button -->
 				<control type="button" id="21">
@@ -627,7 +632,7 @@
 					<label>31066</label>
 					<onclick>Dialog.Close(MovieInformation)</onclick>
 					<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + String.IsEmpty(Window(12003).Property(extended))</visible>
+					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
 				</control>
 
 			</control>

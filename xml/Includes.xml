@@ -593,21 +593,24 @@
 			<include>ItemCount_coords</include>
 			<itemgap>6</itemgap>
 			<align>right</align>
+			<aligny>bottom</aligny>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
 			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
 			<control type="label">
 				<width>auto</width>
-				<height>44</height>
+				<height>36</height>
 				<align>right</align>
+				<aligny>bottom</aligny>
 				<label>$INFO[Container.NumItems]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
-				<height>44</height>
+				<height>36</height>
 				<align>right</align>
+				<aligny>bottom</aligny>
 				<label>$VAR[ContentType]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
@@ -617,81 +620,84 @@
 
 	<!-- Media Flags -->
 	<include name="MediaFlags">
+		<!-- Video flags -->
 		<control type="grouplist">
 			<include>MediaFlags_coords1</include>
 			<itemgap>0</itemgap>
 			<align>left</align>
+			<aligny>bottom</aligny>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-
-			<!-- Video flags -->
+			<visible>Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(HideMediaFlags)</visible>
 			<control type="image">
 				<include>MediaFlags_coords2</include>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>Video.png</texture>
-				<aspectratio>keep</aspectratio>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
 			<control type="label">
 				<width>auto</width>
-				<height>44</height>
+				<height>36</height>
 				<align>right</align>
+				<aligny>bottom</aligny>
 				<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
-				<font>Font29</font>
+				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
 		</control>
 
+		<!-- Audio flags -->
 		<control type="grouplist">
 			<include>MediaFlags_coords3</include>
 			<itemgap>0</itemgap>
 			<align>left</align>
+			<aligny>bottom</aligny>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-
-			<!-- Audio flags -->
+			<visible>Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(HideMediaFlags)</visible>
 			<control type="image">
 				<include>MediaFlags_coords2</include>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>AudioTrack.png</texture>
-				<aspectratio>keep</aspectratio>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
 			<control type="label">
 				<width>auto</width>
-				<height>44</height>
+				<height>36</height>
 				<align>right</align>
+				<aligny>bottom</aligny>
 				<label>$VAR[Audio]</label>
-				<font>Font29</font>
+				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
 		</control>
 		
+		<!-- Duration -->
 		<control type="grouplist">
 			<include>MediaFlags_coords4</include>
 			<itemgap>0</itemgap>
 			<align>left</align>
+			<aligny>bottom</aligny>
 			<orientation>horizontal</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
 			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			<animation effect="slide" time="0" start="0,0" end="0,-44" condition="String.IsEmpty(ListItem.VideoCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
-
-			<!-- Duration -->
+			<animation effect="slide" time="0" start="0,0" end="0,-40" condition="Skin.HasSetting(HideMediaFlags) | String.IsEmpty(ListItem.VideoCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
 			<control type="image">
 				<include>MediaFlags_coords5</include>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>Duration.png</texture>
-				<aspectratio>keep</aspectratio>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 			</control>
 			<control type="label">
 				<width>auto</width>
-				<height>44</height>
+				<height>36</height>
 				<align>right</align>
+				<aligny>bottom</aligny>
 				<label>$VAR[Duration]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
@@ -699,17 +705,19 @@
 			</control>
 			<control type="label">
 				<width>auto</width>
-				<height>44</height>
+				<height>36</height>
 				<align>right</align>
-				<label>  /  </label>
+				<aligny>bottom</aligny>
+				<label> &#8226; </label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + !ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
 			<control type="label">
 				<width>auto</width>
-				<height>44</height>
+				<height>36</height>
 				<align>right</align>
+				<aligny>bottom</aligny>
 				<label>$INFO[ListItem.Size,$LOCALIZE[289]: ,]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
