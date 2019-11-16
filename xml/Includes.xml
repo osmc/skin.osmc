@@ -199,6 +199,7 @@
 			<include>FullscreenDimensions</include>
 			<texture background="true">common/white.png</texture>
 			<colordiffuse>FF000000</colordiffuse>
+			<aspectratio>scale</aspectratio>
 			<visible>Player.HasVideo + Skin.HasSetting(BackgroundVideo)</visible>
 		</control>
 		<!-- Background video -->
@@ -302,6 +303,15 @@
 	
 	<!-- Dialog fanart -->
 	<include name="DialogFanart">
+		<!-- Black background image -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<texture background="true">common/white.png</texture>
+			<colordiffuse>FF000000</colordiffuse>
+			<aspectratio>scale</aspectratio>
+			<animation effect="fade" start="0" end="100" time="0" delay="300">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
+		</control>
 		<!-- Single background image -->
 		<control type="image">
 			<include>FullscreenDimensions</include>
