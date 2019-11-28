@@ -163,11 +163,6 @@
 		<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 	</include>
 	
-	<include name="VisibleFadeAnimationLong">
-		<animation effect="fade" start="0" end="100" time="400">Visible</animation>
-		<animation effect="fade" start="100" end="0" time="400">Hidden</animation>
-	</include>
-
 	<!-- Dialog animation -->
 	<include name="DialogZoomAnimation">
 		<animation type="WindowOpen">
@@ -309,8 +304,7 @@
 			<texture background="true">common/white.png</texture>
 			<colordiffuse>FF000000</colordiffuse>
 			<aspectratio>scale</aspectratio>
-			<animation effect="fade" start="0" end="100" time="0" delay="300">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
+			<include>DialogZoomAnimation</include>
 		</control>
 		<!-- Single background image -->
 		<control type="image">
@@ -683,140 +677,84 @@
 
 	<!-- Media Flags -->
 	<include name="MediaFlags">
-		<!-- Video flags -->
-		<control type="grouplist">
+		<control type="group">
 			<include>MediaFlags_coords1</include>
-			<itemgap>0</itemgap>
-			<align>left</align>
-			<aligny>bottom</aligny>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(HideMediaFlags)</visible>
+			<visible>Integer.IsGreater(Container.NumItems,0) + !ListItem.IsFolder</visible>
+			<animation effect="slide" time="0" start="0,0" end="0,60" condition="!Skin.HasSetting(HideMediaFlags) + [Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(55)]">Conditional</animation>
+		
+			<!-- Video -->
 			<control type="image">
 				<include>MediaFlags_coords2</include>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>Video.png</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+				<visible>!Skin.HasSetting(HideMediaFlags) + !String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
+			<control type="fadelabel">
+				<include>MediaFlags_coords3</include>
 				<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
-				<font>Font33</font>
+				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+				<pauseatend>5000</pauseatend>
+				<visible>!Skin.HasSetting(HideMediaFlags) + !String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
-		</control>
-
-		<!-- Audio flags -->
-		<control type="grouplist">
-			<include>MediaFlags_coords3</include>
-			<itemgap>0</itemgap>
-			<align>left</align>
-			<aligny>bottom</aligny>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0) + !Skin.HasSetting(HideMediaFlags)</visible>
+			
+			<!-- Audio -->
 			<control type="image">
-				<include>MediaFlags_coords2</include>
+				<include>MediaFlags_coords4</include>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>AudioTrack.png</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+				<visible>!Skin.HasSetting(HideMediaFlags) + !String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
+			<control type="fadelabel">
+				<include>MediaFlags_coords5</include>
 				<label>$VAR[Audio]</label>
-				<font>Font33</font>
+				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+				<pauseatend>5000</pauseatend>
+				<visible>!Skin.HasSetting(HideMediaFlags) + !String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
-		</control>
-		
-		<!-- Duration -->
-		<control type="grouplist">
-			<include>MediaFlags_coords4</include>
-			<itemgap>0</itemgap>
-			<align>left</align>
-			<aligny>bottom</aligny>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
-			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			<animation effect="slide" time="0" start="0,0" end="0,-40" condition="Skin.HasSetting(HideMediaFlags) | String.IsEmpty(ListItem.VideoCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
+			
+			<!-- Duration -->
 			<control type="image">
-				<include>MediaFlags_coords2</include>
+				<include>MediaFlags_coords6</include>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<texture>Duration.png</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
+			<control type="fadelabel">
+				<include>MediaFlags_coords7</include>
 				<label>$VAR[Duration]</label>
-				<font>Font33</font>
+				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+				<pauseatend>5000</pauseatend>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<label> &#8226; </label>
-				<font>Font33</font>
+			<control type="fadelabel">
+				<include>MediaFlags_coords7</include>
+				<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
+				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + !ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
+				<pauseatend>5000</pauseatend>
+				<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<label>$INFO[ListItem.Size,$LOCALIZE[289]: ,]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!ListItem.IsFolder + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-			</control>
+		
 		</control>
+
 	</include>
 
 	<!-- Item count -->
 	<include name="ItemCount">
-		<control type="grouplist">
+		<control type="fadelabel">
 			<include>ItemCount_coords</include>
-			<itemgap>6</itemgap>
+			<label>$INFO[Container.NumItems]$VAR[ContentType, ,]</label>
+			<font>Font30</font>
+			<textcolor>$VAR[TextColor2]</textcolor>
 			<align>right</align>
-			<aligny>bottom</aligny>
-			<orientation>horizontal</orientation>
-			<usecontrolcoords>true</usecontrolcoords>
+			<pauseatend>5000</pauseatend>
 			<visible>Integer.IsGreater(Container.NumItems,0)</visible>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<label>$INFO[Container.NumItems]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-			</control>
-			<control type="label">
-				<width>auto</width>
-				<height>36</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<label>$VAR[ContentType]</label>
-				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
-			</control>
 		</control>
 	</include>
 

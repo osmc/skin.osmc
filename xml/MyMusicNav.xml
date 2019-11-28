@@ -44,10 +44,9 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54)]</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 			
-			<!-- Scrollbar (poster) -->
+			<!-- Scrollbar (wide) -->
 			<control type="scrollbar" id="61">
 				<include>MyMusicNav_coords2</include>
 				<onup>50</onup>
@@ -61,7 +60,6 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(52)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 
 			<!-- Scrollbar (wall) -->
@@ -78,7 +76,6 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(55)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 
 			<!-- Media flags -->
@@ -136,6 +133,7 @@
 						<height>52</height>
 						<label>$LOCALIZE[31233]$INFO[Container.ViewMode]</label>
 						<onclick>Container.NextViewMode</onclick>
+						<visible>Container.Content(albums) | Container.Content(artists)</visible>
 					</control>
 
 
@@ -145,6 +143,7 @@
 						<width>410</width>
 						<height>10</height>
 						<texture>transparent.png</texture>
+						<visible>Container.Content(albums) | Container.Content(artists)</visible>
 					</control>
 
 

@@ -32,7 +32,6 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(50)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 
 			<!-- Scrollbar (wall) -->
@@ -49,7 +48,6 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(55)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 
 			<!-- Item count -->
@@ -105,6 +103,7 @@
 						<label>$LOCALIZE[31233]$INFO[Container.ViewMode]</label>
 						<height>52</height>
 						<onclick>Container.NextViewMode</onclick>
+						<visible>Container.Content(addons) | Container.Content(games)</visible>
 					</control>
 
 
@@ -114,6 +113,7 @@
 						<width>410</width>
 						<height>10</height>
 						<texture>transparent.png</texture>
+						<visible>Container.Content(addons) | Container.Content(games)</visible>
 					</control>
 
 
