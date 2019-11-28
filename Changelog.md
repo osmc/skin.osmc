@@ -9,11 +9,12 @@ _Improved_
 - improve sort by and sort order toggles
 - improve video info dialog (animations and buttons)
 - improve alignment and positioning of item count and media flags
-- smooth transitions between views
+- show view toggle only when more than one view is available
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
 - hide MyOSMC home menu entry and widget on non-OSMC systems
+- fix overlapping in views with big horizontal titles
 
 **Changelog v18.2.0**
 
@@ -38,6 +39,28 @@ Coordinates_Includes.xml:
 - add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
 - change positioning of media flags (aligned with item count)
 
+Coordinates_MyVideoNav.xml:
+- move year and genre label slightly up to match media flags and item count positioning
+
+Coordinates_Viewtype52.xml:
+- move whole view down to match title/scrollbar positioning of other horizontal views
+- fix width of title and year/genre label control
+
+Coordinates_Viewtype53.xml:
+- fix width of title and year/genre label control
+
+Coordinates_Viewtype55.xml:
+- fix width of title and year/genre label control
+
+Coordinates_Viewtype521.xml:
+- fix width of title and year/genre label control
+
+Coordinates_Viewtype532.xml:
+- fix width of title and year/genre label control
+
+Coordinates_Viewtype534.xml:
+- fix width of title and year/genre label control
+
 DialogFavourites.xml:
 - change conditional onleft of scrollbar (submenu is only present during playback with active side-menu controls)
 - change conditional visibility of submenu indicator (submenu is only present during playback with active side-menu controls)
@@ -57,35 +80,34 @@ Includes.xml:
 - fix alignment of item count and media flags
 - add new hide media flags functionality
 - change seperator of duration/size label
+- rework media flags and item count to add scrolling
 
 MyGames.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- add animation for view change
+- hide view submenu button with containers that only support one viewtype
 
 MyMusicNav.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- add animation for view change
+- hide view submenu button with containers that only support one viewtype
 
 MyPics.xml:
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- add animation for view change
+- remove view submenu button
 
 MyPlaylist.xml:
 - fix side-menu coordinates
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- add animation for view change
 
 MyPrograms.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- add animation for view change
 
 MyPVRChannels.xml:
 - fix side-menu coordinates
@@ -115,7 +137,7 @@ MyVideoNav.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- add animation for view change
+- hide view submenu button with containers that only support one viewtype
 
 script-skinshortcuts-static.xml:
 - add conditional visibility to MyOSMC home menu entry

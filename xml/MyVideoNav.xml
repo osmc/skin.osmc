@@ -41,10 +41,9 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(533)]</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 
-			<!-- Scrollbar (poster) -->
+			<!-- Scrollbar (wide) -->
 			<control type="scrollbar" id="61">
 				<include>MyVideoNav_coords2</include>
 				<onup>50</onup>
@@ -57,8 +56,7 @@
 				<texturesliderbarfocus border="1,12,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripHorizontalFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(52)</visible>
-				<include>VisibleFadeAnimationLong</include>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(52) | Control.IsVisible(521)]</visible>
 			</control>
 
 			<!-- Scrollbar (wall) -->
@@ -75,29 +73,11 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(53)</visible>
-				<include>VisibleFadeAnimationLong</include>
-			</control>
-			
-			<!-- Scrollbar (poster low) -->
-			<control type="scrollbar" id="66">
-				<include>MyVideoNav_coords4</include>
-				<onup>50</onup>
-				<ondown condition="!Skin.HasSetting(KioskMode)">3001</ondown>
-				<showonepage>false</showonepage>
-				<orientation>horizontal</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="1,12,1,1">common/ScrollBackgroundHorizontal.png</texturesliderbackground>
-				<texturesliderbar border="1,12,1,1">common/ScrollbarGripHorizontalNF.png</texturesliderbar>
-				<texturesliderbarfocus border="1,12,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripHorizontalFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(521)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 			
 			<!-- Scrollbar (wall low) -->
 			<control type="scrollbar" id="67">
-				<include>MyVideoNav_coords5</include>
+				<include>MyVideoNav_coords4</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -109,12 +89,11 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(534)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 			
 			<!-- Scrollbar (wall small) -->
 			<control type="scrollbar" id="68">
-				<include>MyVideoNav_coords6</include>
+				<include>MyVideoNav_coords5</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -126,12 +105,11 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(532)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 			
 			<!-- Scrollbar (wall info) -->
 			<control type="scrollbar" id="69">
-				<include>MyVideoNav_coords7</include>
+				<include>MyVideoNav_coords6</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -143,7 +121,6 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(531)</visible>
-				<include>VisibleFadeAnimationLong</include>
 			</control>
 
 			<!-- Media flags -->
@@ -202,6 +179,7 @@
 						<label>$LOCALIZE[31233]$INFO[Container.ViewMode]</label>
 						<height>52</height>
 						<onclick>Container.NextViewMode</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 					</control>
 
 
@@ -211,6 +189,7 @@
 						<width>410</width>
 						<height>10</height>
 						<texture>transparent.png</texture>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 					</control>
 
 
