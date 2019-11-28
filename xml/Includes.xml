@@ -680,7 +680,9 @@
 		<control type="group">
 			<include>MediaFlags_coords1</include>
 			<visible>Integer.IsGreater(Container.NumItems,0) + !ListItem.IsFolder</visible>
-			<animation effect="slide" time="0" start="0,0" end="0,60" condition="!Skin.HasSetting(HideMediaFlags) + [Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(55)]">Conditional</animation>
+			<animation effect="slide" time="0" start="0,0" end="0,30" condition="!Skin.HasSetting(HideMediaFlags) + !String.IsEmpty(ListItem.AudioCodec) + [Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(55)]">Conditional</animation>
+			<animation effect="slide" time="0" start="0,0" end="0,-15" condition="String.IsEmpty(ListItem.AudioCodec) + !String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution) + ![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(55)]">Conditional</animation>
+			<animation effect="slide" time="0" start="0,0" end="0,-30" condition="String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoCodec) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.Duration)">Conditional</animation>
 		
 			<!-- Video -->
 			<control type="image">
@@ -689,6 +691,7 @@
 				<texture>Video.png</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>!Skin.HasSetting(HideMediaFlags) + !String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+				<animation effect="slide" time="0" start="0,0" end="0,30" condition="String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
 			</control>
 			<control type="fadelabel">
 				<include>MediaFlags_coords3</include>
@@ -697,6 +700,7 @@
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<pauseatend>5000</pauseatend>
 				<visible>!Skin.HasSetting(HideMediaFlags) + !String.IsEmpty(ListItem.VideoCodec) + !String.IsEmpty(ListItem.VideoResolution)</visible>
+				<animation effect="slide" time="0" start="0,0" end="0,30" condition="String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
 			</control>
 			
 			<!-- Audio -->
