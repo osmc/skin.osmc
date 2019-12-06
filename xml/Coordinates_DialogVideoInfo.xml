@@ -74,15 +74,15 @@
 	</include>
 	<include name="DialogVideoInfo_coords4_16:9">
 		<width>1170</width>
-		<height>456</height>
+		<height>420</height>
 	</include>
 	<include name="DialogVideoInfo_coords4_21:9">
 		<width>1810</width>
-		<height>456</height>
+		<height>420</height>
 	</include>
 	<include name="DialogVideoInfo_coords4_4:3">
 		<width>690</width>
-		<height>456</height>
+		<height>420</height>
 	</include>
 	
 	<include name="DialogVideoInfo_coords5">
@@ -143,24 +143,42 @@
 	</include>
 	
 	<include name="DialogVideoInfo_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogVideoInfo_coords8_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogVideoInfo_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogVideoInfo_coords8_4:3</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + Skin.HasSetting(ShowOriginalTitle)">DialogVideoInfo_coords8_ShowOriginalTitle_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9) + Skin.HasSetting(ShowOriginalTitle)">DialogVideoInfo_coords8_ShowOriginalTitle_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3) + Skin.HasSetting(ShowOriginalTitle)">DialogVideoInfo_coords8_ShowOriginalTitle_4:3</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + !Skin.HasSetting(ShowOriginalTitle)">DialogVideoInfo_coords8_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9) + !Skin.HasSetting(ShowOriginalTitle)">DialogVideoInfo_coords8_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3) + !Skin.HasSetting(ShowOriginalTitle)">DialogVideoInfo_coords8_4:3</include>
+	</include>
+	<include name="DialogVideoInfo_coords8_ShowOriginalTitle_16:9">
+		<top>432</top>
+		<width>1170</width>
+		<height>148</height>
+	</include>
+	<include name="DialogVideoInfo_coords8_ShowOriginalTitle_21:9">
+		<top>432</top>
+		<width>1810</width>
+		<height>148</height>
+	</include>
+	<include name="DialogVideoInfo_coords8_ShowOriginalTitle_4:3">
+		<top>432</top>
+		<width>690</width>
+		<height>148</height>
 	</include>
 	<include name="DialogVideoInfo_coords8_16:9">
-		<top>394</top>
+		<top>384</top>
 		<width>1170</width>
-		<height>186</height>
+		<height>196</height>
 	</include>
 	<include name="DialogVideoInfo_coords8_21:9">
-		<top>394</top>
+		<top>384</top>
 		<width>1810</width>
-		<height>186</height>
+		<height>196</height>
 	</include>
 	<include name="DialogVideoInfo_coords8_4:3">
-		<top>394</top>
+		<top>384</top>
 		<width>690</width>
-		<height>186</height>
+		<height>196</height>
 	</include>
 	
 	<include name="DialogVideoInfo_coords9">

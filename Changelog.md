@@ -3,6 +3,7 @@
 _New_
 - add new pre-defined widgets
 - add setting to hide media flags
+- add setting to show original movie title in video info dialog
 
 _Improved_
 - rework home menu customization dialogs
@@ -10,11 +11,13 @@ _Improved_
 - improve video info dialog (animations and buttons)
 - improve alignment and positioning of item count and media flags
 - show view toggle only when more than one view is available
+- improve info dialogs (size and positioning of plot/description textbox and details list)
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
 - hide MyOSMC home menu entry and widget on non-OSMC systems
 - fix overlapping in views with big horizontal titles
+- add scrollbar to music album info dialog (if details list is too long)
 
 **Changelog v18.2.0**
 
@@ -28,12 +31,27 @@ strings.po:
 - add new localizes for additional widgets per script (31235, 31236)
 - add new localize hide media flags setting (31237)
 - add new localizes for Transiflex translation (31238-31266)
+- add new localize for show original movie title setting (31267)
 
 AddonBrowser.xml:
 - remove deprecated view toggle
 - remove hide scrollbar toggle
 - fix side-menu coordinates
 - add new "Sort order" localize to sort order toggle
+
+Coordinates_DialogAddonInfo.xml:
+- adjust hight of details list
+- adjust position and hight of description textbox
+
+Coordinates_DialogMusicInfo.xml:
+- adjust hight of details list
+- adjust position and hight of plot textbox
+- add coordinates for scrollbar
+
+Coordinates_DialogVideoInfo.xml:
+- adjust hight of details list
+- adjust position and hight of plot textbox
+- add additional coordinates for new show original movie title setting
 
 Coordinates_Includes.xml:
 - add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
@@ -66,10 +84,15 @@ DialogFavourites.xml:
 - change conditional visibility of submenu indicator (submenu is only present during playback with active side-menu controls)
 - remove hide scrollbar toggle
 
+DialogMusicInfo.xml:
+- add new scrollbar for artist info dialog
+- add button indicator include
+
 DialogVideoInfo.xml:
 - add fade animation to togglable dialog elements (plot, cast, extended info)
 - show all buttons all the time
 - improve extended info button to keep focus
+- add original movie title to details list
 
 EventLog.xml:
 - add new "Sort order" localize to sort order toggle
@@ -150,6 +173,7 @@ script-skinshortcuts.xml:
 SkinSettings.xml:
 - add hide scrollbars setting formerly found in other windows
 - add new hide media flags setting
+- add new show original movie title in video info dialog setting
 
 Variables.xml:
 - add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options

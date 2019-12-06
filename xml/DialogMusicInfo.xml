@@ -42,503 +42,505 @@
 				<include>DialogMusicInfo_coords3</include>
 				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[21887]) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[183])</visible>
 
-				<!-- Details -->
-				<control type="grouplist">
+				<!-- Details (song) -->
+				<control type="grouplist" id="100">
 					<include>DialogMusicInfo_coords4</include>
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
-						<visible>Window.Is(songinformation)</visible>
+					<visible>Window.Is(songinformation)</visible>
 
-						<!-- Artist -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Artist)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>557</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Artist]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
+					<!-- Artist -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Artist)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>557</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-
-						<!-- Album -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Album)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>558</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Album]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Artist]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-
-						<!-- Year -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Year)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>562</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Year]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Genre -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Genre)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>515</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Genre]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Track Number -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.TrackNumber)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>554</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.TrackNumber]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-						
-						<!-- Duration -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Duration)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>180</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$VAR[Duration]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>						
-
-						<!-- Rating -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>String.IsEqual(ListItem.StarRating,rating0.png) | String.IsEqual(ListItem.StarRating,rating1.png) | String.IsEqual(ListItem.StarRating,rating2.png) | String.IsEqual(ListItem.StarRating,rating3.png) | String.IsEqual(ListItem.StarRating,rating4.png) | String.IsEqual(ListItem.StarRating,rating5.png)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>563</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="image">
-								<include>DialogMusicInfo_coords7</include>
-								<aspectratio align="left">keep</aspectratio>
-								<texture>$INFO[ListItem.StarRating]</texture>
-							</control>
-						</control>
-
 					</control>
 
-				<control type="grouplist">
-					<width>1170</width>
-					<height>336</height>
+					<!-- Album -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Album)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>558</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Album]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Year -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Year)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>562</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Year]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Genre -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>515</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Track Number -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.TrackNumber)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>554</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.TrackNumber]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+					
+					<!-- Duration -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>180</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$VAR[Duration]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>						
+
+					<!-- Rating -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>String.IsEqual(ListItem.StarRating,rating0.png) | String.IsEqual(ListItem.StarRating,rating1.png) | String.IsEqual(ListItem.StarRating,rating2.png) | String.IsEqual(ListItem.StarRating,rating3.png) | String.IsEqual(ListItem.StarRating,rating4.png) | String.IsEqual(ListItem.StarRating,rating5.png)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>563</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="image">
+							<include>DialogMusicInfo_coords7</include>
+							<aspectratio align="left">keep</aspectratio>
+							<texture>$INFO[ListItem.StarRating]</texture>
+						</control>
+					</control>
+
+				</control>
+
+				<!-- Details (album/artist) -->
+				<control type="grouplist" id="101">
+					<include>DialogMusicInfo_coords4</include>
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
-						<visible>!Window.Is(songinformation)</visible>
-						<!-- Artist -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>Container.Content(Albums) + !String.IsEmpty(ListItem.Artist)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>557</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Artist]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Year -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Year)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>562</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Year]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Genre -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Genre)</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>515</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Genre]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
+					<pagecontrol>50</pagecontrol>
+					<visible>!Window.Is(songinformation)</visible>
 						
-						<!-- Type -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Album_Type))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>146</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Album_Type)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
+					<!-- Artist -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>Container.Content(Albums) + !String.IsEmpty(ListItem.Artist)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>557</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-
-						<!-- Label -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Album_Label))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>21899</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Album_Label)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Artist]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
 						</control>
-
-						<!-- Rating -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>Container.Content(albums) + [String.IsEqual(ListItem.StarRating,rating0.png) | String.IsEqual(ListItem.StarRating,rating1.png) | String.IsEqual(ListItem.StarRating,rating2.png) | String.IsEqual(ListItem.StarRating,rating3.png) | String.IsEqual(ListItem.StarRating,rating4.png) | String.IsEqual(ListItem.StarRating,rating5.png)]</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>563</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="image" id="99">
-								<include>DialogMusicInfo_coords7</include>
-								<aspectratio align="left">keep</aspectratio>
-								<texture>$INFO[ListItem.StarRating]</texture>
-							</control>
-						</control>
-
-						<!-- Mood -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>175</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Album_Mood)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Style -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>176</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Album_Style)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Theme -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Album_Theme))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>21895</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Album_Theme)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Born -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>21893</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Artist_Born)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Formed -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>21894</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Artist_Formed)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Mood -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Mood))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>175</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Artist_Mood)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Style -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Style))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>176</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Artist_Style)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Instrument -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Instrument))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>21892</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Artist_Instrument)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Died -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_Died))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>21897</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Artist_Died)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
-						<!-- Years active -->
-						<control type="group">
-							<include>DialogMusicInfo_coords5</include>
-							<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords6</include>
-								<align>right</align>
-								<font>Font36</font>
-								<label>652</label>
-								<textcolor>$VAR[TextColor2]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-							<control type="fadelabel">
-								<include>DialogMusicInfo_coords7</include>
-								<font>Font36</font>
-								<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
-								<textcolor>$VAR[TextColor1]</textcolor>
-								<pauseatend>5000</pauseatend>
-							</control>
-						</control>
-
 					</control>
+
+					<!-- Year -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Year)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>562</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Year]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Genre -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>515</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+					
+					<!-- Type -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Album_Type))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>146</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Album_Type)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Label -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Album_Label))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21899</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Album_Label)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Rating -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>Container.Content(albums) + [String.IsEqual(ListItem.StarRating,rating0.png) | String.IsEqual(ListItem.StarRating,rating1.png) | String.IsEqual(ListItem.StarRating,rating2.png) | String.IsEqual(ListItem.StarRating,rating3.png) | String.IsEqual(ListItem.StarRating,rating4.png) | String.IsEqual(ListItem.StarRating,rating5.png)]</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>563</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="image" id="99">
+							<include>DialogMusicInfo_coords7</include>
+							<aspectratio align="left">keep</aspectratio>
+							<texture>$INFO[ListItem.StarRating]</texture>
+						</control>
+					</control>
+
+					<!-- Mood -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>175</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Album_Mood)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Style -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>176</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Album_Style)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Theme -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Album_Theme))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21895</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Album_Theme)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Born -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21893</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Born)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+					
+					<!-- Died -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Died))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21897</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Died)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+					
+					<!-- Formed -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21894</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Formed)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Years active -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>652</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Mood -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Mood))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>175</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Mood)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Style -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Style))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>176</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Style)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Instrument -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Instrument))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21892</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Instrument)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+				</control>
 
 				<!-- Plot -->
 				<control type="group">
@@ -610,6 +612,23 @@
 				</control>
 			</control>
 
+			<!-- Scrollbar -->
+			<control type="scrollbar" id="50">
+				<include>DialogMusicInfo_coords9</include>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Window.Is(songinformation)</visible>
+				<include>VisibleFadeAnimation</include>
+			</control>
+
 			<!-- Button grouplist background -->
 			<include content="dialogButtonBackground">
 				<param name="id">9000</param>
@@ -621,6 +640,7 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
+				<onup>50</onup>
 				
 				<!-- User rating Button -->
 				<control type="button" id="7">
@@ -648,6 +668,11 @@
 				</control>
 
 			</control>
+
+			<!-- Button grouplist indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9000).HasFocus</param>
+			</include>
 
 		</control>
 

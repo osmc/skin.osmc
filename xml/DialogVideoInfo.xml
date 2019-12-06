@@ -126,6 +126,27 @@
 						</control>
 					</control>
 
+					<!-- Original Title -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.OriginalTitle) + !String.IsEqual(ListItem.OriginalTitle,ListItem.Title) + Skin.HasSetting(ShowOriginalTitle)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>20376</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.OriginalTitle]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
 					<!-- Genre -->
 					<control type="group">
 						<include>DialogVideoInfo_coords5</include>
