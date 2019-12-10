@@ -24,7 +24,7 @@
 
 			<!-- Poster image -->
 			<control type="group">
-				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
@@ -608,7 +608,7 @@
 					<onclick condition="String.IsEmpty(Window(12003).Property(extended))">SetProperty(extended,14115,12003)</onclick>
 					<onclick condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onclick>
 					<usealttexture>Control.IsVisible(101)</usealttexture>
-					<visible>!Container.Content(musicvideos) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
+					<visible>!Container.Content(musicvideos) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 				</control>
 				<!-- Cast Button -->
 				<control type="button" id="5">
