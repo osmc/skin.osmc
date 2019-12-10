@@ -72,9 +72,9 @@
 			</control>
 
 			<!-- Info -->
-			<control type="group">
+			<control type="group" id="100">
 				<include>DialogVideoInfo_coords3</include>
-				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended))</visible>
+				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)]</visible>
 				<include>VisibleFadeAnimation</include>
 
 				<!-- Details -->
@@ -126,10 +126,31 @@
 						</control>
 					</control>
 
+					<!-- TV show status -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Status)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>126</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Status]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
 					<!-- Original Title -->
 					<control type="group">
 						<include>DialogVideoInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.OriginalTitle) + !String.IsEqual(ListItem.OriginalTitle,ListItem.Title) + Skin.HasSetting(ShowOriginalTitle)</visible>
+						<visible>!String.IsEmpty(ListItem.OriginalTitle) + !String.IsEqual(ListItem.OriginalTitle,ListItem.Title)</visible>
 						<control type="fadelabel">
 							<include>DialogVideoInfo_coords6</include>
 							<align>right</align>
@@ -205,6 +226,79 @@
 							<include>DialogVideoInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Writer]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Studio -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Studio)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>572</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Studio]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+					
+					<!-- Country -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Country)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>574</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Country]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+							<pauseatend>5000</pauseatend>
+						</control>
+					</control>
+
+					<!-- Release date/first aired -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Premiered)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>172</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+							<visible>![Container.Content(episodes) | Container.Content(seasons) | Container.Content(tvshows)]</visible>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>20416</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+							<pauseatend>5000</pauseatend>
+							<visible>Container.Content(episodes) | Container.Content(seasons) | Container.Content(tvshows)</visible>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Premiered]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 							<pauseatend>5000</pauseatend>
 						</control>
@@ -293,98 +387,21 @@
 							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
-					
-					<!-- Audio -->
-					<control type="group">
-						<include>DialogVideoInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-						<control type="fadelabel">
-							<include>DialogVideoInfo_coords6</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>292</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-							<pauseatend>5000</pauseatend>
-						</control>
-						<control type="fadelabel">
-							<include>DialogVideoInfo_coords7</include>
-							<font>Font36</font>
-							<label>$VAR[Audio]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-							<pauseatend>5000</pauseatend>
-						</control>
-					</control>
 
 				</control>
 
-				<!-- Plot -->
-				<control type="group">
-					<include>DialogVideoInfo_coords8</include>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font27-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font30-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font33-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font36-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL light)</visible>
-					</control>
-					
-					<control type="textbox">
-						<align>left</align>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font36</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[PlotInfoDialog]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL)</visible>
-					</control>
-				</control>
+			</control>
+			
+			<!-- Plot -->
+			<control type="textbox" id="101">
+				<include>DialogVideoInfo_coords17</include>
+				<align>left</align>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$VAR[Plot]</label>
+				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+				<visible>!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | !String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 
 			<!-- Cast -->
@@ -561,15 +578,6 @@
 
 				</control>
 
-				<!-- Plot -->
-				<control type="textbox">
-					<include>DialogVideoInfo_coords17</include>
-					<align>left</align>
-					<font>Font36</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<label>$VAR[Plot]</label>
-					<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-				</control>
 			</control>
 
 			<!-- Button grouplist background -->
@@ -592,6 +600,16 @@
 					<altlabel>1024</altlabel>
 					<usealttexture>Container.Content(TVShows)</usealttexture>
 				</control>
+				<!-- Extended info Button -->
+				<control type="togglebutton" id="15">
+					<width>Auto</width>
+					<label>207</label>
+					<altlabel>33029</altlabel>
+					<onclick condition="String.IsEmpty(Window(12003).Property(extended))">SetProperty(extended,14115,12003)</onclick>
+					<onclick condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onclick>
+					<usealttexture>Control.IsVisible(101)</usealttexture>
+					<visible>!Container.Content(musicvideos) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
+				</control>
 				<!-- Cast Button -->
 				<control type="button" id="5">
 					<width>Auto</width>
@@ -606,16 +624,6 @@
 					<label>20339</label>
 					<onclick>ClearProperty(extended,12003)</onclick>
 					<visible>!String.IsEmpty(ListItem.Director)</visible>
-				</control>
-				<!-- Extended info Button -->
-				<control type="togglebutton" id="15">
-					<width>Auto</width>
-					<label>31170</label>
-					<altlabel>31171</altlabel>
-					<onclick condition="String.IsEmpty(Window(12003).Property(extended))">SetProperty(extended,14115,12003)</onclick>
-					<onclick condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onclick>
-					<usealttexture>!String.IsEmpty(Window(12003).Property(extended))</usealttexture>
-					<visible>!Container.Content(musicvideos)</visible>
 				</control>
 				<!-- User rating Button -->
 				<control type="button" id="7">

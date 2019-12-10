@@ -854,8 +854,19 @@
 					<onclick>Skin.ToggleSetting(MusicListenedToStatus)</onclick>
 					<selected>Skin.HasSetting(MusicListenedToStatus)</selected>
 				</control>
+				<!-- Show plot/details first -->
+				<control type="button" id="608">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31170]</label>
+					<label2>$INFO[Skin.String(videoinfodialogfirstpage)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(videoinfodialogfirstpage),Details)">Skin.SetString(videoinfodialogfirstpage,Plot)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)">Skin.SetString(videoinfodialogfirstpage,Details)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
 				<!-- Show user rating -->
-				<control type="radiobutton" id="608">
+				<control type="radiobutton" id="609">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31146</label>
@@ -863,7 +874,7 @@
 					<selected>Skin.HasSetting(UserRating)</selected>
 				</control>
 				<!-- Adjust representation of video duration -->
-				<control type="button" id="609">
+				<control type="button" id="610">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31134]</label>
@@ -874,20 +885,12 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Hide media flags -->
-				<control type="radiobutton" id="610">
+				<control type="radiobutton" id="611">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31237</label>
 					<onclick>Skin.ToggleSetting(HideMediaFlags)</onclick>
 					<selected>Skin.HasSetting(HideMediaFlags)</selected>
-				</control>
-				<!-- Show original movie titles -->
-				<control type="radiobutton" id="611">
-					<include>SkinSettings_coords16</include>
-					<font>Font33</font>
-					<label>31267</label>
-					<onclick>Skin.ToggleSetting(ShowOriginalTitle)</onclick>
-					<selected>Skin.HasSetting(ShowOriginalTitle)</selected>
 				</control>
 				<!-- Mixed -->
 				<control type="label" id="612">
