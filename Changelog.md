@@ -3,7 +3,7 @@
 _New_
 - add new pre-defined widgets
 - add setting to hide media flags
-- add setting to show original movie title in video info dialog
+- add setting to change whether video info dialog shows details or plot first
 
 _Improved_
 - rework home menu customization dialogs
@@ -11,7 +11,7 @@ _Improved_
 - improve video info dialog (animations and buttons)
 - improve alignment and positioning of item count and media flags
 - show view toggle only when more than one view is available
-- improve info dialogs (size and positioning of plot/description textbox and details list)
+- improve info dialogs (more information/layout with video and addon info dialogs)
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
@@ -30,8 +30,8 @@ strings.po:
 - add new localizes for improved sort by and sort order toggles (31233, 31234)
 - add new localizes for additional widgets per script (31235, 31236)
 - add new localize hide media flags setting (31237)
-- add new localizes for Transiflex translation (31238-31266)
-- add new localize for show original movie title setting (31267)
+- add new localizes for Transifex translation (31238-31266)
+- change localize for new movie info dialog setting (31170)
 
 AddonBrowser.xml:
 - remove deprecated view toggle
@@ -42,6 +42,7 @@ AddonBrowser.xml:
 Coordinates_DialogAddonInfo.xml:
 - adjust hight of details list
 - adjust position and hight of description textbox
+- add coordinates for new info line (last used, last updated)
 
 Coordinates_DialogMusicInfo.xml:
 - adjust hight of details list
@@ -51,7 +52,6 @@ Coordinates_DialogMusicInfo.xml:
 Coordinates_DialogVideoInfo.xml:
 - adjust hight of details list
 - adjust position and hight of plot textbox
-- add additional coordinates for new show original movie title setting
 
 Coordinates_Includes.xml:
 - add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
@@ -79,6 +79,10 @@ Coordinates_Viewtype532.xml:
 Coordinates_Viewtype534.xml:
 - fix width of title and year/genre label control
 
+DialogAddonInfo.xml:
+- add install date to details list
+- add new info line (last used, last updated)
+
 DialogFavourites.xml:
 - change conditional onleft of scrollbar (submenu is only present during playback with active side-menu controls)
 - change conditional visibility of submenu indicator (submenu is only present during playback with active side-menu controls)
@@ -92,7 +96,9 @@ DialogVideoInfo.xml:
 - add fade animation to togglable dialog elements (plot, cast, extended info)
 - show all buttons all the time
 - improve extended info button to keep focus
-- add original movie title to details list
+- add TV show status, country, studio and release/first aired date to details list
+- remove redundant information (audio and plot)
+- split details and plot between two dialog pages
 
 EventLog.xml:
 - add new "Sort order" localize to sort order toggle
@@ -178,7 +184,7 @@ SkinSettings.xml:
 Variables.xml:
 - add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options
 - improve duration variable
-- replace text by localizes for Transiflex translation
+- replace text by localizes for Transifex translation
 
 Viewtype50.xml:
 - add animation for view change
