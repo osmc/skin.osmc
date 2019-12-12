@@ -4,6 +4,7 @@ _New_
 - add new pre-defined widgets
 - add setting to hide media flags
 - add setting to change whether video info dialog shows details or plot first
+- add setting to set a solid color instead of background images
 
 _Improved_
 - rework home menu customization dialogs
@@ -103,6 +104,9 @@ DialogVideoInfo.xml:
 EventLog.xml:
 - add new "Sort order" localize to sort order toggle
 
+Font.xml:
+- adjust size and width of Arial font to match appearance of default font
+
 Includes.xml:
 - add black background layer behind background video playback to WindowBackgroundImage include
 - add 13th spacer to SideMenuControlsSpacer include for only one item in side/context menu
@@ -110,6 +114,7 @@ Includes.xml:
 - add new hide media flags functionality
 - change seperator of duration/size label
 - rework media flags and item count to add scrolling
+- add new color layer to window and dialog background
 
 MyGames.xml:
 - add new "View: " localize to view toggle
@@ -180,11 +185,14 @@ SkinSettings.xml:
 - add hide scrollbars setting formerly found in other windows
 - add new hide media flags setting
 - add new show original movie title in video info dialog setting
+- add color setting to background section
 
 Variables.xml:
 - add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options
 - improve duration variable
 - replace text by localizes for Transifex translation
+- add new Colorpicker-Name, SolidBackgroundColor and SolidBackgroundColor-Name variables
+- remove deprecated Plot, PlotInfoDialog, PlotDialogGuide, SongLabel, SystemInfoButton94, menuStyle and hubWidgetDetails variables
 
 Viewtype50.xml:
 - add animation for view change
