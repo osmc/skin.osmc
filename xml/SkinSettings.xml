@@ -286,8 +286,28 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Display fanart -->
+				<!-- Color -->
 				<control type="radiobutton" id="211">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label> - $LOCALIZE[737]</label>
+					<onclick>Skin.SetString(BackgroundSingleImage,solid)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no)</visible>
+					<selected>String.IsEqual(Skin.String(BackgroundSingleImage),solid)</selected>
+				</control>
+				<control type="button" id="212">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>    - $LOCALIZE[21435]</label>
+					<label2>$VAR[SolidBackgroundColor-Name]</label2>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.backgroundsolid)</onclick>
+					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),solid)</visible>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<!-- Display fanart -->
+				<control type="radiobutton" id="213">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31099]</label>
@@ -295,7 +315,7 @@
 					<selected>!Skin.HasSetting(HideFanart)</selected>
 				</control>
 				<!-- Background video -->
-				<control type="radiobutton" id="212">
+				<control type="radiobutton" id="214">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31027</label>
@@ -303,7 +323,7 @@
 					<selected>Skin.HasSetting(BackgroundVideo)</selected>
 				</control>
 				<!-- Background visualisation -->
-				<control type="radiobutton" id="213">
+				<control type="radiobutton" id="215">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31028</label>
@@ -311,7 +331,7 @@
 					<selected>Skin.HasSetting(BackgroundVisualisation)</selected>
 				</control>
 				<!-- Enable artist slideshow -->
-				<control type="radiobutton" id="214">
+				<control type="radiobutton" id="216">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31034</label>
