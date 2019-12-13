@@ -9,14 +9,31 @@
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 			
+			<!-- Black background image -->
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture background="true">common/white.png</texture>
+				<colordiffuse>FF000000</colordiffuse>
+				<aspectratio>scale</aspectratio>
+				<include>DialogZoomAnimation</include>
+			</control>
+			<!-- Color -->
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture background="true">common/white.png</texture>
+				<colordiffuse>$VAR[SolidBackgroundColor]</colordiffuse>
+				<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) | String.IsEqual(Skin.String(BackgroundSingleImage),solid)</visible>
+				<aspectratio>scale</aspectratio>
+				<include>DialogZoomAnimation</include>
+			</control>
+			
 			<!-- Single background image -->
 			<control type="image">
 				<include>FullscreenDimensions</include>
 				<texture background="true">$VAR[OSMCBackgroundImage]</texture>
 				<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(211).ListItem.Property(background))</visible>
 				<aspectratio>scale</aspectratio>
-				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<include>DialogZoomAnimation</include>
 			</control>
 			<!-- Multiple background images -->
 			<control type="multiimage">
@@ -28,8 +45,7 @@
 				<fadetime>2000</fadetime>
 				<randomize>true</randomize>
 				<loop>yes</loop>
-				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<include>DialogZoomAnimation</include>
 			</control>
 			
 			<!-- Single individual background image -->
@@ -40,6 +56,7 @@
 				<aspectratio>scale</aspectratio>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<include>DialogZoomAnimation</include>
 			</control>
 			<!-- Multiple individual background images -->
 			<control type="multiimage">
@@ -53,6 +70,7 @@
 				<loop>yes</loop>
 				<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<include>DialogZoomAnimation</include>
 			</control>
 			
 			<!-- Fanart -->
@@ -69,6 +87,14 @@
 				<include>FullscreenDimensions</include>
 				<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+				<animation type="WindowOpen">
+					<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
+					<effect type="fade" start="0" end="100" time="300" tween="quadratic" easing="out" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="zoom" start="100" end="70" center="auto" time="300" />
+					<effect type="fade" start="100" end="0" time="300" tween="quadratic" easing="in" />
+				</animation>
 			</control>
 
 			<!-- Heading -->

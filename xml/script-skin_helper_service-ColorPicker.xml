@@ -17,8 +17,29 @@
 				<param name="heading">$ADDON[script.skin.helper.colorpicker 32011]</param>
 			</include>
 	        
-			<control type="grouplist" id="9">
+			<!-- Preview-->
+			<control type="grouplist">
 				<include>script-skin_helper_service-ColorPicker_coords1</include>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!ControlGroup(9).HasFocus">Conditional</animation>
+				
+				<control type="image">
+					<include>script-skin_helper_service-ColorPicker_coords2</include>
+					<texture colordiffuse="$INFO[Window.Property(colorstring)]">common/white.png</texture>
+					<visible>!String.IsEqual(Window.Property(colorstring),None) + !String.IsEmpty(Window.Property(colorstring))</visible>
+				</control>
+				<control type="label">
+					<include>script-skin_helper_service-ColorPicker_coords3</include>
+					<label>$VAR[ColorPicker-Name]</label>
+					<font>Font33</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<disabledcolor>$VAR[TextColor1]</disabledcolor>
+				</control>
+			</control>
+	        
+			<control type="grouplist" id="9">
+				<include>script-skin_helper_service-ColorPicker_coords4</include>
 				<itemgap>0</itemgap>
 				<onleft>9001</onleft>
 				<onright>3110</onright>
@@ -27,26 +48,11 @@
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(2).HasFocus">Conditional</animation>
-
-				<!-- Preview-->
-				<control type="image">
-					<include>script-skin_helper_service-ColorPicker_coords2</include>
-					<texture colordiffuse="$INFO[Window.Property(colorstring)]">common/white.png</texture>
-				</control>
-				<control type="button" id="10">
-					<include>script-skin_helper_service-ColorPicker_coords3</include>
-					<label>$VAR[ColorPicker-Name]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<disabledcolor>$VAR[TextColor1]</disabledcolor>
-					<enable>False</enable>
-				</control>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!ControlGroup(9).HasFocus">Conditional</animation>
 
 				<!-- Edit -->
 				<control type="button" id="3010">
-					<include>script-skin_helper_service-ColorPicker_coords5</include>
+					<include>script-skin_helper_service-ColorPicker_coords6</include>
 					<label>$LOCALIZE[21450]</label>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColor2]</textcolor>
@@ -55,7 +61,7 @@
 
 				<!-- Opacity -->
 				<control type="button" id="11">
-					<include>script-skin_helper_service-ColorPicker_coords4</include>
+					<include>script-skin_helper_service-ColorPicker_coords5</include>
 					<label>$ADDON[script.skin.helper.colorpicker 32049]:</label>
 					<label2>$INFO[Control.Getlabel(3015)]</label2>
 					<font>Font33</font>
@@ -64,12 +70,12 @@
 				</control>
 
 				<control type="slider" id="3015">
-					<include>script-skin_helper_service-ColorPicker_coords6</include>
+					<include>script-skin_helper_service-ColorPicker_coords7</include>
 				</control>
 
 				<!-- Pallette -->
 				<control type="button" id="3030">
-					<include>script-skin_helper_service-ColorPicker_coords4</include>
+					<include>script-skin_helper_service-ColorPicker_coords5</include>
 					<label>$ADDON[script.skin.helper.colorpicker 32141]</label>
 					<label2>$INFO[Window.Property(palettename)]</label2>
 					<font>Font33</font>
@@ -81,7 +87,7 @@
 
 	        <!-- Color picker panel -->
 			<control type="panel" id="3110">
-				<include>script-skin_helper_service-ColorPicker_coords7</include>
+				<include>script-skin_helper_service-ColorPicker_coords8</include>
 				<orientation>vertical</orientation>
 				<onleft>9</onleft>
 				<ondown>3110</ondown>
@@ -89,9 +95,9 @@
 				<onright>9001</onright>
 				<preloaditems>4</preloaditems>
 				
-				<include>script-skin_helper_service-ColorPicker_coords8</include>
-				
 				<include>script-skin_helper_service-ColorPicker_coords9</include>
+				
+				<include>script-skin_helper_service-ColorPicker_coords10</include>
 				
 	        </control>
 
