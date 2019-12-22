@@ -282,6 +282,14 @@
 		</control>
 
 		<!-- Artists Slideshow -->
+		<control type="image">
+			<include>FullscreenDimensions</include>
+			<aspectratio>scale</aspectratio>
+			<fadetime>2000</fadetime>
+			<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.Image)]</texture>
+			<visible>Player.HasAudio + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image)) + Skin.HasSetting(EnableArtistFanart)</visible>
+			<include>WindowFadeAnimation</include>
+		</control>
 		<control type="multiimage">
 			<include>FullscreenDimensions</include>
 			<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
@@ -289,7 +297,8 @@
 			<timeperimage>10000</timeperimage>
 			<fadetime>2000</fadetime>
 			<randomize>true</randomize>
-			<visible>Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart)</visible>
+			<loop>yes</loop>
+			<visible>Player.HasAudio + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady) + Skin.HasSetting(EnableArtistFanart)</visible>
 			<include>WindowFadeAnimation</include>
 		</control>
 
