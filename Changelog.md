@@ -13,6 +13,7 @@ _Improved_
 - improve alignment and positioning of item count and media flags
 - show view toggle only when more than one view is available
 - improve info dialogs (more information/layout with video and addon info dialogs)
+- update Artist Slideshow integration (v3 update)
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
@@ -115,6 +116,8 @@ Includes.xml:
 - change seperator of duration/size label
 - rework media flags and item count to add scrolling
 - add new color layer to window and dialog background
+- add new Artist Slideshow image control
+- change conditional visibilities to hide other background images when Artist Slideshow is active
 
 MyGames.xml:
 - add new "View: " localize to view toggle
@@ -193,6 +196,7 @@ Variables.xml:
 - replace text by localizes for Transifex translation
 - add new Colorpicker-Name, SolidBackgroundColor and SolidBackgroundColor-Name variables
 - remove deprecated Plot, PlotInfoDialog, PlotDialogGuide, SongLabel, SystemInfoButton94, menuStyle and hubWidgetDetails variables
+- remove deprecated OtherBackgroundImage variable
 
 Viewtype50.xml:
 - add animation for view change
@@ -247,6 +251,7 @@ overrides.xml:
 template.xml:
 - add new widget sort by, widget sort direction and widget limit properties
 - change content line for new widget sort by, widget sort direction and widget limit properties
+- remove redundant music player fanart image from widgetBackground (fanart) variable
 
 addon.xml:
 - bump version to 18.2.0
