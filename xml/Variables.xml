@@ -431,11 +431,6 @@
 	</variable>
 	
 	<!-- Background images/overlay -->
-	<variable name="OtherBackgroundImage">
-		<value condition="Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(EnableArtistFanart) + [Window.IsActive(visualisation) | Skin.HasSetting(BackgroundVisualisation)]" />
-		<value>$VAR[OSMCBackgroundImage]</value>
-	</variable>
-
 	<variable name="OSMCBackgroundImage">
 		<value condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes) + !String.IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
 		<value condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder))">$INFO[Skin.String(CustomBackgroundFolder)]</value>
