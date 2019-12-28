@@ -821,6 +821,11 @@
 		<value>$VAR[AudioCodec]$VAR[AudioChannels, ,]</value>
 	</variable>
 
+	<variable name="AudioSimple">
+		<value condition="String.IsEmpty(ListItem.Property(AudioLanguage.5))">$INFO[ListItem.Property(AudioLanguage.1),[CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(AudioLanguage.2),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(AudioLanguage.3),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(AudioLanguage.4),$COMMA [CAPITALIZE],[/CAPITALIZE]]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(AudioLanguage.5))">$INFO[ListItem.Property(AudioLanguage.1),[CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(AudioLanguage.2),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(AudioLanguage.3),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(AudioLanguage.4),$COMMA [CAPITALIZE],[/CAPITALIZE] ...]</value>
+	</variable>
+
 	<!-- Audio Codec labels -->
 	<variable name="AudioCodec">
 		<value condition="String.IsEqual(ListItem.AudioCodec,aac) | String.IsEqual(ListItem.AudioCodec,aac_latm)">AAC</value>
@@ -993,6 +998,12 @@
 		<value condition="Integer.IsEqual(ListItem.AudioChannels,10)">9.1</value>
 	</variable>
 
+	<variable name="AudioChannelsSimple">
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,1)">Mono</value>
+		<value condition="Integer.IsEqual(ListItem.AudioChannels,2)">Stereo</value>
+		<value condition="Integer.IsGreater(ListItem.AudioChannels,2)">Surround</value>
+	</variable>
+
 	<variable name="MusicPlayerChannels">
 		<value condition="Integer.IsEqual(MusicPlayer.Channels,1)">1.0</value>
 		<value condition="Integer.IsEqual(MusicPlayer.Channels,2)">2.0</value>
@@ -1077,6 +1088,11 @@
 	<variable name="SubtitleLanguage">
 		<value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,unk)"></value>
 		<value>$INFO[VideoPlayer.SubtitlesLanguage,   [LIGHT]$LOCALIZE[462]:[/LIGHT] [CAPITALIZE],[/CAPITALIZE]]</value>
+	</variable>
+	
+	<variable name="SubtitleSimple">
+		<value condition="String.IsEmpty(ListItem.Property(SubtitleLanguage.5))">$INFO[ListItem.Property(SubtitleLanguage.1),[CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.2),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.3),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.4),$COMMA [CAPITALIZE],[/CAPITALIZE]]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(SubtitleLanguage.5))">$INFO[ListItem.Property(SubtitleLanguage.1),[CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.2),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.3),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.4),$COMMA [CAPITALIZE],[/CAPITALIZE] ...]</value>
 	</variable>
 	
 	<!-- Video Resolution labels -->

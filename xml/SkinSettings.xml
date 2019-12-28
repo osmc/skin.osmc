@@ -38,9 +38,9 @@
 				<include>SkinSettings_coords4</include>
 				
 				<content>
-					<!-- Home items -->
+					<!-- General items -->
 					<item id="1">
-						<label>$LOCALIZE[10000]</label>
+						<label>$LOCALIZE[16000]</label>
 						<onclick>Control.SetFocus(100)</onclick>
 					</item>
 					<!-- Background -->
@@ -120,7 +120,7 @@
 			<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(10000).HasFocus">Conditional</animation>
 		</control>
 		
-		<!-- Home items -->
+		<!-- General items -->
 		<control type="group" id="10000">
 			<include>SkinSettings_coords14</include>
 			<control type="grouplist" id="100">
@@ -904,13 +904,17 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Hide media flags -->
-				<control type="radiobutton" id="611">
+				<!-- Edit video media flags -->
+				<control type="button" id="611">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31237</label>
-					<onclick>Skin.ToggleSetting(HideMediaFlags)</onclick>
-					<selected>Skin.HasSetting(HideMediaFlags)</selected>
+					<label2>$INFO[Skin.String(mediaflags)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(mediaflags),File)">Skin.SetString(mediaflags,Language)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(mediaflags),Language)">Skin.SetString(mediaflags,None)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(mediaflags),None)">Skin.SetString(mediaflags,File)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Mixed -->
 				<control type="label" id="612">

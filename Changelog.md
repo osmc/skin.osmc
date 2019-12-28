@@ -5,6 +5,7 @@ _New_
 - add setting to hide media flags
 - add setting to change whether video info dialog shows details or plot first
 - add setting to set a solid color instead of background images
+- add audio and subtitle language information to media flags
 
 _Improved_
 - rework home menu customization dialogs
@@ -34,6 +35,8 @@ strings.po:
 - add new localize hide media flags setting (31237)
 - add new localizes for Transifex translation (31238-31266)
 - change localize for new movie info dialog setting (31170)
+- change localize Artist Slideshow background setting (31034)
+- change localize for updated media flags setting (31237)
 
 AddonBrowser.xml:
 - remove deprecated view toggle
@@ -101,6 +104,7 @@ DialogVideoInfo.xml:
 - add TV show status, country, studio and release/first aired date to details list
 - remove redundant information (audio and plot)
 - split details and plot between two dialog pages
+- change formatting of audio and subtitle labels
 
 EventLog.xml:
 - add new "Sort order" localize to sort order toggle
@@ -118,6 +122,8 @@ Includes.xml:
 - add new color layer to window and dialog background
 - add new Artist Slideshow image control
 - change conditional visibilities to hide other background images when Artist Slideshow is active
+- add onload for new media flags setting
+- update media flags with new audio and subtitle language information
 
 MyGames.xml:
 - add new "View: " localize to view toggle
@@ -189,6 +195,7 @@ SkinSettings.xml:
 - add new hide media flags setting
 - add new show original movie title in video info dialog setting
 - add color setting to background section
+- update media flags setting
 
 Variables.xml:
 - add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options
@@ -197,6 +204,7 @@ Variables.xml:
 - add new Colorpicker-Name, SolidBackgroundColor and SolidBackgroundColor-Name variables
 - remove deprecated Plot, PlotInfoDialog, PlotDialogGuide, SongLabel, SystemInfoButton94, menuStyle and hubWidgetDetails variables
 - remove deprecated OtherBackgroundImage variable
+- add AudioSimple, AudioChannelsSimple and SubtitleSimple variables for new langauge media flags information
 
 Viewtype50.xml:
 - add animation for view change
