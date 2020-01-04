@@ -2,10 +2,10 @@
 
 _New_
 - add new pre-defined widgets
-- add setting to hide media flags
 - add setting to change whether video info dialog shows details or plot first
 - add setting to set a solid color instead of background images
 - add audio and subtitle language information to media flags
+- add setting to toggle media flags information shown (first)
 
 _Improved_
 - rework home menu customization dialogs
@@ -15,6 +15,7 @@ _Improved_
 - show view toggle only when more than one view is available
 - improve info dialogs (more information/layout with video and addon info dialogs)
 - update Artist Slideshow integration (v3 update)
+- improve OSD animations
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
@@ -97,6 +98,14 @@ DialogMusicInfo.xml:
 - add new scrollbar for artist info dialog
 - add button indicator include
 
+DialogPlayerProcessInfo.xml:
+- add visibility condition to hide dialog while shutdown menu is open
+- replace OSD animation by new animation includes
+
+DialogSelect.xml:
+- add visibility condition to hide dialog while shutdown menu is open
+- add Visible and Hidden animation to game OSD settings
+
 DialogVideoInfo.xml:
 - add fade animation to togglable dialog elements (plot, cast, extended info)
 - show all buttons all the time
@@ -112,6 +121,10 @@ EventLog.xml:
 Font.xml:
 - adjust size and width of Arial font to match appearance of default font
 
+GameOSD.xml:
+- add visibility condition to hide dialog while shutdown menu is open
+- replace OSD animations by new animation includes
+
 Includes.xml:
 - add black background layer behind background video playback to WindowBackgroundImage include
 - add 13th spacer to SideMenuControlsSpacer include for only one item in side/context menu
@@ -124,6 +137,19 @@ Includes.xml:
 - change conditional visibilities to hide other background images when Artist Slideshow is active
 - add onload for new media flags setting
 - update media flags with new audio and subtitle language information
+- add new OSD animation includes
+
+Include_DialogSettings.xml:
+- add visibility condition to hide dialog while shutdown menu is open
+- replace OSD animations by new animation includes
+
+MusicOSD.xml:
+- add visibility condition to hide dialog while shutdown menu is open
+- replace OSD animations by new animation includes
+
+MusicVisualisation.xml:
+- add visibility condition to hide dialog while shutdown menu is open
+- replace OSD animations by new animation includes
 
 MyGames.xml:
 - add new "View: " localize to view toggle
@@ -205,6 +231,15 @@ Variables.xml:
 - remove deprecated Plot, PlotInfoDialog, PlotDialogGuide, SongLabel, SystemInfoButton94, menuStyle and hubWidgetDetails variables
 - remove deprecated OtherBackgroundImage variable
 - add AudioSimple, AudioChannelsSimple and SubtitleSimple variables for new langauge media flags information
+
+VideoFullScreen.xml:
+- fix animation conditions (don't wait for VideoOSD anmiation + move while player process info dialog is open)
+- add visibility condition to hide dialog while player process info dialog or shutdown menu are open
+- replace OSD animations by new animation includes
+
+VideoOSD.xml:
+- add visibility condition to hide dialog while player process info dialog or shutdown menu are open
+- replace OSD animations by new animation includes
 
 Viewtype50.xml:
 - add animation for view change

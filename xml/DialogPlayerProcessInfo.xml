@@ -2,18 +2,13 @@
 <window>
 	<!-- fullscreeninfo -->
 	<defaultcontrol>100</defaultcontrol>
-	<animation type="WindowOpen">
-		<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-		<effect type="fade" start="0" end="100" time="200"/>
-	</animation>
-	<animation type="WindowClose">
-		<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-		<effect type="fade" start="100" end="0" time="200"/>
-	</animation>
 
 	<controls>
 
 		<control type="group">
+			<visible>!Window.IsVisible(shutdownmenu)</visible>
+			<include>OSDVisibleHiddenAnimation</include>
+			<include>OSDOpenCloseAnimation</include>
 			<!-- Info -->
 			<control type="group">
 				<include>DialogPlayerProcessInfo_coords1</include>
