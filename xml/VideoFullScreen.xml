@@ -54,31 +54,17 @@
 			
 			<control type="group" id="1">
 				<include>VideoFullScreen_coords7</include>
-				<animation effect="slide" end="0,-75" time="200" condition="Window.IsVisible(VideoOSD)">Conditional</animation>
-				<visible>Window.IsVisible(seekbar) | Window.IsVisible(fullscreeninfo) | Window.IsVisible(VideoOSD)</visible>
-				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml)</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
+				<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(VideoOSD) + !Window.IsActive(playerprocessinfo)">Conditional</animation>
+				<visible>Window.IsVisible(seekbar) | Window.IsVisible(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
+				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu)</visible>
+				<include>OSDVisibleHiddenAnimation</include>
 
 				<!-- Player forwarding/rewinding -->
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords8</include>
 					<visible>!Window.IsVisible(VideoBookmarks)</visible>
 					<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek] + !Player.HasGame + !Player.Seeking | player.paused</visible>
-					<animation type="Visible">
-						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
+					<include>OSDVisibleHiddenAnimation</include>
 
 					<!-- Background -->
 					<control type="image" id="1">
@@ -135,14 +121,7 @@
 					<include>VideoFullScreen_coords10</include>
 					<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize) | !String.IsEmpty(Player.SeekNumeric)] + !Player.HasGame</visible>
 					<visible>!Window.IsVisible(visualisation) + !Window.IsVisible(VideoBookmarks)</visible>
-					<animation type="Visible">
-						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
+					<include>OSDVisibleHiddenAnimation</include>
 
 					<!-- Background -->
 					<control type="image" id="1">
@@ -207,14 +186,7 @@
 					<visible>Pvr.IsTimeShift</visible>
 					<include>VideoFullScreen_coords11</include>
 					<animation effect="slide" end="155,0" time="200" condition="player.forwarding | player.rewinding | player.paused | player.istempo | Player.DisplayAfterSeek">Conditional</animation>
-					<animation type="Visible">
-						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
+					<include>OSDVisibleHiddenAnimation</include>
 
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords11</include>
@@ -240,14 +212,7 @@
 				<!-- Progress -->
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords14</include>
-					<animation type="Visible">
-						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
+					<include>OSDVisibleHiddenAnimation</include>
 
 					<!-- Background -->
 					<control type="image" id="1">
@@ -363,15 +328,8 @@
 			<control type="group" id="1">
 				<include>VideoFullScreen_coords23</include>
 				<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo + Skin.HasSetting(videoinfolivetvswitch) | !String.IsEmpty(Window(12005).Property(videoinfostart)) | [!VideoPlayer.Content(livetv) + [[Integer.IsLessOrEqual(Player.TimeRemaining(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),20s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),15s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),10s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),5s)] | [Integer.IsLessOrEqual(Player.Time(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),20s)] | [Integer.IsLessOrEqual(Player.Time(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),15s)] | [Integer.IsLessOrEqual(Player.Time(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),10s)] | [Integer.IsLessOrEqual(Player.Time(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),5s)]]]</visible>
-				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(DialogSelect.xml)</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
+				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(shutdownmenu)</visible>
+				<include>OSDVisibleHiddenAnimation</include>
 
 				<!-- Background -->
 				<control type="image" id="1">
@@ -411,6 +369,7 @@
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords27</include>
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
+					
 					<control type="textbox" id="1">
 						<font>Font27-light</font>
 						<label>$VAR[VideoPlayerPlot]</label>
@@ -418,6 +377,7 @@
 						<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
 					</control>
+					
 					<control type="textbox" id="1">
 						<font>Font30-light</font>
 						<label>$VAR[VideoPlayerPlot]</label>
@@ -425,6 +385,7 @@
 						<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
 					</control>
+					
 					<control type="textbox" id="1">
 						<font>Font33-light</font>
 						<label>$VAR[VideoPlayerPlot]</label>
@@ -432,64 +393,80 @@
 						<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
 					</control>
+					
 				</control>
+				
 				<!-- Music video information -->
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords27</include>
 					<visible>VideoPlayer.Content(musicvideos)</visible>
+					
 					<control type="grouplist" id="1">
 						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Artist]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
 						</control>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
 						</control>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Genre]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
 						</control>
+						
 					</control>
+					
 					<control type="grouplist" id="1">
 						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Artist]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
 						</control>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
 						</control>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Genre]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
 						</control>
+						
 					</control>
 					<control type="grouplist" id="1">
 						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Artist]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
 						</control>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
 						</control>
+						
 						<control type="fadelabel" id="1">
 							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Genre]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
 						</control>
+						
 					</control>
 				</control>
 				
@@ -501,6 +478,7 @@
 					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[460]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels,,]$VAR[AudioLanguage]$VAR[SubtitleLanguage]</label>
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
 				</control>
+				
 				<!-- Audio information -->
 				<control type="label" id="1">
 					<include>VideoFullScreen_coords28</include>
@@ -521,14 +499,8 @@
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords30</include>
 					<visible>VideoPlayer.Content(LiveTV) + Window.IsVisible(fullscreeninfo)</visible>
-					<animation type="Visible">
-						<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-						<effect type="fade" start="0" end="100" time="200"/>
-					</animation>
-					<animation type="Hidden">
-						<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-						<effect type="fade" start="100" end="0" time="200"/>
-					</animation>
+					<include>OSDVisibleHiddenAnimation</include>
+					
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords31</include>
 						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
@@ -556,18 +528,13 @@
 			<control type="group" id="1">
 				<include>VideoFullScreen_coords34</include>
 				<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
+				<include>OSDVisibleHiddenAnimation</include>
+				
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords35</include>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
+				
 				<control type="label" id="1">
 					<label>$INFO[PVR.ChannelNumberInput]</label>
 					<include>VideoFullScreen_coords35</include>
@@ -576,6 +543,7 @@
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<aligny>center</aligny>
 				</control>
+				
 			</control>
 			
 		</control>

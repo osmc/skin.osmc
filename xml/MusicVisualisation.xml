@@ -38,6 +38,7 @@
 				<include>VisibleFadeAnimation</include>
 				<include>WindowFadeAnimation</include>
 				<include>MusicVisualisation_coords3</include>
+				
 				<!-- Artist -->
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords4</include>
@@ -45,6 +46,7 @@
 					<label>$INFO[MusicPlayer.Artist]</label>
 					<visible>!String.IsEmpty(MusicPlayer.Artist)</visible>
 				</control>
+				
 				<!-- Album + Year -->
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords4</include>
@@ -52,18 +54,21 @@
 					<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year, (,)]</label>
 					<visible>!String.IsEmpty(MusicPlayer.Album)</visible>
 				</control>
+				
 				<!-- Track/Title -->
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords4</include>
 					<pauseatend>5000</pauseatend>
 					<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title]</label>
 				</control>
+				
 				<!-- Radio channel title -->
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords4</include>
 					<label>$INFO[VideoPlayer.ChannelName,[LIGHT],[/LIGHT]]</label>
 					<visible>!String.IsEmpty(VideoPlayer.ChannelName)</visible>
 				</control>
+				
 				<!-- File information -->
 				<control type="label">
 					<include>MusicVisualisation_coords4</include>
@@ -111,30 +116,16 @@
 
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
-			<visible>Window.IsActive(seekbar) | Window.IsActive(musicosd) | Player.ShowInfo</visible>
-			<include>MusicVisualisation_coords6</include>
+			<visible>[Window.IsActive(seekbar) | Window.IsActive(musicosd) | Player.ShowInfo] + !Window.IsVisible(shutdownmenu)</visible>
 			<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(musicosd)">Conditional</animation>
-			<animation type="Visible">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
-			</animation>
-			<animation type="Hidden">
-				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-				<effect type="fade" start="100" end="0" time="200"/>
-			</animation>
+			<include>OSDVisibleHiddenAnimation</include>
+			<include>MusicVisualisation_coords6</include>
 
 			<!-- Player forwarding/rewinding -->
 			<control type="group">
 				<include>MusicVisualisation_coords7</include>
 				<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek | player.paused] + !Player.Seeking</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
+				<include>OSDVisibleHiddenAnimation</include>
 
 				<!-- Background -->
 				<control type="image">
@@ -190,14 +181,7 @@
 			<control type="group">
 				<include>MusicVisualisation_coords9</include>
 				<visible>Integer.IsGreater(MusicPlayer.PlaylistLength,0)</visible>
-				<animation type="Visible">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
+				<include>OSDVisibleHiddenAnimation</include>
 
 				<!-- Background -->
 				<control type="image">

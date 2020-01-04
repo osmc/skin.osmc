@@ -7,15 +7,10 @@
 
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
+			<visible>!Window.IsVisible(shutdownmenu)</visible>
 			<include>MusicOSD_coords1</include>
-			<animation type="WindowOpen">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
-			</animation>
-			<animation type="WindowClose">
-				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-				<effect type="fade" start="100" end="0" time="200"/>
-			</animation>
+			<include>OSDVisibleHiddenAnimation</include>
+			<include>OSDOpenCloseAnimation</include>
 
 			<!-- Background -->
 			<control type="image">
@@ -49,6 +44,7 @@
 					<onclick>PlayerControl(Previous)</onclick>
 					<visible>Player.SeekEnabled</visible>
 				</control>
+				
 				<!-- Rewind -->
 				<control type="togglebutton" id="2">
 					<include>MusicOSD_coords6</include>
@@ -62,6 +58,7 @@
 					<onclick>PlayerControl(Rewind)</onclick>
 					<visible>Player.SeekEnabled</visible>
 				</control>
+				
 				<!-- Tempo Down -->
 				<control type="togglebutton" id="3">
 					<include>MusicOSD_coords6</include>
@@ -94,6 +91,7 @@
 					<onclick>PlayerControl(Play)</onclick>
 					<visible>Player.PauseEnabled</visible>
 				</control>
+				
 				<!-- Stop -->
 				<control type="button" id="5">
 					<include>MusicOSD_coords7</include>
@@ -122,6 +120,7 @@
 					<visible>Player.SeekEnabled</visible>
 					<enable>Player.TempoEnabled</enable>
 				</control>
+				
 				<!-- Fast Forward -->
 				<control type="togglebutton" id="7">
 					<include>MusicOSD_coords6</include>
@@ -135,6 +134,7 @@
 					<onclick>PlayerControl(Forward)</onclick>
 					<visible>Player.SeekEnabled</visible>
 				</control>
+				
 				<!-- Next -->
 				<control type="button" id="8">
 					<include>MusicOSD_coords5</include>
@@ -166,6 +166,7 @@
 					<texturenofocus></texturenofocus>
 					<onclick>PlayerControl(Repeat)</onclick>
 				</control>
+				
 				<!-- Random -->
 				<control type="togglebutton" id="11">
 					<include>MusicOSD_coords7</include>
@@ -175,6 +176,7 @@
 					<alttexturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDRandomOnNF.png</alttexturenofocus>
 					<onclick>PlayerControl(Random)</onclick>
 				</control>
+				
 				<!-- Lyrics -->
 				<control type="button" id="12">
 					<include>MusicOSD_coords7</include>
@@ -183,6 +185,7 @@
 					<onclick condition="String.IsEmpty(Skin.String(LyricAddon))">Skin.SetAddon(LyricAddon,xbmc.python.lyrics)</onclick>
 					<onclick condition="!String.IsEmpty(Skin.String(LyricAddon))">XBMC.RunScript($INFO[Skin.String(LyricAddon)])</onclick>
 				</control>
+				
 				<!-- Playlist -->
 				<control type="button" id="13">
 					<include>MusicOSD_coords7</include>
@@ -191,12 +194,14 @@
 					<onclick>Dialog.Close(MusicOSD)</onclick>
 					<onclick>ActivateWindow(MusicPlaylist)</onclick>
 				</control>
+				
 				<!-- Visualisation -->
 				<control type="button" id="500">
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDVizNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDVizNF.png</texturenofocus>
 				</control>
+				
 				<!-- Visualisation settings -->
 				<control type="button" id="14">
 					<include>MusicOSD_coords7</include>
@@ -205,6 +210,7 @@
 					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
 					<visible>Visualisation.Enabled</visible>
 				</control>
+				
 				<!-- Visualisation presets list -->
 				<control type="button" id="15">
 					<include>MusicOSD_coords7</include>

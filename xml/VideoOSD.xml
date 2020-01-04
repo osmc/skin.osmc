@@ -16,24 +16,10 @@
 
 		<control type="group">
 			<include>VideoOSD_coords2</include>
-			<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml)</visible>
-			<animation type="Visible">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
-			</animation>
-			<animation type="Hidden">
-				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-				<effect type="fade" start="100" end="0" time="200"/>
-			</animation>
+			<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
+			<include>OSDVisibleHiddenAnimation</include>
+			<include>OSDOpenCloseAnimation</include>
 			<control type="group">
-				<animation type="WindowOpen">
-					<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-					<effect type="fade" start="0" end="100" time="200"/>
-				</animation>
-				<animation type="WindowClose">
-					<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
-					<effect type="fade" start="100" end="0" time="200"/>
-				</animation>
 
 				<!-- Background -->
 				<control type="image">
@@ -67,6 +53,7 @@
 						<onclick>PlayerControl(Previous)</onclick>
 						<visible>Player.SeekEnabled</visible>
 					</control>
+					
 					<!-- Rewind -->
 					<control type="togglebutton" id="2">
 						<include>VideoOSD_coords7</include>
@@ -80,6 +67,7 @@
 						<onclick>PlayerControl(Rewind)</onclick>
 						<visible>Player.SeekEnabled</visible>
 					</control>
+					
 					<!-- Tempo Down -->
 					<control type="togglebutton" id="3">
 						<include>VideoOSD_coords7</include>
@@ -148,6 +136,7 @@
 						<visible>Player.SeekEnabled</visible>
 						<enable>Player.TempoEnabled</enable>
 					</control>
+					
 					<!-- Fast Forward -->
 					<control type="togglebutton" id="9">
 						<include>VideoOSD_coords7</include>
@@ -161,6 +150,7 @@
 						<onclick>PlayerControl(Forward)</onclick>
 						<visible>Player.SeekEnabled</visible>
 					</control>
+					
 					<!-- Next -->
 					<control type="button" id="10">
 						<include>VideoOSD_coords6</include>
@@ -213,6 +203,7 @@
 						<onclick>StereoMode</onclick>
 						<visible>VideoPlayer.IsStereoscopic</visible>
 					</control>
+					
 					<!-- Video Settings -->
 					<control type="button" id="13">
 						<include>VideoOSD_coords8</include>
@@ -220,6 +211,7 @@
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDVideoNF.png</texturenofocus>
 						<onclick>ActivateWindow(123)</onclick>
 					</control>
+					
 					<!-- Audio Settings -->
 					<control type="button" id="14">
 						<include>VideoOSD_coords8</include>
@@ -227,6 +219,7 @@
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDAudioNF.png</texturenofocus>
 						<onclick>ActivateWindow(124)</onclick>
 					</control>
+					
 					<!-- Subtitles -->
 					<control type="button" id="15">
 						<include>VideoOSD_coords8</include>
@@ -234,6 +227,7 @@
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDSubtitlesNF.png</texturenofocus>
 						<onclick>ActivateWindow(159)</onclick>
 					</control>
+					
 					<!-- Bookmarks -->
 					<control type="button" id="16">
 						<include>VideoOSD_coords8</include>
@@ -242,6 +236,7 @@
 						<onclick>ActivateWindow(125)</onclick>
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
 					</control>
+					
 					<!-- Channels -->
 					<control type="button" id="17">
 						<include>VideoOSD_coords8</include>
@@ -250,6 +245,7 @@
 						<onclick>ActivateWindow(PVROSDChannels)</onclick>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
+					
 					<!-- Channel EPG -->
 					<control type="button" id="18">
 						<include>VideoOSD_coords8</include>
@@ -258,6 +254,7 @@
 						<onclick>ActivateWindow(PVRChannelGuide)</onclick>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
+					
 					<!-- Teletext -->
 					<control type="button" id="19">
 						<include>VideoOSD_coords8</include>
@@ -266,6 +263,7 @@
 						<onclick>ActivateWindow(Teletext)</onclick>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
+					
 					<!-- DVD menu -->
 					<control type="button" id="20">
 						<include>VideoOSD_coords8</include>
@@ -274,6 +272,7 @@
 						<onclick>PlayerControl(ShowVideoMenu)</onclick>
 						<visible>VideoPlayer.HasMenu</visible>
 					</control>
+					
 					<!-- Resolution select -->
 					<control type="button" id="21">
 						<include>VideoOSD_coords8</include>
