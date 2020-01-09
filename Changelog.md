@@ -223,10 +223,9 @@ script-skinshortcuts.xml:
 
 SkinSettings.xml:
 - add hide scrollbars setting formerly found in other windows
-- add new hide media flags setting
 - add new show original movie title in video info dialog setting
 - add color setting to background section
-- update media flags setting
+- add setting to toggle media flags information shown (first)
 
 Variables.xml:
 - add new WidgetSortByLabel, WidgetSortDirectionLabel and WidgetLimitLabel variables for new widget sort by, widget sort direction and widget limit options
