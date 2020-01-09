@@ -6,6 +6,7 @@ _New_
 - add setting to set a solid color instead of background images
 - add audio and subtitle language information to media flags
 - add setting to toggle media flags information shown (first)
+- add new seek indicator
 
 _Improved_
 - rework home menu customization dialogs
@@ -26,6 +27,7 @@ _Fixed_
 **Changelog v18.2.0**
 
 _add new skin playlists and update existing ones_
+_add new coordinates file for seek bar dialog_
 
 strings.po:
 - change localize for new hide scrollbars option (31005)
@@ -101,6 +103,9 @@ DialogMusicInfo.xml:
 DialogPlayerProcessInfo.xml:
 - add visibility condition to hide dialog while shutdown menu is open
 - replace OSD animation by new animation includes
+
+DialogSeekBar.xml:
+- add slider control for new seek indicator
 
 DialogSelect.xml:
 - add visibility condition to hide dialog while shutdown menu is open
@@ -280,6 +285,7 @@ Viewtype534.xml:
 Textures.xbt:
 - update textures file with new, bigger OSMC logo file
 - update textures file with improved media flags icons
+- update textures file with new seek indicator icon
 
 mainmenu.DATA.xml:
 - add conditional visibility to MyOSMC home menu entry

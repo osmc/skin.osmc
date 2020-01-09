@@ -2,11 +2,25 @@
 <window>
 	<!-- seekbar -->
 	<defaultcontrol always="true">901</defaultcontrol>
-		<visible>[Player.Seeking | Player.DisplayAfterSeek + !Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo | !String.IsEmpty(Player.SeekNumeric) | Player.Paused + String.IsEqual(Skin.String(HideOSD),Always) | Player.Paused + !System.IdleTime(5) + String.IsEqual(Skin.String(HideOSD),5s) | Player.Paused + !System.IdleTime(10) + String.IsEqual(Skin.String(HideOSD),10s) | Player.Paused + !System.IdleTime(20) + String.IsEqual(Skin.String(HideOSD),20s) | Player.Paused + !System.IdleTime(30) + String.IsEqual(Skin.String(HideOSD),30s) | Player.Paused + !System.IdleTime(60) + String.IsEqual(Skin.String(HideOSD),1 min) | Player.Paused + !System.IdleTime(120) + String.IsEqual(Skin.String(HideOSD),2 min) | Player.Paused + !System.IdleTime(180) + String.IsEqual(Skin.String(HideOSD),3 min) | Player.Paused + !System.IdleTime(300) + String.IsEqual(Skin.String(HideOSD),5 min)] + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(gamevideofilter) + !Window.IsVisible(gamestretchmode) + !Window.IsVisible(gamevideorotation) + !Window.IsVisible(gameosd)</visible>
-		<visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
-		<zorder>0</zorder>
+	<visible>[Player.Seeking | Player.DisplayAfterSeek + !Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo | !String.IsEmpty(Player.SeekNumeric) | Player.Paused + String.IsEqual(Skin.String(HideOSD),Always) | Player.Paused + !System.IdleTime(5) + String.IsEqual(Skin.String(HideOSD),5s) | Player.Paused + !System.IdleTime(10) + String.IsEqual(Skin.String(HideOSD),10s) | Player.Paused + !System.IdleTime(20) + String.IsEqual(Skin.String(HideOSD),20s) | Player.Paused + !System.IdleTime(30) + String.IsEqual(Skin.String(HideOSD),30s) | Player.Paused + !System.IdleTime(60) + String.IsEqual(Skin.String(HideOSD),1 min) | Player.Paused + !System.IdleTime(120) + String.IsEqual(Skin.String(HideOSD),2 min) | Player.Paused + !System.IdleTime(180) + String.IsEqual(Skin.String(HideOSD),3 min) | Player.Paused + !System.IdleTime(300) + String.IsEqual(Skin.String(HideOSD),5 min)] + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(gamevideofilter) + !Window.IsVisible(gamestretchmode) + !Window.IsVisible(gamevideorotation) + !Window.IsVisible(gameosd)</visible>
+	<visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
+	<zorder>0</zorder>
 
 	<controls>
+
+		<control type="group">
+			<include>DialogSeekBar_coords1</include>
+	
+			<control type="slider" id="401">
+				<include>DialogSeekBar_coords2</include>
+				<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
+				<textureslidernib colordiffuse="$VAR[DialogColor1]">osd/OSDSliderNibBig.png</textureslidernib>
+				<textureslidernibfocus colordiffuse="$VAR[DialogColor1]">osd/OSDSliderNibBig.png</textureslidernibfocus>
+				<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(VideoOSD) + !Window.IsActive(playerprocessinfo)">Conditional</animation>
+				<visible>Player.Seeking</visible>
+			</control>
+			
+		</control>
 
 	</controls>
 
