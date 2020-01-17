@@ -671,10 +671,12 @@
 
 			<!-- Button grouplist indicator -->
 			<include content="dialogButtonIndicator">
-				<param name="visibility">!ControlGroup(9000).HasFocus</param>
+				<param name="visibility">!ControlGroup(9000).HasFocus + !Window.IsVisible(shutdownmenu)</param>
 			</include>
 
 		</control>
+
+		<include>MaskingBars</include>
 
 	</controls>
 

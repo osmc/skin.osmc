@@ -50,7 +50,7 @@
 				<visible>ControlGroup(9010).HasFocus</visible>
 			</control>
 			<control type="group">
-				<visible>Control.HasFocus(9000)</visible>
+				<visible>Control.HasFocus(9000) + !Window.IsVisible(shutdownmenu)</visible>
 				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 				<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsEqual(Container(9001).NumItems,0)">Conditional</animation>
 				<animation effect="slide" time="200" start="-200,0" end="0,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowOpen</animation>
@@ -84,7 +84,25 @@
 					<orientation>vertical</orientation>
 					<defaultcontrol always="true">1</defaultcontrol>
 
-					<include>Home_OptionsSideMenuAnimation</include>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,20)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,19)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,18)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,17)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,16)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,15)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,14)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,13)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,12)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,11)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,10)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,9)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,8)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,7)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,6)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,5)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,4)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,3)">Conditional</animation>
+					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,2)">Conditional</animation>
 
 					<itemlayout width="410" height="52">
 						<control type="label">

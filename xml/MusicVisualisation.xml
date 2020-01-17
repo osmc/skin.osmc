@@ -115,11 +115,12 @@
 		</control>
 
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
+			<include>MusicVisualisation_coords6</include>
 			<visible>[Window.IsActive(seekbar) | Window.IsActive(musicosd) | Player.ShowInfo] + !Window.IsVisible(shutdownmenu)</visible>
+			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
 			<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(musicosd)">Conditional</animation>
 			<include>OSDVisibleHiddenAnimation</include>
-			<include>MusicVisualisation_coords6</include>
+			
 
 			<!-- Player forwarding/rewinding -->
 			<control type="group">
@@ -304,6 +305,8 @@
 			</control>
 
 		</control>
+
+		<include>MaskingBars</include>
 
 	</controls>
 

@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="Custom_Overlay_DebugGrid">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Custom_Overlay_DebugGrid_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Custom_Overlay_DebugGrid_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Custom_Overlay_DebugGrid_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Custom_Overlay_DebugGrid_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Custom_Overlay_DebugGrid_4:3</include>
 	</include>
 	<include name="Custom_Overlay_DebugGrid_16:9">
@@ -12,13 +13,48 @@
 	<include name="Custom_Overlay_DebugGrid_21:9">
 		<texture>special://skin/extras/debuggrid2560.png</texture>
 	</include>
+	<include name="Custom_Overlay_DebugGrid_21:9_masked">
+		<texture>special://skin/extras/debuggrid2560.png</texture>
+	</include>
 	<include name="Custom_Overlay_DebugGrid_4:3">
 		<texture>special://skin/extras/debuggrid1440.png</texture>
 	</include>
 
+	<include name="Custom_Overlay_DebugGrid_coords">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Custom_Overlay_Debug_coords_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Custom_Overlay_Debug_coords_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Custom_Overlay_Debug_coords_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Custom_Overlay_Debug_coords_4:3</include>
+	</include>
+	<include name="Custom_Overlay_Debug_coords_16:9">
+		<left>0</left>
+		<top>0</top>
+		<width>1920</width>
+		<height>1080</height>
+	</include>
+	<include name="Custom_Overlay_Debug_coords_21:9">
+		<left>0</left>
+		<top>0</top>
+		<width>2560</width>
+		<height>1080</height>
+	</include>
+	<include name="Custom_Overlay_Debug_coords_21:9_masked">
+		<left>0</left>
+		<top>180</top>
+		<width>2560</width>
+		<height>1080</height>
+	</include>
+	<include name="Custom_Overlay_Debug_coords_4:3">
+		<left>0</left>
+		<top>0</top>
+		<width>1440</width>
+		<height>1080</height>
+	</include>
+
 	<include name="Custom_Overlay_Debug_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Custom_Overlay_Debug_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Custom_Overlay_Debug_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Custom_Overlay_Debug_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Custom_Overlay_Debug_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Custom_Overlay_Debug_coords1_4:3</include>
 	</include>
 	<include name="Custom_Overlay_Debug_coords1_16:9">
@@ -33,6 +69,12 @@
 		<width>1250</width>
 		<height>450</height>
 	</include>
+	<include name="Custom_Overlay_Debug_coords1_21:9_masked">
+		<left>15</left>
+		<top>195</top>
+		<width>1250</width>
+		<height>450</height>
+	</include>
 	<include name="Custom_Overlay_Debug_coords1_4:3">
 		<left>15</left>
 		<top>15</top>
@@ -41,8 +83,9 @@
 	</include>
 	
 	<include name="Custom_Overlay_Debug_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Custom_Overlay_Debug_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Custom_Overlay_Debug_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Custom_Overlay_Debug_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Custom_Overlay_Debug_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Custom_Overlay_Debug_coords2_4:3</include>
 	</include>
 	<include name="Custom_Overlay_Debug_coords2_16:9">
@@ -53,14 +96,19 @@
 		<width>1250</width>
 		<height>21</height>
 	</include>
+	<include name="Custom_Overlay_Debug_coords2_21:9_masked">
+		<width>1250</width>
+		<height>21</height>
+	</include>
 	<include name="Custom_Overlay_Debug_coords2_4:3">
 		<width>690</width>
 		<height>21</height>
 	</include>
 	
 	<include name="Custom_Overlay_Debug_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Custom_Overlay_Debug_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Custom_Overlay_Debug_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Custom_Overlay_Debug_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Custom_Overlay_Debug_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Custom_Overlay_Debug_coords3_4:3</include>
 	</include>
 	<include name="Custom_Overlay_Debug_coords3_16:9">
@@ -72,6 +120,12 @@
 	<include name="Custom_Overlay_Debug_coords3_21:9">
 		<right>15</right>
 		<top>15</top>
+		<width>1250</width>
+		<height>450</height>
+	</include>
+	<include name="Custom_Overlay_Debug_coords3_21:9_masked">
+		<right>15</right>
+		<top>195</top>
 		<width>1250</width>
 		<height>450</height>
 	</include>

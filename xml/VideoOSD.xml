@@ -16,7 +16,7 @@
 
 		<control type="group">
 			<include>VideoOSD_coords2</include>
-			<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
+			<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105)</visible>
 			<include>OSDVisibleHiddenAnimation</include>
 			<include>OSDOpenCloseAnimation</include>
 			<control type="group">
@@ -31,7 +31,7 @@
 				<control type="grouplist">
 					<include>VideoOSD_coords4</include>
 					<itemgap>0</itemgap>
-					<onleft>21</onleft>
+					<onleft>22</onleft>
 					<onright>12</onright>
 					<onup>30</onup>
 					<ondown>30</ondown>
@@ -282,8 +282,75 @@
 						<visible>Player.HasResolutions</visible>
 					</control>
 
+					<!-- Masking -->
+					<control type="button" id="22">
+						<include>VideoOSD_coords8</include>
+						<texturefocus></texturefocus>
+						<texturenofocus></texturenofocus>
+						<onclick>ActivateWindow(1105)</onclick>
+						<visible>False</visible>
+					</control>
+
 				</control>
+				
+				<!-- Masking images -->
+				<control type="group">
+					<include>VideoOSD_coords10</include>
+					<visible>False</visible>
+
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask240NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),2.40:1)</visible>
+						<visible>!Control.HasFocus(22)</visible>
+					</control>
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask240NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),2.40:1)</visible>
+						<visible>Control.HasFocus(22)</visible>
+					</control>
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask235NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),2.35:1)</visible>
+						<visible>!Control.HasFocus(22)</visible>
+					</control>
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask235NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),2.35:1)</visible>
+						<visible>Control.HasFocus(22)</visible>
+					</control>
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask200NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),2.00:1)</visible>
+						<visible>!Control.HasFocus(22)</visible>
+					</control>
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask200NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),2.00:1)</visible>
+						<visible>Control.HasFocus(22)</visible>
+					</control>
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask178NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),1.78:1)</visible>
+						<visible>!Control.HasFocus(22)</visible>
+					</control>
+					<control type="image">
+						<include>VideoOSD_coords8</include>
+						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask178NF.png</texture>
+						<visible>String.IsEqual(Skin.String(MaskingBars),1.78:1)</visible>
+						<visible>Control.HasFocus(22)</visible>
+					</control>
+
+				</control>
+				
 			</control>
+			
 		</control>
 
 	</controls>

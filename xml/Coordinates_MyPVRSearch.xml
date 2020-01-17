@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="MyPVRSearch_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords1_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords1_16:9">
@@ -18,6 +19,12 @@
 		<width>800</width>
 		<height>33</height>
 	</include>
+	<include name="MyPVRSearch_coords1_21:9_masked">
+		<left>120</left>
+		<top>350</top>
+		<width>800</width>
+		<height>33</height>
+	</include>
 	<include name="MyPVRSearch_coords1_4:3">
 		<left>120</left>
 		<top>170</top>
@@ -26,8 +33,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords2_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords2_16:9">
@@ -42,6 +50,12 @@
 		<width>1340</width>
 		<height>648</height>
 	</include>
+	<include name="MyPVRSearch_coords2_21:9_masked">
+		<left>120</left>
+		<top>406</top>
+		<width>1340</width>
+		<height>648</height>
+	</include>
 	<include name="MyPVRSearch_coords2_4:3">
 		<left>120</left>
 		<top>226</top>
@@ -50,8 +64,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords3_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords3_16:9">
@@ -208,6 +223,83 @@
 
 		</itemlayout>
 	</include>
+	<include name="MyPVRSearch_coords3_21:9_masked">
+		<itemlayout width="1340" height="108">
+
+			<!-- Start time -->
+			<control type="label">
+				<top>12</top>
+				<width>200</width>
+				<align>right</align>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.StartTime]</label>
+			</control>
+
+			<!-- End time -->
+			<control type="label">
+				<top>62</top>
+				<width>200</width>
+				<height>27</height>
+				<align>right</align>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.EndTime]</label>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>226</left>
+				<top>40</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Timer image -->
+			<control type="image">
+				<left>221</left>
+				<top>36</top>
+				<width>38</width>
+				<height>40</height>
+				<texture>pvr/Timer.png</texture>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Program name -->
+			<control type="label">
+				<left>280</left>
+				<top>12</top>
+				<width>820</width>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+			<!-- Channel name -->
+			<control type="label">
+				<left>280</left>
+				<top>62</top>
+				<width>1060</width>
+				<height>27</height>
+				<font>Font27-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelName]</label>
+			</control>
+
+			<!-- Duration -->
+			<control type="label">
+				<left>1120</left>
+				<top>12</top>
+				<width>200</width>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Duration]</label>
+			</control>
+
+		</itemlayout>
+	</include>
 	<include name="MyPVRSearch_coords3_4:3">
 		<itemlayout width="780" height="108">
 
@@ -287,8 +379,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords4_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords4_16:9">
@@ -477,6 +570,99 @@
 
 		</focusedlayout>
 	</include>
+	<include name="MyPVRSearch_coords4_21:9_masked">
+		<focusedlayout width="1340" height="108">
+		
+			<!-- Start time -->
+			<control type="label">
+				<top>12</top>
+				<width>200</width>
+				<align>right</align>
+				<label>$INFO[ListItem.StartTime]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+
+			<!-- End time -->
+			<control type="label">
+				<top>62</top>
+				<width>200</width>
+				<height>27</height>
+				<align>right</align>
+				<label>$INFO[ListItem.EndTime]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+
+			<!-- Recording image -->
+			<control type="image">
+				<left>226</left>
+				<top>40</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Recording.png</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>ListItem.IsRecording</visible>
+			</control>
+			
+			<!-- Timer image -->
+			<control type="image">
+				<left>221</left>
+				<top>36</top>
+				<width>38</width>
+				<height>40</height>
+				<texture>pvr/Timer.png</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+			</control>
+
+			<!-- Program name -->
+			<control type="fadelabel">
+				<left>280</left>
+				<top>12</top>
+				<width>820</width>
+				<font>Font33-bold</font>
+				<scroll>True</scroll>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+
+			<!-- Channel name -->
+			<control type="label">
+				<left>280</left>
+				<top>62</top>
+				<width>1060</width>
+				<height>27</height>
+				<font>Font27</font>
+				<scroll>True</scroll>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.ChannelName]</label>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+
+			<!-- Duration -->
+			<control type="label">
+				<left>1120</left>
+				<top>12</top>
+				<width>200</width>
+				<label>$INFO[ListItem.Duration]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+			
+			<!-- Highlighting -->
+			<control type="image">
+				<left>280</left>
+				<top>12</top>
+				<width>1040</width>
+				<height>51</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+
+		</focusedlayout>
+	</include>
 	<include name="MyPVRSearch_coords4_4:3">
 		<focusedlayout width="780" height="108">
 		
@@ -572,8 +758,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords5_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords5_16:9">
@@ -588,6 +775,12 @@
 		<width>20</width>
 		<height>648</height>
 	</include>
+	<include name="MyPVRSearch_coords5_21:9_masked">
+		<left>1472</left>
+		<top>406</top>
+		<width>20</width>
+		<height>648</height>
+	</include>
 	<include name="MyPVRSearch_coords5_4:3">
 		<left>912</left>
 		<top>226</top>
@@ -596,8 +789,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords6_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords6_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords6_16:9">
@@ -610,6 +804,11 @@
 		<top>246</top>
 		<width>832</width>
 	</include>
+	<include name="MyPVRSearch_coords6_21:9_masked">
+		<right>120</right>
+		<top>426</top>
+		<width>832</width>
+	</include>
 	<include name="MyPVRSearch_coords6_4:3">
 		<right>120</right>
 		<top>246</top>
@@ -617,8 +816,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords7_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords7_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords7_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords7_16:9">
@@ -627,13 +827,17 @@
 	<include name="MyPVRSearch_coords7_21:9">
 		<width>832</width>
 	</include>
+	<include name="MyPVRSearch_coords7_21:9_masked">
+		<width>832</width>
+	</include>
 	<include name="MyPVRSearch_coords7_4:3">
 		<width>272</width>
 	</include>
 	
 	<include name="MyPVRSearch_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords8_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords8_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords8_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords8_16:9">
@@ -642,13 +846,17 @@
 	<include name="MyPVRSearch_coords8_21:9">
 		<top>76</top>
 	</include>
+	<include name="MyPVRSearch_coords8_21:9_masked">
+		<top>76</top>
+	</include>
 	<include name="MyPVRSearch_coords8_4:3">
 		<top>76</top>
 	</include>
 	
 	<include name="MyPVRSearch_coords9">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords9_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords9_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords9_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords9_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords9_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords9_16:9">
@@ -659,14 +867,19 @@
 		<width>832</width>
 		<height>460</height>
 	</include>
+	<include name="MyPVRSearch_coords9_21:9_masked">
+		<width>832</width>
+		<height>460</height>
+	</include>
 	<include name="MyPVRSearch_coords9_4:3">
 		<width>272</width>
 		<height>460</height>
 	</include>
 	
 	<include name="MyPVRSearch_coords10">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords10_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords10_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords10_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords10_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords10_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords10_16:9">
@@ -681,6 +894,12 @@
 		<width>832</width>
 		<height>30</height>
 	</include>
+	<include name="MyPVRSearch_coords10_21:9_masked">
+		<right>0</right>
+		<top>504</top>
+		<width>832</width>
+		<height>30</height>
+	</include>
 	<include name="MyPVRSearch_coords10_4:3">
 		<right>0</right>
 		<top>504</top>
@@ -689,8 +908,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords11">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRSearch_coords11_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords11_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords11_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords11_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords11_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords11_16:9">
@@ -702,6 +922,12 @@
 	<include name="MyPVRSearch_coords11_21:9">
 		<right>120</right>
 		<bottom>110</bottom>
+		<width>800</width>
+		<height>44</height>
+	</include>
+	<include name="MyPVRSearch_coords11_21:9_masked">
+		<right>120</right>
+		<bottom>290</bottom>
 		<width>800</width>
 		<height>44</height>
 	</include>

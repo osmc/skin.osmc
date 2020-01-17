@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="Custom_Backup_coords">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Custom_Backup_coords_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Custom_Backup_coords_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Custom_Backup_coords_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Custom_Backup_coords_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Custom_Backup_coords_4:3</include>
 	</include>
 	<include name="Custom_Backup_coords_16:9">
@@ -13,6 +14,12 @@
 		<height>600</height>
 	</include>
 	<include name="Custom_Backup_coords_21:9">
+		<centerleft>50%</centerleft>
+		<centertop>50%</centertop>
+		<width>2520</width>
+		<height>600</height>
+	</include>
+	<include name="Custom_Backup_coords_21:9_masked">
 		<centerleft>50%</centerleft>
 		<centertop>50%</centertop>
 		<width>2520</width>

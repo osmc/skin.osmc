@@ -11,7 +11,7 @@
 			<control type="group">
 				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 				<!-- Image - Movies -->
-				<include content="image-511">
+				<include content="image-511-video">
 					<param name="fallback">DefaultMovies.png</param>
 					<param name="visible">Container.Content(movies)</param>
 				</include>
@@ -99,7 +99,35 @@
 				<include>Viewtype511_coords7</include>
 				<fadetime>200</fadetime>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="image-511">
+		<param name="fallback">DefaultVideo.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype511_coords7</include>
+				<fadetime>200</fadetime>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="image-511-video">
+		<param name="fallback">DefaultVideo.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype511_coords7</include>
+				<fadetime>200</fadetime>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>

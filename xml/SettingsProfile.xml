@@ -73,7 +73,7 @@
 		
 		<!-- Submenu indicator -->
 		<control type="group">
-			<visible>!ControlGroup(9002).HasFocus</visible>
+			<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(contextmenu)</visible>
 			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 			<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
@@ -178,6 +178,8 @@
 				</control>
 			</control>
 		</control>
+
+		<include>MaskingBars</include>
 
 	</controls>
 

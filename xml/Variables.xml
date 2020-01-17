@@ -1225,58 +1225,67 @@
 	</variable>
 	
 	<variable name="ContentType">
-		<value condition="Container.Content(movies) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20338]</value>
-		<value condition="Container.Content(movies) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[342]</value>
-		<value condition="Container.Content(tvshows) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20364]</value>
-		<value condition="Container.Content(tvshows) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20343]</value>
-		<value condition="Container.Content(seasons) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20373]</value>
-		<value condition="Container.Content(seasons) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[33054]</value>
-		<value condition="Container.Content(episodes) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20359]</value>
-		<value condition="Container.Content(episodes) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20360]</value>
-		<value condition="Container.Content(musicvideos) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20391]</value>
-		<value condition="Container.Content(musicvideos) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20389]</value>
-		<value condition="Container.Content(genres) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[515]</value>
-		<value condition="Container.Content(genres) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[135]</value>
-		<value condition="Container.Content(years) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[345]</value>
-		<value condition="Container.Content(years) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[652]</value>
-		<value condition="Container.Content(actors) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20337]</value>
-		<value condition="Container.Content(actors) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[344]</value>
-		<value condition="Container.Content(albums) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[558]</value>
-		<value condition="Container.Content(albums) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[132]</value>
-		<value condition="Container.Content(artists) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[557]</value>
-		<value condition="Container.Content(artists) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[133]</value>
-		<value condition="Container.Content(songs) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[179]</value>
-		<value condition="Container.Content(songs) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[134]</value>
-		<value condition="Container.Content(playlists) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[559]</value>
-		<value condition="Container.Content(playlists) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[136]</value>
-		<value condition="Container.Content(studios) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[572]</value>
-		<value condition="Container.Content(studios) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20388]</value>
-		<value condition="Container.Content(directors) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20339]</value>
-		<value condition="Container.Content(directors) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20348]</value>
-		<value condition="Container.Content(countries) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[574]</value>
-		<value condition="Container.Content(countries) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20451]</value>
-		<value condition="Container.Content(Addons) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[24000]</value>
-		<value condition="Container.Content(Addons) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[24001]</value>
-		<value condition="Container.Content(sets) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20141]</value>
-		<value condition="Container.Content(sets) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20434]</value>
-		<value condition="Container.Content(tags) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31002]</value>
-		<value condition="Container.Content(tags) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[20459]</value>
-		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[19043]</value>
-		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[19163]</value>
-		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[19029]</value>
-		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[19019]</value>
-		<value condition="Container.Content(games) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[15016]</value>
-		<value condition="Container.Content(games) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31238]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[35049]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31239]</value>
-		<value condition="!Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31000]</value>
-		<value condition="Integer.IsGreater(Container.NumItems,1)">$LOCALIZE[31001]</value>
+		<value condition="Container.Content(movies) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20338]</value>
+		<value condition="Container.Content(movies) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[342]</value>
+		<value condition="Container.Content(tvshows) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20364]</value>
+		<value condition="Container.Content(tvshows) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20343]</value>
+		<value condition="Container.Content(seasons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20373]</value>
+		<value condition="Container.Content(seasons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[33054]</value>
+		<value condition="Container.Content(episodes) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20359]</value>
+		<value condition="Container.Content(episodes) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20360]</value>
+		<value condition="Container.Content(musicvideos) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20391]</value>
+		<value condition="Container.Content(musicvideos) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20389]</value>
+		<value condition="Container.Content(genres) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[515]</value>
+		<value condition="Container.Content(genres) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[135]</value>
+		<value condition="Container.Content(years) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[345]</value>
+		<value condition="Container.Content(years) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[652]</value>
+		<value condition="Container.Content(actors) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20337]</value>
+		<value condition="Container.Content(actors) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[344]</value>
+		<value condition="Container.Content(albums) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[558]</value>
+		<value condition="Container.Content(albums) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[132]</value>
+		<value condition="Container.Content(artists) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[557]</value>
+		<value condition="Container.Content(artists) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[133]</value>
+		<value condition="Container.Content(songs) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[179]</value>
+		<value condition="Container.Content(songs) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[134]</value>
+		<value condition="Container.Content(playlists) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[559]</value>
+		<value condition="Container.Content(playlists) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[136]</value>
+		<value condition="Container.Content(studios) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[572]</value>
+		<value condition="Container.Content(studios) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20388]</value>
+		<value condition="Container.Content(directors) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20339]</value>
+		<value condition="Container.Content(directors) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20348]</value>
+		<value condition="Container.Content(countries) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[574]</value>
+		<value condition="Container.Content(countries) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20451]</value>
+		<value condition="Container.Content(Addons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24000]</value>
+		<value condition="Container.Content(Addons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24001]</value>
+		<value condition="Container.Content(sets) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20141]</value>
+		<value condition="Container.Content(sets) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20434]</value>
+		<value condition="Container.Content(tags) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31002]</value>
+		<value condition="Container.Content(tags) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20459]</value>
+		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19043]</value>
+		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19163]</value>
+		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19029]</value>
+		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19019]</value>
+		<value condition="Container.Content(games) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[15016]</value>
+		<value condition="Container.Content(games) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31238]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[35049]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31239]</value>
+		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
 
 	<variable name="ContentTypeFavourites">
-		<value condition="Integer.IsEqual(Container(450).NumItems,0)">$LOCALIZE[504]</value>
 		<value condition="Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31000]</value>
-		<value condition="Integer.IsGreater(Container(450).NumItems,1)">$LOCALIZE[31001]</value>
+		<value condition="!Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31001]</value>
+	</variable>
+	
+	<variable name="ContentTypeFileManager20">
+		<value condition="Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31001]</value>
+	</variable>
+	
+	<variable name="ContentTypeFileManager21">
+		<value condition="Integer.IsEqual(Container(21).NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container(21).NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
 
 	<variable name="weatherIcons">

@@ -143,29 +143,13 @@
 			</control>
 
 			<!-- Weather provider -->
-			<control type="grouplist">
+			<control type="fadelabel">
 				<include>MyWeather_coords12</include>
-				<itemgap>6</itemgap>
 				<align>right</align>
-				<orientation>horizontal</orientation>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="label">
-					<top>3</top>
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>31045</label>
-					<font>Font25</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-				</control>
-				<control type="label">
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>$INFO[Window(Weather).Property(WeatherProvider)]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-				</control>
+				<label>$LOCALIZE[31045]$INFO[Window(Weather).Property(WeatherProvider), ,]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<pauseatend>5000</pauseatend>
 			</control>
 			
 			<!-- Submenu indicator -->
@@ -226,6 +210,8 @@
 			</control>
 
 		</control>
+
+		<include>MaskingBars</include>
 
 	</controls>
 

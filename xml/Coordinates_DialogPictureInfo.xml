@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="DialogPictureInfo_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogPictureInfo_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogPictureInfo_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogPictureInfo_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogPictureInfo_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogPictureInfo_coords1_4:3</include>
 	</include>
 	<include name="DialogPictureInfo_coords1_16:9">
@@ -18,6 +19,12 @@
 		<width>1840</width>
 		<height>580</height>
 	</include>
+	<include name="DialogPictureInfo_coords1_21:9_masked">
+		<left>360</left>
+		<top>415</top>
+		<width>1840</width>
+		<height>580</height>
+	</include>
 	<include name="DialogPictureInfo_coords1_4:3">
 		<left>360</left>
 		<top>235</top>
@@ -26,8 +33,9 @@
 	</include>
 	
 	<include name="DialogPictureInfo_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogPictureInfo_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogPictureInfo_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogPictureInfo_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogPictureInfo_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogPictureInfo_coords2_4:3</include>
 	</include>
 	<include name="DialogPictureInfo_coords2_16:9">
@@ -68,6 +76,25 @@
 			</control>
 		</itemlayout>
 	</include>
+	<include name="DialogPictureInfo_coords2_21:9_masked">
+		<itemlayout width="1840" height="58">
+			<control type="label">
+				<width>1840</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="label">
+				<width>1840</width>
+				<height>58</height>
+				<font>Font36</font>
+				<align>right</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+			</control>
+		</itemlayout>
+	</include>
 	<include name="DialogPictureInfo_coords2_4:3">
 		<itemlayout width="720" height="58">
 			<control type="label">
@@ -89,8 +116,9 @@
 	</include>
 	
 	<include name="DialogPictureInfo_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogPictureInfo_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogPictureInfo_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogPictureInfo_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogPictureInfo_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogPictureInfo_coords3_4:3</include>
 	</include>
 	<include name="DialogPictureInfo_coords3_16:9">
@@ -121,6 +149,33 @@
 		</focusedlayout>
 	</include>
 	<include name="DialogPictureInfo_coords3_21:9">
+		<focusedlayout width="1840" height="58">
+			<control type="label">
+				<width>1840</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(5)">Conditional</animation>
+			</control>
+			<control type="image">
+				<width>1840</width>
+				<height>58</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(5)">Conditional</animation>
+			</control>
+			<control type="label">
+				<width>1840</width>
+				<height>58</height>
+				<font>Font36</font>
+				<align>right</align>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label2]</label>
+				<animation effect="fade" start="100" end="75" time="0" condition="!Control.HasFocus(5)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="DialogPictureInfo_coords3_21:9_masked">
 		<focusedlayout width="1840" height="58">
 			<control type="label">
 				<width>1840</width>

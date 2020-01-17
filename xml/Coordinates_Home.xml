@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="HomeLogo_coords">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">HomeLogo_coords_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">HomeLogo_coords_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">HomeLogo_coords_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">HomeLogo_coords_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">HomeLogo_coords_4:3</include>
 	</include>
 	<include name="HomeLogo_coords_16:9">
@@ -18,6 +19,12 @@
 		<width>50</width>
 		<height>50</height>
 	</include>
+	<include name="HomeLogo_coords_21:9_masked">
+		<left>120</left>
+		<top>285</top>
+		<width>50</width>
+		<height>50</height>
+	</include>
 	<include name="HomeLogo_coords_4:3">
 		<left>120</left>
 		<top>105</top>
@@ -26,8 +33,9 @@
 	</include>
 
 	<include name="HomeRSS_coords">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">HomeRSS_coords_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">HomeRSS_coords_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">HomeRSS_coords_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">HomeRSS_coords_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">HomeRSS_coords_4:3</include>
 	</include>
 	<include name="HomeRSS_coords_16:9">
@@ -40,15 +48,42 @@
 		<bottom>0</bottom>
 		<width>2560</width>
 	</include>
+	<include name="HomeRSS_coords_21:9_masked">
+		<include condition="String.IsEqual(Skin.String(MaskingBars),2.40:1)">HomeRSS_coords_21:9_masked_240</include>
+		<include condition="String.IsEqual(Skin.String(MaskingBars),2.35:1)">HomeRSS_coords_21:9_masked_235</include>
+		<include condition="String.IsEqual(Skin.String(MaskingBars),2.00:1)">HomeRSS_coords_21:9_masked_200</include>
+		<include condition="String.IsEqual(Skin.String(MaskingBars),1.78:1)">HomeRSS_coords_21:9_masked_178</include>
+	</include>
 	<include name="HomeRSS_coords_4:3">
 		<right>0</right>
 		<bottom>0</bottom>
 		<width>1440</width>
 	</include>
+	<include name="HomeRSS_coords_21:9_masked_240">
+		<right>0</right>
+		<bottom>187</bottom>
+		<width>2560</width>
+	</include>
+	<include name="HomeRSS_coords_21:9_masked_235">
+		<right>0</right>
+		<bottom>175</bottom>
+		<width>2560</width>
+	</include>
+	<include name="HomeRSS_coords_21:9_masked_200">
+		<right>0</right>
+		<bottom>80</bottom>
+		<width>2560</width>
+	</include>
+	<include name="HomeRSS_coords_21:9_masked_178">
+		<right>0</right>
+		<bottom>0</bottom>
+		<width>2560</width>
+	</include>
 
 	<include name="Home_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Home_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Home_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Home_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Home_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Home_coords1_4:3</include>
 	</include>
 	<include name="Home_coords1_16:9">
@@ -63,6 +98,12 @@
 		<width>400</width>
 		<height>679</height>
 	</include>
+	<include name="Home_coords1_21:9_masked">
+		<left>120</left>
+		<top>420</top>
+		<width>400</width>
+		<height>679</height>
+	</include>
 	<include name="Home_coords1_4:3">
 		<left>120</left>
 		<top>240</top>
@@ -70,78 +111,10 @@
 		<height>679</height>
 	</include>
 	
-	<include name="Home_OptionsSideMenuAnimation">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Home_OptionsSideMenuAnimation_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Home_OptionsSideMenuAnimation_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Home_OptionsSideMenuAnimation_4:3</include>
-	</include>
-	<include name="Home_OptionsSideMenuAnimation_16:9">
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,20)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,19)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,18)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,17)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,16)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,15)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,14)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,13)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,12)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,11)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,10)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,9)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,8)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,7)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,6)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,5)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,4)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,3)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,2)">Conditional</animation>
-	</include>
-	<include name="Home_OptionsSideMenuAnimation_21:9">
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,20)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,19)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,18)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,17)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,16)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,15)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,14)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,13)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,12)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,11)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,10)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,9)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,8)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,7)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,6)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,5)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,4)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,3)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,2)">Conditional</animation>
-	</include>
-	<include name="Home_OptionsSideMenuAnimation_4:3">
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,20)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,19)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,18)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,17)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,16)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,15)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,14)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,13)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,12)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,11)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,10)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,9)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,8)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,7)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,6)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,5)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,4)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,3)">Conditional</animation>
-		<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,2)">Conditional</animation>
-	</include>
-	
 	<include name="Home_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Home_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Home_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Home_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Home_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Home_coords2_4:3</include>
 	</include>
 	<include name="Home_coords2_16:9">
@@ -170,6 +143,19 @@
 			</control>
 		</itemlayout>
 	</include>
+	<include name="Home_coords2_21:9_masked">
+		<itemlayout width="400" height="97">
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width>400</width>
+				<height>97</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font50-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+		</itemlayout>
+	</include>
 	<include name="Home_coords2_4:3">
 		<itemlayout width="400" height="97">
 			<control type="label">
@@ -185,11 +171,35 @@
 	</include>
 	
 	<include name="Home_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Home_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Home_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Home_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Home_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Home_coords3_4:3</include>
 	</include>
 	<include name="Home_coords3_16:9">
+		<focusedlayout width="400" height="97">
+			<control type="label">
+				<left>0</left>
+				<top>0</top>
+				<width>400</width>
+				<height>97</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font50-bold</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<scroll>True</scroll>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>400</width>
+				<height>97</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus97]</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(9000)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Home_coords3_21:9_masked">
 		<focusedlayout width="400" height="97">
 			<control type="label">
 				<left>0</left>
@@ -260,8 +270,9 @@
 	</include>
 	
 	<include name="Home_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Home_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Home_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Home_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Home_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Home_coords4_4:3</include>
 	</include>
 	<include name="Home_coords4_16:9">
@@ -276,6 +287,14 @@
 		<include content="Indicators">
 			<param name="left">120</param>
 			<param name="top">200</param>
+			<param name="height">759</param>
+			<param name="container">9000</param>
+		</include>
+	</include>
+	<include name="Home_coords4_21:9_masked">
+		<include content="Indicators">
+			<param name="left">120</param>
+			<param name="top">380</param>
 			<param name="height">759</param>
 			<param name="container">9000</param>
 		</include>

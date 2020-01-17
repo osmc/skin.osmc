@@ -2,8 +2,9 @@
 <includes>
 	
 	<include name="Viewtype50_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype50_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords1_4:3</include>
 	</include>
 	<include name="Viewtype50_coords1_16:9">
@@ -18,6 +19,12 @@
 		<width>1690</width>
 		<height>720</height>
 	</include>
+	<include name="Viewtype50_coords1_21:9_masked">
+		<left>750</left>
+		<centertop>50%</centertop>
+		<width>1690</width>
+		<height>720</height>
+	</include>
 	<include name="Viewtype50_coords1_4:3">
 		<left>750</left>
 		<centertop>50%</centertop>
@@ -26,8 +33,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype50_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords2_4:3</include>
 	</include>
 	<include name="Viewtype50_coords2_16:9">
@@ -78,6 +86,30 @@
 			</control>
 		</itemlayout>
 	</include>
+	<include name="Viewtype50_coords2_21:9_masked">
+		<itemlayout height="60" width="1690">
+			<control type="label">
+				<left>32</left>
+				<top>0</top>
+				<width>1658</width>
+				<height>60</height>
+				<font>Font36-light</font>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+			<!-- Watched status -->
+			<control type="image">
+				<left>0</left>
+				<top>19</top>
+				<width>22</width>
+				<height>22</height>
+				<texture>$VAR[StatusOverlay]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+			</control>
+		</itemlayout>
+	</include>
 	<include name="Viewtype50_coords2_4:3">
 		<itemlayout height="60" width="570">
 			<control type="label">
@@ -104,8 +136,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype50_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords3_4:3</include>
 	</include>
 	<include name="Viewtype50_coords3_16:9">
@@ -178,6 +211,41 @@
 			</control>
 		</focusedlayout>
 	</include>
+	<include name="Viewtype50_coords3_21:9_masked">
+		<focusedlayout height="120" width="1690">
+			<control type="label">
+				<left>32</left>
+				<top>0</top>
+				<width>1658</width>
+				<height>120</height>
+				<font>Font72-bold</font>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<scroll>True</scroll>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+			<control type="image">
+				<left>32</left>
+				<top>0</top>
+				<width>1658</width>
+				<height>120</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!ListItem.IsParentFolder</visible>
+			</control>
+			<!-- Watched status -->
+			<control type="image">
+				<left>0</left>
+				<top>49</top>
+				<width>22</width>
+				<height>22</height>
+				<texture>$VAR[StatusOverlay]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<colordiffuse>$VAR[TextColor1]</colordiffuse>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
 	<include name="Viewtype50_coords3_4:3">
 		<focusedlayout height="120" width="570">
 			<control type="label">
@@ -215,8 +283,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype50_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords4_4:3</include>
 	</include>
 	<include name="Viewtype50_coords4_16:9">
@@ -228,6 +297,12 @@
 	<include name="Viewtype50_coords4_21:9">
 		<left>120</left>
 		<top>225</top>
+		<width>405</width>
+		<height>600</height>
+	</include>
+	<include name="Viewtype50_coords4_21:9_masked">
+		<left>120</left>
+		<top>405</top>
 		<width>405</width>
 		<height>600</height>
 	</include>
