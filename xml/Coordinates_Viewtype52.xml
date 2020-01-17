@@ -2,8 +2,9 @@
 <includes>
 	
 	<include name="Viewtype52_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords1_4:3</include>
 	</include>
 	<include name="Viewtype52_coords1_16:9">
@@ -22,6 +23,14 @@
 		<preloaditems>5</preloaditems>
 		<focusposition>4</focusposition>
 	</include>
+	<include name="Viewtype52_coords1_21:9_masked">
+		<left>0</left>
+		<top>350</top>
+		<width>2560</width>
+		<height>750</height>
+		<preloaditems>5</preloaditems>
+		<focusposition>4</focusposition>
+	</include>
 	<include name="Viewtype52_coords1_4:3">
 		<left>0</left>
 		<top>170</top>
@@ -32,8 +41,9 @@
 	</include>
 	
 	<include name="Viewtype52_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords2_4:3</include>
 	</include>
 	<include name="Viewtype52_coords2_16:9">
@@ -152,6 +162,64 @@
 			</control>
 		</itemlayout>
 	</include>
+	<include name="Viewtype52_coords2_21:9_masked">
+		<itemlayout width="269" height="666">
+			<!-- Image - Movies -->
+			<include content="image-52">
+				<param name="fallback">DefaultMovie.png</param>
+				<param name="visible">Container.Content(movies)</param>
+			</include>
+			<!-- Image - Albums -->
+			<include content="image-52">
+				<param name="fallback">DefaultAlbumCover.png</param>
+				<param name="visible">Container.Content(albums)</param>
+			</include>
+			<!-- Image - Artists -->
+			<include content="image-52">
+				<param name="fallback">DefaultUser.png</param>
+				<param name="visible">Container.Content(artists)</param>
+			</include>
+			<!-- Image - TV Shows -->
+			<include content="image-52">
+				<param name="fallback">DefaultTVShows.png</param>
+				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+			</include>
+			<!-- Collection -->
+			<control type="group">
+				<left>22</left>
+				<bottom>168</bottom>
+				<width>49</width>
+				<height>49</height>
+				<visible>ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerLeft.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+				<control type="image">
+					<texture background="true">views/OverlayCollection.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+			<!-- Watched status -->
+			<control type="group">
+				<right>22</right>
+				<bottom>168</bottom>
+				<width>49</width>
+				<height>49</height>
+				<visible>!ListItem.IsCollection</visible>
+				<control type="image">
+					<texture background="true">views/OverlayCornerRight.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+				</control>
+				<control type="image">
+					<texture background="true">$VAR[StatusOverlayWide]</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+		</itemlayout>
+	</include>
 	<include name="Viewtype52_coords2_4:3">
 		<itemlayout width="259" height="666">
 			<!-- Image - Movies -->
@@ -212,8 +280,9 @@
 	</include>
 	
 	<include name="Viewtype52_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords3_4:3</include>
 	</include>
 	<include name="Viewtype52_coords3_16:9">
@@ -334,6 +403,65 @@
 			</control>
 		</focusedlayout>
 	</include>
+	<include name="Viewtype52_coords3_21:9_masked">
+		<focusedlayout width="405" height="666">
+			<control type="group">
+				<animation effect="zoom" start="56" end="100" center="202,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+				<!-- Image - Movies -->
+				<include content="image-52-focus">
+					<param name="fallback">DefaultMovie.png</param>
+					<param name="visible">Container.Content(movies)</param>
+				</include>
+				<!-- Image - Albums -->
+				<include content="image-52-focus">
+					<param name="fallback">DefaultAlbumCover.png</param>
+					<param name="visible">Container.Content(albums)</param>
+				</include>
+				<!-- Image - Artists -->
+				<include content="image-52-focus">
+					<param name="fallback">DefaultUser.png</param>
+					<param name="visible">Container.Content(artists)</param>
+				</include>
+				<!-- Image - TV Shows -->
+				<include content="image-52-focus">
+					<param name="fallback">DefaultTVShows.png</param>
+					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				</include>
+				<!-- Collection -->
+				<control type="group">
+					<left>0</left>
+					<bottom>42</bottom>
+					<width>88</width>
+					<height>88</height>
+					<fadetime>200</fadetime>
+					<visible>ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerLeft.png</texture>
+					</control>
+					<control type="image">
+						<texture background="true">views/OverlayCollection.png</texture>
+					</control>
+				</control>
+				<!-- Watched status -->
+				<control type="group">
+					<right>0</right>
+					<bottom>42</bottom>
+					<width>88</width>
+					<height>88</height>
+					<fadetime>200</fadetime>
+					<visible>!ListItem.IsCollection</visible>
+					<control type="image">
+						<texture background="true">views/OverlayCornerRight.png</texture>
+						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					</control>
+					<control type="image">
+						<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
 	<include name="Viewtype52_coords3_4:3">
 		<focusedlayout width="405" height="666">
 			<control type="group">
@@ -395,8 +523,9 @@
 	</include>
 	
 	<include name="Viewtype52_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords4_4:3</include>
 	</include>
 	<include name="Viewtype52_coords4_16:9">
@@ -411,6 +540,12 @@
 		<width>2320</width>
 		<height>142</height>
 	</include>
+	<include name="Viewtype52_coords4_21:9_masked">
+		<centerleft>50%</centerleft>
+		<top>1030</top>
+		<width>2320</width>
+		<height>142</height>
+	</include>
 	<include name="Viewtype52_coords4_4:3">
 		<centerleft>50%</centerleft>
 		<top>850</top>
@@ -419,8 +554,9 @@
 	</include>
 	
 	<include name="Viewtype52_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords5_4:3</include>
 	</include>
 	<include name="Viewtype52_coords5_16:9">
@@ -435,6 +571,12 @@
 		<width>2320</width>
 		<height>72</height>
 	</include>
+	<include name="Viewtype52_coords5_21:9_masked">
+		<centerleft>50%</centerleft>
+		<top>0</top>
+		<width>2320</width>
+		<height>72</height>
+	</include>
 	<include name="Viewtype52_coords5_4:3">
 		<centerleft>50%</centerleft>
 		<top>0</top>
@@ -443,8 +585,9 @@
 	</include>
 	
 	<include name="Viewtype52_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords6_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords6_4:3</include>
 	</include>
 	<include name="Viewtype52_coords6_16:9">
@@ -459,6 +602,12 @@
 		<width>1440</width>
 		<height>54</height>
 	</include>
+	<include name="Viewtype52_coords6_21:9_masked">
+		<centerleft>50%</centerleft>
+		<top>82</top>
+		<width>1440</width>
+		<height>54</height>
+	</include>
 	<include name="Viewtype52_coords6_4:3">
 		<centerleft>50%</centerleft>
 		<top>82</top>
@@ -467,8 +616,9 @@
 	</include>
 	
 	<include name="Viewtype52_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords7_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords7_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords7_4:3</include>
 	</include>
 	<include name="Viewtype52_coords7_16:9">
@@ -483,6 +633,12 @@
 		<width>225</width>
 		<height>350</height>
 	</include>
+	<include name="Viewtype52_coords7_21:9_masked">
+		<bottom>168</bottom>
+		<left>22</left>
+		<width>225</width>
+		<height>350</height>
+	</include>
 	<include name="Viewtype52_coords7_4:3">
 		<bottom>168</bottom>
 		<left>17</left>
@@ -491,8 +647,9 @@
 	</include>
 	
 	<include name="Viewtype52_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">Viewtype52_coords8_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype52_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype52_coords8_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype52_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype52_coords8_4:3</include>
 	</include>
 	<include name="Viewtype52_coords8_16:9">
@@ -502,6 +659,12 @@
 		<height>615</height>
 	</include>
 	<include name="Viewtype52_coords8_21:9">
+		<bottom>42</bottom>
+		<left>0</left>
+		<width>405</width>
+		<height>615</height>
+	</include>
+	<include name="Viewtype52_coords8_21:9_masked">
 		<bottom>42</bottom>
 		<left>0</left>
 		<width>405</width>

@@ -112,32 +112,13 @@
 			</control>
 
 			<!-- Recording count -->
-			<control type="grouplist">
+			<control type="fadelabel">
 				<include>MyPVRRecordings_coords9</include>
-				<itemgap>6</itemgap>
 				<align>right</align>
-				<orientation>horizontal</orientation>
-				<usecontrolcoords>true</usecontrolcoords>
-
-				<control type="label">
-					<top>3</top>
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>$INFO[Container(50).NumItems]</label>
-					<font>Font25</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-				</control>
-
-				<control type="label">
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>$VAR[ContentType]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-				</control>
-
+				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<pauseatend>5000</pauseatend>
 			</control>
 
 		</control>
@@ -290,6 +271,8 @@
 				</control>
 			</control>
 		</control>
+
+		<include>MaskingBars</include>
 
 	</controls>
 

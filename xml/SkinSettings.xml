@@ -172,6 +172,20 @@
 					<onclick>Skin.ToggleSetting(Dateaboveclock)</onclick>
 					<selected>Skin.HasSetting(Dateaboveclock)</selected>
 				</control>
+				<!-- Toggle masking -->
+				<control type="button" id="105">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31267]</label>
+					<label2>$INFO[Skin.String(MaskingBars)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.40:1)">Skin.SetString(MaskingBars,2.35:1)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.35:1)">Skin.SetString(MaskingBars,2.00:1)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.00:1)">Skin.SetString(MaskingBars,1.78:1)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(MaskingBars),1.78:1)">Skin.SetString(MaskingBars,2.40:1)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>False</visible>
+				</control>
 			</control>
 
 			<!-- Background -->
@@ -1144,6 +1158,9 @@
 			<visible>Container(9000).HasFocus(1) + Skin.HasSetting(AlwaysShowSettingsLink) + System.HasAddon(script.skinshortcuts)</visible>
 			<align>center</align>
 		</control>
+		
+		<include>MaskingBars</include>
+		
 	</controls>
 
 </window>

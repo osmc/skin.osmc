@@ -124,10 +124,12 @@
 				
 				<!-- Button grouplist indicator -->
 				<include content="dialogButtonIndicator">
-					<param name="visibility">!ControlGroup(9001).HasFocus</param>
+					<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
 				</include>
 				
 			</control>
+
+			<include>MaskingBars</include>
 
 		</control>
 
@@ -167,6 +169,7 @@
 				<include>DialogSelect_coords13</include>
 				
 			</control>
+			
 			<control type="textbox" id="12">
 				<include>DialogSelect_coords14</include>
 				<font>Font30</font>
@@ -175,6 +178,11 @@
 				<visible>Window.IsActive(gamevideofilter)</visible>
 				<textcolor>$VAR[TextColor1]</textcolor>
 			</control>
+			
 		</control>
+		
+		<include>MaskingBars</include>
+		
 	</controls>
+	
 </window>

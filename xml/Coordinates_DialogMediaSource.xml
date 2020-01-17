@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="DialogMediaSource_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogMediaSource_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogMediaSource_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogMediaSource_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogMediaSource_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogMediaSource_coords1_4:3</include>
 	</include>
 	<include name="DialogMediaSource_coords1_16:9">
@@ -18,6 +19,12 @@
 		<width>360</width>
 		<height>660</height>
 	</include>
+	<include name="DialogMediaSource_coords1_21:9_masked">
+		<left>150</left>
+		<top>408</top>
+		<width>360</width>
+		<height>660</height>
+	</include>
 	<include name="DialogMediaSource_coords1_4:3">
 		<left>150</left>
 		<top>228</top>
@@ -26,8 +33,9 @@
 	</include>
 	
 	<include name="DialogMediaSource_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogMediaSource_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogMediaSource_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogMediaSource_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogMediaSource_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogMediaSource_coords2_4:3</include>
 	</include>
 	<include name="DialogMediaSource_coords2_16:9">
@@ -38,14 +46,19 @@
 		<width>360</width>
 		<height>66</height>
 	</include>
+	<include name="DialogMediaSource_coords2_21:9_masked">
+		<width>360</width>
+		<height>66</height>
+	</include>
 	<include name="DialogMediaSource_coords2_4:3">
 		<width>360</width>
 		<height>66</height>
 	</include>
 	
 	<include name="DialogMediaSource_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogMediaSource_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogMediaSource_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogMediaSource_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogMediaSource_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogMediaSource_coords3_4:3</include>
 	</include>
 	<include name="DialogMediaSource_coords3_16:9">
@@ -60,6 +73,12 @@
 		<width>1840</width>
 		<height>462</height>
 	</include>
+	<include name="DialogMediaSource_coords3_21:9_masked">
+		<left>600</left>
+		<top>408</top>
+		<width>1840</width>
+		<height>462</height>
+	</include>
 	<include name="DialogMediaSource_coords3_4:3">
 		<left>600</left>
 		<top>228</top>
@@ -68,8 +87,9 @@
 	</include>
 	
 	<include name="DialogMediaSource_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogMediaSource_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogMediaSource_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogMediaSource_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogMediaSource_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogMediaSource_coords4_4:3</include>
 	</include>
 	<include name="DialogMediaSource_coords4_16:9">
@@ -94,6 +114,17 @@
 			</control>
 		</itemlayout>
 	</include>
+	<include name="DialogMediaSource_coords4_21:9_masked">
+		<itemlayout width="1840" height="66">
+			<control type="label">
+				<left>25</left>
+				<width>1840</width>
+				<height>66</height>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+		</itemlayout>
+	</include>
 	<include name="DialogMediaSource_coords4_4:3">
 		<itemlayout width="720" height="66">
 			<control type="label">
@@ -107,8 +138,9 @@
 	</include>
 	
 	<include name="DialogMediaSource_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogMediaSource_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogMediaSource_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogMediaSource_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogMediaSource_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogMediaSource_coords5_4:3</include>
 	</include>
 	<include name="DialogMediaSource_coords5_16:9">
@@ -151,6 +183,26 @@
 			</control>
 		</focusedlayout>
 	</include>
+	<include name="DialogMediaSource_coords5_21:9_masked">
+		<focusedlayout width="1840" height="66">
+			<control type="label">
+				<left>25</left>
+				<width>1840</width>
+				<height>66</height>
+				<scroll>true</scroll>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+				<control type="image">
+				<left>25</left>
+				<width>1840</width>
+				<height>66</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
 	<include name="DialogMediaSource_coords5_4:3">
 		<focusedlayout width="720" height="66">
 			<control type="label">
@@ -173,8 +225,9 @@
 	</include>
 	
 	<include name="DialogMediaSource_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogMediaSource_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogMediaSource_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogMediaSource_coords6_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogMediaSource_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogMediaSource_coords6_4:3</include>
 	</include>
 	<include name="DialogMediaSource_coords6_16:9">
@@ -189,6 +242,12 @@
 		<width>1840</width>
 		<height>66</height>
 	</include>
+	<include name="DialogMediaSource_coords6_21:9_masked">
+		<left>600</left>
+		<top>888</top>
+		<width>1840</width>
+		<height>66</height>
+	</include>
 	<include name="DialogMediaSource_coords6_4:3">
 		<left>600</left>
 		<top>708</top>
@@ -197,8 +256,9 @@
 	</include>
 	
 	<include name="DialogMediaSource_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogMediaSource_coords7_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogMediaSource_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogMediaSource_coords7_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogMediaSource_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogMediaSource_coords7_4:3</include>
 	</include>
 	<include name="DialogMediaSource_coords7_16:9">
@@ -210,6 +270,12 @@
 	<include name="DialogMediaSource_coords7_21:9">
 		<left>600</left>
 		<top>794</top>
+		<width>1840</width>
+		<height>74</height>
+	</include>
+	<include name="DialogMediaSource_coords7_21:9_masked">
+		<left>600</left>
+		<top>974</top>
 		<width>1840</width>
 		<height>74</height>
 	</include>

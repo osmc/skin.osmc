@@ -66,31 +66,13 @@
 			</control>
 
 			<!-- Item count -->
-			<control type="grouplist">
+			<control type="fadelabel">
 				<include>ItemCount_coords</include>
-				<height>44</height>
-				<itemgap>6</itemgap>
 				<align>right</align>
-				<orientation>horizontal</orientation>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="label">
-					<!-- <top>3</top> -->
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>$INFO[Container(450).NumItems]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>Integer.IsGreater(Container(450).NumItems,0)</visible>
-				</control>
-				<control type="label">
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>$VAR[ContentTypeFavourites]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-				</control>
+				<label>$INFO[Container(450).NumItems]$VAR[ContentTypeFavourites, ,]</label>
+				<font>Font30</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<pauseatend>5000</pauseatend>
 			</control>
 			
 			<!-- Submenu indicator -->
@@ -151,6 +133,8 @@
 				</control>
 			</control>
 		</control>
+
+		<include>MaskingBars</include>
 
 	</controls>
 

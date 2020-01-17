@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="LoginScreen_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">LoginScreen_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">LoginScreen_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">LoginScreen_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">LoginScreen_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">LoginScreen_coords1_4:3</include>
 	</include>
 	<include name="LoginScreen_coords1_16:9">
@@ -18,6 +19,12 @@
 		<width>50</width>
 		<height>50</height>
 	</include>
+	<include name="LoginScreen_coords1_21:9_masked">
+		<left>120</left>
+		<top>285</top>
+		<width>50</width>
+		<height>50</height>
+	</include>
 	<include name="LoginScreen_coords1_4:3">
 		<left>120</left>
 		<top>105</top>
@@ -26,8 +33,9 @@
 	</include>
 	
 	<include name="LoginScreen_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">LoginScreen_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">LoginScreen_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">LoginScreen_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">LoginScreen_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">LoginScreen_coords2_4:3</include>
 	</include>
 	<include name="LoginScreen_coords2_16:9">
@@ -42,6 +50,12 @@
 		<width>405</width>
 		<height>666</height>
 	</include>
+	<include name="LoginScreen_coords2_21:9_masked">
+		<left>120</left>
+		<top>405</top>
+		<width>405</width>
+		<height>666</height>
+	</include>
 	<include name="LoginScreen_coords2_4:3">
 		<left>120</left>
 		<top>225</top>
@@ -50,8 +64,9 @@
 	</include>
 	
 	<include name="LoginScreen_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">LoginScreen_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">LoginScreen_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">LoginScreen_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">LoginScreen_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">LoginScreen_coords3_4:3</include>
 	</include>
 	<include name="LoginScreen_coords3_16:9">
@@ -66,6 +81,12 @@
 		<width>1690</width>
 		<height>720</height>
 	</include>
+	<include name="LoginScreen_coords3_21:9_masked">
+		<left>750</left>
+		<centertop>50%</centertop>
+		<width>1690</width>
+		<height>720</height>
+	</include>
 	<include name="LoginScreen_coords3_4:3">
 		<left>750</left>
 		<centertop>50%</centertop>
@@ -74,8 +95,9 @@
 	</include>
 	
 	<include name="LoginScreen_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">LoginScreen_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">LoginScreen_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">LoginScreen_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">LoginScreen_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">LoginScreen_coords4_4:3</include>
 	</include>
 	<include name="LoginScreen_coords4_16:9">
@@ -104,6 +126,19 @@
 			</control>
 		</itemlayout>
 	</include>
+	<include name="LoginScreen_coords4_21:9_masked">
+		<itemlayout height="90" width="1690">
+			<control type="label">
+				<left>32</left>
+				<top>0</top>
+				<width>1658</width>
+				<height>90</height>
+				<font>Font36-light</font>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+		</itemlayout>
+	</include>
 	<include name="LoginScreen_coords4_4:3">
 		<itemlayout height="90" width="570">
 			<control type="label">
@@ -119,8 +154,9 @@
 	</include>
 	
 	<include name="LoginScreen_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">LoginScreen_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">LoginScreen_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">LoginScreen_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">LoginScreen_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">LoginScreen_coords5_4:3</include>
 	</include>
 	<include name="LoginScreen_coords5_16:9">
@@ -156,6 +192,38 @@
 		</focusedlayout>
 	</include>
 	<include name="LoginScreen_coords5_21:9">
+		<focusedlayout width="1690" height="156">
+			<control type="label">
+				<left>32</left>
+				<top>43</top>
+				<width>1658</width>
+				<height>48</height>
+				<font>Font48-bold</font>
+				<label>$INFO[ListItem.Label]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
+			</control>
+			<control type="image">
+				<left>32</left>
+				<top>43</top>
+				<width>1658</width>
+				<height>58</height>
+				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
+			</control>
+			<control type="label">
+				<left>32</left>
+				<top>100</top>
+				<width>1658</width>
+				<height>27</height>
+				<font>Font27</font>
+				<label>$INFO[ListItem.Label2]</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(52)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="LoginScreen_coords5_21:9_masked">
 		<focusedlayout width="1690" height="156">
 			<control type="label">
 				<left>32</left>

@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="DialogSeekBar_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogSeekBar_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSeekBar_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSeekBar_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSeekBar_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSeekBar_coords1_4:3</include>
 	</include>
 	<include name="DialogSeekBar_coords1_16:9">
@@ -18,6 +19,12 @@
 		<top>957</top>
 		<height>20</height>
 	</include>
+	<include name="DialogSeekBar_coords1_21:9_masked">
+		<left>430</left>
+		<right>570</right>
+		<top>1137</top>
+		<height>20</height>
+	</include>
 	<include name="DialogSeekBar_coords1_4:3">
 		<left>430</left>
 		<right>570</right>
@@ -26,8 +33,9 @@
 	</include>
 	
 	<include name="DialogSeekBar_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">DialogSeekBar_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSeekBar_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSeekBar_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSeekBar_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSeekBar_coords2_4:3</include>
 	</include>
 	<include name="DialogSeekBar_coords2_16:9">
@@ -35,6 +43,10 @@
 		<height>20</height>
 	</include>
 	<include name="DialogSeekBar_coords2_21:9">
+		<width>100%</width>
+		<height>20</height>
+	</include>
+	<include name="DialogSeekBar_coords2_21:9_masked">
 		<width>100%</width>
 		<height>20</height>
 	</include>

@@ -2,8 +2,9 @@
 <includes>
 
 	<include name="MyPVRTimers_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRTimers_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords1_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords1_16:9">
@@ -18,6 +19,12 @@
 		<width>2080</width>
 		<height>648</height>
 	</include>
+	<include name="MyPVRTimers_coords1_21:9">
+		<left>120</left>
+		<top>406</top>
+		<width>2080</width>
+		<height>648</height>
+	</include>
 	<include name="MyPVRTimers_coords1_4:3">
 		<left>120</left>
 		<top>226</top>
@@ -26,8 +33,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRTimers_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords2_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords2_16:9">
@@ -170,6 +178,76 @@
 
 		</itemlayout>
 	</include>
+	<include name="MyPVRTimers_coords2_21:9_masked">
+		<itemlayout width="2080" height="108">
+
+			<!-- Start date -->
+			<control type="label">
+				<left>20</left>
+				<top>12</top>
+				<width>280</width>
+				<align>right</align>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.StartDate]</label>
+			</control>
+
+			<!-- Start time - End time -->
+			<control type="label">
+				<left>20</left>
+				<top>62</top>
+				<width>280</width>
+				<height>27</height>
+				<font>Font27-light</font>
+				<align>right</align>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+			</control>
+
+			<!-- Thumb -->
+			<control type="image">
+				<left>266</left>
+				<top>3</top>
+				<width>181</width>
+				<height>102</height>
+				<aspectratio>scale</aspectratio>
+				<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
+			</control>
+
+			<!-- Program name -->
+			<control type="label">
+				<left>489</left>
+				<top>12</top>
+				<width>954</width>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+
+			<!-- Channel name -->
+			<control type="label">
+				<left>489</left>
+				<top>62</top>
+				<width>1274</width>
+				<height>27</height>
+				<font>Font27-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.ChannelName]</label>
+			</control>
+
+			<!-- Program comment -->
+			<control type="label">
+				<left>1450</left>
+				<top>12</top>
+				<width>610</width>
+				<align>right</align>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Comment]</label>
+			</control>
+
+		</itemlayout>
+	</include>
 	<include name="MyPVRTimers_coords2_4:3">
 		<itemlayout width="960" height="108">
 
@@ -242,8 +320,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRTimers_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords3_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords3_16:9">
@@ -424,6 +503,95 @@
 
 		</focusedlayout>
 	</include>
+	<include name="MyPVRTimers_coords3_21:9_masked">
+		<focusedlayout width="2080" height="108">
+
+				<!-- Start date -->
+				<control type="fadelabel">
+					<left>20</left>
+					<top>12</top>
+					<width>280</width>
+					<align>right</align>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.StartDate]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				</control>
+
+				<!-- Start time - End time -->
+				<control type="fadelabel">
+					<left>20</left>
+					<top>62</top>
+					<width>280</width>
+					<height>27</height>
+					<font>Font27</font>
+					<align>right</align>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				</control>
+
+				<!-- Thumb -->
+				<control type="image">
+					<left>266</left>
+					<top>3</top>
+					<width>181</width>
+					<height>102</height>
+					<aspectratio>scale</aspectratio>
+					<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				</control>
+
+				<!-- Program name -->
+				<control type="label">
+					<left>489</left>
+					<top>12</top>
+					<width>954</width>
+					<font>Font33-bold</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>489</left>
+					<top>12</top>
+					<width>954</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				</control>
+
+				<!-- Channel name -->
+				<control type="label">
+					<left>489</left>
+					<top>62</top>
+					<width>1274</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				</control>
+
+				<!-- Program comment -->
+				<control type="label">
+					<left>1450</left>
+					<top>12</top>
+					<width>610</width>
+					<align>right</align>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.Comment]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				</control>
+
+		</focusedlayout>
+	</include>
 	<include name="MyPVRTimers_coords3_4:3">
 		<focusedlayout width="960" height="108">
 
@@ -515,8 +683,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRTimers_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords4_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords4_16:9">
@@ -531,6 +700,12 @@
 		<width>20</width>
 		<height>648</height>
 	</include>
+	<include name="MyPVRTimers_coords4_21:9_masked">
+		<left>2221</left>
+		<top>406</top>
+		<width>20</width>
+		<height>648</height>
+	</include>
 	<include name="MyPVRTimers_coords4_4:3">
 		<left>1101</left>
 		<top>226</top>
@@ -539,8 +714,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9)">MyPVRTimers_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords5_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords5_16:9">
@@ -552,6 +728,12 @@
 	<include name="MyPVRTimers_coords5_21:9">
 		<right>120</right>
 		<bottom>110</bottom>
+		<width>800</width>
+		<height>44</height>
+	</include>
+	<include name="MyPVRTimers_coords5_21:9_masked">
+		<right>120</right>
+		<bottom>290</bottom>
 		<width>800</width>
 		<height>44</height>
 	</include>

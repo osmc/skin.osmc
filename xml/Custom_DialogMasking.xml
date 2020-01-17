@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1105">
+	<!-- dialogmasking -->
+	<defaultcontrol always="true">5</defaultcontrol>
+
+	<controls>
+
+			<control type="group">
+				<include>Custom_DialogMasking_coords1</include>
+				<!-- Animation -->
+				<visible>!Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
+				<include>OSDVisibleHiddenAnimation</include>
+				<include>OSDOpenCloseAnimation</include>
+
+				<!-- Window Background -->
+				<control type="image">
+					<include>Custom_DialogMasking_coords2</include>
+					<texture colordiffuse="$VAR[OverlayColor]" border="30">dialogs/Background.png</texture>
+				</control>
+
+				<!-- Heading -->
+				<control type="label">
+					<include>Custom_DialogMasking_coords3</include>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Font33</font>
+					<label>$LOCALIZE[31267]</label>
+				</control>
+
+				<!-- Grouplist -->
+				<control type="grouplist" id="5">
+					<include>Custom_DialogMasking_coords4</include>
+					<itemgap>0</itemgap>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>noop</onup>
+					<ondown>9001</ondown>
+					<orientation>vertical</orientation>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+					
+					<!-- 2.40:1 -->
+					<control type="radiobutton" id="10">
+						<include>Custom_DialogMasking_coords5</include>
+						<font>Font33</font>
+						<label>2.40:1</label>
+						<onclick>Skin.SetString(MaskingBars,2.40:1)</onclick>
+						<selected>String.IsEqual(Skin.String(MaskingBars),2.40:1)</selected>
+						<focusedcolor>$VAR[TextColor1]</focusedcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+					
+					<!-- 2.35:1 -->
+					<control type="radiobutton" id="11">
+						<include>Custom_DialogMasking_coords5</include>
+						<font>Font33</font>
+						<label>2.35:1</label>
+						<onclick>Skin.SetString(MaskingBars,2.35:1)</onclick>
+						<selected>String.IsEqual(Skin.String(MaskingBars),2.35:1)</selected>
+						<focusedcolor>$VAR[TextColor1]</focusedcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+					
+					<!-- 2.00:1 -->
+					<control type="radiobutton" id="12">
+						<include>Custom_DialogMasking_coords5</include>
+						<font>Font33</font>
+						<label>2.00:1</label>
+						<onclick>Skin.SetString(MaskingBars,2.00:1)</onclick>
+						<selected>String.IsEqual(Skin.String(MaskingBars),2.00:1)</selected>
+						<focusedcolor>$VAR[TextColor1]</focusedcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+					
+					<!-- 1.78:1 -->
+					<control type="radiobutton" id="13">
+						<include>Custom_DialogMasking_coords5</include>
+						<font>Font33</font>
+						<label>1.78:1</label>
+						<onclick>Skin.SetString(MaskingBars,1.78:1)</onclick>
+						<selected>String.IsEqual(Skin.String(MaskingBars),1.78:1)</selected>
+						<focusedcolor>$VAR[TextColor1]</focusedcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
+					</control>
+				
+				</control>
+
+				
+				<!-- Button grouplist -->
+				<control type="grouplist" id="9001">
+					<include>Custom_DialogMasking_coords6</include>
+					<itemgap>30</itemgap>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<onup>13</onup>
+					<ondown>noop</ondown>
+					<defaultcontrol>14</defaultcontrol>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+
+					<!-- OK Button -->
+					<control type="button" id="14">
+						<width>Auto</width>
+						<font>Font33</font>
+						<label>$LOCALIZE[15067]</label>
+						<focusedcolor>$VAR[TextColor1]</focusedcolor>
+						<textcolor>$VAR[TextColor2]</textcolor>
+						<onclick>Dialog.Close(1105)</onclick>
+					</control>
+					
+				</control>
+
+			</control>
+
+		</controls>
+
+</window>
