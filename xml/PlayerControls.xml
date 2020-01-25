@@ -45,7 +45,7 @@
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickBackwardEnd.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickBackwardEnd.png</texturenofocus>
 					<onclick>PlayerControl(Previous)</onclick>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 				<!-- Rewind -->
 				<control type="togglebutton" id="2">
@@ -82,8 +82,8 @@
 					<include>PlayerControls_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDUpNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDUpNF.png</texturenofocus>
-					<onclick>PlayerControl(Previous)</onclick>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<onclick>Action(ChannelUp)</onclick>
+					<visible>Pvr.IsPlayingTv | Pvr.IsPlayingRadio</visible>
 				</control>
 
 				<!-- Play / Pause -->
@@ -110,8 +110,8 @@
 					<include>PlayerControls_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDDownNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDDownNF.png</texturenofocus>
-					<onclick>PlayerControl(Next)</onclick>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<onclick>Action(ChannelDown)</onclick>
+					<visible>Pvr.IsPlayingTv | Pvr.IsPlayingRadio</visible>
 				</control>
 
 				<!-- Spacer -->
@@ -149,7 +149,7 @@
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTrickForwardEnd.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTrickForwardEnd.png</texturenofocus>
 					<onclick>PlayerControl(Next)</onclick>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<visible>Player.SeekEnabled</visible>
 				</control>
 
 			</control>

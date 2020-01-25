@@ -21,9 +21,18 @@
 			<!-- Image -->
 			<control type="image">
 				<include>DialogPVRInfo_coords1</include>
-				<texture>$INFO[ListItem.Icon]</texture>
+				<texture background="true" fallback="DefaultLiveTV.png">$INFO[ListItem.Icon]</texture>
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>Window.IsVisible(FullscreenLiveTV) | Window.IsVisible(TVChannels) | Window.IsVisible(TVRecordings) | Window.IsVisible(TVGuide)</visible>
+			</control>
+			
+			<control type="image">
+				<include>DialogPVRInfo_coords1</include>
+				<texture background="true" fallback="DefaultRadio.png">$INFO[ListItem.Icon]</texture>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>Window.IsVisible(fullscreenradio) | Window.IsVisible(RadioChannels) | Window.IsVisible(RadioRecordings) | Window.IsVisible(RadioGuide)</visible>
 			</control>
 			
 			<!-- Name -->
@@ -54,14 +63,12 @@
 							<font>Font36</font>
 							<label>$LOCALIZE[555]</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 						<control type="fadelabel">
 							<include>DialogPVRInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 
@@ -75,14 +82,12 @@
 							<font>Font36</font>
 							<label>$LOCALIZE[180]</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 						<control type="fadelabel">
 							<include>DialogPVRInfo_coords7</include>
 							<font>Font36</font>
 							<label>$VAR[Duration]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 					
@@ -96,14 +101,12 @@
 							<font>Font36</font>
 							<label>$LOCALIZE[19148]</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 						<control type="fadelabel">
 							<include>DialogPVRInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.ChannelName]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 
@@ -117,14 +120,12 @@
 							<font>Font36</font>
 							<label>$LOCALIZE[135]</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 						<control type="fadelabel">
 							<include>DialogPVRInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Genre]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
-							<pauseatend>5000</pauseatend>
 						</control>
 					</control>
 

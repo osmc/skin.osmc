@@ -22,8 +22,17 @@
 				<!-- Icon -->
 				<control type="image">
 					<include>DialogPlayerProcessInfo_coords3</include>
-					<aspectratio align="right">keep</aspectratio>
-					<texture>$VAR[VideoPlayerIcon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<fadetime>200</fadetime>
+					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PlayerIcon]</texture>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<control type="image">
+					<include>DialogPlayerProcessInfo_coords3</include>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<fadetime>200</fadetime>
+					<texture background="true" fallback="DefaultRadio.png">$VAR[PlayerIcon]</texture>
+					<visible>MusicPlayer.Content(LiveTV)</visible>
 				</control>
 
 				<!-- Video/Audio info -->
@@ -76,46 +85,41 @@
 				<control type="grouplist">
 					<include>DialogPlayerProcessInfo_coords4</include>
 					<itemgap>0</itemgap>
-					<visible>VideoPlayer.Content(livetv)</visible>
+					<visible>VideoPlayer.Content(LiveTV) | MusicPlayer.Content(LiveTV)</visible>
 					<control type="label">
 						<include>DialogPlayerProcessInfo_coords5</include>
 						<aligny>bottom</aligny>
 						<align>right</align>
 						<label>$INFO[PVR.ActStreamServiceName,[LIGHT]$LOCALIZE[19099]:[/LIGHT] ]  $INFO[PVR.ActStreamProviderName,[LIGHT]$LOCALIZE[19101]:[/LIGHT] ]</label>
-						<font>Font25</font>
-						<visible>Player.HasVideo</visible>				
+						<font>Font25</font>			
 					</control>
 					<control type="label">
 						<include>DialogPlayerProcessInfo_coords5</include>
 						<aligny>bottom</aligny>
 						<align>right</align>
 						<label>$INFO[PVR.ActStreamDevice,[LIGHT]$LOCALIZE[19006]:[/LIGHT] ] $INFO[PVR.ActStreamStatus,(,)]</label>
-						<font>Font25</font>
-						<visible>Player.HasVideo</visible>					
+						<font>Font25</font>				
 					</control>
 					<control type="label">
 						<include>DialogPlayerProcessInfo_coords5</include>
 						<aligny>bottom</aligny>
 						<align>right</align>
 						<label>$INFO[PVR.ActStreamClient,[LIGHT]$LOCALIZE[19012]:[/LIGHT] ]</label>
-						<font>Font25</font>
-						<visible>Player.HasVideo</visible>					
+						<font>Font25</font>				
 					</control>
 					<control type="label">
 						<include>DialogPlayerProcessInfo_coords5</include>
 						<aligny>bottom</aligny>
 						<align>right</align>
 						<label>$INFO[PVR.ActStreamEncryptionName,[LIGHT]$LOCALIZE[19015]:[/LIGHT] ]</label>
-						<font>Font25</font>
-						<visible>Player.HasVideo</visible>					
+						<font>Font25</font>			
 					</control>
 					<control type="label">
 						<include>DialogPlayerProcessInfo_coords5</include>
 						<aligny>bottom</aligny>
 						<align>right</align>
 						<label>$INFO[PVR.ActStreamBer,[LIGHT]$LOCALIZE[19010]:[/LIGHT] ]  $INFO[PVR.ActStreamUnc,[LIGHT]$LOCALIZE[19011]:[/LIGHT] ]  $INFO[PVR.ActStreamMux,[LIGHT]$LOCALIZE[19100]:[/LIGHT] ]</label>
-						<font>Font25</font>
-						<visible>Player.HasVideo</visible>					
+						<font>Font25</font>			
 					</control>
 					<control type="label">
 						<include>DialogPlayerProcessInfo_coords5</include>
@@ -130,13 +134,16 @@
 				<control type="image">
 					<include>DialogPlayerProcessInfo_coords6</include>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					<visible>Player.HasVideo</visible>
 				</control>
 
 				<control type="label">
 					<include>DialogPlayerProcessInfo_coords7</include>
 					<label>$LOCALIZE[31156]</label>
 					<font>Font25-light</font>
+					<visible>Player.HasVideo</visible>
 				</control>
+				
 			</control>
 
 			<control type="button" id="100">

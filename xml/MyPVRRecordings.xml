@@ -17,6 +17,7 @@
 			<!-- Skin helper image -->
 			<control type="group">
 				<visible>String.IsEmpty(Container(50).ListItem.Plot)</visible>
+				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>MyPVRRecordings_coords1</include>
 					<fadetime>200</fadetime>
@@ -37,13 +38,23 @@
 			<control type="group">
 				<include>MyPVRRecordings_coords2</include>
 				<visible>!String.IsEmpty(Container(50).ListItem.Plot) | String.IsEqual(Container(50).ListItem.Label,..)</visible>
+				<include>VisibleFadeAnimation</include>
 
 				<!-- Episode image -->
 				<control type="image">
 					<include>MyPVRRecordings_coords3</include>
 					<fadetime>200</fadetime>
-					<texture>$INFO[ListItem.Icon]</texture>
-					<aspectratio aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultLiveTV.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<visible>Window.IsVisible(TVRecordings)</visible>
+				</control>
+				
+				<control type="image">
+					<include>MyPVRRecordings_coords3</include>
+					<fadetime>200</fadetime>
+					<texture background="true" fallback="DefaultRadio.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<visible>Window.IsVisible(RadioRecordings)</visible>
 				</control>
 				
 				<!-- Episode Information -->
@@ -118,7 +129,7 @@
 				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
+				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 
 		</control>

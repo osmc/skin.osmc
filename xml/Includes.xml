@@ -525,6 +525,22 @@
 				</animation>
 			</control>
 
+			<!-- First letter indicator -->
+			<control type="label">
+				<include>firstletter_coords</include>
+				<label>$INFO[ListItem.SortLetter]</label>
+				<font>Font72-bold</font>
+				<align>center</align>
+				<aligny>bottom</aligny>
+				<visible>Container.Scrolling</visible>
+				<visible>!System.HasActiveModalDialog | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(FileBrowser.xml)</visible>
+				<visible>!String.IsEmpty(Container.Content) | String.StartsWith(Container.FolderPath,pvr://) | String.StartsWith(Container.FolderPath,sources://video/) | String.StartsWith(Container.FolderPath,sources://music/) | String.StartsWith(Container.FolderPath,addons://user/) | String.StartsWith(Container.FolderPath,addons://repo) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(FileBrowser.xml)</visible>
+				<visible>!Container.Content(seasons)</visible>
+				<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[563] | String.IsEqual(Container.SortMethod,$LOCALIZE[566])</visible>
+				<include>VisibleFadeAnimation</include>
+				<include>WindowFadeAnimation</include>
+			</control>
+
 			<control type="group">
 				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar) + !String.IsEqual(Window(10000).Property(isCaching),True)</visible>
 
@@ -573,7 +589,6 @@
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
 						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
@@ -584,7 +599,6 @@
 						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
@@ -594,7 +608,6 @@
 						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
@@ -605,7 +618,6 @@
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
 						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
@@ -615,7 +627,6 @@
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
 						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
@@ -626,7 +637,6 @@
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
 						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
@@ -636,7 +646,6 @@
 						<label>$INFO[VideoPlayer.TVShowTitle]</label>
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
@@ -645,7 +654,6 @@
 						<align>right</align>
 						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
 						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 
 					<!-- Now Playing - Audio -->
@@ -653,39 +661,35 @@
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
-						<label>[LIGHT]$INFO[MusicPlayer.Artist,,:  ][/LIGHT]$INFO[MusicPlayer.Album]</label>
+						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
+						<label>$INFO[MusicPlayer.Artist,[LIGHT],:  [/LIGHT]]$INFO[MusicPlayer.Album]</label>
 						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
-						<label>[LIGHT]$INFO[MusicPlayer.Artist][/LIGHT]</label>
+						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
+						<label>$INFO[MusicPlayer.Artist,[LIGHT],[/LIGHT]]</label>
 						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
+						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
 						<label>$INFO[MusicPlayer.Album]</label>
 						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<control type="fadelabel">
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>[LIGHT]$INFO[MusicPlayer.TrackNumber,,. ][/LIGHT]$INFO[MusicPlayer.Title]</label>
+						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
 						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)]</visible>
-						<pauseatend>5000</pauseatend>
 					</control>
 					
 					<!-- Now Playing - PVR Recording -->
@@ -694,9 +698,16 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[Player.Title]</label>
-						<label>$INFO[VideoPlayer.ChannelNumber,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<visible>!Player.HasGame + Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
-						<pauseatend>5000</pauseatend>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<visible>!Player.HasGame + Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName) + !String.IsEmpty(Player.Title)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<visible>!Player.HasGame + Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName) + String.IsEmpty(Player.Title)</visible>
 					</control>
 					
 					<!-- Now Playing - Progress -->
@@ -705,15 +716,24 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,] ($INFO[System.Time,[LIGHT]$LOCALIZE[142] ,[/LIGHT]]$INFO[Player.FinishTime,[LIGHT] / $LOCALIZE[19081]: [/LIGHT]])</label>
-						<visible>!Player.HasGame + Integer.IsGreater(Player.Duration,0)</visible>
+						<visible>!Player.HasGame + !Pvr.IsPlayingTv + !Pvr.IsPlayingRadio + Integer.IsGreater(Player.Duration,0)</visible>
 					</control>
 					
 					<control type="label">
 						<include>nowplaying_coords2</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,] ($INFO[System.Time,[LIGHT]$LOCALIZE[142] ,[/LIGHT]]$INFO[Player.FinishTime,[LIGHT] / $LOCALIZE[19081]: [/LIGHT]])</label>
-						<visible>!Player.HasGame + !Integer.IsGreater(Player.Duration,0)</visible>
+						<label>$INFO[Player.Time] ($INFO[System.Time,[LIGHT]$LOCALIZE[142] ,[/LIGHT]])</label>
+						<visible>!Player.HasGame + !Pvr.IsPlayingTv + !Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0)</visible>
+					</control>
+					
+					<!-- Now Playing - Progress PVR -->
+					<control type="label">
+						<include>nowplaying_coords2</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,] ($INFO[System.Time,[LIGHT]$LOCALIZE[142] ,[/LIGHT]]$INFO[PVR.EpgEventFinishTime,[LIGHT] / $LOCALIZE[19081]: [/LIGHT]])</label>
+						<visible>Pvr.IsPlayingTv | Pvr.IsPlayingRadio</visible>
 					</control>
 					
 					<!-- Player Icon -->
@@ -779,7 +799,6 @@
 				<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEqual(Skin.String(mediaflags),None) + !String.IsEmpty(ListItem.VideoResolution)</visible>
 				<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
 			</control>
@@ -797,7 +816,6 @@
 				<label>$VAR[Audio]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEqual(Skin.String(mediaflags),None) + !String.IsEmpty(ListItem.AudioCodec)</visible>
 			</control>
 			
@@ -814,7 +832,6 @@
 				<label>$VAR[Duration]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
 			<control type="fadelabel">
@@ -822,7 +839,6 @@
 				<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
 		
@@ -862,7 +878,6 @@
 				<label>$VAR[AudioSimple]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
 				<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.Property(SubtitleLanguage.1))">Conditional</animation>
 			</control>
@@ -880,7 +895,6 @@
 				<label>$VAR[SubtitleSimple]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
 			</control>
 			
@@ -897,7 +911,6 @@
 				<label>$VAR[Duration]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
 			<control type="fadelabel">
@@ -905,7 +918,6 @@
 				<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
 				<font>Font30</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
 				<visible>!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 			</control>
 		
@@ -921,7 +933,7 @@
 			<font>Font30</font>
 			<textcolor>$VAR[TextColor2]</textcolor>
 			<align>right</align>
-			<pauseatend>5000</pauseatend>
+			<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 		</control>
 	</include>
 

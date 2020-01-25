@@ -65,21 +65,18 @@
 					<font>Font42</font>
 					<label>$INFO[ListItem.TVShowTitle]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<pauseatend>5000</pauseatend>
 				</control>
 				<control type="fadelabel">
 					<include>Viewtype51_coords6</include>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.Title]</label>
-					<pauseatend>5000</pauseatend>
 				</control>
 				<control type="fadelabel">
 					<include>Viewtype51_coords7</include>
 					<font>Font30</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[SEListView]</label>
-					<pauseatend>5000</pauseatend>
 				</control>
 				
 				<!-- Episode Plot -->
@@ -145,6 +142,7 @@
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>
@@ -159,6 +157,7 @@
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>

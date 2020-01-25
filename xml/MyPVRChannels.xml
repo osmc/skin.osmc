@@ -22,21 +22,44 @@
 				<control type="group">
 					<control type="image">
 						<include>MyPVRChannels_coords2</include>
-						<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
-						<aspectratio aligny="center">keep</aspectratio>
+						<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
 						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(TVChannels)</visible>
 					</control>
 					<control type="image">
 						<include>MyPVRChannels_coords2</include>
-						<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.EPGEventIcon]</texture>
-						<aspectratio aligny="center">keep</aspectratio>
+						<texture background="true" fallback="DefaultLiveTV.png">$INFO[ListItem.EPGEventIcon]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
 						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(TVChannels)</visible>
+					</control>
+					
+					<control type="image">
+						<include>MyPVRChannels_coords2</include>
+						<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
+						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(RadioChannels)</visible>
+					</control>
+					<control type="image">
+						<include>MyPVRChannels_coords2</include>
+						<texture background="true" fallback="DefaultRadio.png">$INFO[ListItem.EPGEventIcon]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
+						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(RadioChannels)</visible>
 					</control>
 				</control>
 
 				<!-- Episode Information -->
 				<control type="group">
 					<include>MyPVRChannels_coords3</include>
+					<visible>!Integer.IsEqual(Container(50).NumItems,0)</visible>
+					<include>VisibleFadeAnimation</include>
 					<control type="textbox">
 						<font>Font27</font>
 						<align>left</align>
@@ -106,7 +129,7 @@
 				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
+				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 
 		</control>

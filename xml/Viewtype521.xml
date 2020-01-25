@@ -36,7 +36,6 @@
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[Label1]</label>
-					<pauseatend>5000</pauseatend>
 					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(521)">Conditional</animation>
 				</control>
 
@@ -48,7 +47,6 @@
 					<aligny>top</aligny>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<pauseatend>5000</pauseatend>
 					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(521)">Conditional</animation>
 				</control>
 
@@ -68,6 +66,7 @@
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>
@@ -81,6 +80,7 @@
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>

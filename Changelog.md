@@ -6,8 +6,9 @@ _New_
 - add setting to set a solid color instead of background images
 - add audio and subtitle language information to media flags
 - add setting to toggle media flags information shown (first)
-- add new seek indicator
+- add new seek indicator to audio and video player
 - add new scope version
+- add first letter scrolling indicator
 
 _Improved_
 - rework home menu customization dialogs
@@ -19,12 +20,16 @@ _Improved_
 - update Artist Slideshow integration (v3 update)
 - improve OSD animations
 - show item count with empty containers
+- improve music player during radio playback
+- improve visible window elements when busy dialog is active
+- let live TV and radio OSD listen to Kodi OSD settings
 
 _Fixed_
 - move hide scrollbars setting to skin settings window
 - hide MyOSMC home menu entry and widget on non-OSMC systems
 - fix overlapping in views with big horizontal titles
 - add scrollbar to music album info dialog (if details list is too long)
+- fix now playing dialog for radio and live TV playback
 
 **Changelog v18.2.0**
 
@@ -50,6 +55,7 @@ AddonBrowser.xml:
 - remove hide scrollbar toggle
 - fix side-menu coordinates
 - add new "Sort order" localize to sort order toggle
+- rework look controls
 - add masking bars include
 
 Coordinates_AddonBrowser.xml:
@@ -195,12 +201,15 @@ Coordinates_Includes.xml:
 - add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
 - change positioning of media flags (aligned with item count)
 - add fourth condition to each coordinate include for new masking mode
+- add new firstletter_coords include for new first letter scrolling indicator
 
 Coordinates_LoginScreen.xml: 
 - add fourth condition to each coordinate include for new masking mode
 
 Coordinates_MusicOSD.xml: 
 - add fourth condition to each coordinate include for new masking mode
+- fix coordinates for new radio specific controls
+- remove deprecated coordinates
 
 Coordinates_MusicVisualisation.xml: 
 - add fourth condition to each coordinate include for new masking mode
@@ -225,9 +234,11 @@ Coordinates_MyPrograms.xml:
 
 Coordinates_MyPVRChannels.xml: 
 - add fourth condition to each coordinate include for new masking mode
+- fix visbility conditions to hide most unnecessary information when list is empty
 
 Coordinates_MyPVRGuide.xml: 
 - add fourth condition to each coordinate include for new masking mode
+- add new LiveTV and Radio fallback icons to channel image
 
 Coordinates_MyPVRRecordings.xml: 
 - add fourth condition to each coordinate include for new masking mode
@@ -368,6 +379,7 @@ DialogFavourites.xml:
 - remove hide scrollbar toggle
 - change item count to match overall behaviour
 - add masking bars include
+- add animation to hide item count when busy dialog is visible and container is empty
 
 DialogGameControllers.xml: 
 - fix visibility of button indicators to hide when shutdown menu is active
@@ -395,10 +407,19 @@ DialogPictureInfo.xml:
 DialogPlayerProcessInfo.xml:
 - add visibility condition to hide dialog while shutdown menu is open
 - replace OSD animation by new animation includes
+- add new LiveTV and Radio fallback icons to player icon
+- fix conditional visibility of PVR info for radio playback
+- add visbility condition to hide video player debug information if no video is being played back
+
+DialogPVRChannelGuide.xml:
+- add new LiveTV and Radio fallback icons to channel icon
 
 DialogPVRChannelManager.xml: 
 - fix visibility of button indicators to hide when shutdown menu is active
 - add masking bars include
+
+DialogPVRChannelsOSD.xml:
+- add new LiveTV and Radio fallback icons to channel icon
 
 DialogPVRGroupManager.xml:
 - fix visibility of button indicators to hide when shutdown menu is active
@@ -409,6 +430,7 @@ DialogPVRGuideSearch.xml:
 
 DialogPVRInfo.xml: 
 - add masking bars include
+- add new LiveTV and Radio fallback icons to channel icon
 
 DialogSeekBar.xml:
 - add slider control for new seek indicator
@@ -444,6 +466,7 @@ EventLog.xml:
 FileManager.xml:
 - change item count to match overall behaviour
 - add masking bars include
+- add animation to hide item count when busy dialog is visible and container is empty
 
 Font.xml:
 - adjust size and width of Arial font to match appearance of default font
@@ -473,6 +496,9 @@ Includes.xml:
 - change item count to be visible with empty containers as well
 - fix visibility of button indicators to hide when shutdown menu is active
 - add new MaskingBars include
+- add new first letter scolling indicator to time include
+- fix audio now playing/progress and radio/live TV now playing/progress information
+- add animation to hide item count when busy dialog is visible and container is empty
 
 Include_DialogSettings.xml:
 - add visibility condition to hide dialog while shutdown menu is open
@@ -491,30 +517,35 @@ LoginScreen.xml:
 MusicOSD.xml:
 - add visibility condition to hide dialog while shutdown menu is open
 - replace OSD animations by new animation includes
+- add new radio playback controls (change channel, record, access EPG OSD dialogs)
 
 MusicVisualisation.xml:
-- add visibility condition to hide dialog while shutdown menu is open
+- change visibility conditions to hide OSD elements when OSD dialogs are active
 - replace OSD animations by new animation includes
 - add masking bars include
+- add new radio playback information (now playing and playing next)
+- change visibility conditions of OSD elements to show up correctly during radio playback
+- add missing fade animations to OSD elements
+- add radio playback specific playback position and progress information
 
 MyGames.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- hide view submenu button with containers that only support one viewtype
+- rework look controls
 - add masking bars include
 
 MyMusicNav.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- hide view submenu button with containers that only support one viewtype
+- rework look controls
 - add masking bars include
 
 MyPics.xml:
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- remove view submenu button
+- rework look controls
 - add masking bars include
 
 MyPlaylist.xml:
@@ -527,6 +558,7 @@ MyPrograms.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
+- rework look controls
 - add masking bars include
 
 MyPVRChannels.xml:
@@ -535,11 +567,15 @@ MyPVRChannels.xml:
 - add new "Sort order" localize to sort order toggle
 - change item count to match overall behaviour
 - add masking bars include
+- add new LiveTV and Radio fallback icons to channel icon
+- fix visbility conditions to hide most unnecessary information when list is empty
+- add animation to hide item count when busy dialog is visible and container is empty
 
 MyPVRGuide.xml:
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
 - add masking bars include
+- add new LiveTV and Radio fallback icons to channel icon
 
 MyPVRRecordings.xml:
 - fix side-menu coordinates
@@ -547,6 +583,8 @@ MyPVRRecordings.xml:
 - add new "Sort order" localize to sort order toggle
 - change item count to match overall behaviour
 - add masking bars include
+- add new LiveTV and Radio fallback icons to channel icon
+- add animation to hide item count when busy dialog is visible and container is empty
 
 MyPVRSearch.xml:
 - fix side-menu coordinates
@@ -554,6 +592,7 @@ MyPVRSearch.xml:
 - add new "Sort order" localize to sort order toggle
 - change item count to match overall behaviour
 - add masking bars include
+- add animation to hide item count when busy dialog is visible and container is empty
 
 MyPVRTimers.xml:
 - fix side-menu coordinates
@@ -561,17 +600,21 @@ MyPVRTimers.xml:
 - add new "Sort order" localize to sort order toggle
 - change item count to match overall behaviour
 - add masking bars include
+- add animation to hide item count when busy dialog is visible and container is empty
 
 MyVideoNav.xml:
 - add new "View: " localize to view toggle
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
-- hide view submenu button with containers that only support one viewtype
+- rework look controls
 - add masking bars include
 
 MyWeather.xml: 
 - change weather provider info control to match item count layout
 - add masking bars include
+
+PlayerControls.xml:
+- update player controls to match music and video OSD controls
 
 script-skinshortcuts-static.xml:
 - add conditional visibility to MyOSMC home menu entry
@@ -611,6 +654,7 @@ SkinSettings.xml:
 - add setting to toggle media flags information shown (first)
 - add new masking setting
 - add masking bars include
+- remove deprecated OSD info PVR channel switch toggle (OSD now listens to Kodi toggle)
 
 SmartPlaylistEditor.xml: 
 - change text color of heading labels
@@ -630,13 +674,21 @@ Variables.xml:
 - add AudioSimple, AudioChannelsSimple and SubtitleSimple variables for new langauge media flags information
 - change ContentType and ContentTypeFavourites variable to show plural with empty containers
 - add new ContentTypeFileManager20 and ContentTypeFileManager21 variables
+- update VideoPlayerTitle variable to only show live TV information when EPG information is available
+- update PlayerIcon variable to use Player.Icon for use in video and music player
+- new new conditions to MusicNextPlaying variables for music visualisation radio next playing information
 
 VideoFullScreen.xml:
 - fix animation conditions (don't wait for VideoOSD anmiation + move while player process info dialog is open)
-- add visibility condition to hide dialog while player process info dialog or shutdown menu are open
+- update visibility conditions to hide OSD elements when OSD dialogs are active
 - replace OSD animations by new animation includes
 - fix visibility to hide OSD while new masking dialog is active
 - add masking bars
+- replace visible and hidden animations by VisibleFadeAnimation include
+- change visibility conditions of OSD elements to show up correctly during live TV playback
+- add missing fade animations to OSD elements
+- remove deprecated videoinfolivetvswitch setting from conditional visibilities
+- add new LiveTV fallback icon to player icon during live TV playback
 
 VideoOSD.xml:
 - add visibility condition to hide dialog while player process info dialog or shutdown menu are open
@@ -644,44 +696,47 @@ VideoOSD.xml:
 - fix visibility to hide OSD while new masking dialog is active
 - change onleft of controls (new masking dialog button)
 - add new Masking button
+- add back channel up and down buttons during live TV playback
 
 Viewtype50.xml:
-- add animation for view change
+- add fadetime to image
+- add missing visible param condition to image
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype51.xml:
-- add animation for view change
 - change coordinates include of image-51-video include
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype511.xml:
-- add animation for view change
 - add new image-51-video include (like with Viewtype51)
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype52.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype521.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype53.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype531.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype532.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype533.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype534.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype54.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Viewtype55.xml:
-- add animation for view change
+- add new visibility condition to show image when container is not empty or when container is empty and folder up icon is shown
 
 Textures.xbt:
 - update textures file with new, bigger OSMC logo file

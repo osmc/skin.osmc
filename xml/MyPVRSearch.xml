@@ -99,7 +99,6 @@
 					<!-- Next program -->
 					<control type="fadelabel">
 						<include>MyPVRSearch_coords10</include>
-						<aspectratio>scale</aspectratio>
 						<font>Font30</font>
 						<align>right</align>
 						<label>$INFO[Container(50).ListItem.NextTitle,$LOCALIZE[19031]: ,]$INFO[Container(11).ListItem.NextStartTime, (,)]</label>
@@ -116,7 +115,7 @@
 				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<pauseatend>5000</pauseatend>
+				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 
 		</control>

@@ -80,12 +80,7 @@
 						<label>$VAR[PlayerStatus]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>player.forwarding | player.rewinding | player.istempo</visible>
-						<animation type="Visible">
-							<effect type="fade" start="0" end="100" time="200"/>
-						</animation>
-						<animation type="Hidden">
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 					<!-- Pause -->
@@ -93,12 +88,7 @@
 						<include>VideoFullScreen_coords9</include>
 						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texture>
 						<visible>player.paused</visible>
-						<animation type="Visible">
-							<effect type="fade" start="0" end="100" time="200"/>
-						</animation>
-						<animation type="Hidden">
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					
 					<!-- Play after seek -->
@@ -106,12 +96,7 @@
 						<include>VideoFullScreen_coords9</include>
 						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</texture>
 						<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
-						<animation type="Visible">
-							<effect type="fade" start="0" end="100" time="200"/>
-						</animation>
-						<animation type="Hidden">
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 				</control>
@@ -137,12 +122,7 @@
 						<label>$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize) + [String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(Player.SeekNumeric) + Window.IsVisible(fullscreeninfo)]</visible>
-						<animation type="Visible">
-							<effect type="fade" start="0" end="100" time="200"/>
-						</animation>
-						<animation type="Hidden">
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 					<!-- Status -->
@@ -153,12 +133,7 @@
 						<label>$INFO[Player.SeekStepSize]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>!String.IsEmpty(Player.SeekStepSize) + String.IsEmpty(Player.SeekNumeric)</visible>
-						<animation type="Visible">
-							<effect type="fade" start="0" end="100" time="200"/>
-						</animation>
-						<animation type="Hidden">
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					
 					<!-- Status -->
@@ -169,12 +144,7 @@
 						<label>$INFO[Player.SeekNumeric]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<visible>!String.IsEmpty(Player.SeekNumeric) + !Window.IsVisible(fullscreeninfo)</visible>
-						<animation type="Visible">
-							<effect type="fade" start="0" end="100" time="200"/>
-						</animation>
-						<animation type="Hidden">
-							<effect type="fade" start="100" end="0" time="200"/>
-						</animation>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 				</control>
@@ -218,17 +188,20 @@
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords15</include>
 						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-						<visible>Pvr.IsPlayingTv | Integer.IsGreater(Player.Duration,0)</visible>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg | !Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 						<control type="image" id="1">
 						<include>VideoFullScreen_coords16</include>
 						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords17</include>
 						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
-						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 					<!--  Current position/Time remaining -->
@@ -238,6 +211,7 @@
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
 						<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label" id="1">
 						<include>VideoFullScreen_coords19</include>
@@ -245,7 +219,8 @@
 						<align>center</align>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[Player.Time]</label>
-						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					
 					<!--  PVR current position/Time remaining -->
@@ -254,7 +229,8 @@
 						<font>Font27</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
-						<visible>Pvr.IsPlayingTv</visible>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 					<!--  Progress bar -->
@@ -267,6 +243,7 @@
 						<righttexture></righttexture>
 						<overlaytexture></overlaytexture>
 						<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					
 					<!--  PVR progress bar -->
@@ -278,7 +255,8 @@
 						<midtexture border="2" colordiffuse="$VAR[DialogColor1]">osd/OSDProgressBar.png</midtexture>
 						<righttexture></righttexture>
 						<overlaytexture></overlaytexture>
-						<visible>Pvr.IsPlayingTv</visible>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 					<!--  Cache bar -->
@@ -290,7 +268,8 @@
 						<midtexture colordiffuse="OSDCache" border="2">osd/OSDProgressBar.png</midtexture>
 						<righttexture></righttexture>
 						<overlaytexture></overlaytexture>
-						<visible>!Pvr.IsTimeShift + Pvr.IsPlayingTv | Integer.IsGreater(Player.Duration,0) + !Pvr.IsPlayingTv</visible>
+						<visible>!Pvr.IsTimeShift + Pvr.IsPlayingTv + VideoPlayer.HasEpg | Integer.IsGreater(Player.Duration,0) + !Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 					<!-- Current Time/End Time -->
@@ -301,6 +280,7 @@
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
 						<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label" id="1">
 						<include>VideoFullScreen_coords22</include>
@@ -308,7 +288,8 @@
 						<font>Font27</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[System.Time,$LOCALIZE[142] ,]</label>
-						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0)</visible>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					
 					<!-- PVR current Time/End Time -->
@@ -318,7 +299,8 @@
 						<font>Font27</font>
 						<textcolor>$VAR[TextColor2]</textcolor>
 						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081] ,]</label>
-						<visible>Pvr.IsPlayingTv</visible>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 				</control>
@@ -327,8 +309,8 @@
 			<!-- Info -->
 			<control type="group" id="1">
 				<include>VideoFullScreen_coords23</include>
-				<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo + Skin.HasSetting(videoinfolivetvswitch) | !String.IsEmpty(Window(12005).Property(videoinfostart)) | [!VideoPlayer.Content(livetv) + [[Integer.IsLessOrEqual(Player.TimeRemaining(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),20s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),15s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),10s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),5s)] | [Integer.IsLessOrEqual(Player.Time(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),20s)] | [Integer.IsLessOrEqual(Player.Time(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),15s)] | [Integer.IsLessOrEqual(Player.Time(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),10s)] | [Integer.IsLessOrEqual(Player.Time(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),5s)]]]</visible>
-				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105)</visible>
+				<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(12005).Property(videoinfostart)) | [!Pvr.IsPlayingTv + [[Integer.IsLessOrEqual(Player.TimeRemaining(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),20s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),15s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),10s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),5s)] | [Integer.IsLessOrEqual(Player.Time(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),20s)] | [Integer.IsLessOrEqual(Player.Time(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),15s)] | [Integer.IsLessOrEqual(Player.Time(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),10s)] | [Integer.IsLessOrEqual(Player.Time(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),5s)]]]</visible>
+				<visible>!Window.IsVisible(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105)</visible>
 				<include>OSDVisibleHiddenAnimation</include>
 
 				<!-- Background -->
@@ -343,7 +325,8 @@
 					<font>Font33</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<visible>!Pvr.IsPlayingTv | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
+					<include>VisibleFadeAnimation</include>
 				</control>
 				
 				<!-- Live TV Title -->
@@ -352,17 +335,19 @@
 					<font>Font33</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+					<include>VisibleFadeAnimation</include>
 				</control>
 
-				<!-- Live TV Start/End Time -->
+				<!-- Live TV Channel -->
 				<control type="fadelabel" id="1">
 					<include>VideoFullScreen_coords26</include>
 					<font>Font33-bold</font>
 					<align>right</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[VideoPlayerChannelNumber]</label>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+					<include>VisibleFadeAnimation</include>
 				</control>
 
 				<!-- Plot -->
@@ -405,21 +390,21 @@
 						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Artist]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Genre]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 					</control>
@@ -428,21 +413,21 @@
 						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Artist]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Genre]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 					</control>
@@ -450,21 +435,21 @@
 						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Artist]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Artist)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year, (,)]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Album)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 						<control type="fadelabel" id="1">
-							<pauseatend>5000</pauseatend>
 							<label>$INFO[VideoPlayer.Genre]</label>
 							<visible>!String.IsEmpty(VideoPlayer.Genre)</visible>
+							<include>VisibleFadeAnimation</include>
 						</control>
 						
 					</control>
@@ -491,14 +476,21 @@
 				<!-- Icon -->
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords29</include>
-					<aspectratio>keep</aspectratio>
-					<texture>$VAR[VideoPlayerIcon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true">$VAR[PlayerIcon]</texture>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<control type="image" id="1">
+					<include>VideoFullScreen_coords29</include>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PlayerIcon]</texture>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				
 				<!-- Live TV next information -->
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords30</include>
-					<visible>VideoPlayer.Content(LiveTV) + Window.IsVisible(fullscreeninfo)</visible>
+					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg + Window.IsVisible(fullscreeninfo)</visible>
 					<include>OSDVisibleHiddenAnimation</include>
 					
 					<control type="image" id="1">
