@@ -162,7 +162,8 @@
 
 				<!-- Look controls -->
 				<control type="grouplist" id="3001">
-					<include>OptionsSideMenu2</include>
+					<include condition="Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu2</include>
+					<include condition="!Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu3</include>
 					<onleft>50</onleft>
 					<onright>50</onright>
 					<scrolltime>200</scrolltime>
@@ -179,7 +180,7 @@
 						<label>$LOCALIZE[31233]$INFO[Container.ViewMode]</label>
 						<height>52</height>
 						<onclick>Container.NextViewMode</onclick>
-						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+						<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
 					</control>
 
 
@@ -189,7 +190,7 @@
 						<width>410</width>
 						<height>10</height>
 						<texture>transparent.png</texture>
-						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+						<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
 					</control>
 
 

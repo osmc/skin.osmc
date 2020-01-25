@@ -67,16 +67,36 @@
 
 					<control type="image">
 						<include>MyPVRGuide_coords9</include>
-						<aspectratio>keep</aspectratio>
-						<texture background="true" fallback="pvr/defaultchannel.png">$VAR[PVRChannelIcon]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
+						<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
 						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(TVGuide)</visible>
+					</control>
+					<control type="image">
+						<include>MyPVRGuide_coords9</include>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
+						<texture background="true" fallback="DefaultLiveTV.png">$INFO[ListItem.EPGEventIcon]</texture>
+						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(TVGuide)</visible>
 					</control>
 					
 					<control type="image">
 						<include>MyPVRGuide_coords9</include>
-						<aspectratio>keep</aspectratio>
-						<texture background="true" fallback="pvr/defaultchannel.png">$INFO[ListItem.EPGEventIcon]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
+						<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(RadioGuide)</visible>
+					</control>
+					<control type="image">
+						<include>MyPVRGuide_coords9</include>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<fadetime>200</fadetime>
+						<texture background="true" fallback="DefaultRadio.png">$INFO[ListItem.EPGEventIcon]</texture>
 						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
+						<visible>Window.IsVisible(RadioGuide)</visible>
 					</control>
 
 					<control type="fadelabel">
@@ -84,14 +104,12 @@
 						<font>Font33-bold</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<pauseatend>5000</pauseatend>
 					</control>
 
 					<control type="fadelabel">
 						<include>MyPVRGuide_coords11</include>
 						<label>$INFO[ListItem.EpisodeName]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<pauseatend>5000</pauseatend>
 						<visible>!String.IsEmpty(ListItem.EpisodeName)</visible>
 					</control>
 					

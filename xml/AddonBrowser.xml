@@ -113,17 +113,37 @@
 
 					<!-- Look controls -->
 					<control type="grouplist" id="3001">
-						<include>OptionsSideMenu3</include>
+						<include condition="Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu2</include>
+						<include condition="!Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu3</include>
 						<onleft>500</onleft>
 						<onright>500</onright>
 						<scrolltime>200</scrolltime>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
-						<defaultcontrol always="true">3</defaultcontrol>
+						<defaultcontrol always="true">99</defaultcontrol>
 
 						<include content="SideMenuAnimation">
 							<param name="containerID">3001</param>
 						</include>
+						
+						<!-- View -->
+						<control type="button" id="99">
+							<height>52</height>
+							<label>$LOCALIZE[31233]$INFO[Container.ViewMode]</label>
+							<onclick>Container.NextViewMode</onclick>
+							<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+						</control>
+
+
+						<control type="image" id="80">
+							<left>0</left>
+							<top>0</top>
+							<width>410</width>
+							<height>10</height>
+							<texture>transparent.png</texture>
+							<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+						</control>
+						
 
 						<!-- Sort by -->
 						<control type="button" id="3">
