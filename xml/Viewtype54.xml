@@ -28,21 +28,18 @@
 					<font>Font42</font>
 					<label>$INFO[ListItem.Album]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<pauseatend>5000</pauseatend>
 				</control>
 				<control type="fadelabel">
 					<include>Viewtype54_coords3</include>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.Artist]</label>
-					<pauseatend>5000</pauseatend>
 				</control>
 				<control type="fadelabel">
 					<include>Viewtype54_coords4</include>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
-					<pauseatend>5000</pauseatend>
 				</control>
 			</control>
 
@@ -78,6 +75,7 @@
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>

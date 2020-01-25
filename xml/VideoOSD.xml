@@ -90,15 +90,15 @@
 					</control>
 
 					<!-- Up -->
-					<!-- <control type="button" id="4">
+					<control type="button" id="4">
 						<include>VideoOSD_coords8</include>
 						<onleft>4</onleft>
 						<onright>6</onright>
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDUpNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDUpNF.png</texturenofocus>
-						<onclick>PlayerControl(Previous)</onclick>
-						<visible>VideoPlayer.Content(LiveTV) + !Player.SeekEnabled</visible>
-					</control> -->
+						<onclick>Action(ChannelUp)</onclick>
+						<visible>Pvr.IsPlayingTv</visible>
+					</control>
 
 					<!-- Play/Pause -->
 					<include condition="Player.PauseEnabled">OSDPlayStopButtons</include>
@@ -106,15 +106,15 @@
 					<include condition="!Player.PauseEnabled">OSDStopButton</include>
 
 					<!-- Down -->
-					<!-- <control type="button" id="7">
+					<control type="button" id="7">
 						<include>VideoOSD_coords8</include>
 						<onleft>5</onleft>
 						<onright>7</onright>
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDDownNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDDownNF.png</texturenofocus>
-						<onclick>PlayerControl(Next)</onclick>
-						<visible>VideoPlayer.Content(LiveTV) + !Player.SeekEnabled</visible>
-					</control> -->
+						<onclick>Action(ChannelDown)</onclick>
+						<visible>Pvr.IsPlayingTv</visible>
+					</control>
 
 					<!-- Spacer -->
 					<control type="image" id="42">
@@ -234,7 +234,7 @@
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDBookmarksNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDBookmarksNF.png</texturenofocus>
 						<onclick>ActivateWindow(125)</onclick>
-						<visible>!VideoPlayer.Content(LiveTV)</visible>
+						<visible>!Pvr.IsPlayingTv</visible>
 					</control>
 					
 					<!-- Channels -->
@@ -243,7 +243,7 @@
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDChannelNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDChannelNF.png</texturenofocus>
 						<onclick>ActivateWindow(PVROSDChannels)</onclick>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
+						<visible>Pvr.IsPlayingTv</visible>
 					</control>
 					
 					<!-- Channel EPG -->
@@ -252,7 +252,7 @@
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDEPGNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDEPGNF.png</texturenofocus>
 						<onclick>ActivateWindow(PVRChannelGuide)</onclick>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
+						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 					</control>
 					
 					<!-- Teletext -->
@@ -261,7 +261,7 @@
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTextNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTextNF.png</texturenofocus>
 						<onclick>ActivateWindow(Teletext)</onclick>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
+						<visible>Pvr.IsPlayingTv</visible>
 					</control>
 					
 					<!-- DVD menu -->

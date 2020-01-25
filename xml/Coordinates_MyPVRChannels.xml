@@ -151,7 +151,7 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$LOCALIZE[19055]</label>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -193,7 +193,7 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$LOCALIZE[19055]</label>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -235,7 +235,7 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$LOCALIZE[19055]</label>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -277,7 +277,7 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$LOCALIZE[19055]</label>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -318,6 +318,7 @@
 				<height>58</height>
 				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -338,7 +339,7 @@
 				<font>Font27</font>
 				<label>$LOCALIZE[19055]</label>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 			</control>
 			<control type="label">
@@ -351,6 +352,7 @@
 				<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -385,6 +387,7 @@
 				<height>58</height>
 				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -405,7 +408,7 @@
 				<font>Font27</font>
 				<label>$LOCALIZE[19055]</label>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 			</control>
 			<control type="label">
@@ -418,6 +421,7 @@
 				<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -452,6 +456,7 @@
 				<height>58</height>
 				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -472,7 +477,7 @@
 				<font>Font27</font>
 				<label>$LOCALIZE[19055]</label>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 			</control>
 			<control type="label">
@@ -519,6 +524,7 @@
 				<height>58</height>
 				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>
@@ -539,7 +545,7 @@
 				<font>Font27</font>
 				<label>$LOCALIZE[19055]</label>
 				<textcolor>$VAR[TextColor1]</textcolor>
-				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title)</visible>
+				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 			</control>
 			<control type="label">
@@ -552,6 +558,7 @@
 				<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
 			<control type="label">
 				<left>32</left>

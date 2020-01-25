@@ -30,7 +30,6 @@
 					<aligny>top</aligny>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<pauseatend>5000</pauseatend>
 					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				
@@ -42,7 +41,6 @@
 					<aligny>top</aligny>
 					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<pauseatend>5000</pauseatend>
 					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
 				</control>
 				
@@ -53,7 +51,6 @@
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[Label1]</label>
-					<pauseatend>5000</pauseatend>
 					<visible>String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				
@@ -151,6 +148,7 @@
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>
@@ -166,6 +164,7 @@
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>
