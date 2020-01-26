@@ -8,7 +8,7 @@ _New_
 - add setting to toggle media flags information shown (first)
 - add new seek indicator to audio and video player
 - add new scope version
-- add first letter scrolling indicator
+- add scrolling label
 
 _Improved_
 - rework home menu customization dialogs
@@ -201,7 +201,7 @@ Coordinates_Includes.xml:
 - add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
 - change positioning of media flags (aligned with item count)
 - add fourth condition to each coordinate include for new masking mode
-- add new firstletter_coords include for new first letter scrolling indicator
+- add new firstletter_coords include for new first letter scrolling label
 
 Coordinates_LoginScreen.xml: 
 - add fourth condition to each coordinate include for new masking mode

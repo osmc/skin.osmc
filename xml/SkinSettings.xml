@@ -636,7 +636,7 @@
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- OSD info video end -->
-				<control type="radiobutton" id="410">
+				<control type="radiobutton" id="409">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31131</label>
@@ -644,7 +644,7 @@
 					<selected>Skin.HasSetting(videoinfoend)</selected>
 				</control>
 				<!-- Movies -->
-				<control type="radiobutton" id="411">
+				<control type="radiobutton" id="410">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31124]</label>
@@ -653,7 +653,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- TV shows -->
-				<control type="radiobutton" id="412">
+				<control type="radiobutton" id="411">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31125]</label>
@@ -662,7 +662,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- Music videos -->
-				<control type="radiobutton" id="413">
+				<control type="radiobutton" id="412">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31127]</label>
@@ -671,7 +671,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- Other videos -->
-				<control type="radiobutton" id="414">
+				<control type="radiobutton" id="413">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31128]</label>
@@ -680,7 +680,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- OSD info video start duration -->
-				<control type="button" id="415">
+				<control type="button" id="414">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31132]</label>
@@ -694,7 +694,7 @@
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- Adjust OSD on-time during video pause -->
-				<control type="button" id="416">
+				<control type="button" id="415">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31102]</label>
@@ -713,7 +713,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Music OSD -->
-				<control type="label" id="417">
+				<control type="label" id="416">
 					<include>SkinSettings_coords17</include>
 					<font>Font33-italic</font>
 					<align>left</align>
@@ -721,14 +721,14 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Automatically show music OSD during playback -->
-				<control type="radiobutton" id="418">
+				<control type="radiobutton" id="417">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31142]</label>
 					<onclick>Skin.ToggleSetting(AutoMusicVisPlayback)</onclick>
 					<selected>Skin.HasSetting(AutoMusicVisPlayback)</selected>
 				</control>
-				<control type="button" id="419">
+				<control type="button" id="418">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31143]</label>
@@ -743,7 +743,7 @@
 					<visible>Skin.HasSetting(AutoMusicVisPlayback)</visible>
 				</control>
 				<!-- Adjust music OSD album art size -->
-				<control type="radiobutton" id="420">
+				<control type="radiobutton" id="419">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31115</label>
@@ -816,7 +816,7 @@
 					<label>$LOCALIZE[31173]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Hide additional text highlighting -->
+				<!-- Disable additional text highlighting -->
 				<control type="radiobutton" id="602">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
@@ -864,7 +864,7 @@
 					<label>$LOCALIZE[14022]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Hide video watched status in library -->
+				<!-- Disable video watched status in library -->
 				<control type="radiobutton" id="606">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
@@ -872,7 +872,7 @@
 					<onclick>Skin.ToggleSetting(VideoWatchedStatus)</onclick>
 					<selected>Skin.HasSetting(VideoWatchedStatus)</selected>
 				</control>
-				<!-- Hide music listened to status in library -->
+				<!-- Disable music listened to status in library -->
 				<control type="radiobutton" id="607">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
@@ -930,8 +930,16 @@
 					<label>$LOCALIZE[20395]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Hide sub-menu player controls -->
+				<!-- Disable scrolling label -->
 				<control type="radiobutton" id="613">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>31268</label>
+					<onclick>Skin.ToggleSetting(ScrollingLabel)</onclick>
+					<selected>Skin.HasSetting(ScrollingLabel)</selected>
+				</control>
+				<!-- Disable sub-menu player controls -->
+				<control type="radiobutton" id="614">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31147</label>
@@ -939,15 +947,15 @@
 					<selected>Skin.HasSetting(SubMenuControls)</selected>
 				</control>
 				<!-- Show lock icon for encrypted PVR channels -->
-				<control type="radiobutton" id="614">
+				<control type="radiobutton" id="615">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31174]</label>
 					<onclick>Skin.ToggleSetting(PVRShowLock)</onclick>
 					<selected>Skin.HasSetting(PVRShowLock)</selected>
 				</control>
-				<!-- Hide scrollbars -->
-				<control type="radiobutton" id="615">
+				<!-- Disable scrollbars -->
+				<control type="radiobutton" id="616">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31005</label>
@@ -955,7 +963,7 @@
 					<selected>Skin.HasSetting(Scrollbars)</selected>
 				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="616">
+				<control type="radiobutton" id="617">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31057</label>
