@@ -591,11 +591,13 @@
 				<control type="button" id="6">
 					<width>Auto</width>
 					<label>184</label>
+					<visible>!Skin.HasSetting(KioskMode)</visible>
 				</control>
 				<!-- Get Thumb Button -->
 				<control type="button" id="10">
 					<width>Auto</width>
 					<label>13511</label>
+					<visible>!Skin.HasSetting(KioskMode)</visible>
 				</control>
 				<!-- Artwork Downloader Button -->
 				<control type="button" id="20">
@@ -604,6 +606,7 @@
 					<onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
 					<onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
 					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>!Skin.HasSetting(KioskMode)</visible>
 				</control>
 				<!-- Trailer Button -->
 				<control type="button" id="11">

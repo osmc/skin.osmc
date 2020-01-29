@@ -314,7 +314,7 @@
 					<onclick>SendClick(404)</onclick>
 				</control>
 				
-				<!--Widget limit items -->
+				<!-- Widget limit items -->
 				<control type="button" id="504">
 					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31177]</label>
@@ -340,36 +340,79 @@
 				</control>
 			</control>
 
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9001</param>
-			</include>
+			<control type="group">
+				<!-- Button grouplist background -->
+				<control type="image">
+					<include>dialogButtonBackground_coords1</include>
+					<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
+					<visible>ControlGroup(9001).HasFocus | Window.IsVisible(1106)</visible>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>dialogButtonBackground_coords1</include>
+					<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
+					<visible>!ControlGroup(9001).HasFocus + !Window.IsVisible(1106)</visible>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>dialogButtonBackground_coords2</include>
+					<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
+					<visible>ControlGroup(9001).HasFocus | Window.IsVisible(1106)</visible>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>dialogButtonBackground_coords2</include>
+					<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
+					<visible>!ControlGroup(9001).HasFocus + !Window.IsVisible(1106)</visible>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>dialogButtonBackground_coords3</include>
+					<visible>ControlGroup(9001).HasFocus | Window.IsVisible(1106)</visible>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				
+				<!-- Button grouplist indicator -->
+				<include content="dialogButtonIndicator">
+					<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
+				</include>
+
+				<!-- Buttons -->
+				<control type="grouplist" id="9001">
+					<include>DialogButtons</include>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+					<itemgap>30</itemgap>
+					<onup>9000</onup>
+					<visible>!Window.IsVisible(1106)</visible>
+					<include>VisibleFadeAnimation</include>
+
+
+					<!-- Add item -->
+					<control type="button" id="301">
+						<width>auto</width>
+						<label>$ADDON[script.skinshortcuts 32000]</label>
+					</control>
+
+					<!-- Restore -->
+					<control type="button" id="308">
+						<width>auto</width>
+						<label>$ADDON[script.skinshortcuts 32028]</label>
+					</control>
+
+					<!-- Help -->
+					<control type="button" id="314">
+						<label>10043</label>
+						<width>auto</width>
+						<onclick condition="String.EndsWith(Window.Property(groupname),.1)">SetProperty(Window,Widgetmenu,1106)</onclick>
+						<onclick condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1)">SetProperty(Window,Submenu,1106)</onclick>
+						<onclick condition="String.IsEqual(Window.Property(groupname),mainmenu)">SetProperty(Window,Mainmenu,1106)</onclick>
+						<onclick>ActivateWindow(1106)</onclick>
+					</control>
+
+				</control>
 			
-			<!-- Button grouplist indicator -->
-			<include content="dialogButtonIndicator">
-				<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
-			</include>
-
-			<!-- Buttons -->
-			<control type="grouplist" id="9001">
-				<include>DialogButtons</include>
-				<orientation>horizontal</orientation>
-				<align>center</align>
-				<itemgap>30</itemgap>
-				<onup>9000</onup>
-
-				<!-- Add item -->
-				<control type="button" id="301">
-					<width>auto</width>
-					<label>$ADDON[script.skinshortcuts 32000]</label>
-				</control>
-
-				<!-- Restore -->
-				<control type="button" id="308">
-					<width>auto</width>
-					<label>$ADDON[script.skinshortcuts 32028]</label>
-				</control>
-
 			</control>
 
 		</control>
