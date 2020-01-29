@@ -12,7 +12,7 @@
 		<!-- Now Playing Information -->
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
-			<visible>Player.ShowInfo + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo)</visible>
+			<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo)</visible>
 			<include>VisibleFadeAnimation</include>
 			<include>WindowFadeAnimation</include>
 
@@ -132,7 +132,7 @@
 
 		<control type="group">
 			<include>MusicVisualisation_coords6</include>
-			<visible>[Window.IsActive(seekbar) | Window.IsActive(musicosd) | Player.ShowInfo] + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
+			<visible>[Window.IsActive(seekbar) | Window.IsActive(musicosd) | [Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)]] + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
 			<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(musicosd)">Conditional</animation>
 			<include>OSDVisibleHiddenAnimation</include>
