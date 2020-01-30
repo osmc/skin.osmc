@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1106">
+	<!-- script-skinshortcuts help -->
+	<defaultcontrol always="true">9001</defaultcontrol>
+	<onload>SetProperty(HelpPage,first,1106)</onload>
+	<onunload>SetProperty(HelpPage,first,1106)</onunload>
+
+	<controls>
+	
+		<control type="group">
+			<include>WindowFadeAnimation</include>
+		
+			<control type="group">
+				<visible>!String.IsEmpty(Window(1106).Property(HelpPage))</visible>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords1</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords2</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords3</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords4</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords5</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+			</control>
+			
+			<control type="group">
+				<visible>String.IsEmpty(Window(1106).Property(HelpPage))</visible>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords6</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords7</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords8</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords9</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+				<control type="image">
+					<include>Custom_Skin_Shortcuts_Help_coords10</include>
+					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+					<include>VisibleFadeAnimation</include>
+				</control>
+			</control>
+			
+			<!-- Explanation text -->
+			<control type="textbox">
+				<include>Custom_Skin_Shortcuts_Help_coords11</include>
+				<label>$VAR[SkinShortcutsExplanation]</label>
+				<textcolor>$VAR[TextColor1]</textcolor>
+			</control>
+
+			<!-- Buttons -->
+			<control type="grouplist" id="9001">
+				<include>DialogButtons</include>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<defaultcontrol always="true">1</defaultcontrol>
+				
+				<!-- Next help page -->
+				<control type="button" id="1">
+					<label>209</label>
+					<width>auto</width>
+					<onclick>ClearProperty(HelpPage)</onclick>
+					<enable>!String.IsEmpty(Window(1106).Property(HelpPage))</enable>
+				</control>
+				
+				<!-- Previos help page -->
+				<control type="button" id="2">
+					<label>210</label>
+					<width>auto</width>
+					<onclick>SetProperty(HelpPage,first,1106)</onclick>
+					<enable>String.IsEmpty(Window(1106).Property(HelpPage))</enable>
+				</control>
+				
+				<!-- Close help -->
+				<control type="button" id="3">
+					<label>15067</label>
+					<width>auto</width>
+					<onclick>Dialog.Close(1106)</onclick>
+				</control>
+
+			</control>
+			
+		</control>
+
+	</controls>
+
+</window>

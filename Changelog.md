@@ -8,7 +8,9 @@ _New_
 - add setting to toggle media flags information shown (first)
 - add new seek indicator to audio and video player
 - add new scope version
-- add first letter scrolling indicator
+- add new scrolling label
+- add new never hide music information during playback setting
+- add skin settings explanations
 
 _Improved_
 - rework home menu customization dialogs
@@ -30,12 +32,14 @@ _Fixed_
 - fix overlapping in views with big horizontal titles
 - add scrollbar to music album info dialog (if details list is too long)
 - fix now playing dialog for radio and live TV playback
+- fix kiosk mode behaviour
 
 **Changelog v18.2.0**
 
 _add new skin playlists and update existing ones_
 _add new coordinates file for seek bar dialog_
 _add new masking OSD dialog and coordinates file_
+_add new custom Skin Shortcuts Help dialog and coordinates file_
 
 strings.po:
 - change localize for new hide scrollbars option (31005)
@@ -49,6 +53,18 @@ strings.po:
 - change localize Artist Slideshow background setting (31034)
 - change localize for updated media flags setting (31237)
 - add new localize for masking setting (31267)
+- change "hide" to "disable" (31005, 31105, 31147, 31148, 31149)
+- add new localize for scrolling label setting (31268)
+- update language file header
+- replace deprecated localize with new never hide music information during playback setting localize (31040)
+- update localize for always show settings link warning (31051)
+- move disable scrolling label setting localize (31053)
+- change "color" to "colour" in all localizes (31062, 31162, 31163, 31164, 31165, 31166, 31266)
+- move masking toggle localize (31065)
+- replace deprecated localizes with new skin setting explanation localizes (31098, 31140)
+- remove " (default: ...)" from all settings heading localizes (31100, 31101, 31102, 31104, 31108, 31109, 31110, 31111, 31129, 31132, 31143, 31170, 31237)
+- update localize for open music fullscreen automatically setting (31142)
+- add new skin settings explanation localizes (31267-31389)
 
 AddonBrowser.xml:
 - remove deprecated view toggle
@@ -57,6 +73,7 @@ AddonBrowser.xml:
 - add new "Sort order" localize to sort order toggle
 - rework look controls
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 Coordinates_AddonBrowser.xml:
 - add fourth condition to each coordinate include for new masking mode
@@ -201,7 +218,7 @@ Coordinates_Includes.xml:
 - add SideMenuControlsSpacer_coords13 include for only one item in side/context menu
 - change positioning of media flags (aligned with item count)
 - add fourth condition to each coordinate include for new masking mode
-- add new firstletter_coords include for new first letter scrolling indicator
+- add new firstletter_coords include for new first letter scrolling label
 
 Coordinates_LoginScreen.xml: 
 - add fourth condition to each coordinate include for new masking mode
@@ -279,6 +296,7 @@ Coordinates_SettingsSystemInfo.xml:
 
 Coordinates_SkinSettings.xml: 
 - add fourth condition to each coordinate include for new masking mode
+- fix coordinates of skin settings explanation text box
 
 Coordinates_SmartPlaylistEditor.xml: 
 - add fourth condition to each coordinate include for new masking mode
@@ -380,6 +398,7 @@ DialogFavourites.xml:
 - change item count to match overall behaviour
 - add masking bars include
 - add animation to hide item count when busy dialog is visible and container is empty
+- add visibility conditions to hide submenu when kiosk mode is active
 
 DialogGameControllers.xml: 
 - fix visibility of button indicators to hide when shutdown menu is active
@@ -396,6 +415,8 @@ DialogMusicInfo.xml:
 - add button indicator include
 - fix visibility of button indicators to hide when shutdown menu is active
 - add masking bars include
+- add visibility conditions to hide buttons when kiosk mode is active
+- add close button that's visible when kiosk mode is active and no other buttons are visible
 
 DialogNumeric.xml: 
 - add masking bars include
@@ -458,10 +479,12 @@ DialogVideoInfo.xml:
 - change formatting of audio and subtitle labels
 - fix visibility of button indicators to hide when shutdown menu is active
 - add masking bars include
+- add visibility conditions to hide buttons when kiosk mode is active
 
 EventLog.xml:
 - add new "Sort order" localize to sort order toggle
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 FileManager.xml:
 - change item count to match overall behaviour
@@ -499,6 +522,9 @@ Includes.xml:
 - add new first letter scolling indicator to time include
 - fix audio now playing/progress and radio/live TV now playing/progress information
 - add animation to hide item count when busy dialog is visible and container is empty
+- add new Skin Shortcuts Help dialog include file
+- change conditional visibility of overlay to react to new never hide music information during playback setting
+- add visibility conditions to hide context/sidemenu indicators when kiosk mode is active
 
 Include_DialogSettings.xml:
 - add visibility condition to hide dialog while shutdown menu is open
@@ -527,6 +553,7 @@ MusicVisualisation.xml:
 - change visibility conditions of OSD elements to show up correctly during radio playback
 - add missing fade animations to OSD elements
 - add radio playback specific playback position and progress information
+- change conditional visibilities to react to new never hide music information during playback setting
 
 MyGames.xml:
 - add new "View: " localize to view toggle
@@ -534,6 +561,7 @@ MyGames.xml:
 - add new "Sort order" localize to sort order toggle
 - rework look controls
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyMusicNav.xml:
 - add new "View: " localize to view toggle
@@ -541,18 +569,21 @@ MyMusicNav.xml:
 - add new "Sort order" localize to sort order toggle
 - rework look controls
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPics.xml:
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
 - rework look controls
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPlaylist.xml:
 - fix side-menu coordinates
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPrograms.xml:
 - add new "View: " localize to view toggle
@@ -560,6 +591,7 @@ MyPrograms.xml:
 - add new "Sort order" localize to sort order toggle
 - rework look controls
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPVRChannels.xml:
 - fix side-menu coordinates
@@ -570,12 +602,14 @@ MyPVRChannels.xml:
 - add new LiveTV and Radio fallback icons to channel icon
 - fix visbility conditions to hide most unnecessary information when list is empty
 - add animation to hide item count when busy dialog is visible and container is empty
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPVRGuide.xml:
 - remove hide scrollbar toggle
 - add new "Sort order" localize to sort order toggle
 - add masking bars include
 - add new LiveTV and Radio fallback icons to channel icon
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPVRRecordings.xml:
 - fix side-menu coordinates
@@ -585,6 +619,7 @@ MyPVRRecordings.xml:
 - add masking bars include
 - add new LiveTV and Radio fallback icons to channel icon
 - add animation to hide item count when busy dialog is visible and container is empty
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPVRSearch.xml:
 - fix side-menu coordinates
@@ -593,6 +628,7 @@ MyPVRSearch.xml:
 - change item count to match overall behaviour
 - add masking bars include
 - add animation to hide item count when busy dialog is visible and container is empty
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyPVRTimers.xml:
 - fix side-menu coordinates
@@ -601,6 +637,7 @@ MyPVRTimers.xml:
 - change item count to match overall behaviour
 - add masking bars include
 - add animation to hide item count when busy dialog is visible and container is empty
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyVideoNav.xml:
 - add new "View: " localize to view toggle
@@ -608,10 +645,12 @@ MyVideoNav.xml:
 - add new "Sort order" localize to sort order toggle
 - rework look controls
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 MyWeather.xml: 
 - change weather provider info control to match item count layout
 - add masking bars include
+- add visibility conditions to hide submenu when kiosk mode is active
 
 PlayerControls.xml:
 - update player controls to match music and video OSD controls
@@ -625,6 +664,8 @@ script-skinshortcuts.xml:
 - add new widget sort by, widget sort direction and widget limit options
 - fix visibility of button indicators to hide when shutdown menu is active
 - add masking bars include
+- replace dialogButtonBackground include by dialogButton image controls to work together properly with new Skin Shortcuts Help dialog
+- add new help button
 
 script-skin_helper_service-ColorPicker.xml: 
 - fix visibility of button indicators to hide when shutdown menu is active
@@ -655,6 +696,13 @@ SkinSettings.xml:
 - add new masking setting
 - add masking bars include
 - remove deprecated OSD info PVR channel switch toggle (OSD now listens to Kodi toggle)
+- add new disable scrolling label setting
+- update localizes
+- add new never hide music information during playback setting
+- remove deprecated warning label for multi-image fanart
+- remove Skin Helper Backgrounds addon from supported addons section
+- remove deprecated lock PVR guide view setting
+- replace hide settings warning text box by new settings explanation text box
 
 SmartPlaylistEditor.xml: 
 - change text color of heading labels
@@ -677,6 +725,7 @@ Variables.xml:
 - update VideoPlayerTitle variable to only show live TV information when EPG information is available
 - update PlayerIcon variable to use Player.Icon for use in video and music player
 - new new conditions to MusicNextPlaying variables for music visualisation radio next playing information
+- add new SkinSettingsExplanation and SkinShortcutsExplanation variables
 
 VideoFullScreen.xml:
 - fix animation conditions (don't wait for VideoOSD anmiation + move while player process info dialog is open)
@@ -753,6 +802,7 @@ overrides.xml:
 - change default music widget group to circumvent v18 skinshortcuts bug (missing/wrong localize for "music")
 - remove unused "square" widget icon layout
 - add new widget sort by, widget sort direction and widget limit properties
+- remove broken Skin Helper Backgrounds support
 
 template.xml:
 - add new widget sort by, widget sort direction and widget limit properties

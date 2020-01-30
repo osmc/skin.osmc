@@ -75,6 +75,7 @@
 			
 			<!-- Submenu indicator -->
 			<control type="group">
+				<visible>!Skin.HasSetting(KioskMode)</visible>
 				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(contextmenu)</visible>
 				
 				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
@@ -89,7 +90,7 @@
 
 			<!-- Options -->
 			<control type="group" id="9002">
-				
+				<visible>!Skin.HasSetting(KioskMode)</visible>
 				<control type="image">
 					<include>FullscreenDimensions</include>
 					<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
