@@ -1626,13 +1626,47 @@
 	</variable>
 	
 	<!-- Skin Shortcuts explanation -->
-	<variable name="SkinShortcutsExplanation">
-		<value condition="String.IsEqual(Window(1106).Property(Window),Mainmenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31353]$ADDON[script.skinshortcuts 32000]$LOCALIZE[31354]$ADDON[script.skinshortcuts 32028]$LOCALIZE[31355]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Mainmenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31356]$ADDON[script.skinshortcuts 32048]$LOCALIZE[31357]$LOCALIZE[31358]$LOCALIZE[528]$LOCALIZE[31359]$ADDON[script.skinshortcuts 32027]$LOCALIZE[31360]$ADDON[script.skinshortcuts 32045]$LOCALIZE[31361]$LOCALIZE[31137]$LOCALIZE[31362]$ADDON[script.skinshortcuts 32072]$LOCALIZE[31363]$LOCALIZE[31095]$LOCALIZE[31364]$LOCALIZE[31161]$LOCALIZE[31365]$ADDON[script.skinshortcuts 32001]$LOCALIZE[31366]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Submenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31367]$ADDON[script.skinshortcuts 32000]$LOCALIZE[31368]$ADDON[script.skinshortcuts 32028]$LOCALIZE[31369]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Submenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31370]$ADDON[script.skinshortcuts 32048]$LOCALIZE[31371]$LOCALIZE[528]$LOCALIZE[31372]$ADDON[script.skinshortcuts 32027]$LOCALIZE[31373]$LOCALIZE[31161]$LOCALIZE[31374]$ADDON[script.skinshortcuts 32001]$LOCALIZE[31375]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Widgetmenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31376]$ADDON[script.skinshortcuts 32000]$LOCALIZE[31377]$ADDON[script.skinshortcuts 32028]$LOCALIZE[31378]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Widgetmenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31379]$ADDON[script.skinshortcuts 32048]$LOCALIZE[31380]$LOCALIZE[528]$LOCALIZE[31381]$LOCALIZE[31172]$LOCALIZE[31382]$LOCALIZE[31033]$LOCALIZE[31383]$LOCALIZE[31029]$LOCALIZE[31384]$LOCALIZE[31175]$LOCALIZE[31385]$LOCALIZE[31176]$LOCALIZE[31386]$LOCALIZE[31177]$LOCALIZE[31387]$LOCALIZE[31161]$LOCALIZE[31388]$ADDON[script.skinshortcuts 32001]$LOCALIZE[31389]</value>
+	<variable name="SkinShortcutsExplanation1">
+		<value condition="[Control.HasFocus(304) | Control.HasFocus(303)] + ![ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus]">$LOCALIZE[31354]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(401)">$LOCALIZE[31356]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(305)">$LOCALIZE[31357]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(307)">$LOCALIZE[31358]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(310)">$LOCALIZE[31359]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(210)">$LOCALIZE[31360]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(405)">$LOCALIZE[31361]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(406)">$LOCALIZE[31362]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(313)">$LOCALIZE[31363]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(302)">$LOCALIZE[31364]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(301)">$LOCALIZE[31380]</value>
+		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(308)">$LOCALIZE[31383]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(401)">$LOCALIZE[31365]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(305)">$LOCALIZE[31366]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(307)">$LOCALIZE[31367]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(313)">$LOCALIZE[31368]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(302)">$LOCALIZE[31369]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(301)">$LOCALIZE[31381]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(308)">$LOCALIZE[31384]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(312)">$LOCALIZE[31370]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(604)">$LOCALIZE[31371]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(601)">$LOCALIZE[31372]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(602)">$LOCALIZE[31373]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(603)">$LOCALIZE[31374]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(502)">$LOCALIZE[31375]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(503)">$LOCALIZE[31376]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(504)">$LOCALIZE[31377]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(313)">$LOCALIZE[31378]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(302)">$LOCALIZE[31379]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(301)">$LOCALIZE[31382]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(308)">$LOCALIZE[31385]</value>
+	</variable>
+	
+	<variable name="SkinShortcutsExplanation2">
+		<value condition="String.IsEqual(Window(1106).Property(Window),Mainmenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31386]</value>
+		<value condition="String.IsEqual(Window(1106).Property(Window),Mainmenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31387]</value>
+		<value condition="String.IsEqual(Window(1106).Property(Window),Submenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31388]</value>
+		<value condition="String.IsEqual(Window(1106).Property(Window),Submenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31389]</value>
+		<value condition="String.IsEqual(Window(1106).Property(Window),Widgetmenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31390]</value>
+		<value condition="String.IsEqual(Window(1106).Property(Window),Widgetmenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31391]</value>
 	</variable>
 
 </includes>
