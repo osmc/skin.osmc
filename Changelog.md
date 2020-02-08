@@ -3,7 +3,7 @@
 _New_
 - add new pre-defined widgets
 - add setting to change whether video info dialog shows details or plot first
-- add setting to set a solid color instead of background images
+- add setting to set a solid colour instead of background images
 - add audio and subtitle language information to media flags
 - add setting to toggle media flags information shown (first)
 - add new seek indicator to audio and video player
@@ -508,7 +508,7 @@ Includes.xml:
 - add new hide media flags functionality
 - change seperator of duration/size label
 - rework media flags and item count to add scrolling
-- add new color layer to window and dialog background
+- add new colour layer to window and dialog background
 - add new Artist Slideshow image control
 - change conditional visibilities to hide other background images when Artist Slideshow is active
 - add onload for new media flags setting
@@ -691,7 +691,7 @@ SettingsSystemInfo.xml:
 SkinSettings.xml:
 - add hide scrollbars setting formerly found in other windows
 - add new show original movie title in video info dialog setting
-- add color setting to background section
+- add colour setting to background section
 - add setting to toggle media flags information shown (first)
 - add new masking setting
 - add masking bars include
@@ -705,11 +705,11 @@ SkinSettings.xml:
 - replace hide settings warning text box by new settings explanation text box
 
 SmartPlaylistEditor.xml: 
-- change text color of heading labels
+- change text colour of heading labels
 - add masking bars include
 
 SmartPlaylistRule.xml: 
-- change text color of heading label
+- change text colour of heading label
 - add masking bars include
 
 Variables.xml:
