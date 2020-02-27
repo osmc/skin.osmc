@@ -247,7 +247,7 @@
 			<include>FullscreenDimensions</include>
 			<texture background="true">$VAR[OSMCBackgroundImage]</texture>
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
+			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
 			<aspectratio>scale</aspectratio>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
@@ -258,7 +258,7 @@
 			<include>FullscreenDimensions</include>
 			<imagepath background="true">$VAR[OSMCBackgroundImage]</imagepath>
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
+			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
 			<aspectratio>scale</aspectratio>
 			<include>CustomBackgroundFolderDuration</include>
@@ -275,7 +275,7 @@
 			<include>FullscreenDimensions</include>
 			<texture background="true">$INFO[Container(9000).ListItem.Property(background)]</texture>
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
+			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + ![String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)] + Window.IsVisible(Home)</visible>
 			<aspectratio>scale</aspectratio>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
@@ -287,7 +287,7 @@
 			<include>FullscreenDimensions</include>
 			<imagepath background="true">$INFO[Container(9000).ListItem.Property(background)]</imagepath>
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
-			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
+			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + [String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)] + Window.IsVisible(Home)</visible>
 			<aspectratio>scale</aspectratio>
 			<include>IndividualBackgroundFolderDuration</include>
@@ -318,7 +318,7 @@
 			<fadetime>400</fadetime>
 			<randomize>true</randomize>
 			<loop>yes</loop>
-			<visible>Player.HasAudio + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady) + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]</visible>
+			<visible>Player.HasAudio + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]</visible>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<include>WindowFadeAnimation</include>
