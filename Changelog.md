@@ -11,6 +11,7 @@ _New_
 - add new scrolling label
 - add new never hide music information during playback setting
 - add skin settings explanations
+- add setting to hide item count
 
 _Improved_
 - rework home menu customization dialogs
@@ -65,6 +66,7 @@ strings.po:
 - remove " (default: ...)" from all settings heading localizes (31100, 31101, 31102, 31104, 31108, 31109, 31110, 31111, 31129, 31132, 31143, 31170, 31237)
 - update localize for open music fullscreen automatically setting (31142)
 - add new skin settings explanation localizes (31267-31389)
+- add new localizes for item count hide setting (31390, 31391)
 
 AddonBrowser.xml:
 - remove deprecated view toggle
@@ -525,6 +527,7 @@ Includes.xml:
 - add new Skin Shortcuts Help dialog include file
 - change conditional visibility of overlay to react to new never hide music information during playback setting
 - add visibility conditions to hide context/sidemenu indicators when kiosk mode is active
+- add new onloads for hide item count setting
 
 Include_DialogSettings.xml:
 - add visibility condition to hide dialog while shutdown menu is open
@@ -703,6 +706,7 @@ SkinSettings.xml:
 - remove Skin Helper Backgrounds addon from supported addons section
 - remove deprecated lock PVR guide view setting
 - replace hide settings warning text box by new settings explanation text box
+- add new hide item count setting
 
 SmartPlaylistEditor.xml: 
 - change text colour of heading labels
