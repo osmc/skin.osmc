@@ -532,8 +532,7 @@
 			<control type="group">
 				<visible>!Skin.HasSetting(ScrollingLabel)</visible>
 				<visible>Container.Scrolling</visible>
-				<visible>!System.HasActiveModalDialog | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(FileBrowser.xml)</visible>
-				<visible>!String.IsEmpty(Container.Content) | String.StartsWith(Container.FolderPath,pvr://) | String.StartsWith(Container.FolderPath,sources://video/) | String.StartsWith(Container.FolderPath,sources://music/) | String.StartsWith(Container.FolderPath,addons://user/) | String.StartsWith(Container.FolderPath,addons://repo) | String.StartsWith(Container.FolderPath,plugin://) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(FileBrowser.xml)</visible>
+				<visible>Control.IsEnabled(3) | Control.IsEnabled(4)</visible>
 				<visible>!Container.Content(seasons)</visible>
 				<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[563]) | String.IsEqual(Container.SortMethod,$LOCALIZE[566])</visible>
 				<animation effect="slide" start="-75,0" end="0,0" time="200">VisibleChange</animation>
@@ -776,7 +775,6 @@
 		<control type="group">
 			<include>MediaFlags_coords1</include>
 			<visible>Integer.IsGreater(Container.NumItems,0) + !ListItem.IsFolder + !String.IsEqual(Skin.String(mediaflags),None)</visible>
-			<include>VisibleFadeAnimation</include>
 			
 			<!-- File first/only -->
 			<control type="group">
@@ -871,7 +869,7 @@
 				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + ![String.IsEmpty(ListItem.VideoResolution) | String.IsEmpty(ListItem.AudioCodec)] + !System.IdleTime(1)">
 					<effect type="fade" end="0" time="0" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec)] + !System.IdleTime(1)">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.AudioCodec) + !System.IdleTime(1)">
 					<effect type="fade" end="100" time="0" />
 				</animation>
 				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + ![String.IsEmpty(ListItem.VideoResolution) | String.IsEmpty(ListItem.AudioCodec)] + System.IdleTime(1)" loop="true">
@@ -940,7 +938,7 @@
 			
 			<!-- Duration only -->
 			<control type="group">
-				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + String.IsEmpty(ListItem.VideoResolution) | String.IsEqual(Skin.String(mediaflags),Language only) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + String.IsEmpty(ListItem.VideoResolution) | String.IsEqual(Skin.String(mediaflags),Language only) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | [String.IsEqual(Skin.String(mediaflags),File first) | String.IsEqual(Skin.String(mediaflags),Language first)] + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
 				
 				<!-- Duration -->
 				<control type="image">
