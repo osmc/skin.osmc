@@ -1192,6 +1192,18 @@
 		</definition>
 	</include>
 	
+	<!-- Sidemenu menucontrol -->
+	<include name="SidemenuMenucontrol">
+		<definition>
+			<include condition="!Skin.HasSetting(KioskMode)" content="SidemenuMenucontrol2">
+				<param name="id">$PARAM[id]</param>
+			</include>
+		</definition>
+	</include>
+	<include name="SidemenuMenucontrol2">
+		<menucontrol>$PARAM[id]</menucontrol>
+	</include>
+	
 	<!-- Context/Side menu indicator -->
 	<include name="SubmenuIndicator">
 		<definition>

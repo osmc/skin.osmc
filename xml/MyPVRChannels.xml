@@ -5,6 +5,11 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<views>50</views>
 
+	<!-- Sidemenu menucontrol -->
+	<include content="SidemenuMenucontrol">
+		<param name="id">3000</param>
+	</include>
+
 	<controls>
 
 		<!-- Background -->
@@ -109,7 +114,7 @@
 			<!-- Scrollbar (list) -->
 			<control type="scrollbar" id="60">
 				<include>MyPVRChannels_coords7</include>
-				<onleft>3000</onleft>
+				<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
