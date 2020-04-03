@@ -5,6 +5,11 @@
 	<defaultcontrol always="true">10</defaultcontrol>
 	<views>10</views>
 
+	<!-- Sidemenu menucontrol -->
+	<include content="SidemenuMenucontrol">
+		<param name="id">3000</param>
+	</include>
+
 	<controls>
 
 		<!-- Background -->
@@ -190,7 +195,7 @@
 		
 		<!-- Submenu indicator -->
 		<control type="group">
-			<visible>!Window.IsVisible(contextmenu) + !Skin.HasSetting(KioskMode) + Control.HasFocus(10)</visible>
+			<visible>!Window.IsVisible(contextmenu) + Control.HasFocus(10)</visible>
 			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 			<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
@@ -203,7 +208,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>!Window.IsVisible(contextmenu) + Control.HasFocus(60)</visible>
+			<visible>!Window.IsVisible(contextmenu) + !Skin.HasSetting(KioskMode) + Control.HasFocus(60)</visible>
 			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
 			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 			<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
