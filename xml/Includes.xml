@@ -821,14 +821,14 @@
 					<colordiffuse>$VAR[TextColor2]</colordiffuse>
 					<texture>osd/OSDAudioNF.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.AudioCodec)</visible>
 				</control>
 				<control type="fadelabel">
 					<include>MediaFlags_coords5</include>
 					<label>$VAR[Audio]</label>
 					<font>Font30</font>
 					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.AudioCodec)</visible>
 				</control>
 				
 				<!-- Duration -->
