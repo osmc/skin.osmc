@@ -531,15 +531,15 @@
 				<!-- Custom disabled text color -->
 				<control type="image" id="317">
 					<include>SkinSettings_coords18</include>
-					<texture colordiffuse="$VAR[TextColor4]">common/white.png</texture>
+					<texture colordiffuse="$VAR[DisabledColor]">common/white.png</texture>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 				</control>
 				<control type="button" id="318">
 					<include>SkinSettings_coords19</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31166]</label>
-					<label2>$VAR[TextColor4-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text4)</onclick>
+					<label2>$VAR[DisabledColor-Name]</label2>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.disabled)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
