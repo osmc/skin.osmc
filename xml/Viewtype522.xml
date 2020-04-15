@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype522">
+		
+		<!-- Wide low info -->
+		<control type="group">
+			<visible>Control.IsVisible(522)</visible>
+
+			<control type="fixedlist" id="522">
+				<include>Viewtype522_coords1</include>
+				<ondown>62</ondown>
+				<onleft>522</onleft>
+				<onright>522</onright>
+				<pagecontrol>62</pagecontrol>
+				<preloaditems>6</preloaditems>
+				<focusposition>5</focusposition>
+				<orientation>horizontal</orientation>
+				<viewtype label="$LOCALIZE[31392]">icon</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+
+				<include>Viewtype522_coords2</include>
+
+				<include>Viewtype522_coords3</include>
+
+			</control>
+			
+			<!-- Movie/TV show info -->
+			<control type="group">
+				<include>Viewtype522_coords4</include>
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype522_coords5</include>
+					<font>Font72</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+				</control>
+				
+				<!-- Details -->
+				<control type="fadelabel">
+					<include>Viewtype522_coords6</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Plot -->
+				<control type="group">
+					<include>Viewtype522_coords7</include>
+					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
+					<control type="textbox">
+						<align>left</align>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					</control>
+				</control>
+			
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-522">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype522_coords8</include>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="image-522-focus">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype522_coords9</include>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
+			</control>
+		</definition>
+	</include>
+
+</includes>

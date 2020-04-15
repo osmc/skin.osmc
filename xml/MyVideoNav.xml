@@ -4,7 +4,7 @@
 	<backgroundcolor>0x00000000</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<onload condition="System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
-	<views>52,521,53,531,532,533,534,51,50,511</views>
+	<views>52,521,522,53,531,532,533,534,51,50,511</views>
 
 	<!-- Sidemenu menucontrol -->
 	<include content="SidemenuMenucontrol">
@@ -26,6 +26,7 @@
 			<include>Viewtype511</include>
 			<include>Viewtype52</include>
 			<include>Viewtype521</include>
+			<include>Viewtype522</include>
 			<include>Viewtype53</include>
 			<include>Viewtype531</include>
 			<include>Viewtype532</include>
@@ -64,9 +65,25 @@
 				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(52) | Control.IsVisible(521)]</visible>
 			</control>
 
+			<!-- Scrollbar (wide low info) -->
+			<control type="scrollbar" id="62">
+				<include>MyVideoNav_coords3</include>
+				<onup>50</onup>
+				<ondown condition="!Skin.HasSetting(KioskMode)">3001</ondown>
+				<showonepage>false</showonepage>
+				<orientation>horizontal</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="1,12,1,1">common/ScrollBackgroundHorizontal.png</texturesliderbackground>
+				<texturesliderbar border="1,12,1,1">common/ScrollbarGripHorizontalNF.png</texturesliderbar>
+				<texturesliderbarfocus border="1,12,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripHorizontalFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(522)</visible>
+			</control>
+
 			<!-- Scrollbar (wall) -->
 			<control type="scrollbar" id="63">
-				<include>MyVideoNav_coords3</include>
+				<include>MyVideoNav_coords4</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -82,7 +99,7 @@
 			
 			<!-- Scrollbar (wall low) -->
 			<control type="scrollbar" id="67">
-				<include>MyVideoNav_coords4</include>
+				<include>MyVideoNav_coords5</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -98,7 +115,7 @@
 			
 			<!-- Scrollbar (wall small) -->
 			<control type="scrollbar" id="68">
-				<include>MyVideoNav_coords5</include>
+				<include>MyVideoNav_coords6</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -114,7 +131,7 @@
 			
 			<!-- Scrollbar (wall info) -->
 			<control type="scrollbar" id="69">
-				<include>MyVideoNav_coords6</include>
+				<include>MyVideoNav_coords7</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
