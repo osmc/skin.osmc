@@ -1063,8 +1063,8 @@
 					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31085]</label>
 					<label2>$VAR[addon-upnext]</label2>
-					<onclick condition="!String.IsEmpty(System.AddonVersion(service.upnext)) + System.HasAddon(service.upnext)">InstallAddon(service.upnext)</onclick>
-					<onclick condition="String.IsEmpty(System.AddonVersion(service.upnext)) + System.HasAddon(service.upnext)">ActivateWindow(1102)</onclick>
+					<onclick condition="String.IsEmpty(System.AddonVersion(service.upnext)) + !System.HasAddon(service.upnext)">InstallAddon(service.upnext)</onclick>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(service.upnext)) + !System.HasAddon(service.upnext)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(service.upnext)">Addon.OpenSettings(service.upnext)</onclick>
 				</control>
 				<control type="button" id="710">
