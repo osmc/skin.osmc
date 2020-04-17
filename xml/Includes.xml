@@ -86,6 +86,10 @@
 	<include file="Coordinates_PlayerControls.xml" />
 	<include file="Coordinates_script-skin_helper_service-ColorPicker.xml" />
 	<include file="Coordinates_script-skinshortcuts.xml" />
+	<include file="Coordinates_script-upnext-stillwatching.xml" />
+	<include file="Coordinates_script-upnext-stillwatching-simple.xml" />
+	<include file="Coordinates_script-upnext-upnext.xml" />
+	<include file="Coordinates_script-upnext-upnext-simple.xml" />
 	<include file="Coordinates_Settings.xml" />
 	<include file="Coordinates_SettingsCategory.xml" />
 	<include file="Coordinates_SettingsProfile.xml" />
@@ -552,7 +556,7 @@
 			</control>
 
 			<control type="group">
-				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar) + !String.IsEqual(Window(10000).Property(isCaching),True)</visible>
+				<visible>!Window.IsVisible(notification) + !Window.IsVisible(extendedprogressdialog) + !Window.IsVisible(volumebar) + !String.IsEqual(Window(10000).Property(isCaching),True) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 
 				<animation type="WindowOpen" condition="Window.Previous(startup)">
 					<effect type="fade" start="50" end="100" time="200" tween="cubic" easing="out"/>
