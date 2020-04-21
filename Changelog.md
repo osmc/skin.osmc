@@ -2,7 +2,6 @@
 
 _New_
 - add standard Kodi 'Menu' key functionality to access side menu in all windows
-- add album duration to album music library view
 - add new Wide low info view
 - add support for Up Next addon
 
@@ -49,7 +48,6 @@ Includes.xml:
 - add new SidemenuMenucontrol include
 - add new include files
 - adjust Media Flags animations for new Wide low info view
-- add total time of albums to Media Flags duration
 - adjust conditional visibility of Context/Side menu indicator include for new Wide low info view
 - update conditional visibility to hide time while Up Next notification is visible
 
