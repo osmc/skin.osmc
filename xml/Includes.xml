@@ -959,28 +959,14 @@
 					<label>$VAR[Duration]</label>
 					<font>Font30</font>
 					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>Integer.IsLessOrEqual(Container.NumItems,1) + !String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 				<control type="fadelabel">
 					<include>MediaFlags_coords11</include>
 					<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
 					<font>Font30</font>
 					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>Integer.IsLessOrEqual(Container.NumItems,1) + !String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords11</include>
-					<label>$VAR[Duration]$INFO[Container.TotalTime, / ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>Integer.IsGreater(Container.NumItems,1) + !String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords11</include>
-					<label>$VAR[Duration]$INFO[Container.TotalTime, / ,]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>Integer.IsGreater(Container.NumItems,1) + !String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 				
 			</control>
