@@ -24,6 +24,7 @@
 	<include file="Coordinates_AddonBrowser.xml" />
 	<include file="Coordinates_Custom_Backup.xml" />
 	<include file="Coordinates_Custom_Cache_Progress.xml" />
+	<include file="Coordinates_Custom_Confirm_Reset_Skin_Settings.xml" />
 	<include file="Coordinates_Custom_Customization.xml" />
 	<include file="Coordinates_Custom_DialogMasking.xml" />
 	<include file="Coordinates_Custom_Disabled_Add-on.xml" />
@@ -116,6 +117,8 @@
 
 	<!-- Onloads -->
 	<include name="Onloads">
+		<onload>ClearProperty(scriptdialog,10000)</onload>
+		<onunload>ClearProperty(scriptdialog,10000)</onunload>
 		<onload condition="String.IsEmpty(Skin.String(PlotFont))">Skin.SetString(PlotFont,S)</onload>
 		<onload condition="String.IsEmpty(Skin.String(HideOSD))">Skin.SetString(HideOSD,Always)</onload>
 		<onload condition="String.IsEqual(Skin.String(HideOSD),Off)">Skin.SetString(HideOSD,Always)</onload>

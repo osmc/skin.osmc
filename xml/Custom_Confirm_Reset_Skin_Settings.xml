@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="1102">
-	<!-- Disabled addon -->
+<window type="dialog" id="1107">
+	<!-- Confirm skin settings reset -->
 	<defaultcontrol always="true">10</defaultcontrol>
 	
 	<controls>
@@ -15,7 +15,7 @@
 			
 			<!-- Heading -->
 			<include content="Time">
-				<param name="heading">$LOCALIZE[31168]</param>
+				<param name="heading">$LOCALIZE[31058]</param>
 			</include>
 
 			<!-- Heading -->
@@ -32,13 +32,13 @@
 			<!-- Details -->
 			<control type="group">
 				<control type="textbox">
-					<include>Custom_Disabled_Add-on_coords</include>
+					<include>Custom_Confirm_Reset_Skin_Settings_coords</include>
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>Font36</font>
 					<autoscroll>False</autoscroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<label>$LOCALIZE[31154]</label>
+					<label>$LOCALIZE[31394]</label>
 				</control>
 			</control>
 
@@ -57,16 +57,17 @@
 					<width>auto</width>
 					<font>Font36</font>
 					<align>center</align>
-					<onclick>Dialog.Close(1102)</onclick>
-					<label>$LOCALIZE[31151]</label>
+					<onclick>Dialog.Close(1107)</onclick>
+					<label>$LOCALIZE[106]</label>
 				</control>
 				<control type="button" id="11">
 					<width>auto</width>
 					<font>Font36</font>
 					<align>center</align>
-					<onclick>Dialog.Close(1102)</onclick>
-					<onclick>ActivateWindow(addonbrowser)</onclick>
-					<label>$LOCALIZE[31152]</label>
+					<onclick>Skin.ResetSettings</onclick>
+					<onclick>ReloadSkin()</onclick>
+					<onclick>Dialog.Close(1107)</onclick>
+					<label>$LOCALIZE[107]</label>
 				</control>
 			</control>
 		
