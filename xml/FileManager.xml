@@ -96,8 +96,7 @@
 				<label>$INFO[Container(21).NumItems]$VAR[ContentTypeFileManager21, ,]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>Integer.IsEqual(Container(21).NumItems,0) + Window.IsVisible(busydialog)</visible>
-				<include>VisibleFadeAnimation</include>
+				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(21).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 
 		</control>

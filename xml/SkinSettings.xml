@@ -14,10 +14,8 @@
 		<!-- Background -->
 		<include>WindowBackgroundImage</include>
 		
-		<!-- Heading -->
-		<include content="Time">
-			<param name="heading">$LOCALIZE[20077]</param>
-		</include>
+		<!-- Time -->
+		<include>Time</include>
 		
 		<!-- Main group -->
 		<control type="group">
@@ -531,15 +529,15 @@
 				<!-- Custom disabled text color -->
 				<control type="image" id="317">
 					<include>SkinSettings_coords18</include>
-					<texture colordiffuse="$VAR[TextColor4]">common/white.png</texture>
+					<texture colordiffuse="$VAR[DisabledColor]">common/white.png</texture>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 				</control>
 				<control type="button" id="318">
 					<include>SkinSettings_coords19</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31166]</label>
-					<label2>$VAR[TextColor4-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text4)</onclick>
+					<label2>$VAR[DisabledColor-Name]</label2>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.disabled)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
@@ -1059,14 +1057,14 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.image.resource.select)) + !System.HasAddon(script.image.resource.select)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
 				</control>
-				<!-- <control type="button" id="709">
+				<control type="button" id="709">
 					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31085]</label>
-					<label2>$VAR[addon-nextup]</label2>
-					<onclick condition="!String.IsEmpty(System.AddonVersion(service.nextup.notification)) + System.HasAddon(service.nextup.notification)">InstallAddon(service.nextup.notification)</onclick>
-					<onclick condition="String.IsEmpty(System.AddonVersion(service.nextup.notification)) + System.HasAddon(service.nextup.notification)">ActivateWindow(1102)</onclick>
-					<onclick condition="System.HasAddon(service.nextup.notification)">Addon.OpenSettings(service.nextup.notification)</onclick>
-				</control> -->
+					<label2>$VAR[addon-upnext]</label2>
+					<onclick condition="String.IsEmpty(System.AddonVersion(service.upnext)) + !System.HasAddon(service.upnext)">InstallAddon(service.upnext)</onclick>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(service.upnext)) + !System.HasAddon(service.upnext)">ActivateWindow(1102)</onclick>
+					<onclick condition="System.HasAddon(service.upnext)">Addon.OpenSettings(service.upnext)</onclick>
+				</control>
 				<control type="button" id="710">
 					<include>SkinSettings_coords16</include>
 					<label> - $LOCALIZE[31086]</label>
@@ -1112,8 +1110,7 @@
 				<control type="button" id="803">
 					<include>SkinSettings_coords16</include>
 					<label>31058</label>
-					<onclick>Skin.ResetSettings</onclick>
-					<onclick>ReloadSkin()</onclick>
+					<onclick>ActivateWindow(1107)</onclick>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
