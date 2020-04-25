@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<!-- Variables for script-skinshortcuts.xml -->
+	<variable name="skinshortcuts-window">
+		<value condition="String.EndsWith(Window.Property(groupname),.1)">$LOCALIZE[31095]</value>
+		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu)">$ADDON[script.skinshortcuts 32072]</value>
+		<value>$ADDON[script.skinshortcuts 32071]</value>
+	</variable>
+
+	<variable name="skinshortcuts-itemlabel">
+		<value condition="String.EndsWith(Window.Property(groupname),.1) + String.IsEmpty(ListItem.Property(widgetName))">$ADDON[script.skinshortcuts 32013]</value>
+		<value condition="String.EndsWith(Window.Property(groupname),.1)">$INFO[ListItem.Property(widgetName)]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
+
+	<variable name="skinshortcuts-disableindicator">
+		<value condition="String.IsEqual(ListItem.Property(skinshortcuts-disabled),True)">[COLOR darkred]$VAR[skinshortcuts-itemlabel][/COLOR]</value>
+		<value>$VAR[skinshortcuts-itemlabel]</value>
+	</variable>
+
+	<variable name="skinshortcuts-size">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(layout),tall)">$LOCALIZE[31240]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(layout),wide)">$LOCALIZE[31241]</value>
+		<value>$LOCALIZE[31240]</value>
+	</variable>
+
+	<variable name="skinshortcuts-art">
+		<value condition="Container(8000).IsUpdating">$LOCALIZE[31242]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(poster))">$LOCALIZE[31243]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.poster))">$LOCALIZE[31244]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(season.poster))">$LOCALIZE[31245]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(fanart))">$LOCALIZE[31246]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(season.fanart))">$LOCALIZE[31247]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(banner))">$LOCALIZE[31248]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.banner))">$LOCALIZE[31249]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(season.banner))">$LOCALIZE[31250]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(clearlogo))">$LOCALIZE[31251]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.clearlogo))">$LOCALIZE[31252]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(clearart))">$LOCALIZE[31253]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.clearart))">$LOCALIZE[31254]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(characterart))">$LOCALIZE[31255]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.characterart))">$LOCALIZE[31256]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(landscape))">$LOCALIZE[31257]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.landscape))">$LOCALIZE[31258]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),FAKELANDSCAPE)">$LOCALIZE[31259]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),FAKETVLANDSCAPE)">$LOCALIZE[31260]</value>
+		<value>$LOCALIZE[31261]</value>
+	</variable>
+
+	<variable name="skinshortcuts-fallbackart">
+		<value condition="Container(8000).IsUpdating">$LOCALIZE[31242]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(poster))">$LOCALIZE[31243]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.poster))">$LOCALIZE[31244]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(season.poster))">$LOCALIZE[31245]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(fanart))">$LOCALIZE[31246]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(season.fanart))">$LOCALIZE[31247]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(banner))">$LOCALIZE[31248]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.banner))">$LOCALIZE[31249]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(season.banner))">$LOCALIZE[31250]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(clearlogo))">$LOCALIZE[31251]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.clearlogo))">$LOCALIZE[31252]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(clearart))">$LOCALIZE[31253]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.clearart))">$LOCALIZE[31254]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(characterart))">$LOCALIZE[31255]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.characterart))">$LOCALIZE[31256]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(landscape))">$LOCALIZE[31257]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.landscape))">$LOCALIZE[31258]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),FAKELANDSCAPE)">$LOCALIZE[31259]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),FAKETVLANDSCAPE)">$LOCALIZE[31260]</value>
+		<value>$LOCALIZE[31261]</value>
+	</variable>
+
+	<variable name="WidgetSortByLabel">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),title)">$LOCALIZE[369]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastplayed)">$LOCALIZE[568]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastused)">$LOCALIZE[12012]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),installdate)">$LOCALIZE[12013]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastupdated)">$LOCALIZE[12014]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),tvshowtitle)">$LOCALIZE[36902]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),date)">$LOCALIZE[552]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),artist)">$LOCALIZE[557]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),album)">$LOCALIZE[558]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),tracknumber)">$LOCALIZE[554]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),channelnumber)">$LOCALIZE[19029]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),year)">$LOCALIZE[345]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),dateAdded)">$LOCALIZE[570]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),random)">$LOCALIZE[590]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),genre)">$LOCALIZE[515]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),playcount)">$LOCALIZE[567]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),studio)">$LOCALIZE[572]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),country)">$LOCALIZE[574]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),rating)">$LOCALIZE[563]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),userrating)">$LOCALIZE[33067]</value>
+		<value>$LOCALIZE[16018]</value>
+	</variable>
+	
+	<variable name="WidgetSortDirectionLabel">
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),ascending)">$LOCALIZE[584]</value>
+		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),descending)">$LOCALIZE[585]</value>
+		<value>$LOCALIZE[16018]</value>
+	</variable>
+	
+	<variable name="WidgetLimitLabel">
+		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetLimit))">$INFO[Container(211).ListItem.Property(widgetLimit)]</value>
+		<value>$LOCALIZE[16018]</value>
+	</variable>
+
+</includes>

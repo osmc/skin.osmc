@@ -1,435 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<!-- Default colours -->
-	
-	<!-- Text color 1 -->
-	<variable name="TextColor1">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text1),None)">$INFO[Skin.String(color.text1)]</value>
-	</variable>
-	
-	<variable name="TextColor1-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.text1)) + !String.IsEqual(Skin.String(color.text1),None)">$INFO[Skin.String(color.text1),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.text1),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor1])</value>
-	</variable>
-	
-	<!-- Text color 2 -->
-	<variable name="TextColor2">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">80FFFFFF</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text2),None)">$INFO[Skin.String(color.text2)]</value>
-	</variable>
-	
-	<variable name="TextColor2-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.text2)) + !String.IsEqual(Skin.String(color.text2),None)">$INFO[Skin.String(color.text2),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.text2),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor2])</value>
-	</variable>
-	
-	<!-- Text color 3 -->
-	<variable name="TextColor3">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">66404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">66404040</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text3),None)">$INFO[Skin.String(color.text3)]</value>
-	</variable>
-	
-	<variable name="TextColor3-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.text3)) + !String.IsEqual(Skin.String(color.text3),None)">$INFO[Skin.String(color.text3),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.text3),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor3])</value>
-	</variable>
-	
-	<!-- Text color 4 -->
-	<variable name="TextColor4">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">60000000</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text4),None)">$INFO[Skin.String(color.text4)]</value>
-	</variable>
-	
-	<variable name="TextColor4-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.text4)) + !String.IsEqual(Skin.String(color.text4),None)">$INFO[Skin.String(color.text4),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.text4),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor4])</value>
-	</variable>
-	
-	<!-- Darken color -->
-	<variable name="DarkenColor">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">60000000</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.darken),None)">$INFO[Skin.String(color.darken)]</value>
-	</variable>
-	
-	<variable name="DarkenColor-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.darken)) + !String.IsEqual(Skin.String(color.darken),None)">$INFO[Skin.String(color.darken),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.darken),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DarkenColor])</value>
-	</variable>
-	
-	<!-- Overlay color (focus) -->
-	<variable name="OverlayColorFO">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.overlayfo),None)">$INFO[Skin.String(color.overlayfo)]</value>
-	</variable>
-	
-	<variable name="OverlayColorFO-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.overlayfo)) + !String.IsEqual(Skin.String(color.overlayfo),None)">$INFO[Skin.String(color.overlayfo),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.overlayfo),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[OverlayColorFO])</value>
-	</variable>
-	
-	<!-- Overlay color (no focus) -->
-	<variable name="OverlayColorNF">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">55F1F1F1</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.overlaynf),None)">$INFO[Skin.String(color.overlaynf)]</value>
-	</variable>
-
-	<variable name="OverlayColorNF-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.overlaynf)) + !String.IsEqual(Skin.String(color.overlaynf),None)">$INFO[Skin.String(color.overlaynf),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.overlaynf),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[OverlayColorNF])</value>
-	</variable>
-	
-	<!-- Selected color -->
-	<variable name="SelectedColor">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FF29B6EB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FF00D7C7</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FF72FF88</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFC43</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFF8536</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFF191E</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFF02D61</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFBF0360</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFC4A63A</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FF0AC4BE</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.selected),None)">$INFO[Skin.String(color.selected)]</value>
-	</variable>
-
-	<variable name="SelectedColor-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.selected)) + !String.IsEqual(Skin.String(color.selected),None)">$INFO[Skin.String(color.selected),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.selected),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[SelectedColor])</value>
-	</variable>
-	
-	<!-- Fanrt diffuse color -->
-	<variable name="FanartDiffuse">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">33F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">33F1F1F1</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.fanartdiffuse),None)">$INFO[Skin.String(color.fanartdiffuse)]</value>
-	</variable>
-	
-	<variable name="FanartDiffuse-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.fanartdiffuse)) + !String.IsEqual(Skin.String(color.fanartdiffuse),None)">$INFO[Skin.String(color.fanartdiffuse),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.fanartdiffuse),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[FanartDiffuse])</value>
-	</variable>
-	
-	<!-- Home color (no focus) -->
-	<variable name="HomeNF">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Red)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">44777777</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">44777777</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.homenf),None)">$INFO[Skin.String(color.homenf)]</value>
-	</variable>
-
-	<variable name="HomeNF-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.homenf)) + !String.IsEqual(Skin.String(color.homenf),None)">$INFO[Skin.String(color.homenf),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.homenf),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[HomeNF])</value>
-	</variable>
-	
-	<!-- Dialog colors -->
-	
-	<!-- Dialog color 1 -->
-	<variable name="DialogColor1">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialog1),None)">$INFO[Skin.String(color.dialog1)]</value>
-	</variable>
-	
-	<variable name="DialogColor1-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.dialog1)) + !String.IsEqual(Skin.String(color.dialog1),None)">$INFO[Skin.String(color.dialog1),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.dialog1),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogColor1])</value>
-	</variable>
-	
-	<!-- Dialog color 2 -->
-	<variable name="DialogColor2">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">80FFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">80FFFFFF</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialog2),None)">$INFO[Skin.String(color.dialog2)]</value>
-	</variable>
-	
-	<variable name="DialogColor2-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.dialog2)) + !String.IsEqual(Skin.String(color.dialog2),None)">$INFO[Skin.String(color.dialog2),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.dialog2),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogColor2])</value>
-	</variable>
-	
-	<!-- Disabled color -->
-	<variable name="DisabledColor">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">808C8C8C</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">E65D5D5D</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">E65D5D5D</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">BF5D5D5D</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">808C8C8C</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">808C8C8C</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">808C8C8C</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">808C8C8C</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">808C8C8C</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">808C8C8C</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.disabled),None)">$INFO[Skin.String(color.disabled)]</value>
-	</variable>
-	
-	<variable name="DisabledColor-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.disabled)) + !String.IsEqual(Skin.String(color.disabled),None)">$INFO[Skin.String(color.disabled),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.disabled),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DisabledColor])</value>
-	</variable>
-	
-	<!-- Invalid color -->
-	<variable name="InvalidColor">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">60000000</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">60000000</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.invalid),None)">$INFO[Skin.String(color.invalid)]</value>
-	</variable>
-	
-	<variable name="InvalidColor-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.invalid)) + !String.IsEqual(Skin.String(color.invalid),None)">$INFO[Skin.String(color.invalid),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.invalid),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[InvalidColor])</value>
-	</variable>
-	
-	<!-- Dialog overlay color (focus) -->
-	<variable name="DialogOverlayColorFO">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialogoverlayfo),None)">$INFO[Skin.String(color.dialogoverlayfo)]</value>
-	</variable>
-	
-	<variable name="DialogOverlayColorFO-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.dialogoverlayfo)) + !String.IsEqual(Skin.String(color.dialogoverlayfo),None)">$INFO[Skin.String(color.dialogoverlayfo),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.dialogoverlayfo),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogOverlayColorFO])</value>
-	</variable>
-	
-	<!-- Dialog overlay color (no focus) -->
-	<variable name="DialogOverlayColorNF">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">55F1F1F1</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">55F1F1F1</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialogoverlaynf),None)">$INFO[Skin.String(color.dialogoverlaynf)]</value>
-	</variable>
-	
-	<variable name="DialogOverlayColorNF-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.dialogoverlaynf)) + !String.IsEqual(Skin.String(color.dialogoverlaynf),None)">$INFO[Skin.String(color.dialogoverlaynf),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.dialogoverlaynf),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogOverlayColorNF])</value>
-	</variable>
-	
-	<!-- Background color -->
-	<variable name="BackgroundColor">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC009CC7</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6009CC7</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80009CC7</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2009CC7</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC3FB551</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A63FB551</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">803FB551</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F23FB551</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCA6A41B</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6A6A41B</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80A6A41B</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2A6A41B</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCC75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6C75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80C75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2C75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCA30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6A30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80A30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2A30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCC41141</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6C41141</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80C41141</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2C41141</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2404040</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC001e27</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6001e27</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80001e27</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2001e27</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(color.background)]</value>
-	</variable>
-
-	<variable name="BackgroundColor-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.background)) + !String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(color.background),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[BackgroundColor])</value>
-	</variable>
-	
-	<!-- Overlay color -->
-	<variable name="OverlayColor">
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF293FEB</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC008AB0</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99008AB0</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66008AB0</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF008AB0</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC349643</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99349643</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">663349643</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF349643</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC919018</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99919018</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66919018</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF919018</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CCC75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99C75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66C75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FFC75C16</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CCA30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99A30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66A30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FFA30003</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CCA60E37</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99A60E37</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66A60E37</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FFA60E37</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF850096</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC262626</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99262626</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66262626</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF262626</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC001e27</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99001e27</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66001e27</value>
-		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF001e27</value>
-		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.overlay),None)">$INFO[Skin.String(color.overlay)]</value>
-	</variable>
-	
-	<variable name="OverlayColor-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.overlay)) + !String.IsEqual(Skin.String(color.overlay),None)">$INFO[Skin.String(color.overlay),[UPPERCASE],[/UPPERCASE]]</value>
-		<value condition="String.IsEqual(Skin.String(color.overlay),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[OverlayColor])</value>
-	</variable>
-	
-	<variable name="ColorPicker-Name">
-		<value condition="!String.IsEqual(Window.Property(colorstring),None) + !String.IsEmpty(Window.Property(colorstring))">$INFO[Window.Property(colorstring),[UPPERCASE],[/UPPERCASE]]</value>
-		<value>$LOCALIZE[571]</value>
-	</variable>
-	
 	<!-- Background images/overlay -->
 	<variable name="OSMCBackgroundImage">
 		<value condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes) + !String.IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
@@ -444,16 +15,6 @@
 		<value condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),3)">$LOCALIZE[31264]</value>
 		<value condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),4)">$LOCALIZE[31265]</value>
 		<value condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),5)">$LOCALIZE[31266]</value>
-	</variable>
-	
-	<variable name="SolidBackgroundColor">
-		<value condition="!String.IsEmpty(Skin.String(color.backgroundsolid)) + !String.IsEqual(Skin.String(color.backgroundsolid),None)">$INFO[Skin.String(color.backgroundsolid)]</value>
-		<value>FF000000</value>
-	</variable>
-	
-	<variable name="SolidBackgroundColor-Name">
-		<value condition="!String.IsEmpty(Skin.String(color.backgroundsolid)) + !String.IsEqual(Skin.String(color.backgroundsolid),None)">$INFO[Skin.String(color.backgroundsolid),[UPPERCASE],[/UPPERCASE]]</value>
-		<value>$LOCALIZE[571]</value>
 	</variable>
 	
 	<!-- Opacity Dim Factor -->
@@ -527,7 +88,22 @@
 		<value condition="!Skin.HasSetting(TextHighlight)">common/focus144.png</value>
 	</variable>
 	
-	<!-- Headings -->
+	<!-- Busy spinner -->
+	<variable name="BusySpinner">
+		<value condition="Integer.IsLess(System.Memory(total),512)">busy-slow.gif</value>
+		<value>busy.gif</value>
+	</variable>
+	
+	<!-- Media images -->
+	<variable name="mediaImages">
+		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
+		<value condition="Container.Content(Seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="Container.Content(Episodes)">$INFO[ListItem.Icon]</value> 
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+	
+	<!-- Heading labels -->
 	<variable name="HeadingLabel">
 		<value condition="Window.IsVisible(busydialog)">$LOCALIZE[20186]...</value>
 		<value>$VAR[HeadingLabelPrimary]</value>
@@ -575,22 +151,79 @@
 		<value condition="Window.IsVisible(games)">$LOCALIZE[15016]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
 		<value>$INFO[Container.FolderName]</value>
 	</variable>
-
-	<variable name="PVRChannelIcon">
-		<value condition="Skin.HasSetting(PVRShowLock) + ListItem.IsEncrypted">pvr/encrypted.png</value>
-		<value>$INFO[ListItem.Icon]</value>
+	
+	<variable name="CustomMenuHeading">
+		<value condition="ControlGroup(4000).HasFocus()">$LOCALIZE[31004]</value>
+		<value condition="ControlGroup(5000).HasFocus()">$LOCALIZE[22082]</value>
+		<value>$LOCALIZE[31003]</value>
+	</variable>
+	
+	<!-- Content type label -->
+	<variable name="ContentType">
+		<value condition="Container.Content(movies) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20338]</value>
+		<value condition="Container.Content(movies) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[342]</value>
+		<value condition="Container.Content(tvshows) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20364]</value>
+		<value condition="Container.Content(tvshows) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20343]</value>
+		<value condition="Container.Content(seasons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20373]</value>
+		<value condition="Container.Content(seasons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[33054]</value>
+		<value condition="Container.Content(episodes) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20359]</value>
+		<value condition="Container.Content(episodes) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20360]</value>
+		<value condition="Container.Content(musicvideos) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20391]</value>
+		<value condition="Container.Content(musicvideos) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20389]</value>
+		<value condition="Container.Content(genres) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[515]</value>
+		<value condition="Container.Content(genres) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[135]</value>
+		<value condition="Container.Content(years) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[345]</value>
+		<value condition="Container.Content(years) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[652]</value>
+		<value condition="Container.Content(actors) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20337]</value>
+		<value condition="Container.Content(actors) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[344]</value>
+		<value condition="Container.Content(albums) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[558]</value>
+		<value condition="Container.Content(albums) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[132]</value>
+		<value condition="Container.Content(artists) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[557]</value>
+		<value condition="Container.Content(artists) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[133]</value>
+		<value condition="Container.Content(songs) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[179]</value>
+		<value condition="Container.Content(songs) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[134]</value>
+		<value condition="Container.Content(playlists) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[559]</value>
+		<value condition="Container.Content(playlists) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[136]</value>
+		<value condition="Container.Content(studios) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[572]</value>
+		<value condition="Container.Content(studios) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20388]</value>
+		<value condition="Container.Content(directors) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20339]</value>
+		<value condition="Container.Content(directors) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20348]</value>
+		<value condition="Container.Content(countries) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[574]</value>
+		<value condition="Container.Content(countries) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20451]</value>
+		<value condition="Container.Content(Addons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24000]</value>
+		<value condition="Container.Content(Addons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24001]</value>
+		<value condition="Container.Content(sets) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20141]</value>
+		<value condition="Container.Content(sets) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20434]</value>
+		<value condition="Container.Content(tags) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31002]</value>
+		<value condition="Container.Content(tags) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20459]</value>
+		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19043]</value>
+		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19163]</value>
+		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19029]</value>
+		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19019]</value>
+		<value condition="Container.Content(games) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[15016]</value>
+		<value condition="Container.Content(games) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31238]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[35049]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31239]</value>
+		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
 
-	<variable name="PVRChannelIconDialogOSD">
-		<value condition="Skin.HasSetting(PVRShowLock) + Container(11).ListItem.IsEncrypted">pvr/encrypted.png</value>
-		<value>$INFO[Container(11).ListItem.Icon]</value>
+	<variable name="ContentTypeFavourites">
+		<value condition="Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
-
-	<variable name="VideoPlayerPlot">
-		<value condition="VideoPlayer.Content(LiveTV) + !String.IsEmpty(Window(12005).Property(shownext))">$INFO[VideoPlayer.NextPlot]</value>
-		<value>$INFO[VideoPlayer.Plot]</value>
+	
+	<variable name="ContentTypeFileManager20">
+		<value condition="Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
-
+	
+	<variable name="ContentTypeFileManager21">
+		<value condition="Integer.IsEqual(Container(21).NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container(21).NumItems,1)">$LOCALIZE[31001]</value>
+	</variable>
+	
+	<!-- Video and music player -->
 	<variable name="VideoPlayerTitle">
 		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEpg + String.IsEmpty(Window(12005).Property(shownext))">$LOCALIZE[19030]: [B]$INFO[Player.Title][/B] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</value>
 		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEpg + !String.IsEmpty(Window(12005).Property(shownext))">$LOCALIZE[19031]: [B]$INFO[VideoPlayer.NextTitle][/B] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</value>
@@ -623,6 +256,58 @@
 	<variable name="VideoPlayerNext">
 		<value condition="VideoPlayer.Content(LiveTV) + !String.IsEmpty(Window(12005).Property(shownext))">$LOCALIZE[19030]: $INFO[VideoPlayer.Title] ($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])</value>
 		<value condition="VideoPlayer.Content(LiveTV) + String.IsEmpty(Window(12005).Property(shownext))">$LOCALIZE[19031]: $INFO[VideoPlayer.NextTitle] ($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])</value>
+	</variable>
+	
+	<variable name="PVRDescription">
+		<value>$INFO[ListItem.TVShowTitle,[B],[/B][CR][CR]]$INFO[ListItem.Title,[B],[/B][CR][CR]]$VAR[PVRSeasonEpisode,[LIGHT],[/LIGHT][CR][CR]]$INFO[ListItem.Plot]</value>
+	</variable>
+	<variable name="PVRSeasonEpisode">
+		<value condition="!String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
+	</variable>
+	
+	<variable name="PVRDescriptionDialogGuide">
+		<value>$INFO[Container(11).ListItem.TVShowTitle,[B],[/B][CR][CR]]$INFO[Container(11).ListItem.Title,[B],[/B][CR][CR]]$VAR[PVRSeasonEpisodeDialogGuide,[LIGHT],[/LIGHT][CR][CR]]$INFO[Container(11).ListItem.Plot]</value>
+	</variable>
+	<variable name="PVRSeasonEpisodeDialogGuide">
+		<value condition="!String.IsEmpty(Container(11).ListItem.Season)">$INFO[Container(11).ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[Container(11).ListItem.Episode,$LOCALIZE[20359] ]</value>
+	</variable>
+
+	<variable name="PVRChannelIcon">
+		<value condition="Skin.HasSetting(PVRShowLock) + ListItem.IsEncrypted">pvr/encrypted.png</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+
+	<variable name="PVRChannelIconDialogOSD">
+		<value condition="Skin.HasSetting(PVRShowLock) + Container(11).ListItem.IsEncrypted">pvr/encrypted.png</value>
+		<value>$INFO[Container(11).ListItem.Icon]</value>
+	</variable>
+
+	<variable name="VideoPlayerPlot">
+		<value condition="VideoPlayer.Content(LiveTV) + !String.IsEmpty(Window(12005).Property(shownext))">$INFO[VideoPlayer.NextPlot]</value>
+		<value>$INFO[VideoPlayer.Plot]</value>
+	</variable>
+	
+	<variable name="MusicNextPlaying1">
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).Album]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).Artist]</value>
+		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</value>
+		<value>$INFO[MusicPlayer.Offset(1).Artist]</value>
+	</variable>
+	
+	<variable name="MusicNextPlaying2">
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextGenre]</value>
+		<value>$INFO[MusicPlayer.Offset(1).Album,,]</value>
+	</variable>
+	
+	<variable name="MusicNextPlaying3">
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)"></value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)"></value>
+		<value>$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 	</variable>
 
 	<variable name="StatusOverlay">
@@ -662,13 +347,7 @@
 		<value condition="ListItem.IsResumable">views/OverlayResumableWide.png</value>
 		<value condition="!String.IsEmpty(ListItem.PlayCount)">views/OverlayProgressWideWatched.png</value>
 	</variable>
-
-	<variable name="CustomMenuHeading">
-		<value condition="ControlGroup(4000).HasFocus()">$LOCALIZE[31004]</value>
-		<value condition="ControlGroup(5000).HasFocus()">$LOCALIZE[22082]</value>
-		<value>$LOCALIZE[31003]</value>
-	</variable>
-
+	
 	<variable name="PlayerStatus">
 		<value condition="Player.IsTempo">x$INFO[Player.PlaySpeed]</value>
 		<value condition="Player.Forwarding2x">x2</value>
@@ -683,52 +362,13 @@
 		<value condition="Player.Rewinding32x">-x32</value>
 	</variable>
 
-	<variable name="SettingButtonFade">
-		<value condition="ControlGroup(5).HasFocus">$VAR[TextColor3]</value>
-		<value>$VAR[TextColor2]</value>
+	<!-- Player Process Info -->
+	<variable name="VideoHWDecoder">
+		<value condition="Player.Process(videohwdecoder)">HW</value>
+		<value>SW</value>
 	</variable>
-
-	<variable name="MoreButtonFade">
-		<value condition="ControlGroup(8000).HasFocus">$VAR[TextColor1]</value>
-		<value>$VAR[TextColor2]</value>
-	</variable>
-
-	<variable name="SkinSettingButton10">
-		<value condition="ControlGroup(9).HasFocus(10)">$VAR[TextColor1]</value>
-		<value>$VAR[TextColor2]</value>
-	</variable>
-
-	<variable name="SkinSettingButton11">
-		<value condition="ControlGroup(9).HasFocus(11)">$VAR[TextColor1]</value>
-		<value>$VAR[TextColor2]</value>
-	</variable>
-
-	<variable name="SkinSettingButton12">
-		<value condition="ControlGroup(9).HasFocus(12)">$VAR[TextColor1]</value>
-		<value>$VAR[TextColor2]</value>
-	</variable>
-
-	<variable name="SkinSettingButton13">
-		<value condition="ControlGroup(9).HasFocus(13)">$VAR[TextColor1]</value>
-		<value>$VAR[TextColor2]</value>
-	</variable>
-
-	<variable name="SkinSettingButton14">
-		<value condition="ControlGroup(9).HasFocus(14)">$VAR[TextColor1]</value>
-		<value>$VAR[TextColor2]</value>
-	</variable>
-
-	<variable name="SkinSettingButton15">
-		<value condition="ControlGroup(9).HasFocus(15)">$VAR[TextColor1]</value>
-		<value>$VAR[TextColor2]</value>
-	</variable>
-
-	<variable name="Label1">
-		<value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
-		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$VAR[SElist,, &#8226; ]$INFO[ListItem.Title]</value>
-		<value condition="String.IsEmpty(ListItem.Title)">$INFO[ListItem.Label]</value>
-	</variable>
-
+	
+	<!-- Info dialog labels -->
 	<variable name="VideoInfoLabel">
 		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year, (,) &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
 		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year, (,) &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
@@ -761,6 +401,18 @@
 		<value condition="Window.Is(songinformation)">$INFO[ListItem.ContributorAndRole]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
 		<value>$INFO[ListItem.Property(Artist_Description)]</value>
+	</variable>
+
+	<variable name="addonInformation">
+		<value condition="!String.IsEmpty(ListItem.AddonNews)">[B]$LOCALIZE[29916][/B][CR]$INFO[ListItem.AddonNews][CR][CR][B]$LOCALIZE[21821][/B][CR]$INFO[ListItem.AddonDescription]</value>
+		<value>$INFO[ListItem.AddonDescription]</value>
+	</variable>
+	
+	<!-- List labels -->
+	<variable name="Label1">
+		<value condition="!Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
+		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.Title)">$VAR[SElist,, &#8226; ]$INFO[ListItem.Title]</value>
+		<value condition="String.IsEmpty(ListItem.Title)">$INFO[ListItem.Label]</value>
 	</variable>
 
 	<variable name="Label2">
@@ -1204,71 +856,8 @@
 		<value condition="!String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[ListItem.Episode,$LOCALIZE[20359] [UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="String.Contains(ListItem.Episode,s)">$INFO[ListItem.Episode,$LOCALIZE[20359] [UPPERCASE],[/UPPERCASE]]</value>
 	</variable>
-	
-	<variable name="ContentType">
-		<value condition="Container.Content(movies) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20338]</value>
-		<value condition="Container.Content(movies) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[342]</value>
-		<value condition="Container.Content(tvshows) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20364]</value>
-		<value condition="Container.Content(tvshows) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20343]</value>
-		<value condition="Container.Content(seasons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20373]</value>
-		<value condition="Container.Content(seasons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[33054]</value>
-		<value condition="Container.Content(episodes) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20359]</value>
-		<value condition="Container.Content(episodes) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20360]</value>
-		<value condition="Container.Content(musicvideos) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20391]</value>
-		<value condition="Container.Content(musicvideos) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20389]</value>
-		<value condition="Container.Content(genres) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[515]</value>
-		<value condition="Container.Content(genres) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[135]</value>
-		<value condition="Container.Content(years) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[345]</value>
-		<value condition="Container.Content(years) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[652]</value>
-		<value condition="Container.Content(actors) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20337]</value>
-		<value condition="Container.Content(actors) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[344]</value>
-		<value condition="Container.Content(albums) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[558]</value>
-		<value condition="Container.Content(albums) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[132]</value>
-		<value condition="Container.Content(artists) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[557]</value>
-		<value condition="Container.Content(artists) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[133]</value>
-		<value condition="Container.Content(songs) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[179]</value>
-		<value condition="Container.Content(songs) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[134]</value>
-		<value condition="Container.Content(playlists) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[559]</value>
-		<value condition="Container.Content(playlists) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[136]</value>
-		<value condition="Container.Content(studios) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[572]</value>
-		<value condition="Container.Content(studios) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20388]</value>
-		<value condition="Container.Content(directors) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20339]</value>
-		<value condition="Container.Content(directors) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20348]</value>
-		<value condition="Container.Content(countries) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[574]</value>
-		<value condition="Container.Content(countries) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20451]</value>
-		<value condition="Container.Content(Addons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24000]</value>
-		<value condition="Container.Content(Addons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24001]</value>
-		<value condition="Container.Content(sets) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20141]</value>
-		<value condition="Container.Content(sets) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20434]</value>
-		<value condition="Container.Content(tags) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31002]</value>
-		<value condition="Container.Content(tags) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20459]</value>
-		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19043]</value>
-		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19163]</value>
-		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19029]</value>
-		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19019]</value>
-		<value condition="Container.Content(games) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[15016]</value>
-		<value condition="Container.Content(games) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31238]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[35049]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31239]</value>
-		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
-		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
-	</variable>
 
-	<variable name="ContentTypeFavourites">
-		<value condition="Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31000]</value>
-		<value condition="!Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31001]</value>
-	</variable>
-	
-	<variable name="ContentTypeFileManager20">
-		<value condition="Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31000]</value>
-		<value condition="!Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31001]</value>
-	</variable>
-	
-	<variable name="ContentTypeFileManager21">
-		<value condition="Integer.IsEqual(Container(21).NumItems,1)">$LOCALIZE[31000]</value>
-		<value condition="!Integer.IsEqual(Container(21).NumItems,1)">$LOCALIZE[31001]</value>
-	</variable>
-
+	<!-- Weather icons -->
 	<variable name="weatherIcons">
 		<value condition="!String.IsEmpty(Skin.String(weatherIcons.path))">$INFO[Skin.String(weatherIcons.path)]</value>
 		<value>resource://resource.images.weathericons.default/</value>
@@ -1279,377 +868,10 @@
 		<value>.png</value>
 	</variable>
 
-	<!-- Variables for script-skinshortcuts.xml -->
-	<variable name="skinshortcuts-window">
-		<value condition="String.EndsWith(Window.Property(groupname),.1)">$LOCALIZE[31095]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu)">$ADDON[script.skinshortcuts 32072]</value>
-		<value>$ADDON[script.skinshortcuts 32071]</value>
-	</variable>
-
-	<variable name="skinshortcuts-itemlabel">
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + String.IsEmpty(ListItem.Property(widgetName))">$ADDON[script.skinshortcuts 32013]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1)">$INFO[ListItem.Property(widgetName)]</value>
-		<value>$INFO[ListItem.Label]</value>
-	</variable>
-
-	<variable name="skinshortcuts-disableindicator">
-		<value condition="String.IsEqual(ListItem.Property(skinshortcuts-disabled),True)">[COLOR darkred]$VAR[skinshortcuts-itemlabel][/COLOR]</value>
-		<value>$VAR[skinshortcuts-itemlabel]</value>
-	</variable>
-
-	<variable name="skinshortcuts-size">
-		<value condition="String.IsEqual(Container(211).ListItem.Property(layout),tall)">$LOCALIZE[31240]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(layout),wide)">$LOCALIZE[31241]</value>
-		<value>$LOCALIZE[31240]</value>
-	</variable>
-
-	<variable name="skinshortcuts-art">
-		<value condition="Container(8000).IsUpdating">$LOCALIZE[31242]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(poster))">$LOCALIZE[31243]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.poster))">$LOCALIZE[31244]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(season.poster))">$LOCALIZE[31245]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(fanart))">$LOCALIZE[31246]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(season.fanart))">$LOCALIZE[31247]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(banner))">$LOCALIZE[31248]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.banner))">$LOCALIZE[31249]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(season.banner))">$LOCALIZE[31250]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(clearlogo))">$LOCALIZE[31251]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.clearlogo))">$LOCALIZE[31252]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(clearart))">$LOCALIZE[31253]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.clearart))">$LOCALIZE[31254]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(characterart))">$LOCALIZE[31255]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.characterart))">$LOCALIZE[31256]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(landscape))">$LOCALIZE[31257]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),Art(tvshow.landscape))">$LOCALIZE[31258]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),FAKELANDSCAPE)">$LOCALIZE[31259]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetArt),FAKETVLANDSCAPE)">$LOCALIZE[31260]</value>
-		<value>$LOCALIZE[31261]</value>
-	</variable>
-
-	<variable name="skinshortcuts-fallbackart">
-		<value condition="Container(8000).IsUpdating">$LOCALIZE[31242]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(poster))">$LOCALIZE[31243]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.poster))">$LOCALIZE[31244]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(season.poster))">$LOCALIZE[31245]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(fanart))">$LOCALIZE[31246]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(season.fanart))">$LOCALIZE[31247]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(banner))">$LOCALIZE[31248]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.banner))">$LOCALIZE[31249]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(season.banner))">$LOCALIZE[31250]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(clearlogo))">$LOCALIZE[31251]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.clearlogo))">$LOCALIZE[31252]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(clearart))">$LOCALIZE[31253]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.clearart))">$LOCALIZE[31254]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(characterart))">$LOCALIZE[31255]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.characterart))">$LOCALIZE[31256]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(landscape))">$LOCALIZE[31257]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),Art(tvshow.landscape))">$LOCALIZE[31258]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),FAKELANDSCAPE)">$LOCALIZE[31259]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetFallbackArt),FAKETVLANDSCAPE)">$LOCALIZE[31260]</value>
-		<value>$LOCALIZE[31261]</value>
-	</variable>
-
-	<variable name="WidgetSortByLabel">
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),title)">$LOCALIZE[369]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastplayed)">$LOCALIZE[568]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastused)">$LOCALIZE[12012]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),installdate)">$LOCALIZE[12013]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),lastupdated)">$LOCALIZE[12014]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),tvshowtitle)">$LOCALIZE[36902]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),date)">$LOCALIZE[552]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),artist)">$LOCALIZE[557]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),album)">$LOCALIZE[558]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),tracknumber)">$LOCALIZE[554]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),channelnumber)">$LOCALIZE[19029]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),year)">$LOCALIZE[345]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),dateAdded)">$LOCALIZE[570]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),random)">$LOCALIZE[590]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),genre)">$LOCALIZE[515]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),playcount)">$LOCALIZE[567]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),studio)">$LOCALIZE[572]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),country)">$LOCALIZE[574]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),rating)">$LOCALIZE[563]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortBy),userrating)">$LOCALIZE[33067]</value>
-		<value>$LOCALIZE[16018]</value>
-	</variable>
-	
-	<variable name="WidgetSortDirectionLabel">
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),ascending)">$LOCALIZE[584]</value>
-		<value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortDirection),descending)">$LOCALIZE[585]</value>
-		<value>$LOCALIZE[16018]</value>
-	</variable>
-	
-	<variable name="WidgetLimitLabel">
-		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetLimit))">$INFO[Container(211).ListItem.Property(widgetLimit)]</value>
-		<value>$LOCALIZE[16018]</value>
-	</variable>
-
-	<!-- Busy spinner -->
-	<variable name="BusySpinner">
-		<value condition="Integer.IsLess(System.Memory(total),512)">busy-slow.gif</value>
-		<value>busy.gif</value>
-	</variable>
-
 	<!-- Keyboard autocompletion -->
 	<variable name="keyboard-autocompletion">
 		<value condition="!System.HasAddon(plugin.program.autocompletion) | System.HasHiddenInput"></value>
    		<value>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=12</value>
-	</variable>
-
-	<!-- Addon Information -->
-	<variable name="addonInformation">
-		<value condition="!String.IsEmpty(ListItem.AddonNews)">[B]$LOCALIZE[29916][/B][CR]$INFO[ListItem.AddonNews][CR][CR][B]$LOCALIZE[21821][/B][CR]$INFO[ListItem.AddonDescription]</value>
-		<value>$INFO[ListItem.AddonDescription]</value>
-	</variable>
-
-	<!-- Player Process Info -->
-	<variable name="VideoHWDecoder">
-		<value condition="Player.Process(videohwdecoder)">HW</value>
-		<value>SW</value>
-	</variable>
-
-	<!-- PVR Program Description -->
-	<variable name="PVRDescription">
-		<value>$INFO[ListItem.TVShowTitle,[B],[/B][CR][CR]]$INFO[ListItem.Title,[B],[/B][CR][CR]]$VAR[PVRSeasonEpisode,[LIGHT],[/LIGHT][CR][CR]]$INFO[ListItem.Plot]</value>
-	</variable>
-	<variable name="PVRSeasonEpisode">
-		<value condition="!String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
-	</variable>
-	
-	<variable name="PVRDescriptionDialogGuide">
-		<value>$INFO[Container(11).ListItem.TVShowTitle,[B],[/B][CR][CR]]$INFO[Container(11).ListItem.Title,[B],[/B][CR][CR]]$VAR[PVRSeasonEpisodeDialogGuide,[LIGHT],[/LIGHT][CR][CR]]$INFO[Container(11).ListItem.Plot]</value>
-	</variable>
-	<variable name="PVRSeasonEpisodeDialogGuide">
-		<value condition="!String.IsEmpty(Container(11).ListItem.Season)">$INFO[Container(11).ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[Container(11).ListItem.Episode,$LOCALIZE[20359] ]</value>
-	</variable>
-
-	<!-- Music Next Playing -->
-	<variable name="MusicNextPlaying1">
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).Album]</value>
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).Artist]</value>
-		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</value>
-		<value>$INFO[MusicPlayer.Offset(1).Artist]</value>
-	</variable>
-	
-	<variable name="MusicNextPlaying2">
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
-		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextGenre]</value>
-		<value>$INFO[MusicPlayer.Offset(1).Album,,]</value>
-	</variable>
-	
-	<variable name="MusicNextPlaying3">
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)"></value>
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)"></value>
-		<value>$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
-	</variable>
-
-	<!-- Media images -->
-	<variable name="mediaImages">
-		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="Container.Content(Seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
-		<value condition="Container.Content(Episodes)">$INFO[ListItem.Icon]</value> 
-		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value>$INFO[ListItem.Icon]</value>
-	</variable>
-
-	<!-- Skin Settings - Weather Art -->
-	<variable name="weather-icons">
-		<value condition="!String.IsEmpty(Skin.String(weatherIcons.name))">$INFO[Skin.String(weatherIcons.name)]</value>
-		<value>$LOCALIZE[571]</value>
-	</variable>
-	<variable name="weather-fanart">
-		<value condition="!String.IsEmpty(Skin.String(weatherFanart.name))">$INFO[Skin.String(weatherFanart.name)]</value>
-		<value>$LOCALIZE[231]</value>
-	</variable>
-
-	<!-- Skin Settings - Addons -->
-	<variable name="addon-skinshortcuts">
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skinshortcuts)) + System.HasAddon(script.skinshortcuts)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skinshortcuts)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skinshortcuts)) + !System.HasAddon(script.skinshortcuts)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelper">
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + System.HasAddon(script.skin.helper.service)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.service)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelperbackgrounds">
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.backgrounds)) + System.HasAddon(script.skin.helper.backgrounds)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.backgrounds)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.backgrounds)) + !System.HasAddon(script.skin.helper.backgrounds)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelperwidgets">
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + System.HasAddon(script.skin.helper.widgets)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.widgets)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelperbackup">
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + System.HasAddon(script.skin.helper.skinbackup)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.skinbackup)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-autocompletion">
-		<value condition="!String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + System.HasAddon(plugin.program.autocompletion)">[COLOR lightgreen]v$INFO[System.AddonVersion(plugin.program.autocompletion)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + !System.HasAddon(plugin.program.autocompletion)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-imageselect">
-		<value condition="!String.IsEmpty(System.AddonVersion(script.image.resource.select)) + System.HasAddon(script.image.resource.select)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.image.resource.select)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(script.image.resource.select)) + !System.HasAddon(script.image.resource.select)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-upnext">
-		<value condition="!String.IsEmpty(System.AddonVersion(service.upnext)) + System.HasAddon(service.upnext)">[COLOR lightgreen]v$INFO[System.AddonVersion(service.upnext)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(service.upnext)) + !System.HasAddon(service.upnext)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-artistslideshow">
-		<value condition="!String.IsEmpty(System.AddonVersion(script.artistslideshow)) + System.HasAddon(script.artistslideshow)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.artistslideshow)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="!String.IsEmpty(System.AddonVersion(script.artistslideshow)) + !System.HasAddon(script.artistslideshow)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-
-	<!-- Skin settings explanation -->
-	<variable name="SkinSettingsExplanation">
-		<value condition="Container(9000).HasFocus(1) + !ControlGroup(10000).HasFocus">$LOCALIZE[31098]</value>
-		<value condition="Control.HasFocus(101)">$LOCALIZE[31140]</value>
-		<value condition="Control.HasFocus(102)">$LOCALIZE[31267]</value>
-		<value condition="Control.HasFocus(103) + Skin.HasSetting(AlwaysShowSettingsLink)">[B]$LOCALIZE[31051][/B]</value>
-		<value condition="Control.HasFocus(103) + !Skin.HasSetting(AlwaysShowSettingsLink)">$LOCALIZE[31268]</value>
-		<value condition="Control.HasFocus(104)">$LOCALIZE[31269]</value>
-		<value condition="Control.HasFocus(105)">$LOCALIZE[31270]</value>
-		<value condition="Container(9000).HasFocus(2) + !ControlGroup(10000).HasFocus">$LOCALIZE[31271]</value>
-		<value condition="Control.HasFocus(201)">$LOCALIZE[31272]</value>
-		<value condition="Control.HasFocus(202)">$LOCALIZE[31273]</value>
-		<value condition="Control.HasFocus(203)">$LOCALIZE[31274]</value>
-		<value condition="Control.HasFocus(204)">$LOCALIZE[31275]</value>
-		<value condition="Control.HasFocus(205)">$LOCALIZE[31276]</value>
-		<value condition="Control.HasFocus(206)">$LOCALIZE[31277]</value>
-		<value condition="Control.HasFocus(207)">$LOCALIZE[31278]</value>
-		<value condition="Control.HasFocus(208)">$LOCALIZE[31279]</value>
-		<value condition="Control.HasFocus(209)">$LOCALIZE[31280]</value>
-		<value condition="Control.HasFocus(210)">$LOCALIZE[31281]</value>
-		<value condition="Control.HasFocus(211)">$LOCALIZE[31282]</value>
-		<value condition="Control.HasFocus(212)">$LOCALIZE[31283]</value>
-		<value condition="Control.HasFocus(213)">$LOCALIZE[31284]</value>
-		<value condition="Control.HasFocus(214)">$LOCALIZE[31285]</value>
-		<value condition="Control.HasFocus(215)">$LOCALIZE[31286]</value>
-		<value condition="Control.HasFocus(216)">$LOCALIZE[31287]</value>
-		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">$LOCALIZE[31288]</value>
-		<value condition="Control.HasFocus(301)">$LOCALIZE[31289]</value>
-		<value condition="Control.HasFocus(302)">$LOCALIZE[31290]</value>
-		<value condition="Control.HasFocus(303)">$LOCALIZE[31291]</value>
-		<value condition="Control.HasFocus(304)">$LOCALIZE[31292]</value>
-		<value condition="Control.HasFocus(305)">$LOCALIZE[31293]</value>
-		<value condition="Control.HasFocus(306)">$LOCALIZE[31294]</value>
-		<value condition="Control.HasFocus(308)">$LOCALIZE[31295]</value>
-		<value condition="Control.HasFocus(310)">$LOCALIZE[31296]</value>
-		<value condition="Control.HasFocus(312)">$LOCALIZE[31297]</value>
-		<value condition="Control.HasFocus(314)">$LOCALIZE[31298]</value>
-		<value condition="Control.HasFocus(316)">$LOCALIZE[31299]</value>
-		<value condition="Control.HasFocus(318)">$LOCALIZE[31300]</value>
-		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">$LOCALIZE[31301]</value>
-		<value condition="Control.HasFocus(402)">$LOCALIZE[31302]</value>
-		<value condition="Control.HasFocus(403)">$LOCALIZE[31303]</value>
-		<value condition="Control.HasFocus(404)">$LOCALIZE[31304]</value>
-		<value condition="Control.HasFocus(405)">$LOCALIZE[31305]</value>
-		<value condition="Control.HasFocus(406)">$LOCALIZE[31306]</value>
-		<value condition="Control.HasFocus(407)">$LOCALIZE[31307]</value>
-		<value condition="Control.HasFocus(408)">$LOCALIZE[31308]</value>
-		<value condition="Control.HasFocus(409)">$LOCALIZE[31309]</value>
-		<value condition="Control.HasFocus(410)">$LOCALIZE[31310]</value>
-		<value condition="Control.HasFocus(411)">$LOCALIZE[31311]</value>
-		<value condition="Control.HasFocus(412)">$LOCALIZE[31312]</value>
-		<value condition="Control.HasFocus(413)">$LOCALIZE[31313]</value>
-		<value condition="Control.HasFocus(414)">$LOCALIZE[31314]</value>
-		<value condition="Control.HasFocus(415)">$LOCALIZE[31315]</value>
-		<value condition="Control.HasFocus(417)">$LOCALIZE[31316]</value>
-		<value condition="Control.HasFocus(418)">$LOCALIZE[31317]</value>
-		<value condition="Control.HasFocus(419)">$LOCALIZE[31318]</value>
-		<value condition="Control.HasFocus(420)">$LOCALIZE[31319]</value>
-		<value condition="Container(9000).HasFocus(5) + !ControlGroup(10000).HasFocus">$LOCALIZE[31320]</value>
-		<value condition="Control.HasFocus(501)">$LOCALIZE[31321]</value>
-		<value condition="Control.HasFocus(502)">$LOCALIZE[31322]</value>
-		<value condition="Container(9000).HasFocus(6) + !ControlGroup(10000).HasFocus">$LOCALIZE[31323]</value>
-		<value condition="Control.HasFocus(602)">$LOCALIZE[31324]</value>
-		<value condition="Control.HasFocus(603)">$LOCALIZE[31325]</value>
-		<value condition="Control.HasFocus(604)">$LOCALIZE[31326]</value>
-		<value condition="Control.HasFocus(606)">$LOCALIZE[31327]</value>
-		<value condition="Control.HasFocus(607)">$LOCALIZE[31328]</value>
-		<value condition="Control.HasFocus(608)">$LOCALIZE[31329]</value>
-		<value condition="Control.HasFocus(609)">$LOCALIZE[31330]</value>
-		<value condition="Control.HasFocus(610)">$LOCALIZE[31331]</value>
-		<value condition="Control.HasFocus(611)">$LOCALIZE[31332]</value>
-		<value condition="Control.HasFocus(612)">$LOCALIZE[31391]</value>
-		<value condition="Control.HasFocus(614)">$LOCALIZE[31333]$LOCALIZE[551], $LOCALIZE[561], $LOCALIZE[558], $LOCALIZE[557], $LOCALIZE[556], $LOCALIZE[563], $LOCALIZE[566]</value>
-		<value condition="Control.HasFocus(615)">$LOCALIZE[31334]</value>
-		<value condition="Control.HasFocus(616)">$LOCALIZE[31335]</value>
-		<value condition="Control.HasFocus(617)">$LOCALIZE[31336]</value>
-		<value condition="Control.HasFocus(618)">$LOCALIZE[31337]</value>
-		<value condition="Container(9000).HasFocus(7) + !ControlGroup(10000).HasFocus">$LOCALIZE[31338]</value>
-		<value condition="Control.HasFocus(702)">$LOCALIZE[31339]</value>
-		<value condition="Control.HasFocus(703)">$LOCALIZE[31340]</value>
-		<value condition="Control.HasFocus(704)">$LOCALIZE[31341]</value>
-		<value condition="Control.HasFocus(705)">$LOCALIZE[31342]</value>
-		<value condition="Control.HasFocus(707)">$LOCALIZE[31343]</value>
-		<value condition="Control.HasFocus(708)">$LOCALIZE[31344]</value>
-		<value condition="Control.HasFocus(709)">$LOCALIZE[31393]</value>
-		<value condition="Control.HasFocus(710)">$LOCALIZE[31345]</value>
-		<value condition="Container(9000).HasFocus(8) + !ControlGroup(10000).HasFocus">$LOCALIZE[31346]</value>
-		<value condition="Control.HasFocus(801)">$LOCALIZE[31347]</value>
-		<value condition="Control.HasFocus(802)">$LOCALIZE[31348]</value>
-		<value condition="Control.HasFocus(803)">$LOCALIZE[31349]</value>
-		<value condition="Control.HasFocus(804)">$LOCALIZE[31350]</value>
-		<value condition="Control.HasFocus(805)">$LOCALIZE[31351]</value>
-		<value condition="Control.HasFocus(806)">$LOCALIZE[31352]</value>
-	</variable>
-	
-	<!-- Skin Shortcuts explanation -->
-	<variable name="SkinShortcutsExplanation1">
-		<value condition="[Control.HasFocus(304) | Control.HasFocus(303)] + ![ControlGroup(9000).HasFocus | ControlGroup(9001).HasFocus]">$LOCALIZE[31353]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(401)">$LOCALIZE[31354]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(305)">$LOCALIZE[31355]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(307)">$LOCALIZE[31356]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(310)">$LOCALIZE[31357]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(210)">$LOCALIZE[31358]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(405)">$LOCALIZE[31359]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(406)">$LOCALIZE[31360]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(313)">$LOCALIZE[31361]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(302)">$LOCALIZE[31362]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(301)">$LOCALIZE[31378]</value>
-		<value condition="String.IsEqual(Window.Property(groupname),mainmenu) + Control.HasFocus(308)">$LOCALIZE[31381]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(401)">$LOCALIZE[31363]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(305)">$LOCALIZE[31364]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(307)">$LOCALIZE[31365]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(313)">$LOCALIZE[31366]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(302)">$LOCALIZE[31367]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(301)">$LOCALIZE[31379]</value>
-		<value condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(308)">$LOCALIZE[31382]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(312)">$LOCALIZE[31368]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(604)">$LOCALIZE[31369]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(601)">$LOCALIZE[31370]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(602)">$LOCALIZE[31371]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(603)">$LOCALIZE[31372]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(502)">$LOCALIZE[31373]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(503)">$LOCALIZE[31374]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(504)">$LOCALIZE[31375]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(313)">$LOCALIZE[31376]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(302)">$LOCALIZE[31377]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(301)">$LOCALIZE[31380]</value>
-		<value condition="String.EndsWith(Window.Property(groupname),.1) + Control.HasFocus(308)">$LOCALIZE[31385]</value>
-	</variable>
-	
-	<variable name="SkinShortcutsExplanation2">
-		<value condition="String.IsEqual(Window(1106).Property(Window),Mainmenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31384]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Mainmenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31385]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Submenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31386]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Submenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31387]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Widgetmenu) + !String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31388]</value>
-		<value condition="String.IsEqual(Window(1106).Property(Window),Widgetmenu) + String.IsEmpty(Window(1106).Property(HelpPage))">$LOCALIZE[31389]</value>
 	</variable>
 
 </includes>

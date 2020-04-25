@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<!-- Default colours -->
+	
+	<!-- Text color 1 -->
+	<variable name="TextColor1">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text1),None)">$INFO[Skin.String(color.text1)]</value>
+	</variable>
+	
+	<variable name="TextColor1-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.text1)) + !String.IsEqual(Skin.String(color.text1),None)">$INFO[Skin.String(color.text1),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.text1),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor1])</value>
+	</variable>
+	
+	<!-- Text color 2 -->
+	<variable name="TextColor2">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">80FFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text2),None)">$INFO[Skin.String(color.text2)]</value>
+	</variable>
+	
+	<variable name="TextColor2-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.text2)) + !String.IsEqual(Skin.String(color.text2),None)">$INFO[Skin.String(color.text2),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.text2),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor2])</value>
+	</variable>
+	
+	<!-- Text color 3 -->
+	<variable name="TextColor3">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">66404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text3),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">66404040</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text3),None)">$INFO[Skin.String(color.text3)]</value>
+	</variable>
+	
+	<variable name="TextColor3-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.text3)) + !String.IsEqual(Skin.String(color.text3),None)">$INFO[Skin.String(color.text3),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.text3),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor3])</value>
+	</variable>
+	
+	<!-- Text color 4 -->
+	<variable name="TextColor4">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.text4),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">60000000</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.text4),None)">$INFO[Skin.String(color.text4)]</value>
+	</variable>
+	
+	<variable name="TextColor4-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.text4)) + !String.IsEqual(Skin.String(color.text4),None)">$INFO[Skin.String(color.text4),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.text4),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[TextColor4])</value>
+	</variable>
+	
+	<!-- Darken color -->
+	<variable name="DarkenColor">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.darken),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">60000000</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.darken),None)">$INFO[Skin.String(color.darken)]</value>
+	</variable>
+	
+	<variable name="DarkenColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.darken)) + !String.IsEqual(Skin.String(color.darken),None)">$INFO[Skin.String(color.darken),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.darken),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DarkenColor])</value>
+	</variable>
+	
+	<!-- Overlay color (focus) -->
+	<variable name="OverlayColorFO">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.overlayfo),None)">$INFO[Skin.String(color.overlayfo)]</value>
+	</variable>
+	
+	<variable name="OverlayColorFO-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.overlayfo)) + !String.IsEqual(Skin.String(color.overlayfo),None)">$INFO[Skin.String(color.overlayfo),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.overlayfo),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[OverlayColorFO])</value>
+	</variable>
+	
+	<!-- Overlay color (no focus) -->
+	<variable name="OverlayColorNF">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">55F1F1F1</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.overlaynf),None)">$INFO[Skin.String(color.overlaynf)]</value>
+	</variable>
+
+	<variable name="OverlayColorNF-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.overlaynf)) + !String.IsEqual(Skin.String(color.overlaynf),None)">$INFO[Skin.String(color.overlaynf),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.overlaynf),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[OverlayColorNF])</value>
+	</variable>
+	
+	<!-- Selected color -->
+	<variable name="SelectedColor">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FF29B6EB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FF00D7C7</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FF72FF88</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFC43</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFF8536</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFF191E</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFF02D61</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFBF0360</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFC4A63A</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.selected),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FF0AC4BE</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.selected),None)">$INFO[Skin.String(color.selected)]</value>
+	</variable>
+
+	<variable name="SelectedColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.selected)) + !String.IsEqual(Skin.String(color.selected),None)">$INFO[Skin.String(color.selected),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.selected),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[SelectedColor])</value>
+	</variable>
+	
+	<!-- Fanrt diffuse color -->
+	<variable name="FanartDiffuse">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">33F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.fanartdiffuse),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">33F1F1F1</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.fanartdiffuse),None)">$INFO[Skin.String(color.fanartdiffuse)]</value>
+	</variable>
+	
+	<variable name="FanartDiffuse-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.fanartdiffuse)) + !String.IsEqual(Skin.String(color.fanartdiffuse),None)">$INFO[Skin.String(color.fanartdiffuse),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.fanartdiffuse),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[FanartDiffuse])</value>
+	</variable>
+	
+	<!-- Home color (no focus) -->
+	<variable name="HomeNF">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Red)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">44777777</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.homenf),None)] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">44777777</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.homenf),None)">$INFO[Skin.String(color.homenf)]</value>
+	</variable>
+
+	<variable name="HomeNF-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.homenf)) + !String.IsEqual(Skin.String(color.homenf),None)">$INFO[Skin.String(color.homenf),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.homenf),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[HomeNF])</value>
+	</variable>
+	
+	<!-- Dialog colors -->
+	
+	<!-- Dialog color 1 -->
+	<variable name="DialogColor1">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog1),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialog1),None)">$INFO[Skin.String(color.dialog1)]</value>
+	</variable>
+	
+	<variable name="DialogColor1-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.dialog1)) + !String.IsEqual(Skin.String(color.dialog1),None)">$INFO[Skin.String(color.dialog1),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.dialog1),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogColor1])</value>
+	</variable>
+	
+	<!-- Dialog color 2 -->
+	<variable name="DialogColor2">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">80FFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialog2),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">80FFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialog2),None)">$INFO[Skin.String(color.dialog2)]</value>
+	</variable>
+	
+	<variable name="DialogColor2-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.dialog2)) + !String.IsEqual(Skin.String(color.dialog2),None)">$INFO[Skin.String(color.dialog2),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.dialog2),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogColor2])</value>
+	</variable>
+	
+	<!-- Disabled color -->
+	<variable name="DisabledColor">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">808C8C8C</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">E65D5D5D</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">E65D5D5D</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">BF5D5D5D</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">808C8C8C</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">808C8C8C</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">808C8C8C</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">808C8C8C</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">808C8C8C</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.disabled),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">808C8C8C</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.disabled),None)">$INFO[Skin.String(color.disabled)]</value>
+	</variable>
+	
+	<variable name="DisabledColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.disabled)) + !String.IsEqual(Skin.String(color.disabled),None)">$INFO[Skin.String(color.disabled),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.disabled),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DisabledColor])</value>
+	</variable>
+	
+	<!-- Invalid color -->
+	<variable name="InvalidColor">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">60000000</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.invalid),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">60000000</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.invalid),None)">$INFO[Skin.String(color.invalid)]</value>
+	</variable>
+	
+	<variable name="InvalidColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.invalid)) + !String.IsEqual(Skin.String(color.invalid),None)">$INFO[Skin.String(color.invalid),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.invalid),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[InvalidColor])</value>
+	</variable>
+	
+	<!-- Dialog overlay color (focus) -->
+	<variable name="DialogOverlayColorFO">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">FFFFFFFF</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlayfo),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">FFFFFFFF</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialogoverlayfo),None)">$INFO[Skin.String(color.dialogoverlayfo)]</value>
+	</variable>
+	
+	<variable name="DialogOverlayColorFO-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.dialogoverlayfo)) + !String.IsEqual(Skin.String(color.dialogoverlayfo),None)">$INFO[Skin.String(color.dialogoverlayfo),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.dialogoverlayfo),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogOverlayColorFO])</value>
+	</variable>
+	
+	<!-- Dialog overlay color (no focus) -->
+	<variable name="DialogOverlayColorNF">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">55F1F1F1</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.dialogoverlaynf),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green)">55F1F1F1</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.dialogoverlaynf),None)">$INFO[Skin.String(color.dialogoverlaynf)]</value>
+	</variable>
+	
+	<variable name="DialogOverlayColorNF-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.dialogoverlaynf)) + !String.IsEqual(Skin.String(color.dialogoverlaynf),None)">$INFO[Skin.String(color.dialogoverlaynf),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.dialogoverlaynf),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[DialogOverlayColorNF])</value>
+	</variable>
+	
+	<!-- Background color -->
+	<variable name="BackgroundColor">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC009CC7</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6009CC7</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80009CC7</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2009CC7</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC3FB551</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A63FB551</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">803FB551</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F23FB551</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCA6A41B</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6A6A41B</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80A6A41B</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2A6A41B</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCC75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6C75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80C75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2C75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCA30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6A30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80A30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2A30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CCC41141</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6C41141</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80C41141</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2C41141</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2404040</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">CC001e27</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">A6001e27</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">80001e27</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">F2001e27</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(color.background)]</value>
+	</variable>
+
+	<variable name="BackgroundColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.background)) + !String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(color.background),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.background),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[BackgroundColor])</value>
+	</variable>
+	
+	<!-- Overlay color -->
+	<variable name="OverlayColor">
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF293FEB</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC008AB0</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99008AB0</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66008AB0</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Light Blue) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF008AB0</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC349643</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99349643</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">663349643</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF349643</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC919018</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99919018</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66919018</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF919018</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CCC75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99C75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66C75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Orange) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FFC75C16</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CCA30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99A30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66A30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FFA30003</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CCA60E37</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99A60E37</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66A60E37</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FFA60E37</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Purple) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF850096</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC262626</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99262626</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66262626</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),OSMC Black) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF262626</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">CC001e27</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">99001e27</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">66001e27</value>
+		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]] + String.IsEqual(Skin.String(DefaultColorSet),Dark green) + String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">FF001e27</value>
+		<value condition="String.IsEqual(Skin.String(DefaultColors),no) + !String.IsEqual(Skin.String(color.overlay),None)">$INFO[Skin.String(color.overlay)]</value>
+	</variable>
+	
+	<variable name="OverlayColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.overlay)) + !String.IsEqual(Skin.String(color.overlay),None)">$INFO[Skin.String(color.overlay),[UPPERCASE],[/UPPERCASE]]</value>
+		<value condition="String.IsEqual(Skin.String(color.overlay),None)">$INFO[Skin.String(DefaultColorSet)] ($VAR[OverlayColor])</value>
+	</variable>
+	
+	<variable name="SolidBackgroundColor">
+		<value condition="!String.IsEmpty(Skin.String(color.backgroundsolid)) + !String.IsEqual(Skin.String(color.backgroundsolid),None)">$INFO[Skin.String(color.backgroundsolid)]</value>
+		<value>FF000000</value>
+	</variable>
+	
+	<variable name="SolidBackgroundColor-Name">
+		<value condition="!String.IsEmpty(Skin.String(color.backgroundsolid)) + !String.IsEqual(Skin.String(color.backgroundsolid),None)">$INFO[Skin.String(color.backgroundsolid),[UPPERCASE],[/UPPERCASE]]</value>
+		<value>$LOCALIZE[571]</value>
+	</variable>
+	
+	<variable name="ColorPicker-Name">
+		<value condition="!String.IsEqual(Window.Property(colorstring),None) + !String.IsEmpty(Window.Property(colorstring))">$INFO[Window.Property(colorstring),[UPPERCASE],[/UPPERCASE]]</value>
+		<value>$LOCALIZE[571]</value>
+	</variable>
+
+</includes>
