@@ -23,7 +23,7 @@
 
 			<!-- Scrollbar (list) -->
 			<control type="scrollbar" id="60">
-				<include>MyPlaylist_coords12</include>
+				<include>MyPlaylist_coords</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -50,7 +50,7 @@
 				</control>
 				<control type="fadelabel">
 					<include>MediaFlags_coords11</include>
-					<label>$INFO[ListItem.Duration]</label>
+					<label>$INFO[ListItem.Duration]$INFO[Container.Totaltime, / ,]</label>
 					<font>Font30</font>
 					<textcolor>$VAR[TextColor2]</textcolor>
 					<visible>!String.IsEmpty(ListItem.Duration)</visible>

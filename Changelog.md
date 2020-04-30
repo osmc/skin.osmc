@@ -13,7 +13,7 @@ _Improved_
 - improve debug overlay
 - improve overall handling of music videos
 - improve playlist window
-- add scollbar to subtitle dialog
+- add scrollbar to subtitle dialog
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
@@ -41,16 +41,13 @@ AddonBrowser.xml:
 - add SidemenuMenucontrol include
 
 Coordinates_MyMusicNav.xml:
-- fix Wide view scollbar coordinates
+- fix Wide view scrollbar coordinates
 
 Coordinates_MyMusicPlaylistEditor.xml:
 - rework coordinates for music playlist editor window rework
 
-Coordinates_MyPlaylist.xml:
-- rework coordinates for music playlist window rework
-
 Coordinates_MyVideoNav.xml:
-- add coordinates for new Wide low info scollbar
+- add coordinates for new Wide low info scrollbar
 
 Coordinates_SettingsCategory.xml:
 - add new coordinates for buttons not adjusted for different aspect ratio modes
@@ -115,7 +112,6 @@ MyPics.xml:
 
 MyPlaylist.xml:
 - add SidemenuMenucontrol include
-- rework playlist window to offer different appearances for music and video playlists
 
 MyPrograms.xml:
 - add SidemenuMenucontrol include
