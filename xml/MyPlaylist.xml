@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- videoplaylist -->
-	<backgroundcolor>0x00000000</backgroundcolor>
+	<!-- playlist -->
+	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<views>50</views>
 
@@ -18,13 +18,12 @@
 		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
-
-			<!-- Views -->
+			
 			<include>Viewtype50</include>
 
 			<!-- Scrollbar (list) -->
 			<control type="scrollbar" id="60">
-				<include>MyPlaylist_coords</include>
+				<include>MyPlaylist_coords12</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -37,9 +36,39 @@
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(50)</visible>
 			</control>
+			
+			<!-- Duration -->
+			<control type="group">
+				<include>MediaFlags_coords1</include>
+				
+				<control type="image">
+					<include>MediaFlags_coords10</include>
+					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<texture>Duration.png</texture>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+				</control>
+				<control type="fadelabel">
+					<include>MediaFlags_coords11</include>
+					<label>$INFO[ListItem.Duration]</label>
+					<font>Font30</font>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+				</control>
+			</control>
+			
 
 			<!-- Item count -->
-			<include>ItemCount</include>
+			<control type="fadelabel">
+				<include>ItemCount_coords</include>
+				<visible>!Skin.HasSetting(ItemCount)</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0)</visible>
+				<label>$INFO[Container.NumItems]$VAR[ContentTypeMyPlaylist, ,]</label>
+				<font>Font30</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<align>right</align>
+				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+			</control>
 			
 			<!-- Submenu indicator -->
 			<include>SubmenuIndicator</include>

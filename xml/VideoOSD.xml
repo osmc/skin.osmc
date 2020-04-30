@@ -31,7 +31,7 @@
 				<control type="grouplist">
 					<include>VideoOSD_coords4</include>
 					<itemgap>0</itemgap>
-					<onleft>22</onleft>
+					<onleft>23</onleft>
 					<onright>12</onright>
 					<onup>30</onup>
 					<ondown>30</ondown>
@@ -237,8 +237,18 @@
 						<visible>!Pvr.IsPlayingTv</visible>
 					</control>
 					
-					<!-- Channels -->
+					<!-- Playlist -->
 					<control type="button" id="17">
+						<include>VideoOSD_coords8</include>
+						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDPlaylistNF.png</texturefocus>
+						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPlaylistNF.png</texturenofocus>
+						<onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(VideoPlaylist)</onclick>
+						<visible>Integer.IsGreater(VideoPlayer.PlaylistLength,1)</visible>
+					</control>
+					
+					<!-- Channels -->
+					<control type="button" id="18">
 						<include>VideoOSD_coords8</include>
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDChannelNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDChannelNF.png</texturenofocus>
@@ -247,7 +257,7 @@
 					</control>
 					
 					<!-- Channel EPG -->
-					<control type="button" id="18">
+					<control type="button" id="19">
 						<include>VideoOSD_coords8</include>
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDEPGNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDEPGNF.png</texturenofocus>
@@ -256,7 +266,7 @@
 					</control>
 					
 					<!-- Teletext -->
-					<control type="button" id="19">
+					<control type="button" id="20">
 						<include>VideoOSD_coords8</include>
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDTextNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDTextNF.png</texturenofocus>
@@ -265,7 +275,7 @@
 					</control>
 					
 					<!-- DVD menu -->
-					<control type="button" id="20">
+					<control type="button" id="21">
 						<include>VideoOSD_coords8</include>
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDDvdNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDDvdNF.png</texturenofocus>
@@ -274,7 +284,7 @@
 					</control>
 					
 					<!-- Resolution select -->
-					<control type="button" id="21">
+					<control type="button" id="22">
 						<include>VideoOSD_coords8</include>
 						<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDResNF.png</texturefocus>
 						<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDResNF.png</texturenofocus>
@@ -283,7 +293,7 @@
 					</control>
 
 					<!-- Masking -->
-					<control type="button" id="22">
+					<control type="button" id="23">
 						<include>VideoOSD_coords8</include>
 						<texturefocus></texturefocus>
 						<texturenofocus></texturenofocus>
@@ -302,49 +312,49 @@
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask240NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),2.40:1)</visible>
-						<visible>!Control.HasFocus(22)</visible>
+						<visible>!Control.HasFocus(23)</visible>
 					</control>
 					<control type="image">
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask240NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),2.40:1)</visible>
-						<visible>Control.HasFocus(22)</visible>
+						<visible>Control.HasFocus(23)</visible>
 					</control>
 					<control type="image">
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask235NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),2.35:1)</visible>
-						<visible>!Control.HasFocus(22)</visible>
+						<visible>!Control.HasFocus(23)</visible>
 					</control>
 					<control type="image">
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask235NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),2.35:1)</visible>
-						<visible>Control.HasFocus(22)</visible>
+						<visible>Control.HasFocus(23)</visible>
 					</control>
 					<control type="image">
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask200NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),2.00:1)</visible>
-						<visible>!Control.HasFocus(22)</visible>
+						<visible>!Control.HasFocus(23)</visible>
 					</control>
 					<control type="image">
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask200NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),2.00:1)</visible>
-						<visible>Control.HasFocus(22)</visible>
+						<visible>Control.HasFocus(23)</visible>
 					</control>
 					<control type="image">
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor2]">osd/OSDMask178NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),1.78:1)</visible>
-						<visible>!Control.HasFocus(22)</visible>
+						<visible>!Control.HasFocus(23)</visible>
 					</control>
 					<control type="image">
 						<include>VideoOSD_coords8</include>
 						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDMask178NF.png</texture>
 						<visible>String.IsEqual(Skin.String(MaskingBars),1.78:1)</visible>
-						<visible>Control.HasFocus(22)</visible>
+						<visible>Control.HasFocus(23)</visible>
 					</control>
 
 				</control>

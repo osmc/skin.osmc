@@ -240,6 +240,7 @@
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPlaylistNF.png</texturenofocus>
 					<onclick>Dialog.Close(MusicOSD)</onclick>
 					<onclick>ActivateWindow(MusicPlaylist)</onclick>
+					<visible>Integer.IsGreater(MusicPlayer.PlaylistLength,1)</visible>
 				</control>
 				
 				<!-- Visualisation -->
@@ -273,6 +274,7 @@
 			<control type="group">
 				<include>MusicOSD_coords9</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
+				<animation effect="slide" end="60,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
 				<animation effect="slide" end="120,0" time="0" condition="!Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
 

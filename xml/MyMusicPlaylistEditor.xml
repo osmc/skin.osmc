@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- musicplaylisteditor -->
-	<backgroundcolor>0x00000000</backgroundcolor>
+	<backgroundcolor>0</backgroundcolor>
 	<onload>SetFocus(50)</onload>
 	<onload>SetFocus(6)</onload>
+	<views>50</views>
 
 	<controls>
 
-		<!-- Fake previous window (music library) -->
 		<!-- Background -->
 		<include>WindowBackgroundImage</include>
 
@@ -40,31 +40,46 @@
 				<!-- Left list -->
 				<control type="list" id="50">
 					<include>MyMusicPlaylistEditor_coords4</include>
-					<onleft>noop</onleft>
-					<onright>9000</onright>
+					<onright>70</onright>
 					<onup>50</onup>
 					<ondown>50</ondown>
-					<scrolltime>200</scrolltime>
+					<pagecontrol>70</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
 
 					<include>MyMusicPlaylistEditor_coords5</include>
 
 					<include>MyMusicPlaylistEditor_coords6</include>
 
 				</control>
+				
+				<!-- Scrollbar (left list) -->
+				<control type="scrollbar" id="70">
+					<include>MyMusicPlaylistEditor_coords7</include>
+					<onright>9000</onright>
+					<onleft>50</onleft>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+					<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+				</control>
 
 				<!-- Number label -->
 				<control type="grouplist">
-					<include>MyMusicPlaylistEditor_coords7</include>
+					<include>MyMusicPlaylistEditor_coords8</include>
 					<align>left</align>
 					<itemgap>6</itemgap>
 					<orientation>horizontal</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<control type="label">
-						<top>3</top>
 						<width>auto</width>
 						<height>44</height>
 						<align>left</align>
-						<font>Font25</font>
+						<font>Font33</font>
 						<label>$INFO[Container(50).NumItems]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
@@ -92,11 +107,11 @@
 
 			<!-- Middle group -->
 			<control type="group">
-				<include>MyMusicPlaylistEditor_coords8</include>
+				<include>MyMusicPlaylistEditor_coords9</include>
 
 				<!-- Heading -->
 				<control type="label">
-					<include>MyMusicPlaylistEditor_coords9</include>
+					<include>MyMusicPlaylistEditor_coords10</include>
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>31008</label>
@@ -107,17 +122,25 @@
 
 					<!-- Image -->
 					<control type="image">
-						<include>MyMusicPlaylistEditor_coords10</include>
+						<include>MyMusicPlaylistEditor_coords11</include>
 						<texture fallback="DefaultAddonMusic.png">$INFO[Container(50).ListItem.Icon]</texture>
 						<aspectratio aligny="top">scale</aspectratio>
 					</control>
 
 					<!-- Details -->
-					<control type="textbox">
-						<include>MyMusicPlaylistEditor_coords11</include>
-						<font>Font25</font>
+					<control type="fadelabel">
+						<include>MyMusicPlaylistEditor_coords12</include>
+						<font>Font33</font>
+						<align>center</align>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<label>$INFO[Container(50).ListItem.Artist,[COLOR=$VAR[SelectedColor]]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(50).ListItem.Album,[COLOR=$VAR[SelectedColor]]$LOCALIZE[558]: [/COLOR]]</label>
+						<label>$INFO[Container(50).ListItem.Artist]</label>
+					</control>
+					<control type="fadelabel">
+						<include>MyMusicPlaylistEditor_coords13</include>
+						<font>Font33</font>
+						<align>center</align>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<label>$INFO[Container(50).ListItem.Album]</label>
 					</control>
 
 				</control>
@@ -127,27 +150,35 @@
 
 					<!-- Image -->
 					<control type="image">
-						<include>MyMusicPlaylistEditor_coords10</include>
+						<include>MyMusicPlaylistEditor_coords11</include>
 						<texture fallback="DefaultAddonMusic.png">$INFO[Container(100).ListItem.Icon]</texture>
 						<aspectratio aligny="top">scale</aspectratio>
 					</control>
 
 					<!-- Details -->
-					<control type="textbox">
-						<include>MyMusicPlaylistEditor_coords11</include>
-						<font>Font25</font>
+					<control type="fadelabel">
+						<include>MyMusicPlaylistEditor_coords12</include>
+						<font>Font33</font>
+						<align>center</align>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<label>$INFO[Container(100).ListItem.Artist,[COLOR=$VAR[SelectedColor]]$LOCALIZE[557]:[/COLOR] ,[CR]]$INFO[Container(100).ListItem.Album,[COLOR=$VAR[SelectedColor]]$LOCALIZE[558]: [/COLOR]]</label>
+						<label>$INFO[Container(100).ListItem.Artist]</label>
+					</control>
+					<control type="fadelabel">
+						<include>MyMusicPlaylistEditor_coords13</include>
+						<font>Font33</font>
+						<align>center</align>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<label>$INFO[Container(100).ListItem.Album]</label>
 					</control>
 
 				</control>
 
 				<!-- Middle grouplist -->
 				<control type="grouplist" id="9000">
-					<include>MyMusicPlaylistEditor_coords12</include>
+					<include>MyMusicPlaylistEditor_coords14</include>
 					<itemgap>0</itemgap>
-					<onleft>50</onleft>
-					<onright>100</onright>
+					<onleft>70</onleft>
+					<onright>80</onright>
 					<onup>9000</onup>
 					<ondown>9000</ondown>
 					<orientation>vertical</orientation>
@@ -156,7 +187,7 @@
 					<control type="button" id="6">
 						<align>center</align>
 						<label>31009</label>
-						<include>MyMusicPlaylistEditor_coords13</include>
+						<include>MyMusicPlaylistEditor_coords15</include>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
 					</control>
 
@@ -164,7 +195,7 @@
 					<control type="button" id="7">
 						<align>center</align>
 						<label>31010</label>
-						<include>MyMusicPlaylistEditor_coords13</include>
+						<include>MyMusicPlaylistEditor_coords15</include>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
 					</control>
 
@@ -172,7 +203,7 @@
 					<control type="button" id="8">
 						<align>center</align>
 						<label>31011</label>
-						<include>MyMusicPlaylistEditor_coords13</include>
+						<include>MyMusicPlaylistEditor_coords15</include>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
 					</control>
 
@@ -182,7 +213,7 @@
 
 			<!-- Right group -->
 			<control type="group">
-				<include>MyMusicPlaylistEditor_coords14</include>
+				<include>MyMusicPlaylistEditor_coords16</include>
 
 				<!-- Heading -->
 				<control type="label">
@@ -200,31 +231,46 @@
 				<!-- Right list -->
 				<control type="list" id="100">
 					<include>MyMusicPlaylistEditor_coords4</include>
-					<onleft>9000</onleft>
-					<onright>noop</onright>
+					<onleft>80</onleft>
 					<onup>100</onup>
 					<ondown>100</ondown>
-					<scrolltime>200</scrolltime>
+					<pagecontrol>80</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
 
-					<include>MyMusicPlaylistEditor_coords15</include>
+					<include>MyMusicPlaylistEditor_coords17</include>
 
-					<include>MyMusicPlaylistEditor_coords16</include>
+					<include>MyMusicPlaylistEditor_coords18</include>
 
+				</control>
+				
+				<!-- Scrollbar (right list) -->
+				<control type="scrollbar" id="80">
+					<include>MyMusicPlaylistEditor_coords19</include>
+					<onleft>9000</onleft>
+					<onright>100</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+					<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
 				</control>
 
 				<!-- Number label -->
 				<control type="grouplist">
-					<include>MyMusicPlaylistEditor_coords7</include>
+					<include>MyMusicPlaylistEditor_coords8</include>
 					<align>right</align>
 					<itemgap>6</itemgap>
 					<orientation>horizontal</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<control type="label">
-						<top>3</top>
 						<width>auto</width>
 						<height>44</height>
 						<align>right</align>
-						<font>Font25</font>
+						<font>Font33</font>
 						<label>$INFO[Container(100).NumItems]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
