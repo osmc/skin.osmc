@@ -4,15 +4,20 @@ _New_
 - add standard Kodi 'Menu' key functionality to access side menu in all windows
 - add new Wide low info view
 - add support for Up Next addon
+- add playlist button to video OSD
 
 _Improved_
 - make Wide low view accessible for music views
 - make disabled text colour more readable
 - improve widget details and window headings
 - improve debug overlay
+- improve overall handling of music videos
+- improve playlist window
+- add scollbar to subtitle dialog
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
+- fix music playlist editor window
 
 **Changelog v18.3.0**
 
@@ -20,12 +25,14 @@ _add new Wide low info view and coordinates files_
 _add new Up Next addon and coordinates files_
 _remove deprecated Next Up addon files_
 _add new custom reset skin settings confirmation dialog and coordinates files_
+_add new extras/Colors/colors.xml file for pre-defined ColorPicker script colour selection_
 
 strings.po:
 - add new localize for new Wide low info view (31392)
 - change localize for Next Up successor addon Up Next (31085)
 - add new explanation localize for new supported Up Next addon (31393)
 - add new localize for new custom reset skin settings confirmation dialog (31394)
+- rework music playlist editor and player process info dialog localizes (31008, 31011, 31156)
 
 template.xml:
 - rework widgetDetails variable
@@ -36,11 +43,20 @@ AddonBrowser.xml:
 Coordinates_MyMusicNav.xml:
 - fix Wide view scollbar coordinates
 
+Coordinates_MyMusicPlaylistEditor.xml:
+- rework coordinates for music playlist editor window rework
+
+Coordinates_MyPlaylist.xml:
+- rework coordinates for music playlist window rework
+
 Coordinates_MyVideoNav.xml:
 - add coordinates for new Wide low info scollbar
 
 Coordinates_SettingsCategory.xml:
 - add new coordinates for buttons not adjusted for different aspect ratio modes
+
+Coordinates_DialogSubtitles.xml:
+- add new coordinates for right list scrollbar
 
 Custom_Disabled_Add-on.xml:
 - fix dialog animation
@@ -50,6 +66,15 @@ Custom_Overlay_Debug.xml:
 
 DialogFavourites.xml:
 - add SidemenuMenucontrol include
+
+DialogPlayerProcessInfo.xml:
+- rework information label formatting
+
+DialogSubtitles.xml:
+- add new right list scrollbar
+
+DialogVideoInfox.xml:
+- add new music video information controls (similar to music info dialog)
 
 EventLog.xml:
 - add SidemenuMenucontrol include
@@ -68,6 +93,13 @@ Includes.xml:
 Include_DialogSettings.xml:
 - update conditional visibility to hide OSD settings while Up Next notification is visible
 
+Includes_Time_NowPlaying.xml:
+- rework now playing formatting
+- add new information for music video playback
+
+MusicVisualisation.xml:
+- adjust music information label formatting to match overall representation
+
 MyGames.xml:
 - add SidemenuMenucontrol include
 
@@ -75,11 +107,15 @@ MyMusicNav.xml:
 - add SidemenuMenucontrol include
 - add Wide low view
 
+MyMusicPlaylistEditor.xml:
+- rework broken music playlist editor window
+
 MyPics.xml:
 - add SidemenuMenucontrol include
 
 MyPlaylist.xml:
 - add SidemenuMenucontrol include
+- rework playlist window to offer different appearances for music and video playlists
 
 MyPrograms.xml:
 - add SidemenuMenucontrol include
@@ -122,6 +158,7 @@ script-skinshortcuts.xml:
 
 script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
+- change heading control to reflect currently selected colour name
 
 script-upnext-stillwatching-simple.xml:
 - add new onload and onunload for improved debug dialog
@@ -151,12 +188,21 @@ Variables.xml:
 - rework addon-upnext variable for new Up Next addon
 - add new explanation text for Up Next addon to SkinSettingsExplanation variable
 - rework HeadingLabelPrimary variable
+- add new ContentTypeMyPlaylist variable for reworked playlist window
+- adjust VideoPlayerTitle, MusicNextPlaying1, MusicNextPlaying2 and VideoInfoLabel variables to match overall representation of movie/TV show/album title and year
+- adjust SubtitleLanguage variable to reflect whether subtitles are disabled
 
 VideoFullScreen.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
+- adjust music video info dialog information to match representation in other music video windows/dialogs
 
 VideoOSD.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
+- add new playlist button (like with MusicOSD)
+
+Viewtype50.xml:
+- add new image for songs and videos while playlist window is visible
+- add conditional visibility to show list in playlist window
 
 Viewtype521.xml:
 - enable view in music library sections
@@ -166,6 +212,7 @@ Viewtype522.xml:
 
 Viewtype54.xml:
 - add visibility condition to hide user rating label, if disabled in skin settings
+- adjust album info fadelabel to match overall representation of album title and year
 
 Textures.xbt:
 - update textures file with new button highlight textures
