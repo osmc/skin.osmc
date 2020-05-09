@@ -214,10 +214,12 @@
 	</variable>
 	
 	<variable name="ContentTypeMyPlaylist">
-		<value condition="Container.Content(songs) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[179]</value>
-		<value condition="Container.Content(songs) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[134]</value>
-		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[157]</value>
-		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[3]</value>
+		<value condition="Window.IsVisible(musicplaylist) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[179]</value>
+		<value condition="Window.IsVisible(musicplaylist) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[134]</value>
+		<value condition="Window.IsVisible(videoplaylist) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[157]</value>
+		<value condition="Window.IsVisible(videoplaylist) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[3]</value>
+		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
 	
 	<variable name="ContentTypeFileManager20">
