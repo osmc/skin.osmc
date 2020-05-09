@@ -25,7 +25,6 @@ _add new Wide low info view and coordinates files_
 _add new Up Next addon and coordinates files_
 _remove deprecated Next Up addon files_
 _add new custom reset skin settings confirmation dialog and coordinates files_
-_add new extras/Colors/colors.xml file for pre-defined ColorPicker script colour selection_
 
 strings.po:
 - add new localize for new Wide low info view (31392)
