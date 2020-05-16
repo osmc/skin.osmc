@@ -5,6 +5,7 @@ _New_
 - add new Wide low info view
 - add support for Up Next addon
 - add playlist button to video OSD
+- add 3D depth information to GUI elements
 
 _Improved_
 - make Wide low view accessible for music views
@@ -60,6 +61,10 @@ Custom_Disabled_Add-on.xml:
 Custom_Overlay_Debug.xml:
 - remove deprecated and add missing window fadelabels
 
+Defaults.xml:
+- add depth tag to all controls
+- add new default controls with defined depth tag
+
 DialogFavourites.xml:
 - add SidemenuMenucontrol include
 
@@ -68,6 +73,7 @@ DialogPlayerProcessInfo.xml:
 
 DialogSubtitles.xml:
 - add new right list scrollbar
+- add depth tag to background overlay image
 
 DialogVideoInfox.xml:
 - add new music video information controls (similar to music info dialog)
@@ -92,6 +98,9 @@ Include_DialogSettings.xml:
 Includes_Time_NowPlaying.xml:
 - rework now playing formatting
 - add new information for music video playback
+
+Includes_Windows_Dialogs.xml:
+- add depth tag to background images
 
 MusicVisualisation.xml:
 - adjust music information label formatting to match overall representation
@@ -150,6 +159,7 @@ script-skin_helper_service-Color-Picker.xml:
 
 script-skinshortcuts.xml:
 - add new onload and onunload for improved debug dialog
+- add depth tag to background images
 
 script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
