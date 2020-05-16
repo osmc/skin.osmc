@@ -9,6 +9,7 @@
 			<include>DialogFanart</include>
 
 			<control type="group">
+				<include>DialogDepth</include>
 			
 				<!-- Animation -->
 				<include>DialogZoomAnimation</include>
@@ -127,9 +128,11 @@
 		<controls>
 
 			<control type="group">
+				<include>DialogDepth</include>
 				<include>DialogSettings_coords6</include>
-				<!-- Animation -->
 				<visible>!Window.IsVisible(10153) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(SliderDialog) + !Window.IsVisible(FileBrowser) + !Window.IsVisible(shutdownmenu) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
+				
+				<!-- Animation -->
 				<include>OSDVisibleHiddenAnimation</include>
 				<include>OSDOpenCloseAnimation</include>
 

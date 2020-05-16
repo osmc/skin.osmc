@@ -39,6 +39,12 @@ template.xml:
 
 AddonBrowser.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
+
+Coordinates_Includes.xml:
+- reorder dialog button coordinates
 
 Coordinates_MyMusicNav.xml:
 - fix Wide view scrollbar coordinates
@@ -62,27 +68,116 @@ Custom_Overlay_Debug.xml:
 - remove deprecated and add missing window fadelabels
 
 Defaults.xml:
-- add depth tag to all controls
-- add new default controls with defined depth tag
+- add depth includes
+
+DialogAddonInfo.xml:
+- add depth include
+
+DialogAddonSettings.xml:
+- add depth include
+
+DialogBusy.xml:
+- add depth include
+
+DialogButtonMenu.xml:
+- add depth include
+
+DialogConfirm.xml:
+- add depth include
+
+DialogContextMenu.xml:
+- add depth include
+
+DialogExtendedProgressBar.xml:
+- add depth include
 
 DialogFavourites.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
+
+DialogGameControllers.xml:
+- add depth include
+
+DialogKeyboard.xml:
+- add depth include
+
+DialogMediaSource.xml:
+- add depth include
+
+DialogMusicInfo.xml:
+- add depth include
+
+DialogNotification.xml:
+- add depth include
+
+DialogNumeric.xml:
+- add depth include
+
+DialogPictureInfo.xml:
+- add depth include
 
 DialogPlayerProcessInfo.xml:
 - rework information label formatting
+- add depth include
+
+DialogPVRChannelGuide.xml:
+- add depth include
+
+DialogPVRChannelManager.xml:
+- add depth include
+
+DialogPVRChannelsOSD.xml:
+- add depth include
+
+DialogPVRGroupManager.xml:
+- add depth include
+
+DialogPVRGuideSearch.xml:
+- add depth include
+
+DialogPVRInfo.xml:
+- add depth include
+
+DialogSeekBar.xml:
+- add depth include
+
+DialogSelect.xml:
+- add depth includes
+- adjust game settings animations
+
+DialogSlider.xml:
+- add depth include
 
 DialogSubtitles.xml:
 - add new right list scrollbar
-- add depth tag to background overlay image
+- replace overlay image
+- add depth include
+
+DialogTextViewer.xml:
+- add depth include
 
 DialogVideoInfox.xml:
 - add new music video information controls (similar to music info dialog)
 
+DialogVolumeBar.xml:
+- add depth include
+
 EventLog.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
+
+FileBrowser.xml:
+- add depth include
 
 Home.xml: 
 - add SidemenuMenucontrol include
+
+GameOSD.xml:
+- add depth includes
 
 Includes.xml:
 - add new SidemenuMenucontrol include
@@ -91,100 +186,187 @@ Includes.xml:
 - adjust conditional visibility of Context/Side menu indicator include for new Wide low info view
 - update conditional visibility to hide time while Up Next notification is visible
 - add new onload and onunload
+- move dialog buttons includes to different include file
+- add depth includes to masking bars
 
 Include_DialogSettings.xml:
 - update conditional visibility to hide OSD settings while Up Next notification is visible
+- add depth includes
+
+Includes_Home.xml:
+- add depth include to side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 Includes_Time_NowPlaying.xml:
 - rework now playing formatting
 - add new information for music video playback
 
 Includes_Windows_Dialogs.xml:
-- add depth tag to background images
+- replace FullscreenDimensions include of background images by new FullscreenOverlayDimensions include
+- add depth includes to background images
+- add new depth includes
+- move dialog button includes from other include file
+
+MusicOSD.xml:
+- add depth include
 
 MusicVisualisation.xml:
 - adjust music information label formatting to match overall representation
+- add depth include
 
 MyGames.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyMusicNav.xml:
 - add SidemenuMenucontrol include
 - add Wide low view
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyMusicPlaylistEditor.xml:
 - rework broken music playlist editor window
 
 MyPics.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyPlaylist.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyPrograms.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyPVRChannels.xml:
 - add SidemenuMenucontrol include
 - fix onleft of scrollbar while kiosk mode is active
 - add hidden label (ID 30) for improved window title
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyPVRGuide.xml:
 - add SidemenuMenucontrol include
 - fix visibility of submenu indicator while kiosk mode is active
 - add hidden label (ID 30) for improved window title
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyPVRRecordings.xml:
 - add SidemenuMenucontrol include
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyPVRSearch.xml:
 - add SidemenuMenucontrol include
 - fix onleft and onright of scrollbar while kiosk mode is active
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyPVRTimers.xml:
 - add SidemenuMenucontrol include
 - fix onleft and onright of scrollbar while kiosk mode is active
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyVideoNav.xml:
 - add SidemenuMenucontrol include
 - add Wide low info view
 - add new scrollbar for Wide low info view
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 MyWeather.xml: 
 - add SidemenuMenucontrol include
 - add conditional visibility to hide window content, visible animation and busy dialog imitation while weather data is being loaded
+- add depth include to options side menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
+
+PlayerControls.xml:
+- add depth include
+
+Pointer.xml:
+- add depth include
 
 script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
-
-script-skinshortcuts.xml:
-- add new onload and onunload for improved debug dialog
-- add depth tag to background images
+- add depth include
 
 script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
 - change heading control to reflect currently selected colour name
 
+script-skinshortcuts.xml:
+- add new onload and onunload for improved debug dialog
+- replace FullscreenDimensions include of background images by new FullscreenOverlayDimensions include
+- add depth includes
+
 script-upnext-stillwatching-simple.xml:
 - add new onload and onunload for improved debug dialog
+- add depth include
 
 script-upnext-stillwatching.xml:
 - add new onload and onunload for improved debug dialog
+- add depth include
 
 script-upnext-upnext-simple.xml:
 - add new onload and onunload for improved debug dialog
+- add depth include
 
 script-upnext-upnext.xml:
 - add new onload and onunload for improved debug dialog
+- add depth include
 
 SettingsCategory.xml: 
 - add menucontrol
 - adjust buttons not adapting to different aspect ratio modes
+- add depth include to settings quick-nav menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
+
+SettingsProfile.xml:
+- add depth include to settings quick-nav menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
+
+SettingsCategory.xml:
+- add depth include to settings quick-nav menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
+
+SettingsSystemInfo.xml:
+- add depth include to settings quick-nav menu
+- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
+- move options menu slightly left to avoid it being inactively visible during 3D mode
 
 SkinSettings.xml:
 - rework Next Up supported addon button for new Up Next addon
 - change window heading to use global heading variable
 - change skin setting reset button to first open confirmation dialog
+
+SmartPlaylistEditor.xml:
+- add depth include
+
+SmartPlaylistRule.xml:
+- add depth include
 
 Variables.xml:
 - adjust colour values of DisabledColor variable
@@ -200,10 +382,15 @@ Variables.xml:
 VideoFullScreen.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
 - adjust music video info dialog information to match representation in other music video windows/dialogs
+- add depth include
 
 VideoOSD.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
 - add new playlist button (like with MusicOSD)
+- add depth includes
+
+VideoOSDBookmarks.xml:
+- add depth includes
 
 Viewtype50.xml:
 - add new image for songs and videos while playlist window is visible
