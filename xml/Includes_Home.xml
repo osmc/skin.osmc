@@ -42,10 +42,11 @@
 			<include>skinshortcuts-template-vertical</include>
 		</control>
 
-		<!-- Sub Menu -->
+		<!-- Side Menu -->
 		<control type="group" id="9010">
+			<include>NotificationDepth</include>
 			<control type="image">
-				<include>FullscreenDimensions</include>
+				<include>FullscreenOverlayDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<visible>ControlGroup(9010).HasFocus</visible>
 			</control>
@@ -64,9 +65,9 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>-450</left>
+				<left>-460</left>
 				<top>0</top>
-				<animation effect="slide" start="0,0" end="450,0" time="200" condition="ControlGroup(9010).HasFocus">Conditional</animation>
+				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9010).HasFocus">Conditional</animation>
 				<control type="button">
 					<include>OptionsSideMenu1</include>
 					<texturefocus>noop</texturefocus>
