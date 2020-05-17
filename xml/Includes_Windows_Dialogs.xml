@@ -83,7 +83,7 @@
 
 		<!-- Color -->
 		<control type="image">
-			<include>FullscreenDimensions</include>
+			<include>FullscreenOverlayDimensions</include>
 			<texture background="true">common/white.png</texture>
 			<colordiffuse>$VAR[SolidBackgroundColor]</colordiffuse>
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
@@ -209,9 +209,10 @@
 		<control type="image">
 			<include>FullscreenOverlayDimensions</include>
 			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+			<aspectratio>scale</aspectratio>
 			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 			<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] | Window.IsActive(musicosd)]]</visible>
-			<include>BackgroundDepth</include>
+			<include>WindowDepth</include>
 		</control>
 	</include>
 	
@@ -228,7 +229,7 @@
 		</control>
 		<!-- Color -->
 		<control type="image">
-			<include>FullscreenDimensions</include>
+			<include>FullscreenOverlayDimensions</include>
 			<texture background="true">common/white.png</texture>
 			<colordiffuse>$VAR[SolidBackgroundColor]</colordiffuse>
 			<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) | String.IsEqual(Skin.String(BackgroundSingleImage),solid)</visible>
@@ -272,6 +273,7 @@
 		<control type="image">
 			<include>FullscreenOverlayDimensions</include>
 			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+			<aspectratio>scale</aspectratio>
 			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 			<animation type="WindowOpen">
 				<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
@@ -292,7 +294,7 @@
 			<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 			<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<include>DialogBackgroundDepth</include>
+			<include>BackgroundDepth</include>
 		</control>
 	</include>
 
@@ -392,22 +394,22 @@
 	
 	<!-- Dialog background -->
 	<include name="DialogBackgroundDepth">
-		<depth>0.25</depth>
+		<depth>0.1</depth>
 	</include>
 	
 	<!-- Dialog depth -->
 	<include name="DialogDepth">
-		<depth>0.5</depth>
+		<depth>0.35</depth>
 	</include>
 	
 	<!-- Side/context menu and notification depth depth -->
 	<include name="NotificationDepth">
-		<depth>0.75</depth>
+		<depth>0.45</depth>
 	</include>
 	
 	<!-- Busy dialog depth depth -->
 	<include name="BusyDepth">
-		<depth>1</depth>
+		<depth>0.55</depth>
 	</include>
 	
 	<!-- Dialog button background -->

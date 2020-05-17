@@ -41,28 +41,34 @@
 		<control type="group" id="9002">
 			<include>skinshortcuts-template-vertical</include>
 		</control>
+		
+		<!-- Side menu indicator -->
+		<control type="group">
+			<include>WindowDepth</include>
+			<visible>Control.HasFocus(9000) + !Window.IsVisible(shutdownmenu)</visible>
+			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
+			<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsEqual(Container(9001).NumItems,0)">Conditional</animation>
+			<animation effect="slide" time="200" start="-200,0" end="0,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowOpen</animation>
+			<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowClose</animation>
+			<control type="image">
+				<left>10</left>
+				<centertop>50%</centertop>
+				<width>30</width>
+				<height>30</height>
+				<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+			</control>
+		</control>
 
-		<!-- Side Menu -->
+		<!-- Side menu -->
 		<control type="group" id="9010">
 			<include>NotificationDepth</include>
 			<control type="image">
 				<include>FullscreenOverlayDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9010).HasFocus</visible>
-			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9000) + !Window.IsVisible(shutdownmenu)</visible>
-				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
-				<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsEqual(Container(9001).NumItems,0)">Conditional</animation>
-				<animation effect="slide" time="200" start="-200,0" end="0,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowOpen</animation>
-				<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowClose</animation>
-				<control type="image">
-					<left>10</left>
-					<centertop>50%</centertop>
-					<width>30</width>
-					<height>30</height>
-					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
-				</control>
+				<include>BackgroundDepth</include>
 			</control>
 			<control type="group">
 				<left>-460</left>
@@ -82,6 +88,7 @@
 					<include>OptionsSideMenu3</include>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
+					<onback>9000</onback>
 					<orientation>vertical</orientation>
 					<defaultcontrol always="true">1</defaultcontrol>
 
