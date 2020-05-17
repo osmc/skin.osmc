@@ -19,6 +19,7 @@ _Improved_
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
 - fix music playlist editor window
+- fix side menu return button behaviour
 
 **Changelog v18.3.0**
 
@@ -39,12 +40,34 @@ template.xml:
 
 AddonBrowser.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
+
+Coordinates_DialogButtonMenu.xml:
+- increase width of dialog background to avoid 3D depth gap
+
+Coordinates_DialogContextMenu.xml:
+- increase width of dialog background to avoid 3D depth gap
+
+Coordinates_DialogExtendedProgressBar.xml:
+- increase width of dialog background to avoid 3D depth gap
+
+Coordinates_DialogNotification.xml:
+- increase width of dialog background to avoid 3D depth gap
+
+Coordinates_DialogSelect.xml:
+- increase width and hight of games settings panel to avoid 3D depth gap
+
+Coordinates_DialogVolumeBar.xml:
+- increase width of dialog background to avoid 3D depth gap
 
 Coordinates_Includes.xml:
 - reorder dialog button coordinates
+- increase width of options side menu background to avoid 3D depth gap
+- increase width and hight of masking bars to avoid 3D depth gap
+- increase width of scrolling label background to avoid 3D depth gap
 
 Coordinates_MyMusicNav.xml:
 - fix Wide view scrollbar coordinates
@@ -93,9 +116,10 @@ DialogExtendedProgressBar.xml:
 
 DialogFavourites.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 DialogGameControllers.xml:
 - add depth include
@@ -154,6 +178,7 @@ DialogSubtitles.xml:
 - add new right list scrollbar
 - replace overlay image
 - add depth include
+- add the same dialog buttons style other dialogs use
 
 DialogTextViewer.xml:
 - add depth include
@@ -166,9 +191,10 @@ DialogVolumeBar.xml:
 
 EventLog.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 FileBrowser.xml:
 - add depth include
@@ -197,6 +223,7 @@ Includes_Home.xml:
 - add depth include to side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to side menu
 
 Includes_Time_NowPlaying.xml:
 - rework now playing formatting
@@ -217,88 +244,100 @@ MusicVisualisation.xml:
 
 MyGames.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyMusicNav.xml:
 - add SidemenuMenucontrol include
 - add Wide low view
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyMusicPlaylistEditor.xml:
 - rework broken music playlist editor window
 
 MyPics.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyPlaylist.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyPrograms.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyPVRChannels.xml:
 - add SidemenuMenucontrol include
 - fix onleft of scrollbar while kiosk mode is active
 - add hidden label (ID 30) for improved window title
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyPVRGuide.xml:
 - add SidemenuMenucontrol include
 - fix visibility of submenu indicator while kiosk mode is active
 - add hidden label (ID 30) for improved window title
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyPVRRecordings.xml:
 - add SidemenuMenucontrol include
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyPVRSearch.xml:
 - add SidemenuMenucontrol include
 - fix onleft and onright of scrollbar while kiosk mode is active
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyPVRTimers.xml:
 - add SidemenuMenucontrol include
 - fix onleft and onright of scrollbar while kiosk mode is active
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyVideoNav.xml:
 - add SidemenuMenucontrol include
 - add Wide low info view
 - add new scrollbar for Wide low info view
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 MyWeather.xml: 
 - add SidemenuMenucontrol include
 - add conditional visibility to hide window content, visible animation and busy dialog imitation while weather data is being loaded
-- add depth include to options side menu
+- add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to options side menu
 
 PlayerControls.xml:
 - add depth include
@@ -338,24 +377,22 @@ script-upnext-upnext.xml:
 SettingsCategory.xml: 
 - add menucontrol
 - adjust buttons not adapting to different aspect ratio modes
-- add depth include to settings quick-nav menu
+- add depth includes to settings quick-nav menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to quick-nav menu
 
 SettingsProfile.xml:
-- add depth include to settings quick-nav menu
+- add depth includes to settings quick-nav menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
-
-SettingsCategory.xml:
-- add depth include to settings quick-nav menu
-- replace FullscreenDimensions include by new FullscreenOverlayDimensions include
-- move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to quick-nav menu
 
 SettingsSystemInfo.xml:
-- add depth include to settings quick-nav menu
+- add depth includes to settings quick-nav menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
+- add onback to quick-nav menu
 
 SkinSettings.xml:
 - rework Next Up supported addon button for new Up Next addon
