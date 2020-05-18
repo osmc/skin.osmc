@@ -349,42 +349,6 @@
 		</control>
 	</include>
 	
-	<!-- Dialog button background -->
-	<include name="dialogButtonBackground">
-		<definition>
-			<control type="image">
-				<include>dialogButtonBackground_coords1</include>
-				<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
-				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords1</include>
-				<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
-				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords2</include>
-				<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
-				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords2</include>
-				<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
-				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords3</include>
-				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
-				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
-				<include>VisibleFadeAnimation</include>
-			</control>
-		</definition>
-	</include>
-	
 	<!-- Sidemenu menucontrol -->
 	<include name="SidemenuMenucontrol">
 		<definition>
@@ -431,39 +395,6 @@
 					<height>30</height>
 					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-down.png</texture>
 					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-				</control>
-			</control>
-		</definition>
-	</include>
-	
-	<!-- Dialog button indicator -->
-	<include name="dialogButtonIndicator">
-		<definition>
-			<control type="group">
-				<visible>$PARAM[visibility]</visible>
-				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
-				<animation effect="slide" time="200" start="-200,0" end="0,0" delay="300">WindowOpen</animation>
-				<animation effect="slide" time="200" start="0,0" end="-200,0" delay="300">WindowClose</animation>
-				<control type="image">
-					<left>10</left>
-					<centertop>50%</centertop>
-					<width>30</width>
-					<height>30</height>
-					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
-				</control>
-			</control>
-			
-			<control type="group">
-				<visible>$PARAM[visibility]</visible>
-				<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
-				<animation effect="slide" time="200" start="200,0" end="0,0" delay="300">WindowOpen</animation>
-				<animation effect="slide" time="200" start="0,0" end="200,0" delay="300">WindowClose</animation>
-				<control type="image">
-					<right>10</right>
-					<centertop>50%</centertop>
-					<width>30</width>
-					<height>30</height>
-					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-right.png</texture>
 				</control>
 			</control>
 		</definition>
@@ -530,6 +461,7 @@
 				<animation effect="slide" end="0,1480" time="400" condition="String.IsEqual(Skin.String(MaskingBars),1.78:1)">Conditional</animation>
 				<animation effect="slide" end="0,12" time="200" condition="String.IsEqual(Skin.String(MaskingBars),2.35:1)">Conditional</animation>
 				<animation effect="slide" end="0,107" time="200" condition="String.IsEqual(Skin.String(MaskingBars),2.00:1)">Conditional</animation>
+				<include>WindowDepth</include>
 			</control>
 			<!-- Bottom bar -->
 			<control type="image">
@@ -539,6 +471,7 @@
 				<animation effect="slide" end="0,-1480" time="400" condition="String.IsEqual(Skin.String(MaskingBars),1.78:1)">Conditional</animation>
 				<animation effect="slide" end="0,-12" time="200" condition="String.IsEqual(Skin.String(MaskingBars),2.35:1)">Conditional</animation>
 				<animation effect="slide" end="0,-107" time="200" condition="String.IsEqual(Skin.String(MaskingBars),2.00:1)">Conditional</animation>
+				<include>WindowDepth</include>
 			</control>
 		</definition>
 	</include>

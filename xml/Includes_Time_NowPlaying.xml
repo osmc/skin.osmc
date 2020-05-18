@@ -25,11 +25,11 @@
 				<visible>String.IsEqual(Container.SortMethod,$LOCALIZE[551]) | String.IsEqual(Container.SortMethod,$LOCALIZE[561]) | String.IsEqual(Container.SortMethod,$LOCALIZE[558]) | String.IsEqual(Container.SortMethod,$LOCALIZE[557]) | String.IsEqual(Container.SortMethod,$LOCALIZE[556]) | String.IsEqual(Container.SortMethod,$LOCALIZE[563]) | String.IsEqual(Container.SortMethod,$LOCALIZE[566])</visible>
 				<animation effect="slide" start="-75,0" end="0,0" time="200">VisibleChange</animation>
 				<control type="image">
-					<include>ScrollingLabel_coords</include>
+					<include>ScrollingLabel_coords1</include>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 				<control type="label">
-					<include>ScrollingLabel_coords</include>
+					<include>ScrollingLabel_coords2</include>
 					<label>$INFO[ListItem.SortLetter]</label>
 					<font>Font72-bold</font>
 					<align>center</align>
@@ -80,49 +80,11 @@
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
 						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$VAR[SEplaying,, &#8226; ]$INFO[Player.Title]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
-						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-					</control>
-					
-					<control type="fadelabel">
-						<include>nowplaying_coords1</include>
-						<aligny>top</aligny>
-						<align>right</align>
-						<label>$INFO[VideoPlayer.TVShowTitle]</label>
-						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
-						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-					</control>
-					
-					<control type="fadelabel">
-						<include>nowplaying_coords1</include>
-						<aligny>top</aligny>
-						<align>right</align>
-						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
-						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-					</control>
-					
-					<control type="fadelabel">
-						<include>nowplaying_coords1</include>
-						<aligny>top</aligny>
-						<align>right</align>
-						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
-						<label>$INFO[VideoPlayer.EpisodeName]</label>
-						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [!String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)]</visible>
-					</control>
-					
-					<control type="fadelabel">
-						<include>nowplaying_coords1</include>
-						<aligny>top</aligny>
-						<align>right</align>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
-						<label>$INFO[VideoPlayer.EpisodeName]</label>
-						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + !String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
 					</control>
 					
 					<control type="fadelabel">
@@ -130,26 +92,100 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[VideoPlayer.TVShowTitle]</label>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,, &#8226; ]$INFO[Player.Title]</label>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + !String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,, &#8226; ]$INFO[Player.Title]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + !String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
+						<label>$VAR[SEplaying,, &#8226; ]$INFO[Player.Title]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
 						<label>$INFO[VideoPlayer.EpisodeName]</label>
-						<visible>!Player.HasGame + Player.HasVideo + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + !String.IsEmpty(VideoPlayer.ChannelNumberLabel) + !String.IsEmpty(VideoPlayer.ChannelName)</visible>
 					</control>
 					
 					<control type="fadelabel">
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>$INFO[VideoPlayer.TVShowTitle]</label>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
-						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
+						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + !String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)</visible>
 					</control>
 					
 					<control type="fadelabel">
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>$VAR[SEplaying,[LIGHT],[/LIGHT] ]$INFO[Player.Title]</label>
-						<visible>!Player.HasGame + Player.HasVideo + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + [String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)]</visible>
+						<label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<label>$VAR[SEplaying,, &#8226; ]$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.EpisodeName]</label>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + !String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<label>$VAR[SEplaying,, &#8226; ]$INFO[Player.Title]</label>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.EpisodeName) + !String.IsEmpty(VideoPlayer.TVShowTitle) + String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$VAR[SEplaying,, &#8226; ]$INFO[Player.Title]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<visible>!Player.HasGame + Player.HasVideo + !VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.EpisodeName) + String.IsEmpty(VideoPlayer.TVShowTitle) + String.IsEmpty(VideoPlayer.ChannelNumberLabel) + String.IsEmpty(VideoPlayer.ChannelName)</visible>
+					</control>
+					
+					<!-- Now Playing - Musicvideo -->
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<label>$INFO[VideoPlayer.Artist,[LIGHT],:  [/LIGHT]]$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<visible>!Player.HasGame + Player.HasVideo + VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.ChannelName) + !String.IsEmpty(VideoPlayer.Artist) + !String.IsEmpty(VideoPlayer.Album)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<label>$INFO[VideoPlayer.Artist,[LIGHT],[/LIGHT]]</label>
+						<visible>!Player.HasGame + Player.HasVideo + VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.ChannelName) + !String.IsEmpty(VideoPlayer.Artist) + String.IsEmpty(VideoPlayer.Album)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<label>$INFO[VideoPlayer.Album]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<visible>!Player.HasGame + Player.HasVideo + VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.ChannelName) + String.IsEmpty(VideoPlayer.Artist) + !String.IsEmpty(VideoPlayer.Album)</visible>
+					</control>
+					
+					<control type="fadelabel">
+						<include>nowplaying_coords1</include>
+						<aligny>top</aligny>
+						<align>right</align>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<visible>!Player.HasGame + Player.HasVideo + VideoPlayer.Content(musicvideos) + String.IsEmpty(VideoPlayer.ChannelName) + String.IsEmpty(VideoPlayer.Artist) + String.IsEmpty(VideoPlayer.Album)</visible>
 					</control>
 
 					<!-- Now Playing - Audio -->
@@ -158,8 +194,8 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
-						<label>$INFO[MusicPlayer.Artist,[LIGHT],:  [/LIGHT]]$INFO[MusicPlayer.Album]</label>
-						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)]</visible>
+						<label>$INFO[MusicPlayer.Artist,[LIGHT],:  [/LIGHT]]$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + !String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)</visible>
 					</control>
 					
 					<control type="fadelabel">
@@ -168,7 +204,7 @@
 						<align>right</align>
 						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
 						<label>$INFO[MusicPlayer.Artist,[LIGHT],[/LIGHT]]</label>
-						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [!String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)]</visible>
+						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + !String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)</visible>
 					</control>
 					
 					<control type="fadelabel">
@@ -176,8 +212,8 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
-						<label>$INFO[MusicPlayer.Album]</label>
-						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)]</visible>
+						<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + String.IsEmpty(MusicPlayer.Artist) + !String.IsEmpty(MusicPlayer.Album)</visible>
 					</control>
 					
 					<control type="fadelabel">
@@ -185,7 +221,7 @@
 						<aligny>top</aligny>
 						<align>right</align>
 						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],. [/LIGHT]]$INFO[MusicPlayer.Title]</label>
-						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + [String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)]</visible>
+						<visible>!Player.HasGame + Player.HasAudio + String.IsEmpty(VideoPlayer.ChannelName) + String.IsEmpty(MusicPlayer.Artist) + String.IsEmpty(MusicPlayer.Album)</visible>
 					</control>
 					
 					<!-- Now Playing - PVR Recording -->
@@ -193,7 +229,7 @@
 						<include>nowplaying_coords1</include>
 						<aligny>top</aligny>
 						<align>right</align>
-						<label>$INFO[Player.Title]</label>
+						<label>$INFO[Player.Title]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
 						<label>$INFO[VideoPlayer.ChannelNumberLabel,[LIGHT](,)[/LIGHT] ]$INFO[VideoPlayer.ChannelName]</label>
 						<visible>!Player.HasGame + Player.HasAudio + !String.IsEmpty(VideoPlayer.ChannelName) + !String.IsEmpty(Player.Title)</visible>
 					</control>

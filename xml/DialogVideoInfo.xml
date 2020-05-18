@@ -14,6 +14,8 @@
 		<include>DialogFanart</include>
 
 		<control type="group">
+			<include>DialogDepth</include>
+			
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 			
@@ -24,6 +26,7 @@
 
 			<!-- Poster image -->
 			<control type="group">
+				<visible>!Container.Content(musicvideos)</visible>
 				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
@@ -45,6 +48,17 @@
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 				</control>
 			</control>
+			
+			<!-- Musicvideo image -->
+			<control type="image">
+				<visible>Container.Content(musicvideos)</visible>
+				<include>DialogVideoInfo_coords1</include>
+				<fadetime>100</fadetime>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+			</control>
+
 			
 			<!-- Filename and path -->
 			<control type="fadelabel">
@@ -72,6 +86,7 @@
 			<!-- Info -->
 			<control type="group" id="100">
 				<include>DialogVideoInfo_coords3</include>
+				<visible>!Container.Content(musicvideos)</visible>
 				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)]</visible>
 				<include>VisibleFadeAnimation</include>
 
@@ -361,6 +376,155 @@
 
 			</control>
 			
+			<!-- Info -->
+			<control type="group">
+				<include>DialogVideoInfo_coords3</include>
+				<visible>Container.Content(musicvideos)</visible>
+
+				<!-- Details (song) -->
+				<control type="grouplist" id="100">
+					<include>DialogVideoInfo_coords4</include>
+					<itemgap>12</itemgap>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+
+					<!-- Artist -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Artist)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>557</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Artist]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Album -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Album)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>558</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Album]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Year -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Year)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>562</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Year]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Genre -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>515</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Track Number -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.TrackNumber)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>554</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.TrackNumber]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Duration -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>180</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$VAR[Duration]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>						
+
+					<!-- Rating -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>String.IsEqual(ListItem.StarRating,rating0.png) | String.IsEqual(ListItem.StarRating,rating1.png) | String.IsEqual(ListItem.StarRating,rating2.png) | String.IsEqual(ListItem.StarRating,rating3.png) | String.IsEqual(ListItem.StarRating,rating4.png) | String.IsEqual(ListItem.StarRating,rating5.png)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>563</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="image">
+							<include>DialogVideoInfo_coords7</include>
+							<aspectratio align="left">keep</aspectratio>
+							<texture>$INFO[ListItem.StarRating]</texture>
+						</control>
+					</control>
+
+				</control>
+				
+			</control>
+
+			
 			<!-- Plot -->
 			<control type="textbox" id="101">
 				<include>DialogVideoInfo_coords17</include>
@@ -414,6 +578,7 @@
 			<control type="group">
 				<include>DialogVideoInfo_coords13</include>
 				<visible>!String.IsEmpty(Window(12003).Property(extended))</visible>
+				<visible>!Container.Content(musicvideos)</visible>
 				<include>VisibleFadeAnimation</include>
 
 				<!-- Details -->

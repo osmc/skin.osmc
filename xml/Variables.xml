@@ -213,6 +213,15 @@
 		<value condition="!Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
 	
+	<variable name="ContentTypeMyPlaylist">
+		<value condition="Window.IsVisible(musicplaylist) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[179]</value>
+		<value condition="Window.IsVisible(musicplaylist) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[134]</value>
+		<value condition="Window.IsVisible(videoplaylist) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[157]</value>
+		<value condition="Window.IsVisible(videoplaylist) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[3]</value>
+		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
+		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
+	</variable>
+	
 	<variable name="ContentTypeFileManager20">
 		<value condition="Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31000]</value>
 		<value condition="!Integer.IsEqual(Container(20).NumItems,1)">$LOCALIZE[31001]</value>
@@ -227,12 +236,13 @@
 	<variable name="VideoPlayerTitle">
 		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEpg + String.IsEmpty(Window(12005).Property(shownext))">$LOCALIZE[19030]: [B]$INFO[Player.Title][/B] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</value>
 		<value condition="VideoPlayer.Content(LiveTV) + VideoPlayer.HasEpg + !String.IsEmpty(Window(12005).Property(shownext))">$LOCALIZE[19031]: [B]$INFO[VideoPlayer.NextTitle][/B] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</value>
-		<value condition="VideoPlayer.Content(episodes) + Integer.IsLessOrEqual(VideoPlayer.Season,9) + Integer.IsLessOrEqual(VideoPlayer.Episode,9) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year, (,) &#8226; ]$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E0, &#8226; ]$INFO[Player.Title]</value>
-		<value condition="VideoPlayer.Content(episodes) + Integer.IsLessOrEqual(VideoPlayer.Season,9) + Integer.IsGreaterOrEqual(VideoPlayer.Episode,10) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year, (,) &#8226; ]$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E, &#8226; ]$INFO[Player.Title]</value>
-		<value condition="VideoPlayer.Content(episodes) + Integer.IsGreaterOrEqual(VideoPlayer.Season,10) + Integer.IsLessOrEqual(VideoPlayer.Episode,9) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year, (,) &#8226; ]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E0, &#8226; ]$INFO[Player.Title]</value>
-		<value condition="VideoPlayer.Content(episodes) + Integer.IsGreaterOrEqual(VideoPlayer.Season,10) + Integer.IsGreaterOrEqual(VideoPlayer.Episode,10) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year, (,) &#8226; ]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E, &#8226; ]$INFO[Player.Title]</value>
-		<value condition="VideoPlayer.Content(episodes) + String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year, (,) &#8226; ]$INFO[VideoPlayer.Episode,[UPPERCASE],[/UPPERCASE] &#8226; ]$INFO[Player.Title]</value>
-		<value>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, (,)]</value>
+		<value condition="VideoPlayer.Content(episodes) + Integer.IsLessOrEqual(VideoPlayer.Season,9) + Integer.IsLessOrEqual(VideoPlayer.Episode,9) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E0, &#8226; ]$INFO[Player.Title]</value>
+		<value condition="VideoPlayer.Content(episodes) + Integer.IsLessOrEqual(VideoPlayer.Season,9) + Integer.IsGreaterOrEqual(VideoPlayer.Episode,10) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[VideoPlayer.Season,S0,]$INFO[VideoPlayer.Episode,E, &#8226; ]$INFO[Player.Title]</value>
+		<value condition="VideoPlayer.Content(episodes) + Integer.IsGreaterOrEqual(VideoPlayer.Season,10) + Integer.IsLessOrEqual(VideoPlayer.Episode,9) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E0, &#8226; ]$INFO[Player.Title]</value>
+		<value condition="VideoPlayer.Content(episodes) + Integer.IsGreaterOrEqual(VideoPlayer.Season,10) + Integer.IsGreaterOrEqual(VideoPlayer.Episode,10) + !String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[VideoPlayer.Season,S,]$INFO[VideoPlayer.Episode,E, &#8226; ]$INFO[Player.Title]</value>
+		<value condition="VideoPlayer.Content(episodes) + String.Contains(VideoPlayer.Episode,s)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[VideoPlayer.Episode,[UPPERCASE],[/UPPERCASE] &#8226; ]$INFO[Player.Title]</value>
+		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Title]</value>
+		<value>$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year,[LIGHT] (,)[/LIGHT]]</value>
 	</variable>
 	
 	<variable name="UpNextTitle">
@@ -289,7 +299,7 @@
 	
 	<variable name="MusicNextPlaying1">
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
-		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).Album]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).Album]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).Artist]</value>
 		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</value>
 		<value>$INFO[MusicPlayer.Offset(1).Artist]</value>
@@ -300,7 +310,7 @@
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextGenre]</value>
-		<value>$INFO[MusicPlayer.Offset(1).Album,,]</value>
+		<value>$INFO[MusicPlayer.Offset(1).Album,,]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</value>
 	</variable>
 	
 	<variable name="MusicNextPlaying3">
@@ -370,12 +380,13 @@
 	
 	<!-- Info dialog labels -->
 	<variable name="VideoInfoLabel">
-		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year, (,) &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
-		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year, (,) &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
-		<value condition="Container.Content(episodes) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year, (,) &#8226; ]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E0, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
-		<value condition="Container.Content(episodes) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year, (,) &#8226; ]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
-		<value condition="Container.Content(episodes) + String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year, (,) &#8226; ]$INFO[ListItem.Episode,[UPPERCASE],[/UPPERCASE] &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
-		<value>$INFO[ListItem.Title]$INFO[ListItem.Year, (,)]$VAR[LabelUserRating]</value>
+		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
+		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
+		<value condition="Container.Content(episodes) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E0, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
+		<value condition="Container.Content(episodes) + Integer.IsGreaterOrEqual(ListItem.Season,10) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[ListItem.Season,S,]$INFO[ListItem.Episode,E, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
+		<value condition="Container.Content(episodes) + String.Contains(ListItem.Episode,s)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT] &#8226; ]$INFO[ListItem.Episode,[UPPERCASE],[/UPPERCASE] &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
+		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
+		<value>$INFO[ListItem.Title]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT]]$VAR[LabelUserRating]</value>
 	</variable>
 
 	<variable name="VideoInfoImage">
@@ -711,15 +722,9 @@
 		<value condition="Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsLess(ListItem.Duration(m),1)">$INFO[ListItem.Duration(secs),, sec]</value>
 	</variable>
 	
-	<!-- Audio language labels -->
-	<variable name="AudioLanguage">
-		<value condition="String.IsEqual(VideoPlayer.AudioLanguage,unk)"></value>
-		<value>$INFO[VideoPlayer.AudioLanguage,$COMMA [CAPITALIZE],[/CAPITALIZE]]</value>
-	</variable>
-	
 	<!-- Subtitle language labels -->
 	<variable name="SubtitleLanguage">
-		<value condition="String.IsEqual(VideoPlayer.SubtitlesLanguage,unk)"></value>
+		<value condition="!VideoPlayer.SubtitlesEnabled">   [LIGHT]$LOCALIZE[462]:[/LIGHT] $LOCALIZE[1223]</value>
 		<value>$INFO[VideoPlayer.SubtitlesLanguage,   [LIGHT]$LOCALIZE[462]:[/LIGHT] [CAPITALIZE],[/CAPITALIZE]]</value>
 	</variable>
 	

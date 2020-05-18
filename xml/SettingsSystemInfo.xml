@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- systeminfo -->
-	<backgroundcolor>0x00000000</backgroundcolor>
+	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">95</defaultcontrol>
 
 	<controls>
@@ -204,19 +204,21 @@
 			</control>
 		</control>
 
-		<!-- Options -->
+		<!-- Settings quick-nav -->
 		<control type="group" id="9002">
+			<include>NotificationDepth</include>
 			<control type="image">
-				<include>FullscreenDimensions</include>
+				<include>FullscreenOverlayDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9002).HasFocus</visible>
+				<include>BackgroundDepth</include>
 			</control>
 			<control type="group">
-				<left>-450</left>
+				<left>-460</left>
 				<top>0</top>
-				<animation effect="slide" start="0,0" end="450,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
+				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
 				<control type="button">
 					<include>OptionsSideMenu1</include>
 					<texturefocus>noop</texturefocus>
@@ -227,11 +229,11 @@
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 
-				<!-- Look controls -->
 				<control type="grouplist" id="3001">
 					<include>OptionsSideMenu3</include>
 					<onleft>50</onleft>
 					<onright>50</onright>
+					<onback>50</onback>
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
@@ -241,7 +243,6 @@
 						<param name="containerID">3001</param>
 					</include>
 
-					<!-- Settings quick-nav -->
 					<control type="button" id="190">
 						<label>14206</label>
 						<height>52</height>

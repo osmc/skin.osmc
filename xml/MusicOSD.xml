@@ -6,6 +6,7 @@
 	<controls>
 
 		<control type="group">
+			<include>DialogDepth</include>
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
 			<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
 			<include>MusicOSD_coords1</include>
@@ -240,6 +241,7 @@
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPlaylistNF.png</texturenofocus>
 					<onclick>Dialog.Close(MusicOSD)</onclick>
 					<onclick>ActivateWindow(MusicPlaylist)</onclick>
+					<visible>Integer.IsGreater(MusicPlayer.PlaylistLength,1)</visible>
 				</control>
 				
 				<!-- Visualisation -->
@@ -273,6 +275,7 @@
 			<control type="group">
 				<include>MusicOSD_coords9</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
+				<animation effect="slide" end="60,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
 				<animation effect="slide" end="120,0" time="0" condition="!Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
 

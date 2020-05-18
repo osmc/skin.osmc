@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- programs -->
-	<backgroundcolor>0x00000000</backgroundcolor>
+	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<views>50,55</views>
 
@@ -68,18 +68,20 @@
 
 		<!-- Options -->
 		<control type="group" id="9002">
+			<include>NotificationDepth</include>
 			<visible>!Skin.HasSetting(KioskMode)</visible>
 			<control type="image">
-				<include>FullscreenDimensions</include>
+				<include>FullscreenOverlayDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
 				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 				<visible>ControlGroup(9002).HasFocus</visible>
+				<include>BackgroundDepth</include>
 			</control>
 			<control type="group">
-				<left>-450</left>
+				<left>-460</left>
 				<top>0</top>
-				<animation effect="slide" start="0,0" end="450,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
+				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
 				<control type="image">
 					<include>OptionsSideMenu1</include>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
@@ -95,6 +97,7 @@
 					<include condition="!Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu3</include>
 					<onleft>50</onleft>
 					<onright>50</onright>
+					<onback>50</onback>
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>

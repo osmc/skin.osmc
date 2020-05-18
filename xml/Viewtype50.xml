@@ -10,8 +10,17 @@
 			<!-- Image -->
 			<include content="image-50">
 				<param name="fallback">DefaultFolder.png</param>
-				<param name="visible">!Container.Content(songs)</param>
+				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</param>
 			</include>
+			<include content="image-50">
+				<param name="fallback">DefaultMusicSongs.png</param>
+				<param name="visible">Window.IsVisible(musicplaylist)</param>
+			</include>
+			<include content="image-50">
+				<param name="fallback">DefaultVideo.png</param>
+				<param name="visible">Window.IsVisible(videoplaylist)</param>
+			</include>
+
 
 			<!-- List -->
 			<control type="fixedlist" id="50">
@@ -24,7 +33,7 @@
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>[Container.Content(songs) + Window.IsVisible(musicplaylist)] | [!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Window.IsVisible(pictures)] | Container.Content(games) | Window.IsVisible(games)</visible>
+				<visible>Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | [!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Window.IsVisible(pictures)] | Container.Content(games) | Window.IsVisible(games)</visible>
 
 				<include>Viewtype50_coords2</include>
 

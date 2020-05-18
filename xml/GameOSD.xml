@@ -7,6 +7,7 @@
 
 		<!-- Player status -->
 		<control type="group">
+			<include>DialogDepth</include>
 			<include>GameOSD_coords1</include>
 			<visible>player.forwarding | player.rewinding | player.paused | player.istempo</visible>
 			<visible>![Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation) | Window.IsVisible(gamevolume) | Window.IsVisible(gamecontrollers) | Window.IsVisible(gameadvancedsettings) | Window.IsVisible(shutdownmenu)]</visible>
@@ -29,6 +30,7 @@
 		</control>
 	
 		<control type="group">
+			<include>DialogDepth</include>
 			<include>GameOSD_coords4</include>
 			<visible>![Window.IsActive(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation) | Window.IsVisible(gamevolume) | Window.IsVisible(gamecontrollers) | Window.IsVisible(gameadvancedsettings) | Window.IsVisible(shutdownmenu)]</visible>
 			<include>OSDVisibleHiddenAnimation</include>
@@ -38,7 +40,7 @@
 				<!-- Window Background -->
 				<control type="image">
 					<include>GameOSD_coords5</include>
-					<texture colordiffuse="$VAR[OverlayColor]" border="30">dialogs/Background.png</texture>
+					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 				
 				<!-- Heading -->
