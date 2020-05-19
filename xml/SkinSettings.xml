@@ -453,7 +453,7 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31162]</label>
 					<label2>$VAR[BackgroundColor-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.background,header=$LOCALIZE[31162])</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.background,header=$LOCALIZE[31162],palette=rainbow)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
@@ -470,7 +470,7 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31062]</label>
 					<label2>$VAR[OverlayColor-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlay,header=$LOCALIZE[31062])</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlay,header=$LOCALIZE[31062],palette=rainbow)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
@@ -487,7 +487,7 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31163]</label>
 					<label2>$VAR[TextColor1-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text1,header=$LOCALIZE[31163])</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text1,header=$LOCALIZE[31163],palette=rainbow)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
@@ -504,7 +504,7 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31164]</label>
 					<label2>$VAR[TextColor2-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text2,header=$LOCALIZE[31164])</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text2,header=$LOCALIZE[31164],palette=rainbow)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
@@ -521,7 +521,7 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31165]</label>
 					<label2>$VAR[SelectedColor-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.selected,header=$LOCALIZE[31165])</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.selected,header=$LOCALIZE[31165],palette=rainbow)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
@@ -538,7 +538,7 @@
 					<font>Font33</font>
 					<label>$LOCALIZE[31166]</label>
 					<label2>$VAR[DisabledColor-Name]</label2>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.disabled,header=$LOCALIZE[31166])</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.disabled,header=$LOCALIZE[31166],palette=rainbow)</onclick>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
@@ -562,8 +562,8 @@
 				<!-- Video OSD -->
 				<control type="label" id="401">
 					<include>SkinSettings_coords17</include>
-					<font>Font33-italic</font>
-					<align>left</align>
+					<font>Font33</font>
+					<align>center</align>
 					<label>$LOCALIZE[31144]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
@@ -711,23 +711,28 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Music OSD -->
-				<control type="label" id="416">
+				<!-- Divider -->
+				<control type="image" id="416">
 					<include>SkinSettings_coords17</include>
-					<font>Font33-italic</font>
-					<align>left</align>
+					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+				</control>
+				<!-- Music OSD -->
+				<control type="label" id="417">
+					<include>SkinSettings_coords17</include>
+					<font>Font33</font>
+					<align>center</align>
 					<label>$LOCALIZE[31145]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Automatically show music OSD during playback -->
-				<control type="radiobutton" id="417">
+				<control type="radiobutton" id="418">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31142]</label>
 					<onclick>Skin.ToggleSetting(AutoMusicVisPlayback)</onclick>
 					<selected>Skin.HasSetting(AutoMusicVisPlayback)</selected>
 				</control>
-				<control type="button" id="418">
+				<control type="button" id="419">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31143]</label>
@@ -742,7 +747,7 @@
 					<visible>Skin.HasSetting(AutoMusicVisPlayback)</visible>
 				</control>
 				<!-- Never hide music OSD -->
-				<control type="radiobutton" id="419">
+				<control type="radiobutton" id="420">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31040</label>
@@ -750,7 +755,7 @@
 					<selected>Skin.HasSetting(MusicOSD)</selected>
 				</control>
 				<!-- Adjust music OSD album art size -->
-				<control type="radiobutton" id="420">
+				<control type="radiobutton" id="421">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31115</label>
@@ -810,8 +815,8 @@
 				<!-- Highlighting -->
 				<control type="label" id="601">
 					<include>SkinSettings_coords17</include>
-					<font>Font33-italic</font>
-					<align>left</align>
+					<font>Font33</font>
+					<align>center</align>
 					<label>$LOCALIZE[31173]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
@@ -855,16 +860,21 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<!-- Library -->
-				<control type="label" id="605">
+				<!-- Divider -->
+				<control type="image" id="605">
 					<include>SkinSettings_coords17</include>
-					<font>Font33-italic</font>
-					<align>left</align>
+					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+				</control>
+				<!-- Library -->
+				<control type="label" id="606">
+					<include>SkinSettings_coords17</include>
+					<font>Font33</font>
+					<align>center</align>
 					<label>$LOCALIZE[14022]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Disable video watched status in library -->
-				<control type="radiobutton" id="606">
+				<control type="radiobutton" id="607">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31148</label>
@@ -872,7 +882,7 @@
 					<selected>Skin.HasSetting(VideoWatchedStatus)</selected>
 				</control>
 				<!-- Disable music listened to status in library -->
-				<control type="radiobutton" id="607">
+				<control type="radiobutton" id="608">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31149</label>
@@ -880,7 +890,7 @@
 					<selected>Skin.HasSetting(MusicListenedToStatus)</selected>
 				</control>
 				<!-- Show plot/details first -->
-				<control type="button" id="608">
+				<control type="button" id="609">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31170]</label>
@@ -891,7 +901,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Show user rating -->
-				<control type="radiobutton" id="609">
+				<control type="radiobutton" id="610">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31146</label>
@@ -899,7 +909,7 @@
 					<selected>Skin.HasSetting(UserRating)</selected>
 				</control>
 				<!-- Adjust representation of video duration -->
-				<control type="button" id="610">
+				<control type="button" id="611">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31134]</label>
@@ -910,7 +920,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Edit video media flags -->
-				<control type="button" id="611">
+				<control type="button" id="612">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31237</label>
@@ -925,23 +935,28 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Disable item count -->
-				<control type="radiobutton" id="612">
+				<control type="radiobutton" id="613">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31390</label>
 					<onclick>Skin.ToggleSetting(ItemCount)</onclick>
 					<selected>Skin.HasSetting(ItemCount)</selected>
 				</control>
-				<!-- Mixed -->
-				<control type="label" id="613">
+				<!-- Divider -->
+				<control type="image" id="614">
 					<include>SkinSettings_coords17</include>
-					<font>Font33-italic</font>
-					<align>left</align>
+					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+				</control>
+				<!-- Mixed -->
+				<control type="label" id="615">
+					<include>SkinSettings_coords17</include>
+					<font>Font33</font>
+					<align>center</align>
 					<label>$LOCALIZE[20395]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Disable scrolling label -->
-				<control type="radiobutton" id="614">
+				<control type="radiobutton" id="616">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31053</label>
@@ -949,7 +964,7 @@
 					<selected>Skin.HasSetting(ScrollingLabel)</selected>
 				</control>
 				<!-- Disable sub-menu player controls -->
-				<control type="radiobutton" id="615">
+				<control type="radiobutton" id="617">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31147</label>
@@ -957,7 +972,7 @@
 					<selected>Skin.HasSetting(SubMenuControls)</selected>
 				</control>
 				<!-- Show lock icon for encrypted PVR channels -->
-				<control type="radiobutton" id="616">
+				<control type="radiobutton" id="618">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31174]</label>
@@ -965,7 +980,7 @@
 					<selected>Skin.HasSetting(PVRShowLock)</selected>
 				</control>
 				<!-- Disable scrollbars -->
-				<control type="radiobutton" id="617">
+				<control type="radiobutton" id="619">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31005</label>
@@ -973,7 +988,7 @@
 					<selected>Skin.HasSetting(Scrollbars)</selected>
 				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="618">
+				<control type="radiobutton" id="620">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31057</label>
@@ -997,78 +1012,91 @@
 				<!-- Recommended -->
 				<control type="label" id="701">
 					<include>SkinSettings_coords17</include>
-					<font>Font33-italic</font>
-					<align>left</align>
+					<font>Font33</font>
+					<align>center</align>
 					<label>$LOCALIZE[31080]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
+				<!-- Skin Shortcuts -->
 				<control type="button" id="702">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31079]</label>
+					<label>$LOCALIZE[31079]</label>
 					<label2>$VAR[addon-skinshortcuts]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skinshortcuts)) + !System.HasAddon(script.skinshortcuts)">InstallAddon(script.skinshortcuts)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skinshortcuts)) + !System.HasAddon(script.skinshortcuts)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skinshortcuts)">Addon.OpenSettings(script.skinshortcuts)</onclick>
 				</control>
+				<!-- Skin Helper Service -->
 				<control type="button" id="703">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31081]</label>
+					<label>$LOCALIZE[31081]</label>
 					<label2>$VAR[addon-skinhelper]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service)">InstallAddon(script.skin.helper.service)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.service)) + !System.HasAddon(script.skin.helper.service)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.service)">Addon.OpenSettings(script.skin.helper.service)</onclick>
 				</control>
+				<!-- Skin Helper Service Widgets -->
 				<control type="button" id="704">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31106]</label>
+					<label>$LOCALIZE[31106]</label>
 					<label2>$VAR[addon-skinhelperwidgets]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">InstallAddon(script.skin.helper.widgets)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
 				</control>
+				<!-- Skin Helper Service Skin Backup -->
 				<control type="button" id="705">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31097]</label>
+					<label>$LOCALIZE[31097]</label>
 					<label2>$VAR[addon-skinhelperbackup]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">Addon.OpenSettings(script.skin.helper.skinbackup)</onclick>
 				</control>
-				<!-- Supported -->
-				<control type="label" id="706">
+				<!-- Divider -->
+				<control type="image" id="706">
 					<include>SkinSettings_coords17</include>
-					<font>Font33-italic</font>
-					<align>left</align>
+					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+				</control>
+				<!-- Supported -->
+				<control type="label" id="707">
+					<include>SkinSettings_coords17</include>
+					<font>Font33</font>
+					<align>center</align>
 					<label>$LOCALIZE[31084]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
-				<control type="button" id="707">
+				<!-- AutoCompletion for virtual keyboard -->
+				<control type="button" id="708">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31082]</label>
+					<label>$LOCALIZE[31082]</label>
 					<label2>$VAR[addon-autocompletion]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + !System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + !System.HasAddon(plugin.program.autocompletion)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
 				</control>
-				<control type="button" id="708">
+				<!-- Image Resource Select -->
+				<control type="button" id="709">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31083]</label>
+					<label>$LOCALIZE[31083]</label>
 					<label2>$VAR[addon-imageselect]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.image.resource.select)) + !System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.image.resource.select)) + !System.HasAddon(script.image.resource.select)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="709">
+				<!-- Artist Slideshow -->
+				<control type="button" id="710">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31085]</label>
+					<label>$LOCALIZE[31085]</label>
 					<label2>$VAR[addon-upnext]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(service.upnext)) + !System.HasAddon(service.upnext)">InstallAddon(service.upnext)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(service.upnext)) + !System.HasAddon(service.upnext)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(service.upnext)">Addon.OpenSettings(service.upnext)</onclick>
 				</control>
-				<control type="button" id="710">
+				<!-- Skin Shortcuts -->
+				<control type="button" id="711">
 					<include>SkinSettings_coords16</include>
-					<label> - $LOCALIZE[31086]</label>
+					<label>$LOCALIZE[31086]</label>
 					<label2>$VAR[addon-artistslideshow]</label2>
 					<onclick condition="String.IsEmpty(System.AddonVersion(script.artistslideshow)) + !System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</onclick>
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.artistslideshow)) + !System.HasAddon(script.artistslideshow)">ActivateWindow(1102)</onclick>
