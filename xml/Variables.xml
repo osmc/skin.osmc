@@ -861,6 +861,14 @@
 		<value condition="!String.Contains(ListItem.Episode,s)">$INFO[ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[ListItem.Episode,$LOCALIZE[20359] [UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="String.Contains(ListItem.Episode,s)">$INFO[ListItem.Episode,$LOCALIZE[20359] [UPPERCASE],[/UPPERCASE]]</value>
 	</variable>
+	
+	<!-- Subtitle download label -->
+	<variable name="SubtitleDownload">
+		<value condition="ListItem.Property(hearingimp) + ListItem.Property(sync)">[CC] (SYNC) $INFO[ListItem.Label2]</value>
+		<value condition="ListItem.Property(hearingimp) + !ListItem.Property(sync)">[CC] $INFO[ListItem.Label2]</value>
+		<value condition="!ListItem.Property(hearingimp) + ListItem.Property(sync)">(SYNC) $INFO[ListItem.Label2]</value>
+		<value condition="!ListItem.Property(hearingimp) + !ListItem.Property(sync)">$INFO[ListItem.Label2]</value>
+	</variable>
 
 	<!-- Weather icons -->
 	<variable name="weatherIcons">
