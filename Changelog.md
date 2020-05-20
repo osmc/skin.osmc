@@ -274,7 +274,7 @@ DialogSlider.xml:
 - add depth include
 
 DialogSubtitles.xml:
-- add new right list scrollbar
+- add list scrollbars
 - replace overlay image
 - add depth include
 - add the same dialog buttons style other dialogs use
