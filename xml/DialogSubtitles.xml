@@ -85,6 +85,7 @@
 			<control type="label">
 				<include>DialogSubtitles_coords1</include>
 				<label>24018</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
 
 			<!-- Seperator -->
@@ -96,10 +97,11 @@
 			<!-- Left list -->
 			<control type="list" id="150">
 				<include>DialogSubtitles_coords3</include>
-				<onleft>9001</onleft>
-				<onright>60</onright>
+				<onleft>60</onleft>
+				<onright>70</onright>
 				<onup>150</onup>
 				<ondown>150</ondown>
+				<pagecontrol>60</pagecontrol>
 				<orientation>vertical</orientation>
 				<viewtype label="list">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -110,47 +112,11 @@
 
 			</control>
 
-			<!-- Video label -->
-			<control type="fadelabel">
-				<include>DialogSubtitles_coords6</include>
-				<label>$INFO[Player.Filename]</label>
-			</control>
-
-			<!-- Number label -->
-			<control type="label" id="140">
-				<include>DialogSubtitles_coords7</include>
-				<align>right</align>
-			</control>
-
-			<!-- Seperator -->
-			<control type="image">
-				<include>DialogSubtitles_coords8</include>
-				<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
-			</control>
-
-			<!-- Right list -->
-			<control type="list" id="120">
-				<include>DialogSubtitles_coords9</include>
-				<onleft>60</onleft>
-				<onright>9001</onright>
-				<onup>120</onup>
-				<ondown>120</ondown>
-				<pagecontrol>60</pagecontrol>
-				<orientation>vertical</orientation>
-				<viewtype label="list">list</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
-
-				<include>DialogSubtitles_coords10</include>
-
-				<include>DialogSubtitles_coords11</include>
-
-			</control>
-			
-			<!-- Scrollbar (list) -->
+			<!-- Scrollbar (Left list) -->
 			<control type="scrollbar" id="60">
 				<include>DialogSubtitles_coords12</include>
-				<onleft>150</onleft>
-				<onright>120</onright>
+				<onleft>9001</onleft>
+				<onright>150</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
@@ -162,12 +128,58 @@
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
 			</control>
 
-			<!-- Notification -->
-			<control type="label" id="130">
-				<include>DialogSubtitles_coords14</include>
+			<!-- Video label -->
+			<control type="fadelabel">
+				<include>DialogSubtitles_coords7</include>
+				<label>$INFO[Player.Filename]</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+
+			<!-- Number label -->
+			<control type="label" id="140">
+				<include>DialogSubtitles_coords8</include>
 				<align>right</align>
-				<label>31044</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
+			</control>
+
+			<!-- Seperator -->
+			<control type="image">
+				<include>DialogSubtitles_coords9</include>
+				<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+			</control>
+
+			<!-- Right list -->
+			<control type="list" id="120">
+				<include>DialogSubtitles_coords10</include>
+				<onleft>70</onleft>
+				<onright>9001</onright>
+				<onup>120</onup>
+				<ondown>120</ondown>
+				<pagecontrol>70</pagecontrol>
+				<orientation>vertical</orientation>
+				<viewtype label="list">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+
+				<include>DialogSubtitles_coords11</include>
+
+				<include>DialogSubtitles_coords12</include>
+
+			</control>
+			
+			<!-- Scrollbar (Right list) -->
+			<control type="scrollbar" id="70">
+				<include>DialogSubtitles_coords13</include>
+				<onleft>150</onleft>
+				<onright>120</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
 			</control>
 			
 			<!-- Button grouplist background -->

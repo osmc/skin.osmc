@@ -24,8 +24,9 @@
 				<include>DialogPVRChannelManager_coords1</include>
 				<onup>20</onup>
 				<ondown>20</ondown>
-				<onleft>9001</onleft>
+				<onleft>70</onleft>
 				<onright>9000</onright>
+				<pagecontrol>70</pagecontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
 				<include>DialogPVRChannelManager_coords2</include>
@@ -33,10 +34,26 @@
 				<include>DialogPVRChannelManager_coords3</include>
 
 			</control>
+			
+			<!-- Scrollbar (left list) -->
+			<control type="scrollbar" id="70">
+				<include>DialogPVRChannelManager_coords4</include>
+				<onright>20</onright>
+				<onleft>9001</onleft>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
+			</control>
 
 			<!-- Right list -->
 			<control type="grouplist" id="9000">
-				<include>DialogPVRChannelManager_coords4</include>
+				<include>DialogPVRChannelManager_coords5</include>
 				<itemgap>0</itemgap>
 				<onleft>20</onleft>
 				<onright>9001</onright>
@@ -47,7 +64,7 @@
 
 				<!-- Channel options header -->
 				<control type="label" id="100">
-					<include>DialogPVRChannelManager_coords5</include>
+					<include>DialogPVRChannelManager_coords6</include>
 					<label>$LOCALIZE[19029] $LOCALIZE[33063]</label>
 					<align>center</align>
 					<textcolor>$VAR[TextColor2]</textcolor>
@@ -55,44 +72,44 @@
 
 				<!-- Channel activated -->
 				<control type="radiobutton" id="7">
-					<include>DialogPVRChannelManager_coords6</include>
+					<include>DialogPVRChannelManager_coords7</include>
 					<label>19074</label>
 				</control>
 
 				<!-- Channel name -->
 				<control type="edit" id="8">
-					<include>DialogPVRChannelManager_coords7</include>
+					<include>DialogPVRChannelManager_coords8</include>
 					<label>19201</label>
 				</control>
 
 				<!-- Channel logo button -->
 				<control type="button" id="9">
-					<include>DialogPVRChannelManager_coords6</include>
+					<include>DialogPVRChannelManager_coords7</include>
 					<label>19202</label>
 				</control>
 
 				<!-- Current channel logo -->
 				<control type="image" id="10">
-					<include>DialogPVRChannelManager_coords8</include>
+					<include>DialogPVRChannelManager_coords9</include>
 					<texture>$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 
 				<!-- EPG activated -->
 				<control type="radiobutton" id="12">
-					<include>DialogPVRChannelManager_coords6</include>
+					<include>DialogPVRChannelManager_coords7</include>
 					<label>19074</label>
 				</control>
 
 				<!-- EPG source -->
 				<control type="spincontrolex" id="13">
-					<include>DialogPVRChannelManager_coords7</include>
+					<include>DialogPVRChannelManager_coords8</include>
 					<label>19200</label>
 				</control>
 
 				<!-- Parental locked -->
 				<control type="radiobutton" id="14">
-					<include>DialogPVRChannelManager_coords6</include>
+					<include>DialogPVRChannelManager_coords7</include>
 					<label>19267</label>
 				</control>
 

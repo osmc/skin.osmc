@@ -23,8 +23,9 @@
 			<!-- Root label -->
 			<control type="label" id="101">
 				<include>FileManager_coords2</include>
+				<font>Font36</font>
 				<haspath>true</haspath>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
 
 			<!-- Seperator -->
@@ -36,20 +37,37 @@
 			<!-- Left list -->
 			<control type="list" id="20">
 				<include>FileManager_coords4</include>
-				<onleft>noop</onleft>
-				<onright>21</onright>
+				<onright>80</onright>
+				<onleft>70</onleft>
 				<onup>20</onup>
 				<ondown>20</ondown>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<pagecontrol>70</pagecontrol>
 
 				<include>FileManager_coords5</include>
 
 				<include>FileManager_coords6</include>
 
 			</control>
+			
+			<!-- Scrollbar (left list) -->
+			<control type="scrollbar" id="70">
+				<include>FileManager_coords7</include>
+				<onright>20</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
+			</control>
 
 			<!-- Item count -->
 			<control type="fadelabel">
-				<include>FileManager_coords7</include>
+				<include>FileManager_coords8</include>
 				<align>left</align>
 				<label>$INFO[Container(20).NumItems]$VAR[ContentTypeFileManager20, ,]</label>
 				<font>Font33</font>
@@ -61,38 +79,56 @@
 
 		<!-- Right group -->
 		<control type="group">
-			<include>FileManager_coords8</include>
+			<include>FileManager_coords9</include>
 
 			<!-- Root label -->
 			<control type="label" id="102">
-				<include>FileManager_coords9</include>
+				<include>FileManager_coords10</include>
+				<font>Font36</font>
 				<haspath>true</haspath>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
 
 			<!-- Seperator -->
 			<control type="image">
-				<include>FileManager_coords10</include>
+				<include>FileManager_coords11</include>
 				<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 			</control>
 
 			<!-- Right list -->
 			<control type="list" id="21">
-				<include>FileManager_coords11</include>
-				<onleft>20</onleft>
-				<onright>noop</onright>
+				<include>FileManager_coords12</include>
+				<onleft>80</onleft>
 				<onup>21</onup>
 				<ondown>21</ondown>
-
-				<include>FileManager_coords12</include>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<pagecontrol>80</pagecontrol>
 
 				<include>FileManager_coords13</include>
 
+				<include>FileManager_coords14</include>
+
+			</control>
+			
+			<!-- Scrollbar (right list) -->
+			<control type="scrollbar" id="80">
+				<include>FileManager_coords15</include>
+				<onright>21</onright>
+				<onleft>20</onleft>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
 			</control>
 
 			<!-- Item count -->
 			<control type="fadelabel">
-				<include>FileManager_coords14</include>
+				<include>FileManager_coords16</include>
 				<align>right</align>
 				<label>$INFO[Container(21).NumItems]$VAR[ContentTypeFileManager21, ,]</label>
 				<font>Font33</font>

@@ -14,12 +14,14 @@ _Improved_
 - improve debug overlay
 - improve overall handling of music videos
 - improve playlist window
-- add scrollbar to subtitle dialog
+- add missing scrollbars
+- rework most dialogs for consistency
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
 - fix music playlist editor window
 - fix side menu return button behaviour
+- fix edge alignment of dialogs and windows
 
 **Changelog v18.3.0**
 
@@ -45,8 +47,32 @@ AddonBrowser.xml:
 - move options menu slightly left to avoid it being inactively visible during 3D mode
 - add onback to options side menu
 
+Coordinates_Custom_Backup.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_Custom_Confirm_Reset_Skin_Settings.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_Custom_Customization.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_Custom_Disabled_Add-on.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_Custom_Skin_SHortcuts_Help.xml:
+- adjust control dimensions to match help overlay to reworked skinshortcuts dialog
+
+Coordinates_Custom_Welcome.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_DialogAddonSettings.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
 Coordinates_DialogButtonMenu.xml:
 - increase width of dialog background to avoid 3D depth gap
+
+Coordinates_DialogConfirm.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
 
 Coordinates_DialogContextMenu.xml:
 - increase width of dialog background to avoid 3D depth gap
@@ -54,35 +80,103 @@ Coordinates_DialogContextMenu.xml:
 Coordinates_DialogExtendedProgressBar.xml:
 - increase width of dialog background to avoid 3D depth gap
 
+Coordinates_DialogFavourites.xml:
+- adjust controls width to fit 120 pixel window edge alignment
+
+Coordinates_DialogGameControllers.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+- add new scrollbar coordinates
+
+Coordinates_DialogKeyboard.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
 Coordinates_DialogNotification.xml:
 - increase width of dialog background to avoid 3D depth gap
 
+Coordinates_DialogMediaSource.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_DialogPictureInfo.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_DialogPVRChannelManager.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+- add new scrollbar coordinates
+
+Coordinates_DialogPVRGroupManager.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+- add new scrollbar coordinates
+
 Coordinates_DialogSelect.xml:
 - increase width and hight of games settings panel to avoid 3D depth gap
+- adjust controls width to fit 150 pixel dialog edge alignment
+- add new scrollbar coordinates
+
+Coordinates_DialogSettings.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_DialogSubtitles.xml:
+- add new coordinates for right list scrollbar
+- adjust controls width to fit 150 pixel dialog edge alignment
+- rework right list includes
+
+Coordinates_DialogTextViewer.xml:
+- fix scrollbar coordinates
 
 Coordinates_DialogVolumeBar.xml:
 - increase width of dialog background to avoid 3D depth gap
+
+Coordinates_FileManager.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+- add new scrollbar coordinates
 
 Coordinates_Includes.xml:
 - reorder dialog button coordinates
 - increase width of options side menu background to avoid 3D depth gap
 - increase width and hight of masking bars to avoid 3D depth gap
 - increase width of scrolling label background to avoid 3D depth gap
+- rework widget alignment and animations
 
 Coordinates_MyMusicNav.xml:
 - fix Wide view scrollbar coordinates
 
 Coordinates_MyMusicPlaylistEditor.xml:
 - rework coordinates for music playlist editor window rework
+- adjust controls width to fit 120 pixel window edge alignment
 
 Coordinates_MyVideoNav.xml:
 - add coordinates for new Wide low info scrollbar
 
+Coordinates_MyPVRGuide.xml:
+- fix scrollbar coordinates
+
+Coordinates_script-skin_helper_service-ColorPicker.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_script-skinshortcuts.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
 Coordinates_SettingsCategory.xml:
 - add new coordinates for buttons not adjusted for different aspect ratio modes
+- adjust controls width to fit 120 pixel window edge alignment
 
-Coordinates_DialogSubtitles.xml:
-- add new coordinates for right list scrollbar
+Coordinates_SettingsProfile.xml:
+- adjust controls width to fit 120 pixel window edge alignment
+
+Coordinates_SettingsSystemInfo.xml:
+- adjust controls width to fit 120 pixel window edge alignment
+
+Coordinates_SkinSettings.xml:
+- adjust controls width to fit 120 pixel window edge alignment
+
+Coordinates_SmartPlaylistEditor.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_SmartPlaylistRule.xml:
+- adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_Viewtype52.xml:
+- adjust focussed cover art dimensions for better alignment
 
 Custom_Disabled_Add-on.xml:
 - fix dialog animation
@@ -123,9 +217,11 @@ DialogFavourites.xml:
 
 DialogGameControllers.xml:
 - add depth include
+- add new scrollbars
 
 DialogKeyboard.xml:
 - add depth include
+- fix button aligment
 
 DialogMediaSource.xml:
 - add depth include
@@ -151,12 +247,14 @@ DialogPVRChannelGuide.xml:
 
 DialogPVRChannelManager.xml:
 - add depth include
+- add new scrollbar
 
 DialogPVRChannelsOSD.xml:
 - add depth include
 
 DialogPVRGroupManager.xml:
 - add depth include
+- add new scrollbars
 
 DialogPVRGuideSearch.xml:
 - add depth include
@@ -170,20 +268,22 @@ DialogSeekBar.xml:
 DialogSelect.xml:
 - add depth includes
 - adjust game settings animations
+- add new scrollbar
 
 DialogSlider.xml:
 - add depth include
 
 DialogSubtitles.xml:
-- add new right list scrollbar
+- add list scrollbars
 - replace overlay image
 - add depth include
 - add the same dialog buttons style other dialogs use
 
 DialogTextViewer.xml:
 - add depth include
+- fix scrollbar
 
-DialogVideoInfox.xml:
+DialogVideoInfo.xml:
 - add new music video information controls (similar to music info dialog)
 
 DialogVolumeBar.xml:
@@ -198,6 +298,9 @@ EventLog.xml:
 
 FileBrowser.xml:
 - add depth include
+
+FileManager.xml:
+- add new scrollbars
 
 Home.xml: 
 - add SidemenuMenucontrol include
@@ -348,6 +451,8 @@ Pointer.xml:
 script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
 - add depth include
+- add missing time include
+- remove pallette button
 
 script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
@@ -398,6 +503,7 @@ SkinSettings.xml:
 - rework Next Up supported addon button for new Up Next addon
 - change window heading to use global heading variable
 - change skin setting reset button to first open confirmation dialog
+- add dividers and adjust heading formatting and alignment to match settings appearance
 
 SmartPlaylistEditor.xml:
 - add depth include
@@ -415,6 +521,7 @@ Variables.xml:
 - add new ContentTypeMyPlaylist variable for reworked playlist window
 - adjust VideoPlayerTitle, MusicNextPlaying1, MusicNextPlaying2 and VideoInfoLabel variables to match overall representation of movie/TV show/album title and year
 - adjust SubtitleLanguage variable to reflect whether subtitles are disabled
+- add new SubtitleDownload for improved subtitle dialog
 
 VideoFullScreen.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
