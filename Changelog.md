@@ -16,6 +16,7 @@ _Improved_
 - improve playlist window
 - add missing scrollbars
 - rework most dialogs for consistency
+- improve widget positioning and widget icon size
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
@@ -36,9 +37,14 @@ strings.po:
 - add new explanation localize for new supported Up Next addon (31393)
 - add new localize for new custom reset skin settings confirmation dialog (31394)
 - rework music playlist editor and player process info dialog localizes (31008, 31011, 31156)
+- change widget layout localize and skinshortcuts widget layout explanation text localize to match new widget wide layout name "narrow" (31240, 31370)
+
+overrides.xml:
+- change widget layout labels to localizes
 
 template.xml:
 - rework widgetDetails variable
+- change widget wide layout dimensions to 1:1 aspect ratio
 
 AddonBrowser.xml:
 - add SidemenuMenucontrol include
@@ -136,6 +142,10 @@ Coordinates_Includes.xml:
 - increase width and hight of masking bars to avoid 3D depth gap
 - increase width of scrolling label background to avoid 3D depth gap
 - rework widget alignment and animations
+- fix widget wide animation for scope skin version
+- fix widget wide 4:3 animation to incorporate two widget icons
+- adjust widget tall and wide positioning and size
+- adjust widget heading positioning
 
 Coordinates_MyMusicNav.xml:
 - fix Wide view scrollbar coordinates
@@ -332,6 +342,9 @@ Includes_Time_NowPlaying.xml:
 - rework now playing formatting
 - add new information for music video playback
 
+Includes_Widgets.xml:
+- remove deprecated widget-movement include
+
 Includes_Windows_Dialogs.xml:
 - replace FullscreenDimensions include of background images by new FullscreenOverlayDimensions include
 - add depth includes to background images
@@ -462,6 +475,7 @@ script-skinshortcuts.xml:
 - add new onload and onunload for improved debug dialog
 - replace FullscreenDimensions include of background images by new FullscreenOverlayDimensions include
 - add depth includes
+- add new scrollbar
 
 script-upnext-stillwatching-simple.xml:
 - add new onload and onunload for improved debug dialog

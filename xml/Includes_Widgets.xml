@@ -407,62 +407,6 @@
 		</definition>
 	</include>
 
-	<include name="widget-movement">
-		<definition>
-			<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(1).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(2).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(3).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(4).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(5).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(6).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id])">Conditional</animation>
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(7).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id])">Conditional</animation> 
-			<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(8).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id])">Conditional</animation> 
-
-			<!-- Slide it back right if there's a wide widget in the way -->
-			<animation effect="slide" end="-142,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(-2).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="-142,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(-1).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="-142,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap.Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="String.IsEqual(Container(9000).ListItemNoWrap.Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(1).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(2).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(3).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(4).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(5).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(6).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(7).Property(layout),wide)">Conditional</animation>
-			<animation effect="slide" end="142,0" time="200" condition="!Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(8).Property(layout),wide)">Conditional</animation>
-		</definition>
-	</include>
-
-	<include name="widget-movement-wide">
-		<animation effect="slide" end="-345,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(1).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(2).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(3).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(4).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(5).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(6).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id])">Conditional</animation>
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(7).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id])">Conditional</animation> 
-		<animation effect="slide" end="-203,0" time="200" condition="String.IsEmpty(Container(9000).ListItemNoWrap(8).Property(id)) | Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id])">Conditional</animation>
-
-		<animation effect="slide" end="-142,0" time="200" condition="[String.IsEqual(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id]) | Integer.IsGreater(Container(9000).ListItemNoWrap(-2).Property(id),$PARAM[id])] + String.IsEqual(Container(9000).ListItemNoWrap(-2).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="-142,0" time="200" condition="[String.IsEqual(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id]) | Integer.IsGreater(Container(9000).ListItemNoWrap(-1).Property(id),$PARAM[id])] + String.IsEqual(Container(9000).ListItemNoWrap(-1).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap.Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap.Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap.Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(1).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(1).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(2).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(2).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(3).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(3).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(4).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(4).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(5).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(5).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(6).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(6).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(7).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(7).Property(layout),wide)">Conditional</animation>
-		<animation effect="slide" end="142,0" time="200" condition="!String.IsEqual(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id]) + !Integer.IsGreater(Container(9000).ListItemNoWrap(8).Property(id),$PARAM[id]) + String.IsEqual(Container(9000).ListItemNoWrap(8).Property(layout),wide)">Conditional</animation>
-	</include>
-
 	<!-- Widget layout -->
 	<include name="widgetLayout-tall">
 		<include>widgetLayout-tall-OSMC</include>
@@ -499,21 +443,21 @@
 			</include>
 		</definition>
 	</include>
-
+	
+	<include name="widgetLayoutSlide-wide">
+		<definition>
+			<include content="widgetLayoutSlide-wide-OSMC">
+				<param name="container">$PARAM[container]</param>
+			</include>
+		</definition>
+	</include>
+	
 	<!-- Widget Animation -->
 	<include name="widgetAnimation">
 		<definition>
 			<include content="widgetAnimation-OSMC">
 				<param name="container1">$PARAM[container1]</param>
 				<param name="container2">$PARAM[container2]</param>
-			</include>
-		</definition>
-	</include>
-	
-	<include name="widgetLayoutSlide-wide">
-		<definition>
-			<include content="widgetLayoutSlide-wide-OSMC">
-				<param name="container">$PARAM[container]</param>
 			</include>
 		</definition>
 	</include>
