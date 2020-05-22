@@ -135,7 +135,7 @@
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
 				<!-- Widget layout -->
-				<include>widgetLayout-tall</include>
+				<include>widgetLayout-weather</include>
 
 				<!-- Widget oncontrol -->
 				<include content="widgetOnControl">
@@ -143,7 +143,7 @@
 				</include>
 				
 				<!-- Widget layout slide -->
-				<include content="widgetLayoutSlide-tall">
+				<include content="widgetLayoutSlide-weather">
 					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
 				</include>
 
@@ -290,8 +290,10 @@
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
 				<!-- Widget layout -->
-				<include condition="$PYTHON['True' if layout != 'wide' else 'False']">widgetLayout-tall</include>
-				<include condition="$PYTHON['False' if layout != 'wide' else 'True']">widgetLayout-wide</include>
+				<include condition="$PYTHON['True' if layout == 'tall' else 'False']">widgetLayout-tall</include>
+				<include condition="$PYTHON['True' if layout == 'wide' else 'False']">widgetLayout-wide</include>
+				<include condition="$PYTHON['True' if layout == 'square' else 'False']">widgetLayout-square</include>
+				<include condition="$PYTHON['True' if layout == 'square-small' else 'False']">widgetLayout-square-small</include>
 
 				<!-- Widget oncontrol -->
 				<include content="widgetOnControl">
@@ -299,10 +301,16 @@
 				</include>
 				
 				<!-- Widget layout slide -->
-				<include condition="$PYTHON['True' if layout != 'wide' else 'False']" content="widgetLayoutSlide-tall">
+				<include condition="$PYTHON['True' if layout == 'tall' else 'False']" content="widgetLayoutSlide-tall">
 					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
 				</include>
-				<include condition="$PYTHON['False' if layout != 'wide' else 'True']" content="widgetLayoutSlide-wide">
+				<include condition="$PYTHON['True' if layout == 'wide' else 'False']" content="widgetLayoutSlide-wide">
+					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
+				</include>
+				<include condition="$PYTHON['True' if layout == 'square' else 'False']" content="widgetLayoutSlide-square">
+					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
+				</include>
+				<include condition="$PYTHON['True' if layout == 'square-small' else 'False']" content="widgetLayoutSlide-square-small">
 					<param name="container">10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]</param>
 				</include>
 
@@ -499,8 +507,6 @@
 
 	</submenuOther>
 
-
-
 	<submenuOther include="reloading" level="1">
 		<property name="id" tag="mainmenuid" />
 		<propertyGroup>mainmenuWidgets</propertyGroup>
@@ -516,8 +522,6 @@
 			</control>
 		</controls>
 	</submenuOther>
-
-
 
 	<propertyGroup name="mainmenuWidgets">
 		<property name="id" tag="mainmenuid" />
@@ -573,38 +577,44 @@
 	</propertyGroup>
 
 	<propertyGroup name="LumosLayout">
-		<!-- Layout - wide -->
-		<property name="layoutTop" tag="property" attribute="name|layout" value="wide">-294</property>
-		<property name="layoutWidth" tag="property" attribute="name|layout" value="wide">326</property>
-		<property name="layoutHeight" tag="property" attribute="name|layout" value="wide">326</property>
 		
-		<property name="imageWidthNoFocus" tag="property" attribute="name|layout" value="wide">294</property>
-		<property name="imageHeightNoFocus" tag="property" attribute="name|layout" value="wide">294</property>
-		<property name="imageWidthFocus" tag="property" attribute="name|layout" value="wide">326</property>
-		<property name="imageHeightFocus" tag="property" attribute="name|layout" value="wide">326</property>
+		<!-- Layout -->
+		<property name="layoutWidth" tag="property" attribute="name|layout" value="wide">320</property>
+		<property name="layoutWidth" tag="property" attribute="name|layout" value="square">320</property>
+		<property name="layoutWidth" tag="property" attribute="name|layout" value="square-small">240</property>
+		<property name="layoutWidth">240</property>
 		
-		<property name="imageEmpty" tag="property" attribute="name|layout" value="wide">wide-empty.png</property>
-		<property name="layoutFocus" tag="property" attribute="name|layout" value="wide">4</property>
-
-		<!-- Layout - tall -->
-		<property name="layoutTop">-306</property>
-		<property name="layoutWidth">203</property>
-		<property name="layoutHeight">326</property>	
+		<property name="layoutHeight" tag="property" attribute="name|layout" value="wide">240</property>
+		<property name="layoutHeight" tag="property" attribute="name|layout" value="square">320</property>
+		<property name="layoutHeight" tag="property" attribute="name|layout" value="square-small">240</property>	
+		<property name="layoutHeight">360</property>	
 		
-		<property name="imageWidthNoFocus">183</property>
-		<property name="imageHeightNoFocus">306</property>
-		<property name="imageWidthFocus">203</property>
-		<property name="imageHeightFocus">326</property>
+		<property name="imageWidthNoFocus" tag="property" attribute="name|layout" value="wide">288</property>
+		<property name="imageWidthNoFocus" tag="property" attribute="name|layout" value="square">288</property>
+		<property name="imageWidthNoFocus" tag="property" attribute="name|layout" value="square-small">216</property>
+		<property name="imageWidthNoFocus">216</property>
 		
-		<property name="imageEmpty">poster-empty.png</property>
-		<property name="layoutFocus">3</property>
-
+		<property name="imageHeightNoFocus" tag="property" attribute="name|layout" value="wide">216</property>
+		<property name="imageHeightNoFocus" tag="property" attribute="name|layout" value="square">288</property>
+		<property name="imageHeightNoFocus" tag="property" attribute="name|layout" value="square-small">216</property>
+		<property name="imageHeightNoFocus">324</property>
+		
+		<property name="imageWidthFocus" tag="property" attribute="name|layout" value="wide">320</property>
+		<property name="imageWidthFocus" tag="property" attribute="name|layout" value="square">320</property>
+		<property name="imageWidthFocus" tag="property" attribute="name|layout" value="square-small">240</property>
+		<property name="imageWidthFocus">240</property>
+		
+		<property name="imageHeightFocus" tag="property" attribute="name|layout" value="wide">240</property>
+		<property name="imageHeightFocus" tag="property" attribute="name|layout" value="square">320</property>
+		<property name="imageHeightFocus" tag="property" attribute="name|layout" value="square-small">240</property>
+		<property name="imageHeightFocus">360</property>
+		
 		<!-- Python snippets -->
 		<property name="primary-art">'widget-fakelandscape' if art in 'FAKELANDSCAPE' else 'widget-faketvlandscape' if art in 'FAKETVLANDSCAPE' else 'widget-image'</property>
 		<property name="secondary-art">'widget-fakelandscape' if art2 in 'FAKELANDSCAPE' else 'widget-faketvlandscape' if art2 in 'FAKETVLANDSCAPE' else 'widget-image'</property>
 		<property name="secondary-visibility">'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art in 'FAKELANDSCAPE' else 'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art in 'FAKETVLANDSCAPE' else 'IsEmpty(ListItem.%s)' %(art)</property>
 		<property name="fallback-visibility">'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art2 in 'FAKELANDSCAPE' else 'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art2 in 'FAKETVLANDSCAPE' else 'IsEmpty(ListItem.%s)' %(art2)</property>
-
+		
 	</propertyGroup>
 
 	<submenuOther include="widgetDetails" level="1">

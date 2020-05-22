@@ -1235,10 +1235,7 @@
 			<onfocus>Control.Move(10006,1)</onfocus>
 		</control>
 		<control type="group">
-			<left>590</left>
-			<top>680</top>
-			<width>1218</width>
-			<height>326</height>
+			<include>widgetHeading-OSMC_coords</include>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-15016)</visible>
 			<visible>Integer.IsGreater(Container(10006).NumItems,0)</visible>
 			<animation type="Visible">
@@ -1250,7 +1247,6 @@
 				<effect type="slide" start="0,0" end="1800,0" time="400" />
 			</animation>
 
-			
 			<!-- Widget has focus -->
 			<control type="grouplist">
 				<orientation>vertical</orientation>
@@ -1266,7 +1262,7 @@
 
 				<!-- Widget details -->
 				<control type="textbox">
-					<width>1218</width>
+					<include>widgetdetails_coords</include>
 					<height>auto</height>
 					<font>Font33</font>
 					<align>right</align>
@@ -1277,15 +1273,29 @@
 				
 				<!-- Widget heading -->
 				<control type="label">
-					<width>1218</width>
+					<include>widgetdetails_coords</include>
 					<height>46</height>
 					<font>Font33</font>
 					<align>right</align>
 					<aligny>top</aligny>
 					<label>$LOCALIZE[35049]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
+					<scroll>True</scroll>
 				</control>
 				
+			</control>
+			<!-- Reloading indicator -->
+			<control type="group">
+				<animation type="Conditional" condition="ControlGroup(9002).HasFocus">
+					<effect type="fade" start="0" end="100" time="200" />
+					<effect type="slide" start="1800,0" end="0,0" time="400" />
+				</animation>
+				<animation type="Conditional" condition="!ControlGroup(9002).HasFocus">
+					<effect type="fade" start="100" end="0" time="200" />
+					<effect type="slide" start="0,0" end="1800,0" time="400" />
+				</animation>
+				<include>widgetreloadingindicator_coords</include>
+				<include>skinshortcuts-template-reloading</include>
 			</control>
 			
 			<!-- Widget does not have focus -->
@@ -1301,15 +1311,29 @@
 				
 				<!-- Widget heading -->
 				<control type="label">
-					<width>1218</width>
+					<include>widgetdetails_coords</include>
 					<height>46</height>
 					<font>Font33</font>
 					<align>right</align>
 					<aligny>top</aligny>
 					<label>$LOCALIZE[35049]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
+					<scroll>True</scroll>
 				</control>
 				
+			</control>
+			<!-- Reloading indicator -->
+			<control type="group">
+				<animation type="Conditional" condition="!ControlGroup(9002).HasFocus">
+					<effect type="fade" start="0" end="100" time="200" />
+					<effect type="slide" start="1800,0" end="0,0" time="400" />
+				</animation>
+				<animation type="Conditional" condition="ControlGroup(9002).HasFocus">
+					<effect type="fade" start="100" end="0" time="200" />
+					<effect type="slide" start="0,0" end="1800,0" time="400" />
+				</animation>
+				<include>widgetreloadingindicator_coords</include>
+				<include>skinshortcuts-template-reloading</include>
 			</control>
 		</control>
 		<control id="10008" type="list">
@@ -1600,6 +1624,8 @@
 			<scrolltime easing="out" tween="sine">240</scrolltime>
 			<include condition="True">widgetLayout-tall</include>
 			<include condition="False">widgetLayout-wide</include>
+			<include condition="False">widgetLayout-square</include>
+			<include condition="False">widgetLayout-square-small</include>
 			<include content="widgetOnControl">
 				<param name="container">10001</param>
 			</include>
@@ -1609,17 +1635,23 @@
 			<include condition="False" content="widgetLayoutSlide-wide">
 				<param name="container">10101</param>
 			</include>
+			<include condition="False" content="widgetLayoutSlide-square">
+				<param name="container">10101</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-square-small">
+				<param name="container">10101</param>
+			</include>
 			<include content="widgetAnimation">
 				<param name="container1">10001</param>
 				<param name="container2">1-1</param>
 			</include>
-			<itemlayout height="326" width="203">
+			<itemlayout height="360" width="240">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultMovie.png</param>
 					<param name="art">$INFO[ListItem.Art(poster)]</param>
@@ -1629,10 +1661,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultMovie.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -1642,10 +1674,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultMovie.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -1654,10 +1686,10 @@
 					<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="group">
-					<right>10</right>
+					<right>12</right>
 					<bottom>0</bottom>
-					<width>40</width>
-					<height>40</height>
+					<width>48</width>
+					<height>48</height>
 					<control type="image">
 						<texture background="true">views/OverlayCornerRight.png</texture>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -1670,17 +1702,17 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="326" width="203">
+			<focusedlayout height="360" width="240">
 				<control type="group">
-					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="120,360" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Art(poster)]</param>
 						<param name="aspectratio">keep</param>
@@ -1689,10 +1721,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -1701,10 +1733,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -1712,10 +1744,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -1731,10 +1763,10 @@
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Art(poster)]</param>
@@ -1744,10 +1776,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -1757,10 +1789,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultMovie.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -1769,10 +1801,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -1796,6 +1828,8 @@
 			<scrolltime easing="out" tween="sine">240</scrolltime>
 			<include condition="True">widgetLayout-tall</include>
 			<include condition="False">widgetLayout-wide</include>
+			<include condition="False">widgetLayout-square</include>
+			<include condition="False">widgetLayout-square-small</include>
 			<include content="widgetOnControl">
 				<param name="container">10002</param>
 			</include>
@@ -1805,17 +1839,23 @@
 			<include condition="False" content="widgetLayoutSlide-wide">
 				<param name="container">10201</param>
 			</include>
+			<include condition="False" content="widgetLayoutSlide-square">
+				<param name="container">10201</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-square-small">
+				<param name="container">10201</param>
+			</include>
 			<include content="widgetAnimation">
 				<param name="container1">10002</param>
 				<param name="container2">2-1</param>
 			</include>
-			<itemlayout height="326" width="203">
+			<itemlayout height="360" width="240">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
 					<param name="art">$INFO[ListItem.Art(season.poster)]</param>
@@ -1825,10 +1865,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
 					<param name="art">$INFO[ListItem.Art(tvshow.poster)]</param>
@@ -1838,10 +1878,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -1850,10 +1890,10 @@
 					<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 				</include>
 				<control type="group">
-					<right>10</right>
+					<right>12</right>
 					<bottom>0</bottom>
-					<width>40</width>
-					<height>40</height>
+					<width>48</width>
+					<height>48</height>
 					<control type="image">
 						<texture background="true">views/OverlayCornerRight.png</texture>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -1866,17 +1906,17 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="326" width="203">
+			<focusedlayout height="360" width="240">
 				<control type="group">
-					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="120,360" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Art(season.poster)]</param>
 						<param name="aspectratio">keep</param>
@@ -1885,10 +1925,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Art(tvshow.poster)]</param>
 						<param name="aspectratio">keep</param>
@@ -1897,10 +1937,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -1908,10 +1948,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -1926,10 +1966,10 @@
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Art(season.poster)]</param>
@@ -1939,10 +1979,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Art(tvshow.poster)]</param>
@@ -1952,10 +1992,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -1964,10 +2004,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -1988,28 +2028,36 @@
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
-			<include condition="True">widgetLayout-tall</include>
+			<include condition="False">widgetLayout-tall</include>
 			<include condition="False">widgetLayout-wide</include>
+			<include condition="False">widgetLayout-square</include>
+			<include condition="True">widgetLayout-square-small</include>
 			<include content="widgetOnControl">
 				<param name="container">10004</param>
 			</include>
-			<include condition="True" content="widgetLayoutSlide-tall">
+			<include condition="False" content="widgetLayoutSlide-tall">
 				<param name="container">10401</param>
 			</include>
 			<include condition="False" content="widgetLayoutSlide-wide">
+				<param name="container">10401</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-square">
+				<param name="container">10401</param>
+			</include>
+			<include condition="True" content="widgetLayoutSlide-square-small">
 				<param name="container">10401</param>
 			</include>
 			<include content="widgetAnimation">
 				<param name="container1">10004</param>
 				<param name="container2">4-1</param>
 			</include>
-			<itemlayout height="326" width="203">
+			<itemlayout height="240" width="240">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultMusicAlbums.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2019,10 +2067,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultMusicAlbums.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2032,10 +2080,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultMusicAlbums.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2044,10 +2092,10 @@
 					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="group">
-					<right>10</right>
+					<right>12</right>
 					<bottom>0</bottom>
-					<width>40</width>
-					<height>40</height>
+					<width>48</width>
+					<height>48</height>
 					<control type="image">
 						<texture background="true">views/OverlayCornerRight.png</texture>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2060,17 +2108,17 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="326" width="203">
+			<focusedlayout height="240" width="240">
 				<control type="group">
-					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="120,240" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2079,10 +2127,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2091,10 +2139,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2102,10 +2150,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2120,10 +2168,10 @@
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2133,10 +2181,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2146,10 +2194,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultMusicAlbums.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2158,10 +2206,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2182,28 +2230,36 @@
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
-			<include condition="True">widgetLayout-tall</include>
+			<include condition="False">widgetLayout-tall</include>
 			<include condition="False">widgetLayout-wide</include>
+			<include condition="False">widgetLayout-square</include>
+			<include condition="True">widgetLayout-square-small</include>
 			<include content="widgetOnControl">
 				<param name="container">10006</param>
 			</include>
-			<include condition="True" content="widgetLayoutSlide-tall">
+			<include condition="False" content="widgetLayoutSlide-tall">
 				<param name="container">10601</param>
 			</include>
 			<include condition="False" content="widgetLayoutSlide-wide">
+				<param name="container">10601</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-square">
+				<param name="container">10601</param>
+			</include>
+			<include condition="True" content="widgetLayoutSlide-square-small">
 				<param name="container">10601</param>
 			</include>
 			<include content="widgetAnimation">
 				<param name="container1">10006</param>
 				<param name="container2">6-1</param>
 			</include>
-			<itemlayout height="326" width="203">
+			<itemlayout height="240" width="240">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultGameAddons.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2213,10 +2269,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultGameAddons.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2226,10 +2282,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultGameAddons.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2238,10 +2294,10 @@
 					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="group">
-					<right>10</right>
+					<right>12</right>
 					<bottom>0</bottom>
-					<width>40</width>
-					<height>40</height>
+					<width>48</width>
+					<height>48</height>
 					<control type="image">
 						<texture background="true">views/OverlayCornerRight.png</texture>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2254,17 +2310,17 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="326" width="203">
+			<focusedlayout height="240" width="240">
 				<control type="group">
-					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="120,240" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2273,10 +2329,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2285,10 +2341,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2296,10 +2352,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2314,10 +2370,10 @@
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2327,10 +2383,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2340,10 +2396,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultGameAddons.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2352,10 +2408,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2376,28 +2432,36 @@
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
-			<include condition="True">widgetLayout-tall</include>
+			<include condition="False">widgetLayout-tall</include>
 			<include condition="False">widgetLayout-wide</include>
+			<include condition="False">widgetLayout-square</include>
+			<include condition="True">widgetLayout-square-small</include>
 			<include content="widgetOnControl">
 				<param name="container">10008</param>
 			</include>
-			<include condition="True" content="widgetLayoutSlide-tall">
+			<include condition="False" content="widgetLayoutSlide-tall">
 				<param name="container">10801</param>
 			</include>
 			<include condition="False" content="widgetLayoutSlide-wide">
+				<param name="container">10801</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-square">
+				<param name="container">10801</param>
+			</include>
+			<include condition="True" content="widgetLayoutSlide-square-small">
 				<param name="container">10801</param>
 			</include>
 			<include content="widgetAnimation">
 				<param name="container1">10008</param>
 				<param name="container2">8-1</param>
 			</include>
-			<itemlayout height="326" width="203">
+			<itemlayout height="240" width="240">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2407,10 +2471,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2420,10 +2484,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">10</param>
+					<param name="left">12</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">216</param>
+					<param name="height">216</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2432,10 +2496,10 @@
 					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="group">
-					<right>10</right>
+					<right>12</right>
 					<bottom>0</bottom>
-					<width>40</width>
-					<height>40</height>
+					<width>48</width>
+					<height>48</height>
 					<control type="image">
 						<texture background="true">views/OverlayCornerRight.png</texture>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2448,17 +2512,17 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="326" width="203">
+			<focusedlayout height="240" width="240">
 				<control type="group">
-					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="120,240" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2467,10 +2531,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2479,10 +2543,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2490,10 +2554,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2508,10 +2572,10 @@
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2521,10 +2585,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2534,10 +2598,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">12</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">216</param>
+						<param name="height">216</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2546,10 +2610,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>12</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>48</width>
+						<height>48</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2570,11 +2634,11 @@
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
-			<include>widgetLayout-tall</include>
+			<include>widgetLayout-weather</include>
 			<include content="widgetOnControl">
 				<param name="container">10009</param>
 			</include>
-			<include content="widgetLayoutSlide-tall">
+			<include content="widgetLayoutSlide-weather">
 				<param name="container">10901</param>
 			</include>
 			<include content="widgetAnimation">
@@ -2699,28 +2763,36 @@
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
-			<include condition="True">widgetLayout-tall</include>
+			<include condition="False">widgetLayout-tall</include>
 			<include condition="False">widgetLayout-wide</include>
+			<include condition="True">widgetLayout-square</include>
+			<include condition="False">widgetLayout-square-small</include>
 			<include content="widgetOnControl">
 				<param name="container">100010</param>
 			</include>
-			<include condition="True" content="widgetLayoutSlide-tall">
+			<include condition="False" content="widgetLayoutSlide-tall">
 				<param name="container">101001</param>
 			</include>
 			<include condition="False" content="widgetLayoutSlide-wide">
+				<param name="container">101001</param>
+			</include>
+			<include condition="True" content="widgetLayoutSlide-square">
+				<param name="container">101001</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-square-small">
 				<param name="container">101001</param>
 			</include>
 			<include content="widgetAnimation">
 				<param name="container1">100010</param>
 				<param name="container2">10-1</param>
 			</include>
-			<itemlayout height="326" width="203">
+			<itemlayout height="320" width="320">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">10</param>
+					<param name="left">16</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">288</param>
+					<param name="height">288</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultLiveTV.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2730,10 +2802,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">10</param>
+					<param name="left">16</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">288</param>
+					<param name="height">288</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultLiveTV.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2743,10 +2815,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">10</param>
+					<param name="left">16</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">288</param>
+					<param name="height">288</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultLiveTV.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2755,10 +2827,10 @@
 					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="group">
-					<right>10</right>
+					<right>16</right>
 					<bottom>0</bottom>
-					<width>40</width>
-					<height>40</height>
+					<width>63</width>
+					<height>63</height>
 					<control type="image">
 						<texture background="true">views/OverlayCornerRight.png</texture>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2771,17 +2843,17 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="326" width="203">
+			<focusedlayout height="320" width="320">
 				<control type="group">
-					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="160,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2790,10 +2862,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2802,10 +2874,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2813,10 +2885,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>16</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>63</width>
+						<height>63</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -2831,10 +2903,10 @@
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2844,10 +2916,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2857,10 +2929,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -2869,10 +2941,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>16</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>63</width>
+						<height>63</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2893,28 +2965,36 @@
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
-			<include condition="True">widgetLayout-tall</include>
+			<include condition="False">widgetLayout-tall</include>
 			<include condition="False">widgetLayout-wide</include>
+			<include condition="True">widgetLayout-square</include>
+			<include condition="False">widgetLayout-square-small</include>
 			<include content="widgetOnControl">
 				<param name="container">100011</param>
 			</include>
-			<include condition="True" content="widgetLayoutSlide-tall">
+			<include condition="False" content="widgetLayoutSlide-tall">
 				<param name="container">101101</param>
 			</include>
 			<include condition="False" content="widgetLayoutSlide-wide">
+				<param name="container">101101</param>
+			</include>
+			<include condition="True" content="widgetLayoutSlide-square">
+				<param name="container">101101</param>
+			</include>
+			<include condition="False" content="widgetLayoutSlide-square-small">
 				<param name="container">101101</param>
 			</include>
 			<include content="widgetAnimation">
 				<param name="container1">100011</param>
 				<param name="container2">11-1</param>
 			</include>
-			<itemlayout height="326" width="203">
+			<itemlayout height="320" width="320">
 				<include content="widget-image">
 					<description>Primary art</description>
-					<param name="left">10</param>
+					<param name="left">16</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">288</param>
+					<param name="height">288</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultLiveTV.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2924,10 +3004,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
-					<param name="left">10</param>
+					<param name="left">16</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">288</param>
+					<param name="height">288</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultLiveTV.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2937,10 +3017,10 @@
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
-					<param name="left">10</param>
+					<param name="left">16</param>
 					<param name="bottom">0</param>
-					<param name="width">183</param>
-					<param name="height">306</param>
+					<param name="width">288</param>
+					<param name="height">288</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultLiveTV.png</param>
 					<param name="art">$INFO[ListItem.Icon]</param>
@@ -2949,10 +3029,10 @@
 					<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="group">
-					<right>10</right>
+					<right>16</right>
 					<bottom>0</bottom>
-					<width>40</width>
-					<height>40</height>
+					<width>63</width>
+					<height>63</height>
 					<control type="image">
 						<texture background="true">views/OverlayCornerRight.png</texture>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
@@ -2965,17 +3045,17 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="326" width="203">
+			<focusedlayout height="320" width="320">
 				<control type="group">
-					<animation effect="zoom" start="100" end="111" center="102,326" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<animation effect="zoom" start="100" end="111" center="160,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2984,10 +3064,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -2996,10 +3076,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
@@ -3007,10 +3087,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>16</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>63</width>
+						<height>63</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
@@ -3025,10 +3105,10 @@
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
 					<include content="widget-image">
 						<description>Primary art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -3038,10 +3118,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -3051,10 +3131,10 @@
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
-						<param name="left">10</param>
+						<param name="left">16</param>
 						<param name="bottom">0</param>
-						<param name="width">183</param>
-						<param name="height">306</param>
+						<param name="width">288</param>
+						<param name="height">288</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultLiveTV.png</param>
 						<param name="art">$INFO[ListItem.Icon]</param>
@@ -3063,10 +3143,10 @@
 						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
-						<right>10</right>
+						<right>16</right>
 						<bottom>0</bottom>
-						<width>40</width>
-						<height>40</height>
+						<width>63</width>
+						<height>63</height>
 						<control type="image">
 							<texture background="true">views/OverlayCornerRight.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>

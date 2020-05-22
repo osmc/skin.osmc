@@ -6,6 +6,7 @@ _New_
 - add support for Up Next addon
 - add playlist button to video OSD
 - add 3D depth information to GUI elements
+- add new widget layouts (square and square small)
 
 _Improved_
 - make Wide low view accessible for music views
@@ -30,6 +31,7 @@ _add new Wide low info view and coordinates files_
 _add new Up Next addon and coordinates files_
 _remove deprecated Next Up addon files_
 _add new custom reset skin settings confirmation dialog and coordinates files_
+_rename music home menu skinshortcuts files_
 
 strings.po:
 - add new localize for new Wide low info view (31392)
@@ -37,14 +39,19 @@ strings.po:
 - add new explanation localize for new supported Up Next addon (31393)
 - add new localize for new custom reset skin settings confirmation dialog (31394)
 - rework music playlist editor and player process info dialog localizes (31008, 31011, 31156)
-- change widget layout localize and skinshortcuts widget layout explanation text localize to match new widget wide layout name "narrow" (31240, 31370)
+- update skinshortcuts widget layout explanation text for new widget layouts (31370)
+- add new localizes for new widget layouts (31395, 31396)
 
 overrides.xml:
 - change widget layout labels to localizes
+- add new default layouts to default widgets
+- add new widget layout properties
 
 template.xml:
 - rework widgetDetails variable
-- change widget wide layout dimensions to 1:1 aspect ratio
+- adjust widget layout and widget layout slide includes of weather widget template
+- rework widget layout and widget layout slide includes for new widget layouts
+- rework lumos layout property group for new widget layouts
 
 AddonBrowser.xml:
 - add SidemenuMenucontrol include
@@ -143,9 +150,17 @@ Coordinates_Includes.xml:
 - increase width of scrolling label background to avoid 3D depth gap
 - rework widget alignment and animations
 - fix widget wide animation for scope skin version
-- fix widget wide 4:3 animation to incorporate two widget icons
 - adjust widget tall and wide positioning and size
 - adjust widget heading positioning
+- add new widgetLayoutSlide-weather-OSMC include
+- rework widgetLayoutSlide-tall-OSMC and widgetLayoutSlide-wide-OSMC includes for new widget sizes and positioning
+- add new widgetLayoutSlide-square-OSMC and widgetLayoutSlide-square-small-OSMC includes for new widget layouts
+- add new widgetLayout-weather-OSMC include
+- rework widgetLayout-tall-OSMC and widgetLayout-wide-OSMC includes for new widget sizes and positioning
+- add new widgetLayout-square-OSMC and widgetLayout-square-small-OSMC includes for new widget layouts
+- adjust widget heading coordinates for new widget sizes and positioning
+- adjust widget details coordinates for new widget sizes and positioning
+- adjust widget reloading indicator coordinates for new widget sizes and positioning
 
 Coordinates_MyMusicNav.xml:
 - fix Wide view scrollbar coordinates
@@ -231,7 +246,7 @@ DialogGameControllers.xml:
 
 DialogKeyboard.xml:
 - add depth include
-- fix button aligment
+- fix button alignment
 
 DialogMediaSource.xml:
 - add depth include
@@ -328,7 +343,7 @@ Includes.xml:
 - move dialog buttons includes to different include file
 - add depth includes to masking bars
 
-Include_DialogSettings.xml:
+Includes_DialogSettings.xml:
 - update conditional visibility to hide OSD settings while Up Next notification is visible
 - add depth includes
 
@@ -344,12 +359,17 @@ Includes_Time_NowPlaying.xml:
 
 Includes_Widgets.xml:
 - remove deprecated widget-movement include
+- add new widgetLayout-weather include
+- add new widgetLayout-square and widgetLayout-square-small includes for new widget layouts
+- add new widgetLayoutSlide-weather include
+- add new widgetLayoutSlide-square and widgetLayoutSlide-square-small includes for new widget layouts
 
 Includes_Windows_Dialogs.xml:
 - replace FullscreenDimensions include of background images by new FullscreenOverlayDimensions include
 - add depth includes to background images
 - add new depth includes
 - move dialog button includes from other include file
+- add visibility conditions to fanart background image to prevent ASS issues
 
 MusicOSD.xml:
 - add depth include
@@ -465,7 +485,7 @@ script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
 - add depth include
 - add missing time include
-- remove pallette button
+- remove palette button
 
 script-skin_helper_service-Color-Picker.xml:
 - add new onload and onunload for improved debug dialog
@@ -476,6 +496,9 @@ script-skinshortcuts.xml:
 - replace FullscreenDimensions include of background images by new FullscreenOverlayDimensions include
 - add depth includes
 - add new scrollbar
+
+script-skinshortcuts-static.xml:
+- rework default home screen layout for new widget sizes and positioning as well as new widget layouts
 
 script-upnext-stillwatching-simple.xml:
 - add new onload and onunload for improved debug dialog
@@ -536,6 +559,9 @@ Variables.xml:
 - adjust VideoPlayerTitle, MusicNextPlaying1, MusicNextPlaying2 and VideoInfoLabel variables to match overall representation of movie/TV show/album title and year
 - adjust SubtitleLanguage variable to reflect whether subtitles are disabled
 - add new SubtitleDownload for improved subtitle dialog
+
+Variables_Skinshortcuts.xml:
+- add new values to skinshortcuts-size variable for new widget layouts
 
 VideoFullScreen.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
