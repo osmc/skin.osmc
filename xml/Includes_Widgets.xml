@@ -408,12 +408,24 @@
 	</include>
 
 	<!-- Widget layout -->
+	<include name="widgetLayout-weather">
+		<include>widgetLayout-weather-OSMC</include>
+	</include>
+	
 	<include name="widgetLayout-tall">
 		<include>widgetLayout-tall-OSMC</include>
 	</include>
 
 	<include name="widgetLayout-wide">
 		<include>widgetLayout-wide-OSMC</include>
+	</include>
+	
+	<include name="widgetLayout-square">
+		<include>widgetLayout-square-OSMC</include>
+	</include>
+	
+	<include name="widgetLayout-square-small">
+		<include>widgetLayout-square-small-OSMC</include>
 	</include>
 
 	<!-- Widget on control -->
@@ -436,6 +448,14 @@
 	</include>
 	
 	<!-- Widget Layout Slide -->
+	<include name="widgetLayoutSlide-weather">
+		<definition>
+			<include content="widgetLayoutSlide-weather-OSMC">
+				<param name="container">$PARAM[container]</param>
+			</include>
+		</definition>
+	</include>
+	
 	<include name="widgetLayoutSlide-tall">
 		<definition>
 			<include content="widgetLayoutSlide-tall-OSMC">
@@ -447,6 +467,22 @@
 	<include name="widgetLayoutSlide-wide">
 		<definition>
 			<include content="widgetLayoutSlide-wide-OSMC">
+				<param name="container">$PARAM[container]</param>
+			</include>
+		</definition>
+	</include>
+	
+	<include name="widgetLayoutSlide-square">
+		<definition>
+			<include content="widgetLayoutSlide-square-OSMC">
+				<param name="container">$PARAM[container]</param>
+			</include>
+		</definition>
+	</include>
+	
+	<include name="widgetLayoutSlide-square-small">
+		<definition>
+			<include content="widgetLayoutSlide-square-small-OSMC">
 				<param name="container">$PARAM[container]</param>
 			</include>
 		</definition>

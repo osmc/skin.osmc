@@ -1116,6 +1116,58 @@
 	</include>
 	
 	<!-- Includes_Widgets.xml -->
+	<include name="widgetLayoutSlide-weather-OSMC">
+		<definition>
+			<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False" content="widgetLayoutSlide-weather-OSMC_16:9">
+				<param name="container">$PARAM[container]</param>
+			</include>
+			<include condition="String.IsEqual(Skin.AspectRatio,21:9)" content="widgetLayoutSlide-weather-OSMC_21:9">
+				<param name="container">$PARAM[container]</param>
+			</include>
+			<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True" content="widgetLayoutSlide-weather-OSMC_21:9_masked">
+				<param name="container">$PARAM[container]</param>
+			</include>
+			<include condition="String.IsEqual(Skin.AspectRatio,4:3)" content="widgetLayoutSlide-weather-OSMC_4:3">
+				<param name="container">$PARAM[container]</param>
+			</include>
+		</definition>
+	</include>
+	<include name="widgetLayoutSlide-weather-OSMC_16:9">
+		<animation effect="slide" start="0,0" end="1015,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="812,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="609,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,5)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-weather-OSMC_21:9">
+		<animation effect="slide" start="0,0" end="1624,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1421,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1218,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1015,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="812,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="609,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
+		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
+		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,8)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,8)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-weather-OSMC_21:9_masked">
+		<animation effect="slide" start="0,0" end="1624,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1421,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1218,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1015,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="812,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="609,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
+		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
+		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,8)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,8)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-weather-OSMC_4:3">
+		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,2)">conditional</animation>
+	</include>	
+	
 	<include name="widgetLayoutSlide-tall-OSMC">
 		<definition>
 			<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False" content="widgetLayoutSlide-tall-OSMC_16:9">
@@ -1133,38 +1185,35 @@
 		</definition>
 	</include>
 	<include name="widgetLayoutSlide-tall-OSMC_16:9">
-		<animation effect="slide" start="0,0" end="1015,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
-		<animation effect="slide" start="0,0" end="812,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
-		<animation effect="slide" start="0,0" end="609,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
-		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
-		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
-		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,4)">conditional</animation>
 	</include>
 	<include name="widgetLayoutSlide-tall-OSMC_21:9">
-		<animation effect="slide" start="0,0" end="1624,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1421,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1218,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1015,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
-		<animation effect="slide" start="0,0" end="812,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
-		<animation effect="slide" start="0,0" end="609,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
-		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
-		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,8)">conditional</animation>
-		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,8)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1680,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1440,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1200,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,7)">conditional</animation>
 	</include>
 	<include name="widgetLayoutSlide-tall-OSMC_21:9_masked">
-		<animation effect="slide" start="0,0" end="1624,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1421,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1218,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1015,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
-		<animation effect="slide" start="0,0" end="812,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
-		<animation effect="slide" start="0,0" end="609,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
-		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
-		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,8)">conditional</animation>
-		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,8)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1680,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1440,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1200,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,7)">conditional</animation>
 	</include>
 	<include name="widgetLayoutSlide-tall-OSMC_4:3">
-		<animation effect="slide" start="0,0" end="406,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
-		<animation effect="slide" start="0,0" end="203,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
 		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,2)">conditional</animation>
 	</include>
 	
@@ -1184,26 +1233,149 @@
 	</include>
 	<include name="widgetLayoutSlide-wide-OSMC_16:9">
 		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
-		<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
-		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="640,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,3)">conditional</animation>
 	</include>
 	<include name="widgetLayoutSlide-wide-OSMC_21:9">
-		<animation effect="slide" start="0,0" end="1440,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1080,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1360,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1040,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
 		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
-		<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
-		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="640,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,5)">conditional</animation>
 	</include>
 	<include name="widgetLayoutSlide-wide-OSMC_21:9_masked">
-		<animation effect="slide" start="0,0" end="1440,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
-		<animation effect="slide" start="0,0" end="1080,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1360,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1040,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
 		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
-		<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
-		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="640,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,5)">conditional</animation>
 	</include>
 	<include name="widgetLayoutSlide-wide-OSMC_4:3">
-		<animation effect="slide" start="0,0" end="360,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="640,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="String.IsGreater(Container($PARAM[container]).NumItems,2)">conditional</animation>
+	</include>
+	
+	<include name="widgetLayoutSlide-square-OSMC">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False" content="widgetLayoutSlide-square-OSMC_16:9">
+			<param name="container">$PARAM[container]</param>
+		</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)" content="widgetLayoutSlide-square-OSMC_21:9">
+			<param name="container">$PARAM[container]</param>
+		</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True" content="widgetLayoutSlide-square-OSMC_21:9_masked">
+			<param name="container">$PARAM[container]</param>
+		</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)" content="widgetLayoutSlide-square-OSMC_4:3">
+			<param name="container">$PARAM[container]</param>
+		</include>
+	</include>
+	<include name="widgetLayoutSlide-square-OSMC_16:9">
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="640,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,3)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-square-OSMC_21:9">
+		<animation effect="slide" start="0,0" end="1600,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1280,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="640,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,5)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-square-OSMC_21:9_masked">
+		<animation effect="slide" start="0,0" end="1600,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1280,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="640,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,5)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-square-OSMC_4:3">
+		<animation effect="slide" start="0,0" end="320,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
 		<animation effect="slide" start="0,0" end="0,0" time="0" condition="String.IsGreater(Container($PARAM[container]).NumItems,1)">conditional</animation>
+	</include>
+	
+	<include name="widgetLayoutSlide-square-small-OSMC">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False" content="widgetLayoutSlide-square-small-OSMC_16:9">
+			<param name="container">$PARAM[container]</param>
+		</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)" content="widgetLayoutSlide-square-small-OSMC_21:9">
+			<param name="container">$PARAM[container]</param>
+		</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True" content="widgetLayoutSlide-square-small-OSMC_21:9_masked">
+			<param name="container">$PARAM[container]</param>
+		</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)" content="widgetLayoutSlide-square-small-OSMC_4:3">
+			<param name="container">$PARAM[container]</param>
+		</include>
+	</include>
+	<include name="widgetLayoutSlide-square-small-OSMC_16:9">
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,4)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-square-small-OSMC_21:9">
+		<animation effect="slide" start="0,0" end="1680,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1440,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1200,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,7)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-square-small-OSMC_21:9_masked">
+		<animation effect="slide" start="0,0" end="1680,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1440,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="1200,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,3)">conditional</animation>
+		<animation effect="slide" start="0,0" end="960,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,4)">conditional</animation>
+		<animation effect="slide" start="0,0" end="720,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,5)">conditional</animation>
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,6)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,7)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="Integer.IsGreater(Container($PARAM[container]).NumItems,7)">conditional</animation>
+	</include>
+	<include name="widgetLayoutSlide-square-small-OSMC_4:3">
+		<animation effect="slide" start="0,0" end="480,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,1)">conditional</animation>
+		<animation effect="slide" start="0,0" end="240,0" time="0" condition="String.IsEqual(Container($PARAM[container]).NumItems,2)">conditional</animation>
+		<animation effect="slide" start="0,0" end="0,0" time="0" condition="String.IsGreater(Container($PARAM[container]).NumItems,2)">conditional</animation>
+	</include>
+	
+	<include name="widgetLayout-weather-OSMC">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">widgetLayout-weather-OSMC_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">widgetLayout-weather-OSMC_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">widgetLayout-weather-OSMC_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetLayout-weather-OSMC_4:3</include>
+	</include>
+	<include name="widgetLayout-weather-OSMC_16:9">
+		<left>582</left>
+		<top>374</top>
+		<width>1218</width>
+		<height>326</height>
+	</include>
+	<include name="widgetLayout-weather-OSMC_21:9">
+		<left>613</left>
+		<top>374</top>
+		<width>1827</width>
+		<height>326</height>
+	</include>
+	<include name="widgetLayout-weather-OSMC_21:9_masked">
+		<left>613</left>
+		<top>554</top>
+		<width>1827</width>
+		<height>326</height>
+	</include>
+	<include name="widgetLayout-weather-OSMC_4:3">
+		<left>711</left>
+		<top>374</top>
+		<width>609</width>
+		<height>326</height>
 	</include>
 	
 	<include name="widgetLayout-tall-OSMC">
@@ -1213,28 +1385,28 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetLayout-tall-OSMC_4:3</include>
 	</include>
 	<include name="widgetLayout-tall-OSMC_16:9">
-		<left>582</left>
-		<top>374</top>
-		<width>1218</width>
-		<height>326</height>
+		<left>600</left>
+		<top>340</top>
+		<width>1200</width>
+		<height>360</height>
 	</include>
 	<include name="widgetLayout-tall-OSMC_21:9">
-		<left>613</left>
-		<top>374</top>
-		<width>1827</width>
-		<height>326</height>
+		<left>520</left>
+		<top>340</top>
+		<width>1920</width>
+		<height>360</height>
 	</include>
 	<include name="widgetLayout-tall-OSMC_21:9_masked">
-		<left>613</left>
-		<top>554</top>
-		<width>1827</width>
-		<height>326</height>
+		<left>520</left>
+		<top>520</top>
+		<width>1920</width>
+		<height>360</height>
 	</include>
 	<include name="widgetLayout-tall-OSMC_4:3">
-		<left>711</left>
-		<top>374</top>
-		<width>609</width>
-		<height>326</height>
+		<left>600</left>
+		<top>340</top>
+		<width>720</width>
+		<height>360</height>
 	</include>
 	
 	<include name="widgetLayout-wide-OSMC">
@@ -1244,28 +1416,90 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetLayout-wide-OSMC_4:3</include>
 	</include>
 	<include name="widgetLayout-wide-OSMC_16:9">
-		<left>822</left>
-		<top>374</top>
-		<width>978</width>
-		<height>326</height>
+		<left>520</left>
+		<top>460</top>
+		<width>1280</width>
+		<height>240</height>
 	</include>
 	<include name="widgetLayout-wide-OSMC_21:9">
-		<left>810</left>
-		<top>374</top>
-		<width>1630</width>
-		<height>326</height>
+		<left>520</left>
+		<top>460</top>
+		<width>1920</width>
+		<height>240</height>
 	</include>
 	<include name="widgetLayout-wide-OSMC_21:9_masked">
-		<left>810</left>
-		<top>554</top>
-		<width>1630</width>
-		<height>326</height>
+		<left>520</left>
+		<top>640</top>
+		<width>1920</width>
+		<height>240</height>
 	</include>
 	<include name="widgetLayout-wide-OSMC_4:3">
-		<left>668</left>
-		<top>374</top>
-		<width>652</width>
-		<height>326</height>
+		<left>600</left>
+		<top>460</top>
+		<width>720</width>
+		<height>240</height>
+	</include>
+	
+	<include name="widgetLayout-square-OSMC">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">widgetLayout-square-OSMC_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">widgetLayout-square-OSMC_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">widgetLayout-square-OSMC_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetLayout-square-OSMC_4:3</include>
+	</include>
+	<include name="widgetLayout-square-OSMC_16:9">
+		<left>520</left>
+		<top>380</top>
+		<width>1280</width>
+		<height>320</height>
+	</include>
+	<include name="widgetLayout-square-OSMC_21:9">
+		<left>520</left>
+		<top>380</top>
+		<width>1920</width>
+		<height>320</height>
+	</include>
+	<include name="widgetLayout-square-OSMC_21:9_masked">
+		<left>520</left>
+		<top>560</top>
+		<width>1920</width>
+		<height>320</height>
+	</include>
+	<include name="widgetLayout-square-OSMC_4:3">
+		<left>680</left>
+		<top>380</top>
+		<width>640</width>
+		<height>320</height>
+	</include>
+	
+	<include name="widgetLayout-square-small-OSMC">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">widgetLayout-square-small-OSMC_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">widgetLayout-square-small-OSMC_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">widgetLayout-square-small-OSMC_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetLayout-square-small-OSMC_4:3</include>
+	</include>
+	<include name="widgetLayout-square-small-OSMC_16:9">
+		<left>600</left>
+		<top>460</top>
+		<width>1200</width>
+		<height>240</height>
+	</include>
+	<include name="widgetLayout-square-small-OSMC_21:9">
+		<left>520</left>
+		<top>460</top>
+		<width>1920</width>
+		<height>240</height>
+	</include>
+	<include name="widgetLayout-square-small-OSMC_21:9_masked">
+		<left>520</left>
+		<top>640</top>
+		<width>1920</width>
+		<height>240</height>
+	</include>
+	<include name="widgetLayout-square-small-OSMC_4:3">
+		<left>600</left>
+		<top>460</top>
+		<width>720</width>
+		<height>240</height>
 	</include>
 	
 	<include name="widgetHeading-OSMC_coords">
@@ -1275,27 +1509,27 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetHeading-OSMC_coords_4:3</include>
 	</include>
 	<include name="widgetHeading-OSMC_coords_16:9">
-		<left>590</left>
+		<left>520</left>
 		<top>720</top>
-		<width>1210</width>
+		<width>1280</width>
 		<height>326</height>
 	</include>
 	<include name="widgetHeading-OSMC_coords_21:9">
-		<left>590</left>
+		<left>520</left>
 		<top>720</top>
-		<width>1850</width>
+		<width>1920</width>
 		<height>326</height>
 	</include>
 	<include name="widgetHeading-OSMC_coords_21:9_masked">
-		<left>590</left>
+		<left>520</left>
 		<top>900</top>
-		<width>1850</width>
+		<width>1920</width>
 		<height>326</height>
 	</include>
 	<include name="widgetHeading-OSMC_coords_4:3">
-		<left>600</left>
+		<left>520</left>
 		<top>720</top>
-		<width>730</width>
+		<width>800</width>
 		<height>326</height>
 	</include>
 	
@@ -1306,16 +1540,16 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetdetails_coords_4:3</include>
 	</include>
 	<include name="widgetdetails_coords_16:9">
-		<width>1210</width>
+		<width>1280</width>
 	</include>
 	<include name="widgetdetails_coords_21:9">
-		<width>1850</width>
+		<width>1920</width>
 	</include>
 	<include name="widgetdetails_coords_21:9_masked">
-		<width>1850</width>
+		<width>1920</width>
 	</include>
 	<include name="widgetdetails_coords_4:3">
-		<width>730</width>
+		<width>800</width>
 	</include>
 	
 	<include name="widgetreloadingindicator_coords">
@@ -1325,19 +1559,19 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">widgetreloadingindicator_coords_4:3</include>
 	</include>
 	<include name="widgetreloadingindicator_coords_16:9">
-		<left>1230</left>
+		<left>1280</left>
 		<top>3</top>
 	</include>
 	<include name="widgetreloadingindicator_coords_21:9">
-		<left>1870</left>
+		<left>1920</left>
 		<top>3</top>
 	</include>
 	<include name="widgetreloadingindicator_coords_21:9_masked">
-		<left>1870</left>
+		<left>1920</left>
 		<top>3</top>
 	</include>
 	<include name="widgetreloadingindicator_coords_4:3">
-		<left>786</left>
+		<left>800</left>
 		<top>3</top>
 	</include>
 	
