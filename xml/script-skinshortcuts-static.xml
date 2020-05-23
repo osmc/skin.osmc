@@ -43,8 +43,8 @@
 			<thumb />
 			<property name="labelID">videos</property>
 			<property name="defaultID">videos</property>
-			<onclick>ActivateWindow(Videos,root)</onclick>
-			<property name="path">ActivateWindow(Videos,root)</property>
+			<onclick>ActivateWindow(Videos,root,return)</onclick>
+			<property name="path">ActivateWindow(Videos,root,return)</property>
 			<property name="list">root</property>
 			<visible>True</visible>
 			<property name="submenuVisibility">videos</property>
@@ -253,12 +253,12 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">1</property>
-			<label>$LOCALIZE[345]</label>
+			<label>$LOCALIZE[652]</label>
 			<label2>Videos</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
-			<property name="labelID">345</property>
-			<property name="defaultID">345</property>
+			<property name="labelID">652</property>
+			<property name="defaultID">652</property>
 			<visible>[Library.HasContent(Movies)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),movies)</visible>
 			<onclick>ActivateWindow(10025,"library://video/movies/years.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/movies/years.xml/",return)</property>
@@ -321,12 +321,12 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">2</property>
-			<label>$LOCALIZE[345]</label>
+			<label>$LOCALIZE[652]</label>
 			<label2>Videos</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
-			<property name="labelID">345</property>
-			<property name="defaultID">345</property>
+			<property name="labelID">652</property>
+			<property name="defaultID">652</property>
 			<visible>[Library.HasContent(TVShows)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),tvshows)</visible>
 			<onclick>ActivateWindow(10025,"library://video/tvshows/years.xml/",return)</onclick>
 			<property name="path">ActivateWindow(10025,"library://video/tvshows/years.xml/",return)</property>
@@ -389,6 +389,22 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">3</property>
+			<label>$LOCALIZE[13350]</label>
+			<label2>Videos</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb />
+			<property name="labelID">13350</property>
+			<property name="defaultID">13350</property>
+			<onclick>ActivateWindow(VideoPlaylist)</onclick>
+			<property name="path">ActivateWindow(VideoPlaylist)</property>
+			<property name="list">VideoPlaylist</property>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
+			<property name="group">videos</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="2">
+			<property name="id">$NUMBER[2]</property>
+			<property name="mainmenuid">3</property>
 			<label>$LOCALIZE[1037]</label>
 			<label2>Videos</label2>
 			<icon>DefaultAddonVideo.png</icon>
@@ -402,29 +418,12 @@
 			<property name="group">videos</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="2">
-			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">3</property>
-			<label>$LOCALIZE[20389]</label>
-			<label2>Common Shortcut</label2>
-			<icon>DefaultMusicVideos.png</icon>
-			<thumb />
-			<property name="labelID">musicvideos</property>
-			<property name="defaultID">musicvideos</property>
-			<visible>[Library.HasContent(MusicVideos)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
-			<onclick>ActivateWindow(Videos,videodb://musicvideos/titles/,return)</onclick>
-			<property name="path">ActivateWindow(Videos,videodb://musicvideos/titles/,return)</property>
-			<property name="list">videodb://musicvideos/titles/</property>
-			<visible>True</visible>
-			<property name="group">videos</property>
-			<property name="isSubmenu">True</property>
-		</item>
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">3</property>
 			<label>$LOCALIZE[744]</label>
-			<label2>Videos</label2>
-			<icon>DefaultFolder.png</icon>
+			<label2>Common Shortcut</label2>
+			<icon>DefaultMusicVideos.png</icon>
 			<thumb />
 			<property name="labelID">744</property>
 			<property name="defaultID">744</property>
@@ -438,85 +437,21 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[133]</label>
+			<label>$LOCALIZE[13350]</label>
 			<label2>$ADDON[script.skinshortcuts 32019]</label2>
-			<icon>DefaultMusicArtists.png</icon>
+			<icon>DefaultFolder.png</icon>
 			<thumb />
-			<property name="labelID">133</property>
-			<property name="defaultID">133</property>
-			<onclick>ActivateWindow(Music,Artists,return)</onclick>
-			<property name="path">ActivateWindow(Music,Artists,return)</property>
-			<property name="list">Artists</property>
+			<property name="labelID">13350</property>
+			<property name="defaultID">13350</property>
+			<onclick>ActivateWindow(MusicPlaylist)</onclick>
+			<property name="path">ActivateWindow(MusicPlaylist)</property>
+			<property name="list">MusicPlaylist</property>
 			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
-			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[132]</label>
-			<label2>$ADDON[script.skinshortcuts 32019]</label2>
-			<icon>DefaultMusicAlbums.png</icon>
-			<thumb />
-			<property name="labelID">132</property>
-			<property name="defaultID">132</property>
-			<onclick>ActivateWindow(Music,Albums,return)</onclick>
-			<property name="path">ActivateWindow(Music,Albums,return)</property>
-			<property name="list">Albums</property>
-			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
-			<property name="group">music</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[134]</label>
-			<label2>$ADDON[script.skinshortcuts 32019]</label2>
-			<icon>DefaultMusicSongs.png</icon>
-			<thumb />
-			<property name="labelID">134</property>
-			<property name="defaultID">134</property>
-			<onclick>ActivateWindow(Music,Songs,return)</onclick>
-			<property name="path">ActivateWindow(Music,Songs,return)</property>
-			<property name="list">Songs</property>
-			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
-			<property name="group">music</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
-			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[744]</label>
-			<label2>$ADDON[script.skinshortcuts 32019]</label2>
-			<icon>DefaultFolder.png</icon>
-			<thumb />
-			<property name="labelID">744</property>
-			<property name="defaultID">744</property>
-			<onclick>ActivateWindow(Music,Files,Return)</onclick>
-			<property name="path">ActivateWindow(Music,Files,Return)</property>
-			<property name="list">Files</property>
-			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
-			<property name="group">music</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
-			<property name="mainmenuid">4</property>
-			<label>$LOCALIZE[15100]</label>
-			<label2>$ADDON[script.skinshortcuts 32019]</label2>
-			<icon>DefaultFolder.png</icon>
-			<thumb />
-			<property name="labelID">15100</property>
-			<property name="defaultID">15100</property>
-			<onclick>ActivateWindow(Music,MusicLibrary,return)</onclick>
-			<property name="path">ActivateWindow(Music,MusicLibrary,return)</property>
-			<property name="list">MusicLibrary</property>
-			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
-			<property name="group">music</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="6">
-			<property name="id">$NUMBER[6]</property>
 			<property name="mainmenuid">4</property>
 			<label>$LOCALIZE[1038]</label>
 			<label2>$ADDON[script.skinshortcuts 32019]</label2>
@@ -527,6 +462,22 @@
 			<onclick>ActivateWindow(Music,Addons,return)</onclick>
 			<property name="path">ActivateWindow(Music,Addons,return)</property>
 			<property name="list">Addons</property>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<property name="group">music</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
+			<property name="mainmenuid">4</property>
+			<label>$LOCALIZE[744]</label>
+			<label2>$ADDON[script.skinshortcuts 32019]</label2>
+			<icon>DefaultFolder.png</icon>
+			<thumb />
+			<property name="labelID">744</property>
+			<property name="defaultID">744</property>
+			<onclick>ActivateWindow(Music,Files,return)</onclick>
+			<property name="path">ActivateWindow(Music,Files,return)</property>
+			<property name="list">Files</property>
 			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
@@ -567,23 +518,6 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">10</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>$ADDON[script.skinshortcuts 32017]</label2>
-			<icon>DefaultTVShows.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
-			<onclick>ActivateWindow(TVGuide)</onclick>
-			<property name="path">ActivateWindow(TVGuide)</property>
-			<property name="list">TVGuide</property>
-			<visible>True</visible>
-			<property name="group">14204</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[19163]</label>
 			<label2>$ADDON[script.skinshortcuts 32017]</label2>
 			<icon>DefaultTVShows.png</icon>
@@ -598,8 +532,8 @@
 			<property name="group">14204</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[19040]</label>
 			<label2>$ADDON[script.skinshortcuts 32017]</label2>
@@ -615,8 +549,8 @@
 			<property name="group">14204</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">10</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>$ADDON[script.skinshortcuts 32017]</label2>
@@ -652,23 +586,6 @@
 		<item id="2">
 			<property name="id">$NUMBER[2]</property>
 			<property name="mainmenuid">11</property>
-			<label>$LOCALIZE[22020]</label>
-			<label2>$ADDON[script.skinshortcuts 32087]</label2>
-			<icon>DefaultAudio.png</icon>
-			<thumb />
-			<property name="labelID">22020</property>
-			<property name="defaultID">22020</property>
-			<visible>[System.HasPVRAddon] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-19021)</visible>
-			<onclick>ActivateWindow(RadioGuide)</onclick>
-			<property name="path">ActivateWindow(RadioGuide)</property>
-			<property name="list">RadioGuide</property>
-			<visible>True</visible>
-			<property name="group">19021</property>
-			<property name="isSubmenu">True</property>
-		</item>
-		<item id="3">
-			<property name="id">$NUMBER[3]</property>
-			<property name="mainmenuid">11</property>
 			<label>$LOCALIZE[19163]</label>
 			<label2>$ADDON[script.skinshortcuts 32087]</label2>
 			<icon>DefaultAudio.png</icon>
@@ -683,8 +600,8 @@
 			<property name="group">19021</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="4">
-			<property name="id">$NUMBER[4]</property>
+		<item id="3">
+			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">11</property>
 			<label>$LOCALIZE[19040]</label>
 			<label2>$ADDON[script.skinshortcuts 32087]</label2>
@@ -700,8 +617,8 @@
 			<property name="group">19021</property>
 			<property name="isSubmenu">True</property>
 		</item>
-		<item id="5">
-			<property name="id">$NUMBER[5]</property>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
 			<property name="mainmenuid">11</property>
 			<label>$LOCALIZE[137]</label>
 			<label2>$ADDON[script.skinshortcuts 32087]</label2>
@@ -752,15 +669,15 @@
 		<item id="1">
 			<property name="id">$NUMBER[1]</property>
 			<property name="mainmenuid">13</property>
-			<label>$LOCALIZE[7]</label>
+			<label>$LOCALIZE[13200]</label>
 			<label2>Common Shortcut</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
-			<property name="labelID">7</property>
-			<property name="defaultID">7</property>
-			<onclick>ActivateWindow(filemanager)</onclick>
-			<property name="path">ActivateWindow(filemanager)</property>
-			<property name="list">filemanager</property>
+			<property name="labelID">13200</property>
+			<property name="defaultID">13200</property>
+			<onclick>ActivateWindow(profiles)</onclick>
+			<property name="path">ActivateWindow(profiles)</property>
+			<property name="list">profiles</property>
 			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
@@ -784,15 +701,31 @@
 		<item id="3">
 			<property name="id">$NUMBER[3]</property>
 			<property name="mainmenuid">13</property>
-			<label>$LOCALIZE[13200]</label>
+			<label>$LOCALIZE[7]</label>
 			<label2>Common Shortcut</label2>
 			<icon>DefaultShortcut.png</icon>
 			<thumb />
-			<property name="labelID">13200</property>
-			<property name="defaultID">13200</property>
-			<onclick>ActivateWindow(profiles)</onclick>
-			<property name="path">ActivateWindow(profiles)</property>
-			<property name="list">profiles</property>
+			<property name="labelID">7</property>
+			<property name="defaultID">7</property>
+			<onclick>ActivateWindow(filemanager)</onclick>
+			<property name="path">ActivateWindow(filemanager)</property>
+			<property name="list">filemanager</property>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
+			<property name="group">settings</property>
+			<property name="isSubmenu">True</property>
+		</item>
+		<item id="4">
+			<property name="id">$NUMBER[4]</property>
+			<property name="mainmenuid">13</property>
+			<label>$LOCALIZE[10040]</label>
+			<label2>Common Shortcut</label2>
+			<icon>DefaultShortcut.png</icon>
+			<thumb />
+			<property name="labelID">10040</property>
+			<property name="defaultID">10040</property>
+			<onclick>ActivateWindow(addonbrowser)</onclick>
+			<property name="path">ActivateWindow(addonbrowser)</property>
+			<property name="list">addonbrowser</property>
 			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),settings)</visible>
 			<property name="group">settings</property>
 			<property name="isSubmenu">True</property>
