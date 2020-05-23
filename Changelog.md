@@ -18,6 +18,7 @@ _Improved_
 - add missing scrollbars
 - rework most dialogs for consistency
 - improve widget positioning and widget icon size
+- improve skinshortcuts management dialog
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
@@ -32,6 +33,7 @@ _add new Up Next addon and coordinates files_
 _remove deprecated Next Up addon files_
 _add new custom reset skin settings confirmation dialog and coordinates files_
 _rename music home menu skinshortcuts files_
+_rename video home menu skinshortcuts file_
 
 strings.po:
 - add new localize for new Wide low info view (31392)
@@ -41,17 +43,105 @@ strings.po:
 - rework music playlist editor and player process info dialog localizes (31008, 31011, 31156)
 - update skinshortcuts widget layout explanation text for new widget layouts (31370)
 - add new localizes for new widget layouts (31395, 31396)
+- add new localizes for new home menu and submenu item second labels as well as widget second labels in skinshortcuts management dialog (31397, 31398)
+- add new localize for reset home menu items setting (31399)
+
+14204-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+
+14204.DATA.xml:
+- remove deprecated shortcuts
+- add shortcut second labels
+- fix shurtcut icons
+
+15016-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+
+19021-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+- remove deprecated shortcut
+
+19021.DATA.xml:
+- add shortcut second labels
+- fix shurtcut icons
+
+2-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+
+2.DATA.xml:
+- rework shortcuts
+- add shortcut second labels
+
+3.DATA.xml:
+- rework shortcuts
+- add shortcut second labels
+
+31091-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+
+341.DATA.xml:
+- add shortcut second labels
+
+mainmenu.DATA.xml:
+- add shortcut second labels
+- fix shurtcut icons
+
+movies-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+
+movies.DATA.xml:
+- fix years localize
+- add shortcut second labels
+- fix shurtcut icons
 
 overrides.xml:
 - change widget layout labels to localizes
 - add new default layouts to default widgets
 - add new widget layout properties
+- adjust default widgets with new widget label IDs
+
+programs-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+
+settings.DATA.xml:
+- rework shortcuts
+- add shortcut second labels
+- fix shurtcut icons
 
 template.xml:
 - rework widgetDetails variable
 - adjust widget layout and widget layout slide includes of weather widget template
 - rework widget layout and widget layout slide includes for new widget layouts
 - rework lumos layout property group for new widget layouts
+
+tvshows-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
+
+tvshows.DATA.xml:
+- fix years localize
+- add shortcut second labels
+- fix shurtcut icons
+
+weather-1.DATA.xml:
+- fix label
+- add shortcut second label
+- fix shurtcut icon
 
 AddonBrowser.xml:
 - add SidemenuMenucontrol include
@@ -499,6 +589,7 @@ script-skinshortcuts.xml:
 
 script-skinshortcuts-static.xml:
 - rework default home screen layout for new widget sizes and positioning as well as new widget layouts
+- rework default submenus
 
 script-upnext-stillwatching-simple.xml:
 - add new onload and onunload for improved debug dialog
@@ -541,6 +632,7 @@ SkinSettings.xml:
 - change window heading to use global heading variable
 - change skin setting reset button to first open confirmation dialog
 - add dividers and adjust heading formatting and alignment to match settings appearance
+- fix reset home menu items setting label
 
 SmartPlaylistEditor.xml:
 - add depth include
