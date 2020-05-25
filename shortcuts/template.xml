@@ -662,16 +662,8 @@
 				<value condition="Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])">[COLOR $VAR[TextColor1]]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Label][/COLOR]</value>
 			</variable>
 			<variable name="widgetBackground">
-				<value condition="Window.Is(Home) + Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + [Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + !$SKINSHORTCUTS[isWeather]">$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Art(fanart)]</value>
-				<value condition="Window.Is(Home) + Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + [Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + !Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
-				<value condition="Window.Is(Home) + Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + [Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) | String.IsEqual(Skin.String(menuStyle),lumos)] + [$SKINSHORTCUTS[isWeather] + Skin.HasSetting(weatherFanart.multi)]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]/</value>
-				<value condition="!Window.Is(Home) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-				<value condition="!String.IsEmpty(Container(9000).ListItem.Property(background)) + !Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])"></value>
-				<value></value>
-			</variable>
-			<variable name="SeasonContainerArgs">
-				<!--<value condition="Integer.IsLess(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,10)">S0$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season,,]</value>-->
-				<value>S$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Season]</value>
+				<value condition="Window.Is(Home) + Control.IsVisible(1000$SKINSHORTCUTS[auto-rootID]) + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]) + $SKINSHORTCUTS[isWeather]">$INFO[Skin.String(weatherFanart.path)]$INFO[Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).ListItem.Property(weatherFanart)]$INFO[Skin.String(weatherFanart.ext)]</value>
+				<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 			</variable>
 		</variables>
 	</submenuOther>
