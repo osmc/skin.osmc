@@ -113,7 +113,7 @@
 		<value condition="[String.StartsWith(Container.FolderPath,library://video/movies) + String.EndsWith(Container.FolderPath,library://video/movies/)] | [String.StartsWith(Container.FolderPath,videodb://movies/titles/) + String.EndsWith(Container.FolderPath,videodb://movies/titles/)]">$LOCALIZE[342]</value>
 		<value condition="Container.Content(movies) | [String.StartsWith(Container.FolderPath,videodb://movies/) + !String.EndsWith(Container.FolderPath,videodb://movies/)] | [String.StartsWith(Container.FolderPath,library://video/movies) + !String.EndsWith(Container.FolderPath,library://video/movies/)]">$LOCALIZE[342]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
 		<value condition="[String.StartsWith(Container.FolderPath,library://video/tvshows/) + String.EndsWith(Container.FolderPath,library://video/tvshows/)] | [String.StartsWith(Container.FolderPath,videodb://tvshows/titles/) + String.EndsWith(Container.FolderPath,videodb://tvshows/titles/)]">$LOCALIZE[20343]</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [String.StartsWith(Container.FolderPath,videodb://tvshows/) + !String.EndsWith(Container.FolderPath,videodb://tvshows/)] | [String.StartsWith(Container.FolderPath,library://video/tvshows/) + !String.EndsWith(Container.FolderPath,library://video/tvshows/] | String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/)">$LOCALIZE[20343]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [String.StartsWith(Container.FolderPath,videodb://tvshows/) + !String.EndsWith(Container.FolderPath,videodb://tvshows/)] | [String.StartsWith(Container.FolderPath,library://video/tvshows/) + !String.EndsWith(Container.FolderPath,library://video/tvshows/)] | String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/)">$LOCALIZE[20343]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
 		<value condition="String.StartsWith(Container.FolderPath,library://video/musicvideos/) + String.EndsWith(Container.FolderPath,library://video/musicvideos/)">$LOCALIZE[20389]</value>
 		<value condition="Container.Content(musicvideos) | [String.StartsWith(Container.FolderPath,videodb://musicvideos/) + !String.EndsWith(Container.FolderPath,videodb://musicvideos/)] | [String.StartsWith(Container.FolderPath,library://video/musicvideos) + !String.EndsWith(Container.FolderPath,library://video/musicvideos/)]">$LOCALIZE[20389]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
 		<value condition="Window.IsVisible(TVChannels)">$LOCALIZE[10700]$INFO[Control.GetLabel(30), &#8226; [LIGHT],[/LIGHT]]</value>
@@ -543,7 +543,7 @@
 	</variable>
 	
 	<variable name="AudioCodec.1">
-		<value condition="String.IsEqual(ListItem.Property(AudioCodec.1).1),aac) | String.IsEqual(ListItem.Property(AudioCodec.1),aac_latm)">AAC</value>
+		<value condition="String.IsEqual(ListItem.Property(AudioCodec.1),aac) | String.IsEqual(ListItem.Property(AudioCodec.1),aac_latm)">AAC</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.1),ac3)">Dolby Digital</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.1),aif) | String.IsEqual(ListItem.Property(AudioCodec.1),aiff)">AIFF</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.1),alac)">Apple</value>
@@ -565,7 +565,7 @@
 	</variable>
 	
 	<variable name="AudioCodec.2">
-		<value condition="String.IsEqual(ListItem.Property(AudioCodec.2).1),aac) | String.IsEqual(ListItem.Property(AudioCodec.2),aac_latm)">AAC</value>
+		<value condition="String.IsEqual(ListItem.Property(AudioCodec.2),aac) | String.IsEqual(ListItem.Property(AudioCodec.2),aac_latm)">AAC</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.2),ac3)">Dolby Digital</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.2),aif) | String.IsEqual(ListItem.Property(AudioCodec.2),aiff)">AIFF</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.2),alac)">Apple</value>
@@ -587,7 +587,7 @@
 	</variable>
 	
 	<variable name="AudioCodec.3">
-		<value condition="String.IsEqual(ListItem.Property(AudioCodec.3).1),aac) | String.IsEqual(ListItem.Property(AudioCodec.3),aac_latm)">AAC</value>
+		<value condition="String.IsEqual(ListItem.Property(AudioCodec.3),aac) | String.IsEqual(ListItem.Property(AudioCodec.3),aac_latm)">AAC</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.3),ac3)">Dolby Digital</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.3),aif) | String.IsEqual(ListItem.Property(AudioCodec.3),aiff)">AIFF</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.3),alac)">Apple</value>
@@ -609,7 +609,7 @@
 	</variable>
 	
 	<variable name="AudioCodec.4">
-		<value condition="String.IsEqual(ListItem.Property(AudioCodec.4).1),aac) | String.IsEqual(ListItem.Property(AudioCodec.4),aac_latm)">AAC</value>
+		<value condition="String.IsEqual(ListItem.Property(AudioCodec.4),aac) | String.IsEqual(ListItem.Property(AudioCodec.4),aac_latm)">AAC</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.4),ac3)">Dolby Digital</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.4),aif) | String.IsEqual(ListItem.Property(AudioCodec.4),aiff)">AIFF</value>
 		<value condition="String.IsEqual(ListItem.Property(AudioCodec.4),alac)">Apple</value>
