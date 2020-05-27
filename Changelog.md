@@ -7,6 +7,7 @@ _New_
 - add playlist button to video OSD
 - add 3D depth information to GUI elements
 - add new widget layouts (square and square small)
+- add new 2.33:1 scope masking option
 
 _Improved_
 - make Wide low view accessible for music views
@@ -19,6 +20,7 @@ _Improved_
 - rework most dialogs for consistency
 - improve widget positioning and widget icon size
 - improve skinshortcuts management dialog
+- improve video info dialog button behaviour
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
@@ -127,6 +129,7 @@ template.xml:
 - adjust widget layout and widget layout slide includes of weather widget template
 - rework widget layout and widget layout slide includes for new widget layouts
 - rework lumos layout property group for new widget layouts
+- simplify widgetBackground variable
 
 tvshows-1.DATA.xml:
 - fix label
@@ -158,6 +161,9 @@ Coordinates_Custom_Confirm_Reset_Skin_Settings.xml:
 
 Coordinates_Custom_Customization.xml:
 - adjust controls width to fit 150 pixel dialog edge alignment
+
+Coordinates_Custom_DialogMasking.xml:
+- adjust masking dialog size for additional masking aspect ratio button
 
 Coordinates_Custom_Disabled_Add-on.xml:
 - adjust controls width to fit 150 pixel dialog edge alignment
@@ -293,6 +299,9 @@ Coordinates_SmartPlaylistRule.xml:
 Coordinates_Viewtype52.xml:
 - adjust focussed cover art dimensions for better alignment
 
+Custom_DialogMasking.xml
+- add new masking aspect ratio button
+
 Custom_Disabled_Add-on.xml:
 - fix dialog animation
 
@@ -400,6 +409,9 @@ DialogTextViewer.xml:
 
 DialogVideoInfo.xml:
 - add new music video information controls (similar to music info dialog)
+- change cast list behaviour (triggered via window property)
+- add director information line above button groulist
+- rework cast and extended info button
 
 DialogVolumeBar.xml:
 - add depth include
@@ -590,6 +602,7 @@ script-skinshortcuts.xml:
 script-skinshortcuts-static.xml:
 - rework default home screen layout for new widget sizes and positioning as well as new widget layouts
 - rework default submenus
+- simplify widgetBackground variable
 
 script-upnext-stillwatching-simple.xml:
 - add new onload and onunload for improved debug dialog
@@ -633,6 +646,7 @@ SkinSettings.xml:
 - change skin setting reset button to first open confirmation dialog
 - add dividers and adjust heading formatting and alignment to match settings appearance
 - fix reset home menu items setting label
+- add new onclick condition to masking toggle button for new masking aspect ratio
 
 SmartPlaylistEditor.xml:
 - add depth include
@@ -659,11 +673,13 @@ VideoFullScreen.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
 - adjust music video info dialog information to match representation in other music video windows/dialogs
 - add depth include
+- add new animation to masking bars for new masking aspect ratio
 
 VideoOSD.xml:
 - update conditional visibility to hide OSD elements while Up Next notification is visible
 - add new playlist button (like with MusicOSD)
 - add depth includes
+- add new masking aspect ratio texture to masking dialog button
 
 VideoOSDBookmarks.xml:
 - add depth includes
@@ -684,6 +700,7 @@ Viewtype54.xml:
 
 Textures.xbt:
 - update textures file with new button highlight textures
+- update textures file with new scope aspect ratio video OSD texture
 
 addon.xml:
 - bump version to 18.3.0
