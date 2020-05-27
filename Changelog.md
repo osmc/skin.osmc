@@ -51,32 +51,32 @@ strings.po:
 14204-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 14204.DATA.xml:
 - remove deprecated shortcuts
 - add shortcut second labels
-- fix shurtcut icons
+- fix shortcut icons
 
 15016-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 19021-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 - remove deprecated shortcut
 
 19021.DATA.xml:
 - add shortcut second labels
-- fix shurtcut icons
+- fix shortcut icons
 
 2-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 2.DATA.xml:
 - rework shortcuts
@@ -89,19 +89,19 @@ strings.po:
 31091-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 341.DATA.xml:
 - add shortcut second labels
 
 mainmenu.DATA.xml:
 - add shortcut second labels
-- fix shurtcut icons
+- fix shortcut icons
 
 movies-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 movies.DATA.xml:
 - fix years localize
@@ -117,12 +117,12 @@ overrides.xml:
 programs-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 settings.DATA.xml:
 - rework shortcuts
 - add shortcut second labels
-- fix shurtcut icons
+- fix shortcut icons
 
 template.xml:
 - rework widgetDetails variable
@@ -134,17 +134,17 @@ template.xml:
 tvshows-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 tvshows.DATA.xml:
 - fix years localize
 - add shortcut second labels
-- fix shurtcut icons
+- fix shortcut icons
 
 weather-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shurtcut icon
+- fix shortcut icon
 
 AddonBrowser.xml:
 - add SidemenuMenucontrol include
@@ -410,7 +410,7 @@ DialogTextViewer.xml:
 DialogVideoInfo.xml:
 - add new music video information controls (similar to music info dialog)
 - change cast list behaviour (triggered via window property)
-- add director information line above button groulist
+- add director information line above button grouplist
 - rework cast and extended info button
 
 DialogVolumeBar.xml:
