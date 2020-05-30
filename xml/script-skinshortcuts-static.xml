@@ -101,7 +101,7 @@
 			<property name="id">$NUMBER[7]</property>
 			<label>$LOCALIZE[31091]</label>
 			<label2>$LOCALIZE[Custom shortcut]</label2>
-			<icon>logo_big.png</icon>
+			<icon>DefaultOSMC.png</icon>
 			<thumb />
 			<property name="labelID">service.osmc.settings</property>
 			<property name="defaultID">service.osmc.settings</property>
@@ -384,7 +384,7 @@
 			<onclick>ActivateWindow(VideoPlaylist)</onclick>
 			<property name="path">ActivateWindow(VideoPlaylist)</property>
 			<property name="list">VideoPlaylist</property>
-			<visible>[Integer.IsGreater(VideoPlayer.PlaylistLength,1)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),videos)</visible>
 			<property name="group">videos</property>
 			<property name="isSubmenu">True</property>
 		</item>
@@ -432,7 +432,7 @@
 			<onclick>ActivateWindow(MusicPlaylist)</onclick>
 			<property name="path">ActivateWindow(MusicPlaylist)</property>
 			<property name="list">MusicPlaylist</property>
-			<visible>[Integer.IsGreater(MusicPlayer.PlaylistLength,1)] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
+			<visible>[True] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),music)</visible>
 			<property name="group">music</property>
 			<property name="isSubmenu">True</property>
 		</item>
