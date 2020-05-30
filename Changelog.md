@@ -89,7 +89,7 @@ strings.po:
 31091-1.DATA.xml:
 - fix label
 - add shortcut second label
-- fix shortcut icon
+- replace MyOSMC icon by new default OSMC logo icon
 
 341.DATA.xml:
 - add shortcut second labels
@@ -113,6 +113,7 @@ overrides.xml:
 - add new default layouts to default widgets
 - add new widget layout properties
 - adjust default widgets with new widget label IDs
+- replace MyOSMC icon by new default OSMC logo icon
 
 programs-1.DATA.xml:
 - fix label
@@ -701,6 +702,7 @@ Viewtype54.xml:
 Textures.xbt:
 - update textures file with new button highlight textures
 - update textures file with new scope aspect ratio video OSD texture
+- update textures file with new OSMC logo icon
 
 addon.xml:
 - bump version to 18.3.0
