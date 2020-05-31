@@ -21,12 +21,14 @@ _Improved_
 - improve widget positioning and widget icon size
 - improve skinshortcuts management dialog
 - improve video info dialog button behaviour
+- remove unnecessary song & picture list view
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
 - fix music playlist editor window
 - fix side menu return button behaviour
 - fix edge alignment of dialogs and windows
+- fix watched/listened to status for a play count higher than 1
 
 **Changelog v18.3.0**
 
@@ -36,6 +38,7 @@ _remove deprecated Next Up addon files_
 _add new custom reset skin settings confirmation dialog and coordinates files_
 _rename music home menu skinshortcuts files_
 _rename video home menu skinshortcuts file_
+_remove Viewtype54 files and rename Viewtype55 files to Viewtype54_
 
 strings.po:
 - add new localize for new Wide low info view (31392)
@@ -208,6 +211,7 @@ Coordinates_DialogMediaSource.xml:
 
 Coordinates_DialogPictureInfo.xml:
 - adjust controls width to fit 150 pixel dialog edge alignment
+- add coordinates for new preview image and scrollbar
 
 Coordinates_DialogPVRChannelManager.xml:
 - adjust controls width to fit 150 pixel dialog edge alignment
@@ -297,6 +301,9 @@ Coordinates_SmartPlaylistEditor.xml:
 Coordinates_SmartPlaylistRule.xml:
 - adjust controls width to fit 150 pixel dialog edge alignment
 
+Coordinates_Viewtype50.xml:
+- add coordinates for former viewtype 54 controls
+
 Coordinates_Viewtype52.xml:
 - adjust focussed cover art dimensions for better alignment
 
@@ -362,6 +369,7 @@ DialogNumeric.xml:
 
 DialogPictureInfo.xml:
 - add depth include
+- add new preview image and scrollbar
 
 DialogPlayerProcessInfo.xml:
 - rework information label formatting
@@ -445,6 +453,8 @@ Includes.xml:
 - add new onload and onunload
 - move dialog buttons includes to different include file
 - add depth includes to masking bars
+- remove deprecated Viewtype54 include files
+- update conditional visibility of context/side menu indicator after Viewtype54 removal
 
 Includes_DialogSettings.xml:
 - update conditional visibility to hide OSD settings while Up Next notification is visible
@@ -455,6 +465,10 @@ Includes_Home.xml:
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
 - add onback to side menu
+
+Include_MediaFlags.xml:
+- update conditional visibilities after Viewtype54 removal
+- add missing conditional visibilities to duration media flag for songs and files
 
 Includes_Time_NowPlaying.xml:
 - rework now playing formatting
@@ -486,7 +500,8 @@ MyGames.xml:
 - add depth includes to options side menu
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
-- add onback to options side menu
+- add onback to options side menucontrol
+- rename viewtype 55 to viewtype 54
 
 MyMusicNav.xml:
 - add SidemenuMenucontrol include
@@ -495,6 +510,7 @@ MyMusicNav.xml:
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
 - add onback to options side menu
+- rename viewtype 55 to viewtype 54
 
 MyMusicPlaylistEditor.xml:
 - rework broken music playlist editor window
@@ -505,6 +521,8 @@ MyPics.xml:
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
 - add onback to options side menu
+- rename viewtype 55 to viewtype 54
+- remove background image
 
 MyPlaylist.xml:
 - add SidemenuMenucontrol include
@@ -519,6 +537,7 @@ MyPrograms.xml:
 - replace FullscreenDimensions include by new FullscreenOverlayDimensions include
 - move options menu slightly left to avoid it being inactively visible during 3D mode
 - add onback to options side menu
+- rename viewtype 55 to viewtype 54
 
 MyPVRChannels.xml:
 - add SidemenuMenucontrol include
@@ -666,6 +685,7 @@ Variables.xml:
 - adjust VideoPlayerTitle, MusicNextPlaying1, MusicNextPlaying2 and VideoInfoLabel variables to match overall representation of movie/TV show/album title and year
 - adjust SubtitleLanguage variable to reflect whether subtitles are disabled
 - add new SubtitleDownload for improved subtitle dialog
+- remove watched/listened to more than once marker as the corresponding Kodi database value is flaky
 
 Variables_Skinshortcuts.xml:
 - add new values to skinshortcuts-size variable for new widget layouts
@@ -688,6 +708,7 @@ VideoOSDBookmarks.xml:
 Viewtype50.xml:
 - add new image for songs and videos while playlist window is visible
 - add conditional visibility to show list in playlist window
+- add former viewtype 54 controls
 
 Viewtype521.xml:
 - enable view in music library sections
