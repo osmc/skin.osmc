@@ -18,22 +18,48 @@
 			<include content="Time">
 				<param name="heading">$LOCALIZE[13406]</param>
 			</include>
+			
+			<!-- Image -->
+			<control type="image">
+				<include>DialogPictureInfo_coords1</include>
+				<fadetime>100</fadetime>
+				<texture>$INFO[ListItem.FileNameAndPath]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+			</control>
 
 			<!-- List -->
 			<control type="list" id="5">
-				<include>DialogPictureInfo_coords1</include>
+				<include>DialogPictureInfo_coords2</include>
 				<onup>5</onup>
 				<ondown>5</ondown>
-				<onleft>9000</onleft>
+				<onleft>60</onleft>
 				<onright>9000</onright>
 				<orientation>vertical</orientation>
 				<viewtype label="list">list</viewtype>
+				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-
-				<include>DialogPictureInfo_coords2</include>
 
 				<include>DialogPictureInfo_coords3</include>
 
+				<include>DialogPictureInfo_coords4</include>
+
+			</control>
+			
+			<!-- Scrollbar -->
+			<control type="scrollbar" id="60">
+				<include>DialogPictureInfo_coords5</include>
+				<onleft>9000</onleft>
+				<onright>5</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 
 			<!-- Button grouplist background -->

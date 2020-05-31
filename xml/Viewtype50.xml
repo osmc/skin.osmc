@@ -10,7 +10,7 @@
 			<!-- Image -->
 			<include content="image-50">
 				<param name="fallback">DefaultFolder.png</param>
-				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</param>
+				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Window.IsVisible(pictures) | Container.Content(songs)]</param>
 			</include>
 			<include content="image-50">
 				<param name="fallback">DefaultMusicSongs.png</param>
@@ -20,11 +20,45 @@
 				<param name="fallback">DefaultVideo.png</param>
 				<param name="visible">Window.IsVisible(videoplaylist)</param>
 			</include>
+			<include content="image-50">
+				<param name="fallback">DefaultPicture.png</param>
+				<param name="visible">Window.IsVisible(pictures)</param>
+			</include>
+			<include content="image-50">
+				<param name="fallback">DefaultMusicSongs.png</param>
+				<param name="visible">Container.Content(songs)</param>
+			</include>
+			
+			<!-- Song Info -->
+			<control type="group">
+				<include>Viewtype50_coords1</include>
+				<visible>Container.Content(songs)</visible>
+				<!-- Album & Artist Info -->
+				<control type="fadelabel">
+					<include>Viewtype50_coords2</include>
+					<font>Font42</font>
+					<label>$INFO[ListItem.Album]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT]]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="fadelabel">
+					<include>Viewtype50_coords3</include>
+					<font>Font33</font>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.Artist]</label>
+				</control>
+				<control type="fadelabel">
+					<include>Viewtype50_coords4</include>
+					<font>Font27</font>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
+					<visible>Skin.HasSetting(UserRating)</visible>
+				</control>
+			</control>
 
 
 			<!-- List -->
 			<control type="fixedlist" id="50">
-				<include>Viewtype50_coords1</include>
+				<include>Viewtype50_coords5</include>
 				<onup>50</onup>
 				<ondown>50</ondown>
 				<onleft>60</onleft>
@@ -33,11 +67,11 @@
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | [!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(albums) + !Container.Content(songs) + !Window.IsVisible(pictures)] | Container.Content(games) | Window.IsVisible(games)</visible>
+				<visible>Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | Window.IsVisible(pictures) | Container.Content(songs) | [!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(albums)] | Container.Content(games) | Window.IsVisible(games)</visible>
 
-				<include>Viewtype50_coords2</include>
+				<include>Viewtype50_coords6</include>
 
-				<include>Viewtype50_coords3</include>
+				<include>Viewtype50_coords7</include>
 
 			</control>
 
@@ -50,7 +84,7 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype50_coords4</include>
+				<include>Viewtype50_coords8</include>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio aligny="center">keep</aspectratio>
 				<fadetime>200</fadetime>
