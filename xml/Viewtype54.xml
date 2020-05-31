@@ -3,63 +3,50 @@
 
 	<include name="Viewtype54">
 
-		<!-- List (music/pictures) -->
+		<!-- Wall (music) -->
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
 
-			<!-- Image - Songs -->
-			<include content="image-54">
-				<param name="fallback">DefaultMusicSongs.png</param>
-				<param name="visible">Container.Content(songs)</param>
-			</include>
-			<!-- Image - Picture -->
-			<include content="image-54">
-				<param name="fallback">DefaultPicture.png</param>
-				<param name="visible">Window.IsVisible(pictures)</param>
-			</include>
-
-			<!-- Song Info -->
-			<control type="group">
+			<control type="panel" id="54">
 				<include>Viewtype54_coords1</include>
-				<visible>Container.Content(songs)</visible>
-				<!-- Album & Artist Info -->
-				<control type="fadelabel">
-					<include>Viewtype54_coords2</include>
-					<font>Font42</font>
-					<label>$INFO[ListItem.Album]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT]]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
-				</control>
-				<control type="fadelabel">
-					<include>Viewtype54_coords3</include>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<label>$INFO[ListItem.Artist]</label>
-				</control>
-				<control type="fadelabel">
-					<include>Viewtype54_coords4</include>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
-					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
-					<visible>Skin.HasSetting(UserRating)</visible>
-				</control>
-			</control>
-
-			<!-- List -->
-			<control type="fixedlist" id="54">
-				<include>Viewtype54_coords5</include>
+				<onleft>65</onleft>
 				<onup>54</onup>
 				<ondown>54</ondown>
-				<onleft>60</onleft>
-				<pagecontrol>60</pagecontrol>
-				<focusposition>5</focusposition>
-				<orientation>vertical</orientation>
-				<viewtype label="535">list</viewtype>
+				<pagecontrol>65</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<viewtype label="$LOCALIZE[31078]">icon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(songs) | Window.IsVisible(pictures)</visible>
+				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists) | Container.Content(games)</visible>
 
-				<include>Viewtype54_coords6</include>
+				<include>Viewtype54_coords2</include>
 
-				<include>Viewtype54_coords7</include>
+				<include>Viewtype54_coords3</include>
+				
+			</control>
+
+			<control type="group">
+				<include>Viewtype54_coords4</include>
+
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype54_coords5</include>
+					<font>Font72</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(54)">Conditional</animation>
+				</control>
+
+				<!-- Details -->
+				<control type="fadelabel">
+					<include>Viewtype54_coords6</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(54)">Conditional</animation>
+				</control>
 
 			</control>
 
@@ -69,12 +56,30 @@
 
 	<include name="image-54">
 		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype54_coords7</include>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="image-54-focused">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
 				<include>Viewtype54_coords8</include>
+				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio align="center">keep</aspectratio>
+				<aspectratio align="center" aligny="bottom">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
