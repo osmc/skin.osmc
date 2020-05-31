@@ -21,7 +21,7 @@ _Improved_
 - improve widget positioning and widget icon size
 - improve skinshortcuts management dialog
 - improve video info dialog button behaviour
-- remove unnecessary song & picture list view
+- remove unnecessary song and picture list view
 
 _Fixed_
 - fix settings button labels for 21:9 and 4:3 modes
