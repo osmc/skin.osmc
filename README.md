@@ -2,9 +2,11 @@
 
 The default skin for OSMC.
 
+For further information, check out the wiki here: https://discourse.osmc.tv/t/the-osmc-skin/86002
+
 ## This skin is shipped with official releases of OSMC (https://osmc.tv/download/).
 
-Install from GitHub on other platforms - download via "Clone or download" and install from zip.
+Install from GitHub on other platforms - check for the newest release here: https://github.com/osmc/skin.osmc/releases
 
 Original skin: Andy Morton (https://github.com/BobCratchett)
 
