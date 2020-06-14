@@ -2,7 +2,7 @@
 
 The default skin for OSMC.
 
-For further information, check out the wiki here: https://discourse.osmc.tv/t/the-osmc-skin/86002
+For further information, check out the wiki here: https://osmc.tv/wiki/general/the-osmc-skin/
 
 ## This skin is shipped with official releases of OSMC (https://osmc.tv/download/).
 
