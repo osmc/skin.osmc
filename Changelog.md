@@ -2,6 +2,7 @@
 
 _New_
 - add channel group switching buttons to OSD PVR channels list
+- add Library Node Editor support
 
 _Improved_
 - improve wording in skin settings
@@ -14,6 +15,7 @@ _Fixed_
 
 strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
+- add new localizes for Library Node Editor submenu button (31400)
 
 Coordinates_DialogPVRChannelsOSD.xml:
 - add new coordinates for channel group heading and channel group switch buttons
@@ -23,12 +25,14 @@ DialogPVRChannelsOSD.xml:
 
 MyMusicNav.xml:
 - fix default view to 'list'
+- add new Library Node Editor button to submenu
 
 MyPVRChannels.xml:
 - change channel group label ID to '29'
 
 MyVideoNav.xml:
 - fix default view to 'list'
+- add new Library Node Editor button to submenu
 
 Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
