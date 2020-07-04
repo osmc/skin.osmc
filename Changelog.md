@@ -10,12 +10,16 @@ _Improved_
 _Fixed_
 - fix default view music and video navigation
 - fix PVR channels window heading label
+- fix widget icon fallback
 
 **Changelog v18.4.0**
 
 strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
 - add new localizes for Library Node Editor submenu button (31400)
+
+template.xml:
+- fix deprecated IsEmpty conditions
 
 Coordinates_DialogPVRChannelsOSD.xml:
 - add new coordinates for channel group heading and channel group switch buttons
@@ -33,6 +37,9 @@ MyPVRChannels.xml:
 MyVideoNav.xml:
 - fix default view to 'list'
 - add new Library Node Editor button to submenu
+
+script-skinshortcuts-static.xml:
+- fix deprecated IsEmpty conditions
 
 Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
