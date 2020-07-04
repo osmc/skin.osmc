@@ -615,8 +615,8 @@
 		<!-- Python snippets -->
 		<property name="primary-art">'widget-fakelandscape' if art in 'FAKELANDSCAPE' else 'widget-faketvlandscape' if art in 'FAKETVLANDSCAPE' else 'widget-image'</property>
 		<property name="secondary-art">'widget-fakelandscape' if art2 in 'FAKELANDSCAPE' else 'widget-faketvlandscape' if art2 in 'FAKETVLANDSCAPE' else 'widget-image'</property>
-		<property name="secondary-visibility">'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art in 'FAKELANDSCAPE' else 'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art in 'FAKETVLANDSCAPE' else 'IsEmpty(ListItem.%s)' %(art)</property>
-		<property name="fallback-visibility">'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art2 in 'FAKELANDSCAPE' else 'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art2 in 'FAKETVLANDSCAPE' else 'IsEmpty(ListItem.%s)' %(art2)</property>
+		<property name="secondary-visibility">'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art in 'FAKELANDSCAPE' else 'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art in 'FAKETVLANDSCAPE' else 'String.IsEmpty(ListItem.%s)' %(art)</property>
+		<property name="fallback-visibility">'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art2 in 'FAKELANDSCAPE' else 'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art2 in 'FAKETVLANDSCAPE' else 'String.IsEmpty(ListItem.%s)' %(art2)</property>
 		
 	</propertyGroup>
 
