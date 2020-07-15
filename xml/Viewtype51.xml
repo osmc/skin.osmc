@@ -26,22 +26,6 @@
 					<param name="fallback">DefaultTVShows.png</param>
 					<param name="visible">!Container.Content(movies) + !Container.Content(albums)</param>
 				</include>
-				<!-- Collection -->
-				<control type="group">
-					<include>Viewtype51_coords1</include>
-					<control type="image">
-						<include>Viewtype51_coords2</include>
-						<fadetime>200</fadetime>
-						<texture background="true">views/OverlayCornerLeft.png</texture>
-						<visible>ListItem.IsCollection</visible>
-					</control>
-					<control type="image">
-						<include>Viewtype51_coords2</include>
-						<fadetime>200</fadetime>
-						<texture background="true">views/OverlayCollection.png</texture>
-						<visible>ListItem.IsCollection</visible>
-					</control>
-				</control>
 			</control>
 
 			<!-- Episode Info -->
@@ -140,7 +124,7 @@
 				<include>Viewtype51_coords12</include>
 				<fadetime>200</fadetime>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio aligny="center">keep</aspectratio>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
@@ -155,7 +139,7 @@
 				<include>Viewtype51_coords12</include>
 				<fadetime>200</fadetime>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>

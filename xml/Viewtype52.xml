@@ -26,6 +26,7 @@
 
 			<control type="group">
 				<include>Viewtype52_coords4</include>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
 
 				<!-- Title -->
 				<control type="fadelabel">
@@ -35,7 +36,6 @@
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[Label1]</label>
 					<scrollspeed>120</scrollspeed>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
 				</control>
 
 				<!-- Details -->
@@ -46,7 +46,6 @@
 					<aligny>top</aligny>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(52)">Conditional</animation>
 				</control>
 
 			</control>
@@ -63,7 +62,7 @@
 				<include>Viewtype52_coords7</include>
 				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
-				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
@@ -77,7 +76,7 @@
 			<control type="image">
 				<include>Viewtype52_coords8</include>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
-				<aspectratio align="center" aligny="bottom">keep</aspectratio>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
