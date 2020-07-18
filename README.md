@@ -1,6 +1,8 @@
-# skin.osmc
+# skin.osmc.scope
 
-The default skin for OSMC.
+Scope edition of the default skin for OSMC.
+
+This version of the OSMC skin is made for Cinemascope/CIH projector setups. It supports masking for 2.40:1, 2.35:1, 2.33:1, 2.00:1 and 1.87:1 aspect ratios.
 
 For further information, check out the wiki here: https://osmc.tv/wiki/general/the-osmc-skin/
 
