@@ -165,6 +165,18 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
+			<!-- Collection -->
+			<control type="image">
+				<left>0</left>
+				<top>19</top>
+				<width>22</width>
+				<height>22</height>
+				<texture>views/OverlayCollection.png</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<visible>ListItem.IsCollection</visible>
+			</control>
 			<!-- Watched status -->
 			<control type="image">
 				<left>0</left>
@@ -175,7 +187,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -190,6 +202,18 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
+			<!-- Collection -->
+			<control type="image">
+				<left>0</left>
+				<top>19</top>
+				<width>22</width>
+				<height>22</height>
+				<texture>views/OverlayCollection.png</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<visible>ListItem.IsCollection</visible>
+			</control>
 			<!-- Watched status -->
 			<control type="image">
 				<left>0</left>
@@ -200,7 +224,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -215,6 +239,18 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
+			<!-- Collection -->
+			<control type="image">
+				<left>0</left>
+				<top>19</top>
+				<width>22</width>
+				<height>22</height>
+				<texture>views/OverlayCollection.png</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<visible>ListItem.IsCollection</visible>
+			</control>
 			<!-- Watched status -->
 			<control type="image">
 				<left>0</left>
@@ -225,7 +261,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -240,6 +276,18 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
 			</control>
+			<!-- Collection -->
+			<control type="image">
+				<left>0</left>
+				<top>19</top>
+				<width>22</width>
+				<height>22</height>
+				<texture>views/OverlayCollection.png</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<visible>ListItem.IsCollection</visible>
+			</control>
 			<!-- Watched status -->
 			<control type="image">
 				<left>0</left>
@@ -250,7 +298,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
 				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -263,149 +311,193 @@
 	</include>
 	<include name="Viewtype50_coords7_16:9">
 		<focusedlayout height="120" width="1050">
-			<control type="label">
-				<left>32</left>
-				<top>0</top>
-				<width>1018</width>
-				<height>120</height>
-				<font>Font72-bold</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<scroll>True</scroll>
-				<scrollspeed>120</scrollspeed>
+			<control type="group">
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>0</top>
-				<width>1018</width>
-				<height>120</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>49</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<control type="label">
+					<left>32</left>
+					<top>0</top>
+					<width>1018</width>
+					<height>120</height>
+					<font>Font72-bold</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
+					<scrollspeed>120</scrollspeed>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>0</top>
+					<width>1018</width>
+					<height>120</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<!-- Collection -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>views/OverlayCollection.png</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>ListItem.IsCollection</visible>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="Viewtype50_coords7_21:9">
 		<focusedlayout height="120" width="1690">
-			<control type="label">
-				<left>32</left>
-				<top>0</top>
-				<width>1658</width>
-				<height>120</height>
-				<font>Font72-bold</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<scroll>True</scroll>
-				<scrollspeed>120</scrollspeed>
+			<control type="group">
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>0</top>
-				<width>1658</width>
-				<height>120</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>49</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<control type="label">
+					<left>32</left>
+					<top>0</top>
+					<width>1658</width>
+					<height>120</height>
+					<font>Font72-bold</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
+					<scrollspeed>120</scrollspeed>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>0</top>
+					<width>1658</width>
+					<height>120</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<!-- Collection -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>views/OverlayCollection.png</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>ListItem.IsCollection</visible>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="Viewtype50_coords7_21:9_masked">
 		<focusedlayout height="120" width="1690">
-			<control type="label">
-				<left>32</left>
-				<top>0</top>
-				<width>1658</width>
-				<height>120</height>
-				<font>Font72-bold</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<scroll>True</scroll>
-				<scrollspeed>120</scrollspeed>
+			<control type="group">
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>0</top>
-				<width>1658</width>
-				<height>120</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>49</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<control type="label">
+					<left>32</left>
+					<top>0</top>
+					<width>1658</width>
+					<height>120</height>
+					<font>Font72-bold</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
+					<scrollspeed>120</scrollspeed>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>0</top>
+					<width>1658</width>
+					<height>120</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<!-- Collection -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>views/OverlayCollection.png</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>ListItem.IsCollection</visible>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="Viewtype50_coords7_4:3">
 		<focusedlayout height="120" width="570">
-			<control type="label">
-				<left>32</left>
-				<top>0</top>
-				<width>538</width>
-				<height>120</height>
-				<font>Font72-bold</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<scroll>True</scroll>
-				<scrollspeed>120</scrollspeed>
+			<control type="group">
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>0</top>
-				<width>538</width>
-				<height>120</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>49</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]</visible>
+				<control type="label">
+					<left>32</left>
+					<top>0</top>
+					<width>538</width>
+					<height>120</height>
+					<font>Font72-bold</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
+					<scrollspeed>120</scrollspeed>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>0</top>
+					<width>538</width>
+					<height>120</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<!-- Collection -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>views/OverlayCollection.png</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>ListItem.IsCollection</visible>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>49</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
