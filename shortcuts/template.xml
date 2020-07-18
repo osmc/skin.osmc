@@ -362,17 +362,38 @@
 					</include>
 
 					<control type="group">
-						<right>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</right>
+						<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
 						<bottom>0</bottom>
-						<width>$PYTHON[int(imageWidthNoFocus) * 0.22]</width>
-						<height>$PYTHON[int(imageWidthNoFocus) * 0.22]</height>
+						<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+						<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+						<visible>ListItem.IsCollection</visible>
 						<control type="image">
-							<texture background="true">views/OverlayCornerRight.png</texture>
+							<texture background="true">views/OverlayBottomBar.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+						<control type="image">
+							<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+							<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
+							<texture background="true">views/OverlayCollection.png</texture>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+						</control>
+					</control>
+					
+					<control type="group">
+						<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
+						<bottom>0</bottom>
+						<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+						<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+						<visible>!ListItem.IsCollection</visible>
+						<control type="image">
+							<texture background="true">views/OverlayBottomBar.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
 							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 						</control>
 						<control type="image">
+							<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+							<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
 							<texture background="true">$VAR[StatusOverlayWide]</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						</control>
@@ -422,20 +443,38 @@
 							</include>
 							
 							<control type="group">
-								<right>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</right>
+								<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
 								<bottom>0</bottom>
-								<width>$PYTHON[int(imageWidthNoFocus) * 0.22]</width>
-								<height>$PYTHON[int(imageWidthNoFocus) * 0.22]</height>
+								<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+								<visible>ListItem.IsCollection</visible>
 								<control type="image">
-									<texture background="true">views/OverlayCornerRight.png</texture>
+									<texture background="true">views/OverlayBottomBar.png</texture>
+								</control>
+								<control type="image">
+									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
+									<texture background="true">views/OverlayCollection.png</texture>
+								</control>
+							</control>
+							
+							<control type="group">
+								<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
+								<bottom>0</bottom>
+								<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+								<visible>!ListItem.IsCollection</visible>
+								<control type="image">
+									<texture background="true">views/OverlayBottomBar.png</texture>
 									<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
 									<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 								</control>
 								<control type="image">
+									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
 									<texture background="true">$VAR[StatusOverlayWide]</texture>
 								</control>
 							</control>
-
 						</control>
 						<control type="group">
 							<animation effect="fade" start="100" end="0" time="0" reversible="false">Focus</animation>
@@ -480,22 +519,42 @@
 							</include>
 							
 							<control type="group">
-								<right>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</right>
+								<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
 								<bottom>0</bottom>
-								<width>$PYTHON[int(imageWidthNoFocus) * 0.22]</width>
-								<height>$PYTHON[int(imageWidthNoFocus) * 0.22]</height>
+								<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+								<visible>ListItem.IsCollection</visible>
 								<control type="image">
-									<texture background="true">views/OverlayCornerRight.png</texture>
+									<texture background="true">views/OverlayBottomBar.png</texture>
+									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								</control>
+								<control type="image">
+									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
+									<texture background="true">views/OverlayCollection.png</texture>
+									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								</control>
+							</control>
+							
+							<control type="group">
+								<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
+								<bottom>0</bottom>
+								<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+								<visible>!ListItem.IsCollection</visible>
+								<control type="image">
+									<texture background="true">views/OverlayBottomBar.png</texture>
 									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 									<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
 									<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 								</control>
 								<control type="image">
+									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
 									<texture background="true">$VAR[StatusOverlayWide]</texture>
 									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 								</control>
 							</control>
-							
 						</control>
 
 				</focusedlayout>
@@ -615,8 +674,8 @@
 		<!-- Python snippets -->
 		<property name="primary-art">'widget-fakelandscape' if art in 'FAKELANDSCAPE' else 'widget-faketvlandscape' if art in 'FAKETVLANDSCAPE' else 'widget-image'</property>
 		<property name="secondary-art">'widget-fakelandscape' if art2 in 'FAKELANDSCAPE' else 'widget-faketvlandscape' if art2 in 'FAKETVLANDSCAPE' else 'widget-image'</property>
-		<property name="secondary-visibility">'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art in 'FAKELANDSCAPE' else 'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art in 'FAKETVLANDSCAPE' else 'IsEmpty(ListItem.%s)' %(art)</property>
-		<property name="fallback-visibility">'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art2 in 'FAKELANDSCAPE' else 'IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art2 in 'FAKETVLANDSCAPE' else 'IsEmpty(ListItem.%s)' %(art2)</property>
+		<property name="secondary-visibility">'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art in 'FAKELANDSCAPE' else 'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art in 'FAKETVLANDSCAPE' else 'String.IsEmpty(ListItem.%s)' %(art)</property>
+		<property name="fallback-visibility">'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(clearlogo))' if art2 in 'FAKELANDSCAPE' else 'String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(tvshow.clearlogo))' if art2 in 'FAKETVLANDSCAPE' else 'String.IsEmpty(ListItem.%s)' %(art2)</property>
 		
 	</propertyGroup>
 
