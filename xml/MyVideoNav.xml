@@ -46,7 +46,7 @@
 				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(533)]</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(531) | Control.IsVisible(533)]</visible>
 			</control>
 
 			<!-- Scrollbar (wide) -->
@@ -94,7 +94,7 @@
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(53)</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(53) | Control.IsVisible(532)]</visible>
 			</control>
 			
 			<!-- Scrollbar (wall low) -->
@@ -111,38 +111,6 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(534)</visible>
-			</control>
-			
-			<!-- Scrollbar (wall small) -->
-			<control type="scrollbar" id="68">
-				<include>MyVideoNav_coords6</include>
-				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-				<onright>50</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="6,1,8,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(532)</visible>
-			</control>
-			
-			<!-- Scrollbar (wall info) -->
-			<control type="scrollbar" id="69">
-				<include>MyVideoNav_coords7</include>
-				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-				<onright>50</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(531)</visible>
 			</control>
 
 			<!-- Media flags -->
@@ -301,6 +269,14 @@
 						<onclick>XBMC.Mastermode</onclick>
 						<selected>System.IsMaster</selected>
 						<visible>System.HasLocks</visible>
+					</control>
+					<!-- Library Node Editor -->
+					<control type="button" id="95">
+						<label>31400</label>
+						<height>52</height>
+						<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
+						<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+						<visible>Container.Content() + String.IsEmpty(Container.PluginName)</visible>
 					</control>
 					
 					<include>SideMenuControls</include>

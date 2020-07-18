@@ -20,6 +20,7 @@
 			<include>WindowFadeAnimation</include>
 
 			<control type="group">
+				<include>VisibleFadeAnimation</include>
 				<visible>Control.IsVisible(10)</visible>
 
 				<!-- Scrollbar (list) -->
@@ -75,15 +76,6 @@
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<fadetime>200</fadetime>
 						<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
-						<visible>Window.IsVisible(TVGuide)</visible>
-					</control>
-					<control type="image">
-						<include>MyPVRGuide_coords9</include>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<fadetime>200</fadetime>
-						<texture background="true" fallback="DefaultLiveTV.png">$INFO[ListItem.EPGEventIcon]</texture>
-						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
 						<visible>Window.IsVisible(TVGuide)</visible>
 					</control>
 					
@@ -92,15 +84,6 @@
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<fadetime>200</fadetime>
 						<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-						<visible>String.IsEmpty(ListItem.EPGEventIcon)</visible>
-						<visible>Window.IsVisible(RadioGuide)</visible>
-					</control>
-					<control type="image">
-						<include>MyPVRGuide_coords9</include>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<fadetime>200</fadetime>
-						<texture background="true" fallback="DefaultRadio.png">$INFO[ListItem.EPGEventIcon]</texture>
-						<visible>!String.IsEmpty(ListItem.EPGEventIcon)</visible>
 						<visible>Window.IsVisible(RadioGuide)</visible>
 					</control>
 
