@@ -4,7 +4,7 @@
 	<defaultcontrol always="true">8</defaultcontrol>
 	<onload condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onload>
 	<onload condition="!String.IsEmpty(Window(12003).Property(cast))">ClearProperty(cast,12003)</onload>
-	<onload condition="System.HasAddon(script.tvtunes)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
+	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
 	<onunload>ClearProperty(extended,12003)</onunload>
 	<onunload>ClearProperty(cast,12003)</onunload>
 
@@ -794,8 +794,8 @@
 				<control type="button" id="20">
 					<width>Auto</width>
 					<label>31043</label>
-					<onclick condition="Container.Content(tvshows)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-					<onclick condition="Container.Content(movies)">XBMC.RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+					<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+					<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
 					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 					<visible>!Skin.HasSetting(KioskMode)</visible>
 				</control>
@@ -810,7 +810,7 @@
 					<width>Auto</width>
 					<label>31066</label>
 					<onclick>Dialog.Close(MovieInformation)</onclick>
-					<onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+					<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
 					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
 				</control>
 

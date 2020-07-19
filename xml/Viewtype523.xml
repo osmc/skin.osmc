@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="Viewtype523">
+		
+		<!-- Wide (music) -->
+		<control type="group">
+			<visible>Control.IsVisible(523)</visible>
+
+			<control type="fixedlist" id="523">
+				<include>Viewtype523_coords1</include>
+				<ondown>61</ondown>
+				<onleft>523</onleft>
+				<onright>523</onright>
+				<pagecontrol>61</pagecontrol>
+				<orientation>horizontal</orientation>
+				<viewtype label="539">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(albums) | Container.Content(artists)</visible>
+
+				<include>Viewtype523_coords2</include>
+
+				<include>Viewtype523_coords3</include>
+
+			</control>
+
+			<control type="group">
+				<include>Viewtype523_coords4</include>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(523)">Conditional</animation>
+
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype523_coords5</include>
+					<font>Font72</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<scrollspeed>120</scrollspeed>
+				</control>
+
+				<!-- Details -->
+				<control type="fadelabel">
+					<include>Viewtype523_coords6</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[Label2]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+
+			</control>
+
+		</control>
+
+	</include>
+
+	<include name="image-523">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype523_coords7</include>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="image-523-focus">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>Viewtype523_coords8</include>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
+			</control>
+		</definition>
+	</include>
+
+</includes>
