@@ -11,7 +11,7 @@
 	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem1,$INFO[Container(50).ListItemNoWrap(1).Label])</onunload>
 	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem2,$INFO[Container(50).ListItemNoWrap(2).Label])</onunload>
 	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem3,$INFO[Container(50).ListItemNoWrap(3).Label])</onunload>
-	<views>50,51,52,521,54</views>
+	<views>50,51,523,535,536</views>
 
 	<!-- Sidemenu menucontrol -->
 	<include content="SidemenuMenucontrol">
@@ -31,9 +31,9 @@
 			<!-- Views -->
 			<include>Viewtype50</include>
 			<include>Viewtype51</include>
-			<include>Viewtype52</include>
-			<include>Viewtype521</include>
-			<include>Viewtype54</include>
+			<include>Viewtype523</include>
+			<include>Viewtype535</include>
+			<include>Viewtype536</include>
 
 			<!-- Scrollbar (list) -->
 			<control type="scrollbar" id="60">
@@ -64,7 +64,7 @@
 				<texturesliderbarfocus border="1,12,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripHorizontalFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(52) | Control.IsVisible(521)]</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(523)</visible>
 			</control>
 
 			<!-- Scrollbar (wall) -->
@@ -80,7 +80,7 @@
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(54)</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(535) | Control.IsVisible(536)]</visible>
 			</control>
 
 			<!-- Media flags -->
