@@ -3,25 +3,32 @@
 _New_
 - add channel group switching buttons to OSD PVR channels list
 - add Library Node Editor support
+- add wall small view for music
 
 _Improved_
 - improve wording in skin settings
-- improve watched/listened to indicator for alle views/widgets
+- improve watched/listened to indicator for all views/widgets
 - adjust media window view positioning and size
+- adjust wall and wide view for music
+- improve spacing of wall low view
 
 _Fixed_
 - fix default view music and video navigation
 - fix PVR channels window heading label
 - fix widget icon fallback
+- fix PVR OSD dialogs
 
 **Changelog v18.4.0**
+
+_Add new music specific wide and wall small views (viewtype523, viewtype536)_
+_Rename viewtype54 to viewtype534_
 
 strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
 - add new localizes for Library Node Editor submenu button (31400)
 
 Textures.xbt:
-- update textures file with new border and watched/listened to indicator files
+- update textures file with new watched/listened to indicator files
 
 template.xml:
 - fix deprecated IsEmpty conditions
@@ -30,9 +37,11 @@ template.xml:
 
 Coordinates_DialogPVRChannelsOSD.xml:
 - add new coordinates for channel group heading and channel group switch buttons
+- rework coordinates for improved OSD guide dialog
 
 DialogPVRChannelsOSD.xml:
 - add new channel group heading, channel group switch buttons and indicators
+- rework coordinates for improved OSD channels dialog
 
 Coordinates_MyGames.xml:
 - fix scrollbar height and positioning
@@ -95,9 +104,19 @@ Coordinates_Viewtype54.xml:
 - rework watched/listened to and collection indicators
 - change cover art dimensions
 
+Includes.xml:
+- rename/add/remove includes files
+
+MyGames.xml:
+- add changed/new viewtypes
+
 MyMusicNav.xml:
 - fix default view to 'list'
 - add new Library Node Editor button to submenu
+- add changed/new viewtypes
+
+MyPrograms.xml:
+- add changed/new viewtypes
 
 MyVideoNav.xml:
 - remove deprecated scrollbars
@@ -118,44 +137,46 @@ Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
 
 Viewtype50.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype51.xml:
 - remove collection indicator from cover art
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype511.xml:
 - remove collection indicator from cover art
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype52.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
+- fix visibility to only use view for movies and TV shows
 
 Viewtype521.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
+- fix visibility to only use view for movies and TV shows
 
 Viewtype522.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype53.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype531.xml:
 - change onleft and pagecontrol for new scrollbar
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype532.xml:
 - change onleft and pagecontrol for new scrollbar
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype533.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype534.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 Viewtype54.xml:
-- fix alignment of cover art (centered)
+- fix alignment of cover art (centred)
 
 addon.xml:
 - bump version to 18.4.0
