@@ -4,6 +4,7 @@ _New_
 - add channel group switching buttons to OSD PVR channels list
 - add Library Node Editor support
 - add wall small view for music
+- add automatic masking for scope skin version
 
 _Improved_
 - improve wording in skin settings
@@ -25,7 +26,8 @@ _Rename viewtype54 to viewtype534_
 
 strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
-- add new localizes for Library Node Editor submenu button (31400)
+- add new localize for Library Node Editor submenu button (31400)
+- add new localizes for automatic masking setting (31401, 31402)
 
 Textures.xbt:
 - update textures file with new watched/listened to indicator files
@@ -104,8 +106,12 @@ Coordinates_Viewtype54.xml:
 - rework watched/listened to and collection indicators
 - change cover art dimensions
 
+Home.xml:
+- rework RSS feed with animation for masking
+
 Includes.xml:
 - rename/add/remove includes files
+- rework masking animations for new automatic masking
 
 MyGames.xml:
 - add changed/new viewtypes
@@ -133,8 +139,23 @@ script-skinshortcuts-static.xml:
 - rework watched/listened to widget indicator
 - add collection indicator to widgets
 
+SettingsScreenCalibration.xml:
+- rework masking animations for new automatic masking
+
+SkinSettings.xml:
+- add new automatic masking setting
+
 Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
+
+Variables_SkinSettings.xml:
+- add new automatic masking setting explanation variable
+
+VideoFullScreen.xml:
+- rework masking animations for new automatic masking
+
+VideoOSD.xml:
+- rework visibility condition for masking control button
 
 Viewtype50.xml:
 - fix alignment of cover art (centred)
