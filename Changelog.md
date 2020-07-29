@@ -27,19 +27,27 @@ _Rename viewtype54 to viewtype534_
 strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
 - add new localize for Library Node Editor submenu button (31400)
-- add new localizes for automatic masking setting (31401, 31402)
+- add new localizes for automatic masking setting (31401, 31402, 31403)
 
 Textures.xbt:
 - update textures file with new watched/listened to indicator files
+- update textures file with new automatic aspect ratio OSD control icon
 
 template.xml:
 - fix deprecated IsEmpty conditions
 - rework watched/listened to widget indicator
 - add collection indicator to widgets
 
+Coordinates_Custom_DialogMasking.xml:
+- adjust coordinates for new OSD masking aspect ratio dialog layout
+
 Coordinates_DialogPVRChannelsOSD.xml:
 - add new coordinates for channel group heading and channel group switch buttons
 - rework coordinates for improved OSD guide dialog
+
+Custom_DialogMasking.xml:
+- change heading localize
+- rework buttons options to match skin settings masking aspect ratio setting layout
 
 DialogPVRChannelsOSD.xml:
 - add new channel group heading, channel group switch buttons and indicators
@@ -155,7 +163,7 @@ VideoFullScreen.xml:
 - rework masking animations for new automatic masking
 
 VideoOSD.xml:
-- rework visibility condition for masking control button
+- change conditional visibility and add new icon to masking control button for new automatic masking aspect ratio setting
 
 Viewtype50.xml:
 - fix alignment of cover art (centred)
