@@ -24,7 +24,7 @@
 					<align>center</align>
 					<aligny>top</aligny>
 					<font>Font33</font>
-					<label>$LOCALIZE[31065]</label>
+					<label>$LOCALIZE[31403]</label>
 				</control>
 
 				<!-- Grouplist -->
@@ -38,59 +38,28 @@
 					<orientation>vertical</orientation>
 					<scrolltime tween="sine" easing="out">240</scrolltime>
 					
-					<!-- 2.40:1 -->
-					<control type="radiobutton" id="10">
+					<!-- Toggle masking -->
+					<control type="button" id="10">
 						<include>Custom_DialogMasking_coords5</include>
 						<font>Font33</font>
-						<label>2.40:1</label>
-						<onclick>Skin.SetString(MaskingBars,2.40:1)</onclick>
-						<selected>String.IsEqual(Skin.String(MaskingBars),2.40:1)</selected>
+						<label>$LOCALIZE[31065]</label>
+						<label2>$INFO[Skin.String(MaskingBars)]</label2>
+						<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.40:1)">Skin.SetString(MaskingBars,2.35:1)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.35:1)">Skin.SetString(MaskingBars,2.33:1)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.33:1)">Skin.SetString(MaskingBars,2.00:1)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.00:1)">Skin.SetString(MaskingBars,1.78:1)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(MaskingBars),1.78:1)">Skin.SetString(MaskingBars,2.40:1)</onclick>
 						<focusedcolor>$VAR[TextColor1]</focusedcolor>
 						<textcolor>$VAR[TextColor2]</textcolor>
 					</control>
 					
-					<!-- 2.35:1 -->
+					<!-- Automatic masking -->
 					<control type="radiobutton" id="11">
 						<include>Custom_DialogMasking_coords5</include>
 						<font>Font33</font>
-						<label>2.35:1</label>
-						<onclick>Skin.SetString(MaskingBars,2.35:1)</onclick>
-						<selected>String.IsEqual(Skin.String(MaskingBars),2.35:1)</selected>
-						<focusedcolor>$VAR[TextColor1]</focusedcolor>
-						<textcolor>$VAR[TextColor2]</textcolor>
-					</control>
-					
-					<!-- 2.33:1 -->
-					<control type="radiobutton" id="12">
-						<include>Custom_DialogMasking_coords5</include>
-						<font>Font33</font>
-						<label>2.33:1</label>
-						<onclick>Skin.SetString(MaskingBars,2.33:1)</onclick>
-						<selected>String.IsEqual(Skin.String(MaskingBars),2.33:1)</selected>
-						<focusedcolor>$VAR[TextColor1]</focusedcolor>
-						<textcolor>$VAR[TextColor2]</textcolor>
-					</control>
-					
-					<!-- 2.00:1 -->
-					<control type="radiobutton" id="13">
-						<include>Custom_DialogMasking_coords5</include>
-						<font>Font33</font>
-						<label>2.00:1</label>
-						<onclick>Skin.SetString(MaskingBars,2.00:1)</onclick>
-						<selected>String.IsEqual(Skin.String(MaskingBars),2.00:1)</selected>
-						<focusedcolor>$VAR[TextColor1]</focusedcolor>
-						<textcolor>$VAR[TextColor2]</textcolor>
-					</control>
-					
-					<!-- 1.78:1 -->
-					<control type="radiobutton" id="14">
-						<include>Custom_DialogMasking_coords5</include>
-						<font>Font33</font>
-						<label>1.78:1</label>
-						<onclick>Skin.SetString(MaskingBars,1.78:1)</onclick>
-						<selected>String.IsEqual(Skin.String(MaskingBars),1.78:1)</selected>
-						<focusedcolor>$VAR[TextColor1]</focusedcolor>
-						<textcolor>$VAR[TextColor2]</textcolor>
+						<label>31401</label>
+						<onclick>Skin.ToggleSetting(AutomaticMasking)</onclick>
+						<selected>Skin.HasSetting(AutomaticMasking)</selected>
 					</control>
 				
 				</control>
@@ -102,7 +71,7 @@
 					<itemgap>30</itemgap>
 					<onleft>noop</onleft>
 					<onright>noop</onright>
-					<onup>13</onup>
+					<onup>11</onup>
 					<ondown>noop</ondown>
 					<defaultcontrol>14</defaultcontrol>
 					<orientation>horizontal</orientation>
