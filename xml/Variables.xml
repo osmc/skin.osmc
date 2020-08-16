@@ -260,7 +260,7 @@
 	</variable>
 
 	<variable name="VideoPlayerChannelNumber">
-		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName,,]$INFO[VideoPlayer.ChannelNumberLabel, &#8226; ,]</value>
+		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, &#8226; ,]</value>
 	</variable>
 
 	<variable name="VideoPlayerNext">
@@ -269,17 +269,11 @@
 	</variable>
 	
 	<variable name="PVRDescription">
-		<value>$INFO[ListItem.TVShowTitle,[B],[/B][CR][CR]]$INFO[ListItem.Title,[B],[/B][CR][CR]]$VAR[PVRSeasonEpisode,[LIGHT],[/LIGHT][CR][CR]]$INFO[ListItem.Plot]</value>
-	</variable>
-	<variable name="PVRSeasonEpisode">
-		<value condition="!String.IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
+		<value>$INFO[ListItem.Title,[B],[/B][CR][CR]]$INFO[ListItem.EpisodeName,[LIGHT],[/LIGHT][CR][CR]]$INFO[ListItem.Genre,[LIGHT],[/LIGHT][CR][CR]]$INFO[ListItem.Plot]</value>
 	</variable>
 	
 	<variable name="PVRDescriptionDialogGuide">
-		<value>$INFO[Container(11).ListItem.TVShowTitle,[B],[/B][CR][CR]]$INFO[Container(11).ListItem.Title,[B],[/B][CR][CR]]$VAR[PVRSeasonEpisodeDialogGuide,[LIGHT],[/LIGHT][CR][CR]]$INFO[Container(11).ListItem.Plot]</value>
-	</variable>
-	<variable name="PVRSeasonEpisodeDialogGuide">
-		<value condition="!String.IsEmpty(Container(11).ListItem.Season)">$INFO[Container(11).ListItem.Season,$LOCALIZE[20373] , &#8226; ]$INFO[Container(11).ListItem.Episode,$LOCALIZE[20359] ]</value>
+		<value>$INFO[Container(11).ListItem.Title,[B],[/B][CR][CR]]$INFO[Container(11).ListItem.EpisodeName,[LIGHT],[/LIGHT][CR][CR]]$INFO[Container(11).ListItem.Genre,[LIGHT],[/LIGHT][CR][CR]]$INFO[Container(11).ListItem.Plot]</value>
 	</variable>
 
 	<variable name="PVRChannelIcon">
@@ -396,7 +390,7 @@
 
 	<variable name="MusicInfoLabel">
 		<value condition="Window.Is(songinformation)">$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
-		<value condition="Container.Content(albums)">$INFO[ListItem.Album]$VAR[LabelUserRating]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Album]$INFO[ListItem.DiscNumber, - $LOCALIZE[427]]$VAR[LabelUserRating]</value>
 		<value>$INFO[ListItem.Artist]</value>
 	</variable>
 
@@ -412,7 +406,7 @@
 	</variable>
 
 	<variable name="addonInformation">
-		<value condition="!String.IsEmpty(ListItem.AddonNews)">[B]$LOCALIZE[29916][/B][CR]$INFO[ListItem.AddonNews][CR][CR][B]$LOCALIZE[21821][/B][CR]$INFO[ListItem.AddonDescription]</value>
+		<value condition="!String.IsEmpty(ListItem.AddonNews)">$INFO[ListItem.AddonNews]$INFO[ListItem.AddonDescription,[CR][CR],]</value>
 		<value>$INFO[ListItem.AddonDescription]</value>
 	</variable>
 	
