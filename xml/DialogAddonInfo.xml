@@ -2,6 +2,8 @@
 <window>
 	<!-- addoninformation -->
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload condition="!String.IsEmpty(Window(10146).Property(description))">ClearProperty(description,10146)</onload>
+	<onunload>ClearProperty(description,10146)</onunload>
 
 	<controls>
 
@@ -70,6 +72,7 @@
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
+					<visible>String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Details) | !String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Description) + !String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
 
 					<!-- Type -->
 					<control type="group">
@@ -128,6 +131,25 @@
 						</control>
 					</control>
 					
+					<!-- Addon origin -->
+					<control type="group">
+						<include>DialogAddonInfodetails_coords5</include>
+						<visible>!String.IsEmpty(ListItem.AddonOrigin) + ListItem.Property(Addon.IsInstalled)</visible>
+						<control type="fadelabel">
+							<include>DialogAddonInfodetails_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>31404</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogAddonInfodetails_coords7</include>
+							<font>Font36</font>
+							<label fallback="416">$INFO[ListItem.AddonOrigin]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
 					<!-- Install date -->
 					<control type="group">
 						<include>DialogAddonInfodetails_coords5</include>
@@ -170,75 +192,18 @@
 
 				</control>
 
-				<!-- Description -->
-				<control type="group">
-					<include>DialogAddonInfodetails_coords10</include>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font27-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font30-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font33-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font36-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL light)</visible>
-					</control>
-					
-					<control type="textbox">
-						<align>left</align>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font36</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[addonInformation]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL)</visible>
-					</control>
-				</control>
-
+			</control>
+			
+			<!-- Description -->
+			<control type="textbox">
+				<include>DialogAddonInfodetails_coords10</include>
+				<align>left</align>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$VAR[addonInformation]</label>
+				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+				<visible>!String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Details) | String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Description) + !String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 
 			<!-- Button grouplist background -->
@@ -253,12 +218,23 @@
 				<align>center</align>
 				<itemgap>30</itemgap>
 				<onup>50</onup>
+				<defaultcontrol always="true">0</defaultcontrol>
 
 				<!-- Launch Addon Button -->
 				<control type="button" id="12">
 					<width>Auto</width>
 					<label>518</label>
 					<visible>Control.IsEnabled(12)</visible>
+				</control>
+				<!-- Extended info Button -->
+				<control type="togglebutton" id="14">
+					<width>Auto</width>
+					<label>33029</label>
+					<altlabel>21821</altlabel>
+					<onclick condition="String.IsEmpty(Window(10146).Property(description))">SetProperty(description,14115,10146)</onclick>
+					<onclick condition="!String.IsEmpty(Window(10146).Property(description))">ClearProperty(description,10146)</onclick>
+					<usealttexture>String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Details) | !String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Description)</usealttexture>
+					<visible>!String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
 				</control>
 				<!-- Configure Addon Button -->
 					<control type="button" id="9">
