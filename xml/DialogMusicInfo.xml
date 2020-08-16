@@ -2,6 +2,8 @@
 <window>
 	<!-- musicinformation -->
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload condition="!String.IsEmpty(Window(10135).Property(description))">ClearProperty(description,10135)</onload>
+	<onunload>ClearProperty(description,10135)</onunload>
 
 	<controls>
 
@@ -27,6 +29,17 @@
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 			</control>
+			
+			<!-- Filename and path -->
+			<control type="fadelabel">
+				<include>DialogVideoInfo_coords2</include>
+				<font>Font27</font>
+				<align>center</align>
+				<label>$INFO[ListItem.FileNameAndPath]</label>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>Control.HasFocus(6)</visible>
+				<include>VisibleFadeAnimation</include>
+			</control>
 
 			<!-- Play count and last played date & time -->
 			<control type="fadelabel">
@@ -35,13 +48,14 @@
 				<align>center</align>
 				<label>$INFO[ListItem.LastPlayed,$LOCALIZE[568]: ,]$INFO[ListItem.PlayCount, &#8226; $LOCALIZE[576]: ,]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
+				<visible>!Control.HasFocus(6)</visible>
 				<visible>!String.IsEmpty(ListItem.LastPlayed)</visible>
+				<include>VisibleFadeAnimation</include>
 			</control>
 
 			<!-- Info -->
 			<control type="group">
 				<include>DialogMusicInfo_coords3</include>
-				<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[21887]) + !String.IsEqual(Control.GetLabel(5),$LOCALIZE[183])</visible>
 
 				<!-- Details (song) -->
 				<control type="grouplist" id="100">
@@ -50,6 +64,8 @@
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<visible>Window.Is(songinformation)</visible>
+					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) + String.IsEmpty(ListItem.ContributorAndRole)</visible>
+					<include>VisibleFadeAnimation</include>
 
 					<!-- Artist -->
 					<control type="group">
@@ -88,11 +104,30 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
+					
+					<!-- Disc Number -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.DiscNumber)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>427</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.DiscNumber]$INFO[ListItem.DiscTitle, (),]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
 
 					<!-- Year -->
 					<control type="group">
 						<include>DialogMusicInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.Year)</visible>
+						<visible>!String.IsEmpty(ListItem.Year) + String.IsEmpty(ListItem.ReleaseDate) + String.IsEmpty(ListItem.OriginalDate)</visible>
 						<control type="fadelabel">
 							<include>DialogMusicInfo_coords6</include>
 							<align>right</align>
@@ -104,6 +139,44 @@
 							<include>DialogMusicInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Year]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Release Date -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.ReleaseDate)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>172</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.ReleaseDate]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Original Date -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.OriginalDate) + !String.IsEqual(ListItem.ReleaseDate, ListItem.OriginalDate)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>38079</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.OriginalDate]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -163,7 +236,45 @@
 							<label>$VAR[Duration]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
-					</control>						
+					</control>
+					
+					<!-- BPM -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.BPM)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>180</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.BPM]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- File information -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.MusicChannels)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>445</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$VAR[MusicChannels,, &#8226; ]$INFO[ListItem.SampleRate,, kHz ]$INFO[ListItem.BitRate,(, kBit/s)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
 
 					<!-- Rating -->
 					<control type="group">
@@ -193,6 +304,8 @@
 					<usecontrolcoords>true</usecontrolcoords>
 					<pagecontrol>50</pagecontrol>
 					<visible>!Window.Is(songinformation)</visible>
+					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) + [String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
+					<include>VisibleFadeAnimation</include>
 					
 					<!-- Artist -->
 					<control type="group">
@@ -231,6 +344,25 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
+					
+					<!-- Release status -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.AlbumStatus)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>126</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.AlbumStatus]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
 
 					<!-- Genre -->
 					<control type="group">
@@ -259,7 +391,7 @@
 							<include>DialogMusicInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
-							<label>146</label>
+							<label>467</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
 						</control>
 						<control type="fadelabel">
@@ -499,90 +631,17 @@
 
 				</control>
 
-				<!-- Plot -->
-				<control type="group">
-					<include>DialogMusicInfo_coords8</include>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font27-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font30-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font33-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L light)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font36-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL light)</visible>
-					</control>
-					
-					<control type="textbox">
-						<align>left</align>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-					<control type="textbox">
-						<align>left</align>
-						<font>Font36</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$VAR[MusicInfoDescription]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL)</visible>
-					</control>
-				</control>
 			</control>
-
-			<!-- Scrollbar -->
-			<control type="scrollbar" id="50">
-				<include>DialogMusicInfo_coords9</include>
-				<onleft>9000</onleft>
-				<onright>9000</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + !Window.Is(songinformation)</visible>
+			
+			<!-- Description -->
+			<control type="textbox">
+				<include>DialogMusicInfo_coords8</include>
+				<align>left</align>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$VAR[MusicInfoDescription]</label>
+				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 
@@ -597,8 +656,18 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
-				<onup>50</onup>
+				<defaultcontrol always="true">0</defaultcontrol>
 				
+				<!-- Extended info Button -->
+				<control type="togglebutton" id="14">
+					<width>Auto</width>
+					<label>33029</label>
+					<altlabel>21821</altlabel>
+					<onclick condition="String.IsEmpty(Window(10135).Property(description))">SetProperty(description,14115,10135)</onclick>
+					<onclick condition="!String.IsEmpty(Window(10135).Property(description))">ClearProperty(description,10135)</onclick>
+					<usealttexture>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description)</usealttexture>
+					<visible>!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)</visible>
+				</control>
 				<!-- User rating Button -->
 				<control type="button" id="7">
 					<width>Auto</width>
@@ -634,15 +703,10 @@
 					<onclick condition="Window.IsVisible(10135)">Dialog.Close(10135)</onclick>
 					<onclick condition="Window.IsVisible(12001)">Dialog.Close(12001)</onclick>
 					<label>$LOCALIZE[15067]</label>
-					<visible>Skin.HasSetting(KioskMode) + !Control.IsVisible(7)</visible>
+					<visible>Skin.HasSetting(KioskMode) + !Control.IsVisible(7) + !Control.IsVisible(14)</visible>
 				</control>
 
 			</control>
-
-			<!-- Button grouplist indicator -->
-			<include content="dialogButtonIndicator">
-				<param name="visibility">!ControlGroup(9000).HasFocus + !Window.IsVisible(shutdownmenu)</param>
-			</include>
 
 		</control>
 

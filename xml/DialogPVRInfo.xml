@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- pvrguideinfo -->
-	<defaultcontrol always="true">7</defaultcontrol>
-
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<onload condition="Window.IsVisible(10600) + !String.IsEmpty(Window(10600).Property(description))">ClearProperty(description,10600)</onload>
+	<onload condition="Window.IsVisible(10601) + !String.IsEmpty(Window(10601).Property(description))">ClearProperty(description,10601)</onload>
+	<onunload condition="Window.IsVisible(10600)">ClearProperty(description,10600)</onunload>
+	<onunload condition="Window.IsVisible(10601)">ClearProperty(description,10601)</onunload>
 	<controls>
 
 		<!-- Dialog fanart -->
@@ -16,7 +19,7 @@
 			
 			<!-- Heading -->
 			<include content="Time">
-				<param name="heading">$LOCALIZE[19047]</param>
+				<param name="heading">$INFO[ListItem.Title]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT]]</param>
 			</include>
 			
 			<!-- Image -->
@@ -25,7 +28,7 @@
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>Window.IsVisible(FullscreenLiveTV) | Window.IsVisible(TVChannels) | Window.IsVisible(TVRecordings) | Window.IsVisible(TVGuide)</visible>
+				<visible>!Window.Property(IsRadio)</visible>
 			</control>
 			
 			<control type="image">
@@ -33,15 +36,7 @@
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>Window.IsVisible(fullscreenradio) | Window.IsVisible(RadioChannels) | Window.IsVisible(RadioRecordings) | Window.IsVisible(RadioGuide)</visible>
-			</control>
-			
-			<!-- Name -->
-			<control type="label">
-				<include>DialogPVRInfo_coords2</include>
-				<font>Font36-bold</font>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.Title]</label>
+				<visible>Window.Property(IsRadio)</visible>
 			</control>
 
 			<!-- Info -->
@@ -54,6 +49,7 @@
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
+					<visible>[Window.IsVisible(10600) + String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Details) | !String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Plot) + !String.IsEmpty(ListItem.Plot)] | [Window.IsVisible(10601) + String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Details) | !String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Plot) + !String.IsEmpty(ListItem.Plot)]</visible>
 
 					<!-- Time description -->
 					<control type="group">
@@ -106,7 +102,26 @@
 						<control type="fadelabel">
 							<include>DialogPVRInfo_coords7</include>
 							<font>Font36</font>
-							<label>$INFO[ListItem.ChannelName]</label>
+							<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, &#8226; ,]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- First aired -->
+					<control type="group">
+						<include>DialogPVRInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Premiered)</visible>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[20416]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Premiered]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -131,75 +146,18 @@
 					</control>
 
 				</control>
-
-				<!-- Plot -->
-				<control type="group">
-					<include>DialogPVRInfo_coords8</include>
-					<control type="textbox" id="400">
-						<align>left</align>
-						<font>Font27-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S light)</visible>
-					</control>
-					<control type="textbox" id="400">
-						<align>left</align>
-						<font>Font30-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M light)</visible>
-					</control>
-					<control type="textbox" id="400">
-						<align>left</align>
-						<font>Font33-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L light)</visible>
-					</control>
-					<control type="textbox" id="400">
-						<align>left</align>
-						<font>Font36-light</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL light)</visible>
-					</control>
-					
-					<control type="textbox" id="400">
-						<align>left</align>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="2000" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox" id="400">
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="1900" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox" id="400">
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="1800" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-					<control type="textbox" id="400">
-						<align>left</align>
-						<font>Font36</font>
-						<textcolor>$VAR[TextColor2]</textcolor>
-						<label>$INFO[ListItem.Plot]</label>
-						<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,XL)</visible>
-					</control>
-				</control>
+				
+			</control>
+			
+			<!-- Plot -->
+			<control type="textbox" id="400">
+				<include>DialogPVRInfo_coords8</include>
+				<align>left</align>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Plot]</label>
+				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
+				<visible>[Window.IsVisible(10600) + !String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Details) | String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Plot) + !String.IsEmpty(ListItem.Plot)] | [Window.IsVisible(10601) + !String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Details) | String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Plot) + !String.IsEmpty(ListItem.Plot)]</visible>
 			</control>
 
 			<!-- Button grouplist background -->
@@ -213,23 +171,30 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
+				<defaultcontrol always="true">0</defaultcontrol>
 
-				<!-- OK Button -->
-				<control type="button" id="7">
-					<width>auto</width>
-					<label>186</label>
-				</control>
 				<!-- Switch to Channel -->
 				<control type="button" id="5">
 					<width>auto</width>
 					<label>19165</label>
 					<visible>Window.IsActive(PVRGuideInfo)</visible>
 				</control>
+				<!-- Extended info Button -->
+				<control type="togglebutton" id="14">
+					<width>Auto</width>
+					<label>33029</label>
+					<altlabel>207</altlabel>
+					<onclick condition="Window.IsVisible(10600) + String.IsEmpty(Window(10600).Property(description))">SetProperty(description,14115,10600)</onclick>
+					<onclick condition="Window.IsVisible(10600) + !String.IsEmpty(Window(10600).Property(description))">ClearProperty(description,10600)</onclick>
+					<onclick condition="Window.IsVisible(10601) + String.IsEmpty(Window(10601).Property(description))">SetProperty(description,14115,10601)</onclick>
+					<onclick condition="Window.IsVisible(10601) + !String.IsEmpty(Window(10601).Property(description))">ClearProperty(description,10601)</onclick>
+					<usealttexture>[Window.IsVisible(10600) + String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Details) | !String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Plot) + !String.IsEmpty(ListItem.Plot)] | [Window.IsVisible(10601) + String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Details) | !String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(pvrinfodialogfirstpage),Plot) + !String.IsEmpty(ListItem.Plot)]</usealttexture>
+					<visible>!String.IsEmpty(ListItem.Plot)</visible>
+				</control>
 				<!-- Find Similar -->
 				<control type="button" id="4">
 					<width>auto</width>
 					<label>19003</label>
-					<visible>Window.IsActive(PVRGuideInfo)</visible>
 				</control>
 				<!-- Record Button -->
 				<control type="button" id="6">
@@ -247,6 +212,12 @@
 				<control type="button" id="9">
 					<width>auto</width>
 					<label>19061</label>
+					<visible>Window.IsActive(PVRGuideInfo)</visible>
+				</control>
+				<!-- Add Reminder -->
+				<control type="button" id="11">
+					<width>auto</width>
+					<label>826</label>
 					<visible>Window.IsActive(PVRGuideInfo)</visible>
 				</control>
 
