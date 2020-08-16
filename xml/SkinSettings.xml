@@ -899,7 +899,7 @@
 					<onclick>Skin.ToggleSetting(MusicListenedToStatus)</onclick>
 					<selected>Skin.HasSetting(MusicListenedToStatus)</selected>
 				</control>
-				<!-- Show plot/details first -->
+				<!-- Show plot/details first (video) -->
 				<control type="button" id="609">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
@@ -910,8 +910,41 @@
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
+				<!-- Show description/details first (music) -->
+				<control type="button" id="610">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31171]</label>
+					<label2>$INFO[Skin.String(musicinfodialogfirstpage)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(musicinfodialogfirstpage),Details)">Skin.SetString(musicinfodialogfirstpage,Description)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(musicinfodialogfirstpage),Description)">Skin.SetString(musicinfodialogfirstpage,Details)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<!-- Show description/details first (PVR) -->
+				<control type="button" id="611">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31408]</label>
+					<label2>$INFO[Skin.String(pvrinfodialogfirstpage)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(pvrinfodialogfirstpage),Details)">Skin.SetString(pvrinfodialogfirstpage,Plot)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(pvrinfodialogfirstpage),Plot)">Skin.SetString(pvrinfodialogfirstpage,Details)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<!-- Show description/details first (addon) -->
+				<control type="button" id="612">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31409]</label>
+					<label2>$INFO[Skin.String(addoninfodialogfirstpage)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(addoninfodialogfirstpage),Details)">Skin.SetString(addoninfodialogfirstpage,Description)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(addoninfodialogfirstpage),Description)">Skin.SetString(addoninfodialogfirstpage,Details)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
 				<!-- Show user rating -->
-				<control type="radiobutton" id="610">
+				<control type="radiobutton" id="613">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31146</label>
@@ -919,7 +952,7 @@
 					<selected>Skin.HasSetting(UserRating)</selected>
 				</control>
 				<!-- Adjust representation of video duration -->
-				<control type="button" id="611">
+				<control type="button" id="614">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31134]</label>
@@ -930,7 +963,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Edit video media flags -->
-				<control type="button" id="612">
+				<control type="button" id="615">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31237</label>
@@ -945,7 +978,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Disable item count -->
-				<control type="radiobutton" id="613">
+				<control type="radiobutton" id="616">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31390</label>
@@ -953,12 +986,12 @@
 					<selected>Skin.HasSetting(ItemCount)</selected>
 				</control>
 				<!-- Divider -->
-				<control type="image" id="614">
+				<control type="image" id="617">
 					<include>SkinSettings_coords17</include>
 					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
 				</control>
 				<!-- Mixed -->
-				<control type="label" id="615">
+				<control type="label" id="618">
 					<include>SkinSettings_coords17</include>
 					<font>Font33</font>
 					<align>center</align>
@@ -966,7 +999,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Disable scrolling label -->
-				<control type="radiobutton" id="616">
+				<control type="radiobutton" id="619">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31053</label>
@@ -974,7 +1007,7 @@
 					<selected>Skin.HasSetting(ScrollingLabel)</selected>
 				</control>
 				<!-- Disable sub-menu player controls -->
-				<control type="radiobutton" id="617">
+				<control type="radiobutton" id="620">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31147</label>
@@ -982,7 +1015,7 @@
 					<selected>Skin.HasSetting(SubMenuControls)</selected>
 				</control>
 				<!-- Show lock icon for encrypted PVR channels -->
-				<control type="radiobutton" id="618">
+				<control type="radiobutton" id="621">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31174]</label>
@@ -990,7 +1023,7 @@
 					<selected>Skin.HasSetting(PVRShowLock)</selected>
 				</control>
 				<!-- Disable scrollbars -->
-				<control type="radiobutton" id="619">
+				<control type="radiobutton" id="622">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31005</label>
@@ -998,7 +1031,7 @@
 					<selected>Skin.HasSetting(Scrollbars)</selected>
 				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="620">
+				<control type="radiobutton" id="623">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31057</label>
