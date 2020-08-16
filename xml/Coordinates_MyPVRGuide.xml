@@ -598,6 +598,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -607,7 +608,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 		</itemlayout>
@@ -644,6 +657,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -653,7 +667,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 		</itemlayout>
@@ -690,6 +716,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -699,7 +726,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 		</itemlayout>
@@ -736,6 +775,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -745,7 +785,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
 			</control>
 
 		</itemlayout>
@@ -789,6 +841,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -798,7 +851,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 		</focusedlayout>
@@ -835,6 +900,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -844,7 +910,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 		</focusedlayout>
@@ -881,6 +959,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -890,7 +969,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 		</focusedlayout>
@@ -927,6 +1018,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -936,7 +1028,19 @@
 				<width>18</width>
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>6</left>
+				<top>48</top>
+				<width>18</width>
+				<height>18</height>
+				<texture>pvr/Reminder.png</texture>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 			</control>
 
 		</focusedlayout>

@@ -253,6 +253,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
+				<visible>!String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1170</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -264,6 +273,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
+				<visible>!String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1780</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -275,6 +293,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
+				<visible>!String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1780</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -286,6 +313,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
+				<visible>!String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>660</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 		</itemlayout>
 	</include>
@@ -304,7 +340,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>Control.HasFocus(50)</visible>
+				<visible>Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1170</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 			<control type="image">
 				<width>1170</width>
@@ -318,7 +362,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>!Control.HasFocus(50)</visible>
+				<visible>!Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1170</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 			<control type="image">
 				<width>1170</width>
@@ -336,7 +388,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>Control.HasFocus(50)</visible>
+				<visible>Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1780</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 			<control type="image">
 				<width>1780</width>
@@ -350,7 +410,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>!Control.HasFocus(50)</visible>
+				<visible>!Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1780</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 			<control type="image">
 				<width>1780</width>
@@ -368,7 +436,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>Control.HasFocus(50)</visible>
+				<visible>Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1780</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 			<control type="image">
 				<width>1780</width>
@@ -382,7 +458,15 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>!Control.HasFocus(50)</visible>
+				<visible>!Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+			</control>
+			<control type="label">
+				<width>1780</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 			</control>
 			<control type="image">
 				<width>1780</width>
@@ -400,7 +484,16 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor1]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>Control.HasFocus(50)</visible>
+				<visible>Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+				<scroll>True</scroll>
+			</control>
+			<control type="label">
+				<width>660</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor1]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 				<scroll>True</scroll>
 			</control>
 			<control type="image">
@@ -415,7 +508,16 @@
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[B]$INFO[ListItem.Label][/B] - $INFO[ListItem.Label2]</label>
-				<visible>!Control.HasFocus(50)</visible>
+				<visible>!Control.HasFocus(50) + !String.IsEmpty(Window(12003).Property(cast))</visible>
+				<scroll>True</scroll>
+			</control>
+			<control type="label">
+				<width>660</width>
+				<height>58</height>
+				<font>Font36</font>
+				<textcolor>$VAR[TextColor2]</textcolor>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!Control.HasFocus(50) + String.IsEmpty(Window(12003).Property(cast))</visible>
 				<scroll>True</scroll>
 			</control>
 			<control type="image">
