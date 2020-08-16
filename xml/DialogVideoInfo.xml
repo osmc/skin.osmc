@@ -27,7 +27,7 @@
 			<!-- Poster image -->
 			<control type="group">
 				<visible>!Container.Content(musicvideos)</visible>
-				<visible>String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
+				<visible>[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)] + Container.Content(Sets) | !Container.Content(Sets) + String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
@@ -39,12 +39,24 @@
 
 			<!-- Actor image -->
 			<control type="group">
-				<visible>!String.IsEmpty(Window(12003).Property(cast))</visible>
+				<visible>!String.IsEmpty(Window(12003).Property(cast)) + !Container.Content(Sets)</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
 					<fadetime>100</fadetime>
 					<texture>$INFO[Container(50).ListItem.Icon]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+				</control>
+			</control>
+			
+			<!-- Movie Set image -->
+			<control type="group">
+				<visible>[String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)] + Container.Content(Sets)</visible>
+				<include>VisibleFadeAnimation</include>
+				<control type="image">
+					<include>DialogVideoInfo_coords1</include>
+					<fadetime>100</fadetime>
+					<texture>$INFO[Container(50).ListItem.Art(poster)]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 				</control>
 			</control>
@@ -183,25 +195,6 @@
 						</control>
 					</control>
 
-					<!-- Genre -->
-					<control type="group">
-						<include>DialogVideoInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.Genre)</visible>
-						<control type="fadelabel">
-							<include>DialogVideoInfo_coords6</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>515</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>DialogVideoInfo_coords7</include>
-							<font>Font36</font>
-							<label>$INFO[ListItem.Genre]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-
 					<!-- Director -->
 					<control type="group">
 						<include>DialogVideoInfo_coords5</include>
@@ -302,6 +295,44 @@
 							<include>DialogVideoInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Premiered]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Genre -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>515</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Set -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Set)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>20457</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Set]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -533,7 +564,6 @@
 				</control>
 				
 			</control>
-
 			
 			<!-- Plot -->
 			<control type="textbox" id="101">
@@ -558,7 +588,7 @@
 				<viewtype label="">list</viewtype>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible allowhiddenfocus="true">!String.IsEmpty(Window(12003).Property(cast))</visible>
+				<visible allowhiddenfocus="true">!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)] + Container.Content(Sets)</visible>
 				<include>VisibleFadeAnimation</include>
 
 				<include>DialogVideoInfo_coords10</include>
@@ -722,14 +752,14 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
-				<onup condition="!String.IsEmpty(Window(12003).Property(cast))">50</onup>
+				<onup condition="!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)] + Container.Content(Sets)">50</onup>
 
 				<!-- Play/Browse Button -->
 				<control type="togglebutton" id="8">
 					<width>Auto</width>
 					<label>208</label>
 					<altlabel>1024</altlabel>
-					<usealttexture>Container.Content(TVShows)</usealttexture>
+					<usealttexture>Container.Content(TVShows) | Container.Content(Sets)</usealttexture>
 				</control>
 				<!-- Extended info Button -->
 				<control type="togglebutton" id="15">
