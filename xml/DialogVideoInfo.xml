@@ -49,6 +49,18 @@
 				</control>
 			</control>
 			
+			<!-- Movie Set image -->
+			<control type="group">
+				<visible>[String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(videoinfodialogfirstpage),Plot)] + Container.Content(Sets)</visible>
+				<include>VisibleFadeAnimation</include>
+				<control type="image">
+					<include>DialogVideoInfo_coords1</include>
+					<fadetime>100</fadetime>
+					<texture>$INFO[Container(50).ListItem.Art(poster)]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+				</control>
+			</control>
+			
 			<!-- Musicvideo image -->
 			<control type="image">
 				<visible>Container.Content(musicvideos)</visible>
@@ -183,25 +195,6 @@
 						</control>
 					</control>
 
-					<!-- Genre -->
-					<control type="group">
-						<include>DialogVideoInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.Genre)</visible>
-						<control type="fadelabel">
-							<include>DialogVideoInfo_coords6</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>515</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>DialogVideoInfo_coords7</include>
-							<font>Font36</font>
-							<label>$INFO[ListItem.Genre]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-
 					<!-- Director -->
 					<control type="group">
 						<include>DialogVideoInfo_coords5</include>
@@ -302,6 +295,44 @@
 							<include>DialogVideoInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Premiered]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Genre -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>515</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Set -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Set)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>20457</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Set]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -533,7 +564,6 @@
 				</control>
 				
 			</control>
-
 			
 			<!-- Plot -->
 			<control type="textbox" id="101">
