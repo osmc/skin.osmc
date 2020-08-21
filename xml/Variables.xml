@@ -718,7 +718,7 @@
 
 	<!-- Audio/Video Duration -->
 	<variable name="Duration">
-		<value condition="Container.Content(songs) | Container.Content(files) | Container.Content(musicvideos)">$INFO[ListItem.Duration]</value>
+		<value condition="Container.Content(albums) | Container.Content(songs) | Container.Content(files) | Container.Content(musicvideos)">$INFO[ListItem.Duration]</value>
 		<value condition="String.IsEqual(Skin.String(videodurationformat),Hours and minutes) + !Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,hr ]$INFO[ListItem.Duration(m),,min]</value>
 		<value condition="String.IsEqual(Skin.String(videodurationformat),Minutes) + !Integer.IsEqual(ListItem.Duration(h),0) | [[String.IsEqual(Skin.String(videodurationformat),Minutes) | String.IsEqual(Skin.String(videodurationformat),Hours and minutes)] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreaterOrEqual(ListItem.Duration(m),1)]">$INFO[ListItem.Duration(mins),, min]</value>
 		<value condition="Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsLess(ListItem.Duration(m),1)">$INFO[ListItem.Duration(secs),, sec]</value>
