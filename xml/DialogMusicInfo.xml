@@ -64,7 +64,7 @@
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<visible>Window.Is(songinformation)</visible>
-					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) + String.IsEmpty(ListItem.ContributorAndRole)</visible>
+					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.ContributorAndRole)</visible>
 					<include>VisibleFadeAnimation</include>
 
 					<!-- Artist -->
@@ -228,7 +228,7 @@
 					<usecontrolcoords>true</usecontrolcoords>
 					<pagecontrol>50</pagecontrol>
 					<visible>!Window.Is(songinformation)</visible>
-					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) + [String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
+					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
 					<include>VisibleFadeAnimation</include>
 					
 					<!-- Artist -->
@@ -565,7 +565,7 @@
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$VAR[MusicInfoDescription]</label>
 				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
+				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 
@@ -589,7 +589,7 @@
 					<altlabel>21821</altlabel>
 					<onclick condition="String.IsEmpty(Window(10135).Property(description))">SetProperty(description,14115,10135)</onclick>
 					<onclick condition="!String.IsEmpty(Window(10135).Property(description))">ClearProperty(description,10135)</onclick>
-					<usealttexture>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(musicinfodialogfirstpage),Description)</usealttexture>
+					<usealttexture>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)</usealttexture>
 					<visible>!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)</visible>
 				</control>
 				<!-- User rating Button -->

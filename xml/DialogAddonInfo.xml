@@ -37,7 +37,6 @@
 				<align>center</align>
 				<label>$INFO[ListItem.AddonLastUsed,$LOCALIZE[12012]: ,]$INFO[ListItem.AddonLastUpdated, &#8226; $LOCALIZE[12014]: ,]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!Control.HasFocus(6)</visible>
 				<visible>!String.IsEmpty(ListItem.AddonLastUsed) + !String.IsEmpty(ListItem.AddonLastUpdated)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
@@ -47,7 +46,6 @@
 				<align>center</align>
 				<label>$INFO[ListItem.AddonLastUsed,$LOCALIZE[12012]: ,]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!Control.HasFocus(6)</visible>
 				<visible>!String.IsEmpty(ListItem.AddonLastUsed) + String.IsEmpty(ListItem.AddonLastUpdated)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
@@ -57,7 +55,6 @@
 				<align>center</align>
 				<label>$INFO[ListItem.AddonLastUpdated,$LOCALIZE[12014]: ,]</label>
 				<textcolor>$VAR[TextColor2]</textcolor>
-				<visible>!Control.HasFocus(6)</visible>
 				<visible>!String.IsEmpty(ListItem.AddonLastUpdated) + String.IsEmpty(ListItem.AddonLastUsed)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
@@ -72,7 +69,7 @@
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
-					<visible>String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Details) | !String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Description) + !String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
+					<visible>String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + !String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
 
 					<!-- Type -->
 					<control type="group">
@@ -202,7 +199,7 @@
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$VAR[addonInformation]</label>
 				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-				<visible>!String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Details) | String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Description) + !String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
+				<visible>!String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + !String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 
@@ -233,7 +230,7 @@
 					<altlabel>21821</altlabel>
 					<onclick condition="String.IsEmpty(Window(10146).Property(description))">SetProperty(description,14115,10146)</onclick>
 					<onclick condition="!String.IsEmpty(Window(10146).Property(description))">ClearProperty(description,10146)</onclick>
-					<usealttexture>String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Details) | !String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(addoninfodialogfirstpage),Description)</usealttexture>
+					<usealttexture>String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)</usealttexture>
 					<visible>!String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
 				</control>
 				<!-- Configure Addon Button -->
