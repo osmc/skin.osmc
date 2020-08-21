@@ -5,6 +5,7 @@ _New_
 - add Library Node Editor support
 - add wall small view for music
 - add automatic masking for scope skin version
+- add second dialog page to music, PVR and addon info dialog
 
 _Improved_
 - improve wording in skin settings
@@ -12,6 +13,7 @@ _Improved_
 - adjust media window view positioning and size
 - adjust wall and wide view for music
 - improve spacing of wall low view
+- improve PVR descriptions
 
 _Fixed_
 - fix default view music and video navigation
@@ -28,6 +30,8 @@ strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
 - add new localize for Library Node Editor submenu button (31400)
 - add new localizes for automatic masking setting (31401, 31402, 31403)
+- adjust localize of plot font size setting (31326)
+- add new localize for new addon info dialog label (31404)
 
 Textures.xbt:
 - update textures file with new watched/listened to indicator files
@@ -49,9 +53,15 @@ Custom_DialogMasking.xml:
 - change heading localize
 - rework buttons options to match skin settings masking aspect ratio setting layout
 
-DialogPVRChannelsOSD.xml:
-- add new channel group heading, channel group switch buttons and indicators
-- rework coordinates for improved OSD channels dialog
+Coordinates_DialogAddonInfo.xml:
+- adjust height if details group list and description textbox
+
+Coordinates_DialogMusicInfo.xml:
+- adjust height if details group list and description textbox
+- remove deprecated coordinate includes
+
+Coordinates_DialogPVRInfo.xml:
+- adjust height if details group list and plot textbox
 
 Coordinates_MyGames.xml:
 - fix scrollbar height and positioning
@@ -61,6 +71,9 @@ Coordinates_MyMusicNav.xml:
 
 Coordinates_MyPrograms.xml:
 - fix scrollbar height and positioning
+
+Coordinates_MyPVRGuide.xml:
+- add fade animation to non-focus recording and timer images
 
 Coordinates_MyVideoNav.xml:
 - fix height and positioning of scrollbars
@@ -114,12 +127,45 @@ Coordinates_Viewtype54.xml:
 - rework watched/listened to and collection indicators
 - change cover art dimensions
 
+DialogAddonInfo.xml:
+- add new onload and unload for second info dialog page
+- add new addon origin detail label
+- rework description textbox for second info dialog page
+- add new extended info button for second info dialog page
+
+DialogMusicInfo.xml:
+- add new onload and unload for second info dialog page
+- add new filename and path label
+- add new disc number and release status detail labels
+- replace type label localize
+- rework description textbox for second info dialog page
+- add new extended info button for second info dialog page
+
+DialogPVRChannelsOSD.xml:
+- add new channel group heading, channel group switch buttons and indicators
+- rework coordinates for improved OSD channels dialog
+
+DialogPVRInfo.xml:
+- add new onload and unload for second info dialog page
+- fix heading to show PVR show title
+- rework plot textbox for second info dialog page
+- add new extended info button for second info dialog page
+
+DialogVideoInfo.xml:
+- rework visibility conditions, onup and usealttexture for new movie set information page
+- add new movie set poster image
+- rework order of detail labels
+- add new set detail label
+- rework plot textbox for second info dialog page
+- add new extended info button for second info dialog page
+
 Home.xml:
 - rework RSS feed with animation for masking
 
 Includes.xml:
 - rename/add/remove includes files
 - rework masking animations for new automatic masking
+- change onload for new info dialog settings
 
 MyGames.xml:
 - add changed/new viewtypes
@@ -152,12 +198,17 @@ SettingsScreenCalibration.xml:
 
 SkinSettings.xml:
 - add new automatic masking setting
+- change info dialog setting for new second info dialog pages
 
 Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
+- simplify PVRDescription and PVRDescriptionDialogGuide variables and add genre info label
+- add disc number info label to MusicInfoLabel variable
+- rework addonInformation variable
 
 Variables_SkinSettings.xml:
 - add new automatic masking setting explanation variable
+- rework SkinSettingsExplanation variable for changed info dialog setting
 
 VideoFullScreen.xml:
 - rework masking animations for new automatic masking
