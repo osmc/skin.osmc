@@ -6,7 +6,6 @@ _New_
 - add wall small view for music
 - add automatic masking for scope skin version
 - add second dialog page to music, PVR and addon info dialog
-- add new second info dialog page settings
 
 _Improved_
 - improve wording in skin settings
@@ -31,7 +30,6 @@ strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
 - add new localize for Library Node Editor submenu button (31400)
 - add new localizes for automatic masking setting (31401, 31402, 31403)
-- add new localizes for new info dialog settings (31171, 31405, 31406, 31407, 31408, 31409)
 - adjust localize of plot font size setting (31326)
 - add new localize for new addon info dialog label (31404)
 
@@ -167,7 +165,7 @@ Home.xml:
 Includes.xml:
 - rename/add/remove includes files
 - rework masking animations for new automatic masking
-- add new onloads for new info dialog settings
+- change onload for new info dialog settings
 
 MyGames.xml:
 - add changed/new viewtypes
@@ -200,17 +198,17 @@ SettingsScreenCalibration.xml:
 
 SkinSettings.xml:
 - add new automatic masking setting
-- add new info dialog settings
+- change info dialog setting for new second info dialog pages
 
 Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
 - simplify PVRDescription and PVRDescriptionDialogGuide variables and add genre info label
 - add disc number info label to MusicInfoLabel variable
 - rework addonInformation variable
-- rework SkinSettingsExplanation variable for new info dialog settings
 
 Variables_SkinSettings.xml:
 - add new automatic masking setting explanation variable
+- rework SkinSettingsExplanation variable for changed info dialog setting
 
 VideoFullScreen.xml:
 - rework masking animations for new automatic masking
