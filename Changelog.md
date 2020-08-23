@@ -14,6 +14,7 @@ _Improved_
 - adjust wall and wide view for music
 - improve spacing of wall low view
 - improve PVR descriptions
+- rework now playing information and fullscreen music playback information
 
 _Fixed_
 - fix default view music and video navigation
@@ -32,6 +33,7 @@ strings.po:
 - add new localizes for automatic masking setting (31401, 31402, 31403)
 - adjust localize of plot font size setting (31326)
 - add new localize for new addon info dialog label (31404)
+- add new localize for fullscreen live TV playback OSD info dialog (31171)
 
 Textures.xbt:
 - update textures file with new watched/listened to indicator files
@@ -150,6 +152,7 @@ DialogPVRInfo.xml:
 - fix heading to show PVR show title
 - rework plot textbox for second info dialog page
 - add new extended info button for second info dialog page
+- change Channel Name label to match representation in other places
 
 DialogVideoInfo.xml:
 - rework visibility conditions, onup and usealttexture for new movie set information page
@@ -166,6 +169,12 @@ Includes.xml:
 - rename/add/remove includes files
 - rework masking animations for new automatic masking
 - change onload for new info dialog settings
+
+Includes_Time_NowPlaying.xml:
+- rework now playing information completely (more specifically for all player media types)
+
+MusicVisualisation.xml:
+- rework fullscreen music playback information
 
 MyGames.xml:
 - add changed/new viewtypes
@@ -205,6 +214,7 @@ Variables.xml:
 - simplify PVRDescription and PVRDescriptionDialogGuide variables and add genre info label
 - add disc number info label to MusicInfoLabel variable
 - rework addonInformation variable
+- rework VideoPlayerChannelNumber variable to match representation in other places
 
 Variables_SkinSettings.xml:
 - add new automatic masking setting explanation variable
@@ -212,6 +222,7 @@ Variables_SkinSettings.xml:
 
 VideoFullScreen.xml:
 - rework masking animations for new automatic masking
+- replace label of Live TV next information by new localize
 
 VideoOSD.xml:
 - change conditional visibility and add new icon to masking control button for new automatic masking aspect ratio setting
