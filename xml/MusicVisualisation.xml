@@ -55,7 +55,7 @@
 				<!-- Track/Title -->
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords4</include>
-					<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title]</label>
+					<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Title]</label>
 					<visible>!Pvr.IsPlayingRadio</visible>
 				</control>
 				
@@ -70,8 +70,15 @@
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords4</include>
 					<font>Font33-bold</font>
-					<label>$INFO[Player.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
+					<label>$INFO[MusicPlayer.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
 					<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+				</control>
+				
+				<control type="fadelabel">
+					<include>MusicVisualisation_coords4</include>
+					<font>Font33-bold</font>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<visible>Pvr.IsPlayingRadio + !VideoPlayer.HasEpg + !String.IsEqual(MusicPlayer.ChannelName,MusicPlayer.Title)</visible>
 				</control>
 				
 				<!-- Radio show information -->
@@ -84,8 +91,8 @@
 				<!-- Radio genre -->
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords4</include>
-					<label>$INFO[VideoPlayer.Genre]</label>
-					<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg + !String.IsEmpty(VideoPlayer.Genre)</visible>
+					<label>$INFO[MusicPlayer.Genre]</label>
+					<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg + !String.IsEmpty(MusicPlayer.Genre)</visible>
 				</control>
 				
 				<!-- File information -->
