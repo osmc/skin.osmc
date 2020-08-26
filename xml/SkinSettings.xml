@@ -1054,8 +1054,17 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.widgets)) + !System.HasAddon(script.skin.helper.widgets)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
 				</control>
-				<!-- Skin Helper Service Skin Backup -->
+				<!-- Skin Helper Service ColorPicker -->
 				<control type="button" id="705">
+					<include>SkinSettings_coords16</include>
+					<label>$LOCALIZE[31405]</label>
+					<label2>$VAR[addon-skinhelpercolorpicker]</label2>
+					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.colorpicker)) + !System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.colorpicker)) + !System.HasAddon(script.skin.helper.colorpicker)">ActivateWindow(1102)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker)">Addon.OpenSettings(script.skin.helper.colorpicker)</onclick>
+				</control>
+				<!-- Skin Helper Service Skin Backup -->
+				<control type="button" id="706">
 					<include>SkinSettings_coords16</include>
 					<label>$LOCALIZE[31097]</label>
 					<label2>$VAR[addon-skinhelperbackup]</label2>
@@ -1064,12 +1073,12 @@
 					<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">Addon.OpenSettings(script.skin.helper.skinbackup)</onclick>
 				</control>
 				<!-- Divider -->
-				<control type="image" id="706">
+				<control type="image" id="707">
 					<include>SkinSettings_coords17</include>
 					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
 				</control>
 				<!-- Supported -->
-				<control type="label" id="707">
+				<control type="label" id="708">
 					<include>SkinSettings_coords17</include>
 					<font>Font33</font>
 					<align>center</align>
@@ -1077,7 +1086,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- AutoCompletion for virtual keyboard -->
-				<control type="button" id="708">
+				<control type="button" id="709">
 					<include>SkinSettings_coords16</include>
 					<label>$LOCALIZE[31082]</label>
 					<label2>$VAR[addon-autocompletion]</label2>
@@ -1085,8 +1094,17 @@
 					<onclick condition="!String.IsEmpty(System.AddonVersion(plugin.program.autocompletion)) + !System.HasAddon(plugin.program.autocompletion)">ActivateWindow(1102)</onclick>
 					<onclick condition="System.HasAddon(plugin.program.autocompletion)">Addon.OpenSettings(plugin.program.autocompletion)</onclick>
 				</control>
+				<!-- Library Node Editor -->
+				<control type="button" id="710">
+					<include>SkinSettings_coords16</include>
+					<label>$LOCALIZE[31406]</label>
+					<label2>$VAR[addon-librarynodeeditor]</label2>
+					<onclick condition="String.IsEmpty(System.AddonVersion(plugin.library.node.editor)) + !System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(plugin.library.node.editor)) + !System.HasAddon(plugin.library.node.editor)">ActivateWindow(1102)</onclick>
+					<onclick condition="System.HasAddon(plugin.library.node.editor)">Addon.OpenSettings(plugin.library.node.editor)</onclick>
+				</control>
 				<!-- Image Resource Select -->
-				<control type="button" id="709">
+				<control type="button" id="711">
 					<include>SkinSettings_coords16</include>
 					<label>$LOCALIZE[31083]</label>
 					<label2>$VAR[addon-imageselect]</label2>
@@ -1095,7 +1113,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select)">Addon.OpenSettings(script.image.resource.select)</onclick>
 				</control>
 				<!-- Up Next -->
-				<control type="button" id="710">
+				<control type="button" id="712">
 					<include>SkinSettings_coords16</include>
 					<label>$LOCALIZE[31085]</label>
 					<label2>$VAR[addon-upnext]</label2>
@@ -1104,7 +1122,7 @@
 					<onclick condition="System.HasAddon(service.upnext)">Addon.OpenSettings(service.upnext)</onclick>
 				</control>
 				<!-- Artist Slideshow -->
-				<control type="button" id="711">
+				<control type="button" id="713">
 					<include>SkinSettings_coords16</include>
 					<label>$LOCALIZE[31086]</label>
 					<label2>$VAR[addon-artistslideshow]</label2>
@@ -1129,9 +1147,9 @@
 				<!-- Backup -->
 				<control type="button" id="801">
 					<include>SkinSettings_coords16</include>
-					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
-					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">ActivateWindow(1104)</onclick>
-					<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup)</onclick>
+					<onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.skinbackup) + !System.AddonIsEnabled(script.skin.helper.skinbackup)">EnableAddon(script.skin.helper.skinbackup)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.skinbackup) + System.AddonIsEnabled(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup)</onclick>
 					<label>31052</label>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
