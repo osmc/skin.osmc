@@ -5,7 +5,7 @@
 	<include name="MediaFlags">
 		<control type="group">
 			<include>MediaFlags_coords1</include>
-			<visible>Integer.IsGreater(Container.NumItems,0) + !ListItem.IsFolder + !String.IsEqual(Skin.String(mediaflags),None)</visible>
+			<visible>Integer.IsGreater(Container.NumItems,0) + !String.IsEqual(Skin.String(mediaflags),None)</visible>
 			
 			<!-- File first/only -->
 			<control type="group">
@@ -185,7 +185,7 @@
 			
 			<!-- Duration only -->
 			<control type="group">
-				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + [String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels)] | String.IsEqual(Skin.String(mediaflags),Language only) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | [String.IsEqual(Skin.String(mediaflags),File first) | String.IsEqual(Skin.String(mediaflags),Language first)] + String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEqual(Skin.String(mediaflags),Language only) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | [String.IsEqual(Skin.String(mediaflags),File first) | String.IsEqual(Skin.String(mediaflags),Language first)] + String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
 				
 				<!-- Duration -->
 				<control type="image">
