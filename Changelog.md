@@ -15,6 +15,7 @@ _Improved_
 - improve spacing of wall low view
 - improve PVR descriptions
 - rework now playing information and fullscreen music playback information
+- add missing detail labels to PVR and music info dialogs
 
 _Fixed_
 - fix default view music and video navigation
@@ -34,6 +35,7 @@ strings.po:
 - adjust localize of plot font size setting (31326)
 - add new localize for new addon info dialog label (31404)
 - add new localize for fullscreen live TV playback OSD info dialog (31171)
+- add new localizes for new recommended/supported addons (31405, 31406, 31407, 31408)
 
 Textures.xbt:
 - update textures file with new watched/listened to indicator files
@@ -138,7 +140,7 @@ DialogAddonInfo.xml:
 DialogMusicInfo.xml:
 - add new onload and unload for second info dialog page
 - add new filename and path label
-- add new disc number and release status detail labels
+- add missing detail labels
 - replace type label localize
 - rework description textbox for second info dialog page
 - add new extended info button for second info dialog page
@@ -153,6 +155,7 @@ DialogPVRInfo.xml:
 - rework plot textbox for second info dialog page
 - add new extended info button for second info dialog page
 - change Channel Name label to match representation in other places
+- add missing detail labels
 
 DialogVideoInfo.xml:
 - rework visibility conditions, onup and usealttexture for new movie set information page
@@ -208,6 +211,7 @@ SettingsScreenCalibration.xml:
 SkinSettings.xml:
 - add new automatic masking setting
 - change info dialog setting for new second info dialog pages
+- add ColorPicker and Library Node Editor to recommended/supported addons
 
 Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
@@ -219,6 +223,8 @@ Variables.xml:
 Variables_SkinSettings.xml:
 - add new automatic masking setting explanation variable
 - rework SkinSettingsExplanation variable for changed info dialog setting
+- add new addon-skinhelpercolorpicker and addon-librarynodeeditor variables for added recommended/supported addons
+- rework SkinSettingsExplanation variable for added recommended/supported addons explanations
 
 VideoFullScreen.xml:
 - rework masking animations for new automatic masking
