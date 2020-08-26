@@ -21,13 +21,34 @@
 				<param name="heading">$VAR[MusicInfoLabel]</param>
 			</include>
 
-			<!-- Image -->
+			<!-- Song image -->
 			<control type="image">
 				<include>DialogMusicInfo_coords1</include>
 				<fadetime>100</fadetime>
+				<texture background="true" fallback="DefaultMusicSongs.png">$INFO[ListItem.Icon]</texture>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>Window.Is(songinformation)</visible>
+			</control>
+			
+			<!-- Album image -->
+			<control type="image">
+				<include>DialogMusicInfo_coords1</include>
+				<fadetime background="true" fallback="DefaultAlbumCover.png">100</fadetime>
 				<texture>$INFO[ListItem.Icon]</texture>
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>!Window.Is(songinformation) + Container.Content(albums)</visible>
+			</control>
+			
+			<!-- Artist image -->
+			<control type="image">
+				<include>DialogMusicInfo_coords1</include>
+				<fadetime>100</fadetime>
+				<texture background="true" fallback="DefaultArtist.png">$INFO[ListItem.Icon]</texture>
+				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>!Window.Is(songinformation) + !Container.Content(albums)</visible>
 			</control>
 			
 			<!-- Filename and path -->
@@ -119,7 +140,7 @@
 						<control type="fadelabel">
 							<include>DialogMusicInfo_coords7</include>
 							<font>Font36</font>
-							<label>$INFO[ListItem.DiscNumber]$INFO[ListItem.DiscTitle, (),]</label>
+							<label>$INFO[ListItem.DiscNumber]$INFO[ListItem.DiscTitle, (,)]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -127,7 +148,7 @@
 					<!-- Year -->
 					<control type="group">
 						<include>DialogMusicInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.Year)</visible>
+						<visible>!String.IsEmpty(ListItem.Year) + String.IsEmpty(ListItem.ReleaseDate) + String.IsEmpty(ListItem.OriginalDate)</visible>
 						<control type="fadelabel">
 							<include>DialogMusicInfo_coords6</include>
 							<align>right</align>
@@ -181,6 +202,25 @@
 						</control>
 					</control>
 					
+					<!-- Comment -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Comment)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>569</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Comment]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
 					<!-- Duration -->
 					<control type="group">
 						<include>DialogMusicInfo_coords5</include>
@@ -199,7 +239,7 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
-
+					
 					<!-- Rating -->
 					<control type="group">
 						<include>DialogMusicInfo_coords5</include>
@@ -218,34 +258,53 @@
 						</control>
 					</control>
 
+					<!-- Mood -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Mood)</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>175</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Mood]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
 				</control>
 
-				<!-- Details (album/artist) -->
+				<!-- Details (album) -->
 				<control type="grouplist" id="101">
 					<include>DialogMusicInfo_coords4</include>
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<pagecontrol>50</pagecontrol>
-					<visible>!Window.Is(songinformation)</visible>
-					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
+					<visible>!Window.Is(songinformation) + Container.Content(albums)</visible>
+					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.Property(Album_Description))</visible>
 					<include>VisibleFadeAnimation</include>
 					
-					<!-- Artist -->
+					<!-- Album artist -->
 					<control type="group">
 						<include>DialogMusicInfo_coords5</include>
-						<visible>Container.Content(Albums) + !String.IsEmpty(ListItem.Artist)</visible>
+						<visible>!String.IsEmpty(ListItem.AlbumArtist)</visible>
 						<control type="fadelabel">
 							<include>DialogMusicInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
-							<label>557</label>
+							<label>566</label>
 							<textcolor>$VAR[TextColor2]</textcolor>
 						</control>
 						<control type="fadelabel">
 							<include>DialogMusicInfo_coords7</include>
 							<font>Font36</font>
-							<label>$INFO[ListItem.Artist]</label>
+							<label>$INFO[ListItem.AlbumArtist]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -348,7 +407,7 @@
 					<!-- Rating -->
 					<control type="group">
 						<include>DialogMusicInfo_coords5</include>
-						<visible>Container.Content(albums) + [String.IsEqual(ListItem.StarRating,rating0.png) | String.IsEqual(ListItem.StarRating,rating1.png) | String.IsEqual(ListItem.StarRating,rating2.png) | String.IsEqual(ListItem.StarRating,rating3.png) | String.IsEqual(ListItem.StarRating,rating4.png) | String.IsEqual(ListItem.StarRating,rating5.png)]</visible>
+						<visible>String.IsEqual(ListItem.StarRating,rating0.png) | String.IsEqual(ListItem.StarRating,rating1.png) | String.IsEqual(ListItem.StarRating,rating2.png) | String.IsEqual(ListItem.StarRating,rating3.png) | String.IsEqual(ListItem.StarRating,rating4.png) | String.IsEqual(ListItem.StarRating,rating5.png)</visible>
 						<control type="fadelabel">
 							<include>DialogMusicInfo_coords6</include>
 							<align>right</align>
@@ -420,6 +479,19 @@
 						</control>
 					</control>
 
+				</control>
+				
+				<!-- Details (artist) -->
+				<control type="grouplist" id="101">
+					<include>DialogMusicInfo_coords4</include>
+					<itemgap>12</itemgap>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<pagecontrol>50</pagecontrol>
+					<visible>!Window.Is(songinformation) + !Container.Content(albums)</visible>
+					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.Property(Artist_Description)) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) + ![String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style))] + !Window.Is(songinformation) + !Container.Content(albums)</visible>
+					<include>VisibleFadeAnimation</include>
+
 					<!-- Born -->
 					<control type="group">
 						<include>DialogMusicInfo_coords5</include>
@@ -476,6 +548,25 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
+					
+					<!-- Disbanded -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Disbanded))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21896</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Disbanded)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
 
 					<!-- Years active -->
 					<control type="group">
@@ -492,6 +583,82 @@
 							<include>DialogMusicInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Type -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Type))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>467</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Type)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Gender -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Gender))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>39025</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Gender)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Genre -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Genre))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>515</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Genre)]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Instrument -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Artist_Instrument))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>21892</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Artist_Instrument)]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
@@ -534,25 +701,6 @@
 						</control>
 					</control>
 
-					<!-- Instrument -->
-					<control type="group">
-						<include>DialogMusicInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.Property(Artist_Instrument))</visible>
-						<control type="fadelabel">
-							<include>DialogMusicInfo_coords6</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>21892</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>DialogMusicInfo_coords7</include>
-							<font>Font36</font>
-							<label>$INFO[ListItem.Property(Artist_Instrument)]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-
 				</control>
 
 			</control>
@@ -565,7 +713,7 @@
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$VAR[MusicInfoDescription]</label>
 				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)]</visible>
+				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)] | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) + String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style)) + !Window.Is(songinformation) + !Container.Content(albums)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 
@@ -590,7 +738,7 @@
 					<onclick condition="String.IsEmpty(Window(10135).Property(description))">SetProperty(description,14115,10135)</onclick>
 					<onclick condition="!String.IsEmpty(Window(10135).Property(description))">ClearProperty(description,10135)</onclick>
 					<usealttexture>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)</usealttexture>
-					<visible>!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)</visible>
+					<visible>!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + ![String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style))] + !Window.Is(songinformation) + !Container.Content(albums)</visible>
 				</control>
 				<!-- User rating Button -->
 				<control type="button" id="7">
