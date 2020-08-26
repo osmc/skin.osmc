@@ -51,43 +51,6 @@
 					<usecontrolcoords>true</usecontrolcoords>
 					<visible>[Window.IsVisible(10600) + [String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.Plot)]] | [Window.IsVisible(10601) + [String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.Plot)]]</visible>
 					<include>VisibleFadeAnimation</include>
-
-					<!-- Time description -->
-					<control type="group">
-						<include>DialogPVRInfo_coords5</include>
-						<control type="fadelabel">
-							<include>DialogPVRInfo_coords6</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[555]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>DialogPVRInfo_coords7</include>
-							<font>Font36</font>
-							<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
-
-					<!-- Duration -->
-					<control type="group">
-						<include>DialogPVRInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.Duration)</visible>
-						<control type="fadelabel">
-							<include>DialogPVRInfo_coords6</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[180]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>DialogPVRInfo_coords7</include>
-							<font>Font36</font>
-							<label>$VAR[Duration]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
 					
 					<!-- Channel Name -->
 					<control type="group">
@@ -107,25 +70,6 @@
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>
-					
-					<!-- First aired -->
-					<control type="group">
-						<include>DialogPVRInfo_coords5</include>
-						<visible>!String.IsEmpty(ListItem.Premiered)</visible>
-						<control type="fadelabel">
-							<include>DialogPVRInfo_coords6</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[20416]</label>
-							<textcolor>$VAR[TextColor2]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>DialogPVRInfo_coords7</include>
-							<font>Font36</font>
-							<label>$INFO[ListItem.Premiered]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
-						</control>
-					</control>
 
 					<!-- Genre -->
 					<control type="group">
@@ -142,6 +86,62 @@
 							<include>DialogPVRInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Time description -->
+					<control type="group">
+						<include>DialogPVRInfo_coords5</include>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[555]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Comment -->
+					<control type="group">
+						<include>DialogPVRInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Comment)</visible>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>569</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Comment]</label>
+							<textcolor>$VAR[TextColor1]</textcolor>
+						</control>
+					</control>
+
+					<!-- Duration -->
+					<control type="group">
+						<include>DialogPVRInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[180]</label>
+							<textcolor>$VAR[TextColor2]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogPVRInfo_coords7</include>
+							<font>Font36</font>
+							<label>$VAR[Duration]</label>
 							<textcolor>$VAR[TextColor1]</textcolor>
 						</control>
 					</control>

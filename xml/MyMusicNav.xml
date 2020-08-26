@@ -228,8 +228,9 @@
 					<control type="button" id="95">
 						<label>31400</label>
 						<height>52</height>
+						<onclick condition="String.IsEmpty(System.AddonVersion(plugin.library.node.editor)) + !System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
+						<onclick condition="!String.IsEmpty(System.AddonVersion(plugin.library.node.editor)) + !System.HasAddon(plugin.library.node.editor)">ActivateWindow(1102)</onclick>
 						<onclick condition="System.HasAddon(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=music,return)</onclick>
-						<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
 						<visible>Container.Content() + String.IsEmpty(Container.PluginName)</visible>
 					</control>
 					
