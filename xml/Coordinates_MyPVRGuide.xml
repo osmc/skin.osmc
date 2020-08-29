@@ -135,6 +135,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -146,6 +147,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -183,6 +185,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -194,6 +197,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -231,6 +235,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -242,6 +247,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -279,6 +285,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -290,6 +297,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -325,238 +333,238 @@
 	</include>
 	<include name="MyPVRGuide_coords5_16:9">
 		<focusedchannellayout width="450" height="69">
+			<control type="group">
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(TVGuide)</visible>
-			</control>
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(TVGuide)</visible>
+				</control>
+				
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(RadioGuide)</visible>
+				</control>
+
+				<!-- Channel name -->
+				<control type="fadelabel">
+					<left>75</left>
+					<width>282</width>
+					<height>69</height>
+					<font>Font33-bold</font>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+
+				<!-- Channel number -->
+				<control type="label">
+					<left>350</left>
+					<width>88</width>
+					<height>69</height>
+					<align>right</align>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>75</left>
+					<top>5</top>
+					<width>363</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
 			
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
-
-			<!-- Channel name -->
-			<control type="fadelabel">
-				<left>75</left>
-				<width>282</width>
-				<height>69</height>
-				<font>Font33-bold</font>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-
-			<!-- Channel number -->
-			<control type="label">
-				<left>350</left>
-				<width>88</width>
-				<height>69</height>
-				<align>right</align>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-			
-			<!-- Highlighting -->
-			<control type="image">
-				<left>75</left>
-				<top>5</top>
-				<width>363</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-
 		</focusedchannellayout>
 	</include>
 	<include name="MyPVRGuide_coords5_21:9">
 		<focusedchannellayout width="450" height="69">
-
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(TVGuide)</visible>
-			</control>
-			
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(RadioGuide)</visible>
-			</control>
-
-			<!-- Channel name -->
-			<control type="fadelabel">
-				<left>75</left>
-				<width>282</width>
-				<height>69</height>
-				<font>Font33-bold</font>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
+			<control type="group">
 				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
 
-			<!-- Channel number -->
-			<control type="label">
-				<left>350</left>
-				<width>88</width>
-				<height>69</height>
-				<align>right</align>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-			
-			<!-- Highlighting -->
-			<control type="image">
-				<left>75</left>
-				<top>5</top>
-				<width>363</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(TVGuide)</visible>
+				</control>
+				
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(RadioGuide)</visible>
+				</control>
 
+				<!-- Channel name -->
+				<control type="fadelabel">
+					<left>75</left>
+					<width>282</width>
+					<height>69</height>
+					<font>Font33-bold</font>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+
+				<!-- Channel number -->
+				<control type="label">
+					<left>350</left>
+					<width>88</width>
+					<height>69</height>
+					<align>right</align>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>75</left>
+					<top>5</top>
+					<width>363</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
+				
+			</control>
 		</focusedchannellayout>
 	</include>
 	<include name="MyPVRGuide_coords5_21:9_masked">
 		<focusedchannellayout width="450" height="69">
+			<control type="group">
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(TVGuide)</visible>
-			</control>
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(TVGuide)</visible>
+				</control>
+				
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(RadioGuide)</visible>
+				</control>
+
+				<!-- Channel name -->
+				<control type="fadelabel">
+					<left>75</left>
+					<width>282</width>
+					<height>69</height>
+					<font>Font33-bold</font>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+
+				<!-- Channel number -->
+				<control type="label">
+					<left>350</left>
+					<width>88</width>
+					<height>69</height>
+					<align>right</align>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>75</left>
+					<top>5</top>
+					<width>363</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
 			
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
-
-			<!-- Channel name -->
-			<control type="fadelabel">
-				<left>75</left>
-				<width>282</width>
-				<height>69</height>
-				<font>Font33-bold</font>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-
-			<!-- Channel number -->
-			<control type="label">
-				<left>350</left>
-				<width>88</width>
-				<height>69</height>
-				<align>right</align>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-			
-			<!-- Highlighting -->
-			<control type="image">
-				<left>75</left>
-				<top>5</top>
-				<width>363</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-
 		</focusedchannellayout>
 	</include>
 	<include name="MyPVRGuide_coords5_4:3">
 		<focusedchannellayout width="450" height="69">
+			<control type="group">
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
 
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(TVGuide)</visible>
-			</control>
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(TVGuide)</visible>
+				</control>
+				
+				<!-- Channel image -->
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>67</width>
+					<height>67</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+					<visible>Window.IsVisible(RadioGuide)</visible>
+				</control>
+
+				<!-- Channel name -->
+				<control type="fadelabel">
+					<left>75</left>
+					<width>282</width>
+					<height>69</height>
+					<font>Font33-bold</font>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+
+				<!-- Channel number -->
+				<control type="label">
+					<left>350</left>
+					<width>88</width>
+					<height>69</height>
+					<align>right</align>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>75</left>
+					<top>5</top>
+					<width>363</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
 			
-			<!-- Channel image -->
-			<control type="image">
-				<left>1</left>
-				<top>1</top>
-				<width>67</width>
-				<height>67</height>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
-
-			<!-- Channel name -->
-			<control type="fadelabel">
-				<left>75</left>
-				<width>282</width>
-				<height>69</height>
-				<font>Font33-bold</font>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-
-			<!-- Channel number -->
-			<control type="label">
-				<left>350</left>
-				<width>88</width>
-				<height>69</height>
-				<align>right</align>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-			
-			<!-- Highlighting -->
-			<control type="image">
-				<left>75</left>
-				<top>5</top>
-				<width>363</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(10)">Conditional</animation>
-			</control>
-
 		</focusedchannellayout>
 	</include>
 	
@@ -598,7 +606,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -609,7 +617,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 			
 			<!-- Reminder image -->
@@ -620,7 +628,7 @@
 				<height>18</height>
 				<texture>pvr/Reminder.png</texture>
 				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 		</itemlayout>
@@ -657,7 +665,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -668,7 +676,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 			
 			<!-- Reminder image -->
@@ -679,7 +687,7 @@
 				<height>18</height>
 				<texture>pvr/Reminder.png</texture>
 				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 		</itemlayout>
@@ -716,7 +724,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -727,7 +735,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 			
 			<!-- Reminder image -->
@@ -738,7 +746,7 @@
 				<height>18</height>
 				<texture>pvr/Reminder.png</texture>
 				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 		</itemlayout>
@@ -775,7 +783,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Timer image -->
@@ -786,7 +794,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 			
 			<!-- Reminder image -->
@@ -797,7 +805,7 @@
 				<height>18</height>
 				<texture>pvr/Reminder.png</texture>
 				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="75" condition="True">Conditional</animation>
 			</control>
 
 		</itemlayout>
