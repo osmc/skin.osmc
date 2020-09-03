@@ -5,7 +5,7 @@
 	<include name="MediaFlags">
 		<control type="group">
 			<include>MediaFlags_coords1</include>
-			<visible>Integer.IsGreater(Container.NumItems,0) + !String.IsEqual(Skin.String(mediaflags),None)</visible>
+			<visible>Integer.IsGreater(Container.NumItems,0) + !ListItem.IsFolder + !String.IsEqual(Skin.String(mediaflags),None)</visible>
 			
 			<!-- File first/only -->
 			<control type="group">
