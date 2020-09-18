@@ -5,7 +5,7 @@
 	<onload condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onload>
 	<onload condition="!String.IsEmpty(Window(12003).Property(cast))">ClearProperty(cast,12003)</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
-	<onload condition="[String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + Container.Content(Sets)">SetFocus(50)</onload>
+	<onload condition="[String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)">SetFocus(50)</onload>
 	<onunload>ClearProperty(extended,12003)</onunload>
 	<onunload>ClearProperty(cast,12003)</onunload>
 
@@ -27,8 +27,8 @@
 
 			<!-- Poster image -->
 			<control type="group">
-				<visible>!Container.Content(musicvideos)</visible>
-				<visible>[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + Container.Content(Sets) | !Container.Content(Sets) + String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
+				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+				<visible>[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set) | !String.IsEqual(ListItem.DBTYPE,set) + String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
@@ -40,7 +40,7 @@
 
 			<!-- Actor image -->
 			<control type="group">
-				<visible>!String.IsEmpty(Window(12003).Property(cast)) + !Container.Content(Sets)</visible>
+				<visible>!String.IsEmpty(Window(12003).Property(cast)) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
@@ -52,7 +52,7 @@
 			
 			<!-- Movie Set image -->
 			<control type="group">
-				<visible>[String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + Container.Content(Sets)</visible>
+				<visible>[String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
@@ -64,7 +64,7 @@
 			
 			<!-- Musicvideo image -->
 			<control type="image">
-				<visible>Container.Content(musicvideos)</visible>
+				<visible>String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				<include>DialogVideoInfo_coords1</include>
 				<fadetime>100</fadetime>
 				<texture>$INFO[ListItem.Icon]</texture>
@@ -109,7 +109,7 @@
 			<!-- Info -->
 			<control type="group" id="100">
 				<include>DialogVideoInfo_coords3</include>
-				<visible>!Container.Content(musicvideos)</visible>
+				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				<visible>String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)]</visible>
 				<include>VisibleFadeAnimation</include>
 
@@ -421,7 +421,7 @@
 			<!-- Info -->
 			<control type="group">
 				<include>DialogVideoInfo_coords3</include>
-				<visible>Container.Content(musicvideos)</visible>
+				<visible>String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 
 				<!-- Details (song) -->
 				<control type="grouplist" id="100">
@@ -589,7 +589,7 @@
 				<viewtype label="">list</viewtype>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible allowhiddenfocus="true">!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + Container.Content(Sets)</visible>
+				<visible allowhiddenfocus="true">!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)</visible>
 				<include>VisibleFadeAnimation</include>
 
 				<include>DialogVideoInfo_coords10</include>
@@ -611,7 +611,7 @@
 				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + [!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + Container.Content(Sets)]</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + [!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)]</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 			
@@ -619,7 +619,7 @@
 			<control type="group">
 				<include>DialogVideoInfo_coords13</include>
 				<visible>String.IsEmpty(Window(12003).Property(cast)) + !String.IsEmpty(Window(12003).Property(extended))</visible>
-				<visible>!Container.Content(musicvideos)</visible>
+				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				<include>VisibleFadeAnimation</include>
 
 				<!-- Details -->
@@ -753,14 +753,14 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
-				<onup condition="!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + Container.Content(Sets)">50</onup>
+				<onup condition="!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)">50</onup>
 
 				<!-- Play/Browse Button -->
 				<control type="togglebutton" id="8">
 					<width>Auto</width>
 					<label>208</label>
 					<altlabel>1024</altlabel>
-					<usealttexture>Container.Content(TVShows) | Container.Content(Sets)</usealttexture>
+					<usealttexture>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,set)</usealttexture>
 				</control>
 				<!-- Extended info Button -->
 				<control type="togglebutton" id="15">
@@ -770,9 +770,9 @@
 					<onclick condition="String.IsEmpty(Window(12003).Property(extended))">SetProperty(extended,14115,12003)</onclick>
 					<onclick condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onclick>
 					<onclick condition="!String.IsEmpty(Window(12003).Property(cast))">ClearProperty(cast,12003)</onclick>
-					<onclick condition="[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + Container.Content(Sets)">SetFocus(50)</onclick>
+					<onclick condition="[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)">SetFocus(50)</onclick>
 					<usealttexture>!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)</usealttexture>
-					<visible>!Container.Content(musicvideos)</visible>
+					<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				</control>
 				<!-- Cast Button -->
 				<control type="togglebutton" id="16">
@@ -826,9 +826,9 @@
 				<control type="button" id="20">
 					<width>Auto</width>
 					<label>31043</label>
-					<onclick condition="Container.Content(tvshows)">RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
-					<onclick condition="Container.Content(movies)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
-					<visible>System.HasAddon(script.artwork.downloader) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<onclick condition="String.IsEqual(ListItem.DBTYPE,episode)">RunScript(script.artwork.downloader, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])</onclick>
+					<onclick condition="String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.artwork.downloader, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])</onclick>
+					<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>
 					<visible>!Skin.HasSetting(KioskMode)</visible>
 				</control>
 				<!-- Trailer Button -->
@@ -843,7 +843,7 @@
 					<label>31066</label>
 					<onclick>Dialog.Close(MovieInformation)</onclick>
 					<onclick>RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
-					<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+					<visible>System.HasAddon(script.cinema.experience) + String.IsEqual(ListItem.DBTYPE,movie)</visible>
 				</control>
 
 			</control>
