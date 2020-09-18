@@ -16,6 +16,7 @@ _Improved_
 - improve PVR descriptions
 - rework now playing information and fullscreen music playback information
 - add missing detail labels to PVR and music info dialogs
+- show TV show episode thumb in video info dialog
 
 _Fixed_
 - fix default view music and video navigation
@@ -219,6 +220,8 @@ Variables.xml:
 - add disc number info label to MusicInfoLabel variable
 - rework addonInformation variable
 - rework VideoPlayerChannelNumber variable to match representation in other places
+- add TV show poster condition to mediaImages variable
+- replace TV show and season poster conditions by DBTYPE episode icon art in VideoInfoImage variable
 
 Variables_SkinSettings.xml:
 - add new automatic masking setting explanation variable
