@@ -28,7 +28,7 @@
 				<texture background="true" fallback="DefaultMusicSongs.png">$INFO[ListItem.Icon]</texture>
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>Window.Is(songinformation)</visible>
+				<visible>String.IsEqual(ListItem.DBTYPE,song)</visible>
 			</control>
 			
 			<!-- Album image -->
@@ -38,7 +38,7 @@
 				<texture>$INFO[ListItem.Icon]</texture>
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>!Window.Is(songinformation) + Container.Content(albums)</visible>
+				<visible>String.IsEqual(ListItem.DBTYPE,album)</visible>
 			</control>
 			
 			<!-- Artist image -->
@@ -48,7 +48,7 @@
 				<texture background="true" fallback="DefaultArtist.png">$INFO[ListItem.Icon]</texture>
 				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>!Window.Is(songinformation) + !Container.Content(albums)</visible>
+				<visible>String.IsEqual(ListItem.DBTYPE,artist)</visible>
 			</control>
 			
 			<!-- Filename and path -->
@@ -84,7 +84,7 @@
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
-					<visible>Window.Is(songinformation)</visible>
+					<visible>String.IsEqual(ListItem.DBTYPE,song)</visible>
 					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.ContributorAndRole)</visible>
 					<include>VisibleFadeAnimation</include>
 
@@ -362,7 +362,7 @@
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<pagecontrol>50</pagecontrol>
-					<visible>!Window.Is(songinformation) + Container.Content(albums)</visible>
+					<visible>String.IsEqual(ListItem.DBTYPE,album)</visible>
 					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.Property(Album_Description))</visible>
 					<include>VisibleFadeAnimation</include>
 					
@@ -583,7 +583,7 @@
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
 					<pagecontrol>50</pagecontrol>
-					<visible>!Window.Is(songinformation) + !Container.Content(albums)</visible>
+					<visible>String.IsEqual(ListItem.DBTYPE,artist)</visible>
 					<visible>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + String.IsEmpty(ListItem.Property(Artist_Description)) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) + ![String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style))] + !Window.Is(songinformation) + !Container.Content(albums)</visible>
 					<include>VisibleFadeAnimation</include>
 
@@ -808,7 +808,7 @@
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>$VAR[MusicInfoDescription]</label>
 				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
-				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + !Window.Is(songinformation) + !Container.Content(albums)] | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) + String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style)) + !Window.Is(songinformation) + !Container.Content(albums)</visible>
+				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + String.IsEqual(ListItem.DBTYPE,song) | !String.IsEmpty(ListItem.Property(Album_Description)) + String.IsEqual(ListItem.DBTYPE,album) | !String.IsEmpty(ListItem.Property(Artist_Description)) + String.IsEqual(ListItem.DBTYPE,artist)] | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) + String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style)) + String.IsEqual(ListItem.DBTYPE,artist)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
 
@@ -833,7 +833,7 @@
 					<onclick condition="String.IsEmpty(Window(10135).Property(description))">SetProperty(description,14115,10135)</onclick>
 					<onclick condition="!String.IsEmpty(Window(10135).Property(description))">ClearProperty(description,10135)</onclick>
 					<usealttexture>String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)</usealttexture>
-					<visible>!String.IsEmpty(ListItem.ContributorAndRole) + Window.Is(songinformation) | !String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums) | !String.IsEmpty(ListItem.Property(Artist_Description)) + ![String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style))] + !Window.Is(songinformation) + !Container.Content(albums)</visible>
+					<visible>!String.IsEmpty(ListItem.ContributorAndRole) + String.IsEqual(ListItem.DBTYPE,song) | !String.IsEmpty(ListItem.Property(Album_Description)) + String.IsEqual(ListItem.DBTYPE,album) | !String.IsEmpty(ListItem.Property(Artist_Description)) + ![String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style))] + String.IsEqual(ListItem.DBTYPE,artist)</visible>
 				</control>
 				<!-- User rating Button -->
 				<control type="button" id="7">
