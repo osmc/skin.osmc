@@ -1,61 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	
-	<include name="Viewtype534_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords1_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords1_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords1_4:3</include>
+	<include name="Viewtype539_coords1">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords1_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords1_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords1_4:3</include>
 	</include>
-	<include name="Viewtype534_coords1_16:9">
+	<include name="Viewtype539_coords1_16:9">
 		<left>150</left>
-		<top>420</top>
+		<top>421</top>
 		<width>1620</width>
-		<height>400</height>
+		<height>399</height>
 	</include>
-	<include name="Viewtype534_coords1_21:9">
+	<include name="Viewtype539_coords1_21:9">
 		<left>150</left>
-		<top>420</top>
+		<top>421</top>
 		<width>2260</width>
-		<height>400</height>
+		<height>399</height>
 	</include>
-	<include name="Viewtype534_coords1_21:9_masked">
+	<include name="Viewtype539_coords1_21:9_masked">
 		<left>150</left>
-		<top>600</top>
+		<top>601</top>
 		<width>2260</width>
-		<height>400</height>
+		<height>399</height>
 	</include>
-	<include name="Viewtype534_coords1_4:3">
+	<include name="Viewtype539_coords1_4:3">
 		<left>150</left>
-		<top>420</top>
+		<top>421</top>
 		<width>1140</width>
-		<height>400</height>
+		<height>399</height>
 	</include>
 	
-	<include name="Viewtype534_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords2_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords2_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords2_4:3</include>
+	<include name="Viewtype539_coords2">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords2_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords2_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords2_4:3</include>
 	</include>
-	<include name="Viewtype534_coords2_16:9">
-		<itemlayout width="162" height="200">
-			<!-- Image - Movies -->
-			<include content="image-534">
-				<param name="fallback">DefaultMovie.png</param>
+	<include name="Viewtype539_coords2_16:9">
+		<itemlayout width="133" height="133">
+			<!-- Image - Videos -->
+			<include content="image-539">
+				<param name="fallback">DefaultVideoDefaultVideo.png</param>
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(movies)</param>
-			</include>
-			<!-- Image - TV Shows -->
-			<include content="image-534">
-				<param name="fallback">DefaultTVShows.png</param>
-				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<param name="visible">Container.Content(videos)</param>
 			</include>
 			<!-- Collection -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>ListItem.IsCollection</visible>
@@ -73,7 +67,7 @@
 			<!-- Watched status -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>!ListItem.IsCollection</visible>
@@ -92,24 +86,18 @@
 			</control>
 		</itemlayout>
 	</include>
-	<include name="Viewtype534_coords2_21:9">
-		<itemlayout width="161" height="200">
-			<!-- Image - Movies -->
-			<include content="image-534">
-				<param name="fallback">DefaultMovie.png</param>
+	<include name="Viewtype539_coords2_21:9">
+		<itemlayout width="133" height="133">
+			<!-- Image - Videos -->
+			<include content="image-539">
+				<param name="fallback">DefaultVideoDefaultVideo.png</param>
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(movies)</param>
-			</include>
-			<!-- Image - TV Shows -->
-			<include content="image-534">
-				<param name="fallback">DefaultTVShows.png</param>
-				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<param name="visible">Container.Content(videos)</param>
 			</include>
 			<!-- Collection -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>ListItem.IsCollection</visible>
@@ -127,7 +115,7 @@
 			<!-- Watched status -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>!ListItem.IsCollection</visible>
@@ -146,24 +134,18 @@
 			</control>
 		</itemlayout>
 	</include>
-	<include name="Viewtype534_coords2_21:9_masked">
-		<itemlayout width="161" height="200">
-			<!-- Image - Movies -->
-			<include content="image-534">
-				<param name="fallback">DefaultMovie.png</param>
+	<include name="Viewtype539_coords2_21:9_masked">
+		<itemlayout width="133" height="133">
+			<!-- Image - Videos -->
+			<include content="image-539">
+				<param name="fallback">DefaultVideoDefaultVideo.png</param>
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(movies)</param>
-			</include>
-			<!-- Image - TV Shows -->
-			<include content="image-534">
-				<param name="fallback">DefaultTVShows.png</param>
-				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<param name="visible">Container.Content(videos)</param>
 			</include>
 			<!-- Collection -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>ListItem.IsCollection</visible>
@@ -181,7 +163,7 @@
 			<!-- Watched status -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>!ListItem.IsCollection</visible>
@@ -200,24 +182,18 @@
 			</control>
 		</itemlayout>
 	</include>
-	<include name="Viewtype534_coords2_4:3">
-		<itemlayout width="162" height="200">
-			<!-- Image - Movies -->
-			<include content="image-534">
-				<param name="fallback">DefaultMovie.png</param>
+	<include name="Viewtype539_coords2_4:3">
+		<itemlayout width="133" height="133">
+			<!-- Image - Videos -->
+			<include content="image-539">
+				<param name="fallback">DefaultVideoDefaultVideo.png</param>
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(movies)</param>
-			</include>
-			<!-- Image - TV Shows -->
-			<include content="image-534">
-				<param name="fallback">DefaultTVShows.png</param>
-				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
-				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<param name="visible">Container.Content(videos)</param>
 			</include>
 			<!-- Collection -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>ListItem.IsCollection</visible>
@@ -235,7 +211,7 @@
 			<!-- Watched status -->
 			<control type="group">
 				<left>21</left>
-				<bottom>10</bottom>
+				<bottom>7</bottom>
 				<width>120</width>
 				<height>13</height>
 				<visible>!ListItem.IsCollection</visible>
@@ -255,25 +231,20 @@
 		</itemlayout>
 	</include>
 	
-	<include name="Viewtype534_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords3_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords3_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords3_4:3</include>
+	<include name="Viewtype539_coords3">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords3_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords3_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords3_4:3</include>
 	</include>
-	<include name="Viewtype534_coords3_16:9">
-		<focusedlayout width="162" height="200">
+	<include name="Viewtype539_coords3_16:9">
+		<focusedlayout width="133" height="133">
 			<control type="group">
 				<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-				<!-- Image - Movies -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultMovie.png</param>
-					<param name="visible">Container.Content(movies)</param>
-				</include>
-				<!-- Image - TV Shows -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultTVShows.png</param>
-					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<!-- Image - Videos -->
+				<include content="image-539-focused">
+					<param name="fallback">DefaultVideoDefaultVideo.png</param>
+					<param name="visible">Container.Content(videos)</param>
 				</include>
 				<!-- Collection -->
 				<control type="group">
@@ -312,19 +283,14 @@
 			</control>
 		</focusedlayout>
 	</include>
-	<include name="Viewtype534_coords3_21:9">
-		<focusedlayout width="161" height="200">
+	<include name="Viewtype539_coords3_21:9">
+		<focusedlayout width="133" height="133">
 			<control type="group">
 				<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-				<!-- Image - Movies -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultMovie.png</param>
-					<param name="visible">Container.Content(movies)</param>
-				</include>
-				<!-- Image - TV Shows -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultTVShows.png</param>
-					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<!-- Image - Videos -->
+				<include content="image-539-focused">
+					<param name="fallback">DefaultVideoDefaultVideo.png</param>
+					<param name="visible">Container.Content(videos)</param>
 				</include>
 				<!-- Collection -->
 				<control type="group">
@@ -363,19 +329,14 @@
 			</control>
 		</focusedlayout>
 	</include>
-	<include name="Viewtype534_coords3_21:9_masked">
-		<focusedlayout width="161" height="200">
+	<include name="Viewtype539_coords3_21:9_masked">
+		<focusedlayout width="133" height="133">
 			<control type="group">
 				<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-				<!-- Image - Movies -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultMovie.png</param>
-					<param name="visible">Container.Content(movies)</param>
-				</include>
-				<!-- Image - TV Shows -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultTVShows.png</param>
-					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<!-- Image - Videos -->
+				<include content="image-539-focused">
+					<param name="fallback">DefaultVideoDefaultVideo.png</param>
+					<param name="visible">Container.Content(videos)</param>
 				</include>
 				<!-- Collection -->
 				<control type="group">
@@ -414,19 +375,14 @@
 			</control>
 		</focusedlayout>
 	</include>
-	<include name="Viewtype534_coords3_4:3">
-		<focusedlayout width="162" height="200">
+	<include name="Viewtype539_coords3_4:3">
+		<focusedlayout width="133" height="133">
 			<control type="group">
 				<animation effect="zoom" start="90" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
-				<!-- Image - Movies -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultMovie.png</param>
-					<param name="visible">Container.Content(movies)</param>
-				</include>
-				<!-- Image - TV Shows -->
-				<include content="image-534-focused">
-					<param name="fallback">DefaultTVShows.png</param>
-					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
+				<!-- Image - Videos -->
+				<include content="image-539-focused">
+					<param name="fallback">DefaultVideoDefaultVideo.png</param>
+					<param name="visible">Container.Content(videos)</param>
 				</include>
 				<!-- Collection -->
 				<control type="group">
@@ -466,159 +422,159 @@
 		</focusedlayout>
 	</include>
 	
-	<include name="Viewtype534_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords4_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords4_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords4_4:3</include>
+	<include name="Viewtype539_coords4">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords4_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords4_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords4_4:3</include>
 	</include>
-	<include name="Viewtype534_coords4_16:9">
+	<include name="Viewtype539_coords4_16:9">
 		<centerleft>50%</centerleft>
 		<top>850</top>
 		<width>1680</width>
 		<height>142</height>
 	</include>
-	<include name="Viewtype534_coords4_21:9">
+	<include name="Viewtype539_coords4_21:9">
 		<centerleft>50%</centerleft>
 		<top>850</top>
 		<width>2320</width>
 		<height>142</height>
 	</include>
-	<include name="Viewtype534_coords4_21:9_masked">
+	<include name="Viewtype539_coords4_21:9_masked">
 		<centerleft>50%</centerleft>
 		<top>1030</top>
 		<width>2320</width>
 		<height>142</height>
 	</include>
-	<include name="Viewtype534_coords4_4:3">
+	<include name="Viewtype539_coords4_4:3">
 		<centerleft>50%</centerleft>
 		<top>850</top>
 		<width>1200</width>
 		<height>142</height>
 	</include>
 	
-	<include name="Viewtype534_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords5_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords5_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords5_4:3</include>
+	<include name="Viewtype539_coords5">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords5_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords5_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords5_4:3</include>
 	</include>
-	<include name="Viewtype534_coords5_16:9">
+	<include name="Viewtype539_coords5_16:9">
 		<centerleft>50%</centerleft>
 		<top>0</top>
 		<width>1680</width>
 		<height>72</height>
 	</include>
-	<include name="Viewtype534_coords5_21:9">
+	<include name="Viewtype539_coords5_21:9">
 		<centerleft>50%</centerleft>
 		<top>0</top>
 		<width>2320</width>
 		<height>72</height>
 	</include>
-	<include name="Viewtype534_coords5_21:9_masked">
+	<include name="Viewtype539_coords5_21:9_masked">
 		<centerleft>50%</centerleft>
 		<top>0</top>
 		<width>2320</width>
 		<height>72</height>
 	</include>
-	<include name="Viewtype534_coords5_4:3">
+	<include name="Viewtype539_coords5_4:3">
 		<centerleft>50%</centerleft>
 		<top>0</top>
 		<width>1200</width>
 		<height>72</height>
 	</include>
 	
-	<include name="Viewtype534_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords6_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords6_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords6_4:3</include>
+	<include name="Viewtype539_coords6">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords6_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords6_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords6_4:3</include>
 	</include>
-	<include name="Viewtype534_coords6_16:9">
+	<include name="Viewtype539_coords6_16:9">
 		<centerleft>50%</centerleft>
 		<top>82</top>
 		<width>800</width>
 		<height>54</height>
 	</include>
-	<include name="Viewtype534_coords6_21:9">
+	<include name="Viewtype539_coords6_21:9">
 		<centerleft>50%</centerleft>
 		<top>82</top>
 		<width>1440</width>
 		<height>54</height>
 	</include>
-	<include name="Viewtype534_coords6_21:9_masked">
+	<include name="Viewtype539_coords6_21:9_masked">
 		<centerleft>50%</centerleft>
 		<top>82</top>
 		<width>1440</width>
 		<height>54</height>
 	</include>
-	<include name="Viewtype534_coords6_4:3">
+	<include name="Viewtype539_coords6_4:3">
 		<centerleft>50%</centerleft>
 		<top>82</top>
 		<width>320</width>
 		<height>54</height>
 	</include>
 	
-	<include name="Viewtype534_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords7_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords7_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords7_4:3</include>
+	<include name="Viewtype539_coords7">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords7_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords7_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords7_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords7_4:3</include>
 	</include>
-	<include name="Viewtype534_coords7_16:9">
-		<bottom>10</bottom>
+	<include name="Viewtype539_coords7_16:9">
+		<bottom>7</bottom>
 		<left>21</left>
 		<width>120</width>
-		<height>180</height>
+		<height>120</height>
 	</include>
-	<include name="Viewtype534_coords7_21:9">
-		<bottom>10</bottom>
+	<include name="Viewtype539_coords7_21:9">
+		<bottom>7</bottom>
 		<left>21</left>
 		<width>120</width>
-		<height>180</height>
+		<height>120</height>
 	</include>
-	<include name="Viewtype534_coords7_21:9_masked">
-		<bottom>10</bottom>
+	<include name="Viewtype539_coords7_21:9_masked">
+		<bottom>7</bottom>
 		<left>21</left>
 		<width>120</width>
-		<height>180</height>
+		<height>120</height>
 	</include>
-	<include name="Viewtype534_coords7_4:3">
-		<bottom>10</bottom>
+	<include name="Viewtype539_coords7_4:3">
+		<bottom>7</bottom>
 		<left>21</left>
 		<width>120</width>
-		<height>180</height>
+		<height>120</height>
 	</include>
 	
-	<include name="Viewtype534_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype534_coords8_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype534_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype534_coords8_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype534_coords8_4:3</include>
+	<include name="Viewtype539_coords8">
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype539_coords8_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype539_coords8_21:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype539_coords8_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype539_coords8_4:3</include>
 	</include>
-	<include name="Viewtype534_coords8_16:9">
+	<include name="Viewtype539_coords8_16:9">
 		<bottom>0</bottom>
 		<left>15</left>
 		<width>133</width>
-		<height>200</height>
+		<height>133</height>
 	</include>
-	<include name="Viewtype534_coords8_21:9">
+	<include name="Viewtype539_coords8_21:9">
 		<bottom>0</bottom>
 		<left>14</left>
 		<width>133</width>
-		<height>200</height>
+		<height>133</height>
 	</include>
-	<include name="Viewtype534_coords8_21:9_masked">
+	<include name="Viewtype539_coords8_21:9_masked">
 		<bottom>0</bottom>
 		<left>14</left>
 		<width>133</width>
-		<height>200</height>
+		<height>133</height>
 	</include>
-	<include name="Viewtype534_coords8_4:3">
+	<include name="Viewtype539_coords8_4:3">
 		<bottom>0</bottom>
 		<left>15</left>
 		<width>133</width>
-		<height>200</height>
+		<height>133</height>
 	</include>
 
 </includes>
