@@ -3,19 +3,21 @@
 
 	<include name="Viewtype535">
 
-		<!-- Wall (music) -->
+		<!-- Wall (music/videos) -->
 		<control type="group">
 			<visible>Control.IsVisible(535)</visible>
 
+			<!-- Thumbs -->
 			<control type="panel" id="535">
 				<include>Viewtype535_coords1</include>
-				<onleft>65</onleft>
+				<onleft>63</onleft>
 				<onup>535</onup>
 				<ondown>535</ondown>
-				<pagecontrol>65</pagecontrol>
+				<pagecontrol>63</pagecontrol>
 				<viewtype label="$LOCALIZE[31078]">icon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists) | Container.Content(games)</visible>
+				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists) | Container.Content(games) | Container.Content(videos)</visible>
+				<include>DefaultView</include>
 
 				<include>Viewtype535_coords2</include>
 
