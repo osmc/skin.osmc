@@ -3,9 +3,10 @@
 _New_
 - add channel group switching buttons to OSD PVR channels list
 - add Library Node Editor support
-- add wall small view for music
+- new square versions of existing views for video addons and music
 - add automatic masking for scope skin version
 - add second dialog page to music, PVR and addon info dialog
+- add setting to force a specific view for video addons
 
 _Improved_
 - improve wording in skin settings
@@ -17,6 +18,9 @@ _Improved_
 - rework now playing information and fullscreen music playback information
 - add missing detail labels to PVR and music info dialogs
 - show TV show episode thumb in video info dialog
+- use the more extended list view for more content types (addons, games, files and pictures)
+- improve second label of more extended list view
+- add wide view support to games and programs
 
 _Fixed_
 - fix default view music and video navigation
@@ -26,8 +30,9 @@ _Fixed_
 
 **Changelog v18.4.0**
 
-_Add new music specific wide and wall small views (viewtype523, viewtype536)_
 _Rename viewtype54 to viewtype534_
+_Rename viewtype536 to viewtype537_
+_Add new square versions of existing views for music and video addons (viewtype523, viewtype524, viewtype525, viewtype536, viewtype537, viewtype538, viewtype539)_
 
 strings.po:
 - change 'main menu' to 'home menu', 'entry' to 'item', 'side menu' to 'submenu' and 'customisation/customise' to 'customization/customize' in all strings
@@ -37,6 +42,7 @@ strings.po:
 - add new localize for new addon info dialog label (31404)
 - add new localize for fullscreen live TV playback OSD info dialog (31171)
 - add new localizes for new recommended/supported addons (31405, 31406, 31407, 31408)
+- add new localizes for new video addons default view setting (31409, 31410, 31411, 31412)
 
 Textures.xbt:
 - update textures file with new watched/listened to indicator files
@@ -46,6 +52,9 @@ template.xml:
 - fix deprecated IsEmpty conditions
 - rework watched/listened to widget indicator
 - add collection indicator to widgets
+
+Coordinates_Addons.xml:
+- add addon version to second row list label
 
 Coordinates_Custom_DialogMasking.xml:
 - adjust coordinates for new OSD masking aspect ratio dialog layout
@@ -70,12 +79,14 @@ Coordinates_DialogPVRInfo.xml:
 
 Coordinates_MyGames.xml:
 - fix scrollbar height and positioning
+- add new coordinates includes for new wide scrollbar
 
 Coordinates_MyMusicNav.xml:
 - fix scrollbar height and positioning
 
 Coordinates_MyPrograms.xml:
 - fix scrollbar height and positioning
+- add new coordinates includes for new wide scrollbar
 
 Coordinates_MyPVRGuide.xml:
 - add fade animation to non-focus recording and timer images
@@ -106,6 +117,9 @@ Coordinates_Viewtype522.xml:
 - change horizontal list dimensions
 - change cover art dimensions
 
+Coordinates_Viewtype523.xml:
+- add new addons, games and videos images includes
+
 Coordinates_Viewtype53.xml:
 - rework watched/listened to and collection indicators
 - change cover art dimensions
@@ -128,9 +142,8 @@ Coordinates_Viewtype534.xml:
 - rework watched/listened to and collection indicators
 - change cover art dimensions
 
-Coordinates_Viewtype54.xml:
-- rework watched/listened to and collection indicators
-- change cover art dimensions
+Coordinates_Viewtype536.xml:
+- rework coordinates includes for new video addons and music views
 
 DialogAddonInfo.xml:
 - add new onload and unload for second info dialog page
@@ -173,9 +186,12 @@ Includes.xml:
 - rename/add/remove includes files
 - rework masking animations for new automatic masking
 - change onload for new info dialog settings
+- change onload for new video addons default view setting
+- add new DefaultView include
 
 Includes_Time_NowPlaying.xml:
 - rework now playing information completely (more specifically for all player media types)
+- rework animations for new video addons and music views
 
 MusicVisualisation.xml:
 - rework fullscreen music playback information
@@ -188,11 +204,15 @@ MyMusicNav.xml:
 - add new Library Node Editor button to submenu
 - add changed/new viewtypes
 
+MyPics.xml:
+- add new view
+
 MyPrograms.xml:
 - add changed/new viewtypes
 
 MyVideoNav.xml:
 - remove deprecated scrollbars
+- add new views
 
 MyPVRChannels.xml:
 - change channel group label ID to '29'
@@ -213,6 +233,7 @@ SkinSettings.xml:
 - add new automatic masking setting
 - change info dialog setting for new second info dialog pages
 - add ColorPicker and Library Node Editor to recommended/supported addons
+- add new setting to force a specific view for video addons
 
 Variables.xml:
 - change channel group label ID of PVR channel window heading to '29'
@@ -222,12 +243,16 @@ Variables.xml:
 - rework VideoPlayerChannelNumber variable to match representation in other places
 - add TV show poster condition to mediaImages variable
 - replace TV show and season poster conditions by DBTYPE episode icon art in VideoInfoImage variable
+- add new videos values to ContentType variable
+- add new episodes, videos, addons, images and files values to as well as remove deprecated values from Label2 variable
+- remove deprecated Label2-episodes variable
 
 Variables_SkinSettings.xml:
 - add new automatic masking setting explanation variable
 - rework SkinSettingsExplanation variable for changed info dialog setting
 - add new addon-skinhelpercolorpicker and addon-librarynodeeditor variables for added recommended/supported addons
 - rework SkinSettingsExplanation variable for added recommended/supported addons explanations
+- rework SkinSettingsExplanation variable for added video addons force view settings explanations
 
 VideoFullScreen.xml:
 - rework masking animations for new automatic masking
@@ -238,14 +263,19 @@ VideoOSD.xml:
 
 Viewtype50.xml:
 - fix alignment of cover art (centred)
+- rework list visibility condition to be shown for less content types
 
 Viewtype51.xml:
 - remove collection indicator from cover art
 - fix alignment of cover art (centred)
+- rework list visibility condition to be shown for more content types
+- add DefaultView include
 
 Viewtype511.xml:
 - remove collection indicator from cover art
 - fix alignment of cover art (centred)
+- rework list visibility condition to be shown for more content types
+- add DefaultView include
 
 Viewtype52.xml:
 - fix alignment of cover art (centred)
@@ -257,6 +287,10 @@ Viewtype521.xml:
 
 Viewtype522.xml:
 - fix alignment of cover art (centred)
+
+Viewtype523.xml:
+- rework visibility conditions with more content types
+- add DefaultView include
 
 Viewtype53.xml:
 - fix alignment of cover art (centred)
@@ -275,8 +309,13 @@ Viewtype533.xml:
 Viewtype534.xml:
 - fix alignment of cover art (centred)
 
-Viewtype54.xml:
-- fix alignment of cover art (centred)
+Viewtype535.xml:
+- rework visibility conditions with more content types
+- add DefaultView include
+
+Viewtype537.xml:
+- rework visibility conditions with more content types
+- add DefaultView include
 
 addon.xml:
 - bump version to 18.4.0

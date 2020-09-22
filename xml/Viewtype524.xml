@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="Viewtype532">
-
-		<!-- Wall small -->
+	<include name="Viewtype524">
+		
+		<!-- Wide low (videos) -->
 		<control type="group">
-			<visible>Control.IsVisible(532)</visible>
+			<visible>Control.IsVisible(524)</visible>
 
-			<!-- Thumbs -->
-			<control type="panel" id="532">
-				<include>Viewtype532_coords1</include>
-				<onleft>63</onleft>
-				<onup>532</onup>
-				<ondown>532</ondown>
-				<pagecontrol>63</pagecontrol>
-				<preloaditems>4</preloaditems>
-				<viewtype label="$LOCALIZE[31114]">icon</viewtype>
+			<!-- List -->
+			<control type="fixedlist" id="524">
+				<include>Viewtype524_coords1</include>
+				<ondown>61</ondown>
+				<onleft>524</onleft>
+				<onright>524</onright>
+				<pagecontrol>61</pagecontrol>
+				<preloaditems>6</preloaditems>
+				<focusposition>5</focusposition>
+				<orientation>horizontal</orientation>
+				<viewtype label="$LOCALIZE[31112]">icon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>Container.Content(videos)</visible>
+				<include>DefaultView</include>
 
-				<include>Viewtype532_coords2</include>
+				<include>Viewtype524_coords2</include>
 
-				<include>Viewtype532_coords3</include>
-				
+				<include>Viewtype524_coords3</include>
+
 			</control>
 
 			<control type="group">
-				<include>Viewtype532_coords4</include>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(532)">Conditional</animation>
+				<include>Viewtype524_coords4</include>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(524)">Conditional</animation>
 
 				<!-- Title -->
 				<control type="fadelabel">
-					<include>Viewtype532_coords5</include>
+					<include>Viewtype524_coords5</include>
 					<font>Font72</font>
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
@@ -41,7 +44,7 @@
 
 				<!-- Details -->
 				<control type="fadelabel">
-					<include>Viewtype532_coords6</include>
+					<include>Viewtype524_coords6</include>
 					<font>Font27</font>
 					<align>center</align>
 					<aligny>top</aligny>
@@ -55,31 +58,28 @@
 
 	</include>
 
-	<include name="image-532">
+	<include name="image-524">
 		<param name="fallback">DefaultVideos.png</param>
-		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype532_coords7</include>
-				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
-				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<include>Viewtype524_coords7</include>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 			</control>
 		</definition>
 	</include>
-	
-	<include name="image-532-focused">
+
+	<include name="image-524-focus">
 		<param name="fallback">DefaultVideos.png</param>
-		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype532_coords8</include>
-				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
-				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<include>Viewtype524_coords8</include>
+				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
 				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
