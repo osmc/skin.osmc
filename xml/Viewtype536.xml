@@ -3,49 +3,133 @@
 
 	<include name="Viewtype536">
 
-		<!-- Wall small (music) -->
+		<!-- Wall info (videos) -->
 		<control type="group">
 			<visible>Control.IsVisible(536)</visible>
 
-			<control type="panel" id="536">
-				<include>Viewtype536_coords1</include>
-				<onleft>65</onleft>
-				<onup>536</onup>
-				<ondown>536</ondown>
-				<pagecontrol>65</pagecontrol>
-				<viewtype label="$LOCALIZE[31114]">icon</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists) | Container.Content(games)</visible>
-
-				<include>Viewtype536_coords2</include>
-
-				<include>Viewtype536_coords3</include>
-				
-			</control>
-
+			<!-- Video info -->
 			<control type="group">
-				<include>Viewtype536_coords4</include>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(536)">Conditional</animation>
-
+				<include>Viewtype536_coords1</include>
+				<visible>Container.Content(videos)</visible>
+				
 				<!-- Title -->
 				<control type="fadelabel">
-					<include>Viewtype536_coords5</include>
-					<font>Font72</font>
+					<include>Viewtype536_coords2</include>
+					<font>Font42</font>
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[Label1]</label>
+					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
-
+				
 				<!-- Details -->
 				<control type="fadelabel">
-					<include>Viewtype536_coords6</include>
+					<include>Viewtype536_coords3</include>
 					<font>Font27</font>
 					<align>center</align>
 					<aligny>top</aligny>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
+				</control>
+				
+				<!-- User Rating -->
+				<control type="fadelabel">
+					<include>Viewtype536_coords4</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+				</control>
+				
+				<!-- Title -->
+				<control type="fadelabel">
+					<include>Viewtype536_coords5</include>
+					<font>Font42</font>
+					<align>center</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$VAR[Label1]</label>
+					<visible>String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.PlotOutline)</visible>
+				</control>
+				
+				<!-- Plot -->
+				<control type="group">
+					<include>Viewtype536_coords6</include>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+					<control type="textbox">
+						<align>left</align>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					</control>
+				</control>
+				
+				<!-- Plot -->
+				<control type="group">
+					<include>Viewtype536_coords7</include>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + [!Skin.HasSetting(UserRating) | String.IsEmpty(ListItem.UserRating)]</visible>
+					<control type="textbox">
+						<align>left</align>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font30</font>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					</control>
+					<control type="textbox">
+						<align>left</align>
+						<font>Font33</font>
+						<label>$INFO[ListItem.Plot]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					</control>
 				</control>
 
+			</control>
+			
+			<!-- Thumbs -->
+			<control type="panel" id="536">
+				<include>Viewtype536_coords8</include>
+				<onleft>60</onleft>
+				<onup>536</onup>
+				<ondown>536</ondown>
+				<pagecontrol>60</pagecontrol>
+				<viewtype label="$LOCALIZE[31133]">icon</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>Container.Content(videos)</visible>
+				<include>DefaultView</include>
+
+				<include>Viewtype536_coords9</include>
+
+				<include>Viewtype536_coords10</include>
+				
 			</control>
 
 		</control>
@@ -58,7 +142,7 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype536_coords7</include>
+				<include>Viewtype536_coords11</include>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
@@ -74,7 +158,7 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype536_coords8</include>
+				<include>Viewtype536_coords12</include>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
