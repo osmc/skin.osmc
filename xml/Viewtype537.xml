@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="Viewtype532">
+	<include name="Viewtype537">
 
-		<!-- Wall small -->
+		<!-- Wall small (music/videos) -->
 		<control type="group">
-			<visible>Control.IsVisible(532)</visible>
+			<visible>Control.IsVisible(537)</visible>
 
 			<!-- Thumbs -->
-			<control type="panel" id="532">
-				<include>Viewtype532_coords1</include>
+			<control type="panel" id="537">
+				<include>Viewtype537_coords1</include>
 				<onleft>63</onleft>
-				<onup>532</onup>
-				<ondown>532</ondown>
+				<onup>537</onup>
+				<ondown>537</ondown>
 				<pagecontrol>63</pagecontrol>
-				<preloaditems>4</preloaditems>
 				<viewtype label="$LOCALIZE[31114]">icon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists) | Container.Content(games) | Container.Content(videos)</visible>
+				<include>DefaultView</include>
 
-				<include>Viewtype532_coords2</include>
+				<include>Viewtype537_coords2</include>
 
-				<include>Viewtype532_coords3</include>
+				<include>Viewtype537_coords3</include>
 				
 			</control>
 
 			<control type="group">
-				<include>Viewtype532_coords4</include>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(532)">Conditional</animation>
+				<include>Viewtype537_coords4</include>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus(537)">Conditional</animation>
 
 				<!-- Title -->
 				<control type="fadelabel">
-					<include>Viewtype532_coords5</include>
+					<include>Viewtype537_coords5</include>
 					<font>Font72</font>
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$VAR[Label1]</label>
-					<scrollspeed>120</scrollspeed>
 				</control>
 
 				<!-- Details -->
 				<control type="fadelabel">
-					<include>Viewtype532_coords6</include>
+					<include>Viewtype537_coords6</include>
 					<font>Font27</font>
 					<align>center</align>
 					<aligny>top</aligny>
@@ -55,13 +54,13 @@
 
 	</include>
 
-	<include name="image-532">
+	<include name="image-537">
 		<param name="fallback">DefaultVideos.png</param>
 		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype532_coords7</include>
+				<include>Viewtype537_coords7</include>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
@@ -71,13 +70,13 @@
 		</definition>
 	</include>
 	
-	<include name="image-532-focused">
+	<include name="image-537-focused">
 		<param name="fallback">DefaultVideos.png</param>
 		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype532_coords8</include>
+				<include>Viewtype537_coords8</include>
 				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>

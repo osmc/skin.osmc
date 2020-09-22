@@ -7,23 +7,24 @@
 		<control type="group">
 			<visible>Control.IsVisible(50)</visible>
 
-			<!-- Image -->
+			<!-- Media images -->
+
+			<!-- Files/Others -->
 			<include content="image-50">
-				<param name="fallback">DefaultFolder.png</param>
-				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Window.IsVisible(pictures) | Container.Content(songs)]</param>
+				<param name="fallback">DefaultFile.png</param>
+				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(songs)] | Container.Content(files) | String.IsEmpty(Container.Content)</param>
 			</include>
+			<!-- Playlist songs -->
 			<include content="image-50">
 				<param name="fallback">DefaultMusicSongs.png</param>
 				<param name="visible">Window.IsVisible(musicplaylist)</param>
 			</include>
+			<!-- Playlist videos -->
 			<include content="image-50">
 				<param name="fallback">DefaultVideo.png</param>
 				<param name="visible">Window.IsVisible(videoplaylist)</param>
 			</include>
-			<include content="image-50">
-				<param name="fallback">DefaultPicture.png</param>
-				<param name="visible">Window.IsVisible(pictures)</param>
-			</include>
+			<!-- Songs -->
 			<include content="image-50">
 				<param name="fallback">DefaultMusicSongs.png</param>
 				<param name="visible">Container.Content(songs)</param>
@@ -55,7 +56,6 @@
 				</control>
 			</control>
 
-
 			<!-- List -->
 			<control type="fixedlist" id="50">
 				<include>Viewtype50_coords5</include>
@@ -67,7 +67,7 @@
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | Window.IsVisible(pictures) | Container.Content(songs) | [!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(albums)] | Container.Content(games) | Window.IsVisible(games)</visible>
+				<visible>Container.Content(files) | Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | Container.Content(songs) | String.IsEmpty(Container.Content)</visible>
 
 				<include>Viewtype50_coords6</include>
 

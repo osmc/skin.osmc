@@ -86,6 +86,8 @@
 	<include file="Coordinates_Viewtype521.xml" />
 	<include file="Coordinates_Viewtype522.xml" />
 	<include file="Coordinates_Viewtype523.xml" />
+	<include file="Coordinates_Viewtype524.xml" />
+	<include file="Coordinates_Viewtype525.xml" />
 	<include file="Coordinates_Viewtype53.xml" />
 	<include file="Coordinates_Viewtype531.xml" />
 	<include file="Coordinates_Viewtype532.xml" />
@@ -93,6 +95,9 @@
 	<include file="Coordinates_Viewtype534.xml" />
 	<include file="Coordinates_Viewtype535.xml" />
 	<include file="Coordinates_Viewtype536.xml" />
+	<include file="Coordinates_Viewtype537.xml" />
+	<include file="Coordinates_Viewtype538.xml" />
+	<include file="Coordinates_Viewtype539.xml" />
 	<include file="Coordinates_VideoFullScreen.xml" />
 	<include file="Coordinates_VideoOSD.xml" />
 	<include file="Coordinates_VideoOSDBookmarks.xml" />
@@ -116,6 +121,8 @@
 	<include file="Viewtype521.xml" />
 	<include file="Viewtype522.xml" />
 	<include file="Viewtype523.xml" />
+	<include file="Viewtype524.xml" />
+	<include file="Viewtype525.xml" />
 	<include file="Viewtype53.xml" />
 	<include file="Viewtype531.xml" />
 	<include file="Viewtype532.xml" />
@@ -123,6 +130,9 @@
 	<include file="Viewtype534.xml" />
 	<include file="Viewtype535.xml" />
 	<include file="Viewtype536.xml" />
+	<include file="Viewtype537.xml" />
+	<include file="Viewtype538.xml" />
+	<include file="Viewtype539.xml" />
 
 	<!-- Onloads/onunloads -->
 	<include name="Onloads">
@@ -175,6 +185,21 @@
 		<onload condition="String.IsEqual(Skin.String(mediaflags),File)">Skin.SetString(mediaflags,File first)</onload>
 		<onload condition="String.IsEqual(Skin.String(mediaflags),Language)">Skin.SetString(mediaflags,Language first)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MaskingBars))">Skin.SetString(MaskingBars,2.40:1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultVideosView))">Skin.SetString(DefaultVideosView,List)</onload>
+	</include>
+	
+	<!-- Default forced views -->
+	<include name="DefaultView">
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),List)">Container.SetViewMode(51)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),List info)">Container.SetViewMode(511)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wide)">Container.SetViewMode(523)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wide low)">Container.SetViewMode(524)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wide low info)">Container.SetViewMode(525)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall)">Container.SetViewMode(535)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall info)">Container.SetViewMode(536)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall small)">Container.SetViewMode(537)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall small info)">Container.SetViewMode(538)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall low)">Container.SetViewMode(539)</onfocus>
 	</include>
 
 	<!-- Keyboard buttons -->

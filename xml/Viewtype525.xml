@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="Viewtype522">
+	<include name="Viewtype525">
 		
-		<!-- Wide low info -->
+		<!-- Wide low info (videos) -->
 		<control type="group">
-			<visible>Control.IsVisible(522)</visible>
+			<visible>Control.IsVisible(525)</visible>
 
 			<!-- List -->
-			<control type="fixedlist" id="522">
-				<include>Viewtype522_coords1</include>
+			<control type="fixedlist" id="525">
+				<include>Viewtype525_coords1</include>
 				<ondown>62</ondown>
-				<onleft>522</onleft>
-				<onright>522</onright>
+				<onleft>525</onleft>
+				<onright>525</onright>
 				<pagecontrol>62</pagecontrol>
 				<preloaditems>6</preloaditems>
 				<focusposition>5</focusposition>
 				<orientation>horizontal</orientation>
 				<viewtype label="$LOCALIZE[31392]">icon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<visible>Container.Content(videos)</visible>
+				<include>DefaultView</include>
 
-				<include>Viewtype522_coords2</include>
+				<include>Viewtype525_coords2</include>
 
-				<include>Viewtype522_coords3</include>
+				<include>Viewtype525_coords3</include>
 
 			</control>
 			
-			<!-- Movie/TV show info -->
+			<!-- Video info -->
 			<control type="group">
-				<include>Viewtype522_coords4</include>
-				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<include>Viewtype525_coords4</include>
+				<visible>Container.Content(videos)</visible>
 				
 				<!-- Title -->
 				<control type="fadelabel">
-					<include>Viewtype522_coords5</include>
+					<include>Viewtype525_coords5</include>
 					<font>Font72</font>
 					<align>center</align>
 					<textcolor>$VAR[TextColor1]</textcolor>
@@ -44,7 +45,7 @@
 				
 				<!-- Details -->
 				<control type="fadelabel">
-					<include>Viewtype522_coords6</include>
+					<include>Viewtype525_coords6</include>
 					<font>Font27</font>
 					<align>center</align>
 					<aligny>top</aligny>
@@ -54,7 +55,7 @@
 				
 				<!-- Plot -->
 				<control type="group">
-					<include>Viewtype522_coords7</include>
+					<include>Viewtype525_coords7</include>
 					<visible>!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)</visible>
 					<control type="textbox">
 						<align>left</align>
@@ -87,12 +88,12 @@
 
 	</include>
 
-	<include name="image-522">
+	<include name="image-525">
 		<param name="fallback">DefaultVideos.png</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype522_coords8</include>
+				<include>Viewtype525_coords8</include>
 				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
@@ -102,12 +103,12 @@
 		</definition>
 	</include>
 
-	<include name="image-522-focus">
+	<include name="image-525-focus">
 		<param name="fallback">DefaultVideos.png</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype522_coords9</include>
+				<include>Viewtype525_coords9</include>
 				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
