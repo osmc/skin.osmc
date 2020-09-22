@@ -3,10 +3,11 @@
 
 	<include name="Viewtype523">
 		
-		<!-- Wide (music) -->
+		<!-- Wide (music/videos) -->
 		<control type="group">
 			<visible>Control.IsVisible(523)</visible>
 
+			<!-- List -->
 			<control type="fixedlist" id="523">
 				<include>Viewtype523_coords1</include>
 				<ondown>61</ondown>
@@ -16,7 +17,8 @@
 				<orientation>horizontal</orientation>
 				<viewtype label="539">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(albums) | Container.Content(artists)</visible>
+				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists) | Container.Content(games) | Container.Content(videos)</visible>
+				<include>DefaultView</include>
 
 				<include>Viewtype523_coords2</include>
 
