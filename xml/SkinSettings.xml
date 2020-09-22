@@ -952,13 +952,41 @@
 					<onclick>Skin.ToggleSetting(ItemCount)</onclick>
 					<selected>Skin.HasSetting(ItemCount)</selected>
 				</control>
+				<!-- Set fixed video addon view -->
+				<control type="radiobutton" id="614">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>31409</label>
+					<onclick>Skin.ToggleSetting(FixedVideosView)</onclick>
+					<selected>Skin.HasSetting(FixedVideosView)</selected>
+				</control>
+				<!-- Set default video addon view -->
+				<control type="button" id="615">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>- $LOCALIZE[31410]</label>
+					<label2>$INFO[Skin.String(DefaultVideosView)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),List)">Skin.SetString(DefaultVideosView,List info)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),List info)">Skin.SetString(DefaultVideosView,Wide)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wide)">Skin.SetString(DefaultVideosView,Wide low)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wide low)">Skin.SetString(DefaultVideosView,Wide low info)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wide low info)">Skin.SetString(DefaultVideosView,Wall)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall)">Skin.SetString(DefaultVideosView,Wall info)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall info)">Skin.SetString(DefaultVideosView,Wall small)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall small)">Skin.SetString(DefaultVideosView,Wall small info)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall small info)">Skin.SetString(DefaultVideosView,Wall low)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall low)">Skin.SetString(DefaultVideosView,List)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+					<visible>Skin.HasSetting(FixedVideosView)</visible>
+				</control>
 				<!-- Divider -->
-				<control type="image" id="614">
+				<control type="image" id="616">
 					<include>SkinSettings_coords17</include>
 					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
 				</control>
 				<!-- Mixed -->
-				<control type="label" id="615">
+				<control type="label" id="617">
 					<include>SkinSettings_coords17</include>
 					<font>Font33</font>
 					<align>center</align>
@@ -966,7 +994,7 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				<!-- Disable scrolling label -->
-				<control type="radiobutton" id="616">
+				<control type="radiobutton" id="618">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31053</label>
@@ -974,7 +1002,7 @@
 					<selected>Skin.HasSetting(ScrollingLabel)</selected>
 				</control>
 				<!-- Disable sub-menu player controls -->
-				<control type="radiobutton" id="617">
+				<control type="radiobutton" id="619">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31147</label>
@@ -982,7 +1010,7 @@
 					<selected>Skin.HasSetting(SubMenuControls)</selected>
 				</control>
 				<!-- Show lock icon for encrypted PVR channels -->
-				<control type="radiobutton" id="618">
+				<control type="radiobutton" id="620">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31174]</label>
@@ -990,7 +1018,7 @@
 					<selected>Skin.HasSetting(PVRShowLock)</selected>
 				</control>
 				<!-- Disable scrollbars -->
-				<control type="radiobutton" id="619">
+				<control type="radiobutton" id="621">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31005</label>
@@ -998,7 +1026,7 @@
 					<selected>Skin.HasSetting(Scrollbars)</selected>
 				</control>
 				<!-- Kiosk mode -->
-				<control type="radiobutton" id="620">
+				<control type="radiobutton" id="622">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31057</label>
@@ -1147,9 +1175,9 @@
 				<!-- Backup -->
 				<control type="button" id="801">
 					<include>SkinSettings_coords16</include>
-					<onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
-					<onclick condition="System.HasAddon(script.skin.helper.skinbackup) + !System.AddonIsEnabled(script.skin.helper.skinbackup)">EnableAddon(script.skin.helper.skinbackup)</onclick>
-					<onclick condition="System.HasAddon(script.skin.helper.skinbackup) + System.AddonIsEnabled(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup)</onclick>
+					<onclick condition="String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
+					<onclick condition="!String.IsEmpty(System.AddonVersion(script.skin.helper.skinbackup)) + !System.HasAddon(script.skin.helper.skinbackup)">ActivateWindow(1104)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup)</onclick>
 					<label>31052</label>
 					<focusedcolor>$VAR[TextColor1]</focusedcolor>
 					<textcolor>$VAR[TextColor2]</textcolor>
