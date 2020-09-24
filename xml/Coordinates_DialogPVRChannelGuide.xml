@@ -401,238 +401,246 @@
 	</include>
 	<include name="DialogPVRChannelGuide_coords9_16:9">
 		<focusedlayout width="750" height="51">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
 
-			<!-- Start time -->
-			<control type="label">
-				<top>2</top>
-				<width>140</width>
-				<height>51</height>
-				<font>Font30-bold</font>
-				<scroll>True</scroll>
-				<align>left</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Start time -->
+				<control type="label">
+					<top>2</top>
+					<width>140</width>
+					<height>51</height>
+					<font>Font30-bold</font>
+					<scroll>True</scroll>
+					<align>left</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.StartTime]</label>
+				</control>
 
-			<!-- Program name -->
-			<control type="label">
-				<left>160</left>
-				<width>532</width>
-				<height>51</height>
-				<font>Font42</font>
-				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Program name -->
+				<control type="label">
+					<left>160</left>
+					<width>532</width>
+					<height>51</height>
+					<font>Font42</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
 
-			<!-- Highlighting -->
-			<control type="image">
-				<top>6</top>
-				<width>692</width>
-				<height>51</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			
-			<!-- Recording image -->
-			<control type="image">
-				<right>4</right>
-				<top>14</top>
-				<width>30</width>
-				<height>30</height>
-				<texture>pvr/Recording.png</texture>
-				<visible>ListItem.IsRecording</visible>
-			</control>
+				<!-- Highlighting -->
+				<control type="image">
+					<top>6</top>
+					<width>692</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+				</control>
+				
+				<!-- Recording image -->
+				<control type="image">
+					<right>4</right>
+					<top>14</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
 
-			<!-- Timer image -->
-			<control type="image">
-				<right>0</right>
-				<top>10</top>
-				<width>38</width>
-				<height>40</height>
-				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-			</control>
+				<!-- Timer image -->
+				<control type="image">
+					<right>0</right>
+					<top>10</top>
+					<width>38</width>
+					<height>40</height>
+					<texture>pvr/Timer.png</texture>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				</control>
 
+			</control>
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelGuide_coords9_21:9">
 		<focusedlayout width="750" height="51">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
 
-			<!-- Start time -->
-			<control type="label">
-				<top>2</top>
-				<width>140</width>
-				<height>51</height>
-				<font>Font30-bold</font>
-				<scroll>True</scroll>
-				<align>left</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Start time -->
+				<control type="label">
+					<top>2</top>
+					<width>140</width>
+					<height>51</height>
+					<font>Font30-bold</font>
+					<scroll>True</scroll>
+					<align>left</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.StartTime]</label>
+				</control>
 
-			<!-- Program name -->
-			<control type="label">
-				<left>160</left>
-				<width>532</width>
-				<height>51</height>
-				<font>Font42</font>
-				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Program name -->
+				<control type="label">
+					<left>160</left>
+					<width>532</width>
+					<height>51</height>
+					<font>Font42</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
 
-			<!-- Highlighting -->
-			<control type="image">
-				<top>6</top>
-				<width>692</width>
-				<height>51</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Highlighting -->
+				<control type="image">
+					<top>6</top>
+					<width>692</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+				</control>
+				
+				<!-- Recording image -->
+				<control type="image">
+					<right>4</right>
+					<top>14</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+
+				<!-- Timer image -->
+				<control type="image">
+					<right>0</right>
+					<top>10</top>
+					<width>38</width>
+					<height>40</height>
+					<texture>pvr/Timer.png</texture>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				</control>
 			
-			<!-- Recording image -->
-			<control type="image">
-				<right>4</right>
-				<top>14</top>
-				<width>30</width>
-				<height>30</height>
-				<texture>pvr/Recording.png</texture>
-				<visible>ListItem.IsRecording</visible>
 			</control>
-
-			<!-- Timer image -->
-			<control type="image">
-				<right>0</right>
-				<top>10</top>
-				<width>38</width>
-				<height>40</height>
-				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-			</control>
-
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelGuide_coords9_21:9_masked">
 		<focusedlayout width="750" height="51">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
 
-			<!-- Start time -->
-			<control type="label">
-				<top>2</top>
-				<width>140</width>
-				<height>51</height>
-				<font>Font30-bold</font>
-				<scroll>True</scroll>
-				<align>left</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Start time -->
+				<control type="label">
+					<top>2</top>
+					<width>140</width>
+					<height>51</height>
+					<font>Font30-bold</font>
+					<scroll>True</scroll>
+					<align>left</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.StartTime]</label>
+				</control>
 
-			<!-- Program name -->
-			<control type="label">
-				<left>160</left>
-				<width>532</width>
-				<height>51</height>
-				<font>Font42</font>
-				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Program name -->
+				<control type="label">
+					<left>160</left>
+					<width>532</width>
+					<height>51</height>
+					<font>Font42</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
 
-			<!-- Highlighting -->
-			<control type="image">
-				<top>6</top>
-				<width>692</width>
-				<height>51</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Highlighting -->
+				<control type="image">
+					<top>6</top>
+					<width>692</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+				</control>
+				
+				<!-- Recording image -->
+				<control type="image">
+					<right>4</right>
+					<top>14</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+
+				<!-- Timer image -->
+				<control type="image">
+					<right>0</right>
+					<top>10</top>
+					<width>38</width>
+					<height>40</height>
+					<texture>pvr/Timer.png</texture>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				</control>
 			
-			<!-- Recording image -->
-			<control type="image">
-				<right>4</right>
-				<top>14</top>
-				<width>30</width>
-				<height>30</height>
-				<texture>pvr/Recording.png</texture>
-				<visible>ListItem.IsRecording</visible>
 			</control>
-
-			<!-- Timer image -->
-			<control type="image">
-				<right>0</right>
-				<top>10</top>
-				<width>38</width>
-				<height>40</height>
-				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-			</control>
-
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelGuide_coords9_4:3">
 		<focusedlayout width="510" height="51">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
 
-			<!-- Start time -->
-			<control type="label">
-				<top>2</top>
-				<width>140</width>
-				<height>51</height>
-				<font>Font30-bold</font>
-				<scroll>True</scroll>
-				<align>left</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Start time -->
+				<control type="label">
+					<top>2</top>
+					<width>140</width>
+					<height>51</height>
+					<font>Font30-bold</font>
+					<scroll>True</scroll>
+					<align>left</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.StartTime]</label>
+				</control>
 
-			<!-- Program name -->
-			<control type="label">
-				<left>160</left>
-				<width>292</width>
-				<height>51</height>
-				<font>Font42</font>
-				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Program name -->
+				<control type="label">
+					<left>160</left>
+					<width>292</width>
+					<height>51</height>
+					<font>Font42</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColor1]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
 
-			<!-- Highlighting -->
-			<control type="image">
-				<top>6</top>
-				<width>452</width>
-				<height>51</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
+				<!-- Highlighting -->
+				<control type="image">
+					<top>6</top>
+					<width>452</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+				</control>
+				
+				<!-- Recording image -->
+				<control type="image">
+					<right>4</right>
+					<top>14</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+
+				<!-- Timer image -->
+				<control type="image">
+					<right>0</right>
+					<top>10</top>
+					<width>38</width>
+					<height>40</height>
+					<texture>pvr/Timer.png</texture>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				</control>
 			
-			<!-- Recording image -->
-			<control type="image">
-				<right>4</right>
-				<top>14</top>
-				<width>30</width>
-				<height>30</height>
-				<texture>pvr/Recording.png</texture>
-				<visible>ListItem.IsRecording</visible>
 			</control>
-
-			<!-- Timer image -->
-			<control type="image">
-				<right>0</right>
-				<top>10</top>
-				<width>38</width>
-				<height>40</height>
-				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-			</control>
-
 		</focusedlayout>
 	</include>
 	
