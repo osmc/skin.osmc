@@ -21,6 +21,7 @@ _Improved_
 - use the more extended list view for more content types (addons, games, files and pictures)
 - improve second label of more extended list view
 - add wide view support to games and programs
+- harmonize non-focus animations
 
 _Fixed_
 - fix default view music and video navigation
@@ -53,33 +54,89 @@ template.xml:
 - rework watched/listened to widget indicator
 - add collection indicator to widgets
 
-Coordinates_Addons.xml:
+AddonBrowser.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
+Coordinates_AddonBrowser.xml:
 - add addon version to second row list label
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
 
 Coordinates_Custom_DialogMasking.xml:
 - adjust coordinates for new OSD masking aspect ratio dialog layout
 
-Coordinates_DialogPVRChannelsOSD.xml:
-- add new coordinates for channel group heading and channel group switch buttons
-- rework coordinates for improved OSD guide dialog
-
-Custom_DialogMasking.xml:
-- change heading localize
-- rework buttons options to match skin settings masking aspect ratio setting layout
-
 Coordinates_DialogAddonInfo.xml:
 - adjust height if details group list and description textbox
+
+Coordinates_DialogButtonMenu.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_DialogFavourites.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_DialogKeyboard.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_DialogMediaSource.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
 
 Coordinates_DialogMusicInfo.xml:
 - adjust height if details group list and description textbox
 - remove deprecated coordinate includes
 
+Coordinates_DialogPictureInfo.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_DialogPVRChannelGuide.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_DialogPVRChannelManager.xml:
+- fix ActiveChannel fade animations
+- add NonFocusFadeAnimation includes to focusedlayout
+
+Coordinates_DialogPVRChannelsOSD.xml:
+- add new coordinates for channel group heading and channel group switch buttons
+- rework coordinates for improved OSD guide dialog
+- remove unnecessary fade animations
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_DialogPVRGroupManager.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
 Coordinates_DialogPVRInfo.xml:
 - adjust height if details group list and plot textbox
+
+Coordinates_DialogSelect.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- fix icon fade animations
+
+Coordinates_DialogSubtitles.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- fix icon fade animations
+
+Coordinates_EventLog.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_FileBrowser.xml:
+- fix icon fade animations
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_FileManager.xml:
+- fix label width when label2 is not empty
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_Home.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_LoginScreen.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
 
 Coordinates_MyGames.xml:
 - fix scrollbar height and positioning
 - add new coordinates includes for new wide scrollbar
+
+Coordinates_MyMusicPlaylistEditor.xml:
+- add NonFocusFadeAnimation includes to focusedlayout
+- remove unnecessary non-focus controls
 
 Coordinates_MyMusicNav.xml:
 - fix scrollbar height and positioning
@@ -88,20 +145,57 @@ Coordinates_MyPrograms.xml:
 - fix scrollbar height and positioning
 - add new coordinates includes for new wide scrollbar
 
+Coordinates_MyPVRChannels.xml:
+- fix placing and width of label controls
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
 Coordinates_MyPVRGuide.xml:
 - add fade animation to non-focus recording and timer images
+- fix icon fade animations
+- add NonFocusFadeAnimation includes to focusedlayout
+
+Coordinates_MyPVRRecordings.xml:
+- fix width of 4:3 label controls
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_MyPVRSearch.xml:
+- fix icon fade animations
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_MyPVRTimers.xml:
+- fix icon fade animations
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_script-skinshortcuts.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_SettingsProfile.xml:
+- fix width of label and image controls
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_SmartPlaylistEditor.xml:
+- place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+
+Coordinates_VideoOSDBookmarks.xml:
+- add NonFocusFadeAnimation includes to focusedlayout
 
 Coordinates_MyVideoNav.xml:
 - fix height and positioning of scrollbars
 
 Coordinates_Viewtype50.xml:
 - add missing collection indicator
+- fix icon fade animations
+- add NonFocusFadeAnimation includes to focusedlayout
 
 Coordinates_Viewtype51.xml:
 - add missing collection indicator
+- fix icon fade animations
+- add NonFocusFadeAnimation includes to focusedlayout
 
 Coordinates_Viewtype511.xml:
 - add missing collection indicator
+- fix icon fade animations
+- add NonFocusFadeAnimation includes to focusedlayout
 
 Coordinates_Viewtype52.xml:
 - rework watched/listened to and collection indicators
@@ -145,11 +239,18 @@ Coordinates_Viewtype534.xml:
 Coordinates_Viewtype536.xml:
 - rework coordinates includes for new video addons and music views
 
+Custom_DialogMasking.xml:
+- change heading localize
+- rework buttons options to match skin settings masking aspect ratio setting layout
+
 DialogAddonInfo.xml:
 - add new onload and unload for second info dialog page
 - add new addon origin detail label
 - rework description textbox for second info dialog page
 - add new extended info button for second info dialog page
+
+DialogFavourites.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
 
 DialogMusicInfo.xml:
 - add new onload and unload for second info dialog page
@@ -179,6 +280,9 @@ DialogVideoInfo.xml:
 - rework plot textbox for second info dialog page
 - add new extended info button for second info dialog page
 
+EventLog.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
 Home.xml:
 - rework RSS feed with animation for masking
 
@@ -188,27 +292,47 @@ Includes.xml:
 - change onload for new info dialog settings
 - change onload for new video addons default view setting
 - add new DefaultView include
+- replace visible change fade animation by VisibleFadeAnimation include
+
+Includes_Home.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
 
 Includes_Time_NowPlaying.xml:
 - rework now playing information completely (more specifically for all player media types)
 - rework animations for new video addons and music views
+
+Includes_Windows_Dialogs.xml:
+- replace VisibleFadeAnimation include animations by VisibleChange animation
+- add new NonFocusFadeAnimation include
+- replace visible change fade animation by VisibleFadeAnimation include
+
+LoginScreen.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
 
 MusicVisualisation.xml:
 - rework fullscreen music playback information
 
 MyGames.xml:
 - add changed/new viewtypes
+- replace visible change fade animation by VisibleFadeAnimation include
 
 MyMusicNav.xml:
 - fix default view to 'list'
 - add new Library Node Editor button to submenu
 - add changed/new viewtypes
+- replace visible change fade animation by VisibleFadeAnimation include
 
 MyPics.xml:
 - add new view
+- replace visible change fade animation by VisibleFadeAnimation include
+
+MyPlaylist.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
 
 MyPrograms.xml:
 - add changed/new viewtypes
+- replace visible change fade animation by VisibleFadeAnimation include
 
 MyVideoNav.xml:
 - remove deprecated scrollbars
@@ -216,18 +340,50 @@ MyVideoNav.xml:
 
 MyPVRChannels.xml:
 - change channel group label ID to '29'
+- replace visible change fade animation by VisibleFadeAnimation include
+
+MyPVRGuide.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
+MyPVRRecordings.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
+MyPVRSearch.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
+MyPVRTimers.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
 
 MyVideoNav.xml:
 - fix default view to 'list'
 - add new Library Node Editor button to submenu
+- replace visible change fade animation by VisibleFadeAnimation include
+
+MyWeather.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
+script-skinshortcuts.xml:
+- remove unnecessary non-focus fade animation
 
 script-skinshortcuts-static.xml:
 - fix deprecated IsEmpty conditions
 - rework watched/listened to widget indicator
 - add collection indicator to widgets
 
+Settings.xml:
+- fix non-focus fade animations
+
+SettingsCategory.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
+SettingsProfile.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
+
 SettingsScreenCalibration.xml:
 - rework masking animations for new automatic masking
+
+SettingsSystemInfo.xml:
+- replace visible change fade animation by VisibleFadeAnimation include
 
 SkinSettings.xml:
 - add new automatic masking setting
@@ -280,10 +436,12 @@ Viewtype511.xml:
 Viewtype52.xml:
 - fix alignment of cover art (centred)
 - fix visibility to only use view for movies and TV shows
+- remove unnecessary non-focus fade animation
 
 Viewtype521.xml:
 - fix alignment of cover art (centred)
 - fix visibility to only use view for movies and TV shows
+- remove unnecessary non-focus fade animation
 
 Viewtype522.xml:
 - fix alignment of cover art (centred)
@@ -291,9 +449,14 @@ Viewtype522.xml:
 Viewtype523.xml:
 - rework visibility conditions with more content types
 - add DefaultView include
+- remove unnecessary non-focus fade animation
+
+Viewtype524.xml:
+- remove unnecessary non-focus fade animation
 
 Viewtype53.xml:
 - fix alignment of cover art (centred)
+- remove unnecessary non-focus fade animation
 
 Viewtype531.xml:
 - change onleft and pagecontrol for new scrollbar
@@ -302,20 +465,24 @@ Viewtype531.xml:
 Viewtype532.xml:
 - change onleft and pagecontrol for new scrollbar
 - fix alignment of cover art (centred)
+- remove unnecessary non-focus fade animation
 
 Viewtype533.xml:
 - fix alignment of cover art (centred)
 
 Viewtype534.xml:
 - fix alignment of cover art (centred)
+- remove unnecessary non-focus fade animation
 
 Viewtype535.xml:
 - rework visibility conditions with more content types
 - add DefaultView include
+- remove unnecessary non-focus fade animation
 
 Viewtype537.xml:
 - rework visibility conditions with more content types
 - add DefaultView include
+- remove unnecessary non-focus fade animation
 
 addon.xml:
 - bump version to 18.4.0
