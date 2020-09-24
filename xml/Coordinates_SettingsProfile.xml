@@ -122,7 +122,7 @@
 	<include name="SettingsProfile_coords5_16:9">
 		<itemlayout height="76" width="1250">
 			<control type="label">
-				<width>1200</width>
+				<width>1170</width>
 				<height>76</height>
 				<font>Font33</font>
 				<label>$INFO[ListItem.Label]</label>
@@ -133,7 +133,7 @@
 				<top>2</top>
 				<width>72</width>
 				<height>72</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
 			</control>
 		</itemlayout>
@@ -141,7 +141,7 @@
 	<include name="SettingsProfile_coords5_21:9">
 		<itemlayout height="76" width="1890">
 			<control type="label">
-				<width>1840</width>
+				<width>1810</width>
 				<height>76</height>
 				<font>Font33</font>
 				<label>$INFO[ListItem.Label]</label>
@@ -152,7 +152,7 @@
 				<top>2</top>
 				<width>72</width>
 				<height>72</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
 			</control>
 		</itemlayout>
@@ -160,7 +160,7 @@
 	<include name="SettingsProfile_coords5_21:9_masked">
 		<itemlayout height="76" width="1890">
 			<control type="label">
-				<width>1840</width>
+				<width>1810</width>
 				<height>76</height>
 				<font>Font33</font>
 				<label>$INFO[ListItem.Label]</label>
@@ -171,7 +171,7 @@
 				<top>2</top>
 				<width>72</width>
 				<height>72</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
 			</control>
 		</itemlayout>
@@ -179,7 +179,7 @@
 	<include name="SettingsProfile_coords5_4:3">
 		<itemlayout height="76" width="770">
 			<control type="label">
-				<width>720</width>
+				<width>690</width>
 				<height>76</height>
 				<font>Font33</font>
 				<label>$INFO[ListItem.Label]</label>
@@ -190,7 +190,7 @@
 				<top>2</top>
 				<width>72</width>
 				<height>72</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
 			</control>
 		</itemlayout>
@@ -204,105 +204,113 @@
 	</include>
 	<include name="SettingsProfile_coords6_16:9">
 		<focusedlayout height="76" width="1250">
-			<control type="label">
-				<width>1180</width>
-				<height>76</height>
-				<font>Font33</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>1090</width>
-				<height>76</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<right>0</right>
-				<top>2</top>
-				<width>72</width>
-				<height>72</height>
-				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">2</param>
+				</include>
+				<control type="label">
+					<width>1170</width>
+					<height>76</height>
+					<font>Font33</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>1170</width>
+					<height>76</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
+				</control>
+				<control type="image">
+					<right>0</right>
+					<top>2</top>
+					<width>72</width>
+					<height>72</height>
+					<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="SettingsProfile_coords6_21:9">
 		<focusedlayout height="76" width="1890">
-			<control type="label">
-				<width>1840</width>
-				<height>76</height>
-				<font>Font33</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>1780</width>
-				<height>76</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<right>0</right>
-				<top>2</top>
-				<width>72</width>
-				<height>72</height>
-				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">2</param>
+				</include>
+				<control type="label">
+					<width>1810</width>
+					<height>76</height>
+					<font>Font33</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>1810</width>
+					<height>76</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
+				</control>
+				<control type="image">
+					<right>0</right>
+					<top>2</top>
+					<width>72</width>
+					<height>72</height>
+					<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="SettingsProfile_coords6_21:9_masked">
 		<focusedlayout height="76" width="1890">
-			<control type="label">
-				<width>1840</width>
-				<height>76</height>
-				<font>Font33</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>1780</width>
-				<height>76</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<right>0</right>
-				<top>2</top>
-				<width>72</width>
-				<height>72</height>
-				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">2</param>
+				</include>
+				<control type="label">
+					<width>1810</width>
+					<height>76</height>
+					<font>Font33</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>1810</width>
+					<height>76</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
+				</control>
+				<control type="image">
+					<right>0</right>
+					<top>2</top>
+					<width>72</width>
+					<height>72</height>
+					<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="SettingsProfile_coords6_4:3">
 		<focusedlayout height="76" width="770">
-			<control type="label">
-				<width>720</width>
-				<height>76</height>
-				<font>Font33</font>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>660</width>
-				<height>76</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
-			</control>
-			<control type="image">
-				<right>0</right>
-				<top>2</top>
-				<width>72</width>
-				<height>72</height>
-				<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(2)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">2</param>
+				</include>
+				<control type="label">
+					<width>690</width>
+					<height>76</height>
+					<font>Font33</font>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>690</width>
+					<height>76</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus76]</texture>
+				</control>
+				<control type="image">
+					<right>0</right>
+					<top>2</top>
+					<width>72</width>
+					<height>72</height>
+					<texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>

@@ -40,7 +40,6 @@
 	</include>
 	<include name="DialogPVRChannelManager_coords2_16:9">
 		<itemlayout width="800" height="66">
-
 			<control type="group">
 				<animation effect="fade" start="100" end="50" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
 				<control type="image">
@@ -70,12 +69,10 @@
 					<visible>!ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</itemlayout>
 	</include>
 	<include name="DialogPVRChannelManager_coords2_21:9">
 		<itemlayout width="1120" height="66">
-
 			<control type="group">
 				<animation effect="fade" start="100" end="50" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
 				<control type="image">
@@ -105,12 +102,10 @@
 					<visible>!ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</itemlayout>
 	</include>
 	<include name="DialogPVRChannelManager_coords2_21:9_masked">
 		<itemlayout width="1120" height="66">
-
 			<control type="group">
 				<animation effect="fade" start="100" end="50" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
 				<control type="image">
@@ -140,12 +135,10 @@
 					<visible>!ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</itemlayout>
 	</include>
 	<include name="DialogPVRChannelManager_coords2_4:3">
 		<itemlayout width="560" height="66">
-
 			<control type="group">
 				<animation effect="fade" start="100" end="50" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
 				<control type="image">
@@ -175,7 +168,6 @@
 					<visible>!ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</itemlayout>
 	</include>
 	
@@ -187,10 +179,11 @@
 	</include>
 	<include name="DialogPVRChannelManager_coords3_16:9">
 		<focusedlayout width="800" height="132">
-
 			<control type="group">
-				<animation effect="fade" start="100" end="50" tween="cubic" easing="out" reversible="true" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
-				<animation effect="fade" start="100" end="75" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(20)">Conditional</animation>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">20</param>
+				</include>
 				<control type="image">
 					<left>3</left>
 					<top>3</top>
@@ -210,8 +203,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>860</width>
+					<width>800</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
@@ -236,8 +228,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>860</width>
+					<width>800</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[SelectedColor]</textcolor>
@@ -246,15 +237,15 @@
 					<visible>ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelManager_coords3_21:9">
 		<focusedlayout width="1120" height="132">
-
 			<control type="group">
-				<animation effect="fade" start="100" end="50" tween="cubic" easing="out" reversible="true" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
-				<animation effect="fade" start="100" end="75" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(20)">Conditional</animation>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">20</param>
+				</include>
 				<control type="image">
 					<left>3</left>
 					<top>3</top>
@@ -274,8 +265,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>1180</width>
+					<width>1120</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
@@ -300,8 +290,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>1180</width>
+					<width>1120</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[SelectedColor]</textcolor>
@@ -310,15 +299,15 @@
 					<visible>ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelManager_coords3_21:9_masked">
 		<focusedlayout width="1120" height="132">
-
 			<control type="group">
-				<animation effect="fade" start="100" end="50" tween="cubic" easing="out" reversible="true" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
-				<animation effect="fade" start="100" end="75" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(20)">Conditional</animation>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">20</param>
+				</include>
 				<control type="image">
 					<left>3</left>
 					<top>3</top>
@@ -338,8 +327,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>1180</width>
+					<width>1120</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
@@ -364,8 +352,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>1180</width>
+					<width>1120</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[SelectedColor]</textcolor>
@@ -374,15 +361,15 @@
 					<visible>ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelManager_coords3_4:3">
 		<focusedlayout width="560" height="132">
-
 			<control type="group">
-				<animation effect="fade" start="100" end="50" tween="cubic" easing="out" reversible="true" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
-				<animation effect="fade" start="100" end="75" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(20)">Conditional</animation>
+				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!ListItem.Property(ActiveChannel)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">20</param>
+				</include>
 				<control type="image">
 					<left>3</left>
 					<top>3</top>
@@ -402,8 +389,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>540</width>
+					<width>560</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColor1]</textcolor>
@@ -428,8 +414,7 @@
 				</control>
 				<control type="label">
 					<top>80</top>
-					<left>20</left>
-					<width>540</width>
+					<width>560</width>
 					<height>27</height>
 					<font>Font27</font>
 					<textcolor>$VAR[SelectedColor]</textcolor>
@@ -438,7 +423,6 @@
 					<visible>ListItem.Property(Changed)</visible>
 				</control>
 			</control>
-
 		</focusedlayout>
 	</include>
 	
