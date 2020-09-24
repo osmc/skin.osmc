@@ -72,6 +72,7 @@
 				<height>102</height>
 				<aspectratio>scale</aspectratio>
 				<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Program name -->
@@ -142,6 +143,7 @@
 				<height>102</height>
 				<aspectratio>scale</aspectratio>
 				<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Program name -->
@@ -212,6 +214,7 @@
 				<height>102</height>
 				<aspectratio>scale</aspectratio>
 				<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Program name -->
@@ -282,6 +285,7 @@
 				<height>102</height>
 				<aspectratio>scale</aspectratio>
 				<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 			</control>
 
 			<!-- Program name -->
@@ -327,6 +331,10 @@
 	</include>
 	<include name="MyPVRTimers_coords3_16:9">
 		<focusedlayout width="1440" height="108">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
 
 				<!-- Start date -->
 				<control type="label">
@@ -337,7 +345,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Start time - End time -->
@@ -351,7 +358,6 @@
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Thumb -->
@@ -362,7 +368,6 @@
 					<height>102</height>
 					<aspectratio>scale</aspectratio>
 					<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program name -->
@@ -374,7 +379,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 				
 				<!-- Highlighting -->
@@ -384,7 +388,6 @@
 					<width>634</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Channel name -->
@@ -397,7 +400,6 @@
 					<scroll>True</scroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program comment -->
@@ -409,13 +411,17 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
+			</control>
 		</focusedlayout>
 	</include>
 	<include name="MyPVRTimers_coords3_21:9">
 		<focusedlayout width="2080" height="108">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
 
 				<!-- Start date -->
 				<control type="fadelabel">
@@ -426,7 +432,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Start time - End time -->
@@ -440,7 +445,6 @@
 					<scroll>True</scroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Thumb -->
@@ -451,7 +455,6 @@
 					<height>102</height>
 					<aspectratio>scale</aspectratio>
 					<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program name -->
@@ -463,7 +466,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 				
 				<!-- Highlighting -->
@@ -473,7 +475,6 @@
 					<width>954</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Channel name -->
@@ -486,7 +487,6 @@
 					<scroll>True</scroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program comment -->
@@ -498,13 +498,17 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
+			</control>
 		</focusedlayout>
 	</include>
 	<include name="MyPVRTimers_coords3_21:9_masked">
 		<focusedlayout width="2080" height="108">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
 
 				<!-- Start date -->
 				<control type="fadelabel">
@@ -515,7 +519,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Start time - End time -->
@@ -529,7 +532,6 @@
 					<scroll>True</scroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Thumb -->
@@ -540,7 +542,6 @@
 					<height>102</height>
 					<aspectratio>scale</aspectratio>
 					<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program name -->
@@ -552,7 +553,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 				
 				<!-- Highlighting -->
@@ -562,7 +562,6 @@
 					<width>954</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Channel name -->
@@ -575,7 +574,6 @@
 					<scroll>True</scroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program comment -->
@@ -587,13 +585,17 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
+			</control>
 		</focusedlayout>
 	</include>
 	<include name="MyPVRTimers_coords3_4:3">
 		<focusedlayout width="960" height="108">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
 
 				<!-- Start date -->
 				<control type="label">
@@ -604,7 +606,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Start time - End time -->
@@ -618,7 +619,6 @@
 					<scroll>True</scroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Thumb -->
@@ -629,7 +629,6 @@
 					<height>102</height>
 					<aspectratio>scale</aspectratio>
 					<texture fallback="pvr/NoImage.png">$INFO[ListItem.Thumb]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program name -->
@@ -641,7 +640,6 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 				
 				<!-- Highlighting -->
@@ -651,7 +649,6 @@
 					<width>314</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Channel name -->
@@ -664,7 +661,6 @@
 					<scroll>True</scroll>
 					<textcolor>$VAR[TextColor1]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
 				<!-- Program comment -->
@@ -676,9 +672,9 @@
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
-					<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 
+			</control>
 		</focusedlayout>
 	</include>
 	

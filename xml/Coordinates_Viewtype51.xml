@@ -58,7 +58,7 @@
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>ListItem.IsCollection</visible>
 			</control>
 			<!-- Watched status -->
@@ -70,7 +70,7 @@
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>!ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
@@ -95,7 +95,7 @@
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>ListItem.IsCollection</visible>
 			</control>
 			<!-- Watched status -->
@@ -107,7 +107,7 @@
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>!ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
@@ -132,7 +132,7 @@
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>ListItem.IsCollection</visible>
 			</control>
 			<!-- Watched status -->
@@ -144,7 +144,7 @@
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>!ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
@@ -169,7 +169,7 @@
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>ListItem.IsCollection</visible>
 			</control>
 			<!-- Watched status -->
@@ -181,7 +181,7 @@
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<colordiffuse>$VAR[TextColor2]</colordiffuse>
-				<animation effect="fade" start="50" end="50" condition="true">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="true">Conditional</animation>
 				<visible>!ListItem.IsCollection</visible>
 			</control>
 		</itemlayout>
@@ -196,7 +196,9 @@
 	<include name="Viewtype51_coords3_16:9">
 		<focusedlayout height="144" width="1050">
 			<control type="group">
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(51)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">51</param>
+				</include>
 				<control type="label">
 					<left>32</left>
 					<top>25</top>
@@ -223,6 +225,7 @@
 					<font>Font27</font>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
 				</control>
 				<!-- Collection -->
 				<control type="image">
@@ -252,7 +255,9 @@
 	<include name="Viewtype51_coords3_21:9">
 		<focusedlayout height="144" width="1690">
 			<control type="group">
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(51)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">51</param>
+				</include>
 				<control type="label">
 					<left>32</left>
 					<top>25</top>
@@ -279,6 +284,7 @@
 					<font>Font27</font>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
 				</control>
 				<!-- Collection -->
 				<control type="image">
@@ -308,7 +314,9 @@
 	<include name="Viewtype51_coords3_21:9_masked">
 		<focusedlayout height="144" width="1690">
 			<control type="group">
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(51)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">51</param>
+				</include>
 				<control type="label">
 					<left>32</left>
 					<top>25</top>
@@ -335,6 +343,7 @@
 					<font>Font27</font>
 					<label>$VAR[Label2]</label>
 					<textcolor>$VAR[TextColor1]</textcolor>
+					<scroll>True</scroll>
 				</control>
 				<!-- Collection -->
 				<control type="image">
@@ -364,7 +373,9 @@
 	<include name="Viewtype51_coords3_4:3">
 		<focusedlayout height="144" width="570">
 			<control type="group">
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(51)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">51</param>
+				</include>
 				<control type="label">
 					<left>32</left>
 					<top>25</top>

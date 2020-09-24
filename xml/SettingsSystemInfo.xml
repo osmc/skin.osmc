@@ -192,7 +192,7 @@
 		<!-- Submenu indicator -->
 		<control type="group">
 			<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(shutdownmenu)</visible>
-			<animation effect="fade" start="0" end="100" time="200">VisibleChange</animation>
+			<include>VisibleFadeAnimation</include>
 			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 			<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
 			<control type="image">
@@ -210,8 +210,7 @@
 			<control type="image">
 				<include>FullscreenOverlayDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
-				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+				<include>VisibleFadeAnimation</include>
 				<visible>ControlGroup(9002).HasFocus</visible>
 				<include>BackgroundDepth</include>
 			</control>
