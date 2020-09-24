@@ -202,7 +202,6 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
 			</control>
 			<control type="label">
 				<right>0</right>
@@ -234,7 +233,6 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
 			</control>
 			<control type="label">
 				<right>0</right>
@@ -265,7 +263,6 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
 			</control>
 			<control type="label">
 				<right>0</right>
@@ -296,7 +293,6 @@
 				<font>Font27</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
 				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
 			</control>
 			<control type="label">
 				<right>0</right>
@@ -319,213 +315,213 @@
 	</include>
 	<include name="DialogPVRChannelsOSD_coords8_16:9">
 		<focusedlayout height="180" width="750">
-			<control type="label">
-				<top>43</top>
-				<width>680</width>
-				<height>48</height>
-				<font>Font48</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>100</top>
-				<width>750</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>127</top>
-				<width>750</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="image">
-				<top>43</top>
-				<width>750</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<right>0</right>
-				<top>43</top>
-				<width>50</width>
-				<height>48</height>
-				<font>Font36</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<align>right</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
+				<control type="label">
+					<top>43</top>
+					<width>680</width>
+					<height>48</height>
+					<font>Font48</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>100</top>
+					<width>750</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>127</top>
+					<width>750</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<top>43</top>
+					<width>750</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
+				<control type="label">
+					<right>0</right>
+					<top>43</top>
+					<width>50</width>
+					<height>48</height>
+					<font>Font36</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<align>right</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelsOSD_coords8_21:9">
 		<focusedlayout height="180" width="750">
-			<control type="label">
-				<top>43</top>
-				<width>680</width>
-				<height>48</height>
-				<font>Font48</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>100</top>
-				<width>750</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>127</top>
-				<width>750</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="image">
-				<top>43</top>
-				<width>750</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<right>0</right>
-				<top>43</top>
-				<width>50</width>
-				<height>48</height>
-				<font>Font36</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<align>right</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
+				<control type="label">
+					<top>43</top>
+					<width>680</width>
+					<height>48</height>
+					<font>Font48</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>100</top>
+					<width>750</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>127</top>
+					<width>750</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<top>43</top>
+					<width>750</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
+				<control type="label">
+					<right>0</right>
+					<top>43</top>
+					<width>50</width>
+					<height>48</height>
+					<font>Font36</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<align>right</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelsOSD_coords8_21:9_masked">
 		<focusedlayout height="180" width="750">
-			<control type="label">
-				<top>43</top>
-				<width>680</width>
-				<height>48</height>
-				<font>Font48</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>100</top>
-				<width>750</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>127</top>
-				<width>750</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="image">
-				<top>43</top>
-				<width>750</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<right>0</right>
-				<top>43</top>
-				<width>50</width>
-				<height>48</height>
-				<font>Font36</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<align>right</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
+				<control type="label">
+					<top>43</top>
+					<width>680</width>
+					<height>48</height>
+					<font>Font48</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>100</top>
+					<width>750</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>127</top>
+					<width>750</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<top>43</top>
+					<width>750</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
+				<control type="label">
+					<right>0</right>
+					<top>43</top>
+					<width>50</width>
+					<height>48</height>
+					<font>Font36</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<align>right</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="DialogPVRChannelsOSD_coords8_4:3">
 		<focusedlayout height="180" width="510">
-			<control type="label">
-				<top>43</top>
-				<width>440</width>
-				<height>48</height>
-				<font>Font48</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>100</top>
-				<width>510</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<top>127</top>
-				<width>510</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="image">
-				<top>43</top>
-				<width>510</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
-			</control>
-			<control type="label">
-				<right>0</right>
-				<top>43</top>
-				<width>50</width>
-				<height>48</height>
-				<font>Font36</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<align>right</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(11)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">11</param>
+				</include>
+				<control type="label">
+					<top>43</top>
+					<width>440</width>
+					<height>48</height>
+					<font>Font48</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>100</top>
+					<width>510</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<top>127</top>
+					<width>510</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>[LIGHT]$INFO[ListItem.NextStartTime,,:][/LIGHT] $INFO[ListItem.NextTitle]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<top>43</top>
+					<width>510</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+				</control>
+				<control type="label">
+					<right>0</right>
+					<top>43</top>
+					<width>50</width>
+					<height>48</height>
+					<font>Font36</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					<align>right</align>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
