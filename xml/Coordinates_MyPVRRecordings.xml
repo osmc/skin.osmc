@@ -215,11 +215,11 @@
 		</itemlayout>
 	</include>
 	<include name="MyPVRRecordings_coords6_4:3">
-		<itemlayout height="90" width="1050">
+		<itemlayout height="90" width="570">
 			<control type="label">
 				<left>32</left>
 				<top>0</top>
-				<width>1018</width>
+				<width>538</width>
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$VAR[Label1]</label>
@@ -245,221 +245,225 @@
 	</include>
 	<include name="MyPVRRecordings_coords7_16:9">
 		<focusedlayout height="180" width="1050">
-			<control type="label">
-				<left>32</left>
-				<top>43</top>
-				<width>1018</width>
-				<height>48</height>
-				<font>Font48-bold</font>
-				<scroll>True</scroll>
-				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>43</top>
-				<width>1018</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>100</top>
-				<width>1018</width>
-				<height>27</height>
-				<font>Font27</font>
-				<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>127</top>
-				<width>1018</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>56</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
+				<control type="label">
+					<left>32</left>
+					<top>43</top>
+					<width>1018</width>
+					<height>48</height>
+					<font>Font48-bold</font>
+					<scroll>True</scroll>
+					<label>$VAR[Label1]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>43</top>
+					<width>1018</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>100</top>
+					<width>1018</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>127</top>
+					<width>1018</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>56</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="MyPVRRecordings_coords7_21:9_masked">
 		<focusedlayout height="180" width="1690">
-			<control type="label">
-				<left>32</left>
-				<top>43</top>
-				<width>1658</width>
-				<height>48</height>
-				<font>Font48-bold</font>
-				<scroll>True</scroll>
-				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>43</top>
-				<width>1658</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>100</top>
-				<width>1658</width>
-				<height>27</height>
-				<font>Font27</font>
-				<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>127</top>
-				<width>1658</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>56</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
+				<control type="label">
+					<left>32</left>
+					<top>43</top>
+					<width>1658</width>
+					<height>48</height>
+					<font>Font48-bold</font>
+					<scroll>True</scroll>
+					<label>$VAR[Label1]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>43</top>
+					<width>1658</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>100</top>
+					<width>1658</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>127</top>
+					<width>1658</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>56</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="MyPVRRecordings_coords7_21:9">
 		<focusedlayout height="180" width="1690">
-			<control type="label">
-				<left>32</left>
-				<top>43</top>
-				<width>1658</width>
-				<height>48</height>
-				<font>Font48-bold</font>
-				<scroll>True</scroll>
-				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>43</top>
-				<width>1658</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>100</top>
-				<width>1658</width>
-				<height>27</height>
-				<font>Font27</font>
-				<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>127</top>
-				<width>1658</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>56</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
+				<control type="label">
+					<left>32</left>
+					<top>43</top>
+					<width>1658</width>
+					<height>48</height>
+					<font>Font48-bold</font>
+					<scroll>True</scroll>
+					<label>$VAR[Label1]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>43</top>
+					<width>1658</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>100</top>
+					<width>1658</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>127</top>
+					<width>1658</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>56</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="MyPVRRecordings_coords7_4:3">
-		<focusedlayout height="180" width="1050">
-			<control type="label">
-				<left>32</left>
-				<top>43</top>
-				<width>1018</width>
-				<height>48</height>
-				<font>Font48-bold</font>
-				<scroll>True</scroll>
-				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="image">
-				<left>32</left>
-				<top>43</top>
-				<width>1018</width>
-				<height>58</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-				<visible>!ListItem.IsParentFolder</visible>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>100</top>
-				<width>1018</width>
-				<height>27</height>
-				<font>Font27</font>
-				<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<control type="label">
-				<left>32</left>
-				<top>127</top>
-				<width>1018</width>
-				<height>27</height>
-				<font>Font27</font>
-				<scroll>True</scroll>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
-			</control>
-			<!-- Watched status -->
-			<control type="image">
-				<left>0</left>
-				<top>56</top>
-				<width>22</width>
-				<height>22</height>
-				<texture>$VAR[StatusOverlay]</texture>
-				<colordiffuse>$VAR[TextColor1]</colordiffuse>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(50)">Conditional</animation>
+		<focusedlayout height="180" width="570">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">50</param>
+				</include>
+				<control type="label">
+					<left>32</left>
+					<top>43</top>
+					<width>538</width>
+					<height>48</height>
+					<font>Font48-bold</font>
+					<scroll>True</scroll>
+					<label>$VAR[Label1]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<left>32</left>
+					<top>43</top>
+					<width>538</width>
+					<height>58</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>100</top>
+					<width>538</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.StartDate] [LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.Duration, (,)][/LIGHT]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="label">
+					<left>32</left>
+					<top>127</top>
+					<width>538</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<label>$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<!-- Watched status -->
+				<control type="image">
+					<left>0</left>
+					<top>56</top>
+					<width>22</width>
+					<height>22</height>
+					<texture>$VAR[StatusOverlay]</texture>
+					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>

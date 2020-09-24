@@ -149,69 +149,81 @@
 	</include>
 	<include name="DialogSubtitles_coords5_16:9">
 		<focusedlayout width="360" height="66">
-			<control type="label">
-				<width>360</width>
-				<height>66</height>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>360</width>
-				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">150</param>
+				</include>
+				<control type="label">
+					<width>360</width>
+					<height>66</height>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>360</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="DialogSubtitles_coords5_21:9">
 		<focusedlayout width="360" height="66">
-			<control type="label">
-				<width>360</width>
-				<height>66</height>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>360</width>
-				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">150</param>
+				</include>
+				<control type="label">
+					<width>360</width>
+					<height>66</height>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>360</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="DialogSubtitles_coords5_21:9_masked">
 		<focusedlayout width="360" height="66">
-			<control type="label">
-				<width>360</width>
-				<height>66</height>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>360</width>
-				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">150</param>
+				</include>
+				<control type="label">
+					<width>360</width>
+					<height>66</height>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>360</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	<include name="DialogSubtitles_coords5_4:3">
 		<focusedlayout width="360" height="66">
-			<control type="fadelabel">
-				<width>360</width>
-				<height>66</height>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
-			</control>
-			<control type="image">
-				<width>360</width>
-				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(150)">Conditional</animation>
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">150</param>
+				</include>
+				<control type="fadelabel">
+					<width>360</width>
+					<height>66</height>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>$VAR[TextColor1]</textcolor>
+				</control>
+				<control type="image">
+					<width>360</width>
+					<height>66</height>
+					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				</control>
 			</control>
 		</focusedlayout>
 	</include>
@@ -383,7 +395,7 @@
 				<top>9</top>
 				<width>48</width>
 				<height>48</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture>$INFO[ListItem.Thumb,language/,.png]</texture>
 			</control>
 			<control type="label">
@@ -416,7 +428,7 @@
 				<top>9</top>
 				<width>48</width>
 				<height>48</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture>$INFO[ListItem.Thumb,language/,.png]</texture>
 			</control>
 			<control type="label">
@@ -449,7 +461,7 @@
 				<top>9</top>
 				<width>48</width>
 				<height>48</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture>$INFO[ListItem.Thumb,language/,.png]</texture>
 			</control>
 			<control type="label">
@@ -482,7 +494,7 @@
 				<top>9</top>
 				<width>48</width>
 				<height>48</height>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
 				<texture>$INFO[ListItem.Thumb,language/,.png]</texture>
 			</control>
 			<control type="label">
@@ -519,7 +531,9 @@
 	<include name="DialogSubtitles_coords12_16:9">
 		<focusedlayout width="1170" height="66">
 			<control type="group">
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(120)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">120</param>
+				</include>
 				<control type="image">
 					<top>9</top>
 					<width>48</width>
@@ -561,7 +575,9 @@
 	<include name="DialogSubtitles_coords12_21:9">
 		<focusedlayout width="1810" height="66">
 			<control type="group">
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(120)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">120</param>
+				</include>
 				<control type="image">
 					<top>9</top>
 					<width>48</width>
@@ -603,7 +619,9 @@
 	<include name="DialogSubtitles_coords12_21:9_masked">
 		<focusedlayout width="1810" height="66">
 			<control type="group">
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(120)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">120</param>
+				</include>
 				<control type="image">
 					<top>9</top>
 					<width>48</width>
@@ -645,7 +663,9 @@
 	<include name="DialogSubtitles_coords12_4:3">
 		<focusedlayout width="712" height="66">
 			<control type="group">
-				<animation effect="fade" start="100" end="75" time="200" tween="cubic" easing="out" reversible="true" condition="!Control.HasFocus(120)">Conditional</animation>
+				<include content="NonFocusFadeAnimation">
+					<param name="id">120</param>
+				</include>
 				<control type="image">
 					<top>9</top>
 					<width>48</width>
