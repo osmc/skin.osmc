@@ -9,27 +9,27 @@
 	</include>
 	<include name="MyPVRGuide_coords1_16:9">
 		<left>90</left>
-		<top>230</top>
+		<top>250</top>
 		<width>20</width>
-		<height>552</height>
+		<height>512</height>
 	</include>
 	<include name="MyPVRGuide_coords1_21:9">
 		<left>90</left>
-		<top>230</top>
+		<top>250</top>
 		<width>20</width>
-		<height>552</height>
+		<height>512</height>
 	</include>
 	<include name="MyPVRGuide_coords1_21:9_masked">
 		<left>90</left>
-		<top>410</top>
+		<top>430</top>
 		<width>20</width>
-		<height>552</height>
+		<height>512</height>
 	</include>
 	<include name="MyPVRGuide_coords1_4:3">
 		<left>90</left>
-		<top>230</top>
+		<top>250</top>
 		<width>20</width>
-		<height>552</height>
+		<height>512</height>
 	</include>
 	
 	<include name="MyPVRGuide_coords2">
@@ -135,7 +135,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -147,7 +147,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -185,7 +185,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -197,7 +197,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -235,7 +235,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -247,7 +247,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -285,7 +285,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(TVGuide)</visible>
 			</control>
 			
@@ -297,7 +297,7 @@
 				<height>67</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 				<visible>Window.IsVisible(RadioGuide)</visible>
 			</control>
 
@@ -614,7 +614,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
@@ -625,7 +625,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 		</itemlayout>
@@ -662,7 +662,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
@@ -673,7 +673,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 		</itemlayout>
@@ -710,7 +710,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
@@ -721,7 +721,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 		</itemlayout>
@@ -758,7 +758,7 @@
 				<height>18</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
@@ -769,7 +769,7 @@
 				<height>18</height>
 				<texture>pvr/Timer.png</texture>
 				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
-				<animation effect="fade" start="100" end="50" condition="True">Conditional</animation>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 		</itemlayout>
