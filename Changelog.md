@@ -22,6 +22,7 @@ _Improved_
 - improve second label of more extended list view
 - add wide view support to games and programs
 - harmonize non-focus animations
+- improve scrollbar size relative to their controls
 
 _Fixed_
 - fix default view music and video navigation
@@ -60,6 +61,7 @@ AddonBrowser.xml:
 Coordinates_AddonBrowser.xml:
 - add addon version to second row list label
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_Custom_DialogMasking.xml:
 - adjust coordinates for new OSD masking aspect ratio dialog layout
@@ -72,6 +74,10 @@ Coordinates_DialogButtonMenu.xml:
 
 Coordinates_DialogFavourites.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
+
+Coordinates_DialogGameControllers.xml:
+- decrease scrollbar height
 
 Coordinates_DialogKeyboard.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
@@ -85,22 +91,27 @@ Coordinates_DialogMusicInfo.xml:
 
 Coordinates_DialogPictureInfo.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_DialogPVRChannelGuide.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_DialogPVRChannelManager.xml:
 - fix ActiveChannel fade animations
 - add NonFocusFadeAnimation includes to focusedlayout
+- decrease scrollbar height
 
 Coordinates_DialogPVRChannelsOSD.xml:
 - add new coordinates for channel group heading and channel group switch buttons
 - rework coordinates for improved OSD guide dialog
 - remove unnecessary fade animations
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_DialogPVRGroupManager.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_DialogPVRInfo.xml:
 - adjust height if details group list and plot textbox
@@ -108,21 +119,32 @@ Coordinates_DialogPVRInfo.xml:
 Coordinates_DialogSelect.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
 - fix icon fade animations
+- decrease scrollbar height
 
 Coordinates_DialogSubtitles.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
 - fix icon fade animations
+- decrease scrollbar height
+
+Coordinates_DialogTextViewer.xml:
+- decrease scrollbar height
+
+Coordinates_DialogVideoInfo.xml:
+- decrease scrollbar height
 
 Coordinates_EventLog.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_FileBrowser.xml:
 - fix icon fade animations
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_FileManager.xml:
 - fix label width when label2 is not empty
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_Home.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
@@ -131,47 +153,64 @@ Coordinates_LoginScreen.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
 
 Coordinates_MyGames.xml:
-- fix scrollbar height and positioning
+- decrease scrollbar height and fix positioning
 - add new coordinates includes for new wide scrollbar
+
+Coordinates_MyMusicNav.xml:
+- decrease scrollbar height and fix positioning
 
 Coordinates_MyMusicPlaylistEditor.xml:
 - add NonFocusFadeAnimation includes to focusedlayout
 - remove unnecessary non-focus controls
+- decrease scrollbar height
 
-Coordinates_MyMusicNav.xml:
-- fix scrollbar height and positioning
+Coordinates_MyPics.xml:
+- decrease scrollbar height
+
+Coordinates_MyPlaylist.xml:
+- decrease scrollbar height
 
 Coordinates_MyPrograms.xml:
-- fix scrollbar height and positioning
+- decrease scrollbar height and fix positioning
 - add new coordinates includes for new wide scrollbar
 
 Coordinates_MyPVRChannels.xml:
 - fix placing and width of label controls
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_MyPVRGuide.xml:
 - add fade animation to non-focus recording and timer images
-- fix icon fade animations
 - add NonFocusFadeAnimation includes to focusedlayout
+- replace icon fade animations by new NonFocusImageFadeAnimation include
+- decrease scrollbar height
 
 Coordinates_MyPVRRecordings.xml:
 - fix width of 4:3 label controls
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_MyPVRSearch.xml:
-- fix icon fade animations
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- replace icon fade animations by new NonFocusImageFadeAnimation include
+- decrease scrollbar height
 
 Coordinates_MyPVRTimers.xml:
-- fix icon fade animations
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- replace icon fade animations by new NonFocusImageFadeAnimation include
+- decrease scrollbar height
+
+Coordinates_MyVideoNav.xml:
+- decrease scrollbar height
 
 Coordinates_script-skinshortcuts.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- decrease scrollbar height
 
 Coordinates_SettingsProfile.xml:
 - fix width of label and image controls
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
+- replace icon fade animations by new NonFocusImageFadeAnimation include
 
 Coordinates_SmartPlaylistEditor.xml:
 - place focusedlayout items into a group control and add NonFocusFadeAnimation includes
@@ -184,18 +223,18 @@ Coordinates_MyVideoNav.xml:
 
 Coordinates_Viewtype50.xml:
 - add missing collection indicator
-- fix icon fade animations
 - add NonFocusFadeAnimation includes to focusedlayout
+- replace icon fade animations by new NonFocusImageFadeAnimation include
 
 Coordinates_Viewtype51.xml:
 - add missing collection indicator
-- fix icon fade animations
 - add NonFocusFadeAnimation includes to focusedlayout
+- replace icon fade animations by new NonFocusImageFadeAnimation include
 
 Coordinates_Viewtype511.xml:
 - add missing collection indicator
-- fix icon fade animations
 - add NonFocusFadeAnimation includes to focusedlayout
+- replace icon fade animations by new NonFocusImageFadeAnimation include
 
 Coordinates_Viewtype52.xml:
 - rework watched/listened to and collection indicators
@@ -293,6 +332,7 @@ Includes.xml:
 - change onload for new video addons default view setting
 - add new DefaultView include
 - replace visible change fade animation by VisibleFadeAnimation include
+- update SubmenuIndicator conditional visibilities with new viewtypes
 
 Includes_Home.xml:
 - replace visible change fade animation by VisibleFadeAnimation include
@@ -305,6 +345,7 @@ Includes_Windows_Dialogs.xml:
 - replace VisibleFadeAnimation include animations by VisibleChange animation
 - add new NonFocusFadeAnimation include
 - replace visible change fade animation by VisibleFadeAnimation include
+- add new NonFocusImageFadeAnimation include
 
 LoginScreen.xml:
 - replace visible change fade animation by VisibleFadeAnimation include
