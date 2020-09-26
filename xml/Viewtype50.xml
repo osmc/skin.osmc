@@ -12,7 +12,7 @@
 			<!-- Files/Others -->
 			<include content="image-50">
 				<param name="fallback">DefaultFile.png</param>
-				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(songs)] | Container.Content(files) | String.IsEmpty(Container.Content)</param>
+				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(songs) | Container.Content(artists)] | Container.Content(files) | String.IsEmpty(Container.Content)</param>
 			</include>
 			<!-- Playlist songs -->
 			<include content="image-50">
@@ -28,6 +28,11 @@
 			<include content="image-50">
 				<param name="fallback">DefaultMusicSongs.png</param>
 				<param name="visible">Container.Content(songs)</param>
+			</include>
+			<!-- Artists -->
+			<include content="image-50">
+				<param name="fallback">DefaultArtist.png</param>
+				<param name="visible">Container.Content(artists)</param>
 			</include>
 			
 			<!-- Song Info -->
@@ -67,7 +72,7 @@
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(files) | Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | Container.Content(songs) | String.IsEmpty(Container.Content)</visible>
+				<visible>Container.Content(files) | Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | Container.Content(songs) | Container.Content(artists) | String.IsEmpty(Container.Content)</visible>
 
 				<include>Viewtype50_coords6</include>
 
