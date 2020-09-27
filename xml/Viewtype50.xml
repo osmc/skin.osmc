@@ -12,7 +12,7 @@
 			<!-- Files/Others -->
 			<include content="image-50">
 				<param name="fallback">DefaultFile.png</param>
-				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(songs) | Container.Content(artists)] | Container.Content(files) | String.IsEmpty(Container.Content)</param>
+				<param name="visible">!Window.IsVisible(musicplaylist) + !Window.IsVisible(videoplaylist) + !Container.Content(songs) + !Container.Content(musicvideos) + !Container.Content(artists) + !Container.Content(genres) + !Container.Content(years) + !Container.Content(playlists) + !Container.Content(actors) + !Container.Content(studios) + !Container.Content(directors) + !Container.Content(tags) + !Container.Content(countries) + !Container.Content(roles)</param>
 			</include>
 			<!-- Playlist songs -->
 			<include content="image-50">
@@ -29,10 +29,45 @@
 				<param name="fallback">DefaultMusicSongs.png</param>
 				<param name="visible">Container.Content(songs)</param>
 			</include>
+			<!-- Music videos -->
+			<include content="image-50">
+				<param name="fallback">DefaultMusicVideos.png</param>
+				<param name="visible">Container.Content(musicvideos)</param>
+			</include>
 			<!-- Artists -->
 			<include content="image-50">
 				<param name="fallback">DefaultArtist.png</param>
 				<param name="visible">Container.Content(artists)</param>
+			</include>
+			<!-- Genres -->
+			<include content="image-50">
+				<param name="fallback">DefaultGenre.png</param>
+				<param name="visible">Container.Content(genres)</param>
+			</include>
+			<!-- Years -->
+			<include content="image-50">
+				<param name="fallback">DefaultYear.png</param>
+				<param name="visible">Container.Content(years)</param>
+			</include>
+			<!-- Playlists -->
+			<include content="image-50">
+				<param name="fallback">DefaultPlaylist.png</param>
+				<param name="visible">Container.Content(playlists)</param>
+			</include>
+			<!-- Actors -->
+			<include content="image-50">
+				<param name="fallback">DefaultActor.png</param>
+				<param name="visible">Container.Content(actors)</param>
+			</include>
+			<!-- Studios -->
+			<include content="image-50">
+				<param name="fallback">DefaultStudios.png</param>
+				<param name="visible">Container.Content(studios)</param>
+			</include>
+			<!-- Directors -->
+			<include content="image-50">
+				<param name="fallback">DefaultDirector.png</param>
+				<param name="visible">Container.Content(directors)</param>
 			</include>
 			
 			<!-- Song Info -->
@@ -72,7 +107,7 @@
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Container.Content(files) | Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist) | Container.Content(songs) | Container.Content(artists) | String.IsEmpty(Container.Content)</visible>
+				<visible>!Container.Content(albums) + !Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(videos) + !Container.Content(games) + !Container.Content(images)</visible>
 
 				<include>Viewtype50_coords6</include>
 
