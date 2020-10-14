@@ -7,6 +7,7 @@ _New_
 - add automatic masking for scope skin version
 - add second dialog page to music, PVR and addon info dialog
 - add setting to force a specific view for video addons
+- add missing PVR seek slider
 
 _Improved_
 - improve wording in skin settings
@@ -310,6 +311,10 @@ DialogPVRInfo.xml:
 - add new extended info button for second info dialog page
 - change Channel Name label to match representation in other places
 - add missing detail labels
+
+DialogSeekBar.xml:
+- change visibility condition of seek control to hide it while seeking during PVR playback
+- add missing PVR slider seek control
 
 DialogVideoInfo.xml:
 - rework visibility conditions, onup and usealttexture for new movie set information page
