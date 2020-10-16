@@ -21,7 +21,7 @@
 
 			<control type="group">
 				<include>VisibleFadeAnimation</include>
-				<visible>Control.IsVisible(10)</visible>
+				<visible>Pvr.HasTVChannels + Window.IsVisible(TVGuide) | Pvr.HasRadioChannels + Window.IsVisible(RadioGuide)</visible>
 
 				<!-- Scrollbar (list) -->
 				<control type="scrollbar" id="60">
@@ -70,8 +70,6 @@
 				<!-- Program preview & info -->
 				<control type="group">
 					<include>MyPVRGuide_coords8</include>
-					<visible>Control.IsVisible(10)</visible>
-					<include>VisibleFadeAnimation</include>
 
 					<control type="image">
 						<include>MyPVRGuide_coords9</include>
