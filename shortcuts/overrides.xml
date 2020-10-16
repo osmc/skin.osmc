@@ -81,6 +81,10 @@
 				<content>addon-program</content>
 			</node>
 		</node>
+		<!-- Favorites -->
+		 <node label="1036">
+            <content>favourite</content>
+        </node>
 		<!-- Settings -->
 		<node label="10004">
 			<content>settings</content>
@@ -274,6 +278,7 @@
 				<content>addon-program</content>
 			</node>
 		</node>
+		<!-- Additional widgets -->
 		<node label="31230">
 			<!-- Skin-helper script -->
 			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
@@ -281,6 +286,8 @@
 			<!-- Extended info script -->
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="!System.HasAddon(script.extendedinfo)">::INSTALL::script.extendedinfo</shortcut>
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
+			<!-- Favourites -->
+			<shortcut widget="Favourites" label="$LOCALIZE[1036]" widgetType="favourite" icon="DefaultFavourites.png">favourites://</shortcut>
 			<!-- Weather -->
 			<shortcut widget="WeatherWidget" label="$LOCALIZE[10508]" widgetType="custom" icon="DefaultWeather.png">$INCLUDE[weather-widget]</shortcut>
 			<!-- My OSMC -->
