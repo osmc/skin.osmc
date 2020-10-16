@@ -24,6 +24,7 @@ _Improved_
 - add wide view support to games and programs
 - harmonize non-focus animations
 - improve scrollbar size relative to their controls
+- add favourites to home menu entry/submenu and widget customization dialog
 
 _Fixed_
 - fix default view music and video navigation
@@ -50,6 +51,10 @@ strings.po:
 Textures.xbt:
 - update textures file with new watched/listened to indicator files
 - update textures file with new automatic aspect ratio OSD control icon
+
+overrides.xml:
+- add new home menu node for favourites
+- add new favourites widget shortcut to additional widgets section
 
 template.xml:
 - fix deprecated IsEmpty conditions
@@ -374,7 +379,6 @@ MyPics.xml:
 
 MyPlaylist.xml:
 - replace visible change fade animation by VisibleFadeAnimation include
-
 
 MyPrograms.xml:
 - add changed/new viewtypes
