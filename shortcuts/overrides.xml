@@ -40,6 +40,7 @@
 		</node>
 		<!-- Picture -->
 		<node label="1">
+			<shortcut label="$LOCALIZE[1]" icon="DefaultFolder.png">ActivateWindow(Pictures)</shortcut>
 			<content>picturesources</content>
 		</node>
 		<!-- Games -->
@@ -66,6 +67,7 @@
 		</node>
 		<!-- Add-ons -->
 		<node label="24001">
+			<shortcut label="$LOCALIZE[10040]" icon="DefaultFolder.png">ActivateWindow(addonbrowser)</shortcut>
 			<node label="1037">
 				<shortcut label="1037" icon="DefaultAddonVideo.png">ActivateWindow(Videos,Addons,return)</shortcut>
 				<content>addon-video</content>
@@ -96,13 +98,13 @@
 		<node label="31232">
 			<content>commands</content>
 		</node>
-		<node label="31231">
+		<node label="31231" condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets) | !System.HasAddon(script.skin.helper.widgets) | System.HasAddon(script.extendedinfo) + System.AddonIsEnabled(script.extendedinfo) | !System.HasAddon(script.extendedinfo)">
 			<!-- Skin-helper script -->
 			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
-			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
+			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
 			<!-- Extended info script -->
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="!System.HasAddon(script.extendedinfo)">::INSTALL::script.extendedinfo</shortcut>
-			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo) + System.AddonIsEnabled(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
 		</node>
 	</groupings>
 
@@ -235,7 +237,7 @@
 		<!-- Games -->
 		<node label="10821">
 			<shortcut label="$LOCALIZE[35049]" widget="addon" icon="DefaultAddonGame.png" widgetType="addons" widgetTarget="games">addons://sources/game</shortcut>
-			<shortcut label="$LOCALIZE[10821]" icon="DefaultFolder.png" widget="gamesources" widgetType="games" widgetTarget="games">sources://games/</shortcut>
+			<shortcut label="$LOCALIZE[10821]" widget="gamesources" icon="DefaultFolder.png" widgetType="games" widgetTarget="games">sources://games/</shortcut>
 		</node>
 		<!-- PVR -->
 		<node label="14204" condition="PVR.HasTVChannels | PVR.HasRadioChannels">
@@ -285,10 +287,10 @@
 		<node label="31230">
 			<!-- Skin-helper script -->
 			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
-			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
+			<shortcut label="$LOCALIZE[31235]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
 			<!-- Extended info script -->
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="!System.HasAddon(script.extendedinfo)">::INSTALL::script.extendedinfo</shortcut>
-			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo) + System.AddonIsEnabled(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
 			<!-- Favourites -->
 			<shortcut widget="Favourites" label="$LOCALIZE[1036]" widgetType="favourite" icon="DefaultFavourites.png">favourites://</shortcut>
 			<!-- Weather -->
