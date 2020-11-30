@@ -6,6 +6,7 @@
 
 _Improved_
 - add videos and music root directory to home menu entry and submenu customization dialog
+- add picture and addon browser directory to home menu entry and submenu customization dialog
 
 ---
 
