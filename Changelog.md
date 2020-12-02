@@ -2,7 +2,7 @@
 
 ---
 
-**_v18.5.0_**
+**_v18.5.0 - November 2020_**
 
 _Improved_
 - add videos and music root directory to home menu entry and submenu customization dialog
