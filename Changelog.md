@@ -330,6 +330,7 @@ Release
 
 overrides.xml:
 - add new videos and music root directory to home menu entry and submenu customization dialog
+- add picture root and addon browser directory to home menu and submenu entry section
 
 addon.xml:
 - bump version to 18.5.0
