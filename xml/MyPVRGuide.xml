@@ -237,12 +237,26 @@
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>
-					<defaultcontrol always="true">28</defaultcontrol>
+					<defaultcontrol always="true">3</defaultcontrol>
 
 					<include content="SideMenuAnimation">
 						<param name="containerID">3000</param>
 					</include>
-
+					
+					<!-- Sort by -->
+					<control type="button" id="3">
+						<height>52</height>
+						<label>103</label>
+						<visible>Control.IsEnabled(3)</visible>
+					</control>
+					<!-- Sort ascending/descending -->
+					<control type="togglebutton" id="4">
+						<height>52</height>
+						<label>$LOCALIZE[31234]$LOCALIZE[584]</label>
+						<altlabel>$LOCALIZE[31234]$LOCALIZE[585]</altlabel>
+						<usealttexture>Container.SortDirection(Descending)</usealttexture>
+						<visible>Control.IsEnabled(4)</visible>
+					</control>
 					<!-- Channel Groups -->
 					<control type="button" id="28">
 						<height>52</height>
