@@ -2,6 +2,13 @@
 
 ---
 
+**_v19.0.0_**
+
+_New_
+- add channel sort by and sort order toggles to PVR guide side menu
+
+---
+
 **_v18.5.0 - November 2020_**
 
 _Improved_
@@ -326,11 +333,7 @@ Release
 
 ---
 
-**Changelog v18.5.0**
+**Changelog v19.0.0**
 
-overrides.xml:
-- add new videos and music root directory to home menu entry and submenu customization dialog
-- add picture root and addon browser directory to home menu and submenu entry section
-
-addon.xml:
-- bump version to 18.5.0
+MyPVRGuide.xml:
+- add channel sort by and sort order toggles (ID 3 and 4) to PVR guide side menu
