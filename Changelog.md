@@ -6,6 +6,10 @@
 
 _New_
 - add channel sort by and sort order toggles to PVR guide side menu
+- add artist, album and radio now/next information to fullscreen music playback window
+
+_Improved_
+- rework look of default fullscreen music playback screen to match general skin look
 
 ---
 
@@ -335,5 +339,36 @@ Release
 
 **Changelog v19.0.0**
 
+strings.po:
+- remove deprecated localizes for bigger music OSD album art setting (31115, 31319)
+
+Textures.xbt:
+- update textures file with new music OSD info button file and reworked music OSD repeat button file
+
+Coordinates_MusicOSD.xml:
+- adjust width and position of right OSD buttons
+
+Coordinates_MusicVisualisation.xml:
+- adjust coordinates for reworked fullscreen music playback window
+
+DialogMusicInfo.xml:
+- add release date and original date to album info dialog
+
+MusicOSD.xml:
+- add new info button
+
+MusicVisualisation.xml:
+- rework look of default fullscreen music playback screen to match general skin look
+- rework fullscreen music playback to show additional album, artist and radio now/next description
+
 MyPVRGuide.xml:
 - add channel sort by and sort order toggles (ID 3 and 4) to PVR guide side menu
+
+SkinSettings.xml:
+- remove deprecated bigger music OSD album art setting
+
+Variables.xml:
+- adjust MusicNextPlaying variables to avoid showing wrong information while shuffle is enabled during playback
+
+Variables_SkinSettings.xml:
+- remove SkinSettingsExplanation variable value of deprecated bigger music OSD album art setting

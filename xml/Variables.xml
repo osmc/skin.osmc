@@ -301,7 +301,7 @@
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).Album]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).Artist]</value>
 		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</value>
-		<value>$INFO[MusicPlayer.Offset(1).Artist]</value>
+		<value condition="MusicPlayer.HasNext">$INFO[MusicPlayer.Offset(1).Artist]</value>
 	</variable>
 	
 	<variable name="MusicNextPlaying2">
@@ -309,14 +309,14 @@
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextGenre]</value>
-		<value>$INFO[MusicPlayer.Offset(1).Album,,]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</value>
+		<value condition="MusicPlayer.HasNext">$INFO[MusicPlayer.Offset(1).Album,,]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</value>
 	</variable>
 	
 	<variable name="MusicNextPlaying3">
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)"></value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)"></value>
-		<value>$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+		<value condition="MusicPlayer.HasNext">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 	</variable>
 
 	<variable name="StatusOverlay">
