@@ -23,7 +23,7 @@
 			<control type="grouplist">
 				<include>MusicOSD_coords3</include>
 				<itemgap>0</itemgap>
-				<onleft>19</onleft>
+				<onleft>20</onleft>
 				<onright>12</onright>
 				<onup>30</onup>
 				<ondown>30</ondown>
@@ -207,8 +207,26 @@
 					<visible>!Pvr.IsPlayingRadio</visible>
 				</control>
 				
-				<!-- Channels -->
+				<!-- More information -->
 				<control type="button" id="14">
+					<include>MusicOSD_coords7</include>
+					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDInfoNF.png</texturefocus>
+					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDInfoNF.png</texturenofocus>
+					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + !String.IsEmpty(MusicPlayer.Property(Album_Description))">SetProperty(extended,album,12006)</onclick>
+					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + String.IsEmpty(MusicPlayer.Property(Album_Description)) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))">SetProperty(extended,artist,12006)</onclick>
+					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + !String.IsEmpty(VideoPlayer.Plot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnow,12006)</onclick>
+					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + String.IsEmpty(VideoPlayer.Plot) + !String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnext,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),album) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))">SetProperty(extended,artist,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Artist_Description))">ClearProperty(extended,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),artist)">ClearProperty(extended,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),plotnow) + !String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnext,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),plotnow) + String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">ClearProperty(extended,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),plotnext) + Pvr.IsPlayingRadio">ClearProperty(extended,12006)</onclick>
+					<visible>!String.IsEmpty(MusicPlayer.Property(Album_Description)) | !String.IsEmpty(MusicPlayer.Property(Artist_Description)) | [!String.IsEmpty(VideoPlayer.Plot) | !String.IsEmpty(VideoPlayer.NextPlot)] + Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+				</control>
+				
+				<!-- Channels -->
+				<control type="button" id="15">
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDChannelNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDChannelNF.png</texturenofocus>
@@ -217,7 +235,7 @@
 				</control>
 				
 				<!-- Channel EPG -->
-				<control type="button" id="15">
+				<control type="button" id="16">
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDEPGNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDEPGNF.png</texturenofocus>
@@ -226,7 +244,7 @@
 				</control>
 				
 				<!-- Lyrics -->
-				<control type="button" id="16">
+				<control type="button" id="17">
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDLyricsNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDLyricsNF.png</texturenofocus>
@@ -235,7 +253,7 @@
 				</control>
 				
 				<!-- Playlist -->
-				<control type="button" id="17">
+				<control type="button" id="18">
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDPlaylistNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDPlaylistNF.png</texturenofocus>
@@ -252,7 +270,7 @@
 				</control>
 				
 				<!-- Visualisation settings -->
-				<control type="button" id="18">
+				<control type="button" id="19">
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDVizSettingsNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDVizSettingsNF.png</texturenofocus>
@@ -261,7 +279,7 @@
 				</control>
 				
 				<!-- Visualisation presets list -->
-				<control type="button" id="19">
+				<control type="button" id="20">
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDVizPreNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDVizPreNF.png</texturenofocus>
@@ -276,6 +294,7 @@
 				<include>MusicOSD_coords9</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
 				<animation effect="slide" end="60,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="String.IsEmpty(MusicPlayer.Property(Album_Description)) + String.IsEmpty(MusicPlayer.Property(Artist_Description))">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
 				<animation effect="slide" end="120,0" time="0" condition="!Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
 
