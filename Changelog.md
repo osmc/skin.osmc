@@ -5,6 +5,7 @@
 **_v19.0.0_**
 
 _New_
+- add new v19 features (music library, movie sets, PVR additions and chapter/EDL markers in video OSD)
 - add channel sort by and sort order toggles to PVR guide side menu
 - add artist, album and radio now/next information to fullscreen music playback window
 
@@ -339,11 +340,20 @@ Release
 
 **Changelog v19.0.0**
 
+_accomodate for changes of the v19 skin engine_
+
 strings.po:
 - remove deprecated localizes for bigger music OSD album art setting (31115, 31319)
 
 Textures.xbt:
+- update textures file with new OSD ranges and new PVR reminder icon
 - update textures file with new music OSD info button file and reworked music OSD repeat button file
+
+Coordinates_DialogVideoInfo.xml:
+- add new sets information
+
+Coordinates_DialogPVRInfo.xml:
+- add new reminder icon
 
 Coordinates_MusicOSD.xml:
 - adjust width and position of right OSD buttons
@@ -351,8 +361,22 @@ Coordinates_MusicOSD.xml:
 Coordinates_MusicVisualisation.xml:
 - adjust coordinates for reworked fullscreen music playback window
 
+Coordinates_VideoFullScreen.xml:
+- add new coordinates for chapter and EDL markers
+
+DialogAddonInfo.xml:
+- add new versions and update buttons
+
 DialogMusicInfo.xml:
-- add release date and original date to album info dialog
+- add new release date, orignal date, BPM and file information detail labels
+
+DialogPVRInfo.xml:
+- add new first aired detail labels
+- add new 'Add reminder' button
+
+DialogVideoInfo.xml:
+- add new movie set poster image
+- rework visibility conditions for new movie set information
 
 MusicOSD.xml:
 - add new info button
@@ -372,3 +396,6 @@ Variables.xml:
 
 Variables_SkinSettings.xml:
 - remove SkinSettingsExplanation variable value of deprecated bigger music OSD album art setting
+
+VideoFullScreen.xml:
+- add new chapter and EDL markers
