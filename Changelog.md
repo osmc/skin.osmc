@@ -12,6 +12,9 @@ _New_
 _Improved_
 - rework look of default fullscreen music playback screen to match general skin look
 
+_Fixed_
+- add missing "play recorded programme" button to PVR info dialog
+
 ---
 
 **_v18.5.0 - November 2020_**
@@ -373,6 +376,7 @@ DialogMusicInfo.xml:
 DialogPVRInfo.xml:
 - add new first aired detail labels
 - add new 'Add reminder' button
+- add missing "play recorded programme" button
 
 DialogVideoInfo.xml:
 - add new movie set poster image
@@ -399,3 +403,6 @@ Variables_SkinSettings.xml:
 
 VideoFullScreen.xml:
 - add new chapter and EDL markers
+
+addon.xml:
+- bump version to 19.0.0
