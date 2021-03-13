@@ -212,17 +212,27 @@
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[DialogColor1]">osd/OSDInfoNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[DialogColor2]">osd/OSDInfoNF.png</texturenofocus>
-					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + !String.IsEmpty(MusicPlayer.Property(Album_Description))">SetProperty(extended,album,12006)</onclick>
-					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + String.IsEmpty(MusicPlayer.Property(Album_Description)) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))">SetProperty(extended,artist,12006)</onclick>
-					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + !String.IsEmpty(VideoPlayer.Plot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnow,12006)</onclick>
-					<onclick condition="String.IsEmpty(Window(12006).Property(extended)) + String.IsEmpty(VideoPlayer.Plot) + !String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnext,12006)</onclick>
-					<onclick condition="String.IsEqual(Window(12006).Property(extended),album) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))">SetProperty(extended,artist,12006)</onclick>
-					<onclick condition="String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Artist_Description))">ClearProperty(extended,12006)</onclick>
-					<onclick condition="String.IsEqual(Window(12006).Property(extended),artist)">ClearProperty(extended,12006)</onclick>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + !Player.ShowInfo">SetProperty(extended,basic,12006)</onclick>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + !Player.ShowInfo">Info</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),basic) + !String.IsEmpty(MusicPlayer.Property(Album_Description)) + !Pvr.IsPlayingRadio">SetProperty(extended,album,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),basic) + String.IsEmpty(MusicPlayer.Property(Album_Description)) + !String.IsEmpty(MusicPlayer.Property(Artist_Description)) + !Pvr.IsPlayingRadio">SetProperty(extended,artist,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),album) + !String.IsEmpty(MusicPlayer.Property(Artist_Description)) + !Pvr.IsPlayingRadio">SetProperty(extended,artist,12006)</onclick>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + Player.ShowInfo + String.IsEqual(Window(12006).Property(extended),basic) + String.IsEmpty(MusicPlayer.Property(Album_Description)) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) + !Pvr.IsPlayingRadio">Info</onclick>
+					<onclick condition="Skin.HasSetting(MusicOSD) + String.IsEqual(Window(12006).Property(extended),basic) + String.IsEmpty(MusicPlayer.Property(Album_Description)) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) + !Pvr.IsPlayingRadio">SetProperty(extended,basic,12006)</onclick>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + Player.ShowInfo + String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) + !Pvr.IsPlayingRadio">Info</onclick>
+					<onclick condition="Skin.HasSetting(MusicOSD) + String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) + !Pvr.IsPlayingRadio">SetProperty(extended,basic,12006)</onclick>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + Player.ShowInfo + String.IsEqual(Window(12006).Property(extended),artist) + !Pvr.IsPlayingRadio">Info</onclick>
+					<onclick condition="Skin.HasSetting(MusicOSD) + String.IsEqual(Window(12006).Property(extended),artist) + !Pvr.IsPlayingRadio">SetProperty(extended,basic,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),basic) + !String.IsEmpty(VideoPlayer.Plot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnow,12006)</onclick>
+					<onclick condition="String.IsEqual(Window(12006).Property(extended),basic) + String.IsEmpty(VideoPlayer.Plot) + !String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnext,12006)</onclick>
 					<onclick condition="String.IsEqual(Window(12006).Property(extended),plotnow) + !String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">SetProperty(extended,plotnext,12006)</onclick>
-					<onclick condition="String.IsEqual(Window(12006).Property(extended),plotnow) + String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">ClearProperty(extended,12006)</onclick>
-					<onclick condition="String.IsEqual(Window(12006).Property(extended),plotnext) + Pvr.IsPlayingRadio">ClearProperty(extended,12006)</onclick>
-					<visible>!String.IsEmpty(MusicPlayer.Property(Album_Description)) | !String.IsEmpty(MusicPlayer.Property(Artist_Description)) | [!String.IsEmpty(VideoPlayer.Plot) | !String.IsEmpty(VideoPlayer.NextPlot)] + Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + Player.ShowInfo + String.IsEqual(Window(12006).Property(extended),basic) + String.IsEmpty(VideoPlayer.Plot) + String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">Info</onclick>
+					<onclick condition="Skin.HasSetting(MusicOSD) + String.IsEqual(Window(12006).Property(extended),basic) + String.IsEmpty(VideoPlayer.Plot) + String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">SetProperty(extended,basic,12006)</onclick>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + Player.ShowInfo + String.IsEqual(Window(12006).Property(extended),plotnow) + String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">Info</onclick>
+					<onclick condition="Skin.HasSetting(MusicOSD) + String.IsEqual(Window(12006).Property(extended),plotnow) + String.IsEmpty(VideoPlayer.NextPlot) + Pvr.IsPlayingRadio">SetProperty(extended,basic,12006)</onclick>
+					<onclick condition="!Skin.HasSetting(MusicOSD) + Player.ShowInfo + String.IsEqual(Window(12006).Property(extended),plotnext) + Pvr.IsPlayingRadio">Info</onclick>
+					<onclick condition="Skin.HasSetting(MusicOSD) + String.IsEqual(Window(12006).Property(extended),plotnext) + Pvr.IsPlayingRadio">SetProperty(extended,basic,12006)</onclick>
+					<visible>!Skin.HasSetting(MusicOSD) | [!String.IsEmpty(MusicPlayer.Property(Album_Description)) | !String.IsEmpty(MusicPlayer.Property(Artist_Description))] + [!Pvr.IsPlayingRadio | Pvr.IsPlayingRadio + !VideoPlayer.HasEpg] | [!String.IsEmpty(VideoPlayer.Plot) | !String.IsEmpty(VideoPlayer.NextPlot)] + Pvr.IsPlayingRadio</visible>
 				</control>
 				
 				<!-- Channels -->
@@ -294,9 +304,9 @@
 				<include>MusicOSD_coords9</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
 				<animation effect="slide" end="60,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
-				<animation effect="slide" end="60,0" time="0" condition="String.IsEmpty(MusicPlayer.Property(Album_Description)) + String.IsEmpty(MusicPlayer.Property(Artist_Description))">Conditional</animation>
-				<animation effect="slide" end="60,0" time="0" condition="Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
-				<animation effect="slide" end="120,0" time="0" condition="!Visualisation.Enabled + !Visualisation.HasPresets + !Pvr.IsPlayingRadio">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(14)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="Control.IsVisible(19) + !Control.IsVisible(20)">Conditional</animation>
+				<animation effect="slide" end="120,0" time="0" condition="!Control.IsVisible(19)">Conditional</animation>
 
 				<control type="image">
 					<include>MusicOSD_coords7</include>

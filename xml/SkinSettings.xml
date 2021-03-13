@@ -764,8 +764,32 @@
 					<textcolor>$VAR[TextColor2]</textcolor>
 					<visible>Skin.HasSetting(AutoMusicVisPlayback)</visible>
 				</control>
+				<!-- Show additional information first (music) -->
+				<control type="button" id="420">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31115]</label>
+					<label2>$INFO[Skin.String(musicinformationfirst)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(musicinformationfirst),Album)">Skin.SetString(musicinformationfirst,Basic)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(musicinformationfirst),Basic)">Skin.SetString(musicinformationfirst,Artist)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(musicinformationfirst),Artist)">Skin.SetString(musicinformationfirst,Album)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
+				<!-- Show additional information first (radio) -->
+				<control type="button" id="421">
+					<include>SkinSettings_coords16</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31150]</label>
+					<label2>$INFO[Skin.String(radioinformationfirst)]</label2>
+					<onclick condition="String.IsEqual(Skin.String(radioinformationfirst),Next)">Skin.SetString(radioinformationfirst,Basic)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(radioinformationfirst),Basic)">Skin.SetString(radioinformationfirst,Now)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(radioinformationfirst),Now)">Skin.SetString(radioinformationfirst,Next)</onclick>
+					<focusedcolor>$VAR[TextColor1]</focusedcolor>
+					<textcolor>$VAR[TextColor2]</textcolor>
+				</control>
 				<!-- Never hide music OSD -->
-				<control type="radiobutton" id="420">
+				<control type="radiobutton" id="422">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31040</label>
