@@ -7,8 +7,11 @@
 	
 		<control type="button" id="100">
 			<include>DialogFavourites_coords</include>
-			<onclick condition="String.IsEmpty(Window(12005).Property(shownext))">SetProperty(shownext,True,12005)</onclick>
-			<onclick condition="!String.IsEmpty(Window(12005).Property(shownext))">ClearProperty(shownext,12005)</onclick>
+			<onright condition="Pvr.IsPlayingTv + VideoPlayer.HasEpg + String.IsEmpty(Window(12005).Property(shownext))">SetProperty(shownext,True,12005)</onright>
+			<onleft condition="Pvr.IsPlayingTv + VideoPlayer.HasEpg + String.IsEmpty(Window(12005).Property(shownext))">SetProperty(shownext,True,12005)</onleft>
+			<onright condition="Pvr.IsPlayingTv + VideoPlayer.HasEpg + !String.IsEmpty(Window(12005).Property(shownext))">ClearProperty(shownext,12005)</onright>
+			<onleft condition="Pvr.IsPlayingTv + VideoPlayer.HasEpg + !String.IsEmpty(Window(12005).Property(shownext))">ClearProperty(shownext,12005)</onleft>
+			<onclick condition="Window.IsActive(VideoOSD)">Dialog.Close(fullscreeninfo)</onclick>
 			<texturefocus></texturefocus>
 		</control>
 
