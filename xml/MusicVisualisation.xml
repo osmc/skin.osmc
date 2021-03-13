@@ -3,8 +3,12 @@
 	<!-- visualisation -->
 	<defaultcontrol></defaultcontrol>
 	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow)</onload>
-	<onload condition="!String.IsEmpty(Window(12006).Property(extended))">ClearProperty(extended,12006)</onload>
-	<onunload>ClearProperty(extended,12006)</onunload>
+	<onload condition="!Pvr.IsPlayingRadio + String.IsEqual(Skin.String(musicinformationfirst),Basic)">SetProperty(extended,basic,12006)</onload>
+	<onload condition="!Pvr.IsPlayingRadio + String.IsEqual(Skin.String(musicinformationfirst),Album)">SetProperty(extended,album,12006)</onload>
+	<onload condition="!Pvr.IsPlayingRadio + String.IsEqual(Skin.String(musicinformationfirst),Artist)">SetProperty(extended,artist,12006)</onload>
+	<onload condition="Pvr.IsPlayingRadio + String.IsEqual(Skin.String(radioinformationfirst),Basic)">SetProperty(extended,basic,12006)</onload>
+	<onload condition="Pvr.IsPlayingRadio + String.IsEqual(Skin.String(radioinformationfirst),Now)">SetProperty(extended,plotnow,12006)</onload>
+	<onload condition="Pvr.IsPlayingRadio + String.IsEqual(Skin.String(radioinformationfirst),Next)">SetProperty(extended,plotnext,12006)</onload>
 
 	<controls>
 
@@ -24,12 +28,11 @@
 				<fadetime>200</fadetime>
 				<texture background="true">$INFO[MusicPlayer.Cover]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>!Skin.HasSetting(MusicOSDSize)</visible>
 			</control>
 
 			<!-- Now playing (music) -->
 			<control type="grouplist">
-				<visible>String.IsEmpty(Window(12006).Property(extended))</visible>
+				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + [String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),Album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),Artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description))]</visible>
 				<visible>!Pvr.IsPlayingRadio</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords2</include>
@@ -85,7 +88,7 @@
 			
 			<!-- Now playing (radio) -->
 			<control type="grouplist">
-				<visible>String.IsEmpty(Window(12006).Property(extended))</visible>
+				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + [String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),Now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),Next) + String.IsEmpty(VideoPlayer.NextPlot)]</visible>
 				<visible>Pvr.IsPlayingRadio</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords2</include>
@@ -158,7 +161,7 @@
 			<!-- Next playing -->
 			<control type="grouplist">
 				<visible>MusicPlayer.HasNext | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
-				<visible>String.IsEmpty(Window(12006).Property(extended))</visible>
+				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + [String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),Album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),Artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),Now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),Next) + String.IsEmpty(VideoPlayer.NextPlot)]</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords4</include>
 				<orientation>vertical</orientation>
@@ -191,7 +194,7 @@
 			
 			<!-- Album description -->
 			<control type="group">
-				<visible>String.IsEqual(Window(12006).Property(extended),album)</visible>
+				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + String.IsEqual(Window(12006).Property(extended),Album) + !String.IsEmpty(MusicPlayer.Property(Album_Description))</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords5</include>
 				
@@ -233,7 +236,7 @@
 			
 			<!-- Artist description -->
 			<control type="group">
-				<visible>String.IsEqual(Window(12006).Property(extended),artist)</visible>
+				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + String.IsEqual(Window(12006).Property(extended),Artist) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords5</include>
 				
@@ -275,7 +278,7 @@
 			
 			<!-- Radio plot (now) -->
 			<control type="group">
-				<visible>String.IsEqual(Window(12006).Property(extended),plotnow)</visible>
+				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + String.IsEqual(Window(12006).Property(extended),Now) + !String.IsEmpty(VideoPlayer.Plot)</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords5</include>
 				
@@ -317,7 +320,7 @@
 			
 			<!-- Radio plot (next) -->
 			<control type="group">
-				<visible>String.IsEqual(Window(12006).Property(extended),plotnext)</visible>
+				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + String.IsEqual(Window(12006).Property(extended),Next) + !String.IsEmpty(VideoPlayer.NextPlot)</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords5</include>
 				
