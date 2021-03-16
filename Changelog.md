@@ -7,7 +7,7 @@
 _New_
 - add new v19 features (music library, movie sets, PVR additions and chapter/EDL markers in video OSD)
 - add channel sort by and sort order toggles to PVR guide side menu
-- add artist, album and radio now/next information to fullscreen music/radio playback window
+- add artist, album and radio now/next/RDS information to fullscreen music/radio playback window
 - add new info button to video and music OSD
 
 _Improved_
@@ -345,7 +345,7 @@ Release
 
 **Changelog v19.0.0**
 
-_accomodate for changes of the v19 skin engine_
+_accommodate  for changes of the v19 skin engine_
 
 strings.po:
 - remove deprecated localizes (31154, 31168)
@@ -383,7 +383,7 @@ DialogFullScreenInfo.xml:
 - change onclick to close info dialog
 
 DialogMusicInfo.xml:
-- add new release date, orignal date, BPM and file information detail labels
+- add new release date, original date, BPM and file information detail labels
 
 DialogPVRInfo.xml:
 - add new first aired detail labels
@@ -401,7 +401,7 @@ MusicOSD.xml:
 - add new info button
 
 MusicVisualisation.xml:
-- rework look of default fullscreen music playback screen to match general skin look
+- rework look of default fullscreen music playback window to match general skin look
 - rework fullscreen music playback to show additional album, artist and radio now/next description
 
 MyPVRGuide.xml:
@@ -413,6 +413,7 @@ SkinSettings.xml:
 
 Variables.xml:
 - adjust MusicNextPlaying variables to avoid showing wrong information while shuffle is enabled during playback
+- add new MusicNextPlayingLabel variables for reworked fullscreen music playback window
 
 Variables_SkinSettings.xml:
 - remove SkinSettingsExplanation variable value of deprecated bigger music OSD album art setting
