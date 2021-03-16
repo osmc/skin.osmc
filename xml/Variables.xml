@@ -308,7 +308,6 @@
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
-		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$INFO[VideoPlayer.NextGenre]</value>
 		<value condition="MusicPlayer.HasNext">$INFO[MusicPlayer.Offset(1).Album,,]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</value>
 	</variable>
 	
@@ -317,6 +316,28 @@
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)"></value>
 		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)"></value>
 		<value condition="MusicPlayer.HasNext">$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</value>
+	</variable>
+	
+	<variable name="MusicNextPlayingLabel1">
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)">$LOCALIZE[556]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$LOCALIZE[558]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$LOCALIZE[557]</value>
+		<value condition="Pvr.IsPlayingRadio + VideoPlayer.HasEpg">$LOCALIZE[29908]</value>
+		<value condition="MusicPlayer.HasNext">$LOCALIZE[557]</value>
+	</variable>
+	
+	<variable name="MusicNextPlayingLabel2">
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)">$LOCALIZE[556]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)">$LOCALIZE[556]</value>
+		<value condition="MusicPlayer.HasNext">$LOCALIZE[558]</value>
+	</variable>
+	
+	<variable name="MusicNextPlayingLabel3">
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album)"></value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist)"></value>
+		<value condition="!Pvr.IsPlayingRadio + String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Album)"></value>
+		<value condition="MusicPlayer.HasNext">$LOCALIZE[556]</value>
 	</variable>
 
 	<variable name="StatusOverlay">
