@@ -348,9 +348,7 @@ Release
 _accommodate  for changes of the v19 skin engine_
 
 strings.po:
-- remove deprecated localizes (31154, 31168)
-- remove deprecated localizes for bigger music OSD album art setting (31319)
-- replace deprecated localizes by new music/radio fullscreen information first setting localizes (31115, 31150, 31152, 31153)
+- remove deprecated localizes (31115, 31150, 31152, 31153, 31154, 31168, 31319)
 - update PVR fullscreen playback localize (31171)
 
 Textures.xbt:
@@ -394,22 +392,18 @@ DialogVideoInfo.xml:
 - add new movie set poster image
 - rework visibility conditions for new movie set information
 
-Includes.xml:
-- add new onloads for new music/radio fullscreen information first setting
-
 MusicOSD.xml:
 - add new info button
 
 MusicVisualisation.xml:
 - rework look of default fullscreen music playback window to match general skin look
-- rework fullscreen music playback to show additional album, artist and radio now/next description
+- rework fullscreen music playback to show additional album, artist and radio now/next/RDS information
 
 MyPVRGuide.xml:
 - add channel sort by and sort order toggles (ID 3 and 4) to PVR guide side menu
 
 SkinSettings.xml:
 - remove deprecated bigger music OSD album art setting
-- add new music/radio fullscreen information first settings
 
 Variables.xml:
 - adjust MusicNextPlaying variables to avoid showing wrong information while shuffle is enabled during playback
@@ -417,7 +411,6 @@ Variables.xml:
 
 Variables_SkinSettings.xml:
 - remove SkinSettingsExplanation variable value of deprecated bigger music OSD album art setting
-- change/add new variables for new music/radio fullscreen information first settings
 
 VideoFullScreen.xml:
 - add new chapter and EDL markers

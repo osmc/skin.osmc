@@ -3,13 +3,8 @@
 	<!-- visualisation -->
 	<defaultcontrol></defaultcontrol>
 	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow)</onload>
-	<onload condition="!Pvr.IsPlayingRadio + String.IsEqual(Skin.String(musicinformationfirst),Basic)">SetProperty(extended,basic,12006)</onload>
-	<onload condition="!Pvr.IsPlayingRadio + String.IsEqual(Skin.String(musicinformationfirst),Album)">SetProperty(extended,album,12006)</onload>
-	<onload condition="!Pvr.IsPlayingRadio + String.IsEqual(Skin.String(musicinformationfirst),Artist)">SetProperty(extended,artist,12006)</onload>
-	<onload condition="Pvr.IsPlayingRadio + String.IsEqual(Skin.String(radioinformationfirst),Basic)">SetProperty(extended,basic,12006)</onload>
-	<onload condition="Pvr.IsPlayingRadio + String.IsEqual(Skin.String(radioinformationfirst),Now)">SetProperty(extended,plotnow,12006)</onload>
-	<onload condition="Pvr.IsPlayingRadio + String.IsEqual(Skin.String(radioinformationfirst),Next)">SetProperty(extended,plotnext,12006)</onload>
-	<onload condition="Pvr.IsPlayingRadio + String.IsEqual(Skin.String(radioinformationfirst),RDS)">SetProperty(extended,rds,12006)</onload>
+	<onload condition="!String.IsEqual(Window(12006).Property(extended),basic)">SetProperty(extended,basic,12006)</onload>
+	<onunload>ClearProperty(extended,12006)</onunload>
 
 	<controls>
 
@@ -34,7 +29,7 @@
 
 			<!-- Now playing (music) -->
 			<control type="grouplist">
-				<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),Album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),Artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
+				<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
 				<visible>!Pvr.IsPlayingRadio</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords2</include>
@@ -89,7 +84,7 @@
 				<!-- Track/Title -->
 				<control type="group">
 					<include>MusicVisualisation_coords3</include>
-					<visible>!String.IsEmpty(MusicPlayer.Album)</visible>
+					<visible>!String.IsEmpty(Player.Title)</visible>
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords4</include>
 						<align>right</align>
@@ -100,7 +95,7 @@
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords5</include>
 						<font>Font36</font>
-						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Title]</label>
+						<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title]</label>
 					</control>
 				</control>
 				
@@ -162,7 +157,7 @@
 			
 			<!-- Now playing (radio) -->
 			<control type="grouplist">
-				<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),Now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),Next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + !RDS.HasRadioTextPlus</visible>
+				<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + !RDS.HasRadioTextPlus</visible>
 				<visible>Pvr.IsPlayingRadio</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords2</include>
@@ -176,7 +171,6 @@
 					<font>Font36</font>
 					<label>$LOCALIZE[19030]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>VideoPlayer.HasEpg</visible>
 				</control>
 				
 				<!-- Radio channel -->
@@ -199,7 +193,7 @@
 				<!-- Radio show title (EPG) -->
 				<control type="group">
 					<include>MusicVisualisation_coords3</include>
-					<visible>VideoPlayer.HasEpg</visible>
+					<visible>VideoPlayer.HasEpg + !String.IsEmpty(Player.Title)</visible>
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords4</include>
 						<align>right</align>
@@ -210,14 +204,14 @@
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords5</include>
 						<font>Font36</font>
-						<label>$INFO[MusicPlayer.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
+						<label>$INFO[Player.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
 					</control>
 				</control>
 				
 				<!-- Radio show title (non-EPG) -->
 				<control type="group">
 					<include>MusicVisualisation_coords3</include>
-					<visible>!VideoPlayer.HasEpg + !String.IsEqual(MusicPlayer.ChannelName,MusicPlayer.Title)</visible>
+					<visible>!VideoPlayer.HasEpg + !String.IsEqual(MusicPlayer.ChannelName,Player.Title) + !String.IsEmpty(Player.Title)</visible>
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords4</include>
 						<align>right</align>
@@ -228,7 +222,7 @@
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords5</include>
 						<font>Font36</font>
-						<label>$INFO[MusicPlayer.Title]</label>
+						<label>$INFO[Player.Title]</label>
 					</control>
 				</control>
 				
@@ -308,7 +302,7 @@
 
 			<!-- Next playing -->
 			<control type="grouplist">
-				<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),Album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),Artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),Now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),Next) + String.IsEmpty(VideoPlayer.NextPlot)</visible>
+				<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + !RDS.HasRadioTextPlus</visible>
 				<visible>MusicPlayer.HasNext | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords6</include>
@@ -378,7 +372,7 @@
 			
 			<!-- Album description -->
 			<control type="group">
-				<visible>String.IsEqual(Window(12006).Property(extended),Album) + !String.IsEmpty(MusicPlayer.Property(Album_Description))</visible>
+				<visible>String.IsEqual(Window(12006).Property(extended),album) + !String.IsEmpty(MusicPlayer.Property(Album_Description))</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords7</include>
 				
@@ -422,7 +416,7 @@
 			
 			<!-- Album artist description -->
 			<control type="group">
-				<visible>String.IsEqual(Window(12006).Property(extended),Artist) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
+				<visible>String.IsEqual(Window(12006).Property(extended),artist) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
 				<include>VisibleFadeAnimation</include>
 				<include>MusicVisualisation_coords7</include>
 				
@@ -698,7 +692,7 @@
 				<!-- Style -->
 				<control type="group">
 					<include>MusicVisualisation_coords3</include>
-					<visible>!String.IsEmpty(RDS.RadioStyle)</visible>
+					<visible>!String.IsEmpty(RDS.ProgStyle)</visible>
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords4</include>
 						<align>right</align>
@@ -709,7 +703,7 @@
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords5</include>
 						<font>Font36</font>
-						<label>$INFO[RDS.RadioStyle]</label>
+						<label>$INFO[RDS.ProgStyle]</label>
 					</control>
 				</control>
 				
