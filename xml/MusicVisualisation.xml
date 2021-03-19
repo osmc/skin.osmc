@@ -380,7 +380,7 @@
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords3</include>
 					<font>Font36</font>
-					<label>$LOCALIZE[558]</label>
+					<label>$INFO[MusicPlayer.Album]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				
@@ -414,7 +414,7 @@
 				</control>
 			</control>
 			
-			<!-- Album artist description -->
+			<!-- Artist description -->
 			<control type="group">
 				<visible>String.IsEqual(Window(12006).Property(extended),artist) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
 				<include>VisibleFadeAnimation</include>
@@ -424,7 +424,7 @@
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords3</include>
 					<font>Font36</font>
-					<label>$LOCALIZE[566]</label>
+					<label>$INFO[MusicPlayer.Artist]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				
@@ -468,7 +468,7 @@
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords3</include>
 					<font>Font36</font>
-					<label>$LOCALIZE[19030]</label>
+					<label>$INFO[Player.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				
@@ -512,7 +512,7 @@
 				<control type="fadelabel">
 					<include>MusicVisualisation_coords3</include>
 					<font>Font36</font>
-					<label>$LOCALIZE[19031]</label>
+					<label>$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</label>
 					<textcolor>$VAR[TextColor2]</textcolor>
 				</control>
 				
