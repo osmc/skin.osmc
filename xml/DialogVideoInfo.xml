@@ -28,7 +28,7 @@
 			<!-- Poster image -->
 			<control type="group">
 				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
-				<visible>[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set) | !String.IsEqual(ListItem.DBTYPE,set) + String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
+				<visible>[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set) | !String.IsEqual(ListItem.DBTYPE,set) + String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(tomatometerallcritics)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.RatingAndVotes(trakt)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))]</visible>
 				<include>VisibleFadeAnimation</include>
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
@@ -109,7 +109,7 @@
 			<!-- Info -->
 			<control type="group">
 				<include>DialogVideoInfo_coords3</include>
-				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
 				<visible>String.IsEmpty(Window(12003).Property(cast)) + [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | [!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + !Control.IsVisible(102)]</visible>
 				<include>VisibleFadeAnimation</include>
 
@@ -569,7 +569,7 @@
 			
 			<!-- Plot -->
 			<control type="textbox" id="102">
-				<include>DialogVideoInfo_coords17</include>
+				<include>DialogVideoInfo_coords8</include>
 				<align>left</align>
 				<font>Font36</font>
 				<textcolor>$VAR[TextColor2]</textcolor>
@@ -622,7 +622,8 @@
 			<control type="group">
 				<include>DialogVideoInfo_coords13</include>
 				<visible>String.IsEmpty(Window(12003).Property(cast)) + !String.IsEmpty(Window(12003).Property(extended))</visible>
-				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo) + !String.IsEqual(ListItem.DBTYPE,set)</visible>
+				<visible>Control.IsVisible(103) | Control.IsVisible(104)</visible>
 				<include>VisibleFadeAnimation</include>
 
 				<!-- Details -->
@@ -631,110 +632,122 @@
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
-					<visible>!String.IsEmpty(ListItem.RatingAndVotes) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) | !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) | !String.IsEmpty(ListItem.Property(AudioCodec.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+					<visible>Control.IsVisible(300)</visible>
 					
-					<!-- Ratings -->
-					<control type="fadelabel">
+					<!-- Title -->
+					<control type="fadelabel" id="300">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$LOCALIZE[563]</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) | !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+						<visible>Control.IsVisible(301) | Control.IsVisible(302) | Control.IsVisible(303) | Control.IsVisible(304) | Control.IsVisible(305) | Control.IsVisible(306)</visible>
 					</control>
-					<control type="fadelabel">
+					
+					<!-- Ratings -->
+					<control type="fadelabel" id="301">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$INFO[ListItem.RatingAndVotes]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+						<visible>!Control.IsVisible(302) + !Control.IsVisible(303) + !Control.IsVisible(304) + !Control.IsVisible(305) + !Control.IsVisible(306)</visible>
 					</control>
-					<control type="fadelabel">
+					<control type="fadelabel" id="302">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$INFO[ListItem.RatingAndVotes(imdb)]$COMMA $LOCALIZE[368]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!String.IsEmpty(ListItem.RatingAndVotes(imdb))</visible>
 					</control>
-					<control type="fadelabel">
+					<control type="fadelabel" id="303">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$INFO[ListItem.RatingAndVotes(metacritic)]$COMMA $LOCALIZE[31120]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!String.IsEmpty(ListItem.RatingAndVotes(metacritic))</visible>
 					</control>
-					<control type="fadelabel">
+					<control type="fadelabel" id="304">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
-						<label>$INFO[ListItem.RatingAndVotes(rottentomatoes)]$COMMA $LOCALIZE[31121]</label>
+						<label>$INFO[ListItem.RatingAndVotes(tomatometerallcritics)]$COMMA $LOCALIZE[31121]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes))</visible>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(tomatometerallcritics))</visible>
 					</control>
-					<control type="fadelabel">
+					<control type="fadelabel" id="305">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$INFO[ListItem.RatingAndVotes(themoviedb)]$COMMA $LOCALIZE[31122]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
 					</control>
-					
-					<control type="image">
-						<include>DialogVideoInfo_coords16</include>
-						<texture>transparent.png</texture>
-						<visible>!String.IsEmpty(ListItem.RatingAndVotes) | !String.IsEmpty(ListItem.RatingAndVotes(imdb)) | !String.IsEmpty(ListItem.RatingAndVotes(metacritic)) | !String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) | !String.IsEmpty(ListItem.RatingAndVotes(themoviedb))</visible>
+					<control type="fadelabel" id="306">
+						<include>DialogVideoInfo_coords15</include>
+						<font>Font36</font>
+						<label>$INFO[ListItem.RatingAndVotes(trakt)]$COMMA $LOCALIZE[31115]</label>
+						<textcolor>$VAR[TextColor1]</textcolor>
+						<visible>!String.IsEmpty(ListItem.RatingAndVotes(trakt))</visible>
 					</control>
 					
-					<!-- Audio tracks -->
-					<control type="fadelabel">
+				</control>
+					
+				<!-- Audio/subtitles -->
+				<control type="grouplist" id="104">
+					<include>DialogVideoInfo_coords16</include>
+					<itemgap>12</itemgap>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<visible>Control.IsVisible(308) | Control.IsVisible(314)</visible>
+					<animation effect="slide" end="0,-256" time="0" condition="!Control.IsVisible(300)">Conditional</animation>
+					
+					<!-- Title -->
+					<control type="fadelabel" id="307">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>292</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.1))</visible>
+						<visible>Control.IsVisible(308)</visible>
 					</control>
-					<control type="fadelabel">
+					
+					<!-- Audio tracks -->
+					<control type="fadelabel" id="308">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$VAR[AudioCodec.1,, ]$VAR[AudioChannels.1,, ]$INFO[ListItem.Property(AudioLanguage.1),([CAPITALIZE],[/CAPITALIZE])]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.1))</visible>
 					</control>
-					<control type="fadelabel">
+					<control type="fadelabel" id="309">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$VAR[AudioCodec.2,, ]$VAR[AudioChannels.2,, ]$INFO[ListItem.Property(AudioLanguage.2),([CAPITALIZE],[/CAPITALIZE])]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.2))</visible>
 					</control>
-					<control type="fadelabel">
+					<control type="fadelabel" id="310">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$VAR[AudioCodec.3,, ]$VAR[AudioChannels.3,, ]$INFO[ListItem.Property(AudioLanguage.3),([CAPITALIZE],[/CAPITALIZE])]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.3))</visible>
 					</control>
-					<control type="fadelabel">
+					<control type="fadelabel" id="311">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$VAR[AudioCodec.4,, ]$VAR[AudioChannels.4,, ]$INFO[ListItem.Property(AudioLanguage.4),([CAPITALIZE],[/CAPITALIZE])]</label>
 						<textcolor>$VAR[TextColor1]</textcolor>
 						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.4))</visible>
 					</control>
-					
-					<control type="image">
-						<include>DialogVideoInfo_coords16</include>
-						<texture>transparent.png</texture>
-						<visible>!String.IsEmpty(ListItem.Property(AudioCodec.1))</visible>
-					</control>
 
-					<!-- Subtitles -->
-					<control type="fadelabel">
+					<!-- Title -->
+					<control type="fadelabel" id="312">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>287</label>
 						<textcolor>$VAR[TextColor2]</textcolor>
-						<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+						<visible>Control.IsVisible(313)</visible>
 					</control>
-					<control type="fadelabel">
+					
+					<!-- Subtitles -->
+					<control type="fadelabel" id="313">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
 						<label>$INFO[ListItem.Property(SubtitleLanguage.1),[CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.2),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.3),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.4),$COMMA [CAPITALIZE],[/CAPITALIZE]]</label>
@@ -777,7 +790,7 @@
 					<onclick condition="[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)">SetFocus(50)</onclick>
 					<usealttexture>!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)</usealttexture>
 					<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
-					<visible>![!String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) + String.IsEmpty(ListItem.Artist) + String.IsEmpty(ListItem.Album) + String.IsEmpty(ListItem.Status) + String.IsEmpty(ListItem.OriginalTitle) + String.IsEmpty(ListItem.Director) + String.IsEmpty(ListItem.Writer) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(ListItem.Country) + String.IsEmpty(ListItem.Premiered) + String.IsEmpty(ListItem.Genre) + String.IsEmpty(ListItem.Set) + String.IsEmpty(ListItem.Duration) + String.IsEmpty(ListItem.Rating) + String.IsEmpty(ListItem.Mpaa) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEqual(ListItem.DBTYPE,set)]</visible>
+					<visible>![!String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(tomatometerallcritics)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.RatingAndVotes(trakt)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) + String.IsEmpty(ListItem.Artist) + String.IsEmpty(ListItem.Album) + String.IsEmpty(ListItem.Status) + String.IsEmpty(ListItem.OriginalTitle) + String.IsEmpty(ListItem.Director) + String.IsEmpty(ListItem.Writer) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(ListItem.Country) + String.IsEmpty(ListItem.Premiered) + String.IsEmpty(ListItem.Genre) + String.IsEmpty(ListItem.Set) + String.IsEmpty(ListItem.Duration) + String.IsEmpty(ListItem.Rating) + String.IsEmpty(ListItem.Mpaa) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEqual(ListItem.DBTYPE,set)]</visible>
 					<visible>!String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 				<!-- Extended info Button -->
@@ -791,7 +804,7 @@
 					<onclick condition="[!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)">SetFocus(50)</onclick>
 					<usealttexture>!String.IsEmpty(Window(12003).Property(extended))</usealttexture>
 					<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
-					<visible>![!String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(rottentomatoes)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) + String.IsEmpty(ListItem.Artist) + String.IsEmpty(ListItem.Album) + String.IsEmpty(ListItem.Status) + String.IsEmpty(ListItem.OriginalTitle) + String.IsEmpty(ListItem.Director) + String.IsEmpty(ListItem.Writer) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(ListItem.Country) + String.IsEmpty(ListItem.Premiered) + String.IsEmpty(ListItem.Genre) + String.IsEmpty(ListItem.Set) + String.IsEmpty(ListItem.Duration) + String.IsEmpty(ListItem.Rating) + String.IsEmpty(ListItem.Mpaa) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEqual(ListItem.DBTYPE,set)]</visible>
+					<visible>![!String.IsEmpty(ListItem.Plot) + String.IsEmpty(ListItem.RatingAndVotes) + String.IsEmpty(ListItem.RatingAndVotes(imdb)) + String.IsEmpty(ListItem.RatingAndVotes(metacritic)) + String.IsEmpty(ListItem.RatingAndVotes(tomatometerallcritics)) + String.IsEmpty(ListItem.RatingAndVotes(themoviedb)) + String.IsEmpty(ListItem.RatingAndVotes(trakt)) + String.IsEmpty(ListItem.Property(AudioCodec.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) + String.IsEmpty(ListItem.Artist) + String.IsEmpty(ListItem.Album) + String.IsEmpty(ListItem.Status) + String.IsEmpty(ListItem.OriginalTitle) + String.IsEmpty(ListItem.Director) + String.IsEmpty(ListItem.Writer) + String.IsEmpty(ListItem.Studio) + String.IsEmpty(ListItem.Country) + String.IsEmpty(ListItem.Premiered) + String.IsEmpty(ListItem.Genre) + String.IsEmpty(ListItem.Set) + String.IsEmpty(ListItem.Duration) + String.IsEmpty(ListItem.Rating) + String.IsEmpty(ListItem.Mpaa) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEqual(ListItem.DBTYPE,set)]</visible>
 					<visible>String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 				<!-- Cast Button -->
