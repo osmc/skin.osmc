@@ -537,6 +537,7 @@
 		<definition>
 			<include content="widgetHeading-OSMC">
 				<param name="container">$PARAM[container]</param>
+				<param name="container2">$PARAM[container2]</param>
 			</include>
 		</definition>
 	</include>
@@ -546,6 +547,7 @@
 			<include>widgetHeading-OSMC_coords</include>
 			<include content="widgetHeading-content">
 				<param name="container">$PARAM[container]</param>
+				<param name="container2">$PARAM[container2]</param>
 			</include>
 		</definition>
 	</include>
@@ -557,6 +559,14 @@
 				<effect type="slide" start="1800,0" end="0,0" time="400" />
 			</animation>
 			<animation type="Hidden">
+				<effect type="fade" start="100" end="0" time="200" />
+				<effect type="slide" start="0,0" end="1800,0" time="400" />
+			</animation>
+			<animation type="Conditional" condition="!String.IsEmpty(Container($PARAM[container2]).ListItem.Property(outlook)) + !String.IsEqual(Container($PARAM[container2]).ListItem.Property(outlook),$LOCALIZE[10006]) + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)">
+				<effect type="fade" start="0" end="100" time="200" />
+				<effect type="slide" start="1800,0" end="0,0" time="400" />
+			</animation>
+			<animation type="Conditional" condition="[String.IsEmpty(Container($PARAM[container2]).ListItem.Property(outlook)) | String.IsEqual(Container($PARAM[container2]).ListItem.Property(outlook),$LOCALIZE[10006])] + String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)">
 				<effect type="fade" start="100" end="0" time="200" />
 				<effect type="slide" start="0,0" end="1800,0" time="400" />
 			</animation>
