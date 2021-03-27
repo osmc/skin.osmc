@@ -1244,7 +1244,7 @@
 			<content>
 				<item id="1">
 					<label>$LOCALIZE[10508]</label>
-					<visible>Integer.IsGreater(Container(10901).NumItems,0) | Container(10901).IsUpdating</visible>
+					<visible>!String.IsEmpty(Container(10901).ListItem.Property(outlook)) + !String.IsEqual(Container(10901).ListItem.Property(outlook),$LOCALIZE[10006])</visible>
 					<property name="widgetID">9-1</property>
 					<property name="widgetContainer">10901</property>
 				</item>
@@ -1268,7 +1268,7 @@
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
 			<label>$LOCALIZE[31158]</label>
 			<onfocus condition="String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1)">Control.SetFocus(10901)</onfocus>
-			<onfocus condition="Integer.IsEqual(Container(10009).NumItems,0)">Control.SetFocus(9000)</onfocus>
+			<onfocus condition="String.IsEmpty(Container(10901).ListItem.Property(outlook)) | String.IsEqual(Container(10901).ListItem.Property(outlook),$LOCALIZE[10006])">Control.SetFocus(9000)</onfocus>
 		</control>
 		<control id="9007" type="button">
 			<description>Select next widget</description>
@@ -1729,10 +1729,10 @@
 					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
-					<param name="art">$INFO[ListItem.Art(season.poster)]</param>
+					<param name="art">$INFO[ListItem.Art(poster)]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">![String.IsEmpty(ListItem.Art(season.poster))]</param>
+					<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
 				</include>
 				<include content="widget-image">
 					<description>Fallback art</description>
@@ -1742,10 +1742,10 @@
 					<param name="height">324</param>
 					<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 					<param name="fallback">DefaultShortcut.png</param>
-					<param name="art">$INFO[ListItem.Art(tvshow.poster)]</param>
+					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">String.IsEmpty(ListItem.Art(season.poster))</param>
+					<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
 				</include>
 				<include content="widget-image">
 					<description>Catch-all art</description>
@@ -1758,7 +1758,7 @@
 					<param name="art">$INFO[ListItem.Icon]</param>
 					<param name="aspectratio">keep</param>
 					<param name="shadow">noop</param>
-					<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
+					<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 				</include>
 				<control type="group">
 					<left>12</left>
@@ -1809,10 +1809,10 @@
 						<param name="width">216</param>
 						<param name="height">324</param>
 						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Art(season.poster)]</param>
+						<param name="art">$INFO[ListItem.Art(poster)]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![String.IsEmpty(ListItem.Art(season.poster))]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1821,10 +1821,10 @@
 						<param name="width">216</param>
 						<param name="height">324</param>
 						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Art(tvshow.poster)]</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">String.IsEmpty(ListItem.Art(season.poster))</param>
+						<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
@@ -1836,7 +1836,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
 						<left>12</left>
@@ -1881,10 +1881,10 @@
 						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Art(season.poster)]</param>
+						<param name="art">$INFO[ListItem.Art(poster)]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">![String.IsEmpty(ListItem.Art(season.poster))]</param>
+						<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
 					</include>
 					<include content="widget-image">
 						<description>Fallback art</description>
@@ -1894,10 +1894,10 @@
 						<param name="height">324</param>
 						<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Art(tvshow.poster)]</param>
+						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">String.IsEmpty(ListItem.Art(season.poster))</param>
+						<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
 					</include>
 					<include content="widget-image">
 						<description>Catch-all art</description>
@@ -1910,7 +1910,7 @@
 						<param name="art">$INFO[ListItem.Icon]</param>
 						<param name="aspectratio">keep</param>
 						<param name="shadow">noop</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Art(season.poster)) ] + [ String.IsEmpty(ListItem.Art(tvshow.poster)) ]</param>
+						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
 					</include>
 					<control type="group">
 						<left>12</left>
@@ -2748,6 +2748,22 @@
 				<param name="container1">10009</param>
 				<param name="container2">9-1</param>
 			</include>
+			<animation type="Conditional" condition="!String.IsEmpty(Container(10901).ListItem.Property(outlook)) + !String.IsEqual(Container(10901).ListItem.Property(outlook),$LOCALIZE[10006])">
+				<effect type="fade" start="0" end="100" time="200" />
+				<effect type="slide" start="1800,0" end="0,0" time="400" />
+			</animation>
+			<animation type="Conditional" condition="String.IsEmpty(Container(10901).ListItem.Property(outlook)) | String.IsEqual(Container(10901).ListItem.Property(outlook),$LOCALIZE[10006])">
+				<effect type="fade" start="100" end="0" time="200" />
+				<effect type="slide" start="0,0" end="1800,0" time="400" />
+			</animation>
+			<animation type="Conditional" condition="String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1)">
+				<effect type="fade" start="0" end="100" time="200" />
+				<effect type="slide" start="1800,0" end="0,0" time="400" />
+			</animation>
+			<animation type="Conditional" condition="!String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1)">
+				<effect type="fade" start="100" end="0" time="200" />
+				<effect type="slide" start="0,0" end="1800,0" time="400" />
+			</animation>
 			<itemlayout height="326" width="203">
 				<control type="group">
 					<control type="label">
@@ -3425,13 +3441,6 @@
 			<width>36</width>
 			<height>36</height>
 			<texture>busy.gif</texture>
-			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),weather)</visible>
-			<visible>String.IsEqual(Container(10009).ListItem.Property(widgetID),9-1) + Container(10901).IsUpdating</visible>
-		</control>
-		<control type="image">
-			<width>36</width>
-			<height>36</height>
-			<texture>busy.gif</texture>
 			<visible>String.IsEqual(Container(9000).ListItem.Property(submenuVisibility),num-14204)</visible>
 			<visible>String.IsEqual(Container(100010).ListItem.Property(widgetID),10-1) + Container(101001).IsUpdating</visible>
 		</control>
@@ -3455,69 +3464,42 @@
 		<description>This is a fake template which is needed to trick Skin Shortcuts into building the submenuOther templates</description>
 	</include>
 	<variable name="widgetDetails">
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + Integer.IsEqual(Container(10101).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + False">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(10101).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(10101).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10101).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10101).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(10101).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10101] &#8226; $INFO[Container(10101).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.ChannelName) + !String.IsEmpty(Container(10101).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$INFO[Container(10101).ListItem.Title] ($INFO[Container(10101).ListItem.StartTime] - $INFO[Container(10101).ListItem.EndTime])[CR]$INFO[Container(10101).ListItem.NextTitle] ($INFO[Container(10101).ListItem.NextStartTime] - $INFO[Container(10101).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + !String.IsEmpty(Container(10101).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10101).ListItem.Label][CR][LIGHT]$INFO[Container(10101).ListItem.StartDate] $INFO[Container(10101).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<!-- Movies -->
+		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101) + Integer.IsEqual(Container(10101).NumItems,0)">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
+		<value condition="String.IsEqual(Container(10101).ListItem.DBTYPE,movie) + Control.IsVisible(10001) + Control.HasFocus(10101)">[COLOR $VAR[TextColor1]]$INFO[Container(10101).ListItem.Title]$INFO[Container(10101).ListItem.Year,[LIGHT] (,)[/LIGHT]][/COLOR]</value>
 		<value condition="Control.IsVisible(10001) + Control.HasFocus(10101)">[COLOR $VAR[TextColor1]]$INFO[Container(10101).ListItem.Label][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsEqual(Container(10201).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + False">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(10201).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10201).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10201).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(10201).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10201] &#8226; $INFO[Container(10201).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.ChannelName) + !String.IsEmpty(Container(10201).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$INFO[Container(10201).ListItem.Title] ($INFO[Container(10201).ListItem.StartTime] - $INFO[Container(10201).ListItem.EndTime])[CR]$INFO[Container(10201).ListItem.NextTitle] ($INFO[Container(10201).ListItem.NextStartTime] - $INFO[Container(10201).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + !String.IsEmpty(Container(10201).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.Label][CR][LIGHT]$INFO[Container(10201).ListItem.StartDate] $INFO[Container(10201).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<!-- TV Shows -->
+		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsEqual(Container(10201).NumItems,0)">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
+		<value condition="String.IsEqual(Container(10201).ListItem.DBTYPE,tvshow) + Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsGreater(Container(10201).ListItem.Property(TotalSeasons),1) + Integer.IsGreater(Container(10201).ListItem.Property(TotalEpisodes),1)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$INFO[Container(10201).ListItem.Property(TotalSeasons),, $LOCALIZE[33054] &#8226; ]$INFO[Container(10201).ListItem.Property(NumEpisodes),, $LOCALIZE[20453]][/LIGHT][/COLOR]</value>
+		<value condition="String.IsEqual(Container(10201).ListItem.DBTYPE,tvshow) + Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsEqual(Container(10201).ListItem.Property(TotalSeasons),1) + Integer.IsGreater(Container(10201).ListItem.Property(TotalEpisodes),1)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$INFO[Container(10201).ListItem.Property(TotalSeasons),, $LOCALIZE[36904] &#8226; ]$INFO[Container(10201).ListItem.Property(NumEpisodes),, $LOCALIZE[20453]][/LIGHT][/COLOR]</value>
+		<value condition="String.IsEqual(Container(10201).ListItem.DBTYPE,tvshow) + Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsGreater(Container(10201).ListItem.Property(TotalSeasons),1) + Integer.IsEqual(Container(10201).ListItem.Property(TotalEpisodes),1)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$INFO[Container(10201).ListItem.Property(TotalSeasons),, $LOCALIZE[33054] &#8226; ]$INFO[Container(10201).ListItem.Property(NumEpisodes),, $LOCALIZE[20359]][/LIGHT][/COLOR]</value>
+		<value condition="String.IsEqual(Container(10201).ListItem.DBTYPE,tvshow) + Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsEqual(Container(10201).ListItem.Property(TotalSeasons),1) + Integer.IsEqual(Container(10201).ListItem.Property(TotalEpisodes),1)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$INFO[Container(10201).ListItem.Property(TotalSeasons),, $LOCALIZE[36904] &#8226; ]$INFO[Container(10201).ListItem.Property(NumEpisodes),, $LOCALIZE[20359]][/LIGHT][/COLOR]</value>
+		<value condition="String.IsEqual(Container(10201).ListItem.DBTYPE,tvshow) + Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsGreater(Container(10201).ListItem.Property(TotalSeasons),1) + Integer.IsEqual(Container(10201).ListItem.Property(TotalEpisodes),0)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$INFO[Container(10201).ListItem.Property(TotalSeasons),, $LOCALIZE[33054] &#8226; ]$INFO[Container(10201).ListItem.Property(NumEpisodes),, $LOCALIZE[20453]][/LIGHT][/COLOR]</value>
+		<value condition="String.IsEqual(Container(10201).ListItem.DBTYPE,tvshow) + Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsEqual(Container(10201).ListItem.Property(TotalSeasons),1) + Integer.IsEqual(Container(10201).ListItem.Property(TotalEpisodes),0)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$INFO[Container(10201).ListItem.Property(TotalSeasons),, $LOCALIZE[36904] &#8226; ]$INFO[Container(10201).ListItem.Property(NumEpisodes),, $LOCALIZE[20453]][/LIGHT][/COLOR]</value>
+		<value condition="String.IsEqual(Container(10201).ListItem.DBTYPE,tvshow) + Control.IsVisible(10002) + Control.HasFocus(10201) + Integer.IsEqual(Container(10201).ListItem.Property(TotalSeasons),0)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.TVShowTitle][CR][LIGHT]$INFO[Container(10201).ListItem.Property(TotalSeasons),, $LOCALIZE[33054]][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(10002) + Control.HasFocus(10201)">[COLOR $VAR[TextColor1]]$INFO[Container(10201).ListItem.Label][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + Integer.IsEqual(Container(10401).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + False">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(10401).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(10401).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10401).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10401).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(10401).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10401] &#8226; $INFO[Container(10401).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.ChannelName) + !String.IsEmpty(Container(10401).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$INFO[Container(10401).ListItem.Title] ($INFO[Container(10401).ListItem.StartTime] - $INFO[Container(10401).ListItem.EndTime])[CR]$INFO[Container(10401).ListItem.NextTitle] ($INFO[Container(10401).ListItem.NextStartTime] - $INFO[Container(10401).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10401).ListItem.Label][CR][LIGHT]$INFO[Container(10401).ListItem.StartDate] $INFO[Container(10401).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<!-- Albums -->
+		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401) + Integer.IsEqual(Container(10401).NumItems,0)">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
+		<value condition="String.IsEqual(Container(10401).ListItem.DBTYPE,album) + Control.IsVisible(10004) + Control.HasFocus(10401) + !String.IsEmpty(Container(10401).ListItem.Artist) + !String.IsEmpty(Container(10401).ListItem.Album)">[COLOR $VAR[TextColor1]]$INFO[Container(10401).ListItem.Artist,[LIGHT],: [/LIGHT]]$INFO[Container(10401).ListItem.Album]$INFO[Container(10401).ListItem.Year,[LIGHT] (,)[/LIGHT]][/COLOR]</value>
 		<value condition="Control.IsVisible(10004) + Control.HasFocus(10401)">[COLOR $VAR[TextColor1]]$INFO[Container(10401).ListItem.Label][/COLOR]</value>
-		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + Integer.IsEqual(Container(10601).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + False">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(10601).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(10601).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10601).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10601).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(10601).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10601] &#8226; $INFO[Container(10601).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.ChannelName) + !String.IsEmpty(Container(10601).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10601).ListItem.Label][CR][LIGHT]$INFO[Container(10601).ListItem.Title] ($INFO[Container(10601).ListItem.StartTime] - $INFO[Container(10601).ListItem.EndTime])[CR]$INFO[Container(10601).ListItem.NextTitle] ($INFO[Container(10601).ListItem.NextStartTime] - $INFO[Container(10601).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(10601).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + !String.IsEmpty(Container(10601).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10601).ListItem.Label][CR][LIGHT]$INFO[Container(10601).ListItem.StartDate] $INFO[Container(10601).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<!-- Game addons -->
+		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601) + Integer.IsEqual(Container(10601).NumItems,0)">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
 		<value condition="Control.IsVisible(10006) + Control.HasFocus(10601)">[COLOR $VAR[TextColor1]]$INFO[Container(10601).ListItem.Label][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + Integer.IsEqual(Container(10801).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + False">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(10801).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(10801).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10801).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10801).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(10801).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10801] &#8226; $INFO[Container(10801).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.ChannelName) + !String.IsEmpty(Container(10801).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$INFO[Container(10801).ListItem.Title] ($INFO[Container(10801).ListItem.StartTime] - $INFO[Container(10801).ListItem.EndTime])[CR]$INFO[Container(10801).ListItem.NextTitle] ($INFO[Container(10801).ListItem.NextStartTime] - $INFO[Container(10801).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + !String.IsEmpty(Container(10801).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10801).ListItem.Label][CR][LIGHT]$INFO[Container(10801).ListItem.StartDate] $INFO[Container(10801).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<!-- Program addons -->
+		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801) + Integer.IsEqual(Container(10801).NumItems,0)">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
 		<value condition="Control.IsVisible(10008) + Control.HasFocus(10801)">[COLOR $VAR[TextColor1]]$INFO[Container(10801).ListItem.Label][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + Integer.IsEqual(Container(10901).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + True">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(10901).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(10901).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(10901).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(10901).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(10901).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer10901] &#8226; $INFO[Container(10901).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.ChannelName) + !String.IsEmpty(Container(10901).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$INFO[Container(10901).ListItem.Title] ($INFO[Container(10901).ListItem.StartTime] - $INFO[Container(10901).ListItem.EndTime])[CR]$INFO[Container(10901).ListItem.NextTitle] ($INFO[Container(10901).ListItem.NextStartTime] - $INFO[Container(10901).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + !String.IsEmpty(Container(10901).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(10901).ListItem.Label][CR][LIGHT]$INFO[Container(10901).ListItem.StartDate] $INFO[Container(10901).ListItem.StartTime][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901)">[COLOR $VAR[TextColor1]]$INFO[Container(10901).ListItem.Label][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + Integer.IsEqual(Container(101001).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + False">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(101001).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(101001).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(101001).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(101001).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(101001).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer101001] &#8226; $INFO[Container(101001).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.ChannelName) + !String.IsEmpty(Container(101001).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$INFO[Container(101001).ListItem.Title] ($INFO[Container(101001).ListItem.StartTime] - $INFO[Container(101001).ListItem.EndTime])[CR]$INFO[Container(101001).ListItem.NextTitle] ($INFO[Container(101001).ListItem.NextStartTime] - $INFO[Container(101001).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !String.IsEmpty(Container(101001).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(101001).ListItem.Label][CR][LIGHT]$INFO[Container(101001).ListItem.StartDate] $INFO[Container(101001).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<!-- Weather -->
+		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901) + [String.IsEmpty(Container(10901).ListItem.Property(outlook)) | String.IsEqual(Container(10901).ListItem.Property(outlook),$LOCALIZE[10006])]">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
+		<value condition="Control.IsVisible(10009) + Control.HasFocus(10901)">[COLOR $VAR[TextColor1]]$INFO[Window(Weather).Property(Location),[LIGHT],[/LIGHT][CR]]$INFO[Container(10901).ListItem.Property(outlook)][/COLOR]</value>
+		<!-- PVR Channels -->
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + Integer.IsEqual(Container(101001).NumItems,0)">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !IsEmpty(Container(101001).ListItem.ChannelName) + [!String.IsEmpty(Container(101001).ListItem.Title) + !String.IsEqual(101001).ListItem.Title,$LOCALIZE[19055])] + !String.StartsWith(Container(101001).ListItem.Path,pvr://recordings/tv/) + [String.StartsWith(Container(101001).ListItem.Path,pvr://channels/) | String.StartsWith(Container(101001).ListItem.Path,pvr://timers/)]">[COLOR $VAR[TextColor1]]$INFO[Container(101001).ListItem.ChannelName]$INFO[Container(101001).ListItem.ChannelNumberLabel, &#8226; ,][CR][LIGHT]$INFO[Container(101001).ListItem.Title] ($INFO[Container(101001).ListItem.StartTime] - $INFO[Container(101001).ListItem.EndTime])[CR]$INFO[Container(101001).ListItem.NextTitle] ($INFO[Container(101001).ListItem.NextStartTime] - $INFO[Container(101001).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001) + !IsEmpty(Container(101001).ListItem.ChannelName) + !String.StartsWith(Container(101001).ListItem.Path,pvr://recordings/tv/) + [String.StartsWith(Container(101001).ListItem.Path,pvr://channels/) | String.StartsWith(Container(101001).ListItem.Path,pvr://timers/)]">[COLOR $VAR[TextColor1]]$INFO[Container(101001).ListItem.ChannelName]$INFO[Container(101001).ListItem.ChannelNumberLabel, &#8226; ,][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(100010) + Control.HasFocus(101001)">[COLOR $VAR[TextColor1]]$INFO[Container(101001).ListItem.Label][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + Integer.IsEqual(Container(101101).NumItems,0)">$LOCALIZE[20186]...</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + False">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Window(Weather).Property(Location)][/LIGHT][CR]$INFO[Container(101101).ListItem.Property(outlook)][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.Property(WatchedEpisodes))">[COLOR $VAR[TextColor1]]$INFO[Container(101101).ListItem.TVShowTitle][CR][LIGHT]$LOCALIZE[16102] $INFO[Container(101101).ListItem.Property(WatchedEpisodes)] $LOCALIZE[20163] $INFO[Container(101101).ListItem.Property(NumEpisodes)] $LOCALIZE[20453][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.Season)">[COLOR $VAR[TextColor1]][LIGHT]$INFO[Container(101101).ListItem.TVShowTitle][/LIGHT][CR]$VAR[SEContainer101101] &#8226; $INFO[Container(101101).ListItem.Title][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.ChannelName) + !String.IsEmpty(Container(101101).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$INFO[Container(101101).ListItem.Title] ($INFO[Container(101101).ListItem.StartTime] - $INFO[Container(101101).ListItem.EndTime])[CR]$INFO[Container(101101).ListItem.NextTitle] ($INFO[Container(101101).ListItem.NextStartTime] - $INFO[Container(101101).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.ChannelName)">[COLOR $VAR[TextColor1]]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
-		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !String.IsEmpty(Container(101101).ListItem.StartTime)">[COLOR $VAR[TextColor1]]$INFO[Container(101101).ListItem.Label][CR][LIGHT]$INFO[Container(101101).ListItem.StartDate] $INFO[Container(101101).ListItem.StartTime][/LIGHT][/COLOR]</value>
+		<!-- Radio Channels -->
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + Integer.IsEqual(Container(101101).NumItems,0)">[COLOR $VAR[TextColor1]]$LOCALIZE[20186]...[/COLOR]</value>
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !IsEmpty(Container(101101).ListItem.ChannelName) + [!String.IsEmpty(Container(101101).ListItem.Title) + !String.IsEqual(101101).ListItem.Title,$LOCALIZE[19055])] + !String.StartsWith(Container(101101).ListItem.Path,pvr://recordings/tv/) + [String.StartsWith(Container(101101).ListItem.Path,pvr://channels/) | String.StartsWith(Container(101101).ListItem.Path,pvr://timers/)]">[COLOR $VAR[TextColor1]]$INFO[Container(101101).ListItem.ChannelName]$INFO[Container(101101).ListItem.ChannelNumberLabel, &#8226; ,][CR][LIGHT]$INFO[Container(101101).ListItem.Title] ($INFO[Container(101101).ListItem.StartTime] - $INFO[Container(101101).ListItem.EndTime])[CR]$INFO[Container(101101).ListItem.NextTitle] ($INFO[Container(101101).ListItem.NextStartTime] - $INFO[Container(101101).ListItem.NextEndTime])[/LIGHT][/COLOR]</value>
+		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101) + !IsEmpty(Container(101101).ListItem.ChannelName) + !String.StartsWith(Container(101101).ListItem.Path,pvr://recordings/tv/) + [String.StartsWith(Container(101101).ListItem.Path,pvr://channels/) | String.StartsWith(Container(101101).ListItem.Path,pvr://timers/)]">[COLOR $VAR[TextColor1]]$INFO[Container(101101).ListItem.ChannelName]$INFO[Container(101101).ListItem.ChannelNumberLabel, &#8226; ,][CR][LIGHT]$LOCALIZE[19055][/LIGHT][/COLOR]</value>
 		<value condition="Control.IsVisible(100011) + Control.HasFocus(101101)">[COLOR $VAR[TextColor1]]$INFO[Container(101101).ListItem.Label][/COLOR]</value>
 	</variable>
 	<variable name="widgetBackground">

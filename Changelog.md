@@ -9,10 +9,13 @@ _New_
 - add channel sort by and sort order toggles to PVR guide side menu
 - add artist, album and radio now/next/RDS information to fullscreen music/radio playback window
 - add new info button to video and music OSD
+- add trackt.tv ratings information to video info dialog
 
 _Improved_
 - rework look of default fullscreen music playback screen to match general skin look
 - refine video fullscreen OSD and info dialog behaviour
+- improve behaviour of weather widget when no weather information is available
+- improve widget headings and general secondary label information
 
 _Fixed_
 - add missing "play recorded programme" button to PVR info dialog
@@ -348,15 +351,21 @@ Release
 _accommodate  for changes of the v19 skin engine_
 
 strings.po:
-- remove deprecated localizes (31115, 31150, 31152, 31153, 31154, 31168, 31319)
+- remove deprecated localizes (31150, 31152, 31153, 31154, 31168, 31319)
 - update PVR fullscreen playback localize (31171)
+- rework localize for new trackt.tv ratings information (31115)
 
 Textures.xbt:
 - update textures file with new OSD ranges and new PVR reminder icon
 - update textures file with new music OSD info button file and reworked music OSD repeat button file
 
+template.xml:
+- hide weather widget when no weather information is available
+- improve widget heading details
+
 Coordinates_DialogVideoInfo.xml:
 - add new sets information
+- rework coordinates for improved ratings and audio/subtitle streams information
 
 Coordinates_DialogPVRInfo.xml:
 - add new reminder icon
@@ -372,6 +381,31 @@ Coordinates_VideoFullScreen.xml:
 
 Coordinates_VideoOSD.xml:
 - update right options width for new info button
+
+
+Coordinates_Viewtype52.xml:
+- add conditional visibility of view icons for movie sets
+
+Coordinates_Viewtype521.xml:
+- add conditional visibility of view icons for movie sets
+
+Coordinates_Viewtype522.xml:
+- add conditional visibility of view icons for movie sets
+
+Coordinates_Viewtype53.xml:
+- add conditional visibility of view icons for movie sets
+
+Coordinates_Viewtype531.xml:
+- add conditional visibility of view icons for movie sets
+
+Coordinates_Viewtype532.xml:
+- add conditional visibility of view icons for movie sets
+
+Coordinates_Viewtype533.xml:
+- add conditional visibility of view icons for movie sets
+
+Coordinates_Viewtype534.xml:
+- add conditional visibility of view icons for movie sets
 
 DialogAddonInfo.xml:
 - add new versions and update buttons
@@ -391,6 +425,10 @@ DialogPVRInfo.xml:
 DialogVideoInfo.xml:
 - add new movie set poster image
 - rework visibility conditions for new movie set information
+- improved ratings and audio/subtitle streams information (add tracks.tv)
+
+Includes_Widgets.xml:
+- add widget heading animations to hide and show weather widget heading depending on availability of weather information
 
 MusicOSD.xml:
 - add new info button
@@ -402,12 +440,20 @@ MusicVisualisation.xml:
 MyPVRGuide.xml:
 - add channel sort by and sort order toggles (ID 3 and 4) to PVR guide side menu
 
+MyVideoNav.xml:
+- add hidden list for movie sets information
+
+script-skinshortcuts-static.xml:
+- hide weather widget when no weather information is available
+- improve widget heading details
+
 SkinSettings.xml:
 - remove deprecated bigger music OSD album art setting
 
 Variables.xml:
 - adjust MusicNextPlaying variables to avoid showing wrong information while shuffle is enabled during playback
 - add new MusicNextPlayingLabel variables for reworked fullscreen music playback window
+- rework label2 variable for new movie sets information and improved TV show details
 
 Variables_SkinSettings.xml:
 - remove SkinSettingsExplanation variable value of deprecated bigger music OSD album art setting
@@ -419,6 +465,33 @@ VideoOSD.xml:
 - adjust controls onleft for new info button
 - add onback to controls grouplists to close fullscreen info dialog when closing the video OSD
 - add new info button to right controls
+
+Viewtype511.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype52.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype521.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype522.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype53.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype531.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype532.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype533.xml:
+- add conditional visibility of view icons for movie sets
+
+Viewtype534.xml:
+- add conditional visibility of view icons for movie sets
 
 addon.xml:
 - bump version to 19.0.0
