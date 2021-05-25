@@ -10,12 +10,14 @@ _New_
 - add artist, album and radio now/next/RDS information to fullscreen music/radio playback window
 - add new info button to video and music OSD
 - add trackt.tv ratings information to video info dialog
+- add first WebLate translations
 
 _Improved_
 - rework look of default fullscreen music playback screen to match general skin look
 - refine video fullscreen OSD and info dialog behaviour
 - improve behaviour of weather widget when no weather information is available
 - improve widget headings and general secondary label information
+- improve localize consistency
 
 _Fixed_
 - add missing "play recorded programme" button to PVR info dialog
@@ -349,11 +351,13 @@ Release
 **Changelog v19.0.0**
 
 _accommodate  for changes of the v19 skin engine_
+_add  localize files for WebLate translations_
 
 strings.po:
-- remove deprecated localizes (31150, 31152, 31153, 31154, 31168, 31319)
+- remove deprecated localizes (31023, 31024, 31025, 31026, 31037, 31050, 31150, 31060, 31061, 31070, 31152, 31153, 31154, 31168, 31319)
 - update PVR fullscreen playback localize (31171)
 - rework localize for new trackt.tv ratings information (31115)
+- rework localizes for consistency (31315, 31331)
 
 Textures.xbt:
 - update textures file with new OSD ranges and new PVR reminder icon
