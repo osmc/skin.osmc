@@ -51,7 +51,7 @@
 						<font>Font27</font>
 						<align>left</align>
 						<label>$VAR[PVRDescription]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
 					</control>
@@ -59,7 +59,7 @@
 						<font>Font30</font>
 						<align>left</align>
 						<label>$VAR[PVRDescription]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
 					</control>
@@ -67,7 +67,7 @@
 						<font>Font33</font>
 						<align>left</align>
 						<label>$VAR[PVRDescription]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
 					</control>
@@ -103,7 +103,7 @@
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
@@ -115,7 +115,7 @@
 				<align>right</align>
 				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 
@@ -136,7 +136,7 @@
 				<centertop>50%</centertop>
 				<width>30</width>
 				<height>30</height>
-				<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+				<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 		</control>
@@ -292,7 +292,7 @@
 			<width>1620</width>
 			<height>72</height>
 			<font>Font72</font>
-			<textcolor>$VAR[TextColor1]</textcolor>
+			<textcolor>$VAR[TextColorFO]</textcolor>
 			<label></label>
 		</control>
 
