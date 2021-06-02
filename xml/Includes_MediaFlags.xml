@@ -31,7 +31,7 @@
 				<!-- Video -->
 				<control type="image">
 					<include>MediaFlags_coords2</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>Video.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
@@ -41,7 +41,7 @@
 					<include>MediaFlags_coords3</include>
 					<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
 				</control>
@@ -49,7 +49,7 @@
 				<!-- Audio (Video) -->
 				<control type="image">
 					<include>MediaFlags_coords4</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>osd/OSDAudioNF.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
@@ -58,14 +58,14 @@
 					<include>MediaFlags_coords5</include>
 					<label>$VAR[Audio]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 				</control>
 				
 				<!-- Audio (Music) -->
 				<control type="image">
 					<include>MediaFlags_coords4</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>osd/OSDAudioNF.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.MusicChannels)</visible>
@@ -74,14 +74,14 @@
 					<include>MediaFlags_coords5</include>
 					<label>$VAR[MusicChannels,, &#8226; ]$INFO[ListItem.SampleRate,, kHz ]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.MusicChannels)</visible>
 				</control>
 				
 				<!-- Duration -->
 				<control type="image">
 					<include>MediaFlags_coords6</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>Duration.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>[!String.IsEmpty(ListItem.AudioCodec) | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.MusicChannels)] + !String.IsEmpty(ListItem.Duration)</visible>
@@ -90,14 +90,14 @@
 					<include>MediaFlags_coords7</include>
 					<label>$VAR[Duration]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>[!String.IsEmpty(ListItem.AudioCodec) | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.MusicChannels)] + !String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 				<control type="fadelabel">
 					<include>MediaFlags_coords7</include>
 					<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>[!String.IsEmpty(ListItem.AudioCodec) | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.MusicChannels)] + !String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 				
@@ -127,7 +127,7 @@
 				<!-- Audio -->
 				<control type="image">
 					<include>MediaFlags_coords8</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>osd/OSDAudioNF.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
@@ -137,7 +137,7 @@
 					<include>MediaFlags_coords3</include>
 					<label>$VAR[AudioSimple]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
 					<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.Property(SubtitleLanguage.1))">Conditional</animation>
 				</control>
@@ -145,7 +145,7 @@
 				<!-- Subtitles -->
 				<control type="image">
 					<include>MediaFlags_coords9</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>osd/OSDSubtitlesNF.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
@@ -154,14 +154,14 @@
 					<include>MediaFlags_coords5</include>
 					<label>$VAR[SubtitleSimple]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
 				</control>
 				
 				<!-- Duration -->
 				<control type="image">
 					<include>MediaFlags_coords6</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>Duration.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>[!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + !String.IsEmpty(ListItem.Duration)</visible>
@@ -170,14 +170,14 @@
 					<include>MediaFlags_coords7</include>
 					<label>$VAR[Duration]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>[!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + !String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 				<control type="fadelabel">
 					<include>MediaFlags_coords7</include>
 					<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>[!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + !String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 			
@@ -190,7 +190,7 @@
 				<!-- Duration -->
 				<control type="image">
 					<include>MediaFlags_coords10</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>Duration.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Duration)</visible>
@@ -199,14 +199,14 @@
 					<include>MediaFlags_coords11</include>
 					<label>$VAR[Duration]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 				<control type="fadelabel">
 					<include>MediaFlags_coords11</include>
 					<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
 				</control>
 				
@@ -223,7 +223,7 @@
 			<visible>!Skin.HasSetting(ItemCount)</visible>
 			<label>$INFO[Container.NumItems]$VAR[ContentType, ,]</label>
 			<font>Font30</font>
-			<textcolor>$VAR[TextColor2]</textcolor>
+			<textcolor>$VAR[TextColorNF]</textcolor>
 			<align>right</align>
 			<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 		</control>

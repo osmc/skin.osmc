@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="MyMusicPlaylistEditor_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords1_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords1_16:9">
@@ -29,9 +29,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords2_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords2_16:9">
@@ -52,9 +52,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords3_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords3_16:9">
@@ -79,9 +79,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords4_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords4_16:9">
@@ -90,7 +90,7 @@
 				<width>640</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -98,7 +98,7 @@
 				<width>640</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -109,7 +109,7 @@
 				<width>960</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -117,7 +117,7 @@
 				<width>960</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -128,7 +128,7 @@
 				<width>960</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -136,7 +136,7 @@
 				<width>960</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -147,7 +147,7 @@
 				<width>400</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -155,16 +155,16 @@
 				<width>400</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords5_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords5_16:9">
@@ -177,21 +177,21 @@
 					<width>640</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>640</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 				<control type="label">
 					<top>58</top>
 					<width>640</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -208,21 +208,21 @@
 					<width>960</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>960</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 				<control type="label">
 					<top>58</top>
 					<width>960</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -239,21 +239,21 @@
 					<width>960</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>960</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 				<control type="label">
 					<top>58</top>
 					<width>960</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -270,21 +270,21 @@
 					<width>400</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>400</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 				<control type="label">
 					<top>58</top>
 					<width>400</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -293,9 +293,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords6_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords6_16:9">
@@ -324,9 +324,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords7_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords7_16:9">
@@ -351,9 +351,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords8_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords8_16:9">
@@ -378,9 +378,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords9">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords9_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords9_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords9_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords9_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords9_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords9_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords9_16:9">
@@ -401,9 +401,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords10">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords10_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords10_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords10_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords10_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords10_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords10_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords10_16:9">
@@ -432,9 +432,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords11">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords11_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords11_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords11_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords11_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords11_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords11_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords11_16:9">
@@ -459,9 +459,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords12">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords12_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords12_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords12_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords12_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords12_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords12_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords12_16:9">
@@ -486,9 +486,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords13">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords13_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords13_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords13_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords13_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords13_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords13_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords13_16:9">
@@ -513,9 +513,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords14">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords14_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords14_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords14_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords14_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords14_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords14_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords14_16:9">
@@ -532,9 +532,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords15">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords15_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords15_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords15_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords15_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords15_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords15_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords15_16:9">
@@ -559,9 +559,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords16">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords16_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords16_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords16_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords16_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords16_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords16_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords16_16:9">
@@ -570,7 +570,7 @@
 				<width>640</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -578,7 +578,7 @@
 				<width>640</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -589,7 +589,7 @@
 				<width>960</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -597,7 +597,7 @@
 				<width>960</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -608,7 +608,7 @@
 				<width>960</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -616,7 +616,7 @@
 				<width>960</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -627,7 +627,7 @@
 				<width>400</width>
 				<height>58</height>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">
@@ -635,16 +635,16 @@
 				<width>400</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords17">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords17_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords17_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords17_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords17_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords17_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords17_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords17_16:9">
@@ -657,14 +657,14 @@
 					<width>640</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>640</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>Control.HasFocus(100)</visible>
 				</control>
 				<control type="label">
@@ -672,7 +672,7 @@
 					<width>640</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -689,21 +689,21 @@
 					<width>960</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>960</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 				<control type="label">
 					<top>58</top>
 					<width>960</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -720,21 +720,21 @@
 					<width>960</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>960</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 				<control type="label">
 					<top>58</top>
 					<width>960</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -751,21 +751,21 @@
 					<width>400</width>
 					<height>58</height>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>400</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 				<control type="label">
 					<top>58</top>
 					<width>400</width>
 					<height>27</height>
 					<font>Font27</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -774,9 +774,9 @@
 	</include>
 	
 	<include name="MyMusicPlaylistEditor_coords18">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyMusicPlaylistEditor_coords18_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyMusicPlaylistEditor_coords18_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyMusicPlaylistEditor_coords18_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyMusicPlaylistEditor_coords18_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyMusicPlaylistEditor_coords18_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyMusicPlaylistEditor_coords18_4:3</include>
 	</include>
 	<include name="MyMusicPlaylistEditor_coords18_16:9">

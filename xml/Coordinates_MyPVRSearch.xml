@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="MyPVRSearch_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords1_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords2_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords2_16:9">
@@ -64,9 +64,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords3_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords3_16:9">
@@ -78,7 +78,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]</label>
 			</control>
 
@@ -89,7 +89,7 @@
 				<height>27</height>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.EndTime]</label>
 			</control>
 
@@ -121,7 +121,7 @@
 				<top>12</top>
 				<width>500</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -132,7 +132,7 @@
 				<width>740</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -142,7 +142,7 @@
 				<top>12</top>
 				<width>200</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Duration]</label>
 			</control>
 
@@ -157,7 +157,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]</label>
 			</control>
 
@@ -168,7 +168,7 @@
 				<height>27</height>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.EndTime]</label>
 			</control>
 
@@ -200,7 +200,7 @@
 				<top>12</top>
 				<width>820</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -211,7 +211,7 @@
 				<width>1060</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -221,7 +221,7 @@
 				<top>12</top>
 				<width>200</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Duration]</label>
 			</control>
 
@@ -236,7 +236,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]</label>
 			</control>
 
@@ -247,7 +247,7 @@
 				<height>27</height>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.EndTime]</label>
 			</control>
 
@@ -279,7 +279,7 @@
 				<top>12</top>
 				<width>820</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -290,7 +290,7 @@
 				<width>1060</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -300,7 +300,7 @@
 				<top>12</top>
 				<width>200</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Duration]</label>
 			</control>
 
@@ -315,7 +315,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]</label>
 			</control>
 
@@ -326,7 +326,7 @@
 				<height>27</height>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.EndTime]</label>
 			</control>
 
@@ -358,7 +358,7 @@
 				<top>12</top>
 				<width>260</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -369,7 +369,7 @@
 				<width>500</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -379,7 +379,7 @@
 				<top>12</top>
 				<width>200</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Duration]</label>
 			</control>
 
@@ -387,9 +387,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords4_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords4_16:9">
@@ -406,7 +406,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- End time -->
@@ -417,7 +417,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.EndTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Recording image -->
@@ -448,7 +448,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Channel name -->
@@ -459,7 +459,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -470,7 +470,7 @@
 					<width>200</width>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Duration]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -479,7 +479,7 @@
 					<top>12</top>
 					<width>720</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 			</control>
@@ -499,7 +499,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- End time -->
@@ -510,7 +510,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.EndTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Recording image -->
@@ -541,7 +541,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Channel name -->
@@ -552,7 +552,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -563,7 +563,7 @@
 					<width>200</width>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Duration]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -572,7 +572,7 @@
 					<top>12</top>
 					<width>1040</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 			</control>
@@ -592,7 +592,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- End time -->
@@ -603,7 +603,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.EndTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Recording image -->
@@ -634,7 +634,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Channel name -->
@@ -645,7 +645,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -656,7 +656,7 @@
 					<width>200</width>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Duration]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -665,7 +665,7 @@
 					<top>12</top>
 					<width>1040</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 			</control>
@@ -685,7 +685,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- End time -->
@@ -696,7 +696,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.EndTime]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Recording image -->
@@ -727,7 +727,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Channel name -->
@@ -738,7 +738,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -749,7 +749,7 @@
 					<width>200</width>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Duration]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -758,7 +758,7 @@
 					<top>12</top>
 					<width>480</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 			</control>
@@ -766,9 +766,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords5_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords5_16:9">
@@ -797,9 +797,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords6_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords6_16:9">
@@ -824,9 +824,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords7_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords7_16:9">
@@ -843,9 +843,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords8_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords8_16:9">
@@ -862,9 +862,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords9">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords9_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords9_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords9_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords9_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords9_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords9_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords9_16:9">
@@ -885,9 +885,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords10">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords10_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords10_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords10_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords10_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords10_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords10_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords10_16:9">
@@ -916,9 +916,9 @@
 	</include>
 	
 	<include name="MyPVRSearch_coords11">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRSearch_coords11_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords11_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords11_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRSearch_coords11_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords11_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords11_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords11_16:9">

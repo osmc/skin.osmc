@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="MyPics_coords">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPics_coords_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPics_coords_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPics_coords_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPics_coords_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPics_coords_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPics_coords_4:3</include>
 	</include>
 	<include name="MyPics_coords_16:9">

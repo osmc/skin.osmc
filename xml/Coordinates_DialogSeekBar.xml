@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="DialogSeekBar_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSeekBar_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSeekBar_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSeekBar_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSeekBar_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSeekBar_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSeekBar_coords1_4:3</include>
 	</include>
 	<include name="DialogSeekBar_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="DialogSeekBar_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSeekBar_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSeekBar_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSeekBar_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSeekBar_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSeekBar_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSeekBar_coords2_4:3</include>
 	</include>
 	<include name="DialogSeekBar_coords2_16:9">

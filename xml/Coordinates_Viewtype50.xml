@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="Viewtype50_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords1_4:3</include>
 	</include>
 	<include name="Viewtype50_coords1_16:9">
@@ -25,9 +25,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords2_4:3</include>
 	</include>
 	<include name="Viewtype50_coords2_16:9">
@@ -56,9 +56,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords3_4:3</include>
 	</include>
 	<include name="Viewtype50_coords3_16:9">
@@ -87,9 +87,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords4_4:3</include>
 	</include>
 	<include name="Viewtype50_coords4_16:9">
@@ -118,9 +118,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords5_4:3</include>
 	</include>
 	<include name="Viewtype50_coords5_16:9">
@@ -149,9 +149,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords6_4:3</include>
 	</include>
 	<include name="Viewtype50_coords6_16:9">
@@ -163,7 +163,7 @@
 				<height>60</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<!-- Collection -->
 			<control type="image">
@@ -173,7 +173,7 @@
 				<height>22</height>
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>ListItem.IsCollection</visible>
 			</control>
@@ -185,7 +185,7 @@
 				<height>22</height>
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
@@ -200,7 +200,7 @@
 				<height>60</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<!-- Collection -->
 			<control type="image">
@@ -210,7 +210,7 @@
 				<height>22</height>
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>ListItem.IsCollection</visible>
 			</control>
@@ -222,7 +222,7 @@
 				<height>22</height>
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
@@ -237,7 +237,7 @@
 				<height>60</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<!-- Collection -->
 			<control type="image">
@@ -247,7 +247,7 @@
 				<height>22</height>
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>ListItem.IsCollection</visible>
 			</control>
@@ -259,7 +259,7 @@
 				<height>22</height>
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
@@ -274,7 +274,7 @@
 				<height>60</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<!-- Collection -->
 			<control type="image">
@@ -284,7 +284,7 @@
 				<height>22</height>
 				<texture>views/OverlayCollection.png</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>ListItem.IsCollection</visible>
 			</control>
@@ -296,7 +296,7 @@
 				<height>22</height>
 				<texture>$VAR[StatusOverlay]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<colordiffuse>$VAR[TextColor2]</colordiffuse>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 			</control>
@@ -304,9 +304,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords7_4:3</include>
 	</include>
 	<include name="Viewtype50_coords7_16:9">
@@ -322,7 +322,7 @@
 					<height>120</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 					<scrollspeed>120</scrollspeed>
 				</control>
@@ -331,7 +331,7 @@
 					<top>0</top>
 					<width>1018</width>
 					<height>120</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus120]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 				<!-- Collection -->
@@ -342,7 +342,7 @@
 					<height>22</height>
 					<texture>views/OverlayCollection.png</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>ListItem.IsCollection</visible>
 				</control>
 				<!-- Watched status -->
@@ -353,7 +353,7 @@
 					<height>22</height>
 					<texture>$VAR[StatusOverlay]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 				</control>
 			</control>
@@ -372,7 +372,7 @@
 					<height>120</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 					<scrollspeed>120</scrollspeed>
 				</control>
@@ -381,7 +381,7 @@
 					<top>0</top>
 					<width>1658</width>
 					<height>120</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus120]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 				<!-- Collection -->
@@ -392,7 +392,7 @@
 					<height>22</height>
 					<texture>views/OverlayCollection.png</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>ListItem.IsCollection</visible>
 				</control>
 				<!-- Watched status -->
@@ -403,7 +403,7 @@
 					<height>22</height>
 					<texture>$VAR[StatusOverlay]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 				</control>
 			</control>
@@ -422,7 +422,7 @@
 					<height>120</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 					<scrollspeed>120</scrollspeed>
 				</control>
@@ -431,7 +431,7 @@
 					<top>0</top>
 					<width>1658</width>
 					<height>120</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus120]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 				<!-- Collection -->
@@ -442,7 +442,7 @@
 					<height>22</height>
 					<texture>views/OverlayCollection.png</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>ListItem.IsCollection</visible>
 				</control>
 				<!-- Watched status -->
@@ -453,7 +453,7 @@
 					<height>22</height>
 					<texture>$VAR[StatusOverlay]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 				</control>
 			</control>
@@ -472,7 +472,7 @@
 					<height>120</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 					<scrollspeed>120</scrollspeed>
 				</control>
@@ -481,7 +481,7 @@
 					<top>0</top>
 					<width>538</width>
 					<height>120</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus120]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus120]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 				<!-- Collection -->
@@ -492,7 +492,7 @@
 					<height>22</height>
 					<texture>views/OverlayCollection.png</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>ListItem.IsCollection</visible>
 				</control>
 				<!-- Watched status -->
@@ -503,7 +503,7 @@
 					<height>22</height>
 					<texture>$VAR[StatusOverlay]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<colordiffuse>$VAR[TextColor1]</colordiffuse>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
 					<visible>![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)] + !ListItem.IsCollection</visible>
 				</control>
 			</control>
@@ -511,9 +511,9 @@
 	</include>
 	
 	<include name="Viewtype50_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">Viewtype50_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">Viewtype50_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Viewtype50_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">Viewtype50_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">Viewtype50_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Viewtype50_coords8_4:3</include>
 	</include>
 	<include name="Viewtype50_coords8_16:9">

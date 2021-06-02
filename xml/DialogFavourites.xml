@@ -65,7 +65,7 @@
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
@@ -77,7 +77,7 @@
 				<align>right</align>
 				<label>$INFO[Container(450).NumItems]$VAR[ContentTypeFavourites, ,]</label>
 				<font>Font30</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(450).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 			
@@ -93,7 +93,7 @@
 					<centertop>50%</centertop>
 					<width>30</width>
 					<height>30</height>
-					<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+					<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
 					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(450).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 				</control>
 			</control>

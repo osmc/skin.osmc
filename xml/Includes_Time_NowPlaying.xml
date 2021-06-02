@@ -59,7 +59,7 @@
 					<align>right</align>
 					<label>$INFO[System.Time]</label>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>!Player.HasMedia</visible>
 				</control>
 				<control type="label">
@@ -68,7 +68,7 @@
 					<align>right</align>
 					<label>$INFO[System.Date]</label>
 					<font>Font33-light</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>Skin.HasSetting(Dateaboveclock) + !Player.HasMedia</visible>
 				</control>
 
@@ -277,12 +277,12 @@
 					<!-- Play/Paused Image -->
 					<control type="image">
 						<include>nowplaying_coords4</include>
-						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPlayNF.png</texture>
+						<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlayNF.png</texture>
 						<visible>!Player.Paused</visible>
 					</control>
 					<control type="image">
 						<include>nowplaying_coords4</include>
-						<texture colordiffuse="$VAR[DialogColor1]">osd/OSDPauseNF.png</texture>
+						<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDPauseNF.png</texture>
 						<visible>Player.Paused</visible>
 					</control>
 
