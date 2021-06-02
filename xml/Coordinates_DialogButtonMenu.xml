@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="DialogButtonMenu_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogButtonMenu_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogButtonMenu_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogButtonMenu_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogButtonMenu_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogButtonMenu_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogButtonMenu_coords1_4:3</include>
 	</include>
 	<include name="DialogButtonMenu_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="DialogButtonMenu_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogButtonMenu_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogButtonMenu_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogButtonMenu_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogButtonMenu_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogButtonMenu_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogButtonMenu_coords2_4:3</include>
 	</include>
 	<include name="DialogButtonMenu_coords2_16:9">
@@ -64,9 +64,9 @@
 	</include>
 	
 	<include name="DialogButtonMenu_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogButtonMenu_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogButtonMenu_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogButtonMenu_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogButtonMenu_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogButtonMenu_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogButtonMenu_coords3_4:3</include>
 	</include>
 	<include name="DialogButtonMenu_coords3_16:9">
@@ -75,7 +75,7 @@
 				<width>410</width>
 				<height>52</height>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<align>center</align>
 			</control>
 		</itemlayout>
@@ -86,7 +86,7 @@
 				<width>410</width>
 				<height>52</height>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<align>center</align>
 			</control>
 		</itemlayout>
@@ -97,7 +97,7 @@
 				<width>410</width>
 				<height>52</height>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<align>center</align>
 			</control>
 		</itemlayout>
@@ -108,16 +108,16 @@
 				<width>410</width>
 				<height>52</height>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<align>center</align>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="DialogButtonMenu_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogButtonMenu_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogButtonMenu_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogButtonMenu_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogButtonMenu_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogButtonMenu_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogButtonMenu_coords4_4:3</include>
 	</include>
 	<include name="DialogButtonMenu_coords4_16:9">
@@ -130,13 +130,13 @@
 					<width>410</width>
 					<height>52</height>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<align>center</align>
 				</control>
 				<control type="image">
 					<width>410</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -151,13 +151,13 @@
 					<width>410</width>
 					<height>52</height>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<align>center</align>
 				</control>
 				<control type="image">
 					<width>410</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -172,13 +172,13 @@
 					<width>410</width>
 					<height>52</height>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<align>center</align>
 				</control>
 				<control type="image">
 					<width>410</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -193,13 +193,13 @@
 					<width>410</width>
 					<height>52</height>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<align>center</align>
 				</control>
 				<control type="image">
 					<width>410</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				</control>
 			</control>
 		</focusedlayout>

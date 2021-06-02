@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="EventLog_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">EventLog_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">EventLog_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">EventLog_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">EventLog_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">EventLog_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">EventLog_coords1_4:3</include>
 	</include>
 	<include name="EventLog_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="EventLog_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">EventLog_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">EventLog_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">EventLog_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">EventLog_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">EventLog_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">EventLog_coords2_4:3</include>
 	</include>
 	<include name="EventLog_coords2_16:9">
@@ -64,9 +64,9 @@
 	</include>
 	
 	<include name="EventLog_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">EventLog_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">EventLog_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">EventLog_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">EventLog_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">EventLog_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">EventLog_coords3_4:3</include>
 	</include>
 	<include name="EventLog_coords3_16:9">
@@ -78,7 +78,7 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -91,7 +91,7 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -104,7 +104,7 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -117,15 +117,15 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$VAR[Label1]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="EventLog_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">EventLog_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">EventLog_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">EventLog_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">EventLog_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">EventLog_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">EventLog_coords4_4:3</include>
 	</include>
 	<include name="EventLog_coords4_16:9">
@@ -141,7 +141,7 @@
 					<height>48</height>
 					<font>Font48-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
@@ -149,7 +149,7 @@
 					<top>29</top>
 					<width>1018</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -167,7 +167,7 @@
 					<height>48</height>
 					<font>Font48-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
@@ -175,7 +175,7 @@
 					<top>29</top>
 					<width>1658</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -193,7 +193,7 @@
 					<height>48</height>
 					<font>Font48-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
@@ -201,7 +201,7 @@
 					<top>29</top>
 					<width>1658</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -219,7 +219,7 @@
 					<height>48</height>
 					<font>Font48-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
@@ -227,16 +227,16 @@
 					<top>29</top>
 					<width>538</width>
 					<height>52</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	
 	<include name="EventLog_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">EventLog_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">EventLog_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">EventLog_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">EventLog_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">EventLog_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">EventLog_coords5_4:3</include>
 	</include>
 	<include name="EventLog_coords5_16:9">

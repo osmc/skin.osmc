@@ -176,7 +176,7 @@
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
@@ -197,7 +197,7 @@
 
 				<!-- Heading -->
 				<control type="label" id="1">
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<include>script-skinshortcuts_coords6</include>
 					<label>$INFO[Container(211).ListItem.Label]</label>
 					<align>center</align>
@@ -207,7 +207,7 @@
 				
 				<!-- Heading -->
 				<control type="label" id="2">
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<include>script-skinshortcuts_coords6</include>
 					<label>$INFO[Container(211).ListItem.Property(widgetName)]</label>
 					<align>center</align>
@@ -242,7 +242,7 @@
 					<include>script-skinshortcuts_coords7</include>
 					<label>  -  $ADDON[script.skinshortcuts 32045]</label>
 					<label2>$INFO[Container(211).ListItem.Property(background)]</label2>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 				
@@ -260,7 +260,7 @@
 					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),15s)">Skin.SetString(IndividualBackgroundFolderDuration,20s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),20s)">Skin.SetString(IndividualBackgroundFolderDuration,30s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),30s)">Skin.SetString(IndividualBackgroundFolderDuration,1 min)</onclick>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 
@@ -299,7 +299,7 @@
 					<label>  -  $LOCALIZE[31172]</label>
 					<label2>$VAR[skinshortcuts-size]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget)</enable>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
@@ -309,7 +309,7 @@
 					<label>  -  $LOCALIZE[31033]</label>
 					<label2>$VAR[skinshortcuts-art]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				
@@ -319,7 +319,7 @@
 					<label>  -  $LOCALIZE[31029]</label>
 					<label2>$VAR[skinshortcuts-fallbackart]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
@@ -329,7 +329,7 @@
 					<label>  -  $LOCALIZE[31175]</label>
 					<label2>$VAR[WidgetSortByLabel]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 					<onclick>SetProperty(chooseProperty,widgetSortBy)</onclick>
 					<onclick>SendClick(404)</onclick>
@@ -341,7 +341,7 @@
 					<label>  -  $LOCALIZE[31176]</label>
 					<label2>$VAR[WidgetSortDirectionLabel]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 					<onclick>SetProperty(chooseProperty,widgetSortDirection)</onclick>
 					<onclick>SendClick(404)</onclick>
@@ -353,7 +353,7 @@
 					<label>  -  $LOCALIZE[31177]</label>
 					<label2>$VAR[WidgetLimitLabel]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[TextColor4]</disabledcolor>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 					<onclick>SetProperty(chooseProperty,widgetLimit)</onclick>
 					<onclick>SendClick(404)</onclick>
@@ -377,32 +377,32 @@
 			<control type="textbox">
 				<include>script-skinshortcuts_coords8</include>
 				<label>$VAR[SkinShortcutsExplanation1]</label>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 			</control>
 
 			<control type="group">
 				<!-- Button grouplist background -->
 				<control type="image">
 					<include>dialogButtonBackground_coords1</include>
-					<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">common/Border.png</texture>
 					<visible>ControlGroup(9001).HasFocus | Window.IsVisible(1106)</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 				<control type="image">
 					<include>dialogButtonBackground_coords1</include>
-					<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
+					<texture colordiffuse="$VAR[TextColorNF]">common/Border.png</texture>
 					<visible>!ControlGroup(9001).HasFocus + !Window.IsVisible(1106)</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 				<control type="image">
 					<include>dialogButtonBackground_coords2</include>
-					<texture colordiffuse="$VAR[TextColor1]">common/Border.png</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">common/Border.png</texture>
 					<visible>ControlGroup(9001).HasFocus | Window.IsVisible(1106)</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 				<control type="image">
 					<include>dialogButtonBackground_coords2</include>
-					<texture colordiffuse="$VAR[TextColor2]">common/Border.png</texture>
+					<texture colordiffuse="$VAR[TextColorNF]">common/Border.png</texture>
 					<visible>!ControlGroup(9001).HasFocus + !Window.IsVisible(1106)</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>

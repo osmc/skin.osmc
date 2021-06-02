@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="FileManager_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords1_4:3</include>
 	</include>
 	<include name="FileManager_coords1_16:9">
@@ -25,9 +25,9 @@
 	</include>
 	
 	<include name="FileManager_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords2_4:3</include>
 	</include>
 	<include name="FileManager_coords2_16:9">
@@ -48,9 +48,9 @@
 	</include>
 	
 	<include name="FileManager_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords3_4:3</include>
 	</include>
 	<include name="FileManager_coords3_16:9">
@@ -75,9 +75,9 @@
 	</include>
 	
 	<include name="FileManager_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords4_4:3</include>
 	</include>
 	<include name="FileManager_coords4_16:9">
@@ -102,9 +102,9 @@
 	</include>
 	
 	<include name="FileManager_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords5_4:3</include>
 	</include>
 	<include name="FileManager_coords5_16:9">
@@ -112,14 +112,14 @@
 			<control type="label">
 				<width>800</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>600</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -128,7 +128,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -139,14 +139,14 @@
 			<control type="label">
 				<width>1120</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>920</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -155,7 +155,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -166,14 +166,14 @@
 			<control type="label">
 				<width>1120</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>920</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -182,7 +182,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -193,14 +193,14 @@
 			<control type="label">
 				<width>560</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>360</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -209,7 +209,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -217,9 +217,9 @@
 	</include>
 	
 	<include name="FileManager_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords6_4:3</include>
 	</include>
 	<include name="FileManager_coords6_16:9">
@@ -231,7 +231,7 @@
 				<control type="label">
 					<width>800</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -239,7 +239,7 @@
 				<control type="label">
 					<width>500</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -249,7 +249,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -258,7 +258,7 @@
 					<top>2</top>
 					<width>800</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -273,7 +273,7 @@
 				<control type="label">
 					<width>1120</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -281,7 +281,7 @@
 				<control type="label">
 					<width>920</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -291,7 +291,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -300,7 +300,7 @@
 					<top>2</top>
 					<width>1120</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -315,7 +315,7 @@
 				<control type="label">
 					<width>1120</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -323,7 +323,7 @@
 				<control type="label">
 					<width>920</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -333,7 +333,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -342,7 +342,7 @@
 					<top>2</top>
 					<width>1120</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -357,7 +357,7 @@
 				<control type="label">
 					<width>560</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -365,7 +365,7 @@
 				<control type="label">
 					<width>360</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -375,7 +375,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -384,7 +384,7 @@
 					<top>2</top>
 					<width>560</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -392,9 +392,9 @@
 	</include>
 	
 	<include name="FileManager_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords7_4:3</include>
 	</include>
 	<include name="FileManager_coords7_16:9">
@@ -423,9 +423,9 @@
 	</include>
 	
 	<include name="FileManager_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords8_4:3</include>
 	</include>
 	<include name="FileManager_coords8_16:9">
@@ -450,9 +450,9 @@
 	</include>
 	
 	<include name="FileManager_coords9">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords9_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords9_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords9_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords9_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords9_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords9_4:3</include>
 	</include>
 	<include name="FileManager_coords9_16:9">
@@ -473,9 +473,9 @@
 	</include>
 	
 	<include name="FileManager_coords10">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords10_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords10_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords10_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords10_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords10_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords10_4:3</include>
 	</include>
 	<include name="FileManager_coords10_16:9">
@@ -500,9 +500,9 @@
 	</include>
 	
 	<include name="FileManager_coords11">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords11_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords11_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords11_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords11_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords11_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords11_4:3</include>
 	</include>
 	<include name="FileManager_coords11_16:9">
@@ -531,9 +531,9 @@
 	</include>
 	
 	<include name="FileManager_coords12">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords12_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords12_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords12_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords12_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords12_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords12_4:3</include>
 	</include>
 	<include name="FileManager_coords12_16:9">
@@ -562,9 +562,9 @@
 	</include>
 	
 	<include name="FileManager_coords13">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords13_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords13_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords13_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords13_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords13_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords13_4:3</include>
 	</include>
 	<include name="FileManager_coords13_16:9">
@@ -572,14 +572,14 @@
 			<control type="label">
 				<width>800</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>600</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -588,7 +588,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -599,14 +599,14 @@
 			<control type="label">
 				<width>1120</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>920</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -615,7 +615,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -626,14 +626,14 @@
 			<control type="label">
 				<width>1120</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>920</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -642,7 +642,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -653,14 +653,14 @@
 			<control type="label">
 				<width>560</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
 			<control type="label">
 				<width>360</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -669,7 +669,7 @@
 				<width>200</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 				<visible>!String.IsEmpty(ListItem.Label2)</visible>
 			</control>
@@ -677,9 +677,9 @@
 	</include>
 	
 	<include name="FileManager_coords14">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords14_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords14_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords14_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords14_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords14_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords14_4:3</include>
 	</include>
 	<include name="FileManager_coords14_16:9">
@@ -691,7 +691,7 @@
 				<control type="label">
 					<width>800</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -699,7 +699,7 @@
 				<control type="label">
 					<width>500</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -709,7 +709,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -718,7 +718,7 @@
 					<top>2</top>
 					<width>800</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -733,7 +733,7 @@
 				<control type="label">
 					<width>1120</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -741,7 +741,7 @@
 				<control type="label">
 					<width>920</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -751,7 +751,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -760,7 +760,7 @@
 					<top>2</top>
 					<width>1120</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -775,7 +775,7 @@
 				<control type="label">
 					<width>1120</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -783,7 +783,7 @@
 				<control type="label">
 					<width>920</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -793,7 +793,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -802,7 +802,7 @@
 					<top>2</top>
 					<width>1120</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -817,7 +817,7 @@
 				<control type="label">
 					<width>560</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
@@ -825,7 +825,7 @@
 				<control type="label">
 					<width>360</width>
 					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -835,7 +835,7 @@
 					<width>200</width>
 					<align>right</align>
 					<font>Font33</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 					<visible>!String.IsEmpty(ListItem.Label2)</visible>
@@ -844,7 +844,7 @@
 					<top>2</top>
 					<width>560</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -852,9 +852,9 @@
 	</include>
 	
 	<include name="FileManager_coords15">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords15_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords15_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords15_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords15_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords15_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords15_4:3</include>
 	</include>
 	<include name="FileManager_coords15_16:9">
@@ -883,9 +883,9 @@
 	</include>
 	
 	<include name="FileManager_coords16">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileManager_coords16_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileManager_coords16_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileManager_coords16_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileManager_coords16_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileManager_coords16_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileManager_coords16_4:3</include>
 	</include>
 	<include name="FileManager_coords16_16:9">

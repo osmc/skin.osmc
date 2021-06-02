@@ -31,7 +31,7 @@
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
 				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(50)</visible>
@@ -43,7 +43,7 @@
 				
 				<control type="image">
 					<include>MediaFlags_coords10</include>
-					<colordiffuse>$VAR[TextColor2]</colordiffuse>
+					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
 					<texture>Duration.png</texture>
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Duration)</visible>
@@ -52,7 +52,7 @@
 					<include>MediaFlags_coords11</include>
 					<label>$INFO[ListItem.Duration]$INFO[Container.Totaltime, / ,]</label>
 					<font>Font30</font>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.IsEmpty(ListItem.Duration)</visible>
 				</control>
 			</control>
@@ -64,7 +64,7 @@
 				<visible>!Skin.HasSetting(ItemCount)</visible>
 				<label>$INFO[Container.NumItems]$VAR[ContentTypeMyPlaylist, ,]</label>
 				<font>Font30</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<align>right</align>
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
@@ -207,14 +207,14 @@
 					<top>0</top>
 					<width>72</width>
 					<height>20</height>
-					<texture border="1,12,1,1" colordiffuse="$VAR[DialogOverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+					<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>24</width>
 					<height>20</height>
-					<texture border="1,12,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripHorizontalFO.png</texture>
+					<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripHorizontalFO.png</texture>
 					<animation effect="slide" start="0" end="24" time="200" condition="ControlGroup(4000).HasFocus()">Conditional</animation>
 					<animation effect="slide" start="0" end="48" time="200" condition="ControlGroup(5000).HasFocus()">Conditional</animation>
 				</control>
@@ -228,7 +228,7 @@
 					<height>72</height>
 					<label>$VAR[CustomMenuHeading]</label>
 					<font>Font72</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Look controls -->

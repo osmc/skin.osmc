@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="VideoOSDBookmarks_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">VideoOSDBookmarks_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">VideoOSDBookmarks_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">VideoOSDBookmarks_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">VideoOSDBookmarks_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">VideoOSDBookmarks_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">VideoOSDBookmarks_coords1_4:3</include>
 	</include>
 	<include name="VideoOSDBookmarks_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="VideoOSDBookmarks_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">VideoOSDBookmarks_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">VideoOSDBookmarks_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">VideoOSDBookmarks_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">VideoOSDBookmarks_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">VideoOSDBookmarks_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">VideoOSDBookmarks_coords2_4:3</include>
 	</include>
 	<include name="VideoOSDBookmarks_coords2_16:9">
@@ -58,7 +58,7 @@
 				<top>190</top>
 				<width>304</width>
 				<height>44</height>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -83,7 +83,7 @@
 				<top>190</top>
 				<width>304</width>
 				<height>44</height>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -108,7 +108,7 @@
 				<top>190</top>
 				<width>304</width>
 				<height>44</height>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -133,16 +133,16 @@
 				<top>190</top>
 				<width>304</width>
 				<height>44</height>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="VideoOSDBookmarks_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">VideoOSDBookmarks_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">VideoOSDBookmarks_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">VideoOSDBookmarks_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">VideoOSDBookmarks_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">VideoOSDBookmarks_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">VideoOSDBookmarks_coords3_4:3</include>
 	</include>
 	<include name="VideoOSDBookmarks_coords3_16:9">
@@ -166,7 +166,7 @@
 				<width>304</width>
 				<height>44</height>
 				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -177,7 +177,7 @@
 				<top>196</top>
 				<width>304</width>
 				<height>44</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -205,7 +205,7 @@
 				<width>304</width>
 				<height>44</height>
 				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -216,7 +216,7 @@
 				<top>196</top>
 				<width>304</width>
 				<height>44</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -244,7 +244,7 @@
 				<width>304</width>
 				<height>44</height>
 				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -255,7 +255,7 @@
 				<top>196</top>
 				<width>304</width>
 				<height>44</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -283,7 +283,7 @@
 				<width>304</width>
 				<height>44</height>
 				<scroll>True</scroll>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label>($INFO[ListItem.Label2]) - $INFO[ListItem.Label]</label>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -294,7 +294,7 @@
 				<top>196</top>
 				<width>304</width>
 				<height>44</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -303,9 +303,9 @@
 	</include>
 	
 	<include name="VideoOSDBookmarks_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">VideoOSDBookmarks_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">VideoOSDBookmarks_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">VideoOSDBookmarks_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">VideoOSDBookmarks_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">VideoOSDBookmarks_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">VideoOSDBookmarks_coords4_4:3</include>
 	</include>
 	<include name="VideoOSDBookmarks_coords4_16:9">
@@ -334,9 +334,9 @@
 	</include>
 	
 	<include name="VideoOSDBookmarks_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">VideoOSDBookmarks_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">VideoOSDBookmarks_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">VideoOSDBookmarks_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">VideoOSDBookmarks_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">VideoOSDBookmarks_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">VideoOSDBookmarks_coords5_4:3</include>
 	</include>
 	<include name="VideoOSDBookmarks_coords5_16:9">
@@ -357,9 +357,9 @@
 	</include>
 	
 	<include name="VideoOSDBookmarks_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">VideoOSDBookmarks_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">VideoOSDBookmarks_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">VideoOSDBookmarks_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">VideoOSDBookmarks_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">VideoOSDBookmarks_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">VideoOSDBookmarks_coords6_4:3</include>
 	</include>
 	<include name="VideoOSDBookmarks_coords6_16:9">
@@ -387,9 +387,9 @@
 		<height>60</height>	</include>
 	
 	<include name="VideoOSDBookmarks_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">VideoOSDBookmarks_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">VideoOSDBookmarks_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">VideoOSDBookmarks_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">VideoOSDBookmarks_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">VideoOSDBookmarks_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">VideoOSDBookmarks_coords7_4:3</include>
 	</include>
 	<include name="VideoOSDBookmarks_coords7_16:9">
