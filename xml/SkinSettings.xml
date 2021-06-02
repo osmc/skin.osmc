@@ -140,8 +140,8 @@
 					<font>Font33</font>
 					<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
 					<visible>System.HasAddon(script.skinshortcuts) + System.AddonIsEnabled(script.skinshortcuts)<!--  + System.HasAddon(script.skin.helper.service) + System.AddonIsEnabled(script.skin.helper.service) --></visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<control type="button" id="102">
 					<include>SkinSettings_coords16</include>
@@ -152,8 +152,8 @@
 					<onclick condition="System.HasAddon(script.skinshortcuts) + !System.AddonIsEnabled(script.skinshortcuts)">EnableAddon(script.skinshortcuts)</onclick>
 					<!-- <onclick condition="System.HasAddon(script.skin.helper.service) + !System.AddonIsEnabled(script.skin.helper.service)">EnableAddon(script.skin.helper.service)</onclick> -->
 					<visible>!System.AddonIsEnabled(script.skinshortcuts)<!--  | !System.AddonIsEnabled(script.skin.helper.service) --></visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Always show settings link -->
 				<control type="radiobutton" id="103">
@@ -183,9 +183,9 @@
 					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.33:1)">Skin.SetString(MaskingBars,2.00:1)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.00:1)">Skin.SetString(MaskingBars,1.78:1)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(MaskingBars),1.78:1)">Skin.SetString(MaskingBars,2.40:1)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
-					<visible>False</visible>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<visible>$EXP[Masking]</visible>
 				</control>
 				<!-- Automatic masking -->
 				<control type="radiobutton" id="106">
@@ -194,7 +194,7 @@
 					<label>31401</label>
 					<onclick>Skin.ToggleSetting(AutomaticMasking)</onclick>
 					<selected>Skin.HasSetting(AutomaticMasking)</selected>
-					<visible>False</visible>
+					<visible>$EXP[Masking]</visible>
 				</control>
 			</control>
 
@@ -227,8 +227,8 @@
 					<onclick condition="String.IsEqual(Skin.String(BackgroundImage),2)">Skin.SetString(BackgroundImage,3)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(BackgroundImage),3)">Skin.SetString(BackgroundImage,4)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(BackgroundImage),4)">Skin.SetString(BackgroundImage,1)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),yes)</visible>
 				</control>
 				<!-- Custom background image -->
@@ -255,8 +255,8 @@
 					<label2>$INFO[Skin.String(CustomBackground)]</label2>
 					<onclick>Skin.SetImage(CustomBackground)</onclick>
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<control type="button" id="206">
 					<include>SkinSettings_coords16</include>
@@ -282,8 +282,8 @@
 					<label2>$INFO[Skin.String(CustomBackgroundFolder)]</label2>
 					<onclick>Skin.SetPath(CustomBackgroundFolder)</onclick>
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<control type="button" id="209">
 					<include>SkinSettings_coords16</include>
@@ -307,8 +307,8 @@
 					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),20s)">Skin.SetString(CustomBackgroundFolderDuration,30s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(CustomBackgroundFolderDuration),30s)">Skin.SetString(CustomBackgroundFolderDuration,1 min)</onclick>
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Color -->
 				<control type="radiobutton" id="211">
@@ -328,8 +328,8 @@
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.backgroundsolid)</onclick>
 					<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),solid)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Display fanart -->
 				<control type="radiobutton" id="213">
@@ -401,8 +401,8 @@
 					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),Orange)">Skin.SetString(DefaultColorSet,Red)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),Red)">Skin.SetString(DefaultColorSet,Purple)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),Purple)">Skin.SetString(DefaultColorSet,OSMC Blue)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Background opacity -->
 				<control type="button" id="303">
@@ -414,8 +414,8 @@
 					<onclick condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">Skin.SetString(DefaultBackgroundOpacity,Low)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">Skin.SetString(DefaultBackgroundOpacity,Highest)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">Skin.SetString(DefaultBackgroundOpacity,High)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]</visible>
 				</control>
 				<!-- Overlay opacity -->
@@ -428,8 +428,8 @@
 					<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">Skin.SetString(DefaultOverlayOpacity,Low)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">Skin.SetString(DefaultOverlayOpacity,Highest)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">Skin.SetString(DefaultOverlayOpacity,High)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]</visible>
 				</control>
 				<!-- Background color gradient -->
@@ -443,8 +443,8 @@
 					<onclick condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),3)">Skin.SetString(OSMCBackgroundOverlay,4)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),4)">Skin.SetString(OSMCBackgroundOverlay,5)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),5)">Skin.SetString(OSMCBackgroundOverlay,1)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Custom colors -->
 				<control type="radiobutton" id="306">
@@ -469,8 +469,8 @@
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.background,header=$LOCALIZE[31162],palette=rainbow)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Custom overlay color -->
 				<control type="image" id="309">
@@ -487,44 +487,44 @@
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlay,header=$LOCALIZE[31062],palette=rainbow)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Custom focus text color -->
 				<control type="image" id="311">
 					<include>SkinSettings_coords18</include>
-					<texture colordiffuse="$VAR[TextColor1]">common/white.png</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">common/white.png</texture>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 				</control>
 				<control type="button" id="312">
 					<include>SkinSettings_coords19</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31163]</label>
-					<label2>$VAR[TextColor1-Name]</label2>
+					<label2>$VAR[TextColorFO-Name]</label2>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text1,header=$LOCALIZE[31163],palette=rainbow)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.textfo,header=$LOCALIZE[31163],palette=rainbow)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Custom non-focus text color -->
 				<control type="image" id="313">
 					<include>SkinSettings_coords18</include>
-					<texture colordiffuse="$VAR[TextColor2]">common/white.png</texture>
+					<texture colordiffuse="$VAR[TextColorNF]">common/white.png</texture>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 				</control>
 				<control type="button" id="314">
 					<include>SkinSettings_coords19</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31164]</label>
-					<label2>$VAR[TextColor2-Name]</label2>
+					<label2>$VAR[TextColorNF-Name]</label2>
 					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
-					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.text2,header=$LOCALIZE[31164],palette=rainbow)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.textnf,header=$LOCALIZE[31164],palette=rainbow)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Custom selected text color -->
 				<control type="image" id="315">
@@ -541,8 +541,8 @@
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.selected,header=$LOCALIZE[31165],palette=rainbow)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Custom disabled text color -->
 				<control type="image" id="317">
@@ -559,8 +559,80 @@
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.disabled,header=$LOCALIZE[31166],palette=rainbow)</onclick>
 					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+				</control>
+				<!-- Custom focus control color -->
+				<control type="image" id="319">
+					<include>SkinSettings_coords18</include>
+					<texture colordiffuse="$VAR[OverlayColorFO]">common/white.png</texture>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
+				</control>
+				<control type="button" id="320">
+					<include>SkinSettings_coords19</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31023]</label>
+					<label2>$VAR[OverlayColorFO-Name]</label2>
+					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlayfo,header=$LOCALIZE[31023],palette=rainbow)</onclick>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+				</control>
+				<!-- Custom non-focus control color -->
+				<control type="image" id="321">
+					<include>SkinSettings_coords18</include>
+					<texture colordiffuse="$VAR[OverlayColorNF]">common/white.png</texture>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
+				</control>
+				<control type="button" id="322">
+					<include>SkinSettings_coords19</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31024]</label>
+					<label2>$VAR[OverlayColorNF-Name]</label2>
+					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlaynf,header=$LOCALIZE[31024],palette=rainbow)</onclick>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+				</control>
+				<!-- Custom OSD cache bar color -->
+				<control type="image" id="323">
+					<include>SkinSettings_coords18</include>
+					<texture colordiffuse="$VAR[OSDCacheColor]">common/white.png</texture>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
+				</control>
+				<control type="button" id="324">
+					<include>SkinSettings_coords19</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31025]</label>
+					<label2>$VAR[OSDCacheColor-Name]</label2>
+					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.osdcache,header=$LOCALIZE[31025],palette=rainbow)</onclick>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+				</control>
+				<!-- Custom masking color -->
+				<control type="image" id="325">
+					<include>SkinSettings_coords18</include>
+					<texture colordiffuse="$VAR[MaskingColor]">common/white.png</texture>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no) + $EXP[Masking]</visible>
+				</control>
+				<control type="button" id="326">
+					<include>SkinSettings_coords19</include>
+					<font>Font33</font>
+					<label>$LOCALIZE[31050]</label>
+					<label2>$VAR[MaskingColor-Name]</label2>
+					<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.masking,header=$LOCALIZE[31050],palette=rainbow)</onclick>
+					<visible>String.IsEqual(Skin.String(DefaultColors),no) + $EXP[Masking]</visible>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				
 			</control>
@@ -583,7 +655,7 @@
 					<font>Font33</font>
 					<align>center</align>
 					<label>$LOCALIZE[31144]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- OSD info video start -->
 				<control type="radiobutton" id="402">
@@ -648,8 +720,8 @@
 					<onclick condition="String.IsEqual(Skin.String(videoinfostartduration),15s)">Skin.SetString(videoinfostartduration,20s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(videoinfostartduration),20s)">Skin.SetString(videoinfostartduration,5s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(videoinfostartduration),5s)">Skin.SetString(videoinfostartduration,10s)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>Skin.HasSetting(videoinfostart)</visible>
 				</control>
 				<!-- OSD info video end -->
@@ -706,8 +778,8 @@
 					<onclick condition="String.IsEqual(Skin.String(videoinfoendduration),15s)">Skin.SetString(videoinfoendduration,20s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(videoinfoendduration),20s)">Skin.SetString(videoinfoendduration,5s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(videoinfoendduration),5s)">Skin.SetString(videoinfoendduration,10s)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>Skin.HasSetting(videoinfoend)</visible>
 				</control>
 				<!-- Adjust OSD on-time during video pause -->
@@ -726,13 +798,13 @@
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),3 min)">Skin.SetString(HideOSD,5 min)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),5 min)">Skin.SetString(HideOSD,Disabled)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),Disabled)">Skin.SetString(HideOSD,Always)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Divider -->
 				<control type="image" id="416">
 					<include>SkinSettings_coords17</include>
-					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+					<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>
 				</control>
 				<!-- Music OSD -->
 				<control type="label" id="417">
@@ -740,7 +812,7 @@
 					<font>Font33</font>
 					<align>center</align>
 					<label>$LOCALIZE[31145]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Automatically show music OSD during playback -->
 				<control type="radiobutton" id="418">
@@ -760,8 +832,8 @@
 					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),15s)">Skin.SetString(AutoMusicVisPlaybackDuration,20s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),20s)">Skin.SetString(AutoMusicVisPlaybackDuration,30s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),30s)">Skin.SetString(AutoMusicVisPlaybackDuration,60s)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>Skin.HasSetting(AutoMusicVisPlayback)</visible>
 				</control>
 				<!-- Never hide music OSD -->
@@ -795,8 +867,8 @@
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select) + System.AddonIsEnabled(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherIcons&amp;type=resource.images.weathericons)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Weather fanart -->
 				<control type="button" id="502">
@@ -807,8 +879,8 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + System.AddonIsEnabled(script.image.resource.select)">RunScript(script.image.resource.select,property=weatherFanart&amp;type=resource.images.weatherfanart)</onclick>
 					<label>$LOCALIZE[31068]</label>
 					<label2>$VAR[weather-fanart]</label2>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 			</control>
 
@@ -830,7 +902,7 @@
 					<font>Font33</font>
 					<align>center</align>
 					<label>$LOCALIZE[31173]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Disable additional text highlighting -->
 				<control type="radiobutton" id="602">
@@ -852,8 +924,8 @@
 					<onclick condition="String.IsEqual(Skin.String(NFDimOpac),33)">Skin.SetString(NFDimOpac,0)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(NFDimOpac),0)">Skin.SetString(NFDimOpac,133)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(NFDimOpac),133)">Skin.SetString(NFDimOpac,100)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Adjust plot/description text font size -->
 				<control type="button" id="604">
@@ -869,13 +941,13 @@
 					<onclick condition="String.IsEqual(Skin.String(PlotFont),XL light)">Skin.SetString(PlotFont,XL)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(PlotFont),XL)">Skin.SetString(PlotFont,S light)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(PlotFont),S light)">Skin.SetString(PlotFont,S)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Divider -->
 				<control type="image" id="605">
 					<include>SkinSettings_coords17</include>
-					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+					<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>
 				</control>
 				<!-- Library -->
 				<control type="label" id="606">
@@ -883,7 +955,7 @@
 					<font>Font33</font>
 					<align>center</align>
 					<label>$LOCALIZE[14022]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Disable video watched status in library -->
 				<control type="radiobutton" id="607">
@@ -909,8 +981,8 @@
 					<label2>$INFO[Skin.String(infodialogfirstpage)]</label2>
 					<onclick condition="String.IsEqual(Skin.String(infodialogfirstpage),Details)">Skin.SetString(infodialogfirstpage,Description)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(infodialogfirstpage),Description)">Skin.SetString(infodialogfirstpage,Details)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Show user rating -->
 				<control type="radiobutton" id="610">
@@ -928,8 +1000,8 @@
 					<label2>$INFO[Skin.String(videodurationformat)]</label2>
 					<onclick condition="String.IsEqual(Skin.String(videodurationformat),Minutes)">Skin.SetString(videodurationformat,Hours and minutes)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(videodurationformat),Hours and minutes)">Skin.SetString(videodurationformat,Minutes)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Edit video media flags -->
 				<control type="button" id="612">
@@ -943,8 +1015,8 @@
 					<onclick condition="String.IsEqual(Skin.String(mediaflags),Language only)">Skin.SetString(mediaflags,Duration only)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(mediaflags),Duration only)">Skin.SetString(mediaflags,None)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(mediaflags),None)">Skin.SetString(mediaflags,File first)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Disable item count -->
 				<control type="radiobutton" id="613">
@@ -978,14 +1050,14 @@
 					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall small)">Skin.SetString(DefaultVideosView,Wall small info)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall small info)">Skin.SetString(DefaultVideosView,Wall low)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall low)">Skin.SetString(DefaultVideosView,List)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>Skin.HasSetting(FixedVideosView)</visible>
 				</control>
 				<!-- Divider -->
 				<control type="image" id="616">
 					<include>SkinSettings_coords17</include>
-					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+					<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>
 				</control>
 				<!-- Mixed -->
 				<control type="label" id="617">
@@ -993,7 +1065,7 @@
 					<font>Font33</font>
 					<align>center</align>
 					<label>$LOCALIZE[20395]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Disable scrolling label -->
 				<control type="radiobutton" id="618">
@@ -1055,7 +1127,7 @@
 					<font>Font33</font>
 					<align>center</align>
 					<label>$LOCALIZE[31080]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Skin Shortcuts -->
 				<control type="button" id="702">
@@ -1105,7 +1177,7 @@
 				<!-- Divider -->
 				<control type="image" id="707">
 					<include>SkinSettings_coords17</include>
-					<texture border="2" colordiffuse="$VAR[DialogColor2]">common/Divider.png</texture>
+					<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>
 				</control>
 				<!-- Supported -->
 				<control type="label" id="708">
@@ -1113,7 +1185,7 @@
 					<font>Font33</font>
 					<align>center</align>
 					<label>$LOCALIZE[31084]</label>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- AutoCompletion for virtual keyboard -->
 				<control type="button" id="709">
@@ -1181,8 +1253,8 @@
 					<onclick condition="System.HasAddon(script.skin.helper.skinbackup) + !System.AddonIsEnabled(script.skin.helper.skinbackup)">EnableAddon(script.skin.helper.skinbackup)</onclick>
 					<onclick condition="System.HasAddon(script.skin.helper.skinbackup) + System.AddonIsEnabled(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup)</onclick>
 					<label>31052</label>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Reset all home menu items -->
 				<control type="button" id="802">
@@ -1190,16 +1262,16 @@
 					<onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
 					<label>31399</label>
 					<visible>System.HasAddon(script.skinshortcuts)</visible>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Reset skin settings -->
 				<control type="button" id="803">
 					<include>SkinSettings_coords16</include>
 					<label>31058</label>
 					<onclick>ActivateWindow(1107)</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 				<!-- Enable Debug Grid -->
 				<control type="radiobutton" id="804">
@@ -1223,8 +1295,8 @@
 					<font>Font33</font>
 					<label>20183</label>
 					<onclick>ReloadSkin()</onclick>
-					<focusedcolor>$VAR[TextColor1]</focusedcolor>
-					<textcolor>$VAR[TextColor2]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
 			</control>
 		</control>
@@ -1233,7 +1305,7 @@
 		<control type="textbox">
 			<include>SkinSettings_coords20</include>
 			<label>$VAR[SkinSettingsExplanation]</label>
-			<textcolor>$VAR[TextColor1]</textcolor>
+			<textcolor>$VAR[TextColorFO]</textcolor>
 		</control>
 		
 		<include>MaskingBars</include>

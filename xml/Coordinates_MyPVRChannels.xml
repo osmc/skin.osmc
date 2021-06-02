@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="MyPVRChannels_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords1_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords1_16:9">
@@ -25,9 +25,9 @@
 	</include>
 	
 	<include name="MyPVRChannels_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords2_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords2_16:9">
@@ -56,9 +56,9 @@
 	</include>
 	
 	<include name="MyPVRChannels_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords3_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords3_16:9">
@@ -87,9 +87,9 @@
 	</include>
 	
 	<include name="MyPVRChannels_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords4_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords4_16:9">
@@ -118,9 +118,9 @@
 	</include>
 	
 	<include name="MyPVRChannels_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords5_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords5_16:9">
@@ -131,14 +131,14 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<control type="label">
 				<top>58</top>
 				<width>950</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime,,: ]$INFO[ListItem.Title]</label>
 			</control>
 			<control type="label">
@@ -146,7 +146,7 @@
 				<width>950</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$LOCALIZE[19055]</label>
 				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
@@ -158,7 +158,7 @@
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -170,14 +170,14 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<control type="label">
 				<top>58</top>
 				<width>1590</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime,,: ]$INFO[ListItem.Title]</label>
 			</control>
 			<control type="label">
@@ -185,7 +185,7 @@
 				<width>1590</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$LOCALIZE[19055]</label>
 				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
@@ -197,7 +197,7 @@
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -209,14 +209,14 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<control type="label">
 				<top>58</top>
 				<width>1590</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime,,: ]$INFO[ListItem.Title]</label>
 			</control>
 			<control type="label">
@@ -224,7 +224,7 @@
 				<width>1590</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$LOCALIZE[19055]</label>
 				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
@@ -236,7 +236,7 @@
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -248,14 +248,14 @@
 				<height>90</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<control type="label">
 				<top>58</top>
 				<width>470</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime,,: ]$INFO[ListItem.Title]</label>
 			</control>
 			<control type="label">
@@ -263,7 +263,7 @@
 				<width>470</width>
 				<height>27</height>
 				<font>Font27</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$LOCALIZE[19055]</label>
 				<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 			</control>
@@ -275,15 +275,15 @@
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="MyPVRChannels_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords6_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords6_16:9">
@@ -299,13 +299,13 @@
 					<font>Font48-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
 					<top>43</top>
 					<width>1050</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -315,7 +315,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.StartTime,,: ][/LIGHT]$INFO[ListItem.Title]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
 					<top>100</top>
@@ -324,7 +324,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>$LOCALIZE[19055]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -334,7 +334,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -346,7 +346,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 			</control>
 		</focusedlayout>
@@ -365,14 +365,14 @@
 					<font>Font48-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
 					<left>32</left>
 					<top>43</top>
 					<width>1690</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -383,7 +383,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.StartTime,,: ][/LIGHT]$INFO[ListItem.Title]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
 					<left>32</left>
@@ -393,7 +393,7 @@
 					<font>Font27</font>
 					<label>$LOCALIZE[19055]</label>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -404,7 +404,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -416,7 +416,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 			</control>
 		</focusedlayout>
@@ -435,14 +435,14 @@
 					<font>Font48-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
 					<left>32</left>
 					<top>43</top>
 					<width>1690</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -453,7 +453,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.StartTime,,: ][/LIGHT]$INFO[ListItem.Title]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
 					<left>32</left>
@@ -463,7 +463,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>$LOCALIZE[19055]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -474,7 +474,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
 					<right>0</right>
@@ -485,7 +485,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 			</control>
 		</focusedlayout>
@@ -503,13 +503,13 @@
 					<font>Font48-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelName]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
 					<top>43</top>
 					<width>570</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -519,7 +519,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.StartTime,,: ][/LIGHT]$INFO[ListItem.Title]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
 					<top>100</top>
@@ -528,7 +528,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>$LOCALIZE[19055]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.StartTime) + String.IsEmpty(ListItem.Title) + !String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -538,7 +538,7 @@
 					<font>Font27</font>
 					<scroll>True</scroll>
 					<label>[LIGHT]$INFO[ListItem.NextStartTime,,: ][/LIGHT]$INFO[ListItem.NextTitle]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
 				</control>
 				<control type="label">
@@ -550,16 +550,16 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	
 	<include name="MyPVRChannels_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords7_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords7_16:9">
@@ -588,9 +588,9 @@
 	</include>
 	
 	<include name="MyPVRChannels_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRChannels_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRChannels_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRChannels_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRChannels_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRChannels_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRChannels_coords8_4:3</include>
 	</include>
 	<include name="MyPVRChannels_coords8_16:9">

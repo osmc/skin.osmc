@@ -2,9 +2,9 @@
 <includes>
 	
 	<include name="AddonBrowser_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">AddonBrowser_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">AddonBrowser_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">AddonBrowser_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">AddonBrowser_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">AddonBrowser_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">AddonBrowser_coords1_4:3</include>
 	</include>
 	<include name="AddonBrowser_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="AddonBrowser_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">AddonBrowser_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">AddonBrowser_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">AddonBrowser_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">AddonBrowser_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">AddonBrowser_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">AddonBrowser_coords2_4:3</include>
 	</include>
 	<include name="AddonBrowser_coords2_16:9">
@@ -64,9 +64,9 @@
 	</include>
 	
 	<include name="AddonBrowser_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">AddonBrowser_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">AddonBrowser_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">AddonBrowser_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">AddonBrowser_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">AddonBrowser_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">AddonBrowser_coords3_4:3</include>
 	</include>
 	<include name="AddonBrowser_coords3_16:9">
@@ -78,7 +78,7 @@
 				<height>72</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -91,7 +91,7 @@
 				<height>72</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -104,7 +104,7 @@
 				<height>72</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -117,15 +117,15 @@
 				<height>72</height>
 				<font>Font36-light</font>
 				<label>$INFO[ListItem.Label]</label>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="AddonBrowser_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">AddonBrowser_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">AddonBrowser_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">AddonBrowser_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">AddonBrowser_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">AddonBrowser_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">AddonBrowser_coords4_4:3</include>
 	</include>
 	<include name="AddonBrowser_coords4_16:9">
@@ -141,7 +141,7 @@
 					<height>144</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="image">
@@ -149,7 +149,7 @@
 					<top>0</top>
 					<width>1018</width>
 					<height>144</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus144]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus144]</texture>
 					<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder</visible>
 				</control>
 				<control type="group">
@@ -161,7 +161,7 @@
 						<height>48</height>
 						<font>Font48-bold</font>
 						<label>$VAR[Label1]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="label">
 						<left>32</left>
@@ -170,14 +170,14 @@
 						<height>27</height>
 						<font>Font27</font>
 						<label>$INFO[ListItem.AddonVersion,$LOCALIZE[19114]: , &#8226; ]$INFO[ListItem.Label2]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="image">
 						<left>32</left>
 						<top>25</top>
 						<width>1018</width>
 						<height>58</height>
-						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 				</control>
@@ -197,7 +197,7 @@
 					<height>144</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="image">
@@ -205,7 +205,7 @@
 					<top>0</top>
 					<width>1658</width>
 					<height>144</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus144]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus144]</texture>
 					<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder</visible>
 				</control>
 				<control type="group">
@@ -217,7 +217,7 @@
 						<height>48</height>
 						<font>Font48-bold</font>
 						<label>$VAR[Label1]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="label">
 						<left>32</left>
@@ -226,14 +226,14 @@
 						<height>27</height>
 						<font>Font27</font>
 						<label>$INFO[ListItem.AddonVersion,$LOCALIZE[19114]: , &#8226; ]$INFO[ListItem.Label2]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="image">
 						<left>32</left>
 						<top>25</top>
 						<width>1658</width>
 						<height>58</height>
-						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 				</control>
@@ -253,7 +253,7 @@
 					<height>144</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="image">
@@ -261,7 +261,7 @@
 					<top>0</top>
 					<width>1658</width>
 					<height>144</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus144]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus144]</texture>
 					<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder</visible>
 				</control>
 				<control type="group">
@@ -273,7 +273,7 @@
 						<height>48</height>
 						<font>Font48-bold</font>
 						<label>$VAR[Label1]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="label">
 						<left>32</left>
@@ -282,14 +282,14 @@
 						<height>27</height>
 						<font>Font27</font>
 						<label>$INFO[ListItem.AddonVersion,$LOCALIZE[19114]: , &#8226; ]$INFO[ListItem.Label2]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="image">
 						<left>32</left>
 						<top>25</top>
 						<width>1658</width>
 						<height>58</height>
-						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 				</control>
@@ -309,7 +309,7 @@
 					<height>144</height>
 					<font>Font72-bold</font>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="image">
@@ -317,7 +317,7 @@
 					<top>0</top>
 					<width>448</width>
 					<height>144</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus144]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus144]</texture>
 					<visible>String.IsEmpty(ListItem.Label2) + !ListItem.IsParentFolder</visible>
 				</control>
 				<control type="group">
@@ -329,7 +329,7 @@
 						<height>48</height>
 						<font>Font48-bold</font>
 						<label>$VAR[Label1]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="label">
 						<left>32</left>
@@ -338,14 +338,14 @@
 						<height>27</height>
 						<font>Font27</font>
 						<label>$INFO[ListItem.AddonVersion,$LOCALIZE[19114]: , &#8226; ]$INFO[ListItem.Label2]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 					<control type="image">
 						<left>32</left>
 						<top>25</top>
 						<width>448</width>
 						<height>58</height>
-						<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 						<visible>!ListItem.IsParentFolder</visible>
 					</control>
 				</control>
@@ -354,9 +354,9 @@
 	</include>
 	
 	<include name="AddonBrowser_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">AddonBrowser_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">AddonBrowser_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">AddonBrowser_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">AddonBrowser_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">AddonBrowser_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">AddonBrowser_coords5_4:3</include>
 	</include>
 	<include name="AddonBrowser_coords5_16:9">

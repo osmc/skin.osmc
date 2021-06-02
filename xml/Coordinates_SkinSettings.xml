@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="SkinSettings_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords1_4:3</include>
 	</include>
 	<include name="SkinSettings_coords1_16:9">
@@ -21,9 +21,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords2_4:3</include>
 	</include>
 	<include name="SkinSettings_coords2_16:9">
@@ -52,9 +52,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords3_4:3</include>
 	</include>
 	<include name="SkinSettings_coords3_16:9">
@@ -64,7 +64,7 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -75,7 +75,7 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -86,7 +86,7 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -97,15 +97,15 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="SkinSettings_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords4_4:3</include>
 	</include>
 	<include name="SkinSettings_coords4_16:9">
@@ -115,12 +115,12 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 			</control>
 			<control type="image">
 				<width>360</width>
 				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
 			</control>
 		</focusedlayout>
 	</include>
@@ -131,12 +131,12 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 			</control>
 			<control type="image">
 				<width>360</width>
 				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
 			</control>
 		</focusedlayout>
 	</include>
@@ -147,12 +147,12 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 			</control>
 			<control type="image">
 				<width>360</width>
 				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
 			</control>
 		</focusedlayout>
 	</include>
@@ -163,20 +163,20 @@
 				<height>66</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>Font33</font>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 			</control>
 			<control type="image">
 				<width>360</width>
 				<height>66</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus66]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
 			</control>
 		</focusedlayout>
 	</include>
 	
 	<include name="SkinSettings_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords5_4:3</include>
 	</include>
 	<include name="SkinSettings_coords5_16:9">
@@ -213,9 +213,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords6_4:3</include>
 	</include>
 	<include name="SkinSettings_coords6_16:9">
@@ -252,9 +252,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords7_4:3</include>
 	</include>
 	<include name="SkinSettings_coords7_16:9">
@@ -291,9 +291,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords8_4:3</include>
 	</include>
 	<include name="SkinSettings_coords8_16:9">
@@ -330,9 +330,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords9">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords9_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords9_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords9_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords9_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords9_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords9_4:3</include>
 	</include>
 	<include name="SkinSettings_coords9_16:9">
@@ -369,9 +369,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords10">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords10_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords10_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords10_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords10_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords10_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords10_4:3</include>
 	</include>
 	<include name="SkinSettings_coords10_16:9">
@@ -408,9 +408,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords11">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords11_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords11_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords11_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords11_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords11_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords11_4:3</include>
 	</include>
 	<include name="SkinSettings_coords11_16:9">
@@ -447,9 +447,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords12">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords12_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords12_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords12_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords12_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords12_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords12_4:3</include>
 	</include>
 	<include name="SkinSettings_coords12_16:9">
@@ -486,9 +486,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords13">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords13_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords13_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords13_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords13_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords13_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords13_4:3</include>
 	</include>
 	<include name="SkinSettings_coords13_16:9">
@@ -525,9 +525,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords14">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords14_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords14_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords14_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords14_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords14_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords14_4:3</include>
 	</include>
 	<include name="SkinSettings_coords14_16:9">
@@ -544,9 +544,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords15">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords15_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords15_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords15_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords15_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords15_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords15_4:3</include>
 	</include>
 	<include name="SkinSettings_coords15_16:9">
@@ -575,9 +575,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords16">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords16_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords16_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords16_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords16_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords16_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords16_4:3</include>
 	</include>
 	<include name="SkinSettings_coords16_16:9">
@@ -602,9 +602,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords17">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords17_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords17_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords17_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords17_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords17_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords17_4:3</include>
 	</include>
 	<include name="SkinSettings_coords17_16:9">
@@ -625,9 +625,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords18">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords18_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords18_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords18_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords18_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords18_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords18_4:3</include>
 	</include>
 	<include name="SkinSettings_coords18_16:9">
@@ -656,9 +656,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords19">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords19_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords19_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords19_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords19_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords19_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords19_4:3</include>
 	</include>
 	<include name="SkinSettings_coords19_16:9">
@@ -691,9 +691,9 @@
 	</include>
 	
 	<include name="SkinSettings_coords20">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">SkinSettings_coords20_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">SkinSettings_coords20_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">SkinSettings_coords20_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">SkinSettings_coords20_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">SkinSettings_coords20_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">SkinSettings_coords20_4:3</include>
 	</include>
 	<include name="SkinSettings_coords20_16:9">

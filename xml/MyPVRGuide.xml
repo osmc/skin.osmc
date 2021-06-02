@@ -33,7 +33,7 @@
 					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
 					<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
 					<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[DialogColor1]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 					<textureslidernib></textureslidernib>
 					<textureslidernibfocus></textureslidernibfocus>
 					<visible>!Skin.HasSetting(Scrollbars)</visible>
@@ -91,13 +91,13 @@
 						<include>MyPVRGuide_coords10</include>
 						<font>Font33-bold</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 					</control>
 
 					<control type="fadelabel">
 						<include>MyPVRGuide_coords11</include>
 						<label>$INFO[ListItem.EpisodeName]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<visible>!String.IsEmpty(ListItem.EpisodeName)</visible>
 					</control>
 					
@@ -105,14 +105,14 @@
 						<include>MyPVRGuide_coords12</include>
 						<font>Font33-light</font>
 						<label>$INFO[ListItem.Genre]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
 					<control type="label">
 						<include>MyPVRGuide_coords13</include>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
@@ -120,21 +120,21 @@
 						<include>MyPVRGuide_coords11</include>
 						<font>Font33-light</font>
 						<label>$INFO[ListItem.Genre]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<visible>String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
 					<control type="label">
 						<include>MyPVRGuide_coords12</include>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<visible>String.IsEmpty(ListItem.EpisodeName) | String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					
 					<control type="fadelabel">
 						<include>MyPVRGuide_coords11</include>
 						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>$VAR[TextColor1]</textcolor>
+						<textcolor>$VAR[TextColorFO]</textcolor>
 						<visible>String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 
@@ -145,7 +145,7 @@
 							<font>Font27</font>
 							<align>left</align>
 							<label fallback="161">$INFO[ListItem.Plot]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
+							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
 						</control>
@@ -153,7 +153,7 @@
 							<font>Font30</font>
 							<align>left</align>
 							<label fallback="161">$INFO[ListItem.Plot]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
+							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
 						</control>
@@ -161,7 +161,7 @@
 							<font>Font33</font>
 							<align>left</align>
 							<label fallback="161">$INFO[ListItem.Plot]</label>
-							<textcolor>$VAR[TextColor1]</textcolor>
+							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
 						</control>
@@ -187,7 +187,7 @@
 				<centertop>50%</centertop>
 				<width>30</width>
 				<height>30</height>
-				<texture colordiffuse="$VAR[DialogColor2]">sub-menu-return.png</texture>
+				<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-return.png</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -200,7 +200,7 @@
 				<centertop>50%</centertop>
 				<width>30</width>
 				<height>30</height>
-				<texture colordiffuse="$VAR[DialogColor2]">sub-menu-left.png</texture>
+				<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
 			</control>
 		</control>
 
@@ -347,7 +347,7 @@
 			<width>1620</width>
 			<height>72</height>
 			<font>Font72</font>
-			<textcolor>$VAR[TextColor1]</textcolor>
+			<textcolor>$VAR[TextColorFO]</textcolor>
 			<label></label>
 		</control>
 

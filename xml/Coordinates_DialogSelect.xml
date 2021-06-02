@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="DialogSelect_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords1_4:3</include>
 	</include>
 	<include name="DialogSelect_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords2_4:3</include>
 	</include>
 	<include name="DialogSelect_coords2_16:9">
@@ -64,9 +64,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords3_4:3</include>
 	</include>
 	<include name="DialogSelect_coords3_16:9">
@@ -95,9 +95,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords4_4:3</include>
 	</include>
 	<include name="DialogSelect_coords4_16:9">
@@ -106,7 +106,7 @@
 				<width>1020</width>
 				<height>58</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -117,7 +117,7 @@
 				<width>1660</width>
 				<height>58</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -128,7 +128,7 @@
 				<width>1660</width>
 				<height>58</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -139,16 +139,16 @@
 				<width>540</width>
 				<height>58</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="DialogSelect_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords5_4:3</include>
 	</include>
 	<include name="DialogSelect_coords5_16:9">
@@ -161,14 +161,14 @@
 					<width>1020</width>
 					<height>58</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>1020</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -183,14 +183,14 @@
 					<width>1660</width>
 					<height>58</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>1660</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -205,14 +205,14 @@
 					<width>1660</width>
 					<height>58</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>1660</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 			</control>
 		</focusedlayout>
@@ -227,23 +227,23 @@
 					<width>540</width>
 					<height>58</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
 				<control type="image">
 					<width>540</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
 			</control>
 		</focusedlayout>
 	</include>
 	
 	<include name="DialogSelect_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords6_4:3</include>
 	</include>
 	<include name="DialogSelect_coords6_16:9">
@@ -272,9 +272,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords7_4:3</include>
 	</include>
 	<include name="DialogSelect_coords7_16:9">
@@ -303,7 +303,7 @@
 				<width>880</width>
 				<height>36</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 			</control>
@@ -313,7 +313,7 @@
 				<width>880</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -344,7 +344,7 @@
 				<width>1520</width>
 				<height>36</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 			</control>
@@ -354,7 +354,7 @@
 				<width>1520</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -385,7 +385,7 @@
 				<width>1520</width>
 				<height>36</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 			</control>
@@ -395,7 +395,7 @@
 				<width>1520</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
@@ -426,7 +426,7 @@
 				<width>400</width>
 				<height>36</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 			</control>
@@ -436,16 +436,16 @@
 				<width>400</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label2]</label>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="DialogSelect_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords8_4:3</include>
 	</include>
 	<include name="DialogSelect_coords8_16:9">
@@ -477,7 +477,7 @@
 					<width>880</width>
 					<height>36</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<scroll>True</scroll>
@@ -487,7 +487,7 @@
 					<top>10</top>
 					<width>880</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
@@ -497,7 +497,7 @@
 					<width>880</width>
 					<height>27</height>
 					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -533,7 +533,7 @@
 					<width>1520</width>
 					<height>36</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<scroll>True</scroll>
@@ -543,7 +543,7 @@
 					<top>10</top>
 					<width>1520</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
@@ -553,7 +553,7 @@
 					<width>1520</width>
 					<height>27</height>
 					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -589,7 +589,7 @@
 					<width>1520</width>
 					<height>36</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<scroll>True</scroll>
@@ -599,7 +599,7 @@
 					<top>10</top>
 					<width>1520</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
@@ -609,7 +609,7 @@
 					<width>1520</width>
 					<height>27</height>
 					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -645,7 +645,7 @@
 					<width>400</width>
 					<height>36</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<scroll>True</scroll>
@@ -655,7 +655,7 @@
 					<top>10</top>
 					<width>400</width>
 					<height>44</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus44]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
 					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
@@ -665,7 +665,7 @@
 					<width>400</width>
 					<height>27</height>
 					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<scroll>True</scroll>
 				</control>
@@ -674,9 +674,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords9">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords9_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords9_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords9_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords9_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords9_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords9_4:3</include>
 	</include>
 	<include name="DialogSelect_coords9_16:9">
@@ -705,9 +705,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords10">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords10_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords10_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords10_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords10_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords10_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords10_4:3</include>
 	</include>
 	<include name="DialogSelect_coords10_16:9">
@@ -736,9 +736,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords11">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords11_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords11_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords11_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords11_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords11_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords11_4:3</include>
 	</include>
 	<include name="DialogSelect_coords11_16:9">
@@ -767,9 +767,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords12">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords12_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords12_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords12_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords12_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords12_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords12_4:3</include>
 	</include>
 	<include name="DialogSelect_coords12_16:9">
@@ -790,7 +790,7 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -812,7 +812,7 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -834,7 +834,7 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
@@ -856,15 +856,15 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="DialogSelect_coords13">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords13_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords13_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords13_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords13_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords13_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords13_4:3</include>
 	</include>
 	<include name="DialogSelect_coords13_16:9">
@@ -885,7 +885,7 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<scroll>True</scroll>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -896,7 +896,7 @@
 				<top>200</top>
 				<width>356</width>
 				<height>52</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -921,7 +921,7 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<scroll>True</scroll>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -932,7 +932,7 @@
 				<top>200</top>
 				<width>356</width>
 				<height>52</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -957,7 +957,7 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<scroll>True</scroll>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -968,7 +968,7 @@
 				<top>200</top>
 				<width>356</width>
 				<height>52</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -993,7 +993,7 @@
 				<label>$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,]</label>
 				<font>Font33</font>
 				<align>center</align>
-				<textcolor>$VAR[TextColor1]</textcolor>
+				<textcolor>$VAR[TextColorFO]</textcolor>
 				<scroll>True</scroll>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
@@ -1004,7 +1004,7 @@
 				<top>200</top>
 				<width>356</width>
 				<height>52</height>
-				<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52center]</texture>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52center]</texture>
 				<include content="NonFocusFadeAnimation">
 					<param name="id">11</param>
 				</include>
@@ -1013,9 +1013,9 @@
 	</include>
 	
 	<include name="DialogSelect_coords14">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogSelect_coords14_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogSelect_coords14_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogSelect_coords14_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogSelect_coords14_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogSelect_coords14_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogSelect_coords14_4:3</include>
 	</include>
 	<include name="DialogSelect_coords14_16:9">

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+	<!-- Masking -->
+	<expression name="Masking">False</expression><!-- If masking should be available, this should be set to "True". -->
+	<expression name="NonMaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + True</expression><!-- If masking should be available, this should be set to "False". -->
+	<expression name="MaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + False</expression><!-- If masking should be available, this should be set to "True". -->
+
 	<!-- Background images/overlay -->
 	<variable name="OSMCBackgroundImage">
 		<value condition="String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),yes) + !String.IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
@@ -28,7 +33,7 @@
 
 	<!-- Highlighting -->
 	<variable name="buttonfocus">
-		<value condition="!Skin.HasSetting(TextHighlight)">$VAR[TextColor1]</value>
+		<value condition="!Skin.HasSetting(TextHighlight)">$VAR[TextColorFO]</value>
 		<value condition="Skin.HasSetting(TextHighlight)">00FFFFFF</value>
 	</variable>
 	

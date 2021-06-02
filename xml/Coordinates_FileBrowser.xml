@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="FileBrowser_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords1_4:3</include>
 	</include>
 	<include name="FileBrowser_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="FileBrowser_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords2_4:3</include>
 	</include>
 	<include name="FileBrowser_coords2_16:9">
@@ -64,9 +64,9 @@
 	</include>
 	
 	<include name="FileBrowser_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords3_4:3</include>
 	</include>
 	<include name="FileBrowser_coords3_16:9">
@@ -95,9 +95,9 @@
 	</include>
 	
 	<include name="FileBrowser_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords4_4:3</include>
 	</include>
 	<include name="FileBrowser_coords4_16:9">
@@ -125,7 +125,7 @@
 				<width>910</width>
 				<height>96</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -155,7 +155,7 @@
 				<width>1550</width>
 				<height>96</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -185,7 +185,7 @@
 				<width>1550</width>
 				<height>96</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -215,16 +215,16 @@
 				<width>430</width>
 				<height>96</height>
 				<font>Font36-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="FileBrowser_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords5_4:3</include>
 	</include>
 	<include name="FileBrowser_coords5_16:9">
@@ -255,7 +255,7 @@
 					<width>910</width>
 					<height>96</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -264,7 +264,7 @@
 					<left>140</left>
 					<width>910</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -298,7 +298,7 @@
 					<width>1550</width>
 					<height>96</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -307,7 +307,7 @@
 					<left>140</left>
 					<width>1550</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -341,7 +341,7 @@
 					<width>1550</width>
 					<height>96</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -350,7 +350,7 @@
 					<left>140</left>
 					<width>1550</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -384,7 +384,7 @@
 					<width>430</width>
 					<height>96</height>
 					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -393,7 +393,7 @@
 					<left>140</left>
 					<width>430</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -401,9 +401,9 @@
 	</include>
 	
 	<include name="FileBrowser_coords6">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords6_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords6_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords6_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords6_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords6_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords6_4:3</include>
 	</include>
 	<include name="FileBrowser_coords6_16:9">
@@ -432,9 +432,9 @@
 	</include>
 	
 	<include name="FileBrowser_coords7">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords7_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords7_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords7_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords7_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords7_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords7_4:3</include>
 	</include>
 	<include name="FileBrowser_coords7_16:9">
@@ -462,7 +462,7 @@
 				<width>910</width>
 				<height>96</height>
 				<font>Font36</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -492,7 +492,7 @@
 				<width>1550</width>
 				<height>96</height>
 				<font>Font36</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -522,7 +522,7 @@
 				<width>1550</width>
 				<height>96</height>
 				<font>Font36</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
@@ -552,16 +552,16 @@
 				<width>430</width>
 				<height>96</height>
 				<font>Font36</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 		</itemlayout>
 	</include>
 	
 	<include name="FileBrowser_coords8">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">FileBrowser_coords8_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">FileBrowser_coords8_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FileBrowser_coords8_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">FileBrowser_coords8_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">FileBrowser_coords8_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FileBrowser_coords8_4:3</include>
 	</include>
 	<include name="FileBrowser_coords8_16:9">
@@ -592,7 +592,7 @@
 					<width>910</width>
 					<height>96</height>
 					<font>Font36</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -601,7 +601,7 @@
 					<left>140</left>
 					<width>910</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -635,7 +635,7 @@
 					<width>1550</width>
 					<height>96</height>
 					<font>Font36</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -644,7 +644,7 @@
 					<left>140</left>
 					<width>1550</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -678,7 +678,7 @@
 					<width>1550</width>
 					<height>96</height>
 					<font>Font36</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -687,7 +687,7 @@
 					<left>140</left>
 					<width>1550</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
@@ -721,7 +721,7 @@
 					<width>430</width>
 					<height>96</height>
 					<font>Font36</font>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<scroll>True</scroll>
 				</control>
@@ -730,7 +730,7 @@
 					<left>140</left>
 					<width>430</width>
 					<height>58</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus58]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>

@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="MyPVRTimers_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRTimers_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRTimers_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords1_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRTimers_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRTimers_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords2_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords2_16:9">
@@ -48,7 +48,7 @@
 				<width>280</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartDate]</label>
 			</control>
 
@@ -60,7 +60,7 @@
 				<height>27</height>
 				<font>Font27-light</font>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 			</control>
 
@@ -81,7 +81,7 @@
 				<top>12</top>
 				<width>634</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -92,7 +92,7 @@
 				<width>951</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -103,7 +103,7 @@
 				<width>290</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Comment]</label>
 			</control>
 
@@ -119,7 +119,7 @@
 				<width>280</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartDate]</label>
 			</control>
 
@@ -131,7 +131,7 @@
 				<height>27</height>
 				<font>Font27-light</font>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 			</control>
 
@@ -152,7 +152,7 @@
 				<top>12</top>
 				<width>954</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -163,7 +163,7 @@
 				<width>1274</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -174,7 +174,7 @@
 				<width>610</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Comment]</label>
 			</control>
 
@@ -190,7 +190,7 @@
 				<width>280</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartDate]</label>
 			</control>
 
@@ -202,7 +202,7 @@
 				<height>27</height>
 				<font>Font27-light</font>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 			</control>
 
@@ -223,7 +223,7 @@
 				<top>12</top>
 				<width>954</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -234,7 +234,7 @@
 				<width>1274</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -245,7 +245,7 @@
 				<width>610</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Comment]</label>
 			</control>
 
@@ -261,7 +261,7 @@
 				<width>120</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartDate]</label>
 			</control>
 
@@ -273,7 +273,7 @@
 				<height>27</height>
 				<font>Font27-light</font>
 				<align>right</align>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 			</control>
 
@@ -294,7 +294,7 @@
 				<top>12</top>
 				<width>314</width>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 
@@ -305,7 +305,7 @@
 				<width>471</width>
 				<height>27</height>
 				<font>Font27-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.ChannelName]</label>
 			</control>
 
@@ -316,7 +316,7 @@
 				<width>150</width>
 				<align>right</align>
 				<font>Font33-light</font>
-				<textcolor>$VAR[TextColor2]</textcolor>
+				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Comment]</label>
 			</control>
 
@@ -324,9 +324,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords3">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords3_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRTimers_coords3_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords3_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords3_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRTimers_coords3_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords3_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords3_16:9">
@@ -344,7 +344,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Start time - End time -->
@@ -355,7 +355,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<align>right</align>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 				</control>
@@ -378,7 +378,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -387,7 +387,7 @@
 					<top>12</top>
 					<width>634</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 				<!-- Channel name -->
@@ -398,7 +398,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -410,7 +410,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 			</control>
@@ -431,7 +431,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Start time - End time -->
@@ -443,7 +443,7 @@
 					<font>Font27</font>
 					<align>right</align>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 				</control>
 
@@ -465,7 +465,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -474,7 +474,7 @@
 					<top>12</top>
 					<width>954</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 				<!-- Channel name -->
@@ -485,7 +485,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -497,7 +497,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 			</control>
@@ -518,7 +518,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Start time - End time -->
@@ -530,7 +530,7 @@
 					<font>Font27</font>
 					<align>right</align>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 				</control>
 
@@ -552,7 +552,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -561,7 +561,7 @@
 					<top>12</top>
 					<width>954</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 				<!-- Channel name -->
@@ -572,7 +572,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -584,7 +584,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 			</control>
@@ -605,7 +605,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.StartDate]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Start time - End time -->
@@ -617,7 +617,7 @@
 					<font>Font27</font>
 					<align>right</align>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 				</control>
 
@@ -639,7 +639,7 @@
 					<font>Font33-bold</font>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				
 				<!-- Highlighting -->
@@ -648,7 +648,7 @@
 					<top>12</top>
 					<width>314</width>
 					<height>51</height>
-					<texture colordiffuse="$VAR[TextColor1]">$VAR[focus52]</texture>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
 				</control>
 
 				<!-- Channel name -->
@@ -659,7 +659,7 @@
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.ChannelName]</label>
 				</control>
 
@@ -671,7 +671,7 @@
 					<align>right</align>
 					<scroll>True</scroll>
 					<label>$INFO[ListItem.Comment]</label>
-					<textcolor>$VAR[TextColor1]</textcolor>
+					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 			</control>
@@ -679,9 +679,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords4">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords4_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRTimers_coords4_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords4_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords4_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRTimers_coords4_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords4_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords4_16:9">
@@ -710,9 +710,9 @@
 	</include>
 	
 	<include name="MyPVRTimers_coords5">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">MyPVRTimers_coords5_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">MyPVRTimers_coords5_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRTimers_coords5_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">MyPVRTimers_coords5_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">MyPVRTimers_coords5_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRTimers_coords5_4:3</include>
 	</include>
 	<include name="MyPVRTimers_coords5_16:9">

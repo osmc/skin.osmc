@@ -18,6 +18,7 @@ _Improved_
 - improve behaviour of weather widget when no weather information is available
 - improve widget headings and general secondary label information
 - improve localize consistency
+- add missing custom colour settings
 
 _Fixed_
 - add missing "play recorded programme" button to PVR info dialog
@@ -352,12 +353,18 @@ Release
 
 _accommodate  for changes of the v19 skin engine_
 _add  localize files for WebLate translations_
+_replace old TextColor1, TextColor2 by new TextColorFO, TextColorNF variables in all files_
+_replace masking includes conditions by new expressions_
+
+defaults.xml:
+- remove deprecated colours
 
 strings.po:
-- remove deprecated localizes (31023, 31024, 31025, 31026, 31037, 31050, 31150, 31060, 31061, 31070, 31152, 31153, 31154, 31168, 31319)
+- remove deprecated localizes (31061, 31070, 31152, 31153, 31154, 31168, 31319)
 - update PVR fullscreen playback localize (31171)
 - rework localize for new trackt.tv ratings information (31115)
 - rework localizes for consistency (31315, 31331)
+- rework localizes for new skin colour settings (31023, 31024, 31025, 31026, 31037, 31050, 31060, 31150)
 
 Textures.xbt:
 - update textures file with new OSD ranges and new PVR reminder icon
@@ -453,11 +460,13 @@ script-skinshortcuts-static.xml:
 
 SkinSettings.xml:
 - remove deprecated bigger music OSD album art setting
+- add new custom focus control colour, custom non-focus control colour, custom OSD cache bar colour and custom masking colour settings
 
 Variables.xml:
 - adjust MusicNextPlaying variables to avoid showing wrong information while shuffle is enabled during playback
 - add new MusicNextPlayingLabel variables for reworked fullscreen music playback window
 - rework label2 variable for new movie sets information and improved TV show details
+- add new masking condition expressions
 
 Variables_SkinSettings.xml:
 - remove SkinSettingsExplanation variable value of deprecated bigger music OSD album art setting

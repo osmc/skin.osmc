@@ -2,9 +2,9 @@
 <includes>
 
 	<include name="DialogTextViewer_coords1">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogTextViewer_coords1_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogTextViewer_coords1_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogTextViewer_coords1_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogTextViewer_coords1_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogTextViewer_coords1_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogTextViewer_coords1_4:3</include>
 	</include>
 	<include name="DialogTextViewer_coords1_16:9">
@@ -33,9 +33,9 @@
 	</include>
 	
 	<include name="DialogTextViewer_coords2">
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + True">DialogTextViewer_coords2_16:9</include>
+		<include condition="$EXP[NonMaskedCoordinates]">DialogTextViewer_coords2_16:9</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">DialogTextViewer_coords2_21:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,16:9) + False">DialogTextViewer_coords2_21:9_masked</include>
+		<include condition="$EXP[MaskedCoordinates]">DialogTextViewer_coords2_21:9_masked</include>
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">DialogTextViewer_coords2_4:3</include>
 	</include>
 	<include name="DialogTextViewer_coords2_16:9">
