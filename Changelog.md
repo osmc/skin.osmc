@@ -360,10 +360,10 @@ defaults.xml:
 - remove deprecated colours
 
 strings.po:
-- remove deprecated localizes (31061, 31070, 31152, 31153, 31154, 31168, 31319)
+- remove deprecated localizes (31061, 31070, 31152, 31153, 31154, 31168, 31235, 31319)
 - update PVR fullscreen playback localize (31171)
 - rework localize for new trackt.tv ratings information (31115)
-- rework localizes for consistency (31315, 31331)
+- rework localizes for consistency (31136, 31182, 31193, 31201, 31315, 31331, 31357)
 - rework localizes for new skin colour settings (31023, 31024, 31025, 31026, 31037, 31050, 31060, 31150)
 
 Textures.xbt:
