@@ -574,6 +574,12 @@
 
 		<controls>
 			<control type="image">
+				<animation type="Conditional" condition="String.IsEqual(Container(1000$SKINSHORTCUTS[auto-rootID]).ListItem.Property(widgetID),$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]) + Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).IsUpdating">
+					<effect type="fade" start="0" end="100" time="200" />
+				</animation>
+				<animation type="Conditional" condition="![String.IsEqual(Container(1000$SKINSHORTCUTS[auto-rootID]).ListItem.Property(widgetID),$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]) + Container(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]).IsUpdating]">
+					<effect type="fade" start="100" end="0" time="200" />
+				</animation>
 				<width>36</width>
 				<height>36</height>
 				<texture>busy.gif</texture>

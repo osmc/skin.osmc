@@ -177,7 +177,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31065]</label>
-					<label2>$INFO[Skin.String(MaskingBars)]</label2>
+					<label2>$VAR[MaskingBars]</label2>
 					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.40:1)">Skin.SetString(MaskingBars,2.35:1)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.35:1)">Skin.SetString(MaskingBars,2.33:1)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(MaskingBars),2.33:1)">Skin.SetString(MaskingBars,2.00:1)</onclick>
@@ -390,17 +390,8 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31108]</label>
-					<label2>$INFO[Skin.String(DefaultColorSet)]</label2>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),OSMC Blue)">Skin.SetString(DefaultColorSet,OSMC Light blue)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),OSMC Light blue)">Skin.SetString(DefaultColorSet,OSMC Black)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),OSMC Black)">Skin.SetString(DefaultColorSet,OSMC Rose red)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),OSMC Rose red)">Skin.SetString(DefaultColorSet,OSMC Sunset Yellow)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),OSMC Sunset Yellow)">Skin.SetString(DefaultColorSet,OSMC Lime green)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),OSMC Lime green)">Skin.SetString(DefaultColorSet,Dark green)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),Dark green)">Skin.SetString(DefaultColorSet,Orange)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),Orange)">Skin.SetString(DefaultColorSet,Red)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),Red)">Skin.SetString(DefaultColorSet,Purple)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultColorSet),Purple)">Skin.SetString(DefaultColorSet,OSMC Blue)</onclick>
+					<label2>$VAR[DefaultColorSet]</label2>
+					<onclick>Skin.SelectBool(31108, 31061|DefaultColorSetOSMCBlue, 31070|DefaultColorSetOSMCLightblue, 31152|DefaultColorSetOSMCBlack, 31153|DefaultColorSetOSMCRosered, 31154|DefaultColorSetOSMCSunsetYellow, 31168|DefaultColorSetOSMCLimegreen, 31235|DefaultColorSetDarkgreen, 31319|DefaultColorSetOrange, 31413|DefaultColorSetRed, 31414|DefaultColorSetPurple)</onclick>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 					<textcolor>$VAR[TextColorNF]</textcolor>
 				</control>
@@ -409,7 +400,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31109]</label>
-					<label2>$INFO[Skin.String(DefaultBackgroundOpacity)]</label2>
+					<label2>$VAR[DefaultBackgroundOpacity]</label2>
 					<onclick condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">Skin.SetString(DefaultBackgroundOpacity,Medium)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">Skin.SetString(DefaultBackgroundOpacity,Low)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">Skin.SetString(DefaultBackgroundOpacity,Highest)</onclick>
@@ -423,7 +414,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31110]</label>
-					<label2>$INFO[Skin.String(DefaultOverlayOpacity)]</label2>
+					<label2>$VAR[DefaultOverlayOpacity]</label2>
 					<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">Skin.SetString(DefaultOverlayOpacity,Medium)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">Skin.SetString(DefaultOverlayOpacity,Low)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">Skin.SetString(DefaultOverlayOpacity,Highest)</onclick>
@@ -437,7 +428,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label> - $LOCALIZE[31111]</label>
-					<label2>$VAR[OSMCBackgroundOverlayName]</label2>
+					<label2>$VAR[OSMCBackgroundOverlay]</label2>
 					<onclick condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),1)">Skin.SetString(OSMCBackgroundOverlay,2)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),2)">Skin.SetString(OSMCBackgroundOverlay,3)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(OSMCBackgroundOverlay),3)">Skin.SetString(OSMCBackgroundOverlay,4)</onclick>
@@ -787,7 +778,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31102]</label>
-					<label2>$INFO[Skin.String(HideOSD)]</label2>
+					<label2>$VAR[HideOSD]</label2>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),Always)">Skin.SetString(HideOSD,5s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),5s)">Skin.SetString(HideOSD,10s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(HideOSD),10s)">Skin.SetString(HideOSD,20s)</onclick>
@@ -827,11 +818,11 @@
 					<font>Font33</font>
 					<label> - $LOCALIZE[31143]</label>
 					<label2>$INFO[Skin.String(AutoMusicVisPlaybackDuration)]</label2>
-					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),60s)">Skin.SetString(AutoMusicVisPlaybackDuration,10s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),1 min)">Skin.SetString(AutoMusicVisPlaybackDuration,10s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),10s)">Skin.SetString(AutoMusicVisPlaybackDuration,15s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),15s)">Skin.SetString(AutoMusicVisPlaybackDuration,20s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),20s)">Skin.SetString(AutoMusicVisPlaybackDuration,30s)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),30s)">Skin.SetString(AutoMusicVisPlaybackDuration,60s)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),30s)">Skin.SetString(AutoMusicVisPlaybackDuration,1 min)</onclick>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>Skin.HasSetting(AutoMusicVisPlayback)</visible>
@@ -932,7 +923,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31100]</label>
-					<label2>$INFO[Skin.String(PlotFont),Size ,]</label2>
+					<label2>$VAR[PlotFont]</label2>
 					<onclick condition="String.IsEqual(Skin.String(PlotFont),S)">Skin.SetString(PlotFont,M light)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(PlotFont),M light)">Skin.SetString(PlotFont,M)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(PlotFont),M)">Skin.SetString(PlotFont,L light)</onclick>
@@ -978,7 +969,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31170]</label>
-					<label2>$INFO[Skin.String(infodialogfirstpage)]</label2>
+					<label2>$VAR[infodialogfirstpage]</label2>
 					<onclick condition="String.IsEqual(Skin.String(infodialogfirstpage),Details)">Skin.SetString(infodialogfirstpage,Description)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(infodialogfirstpage),Description)">Skin.SetString(infodialogfirstpage,Details)</onclick>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -997,7 +988,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>$LOCALIZE[31134]</label>
-					<label2>$INFO[Skin.String(videodurationformat)]</label2>
+					<label2>$VAR[videodurationformat]</label2>
 					<onclick condition="String.IsEqual(Skin.String(videodurationformat),Minutes)">Skin.SetString(videodurationformat,Hours and minutes)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(videodurationformat),Hours and minutes)">Skin.SetString(videodurationformat,Minutes)</onclick>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -1008,7 +999,7 @@
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
 					<label>31237</label>
-					<label2>$INFO[Skin.String(mediaflags)]</label2>
+					<label2>$VAR[mediaflags]</label2>
 					<onclick condition="String.IsEqual(Skin.String(mediaflags),File first)">Skin.SetString(mediaflags,File only)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(mediaflags),File only)">Skin.SetString(mediaflags,Language first)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(mediaflags),Language first)">Skin.SetString(mediaflags,Language only)</onclick>
@@ -1038,18 +1029,9 @@
 				<control type="button" id="615">
 					<include>SkinSettings_coords16</include>
 					<font>Font33</font>
-					<label>- $LOCALIZE[31410]</label>
-					<label2>$INFO[Skin.String(DefaultVideosView)]</label2>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),List)">Skin.SetString(DefaultVideosView,List info)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),List info)">Skin.SetString(DefaultVideosView,Wide)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wide)">Skin.SetString(DefaultVideosView,Wide low)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wide low)">Skin.SetString(DefaultVideosView,Wide low info)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wide low info)">Skin.SetString(DefaultVideosView,Wall)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall)">Skin.SetString(DefaultVideosView,Wall info)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall info)">Skin.SetString(DefaultVideosView,Wall small)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall small)">Skin.SetString(DefaultVideosView,Wall small info)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall small info)">Skin.SetString(DefaultVideosView,Wall low)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultVideosView),Wall low)">Skin.SetString(DefaultVideosView,List)</onclick>
+					<label> - $LOCALIZE[31410]</label>
+					<label2>$VAR[DefaultVideosView]</label2>
+					<onclick>Skin.SelectBool(31410, 535|DefaultVideosViewList, 31117|DefaultVideosViewListinfo, 31241|DefaultVideosViewWide, 31112|DefaultVideosViewWidelow, 31392|DefaultVideosViewWidelowinfo, 31078|DefaultVideosViewWall, 31133|DefaultVideosViewWallinfo, 31114|DefaultVideosViewWallsmall, 31116|DefaultVideosViewWallsmallinfo, 31113|DefaultVideosViewWalllow)</onclick>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>Skin.HasSetting(FixedVideosView)</visible>
