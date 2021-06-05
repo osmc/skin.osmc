@@ -159,8 +159,7 @@
 		<onload condition="String.IsEmpty(Skin.String(color.masking))">Skin.SetString(color.masking,None)</onload>
 		<onload condition="String.IsEmpty(Skin.String(color.background))">Skin.SetString(color.background,None)</onload>
 		<onload condition="String.IsEmpty(Skin.String(color.overlay))">Skin.SetString(color.overlay,None)</onload>
-		<onload condition="String.IsEqual(Skin.String(DefaultColorSet),Default)">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
-		<onload condition="String.IsEmpty(Skin.String(DefaultColorSet))">Skin.SetString(DefaultColorSet,OSMC Blue)</onload>
+		<onload condition="![Skin.HasSetting(DefaultColorSetOSMCBlue) | Skin.HasSetting(DefaultColorSetOSMCLightblue) | Skin.HasSetting(DefaultColorSetOSMCBlack) | Skin.HasSetting(DefaultColorSetOSMCRosered) | Skin.HasSetting(DefaultColorSetOSMCSunsetYellow) | Skin.HasSetting(DefaultColorSetOSMCLimegreen) | Skin.HasSetting(DefaultColorSetDarkgreen) | Skin.HasSetting(DefaultColorSetOrange) | Skin.HasSetting(DefaultColorSetRed) | Skin.HasSetting(DefaultColorSetPurple)]">Skin.SetBool(DefaultColorSetOSMCBlue)</onload>
 		<onload condition="String.IsEmpty(Skin.String(DefaultColors))">Skin.SetString(DefaultColors,yes)</onload>
 		<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
 		<onload condition="String.IsEmpty(Skin.String(DefaultOverlayOpacity))">Skin.SetString(DefaultOverlayOpacity,High)</onload>
@@ -170,27 +169,28 @@
 		<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
 		<onload condition="String.IsEmpty(Skin.String(CustomBackgroundFolderDuration))">Skin.SetString(CustomBackgroundFolderDuration,30s)</onload>
 		<onload condition="String.IsEmpty(Skin.String(IndividualBackgroundFolderDuration))">Skin.SetString(IndividualBackgroundFolderDuration,30s)</onload>
-		<onload condition="String.IsEmpty(Skin.String(AutoMusicVisPlaybackDuration))">Skin.SetString(AutoMusicVisPlaybackDuration,60s)</onload>
+		<onload condition="String.IsEqual(Skin.String(AutoMusicVisPlaybackDuration),60s)">Skin.SetString(AutoMusicVisPlaybackDuration,1 min)</onload>
+		<onload condition="String.IsEmpty(Skin.String(AutoMusicVisPlaybackDuration))">Skin.SetString(AutoMusicVisPlaybackDuration,1 min)</onload>
 		<onload condition="String.IsEmpty(Skin.String(infodialogfirstpage))">Skin.SetString(infodialogfirstpage,Details)</onload>
 		<onload condition="String.IsEmpty(Skin.String(mediaflags))">Skin.SetString(mediaflags,File first)</onload>
 		<onload condition="String.IsEqual(Skin.String(mediaflags),File)">Skin.SetString(mediaflags,File first)</onload>
 		<onload condition="String.IsEqual(Skin.String(mediaflags),Language)">Skin.SetString(mediaflags,Language first)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MaskingBars))">Skin.SetString(MaskingBars,2.40:1)</onload>
-		<onload condition="String.IsEmpty(Skin.String(DefaultVideosView))">Skin.SetString(DefaultVideosView,List)</onload>
+		<onload condition="![Skin.HasSetting(DefaultVideosViewList) | Skin.HasSetting(DefaultVideosViewListinfo) | Skin.HasSetting(DefaultVideosViewWide) | Skin.HasSetting(DefaultVideosViewWidelow) | Skin.HasSetting(DefaultVideosViewWidelowinfo) | Skin.HasSetting(DefaultVideosViewWall) | Skin.HasSetting(DefaultVideosViewWallinfo) | Skin.HasSetting(DefaultVideosViewWallsmall) | Skin.HasSetting(DefaultVideosViewWallsmallinfo) | Skin.HasSetting(DefaultVideosViewWalllow)]">Skin.SetBool(DefaultVideosViewList)</onload>
 	</include>
 	
 	<!-- Default forced views -->
 	<include name="DefaultView">
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),List)">Container.SetViewMode(51)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),List info)">Container.SetViewMode(511)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wide)">Container.SetViewMode(523)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wide low)">Container.SetViewMode(524)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wide low info)">Container.SetViewMode(525)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall)">Container.SetViewMode(535)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall info)">Container.SetViewMode(536)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall small)">Container.SetViewMode(537)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall small info)">Container.SetViewMode(538)</onfocus>
-		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + String.IsEqual(Skin.String(DefaultVideosView),Wall low)">Container.SetViewMode(539)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewList)">Container.SetViewMode(51)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewListinfo)">Container.SetViewMode(511)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWide)">Container.SetViewMode(523)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWidelow)">Container.SetViewMode(524)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWidelowinfo)">Container.SetViewMode(525)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWall)">Container.SetViewMode(535)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWallinfo)">Container.SetViewMode(536)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWallsmall)">Container.SetViewMode(537)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWallsmallinfo)">Container.SetViewMode(538)</onfocus>
+		<onfocus condition="Container.Content(videos) + Skin.HasSetting(FixedVideosView) + Skin.HasSetting(DefaultVideosViewWalllow)">Container.SetViewMode(539)</onfocus>
 	</include>
 
 	<!-- Keyboard buttons -->
