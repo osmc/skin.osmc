@@ -3,7 +3,7 @@
 
 	<!-- Default colors -->
 	
-	<!-- Text color 1 -->
+	<!-- Text color (focus) -->
 	<variable name="TextColorFO">
 		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.textfo),None)]] + Skin.HasSetting(DefaultColorSetOSMCBlue)">FFFFFFFF</value>
 		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.textfo),None)]] + Skin.HasSetting(DefaultColorSetOSMCLightblue)">FFFFFFFF</value>
@@ -23,7 +23,11 @@
 		<value condition="String.IsEqual(Skin.String(color.textfo),None)">$VAR[DefaultColorSet] ($VAR[TextColorFO])</value>
 	</variable>
 	
-	<!-- Text color 2 -->
+	<variable name="TextColor1">
+		<value>$VAR[TextColorFO]</value>
+	</variable>
+	
+	<!-- Text color (no focus) -->
 	<variable name="TextColorNF">
 		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.textnf),None)]] + Skin.HasSetting(DefaultColorSetOSMCBlue)">80FFFFFF</value>
 		<value condition="[String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.textnf),None)]] + Skin.HasSetting(DefaultColorSetOSMCLightblue)">80FFFFFF</value>
@@ -41,6 +45,10 @@
 	<variable name="TextColorNF-Name">
 		<value condition="!String.IsEmpty(Skin.String(color.textnf)) + !String.IsEqual(Skin.String(color.textnf),None)">$INFO[Skin.String(color.textnf),[UPPERCASE],[/UPPERCASE]]</value>
 		<value condition="String.IsEqual(Skin.String(color.textnf),None)">$VAR[DefaultColorSet] ($VAR[TextColorNF])</value>
+	</variable>
+	
+	<variable name="TextColor2">
+		<value>$VAR[TextColorNF]</value>
 	</variable>
 	
 	<!-- Darken color -->
