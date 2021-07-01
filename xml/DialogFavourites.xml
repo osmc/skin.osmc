@@ -12,15 +12,16 @@
 	<controls>
 	
 		<!-- Window Background -->
-		<include>WindowBackgroundImage</include>
+		<include>WindowBackgroundImageVertical</include>
+		
+		<!-- Time -->
+		<include content="Time">
+			<param name="heading">$LOCALIZE[1036]</param>
+		</include>
 
+		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
-
-			<!-- Heading -->
-			<include content="Time">
-				<param name="heading">1036</param>
-			</include>
 
 			<!-- Image -->
 			<control type="image">
@@ -63,8 +64,7 @@
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbar border="11,1,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripFO.png</texturesliderbar>
 				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>

@@ -6,7 +6,7 @@
 		<controls>
 
 			<!-- Dialog fanart -->
-			<include>DialogFanart</include>
+			<include>DialogBackgroundImage</include>
 
 			<control type="group">
 				<include>DialogDepth</include>
@@ -17,6 +17,7 @@
 				<!-- Heading -->
 				<include content="Time">
 					<param name="heading">$INFO[Control.GetLabel(2)]</param>
+					<param name="secondary">False</param>
 				</include>
 
 				<!-- Grouplist -->
@@ -74,11 +75,6 @@
 				<!-- Button grouplist indicator -->
 				<include content="dialogButtonIndicator">
 					<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
-				</include>
-
-				<!-- Button grouplist background -->
-				<include content="dialogButtonBackground">
-					<param name="id">9001</param>
 				</include>
 
 				<!-- Buttons -->

@@ -6,7 +6,7 @@
 	<controls>
 
 		<!-- Dialog fanart -->
-		<include>DialogFanart</include>
+		<include>DialogBackgroundImage</include>
 
 		<control type="group">
 			<include>DialogDepth</include>
@@ -17,7 +17,13 @@
 			<!-- Heading -->
 			<include content="Time">
 				<param name="heading">$INFO[Control.GetLabel(2)]</param>
+				<param name="secondary">False</param>
 			</include>
+			
+			<control type="label" id="2">
+				<font></font>
+				<label>35050</label>
+			</control>
 
 			<!-- Game Controller -->
             <control type="gamecontroller" id="31">
@@ -113,11 +119,6 @@
 				<include>DialogGameControllers_coords8</include>
 				<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>
 			</control>
-			
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9001</param>
-			</include>
 
 			<!-- Buttons -->
 			<control type="grouplist" id="9001">
@@ -159,16 +160,6 @@
 				<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
 			</include>
 
-			<!-- Heading -->
-			<control type="label" id="2">
-				<left>-10000</left>
-				<top>-10000</top>
-				<width>1620</width>
-				<height>72</height>
-				<font>Font72</font>
-				<textcolor>$VAR[TextColorFO]</textcolor>
-				<label>35050</label>
-			</control>
 		</control>
 
 		<include>MaskingBars</include>

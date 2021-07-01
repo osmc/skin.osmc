@@ -21,10 +21,14 @@
 	<controls>
 
 		<!-- Background -->
-		<include>WindowBackgroundImage</include>
+		<include>WindowBackgroundImageMultiView</include>
+		
+		<!-- Time -->
+		<include>Time</include>
 
 		<!-- Main group -->
 		<control type="group">
+			<include>WindowFadeAnimation</include>
 			<animation effect="fade" start="0" end="100" time="200" condition="!Window.Previous(musicplaylisteditor)">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200" condition="!Window.Next(musicplaylisteditor)">WindowClose</animation>
 
@@ -43,8 +47,7 @@
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripFO.png</texturesliderbar>
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
@@ -59,8 +62,7 @@
 				<showonepage>false</showonepage>
 				<orientation>horizontal</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="1,12,1,1">common/ScrollBackgroundHorizontal.png</texturesliderbackground>
-				<texturesliderbar border="1,12,1,1">common/ScrollbarGripHorizontalNF.png</texturesliderbar>
+				<texturesliderbar border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalFO.png</texturesliderbar>
 				<texturesliderbarfocus border="1,12,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripHorizontalFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
@@ -93,9 +95,6 @@
 			<include>SubmenuIndicator</include>
 
 		</control>
-
-		<!-- Time -->
-		<include>Time</include>
 
 		<!-- Options -->
 		<control type="group" id="9002">

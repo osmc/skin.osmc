@@ -13,7 +13,7 @@
 	<controls>
 
 		<!-- Background -->
-		<include>WindowBackgroundImage</include>
+		<include>WindowBackgroundImageVertical</include>
 
 		<!-- Time -->
 		<include>Time</include>
@@ -49,9 +49,10 @@
 				<include>LoginScreen_coords3</include>
 				<onup>52</onup>
 				<ondown>52</ondown>
-				<onleft>ActivateWindow(shutdownmenu)</onleft>
+				<onleft>60</onleft>
 				<onright>noop</onright>
-				<focusposition>3</focusposition>
+				<pagecontrol>60</pagecontrol>
+				<focusposition>4</focusposition>
 				<orientation>vertical</orientation>
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -60,6 +61,21 @@
 
 				<include>LoginScreen_coords5</include>
 
+			</control>
+			
+			<!-- Scrollbar (list) -->
+			<control type="scrollbar" id="60">
+				<include>LoginScreen_coords3</include>
+				<onleft condition="!Skin.HasSetting(KioskMode)">ActivateWindow(shutdownmenu)</onleft>
+				<onright>52</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripFO.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
 			</control>
 			
 			<control type="group">

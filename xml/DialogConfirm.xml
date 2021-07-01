@@ -7,7 +7,7 @@
 	<controls>
 
 		<!-- Dialog fanart -->
-		<include>DialogFanart</include>
+		<include>DialogBackgroundImage</include>
 
 		<control type="group">
 			<include>DialogDepth</include>
@@ -18,17 +18,12 @@
 			<!-- Heading -->
 			<include content="Time">
 				<param name="heading">$INFO[Control.GetLabel(1)]</param>
+				<param name="secondary">False</param>
 			</include>
 
 			<!-- Heading -->
 			<control type="label" id="1">
-				<left>-15000</left>
-				<top>40</top>
-				<width>600</width>
-				<height>48</height>
-				<align>center</align>
-				<font>Font48</font>
-				<textcolor>$VAR[TextColorFO]</textcolor>
+				<font></font>
 			</control>
 
 			<!-- Details -->
@@ -49,11 +44,6 @@
 				<midtexture colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripHorizontalFO.png</midtexture>
 				<info>System.Progressbar</info>
 			</control>
-
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9001</param>
-			</include>
 
 			<!-- Buttons -->
 			<control type="grouplist" id="9001">
