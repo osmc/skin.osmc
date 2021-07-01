@@ -214,20 +214,35 @@
 			<include>WindowFadeAnimation</include>
 			<include>BackgroundDepth</include>
 		</control>
-
+		
 		<!-- Overlay -->
 		<control type="image">
-			<include>FullscreenOverlayDimensions</include>
-			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
+			<left>$PARAM[left1]</left>
+			<top>$PARAM[top1]</top>
+			<width>$PARAM[width1]</width>
+			<height>$PARAM[height1]</height>
+			<texture background="true">$PARAM[texture1]</texture>
 			<aspectratio>scale</aspectratio>
 			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 			<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)]]</visible>
 			<include>WindowDepth</include>
 		</control>
+		<control type="image">
+			<left>$PARAM[left2]</left>
+			<top>$PARAM[top2]</top>
+			<width>$PARAM[width2]</width>
+			<height>$PARAM[height2]</height>
+			<texture background="true">$PARAM[texture2]</texture>
+			<aspectratio>scale</aspectratio>
+			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+			<visible>!Window.Is(visualisation) | [Window.Is(visualisation) + [Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)]]</visible>
+			<include>WindowDepth</include>
+		</control>
+		
 	</include>
 	
 	<!-- Dialog fanart -->
-	<include name="DialogFanart">
+	<include name="DialogBackgroundImage">
 		<!-- Black background image -->
 		<control type="image">
 			<include>FullscreenOverlayDimensions</include>
@@ -280,20 +295,30 @@
 			<include>DialogBackgroundDepth</include>
 		</control>
 		<!-- Overlay -->
-		<control type="image">
-			<include>FullscreenOverlayDimensions</include>
-			<texture background="true">$INFO[Skin.String(OSMCBackgroundOverlay),overlays/,.png]</texture>
-			<aspectratio>scale</aspectratio>
-			<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+		<control type="group">
+			<include>BackgroundOverlayDialog1</include>
 			<animation type="WindowOpen">
 				<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
-				<effect type="fade" start="0" end="100" time="300" tween="quadratic" easing="out" />
+				<effect type="fade" start="0" end="100" time="200" tween="quadratic" easing="out" />
 			</animation>
 			<animation type="WindowClose">
 				<effect type="zoom" start="100" end="70" center="auto" time="300" />
-				<effect type="fade" start="100" end="0" time="300" tween="quadratic" easing="in" />
+				<effect type="fade" start="100" end="0" time="400" tween="quadratic" easing="in" />
 			</animation>
-			<include>DialogBackgroundDepth</include>
+			<control type="image">
+				<include>BackgroundOverlayDialog2</include>
+				<texture background="true">common/overlay.png</texture>
+				<aspectratio>scale</aspectratio>
+				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+				<include>DialogBackgroundDepth</include>
+			</control>
+			<control type="image">
+				<include>BackgroundOverlayDialog3</include>
+				<texture background="true">common/overlaybottom.png</texture>
+				<aspectratio>scale</aspectratio>
+				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+				<include>DialogBackgroundDepth</include>
+			</control>
 		</control>
 	</include>
 
@@ -420,42 +445,6 @@
 	<!-- Busy dialog depth depth -->
 	<include name="BusyDepth">
 		<depth>0.55</depth>
-	</include>
-	
-	<!-- Dialog button background -->
-	<include name="dialogButtonBackground">
-		<definition>
-			<control type="image">
-				<include>dialogButtonBackground_coords1</include>
-				<texture colordiffuse="$VAR[TextColorFO]">common/white.png</texture>
-				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords1</include>
-				<texture colordiffuse="$VAR[TextColorNF]">common/white.png</texture>
-				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords2</include>
-				<texture colordiffuse="$VAR[TextColorFO]">common/white.png</texture>
-				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords2</include>
-				<texture colordiffuse="$VAR[TextColorNF]">common/white.png</texture>
-				<visible>!ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-			<control type="image">
-				<include>dialogButtonBackground_coords3</include>
-				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
-				<visible>ControlGroup($PARAM[id]).HasFocus</visible>
-				<include>VisibleFadeAnimation</include>
-			</control>
-		</definition>
 	</include>
 	
 	<!-- Dialog button indicator -->

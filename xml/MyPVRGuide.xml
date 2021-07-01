@@ -13,7 +13,10 @@
 	<controls>
 
 		<!-- Background -->
-		<include>WindowBackgroundImage</include>
+		<include>WindowBackgroundImageHorizontalEPG</include>
+		
+		<!-- Time -->
+		<include>Time</include>
 
 		<!-- Main group -->
 		<control type="group">
@@ -142,39 +145,50 @@
 					<control type="group">
 						<include>MyPVRGuide_coords14</include>
 						<control type="textbox">
+							<include>MyPVRGuide_coords15</include>
 							<font>Font27</font>
 							<align>left</align>
 							<label fallback="161">$INFO[ListItem.Plot]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+							<visible>Skin.String(PlotFont,S)</visible>
 						</control>
 						<control type="textbox">
+							<include>MyPVRGuide_coords16</include>
 							<font>Font30</font>
 							<align>left</align>
 							<label fallback="161">$INFO[ListItem.Plot]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+							<visible>Skin.String(PlotFont,M)</visible>
 						</control>
 						<control type="textbox">
+							<include>MyPVRGuide_coords17</include>
 							<font>Font33</font>
 							<align>left</align>
 							<label fallback="161">$INFO[ListItem.Plot]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+							<visible>Skin.String(PlotFont,L)</visible>
 						</control>
 					</control>
 
+				</control>
+				
+				<!-- Channel count -->
+				<control type="fadelabel">
+					<include>MyPVRGuide_coords18</include>
+					<visible>!Skin.HasSetting(ItemCount)</visible>
+					<align>right</align>
+					<label>$INFO[Container(10).NumItems]$VAR[ContentType, ,]</label>
+					<font>Font30</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(10).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 				</control>
 
 			</control>
 
 		</control>
-
-		<!-- Time -->
-		<include>Time</include>
 		
 		<!-- Submenu indicator -->
 		<control type="group">

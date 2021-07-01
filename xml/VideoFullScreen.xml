@@ -376,27 +376,33 @@
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
 					
 					<control type="textbox" id="1">
+						<include>VideoFullScreen_coords30</include>
+						<align>left</align>
 						<font>Font27-light</font>
 						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+						<visible>Skin.String(PlotFont,S)</visible>
 					</control>
 					
 					<control type="textbox" id="1">
+						<include>VideoFullScreen_coords31</include>
+						<align>left</align>
 						<font>Font30-light</font>
 						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+						<visible>Skin.String(PlotFont,M)</visible>
 					</control>
 					
 					<control type="textbox" id="1">
+						<include>VideoFullScreen_coords32</include>
+						<align>left</align>
 						<font>Font33-light</font>
 						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+						<visible>Skin.String(PlotFont,L)</visible>
 					</control>
 					
 				</control>
@@ -428,7 +434,7 @@
 				
 				<!-- Audio/subtitle stream -->
 				<control type="label" id="1">
-					<include>VideoFullScreen_coords30</include>
+					<include>VideoFullScreen_coords33</include>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[460]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels]$INFO[VideoPlayer.AudioLanguage, [CAPITALIZE](,)[/CAPITALIZE]]$VAR[SubtitleLanguage]</label>
@@ -437,7 +443,7 @@
 				
 				<!-- Audio information -->
 				<control type="label" id="1">
-					<include>VideoFullScreen_coords30</include>
+					<include>VideoFullScreen_coords33</include>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerAudioCodec,[LIGHT],[/LIGHT]  ]$VAR[VideoPlayerAudioChannels,[LIGHT],[/LIGHT]  ]$INFO[Player.Process(AudioSamplerate),[LIGHT], kHz[/LIGHT]]</label>
@@ -446,13 +452,13 @@
 
 				<!-- Icon -->
 				<control type="image" id="1">
-					<include>VideoFullScreen_coords31</include>
+					<include>VideoFullScreen_coords34</include>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture background="true">$VAR[PlayerIcon]</texture>
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<control type="image" id="1">
-					<include>VideoFullScreen_coords31</include>
+					<include>VideoFullScreen_coords34</include>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PlayerIcon]</texture>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
@@ -460,23 +466,23 @@
 				
 				<!-- Live TV next information -->
 				<control type="group" id="1">
-					<include>VideoFullScreen_coords32</include>
+					<include>VideoFullScreen_coords35</include>
 					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg + Window.IsVisible(fullscreeninfo)</visible>
 					<include>OSDVisibleHiddenAnimation</include>
 					
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords33</include>
+						<include>VideoFullScreen_coords36</include>
 						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 					</control>
 
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords34</include>
+						<include>VideoFullScreen_coords37</include>
 						<label>$VAR[VideoPlayerNext]</label>
 						<font>Font25</font>
 					</control>
 
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords35</include>
+						<include>VideoFullScreen_coords38</include>
 						<align>right</align>
 						<label>31171</label>
 						<font>Font25</font>
@@ -488,17 +494,17 @@
 			
 			<!-- PVR channel number input -->
 			<control type="group" id="1">
-				<include>VideoFullScreen_coords36</include>
+				<include>VideoFullScreen_coords39</include>
 				<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
 				<include>OSDVisibleHiddenAnimation</include>
 				
 				<control type="image" id="1">
-					<include>VideoFullScreen_coords35</include>
+					<include>VideoFullScreen_coords38</include>
 					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
 				</control>
 				
 				<control type="label" id="1">
-					<include>VideoFullScreen_coords37</include>
+					<include>VideoFullScreen_coords40</include>
 					<label>$INFO[PVR.ChannelNumberInput]</label>
 					<align>center</align>
 					<font>Font72</font>

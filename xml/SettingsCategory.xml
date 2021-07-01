@@ -18,11 +18,15 @@
 	<controls>
 
 		<!-- Background -->
-		<include>WindowBackgroundImage</include>
+		<include>WindowBackgroundImageVerticalHome</include>
 		
 		<!-- Time -->
-		<include>Time</include>
+		<include content="Time">
+			<param name="narrow">True</param>
+			<param name="wide">False</param>
+		</include>
 
+		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
 
@@ -44,6 +48,7 @@
 				<onleft>3</onleft>
 				<onright>998</onright>
 				<orientation>vertical</orientation>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
 			</control>
 
 			<!-- Settings description -->
@@ -51,46 +56,43 @@
 				<include>SettingsCategory_coords3</include>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<font>Font27</font>
+				<visible>Skin.String(PlotFont,S)</visible>
+			</control>
+			
+			<control type="textbox" id="6">
+				<include>SettingsCategory_coords4</include>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<font>Font30</font>
+				<visible>Skin.String(PlotFont,M)</visible>
+			</control>
+			
+			<control type="textbox" id="6">
+				<include>SettingsCategory_coords5</include>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<font>Font33</font>
+				<visible>Skin.String(PlotFont,L)</visible>
 			</control>
 
 			<!-- Indicators -->
 			<control type="group">
-				<include>SettingsCategory_coords4</include>
+				<include>SettingsCategory_coords6</include>
 			</control>
-
-			<control type="grouplist">
-				<include>SettingsCategory_coords5</include>
-				<itemgap>0</itemgap>
-				<align>left</align>
-				<orientation>horizontal</orientation>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="label">
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>$LOCALIZE[31016]: </label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!Control.HasFocus(20)</visible>
-				</control>
-				<control type="label">
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<label>$LOCALIZE[31016]: </label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<visible>Control.HasFocus(20)</visible>
-				</control>
-				<control type="button" id="20">
-					<width>auto</width>
-					<height>44</height>
-					<align>right</align>
-					<font>Font33</font>
-					<onup>3</onup>
-					<onclick>SettingsLevelChange</onclick>
-					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus.png</texturefocus>
-				</control>
+			
+			<!-- Settings Level -->
+			<control type="label">
+				<include>SettingsCategory_coords7</include>
+				<align>center</align>
+				<label>$LOCALIZE[31016]:</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+			<control type="button" id="20">
+				<include>SettingsCategory_coords8</include>
+				<align>center</align>
+				<font>Font33</font>
+				<onup>3</onup>
+				<onclick>SettingsLevelChange</onclick>
+				<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
 			</control>
 
 			<!-- Submenu indicator -->
@@ -208,7 +210,7 @@
 
 			<!-- Default label -->
 			<control type="label" id="14">
-				<include>SettingsCategory_coords6</include>
+				<include>SettingsCategory_coords9</include>
 				<font>Font33</font>
 				<align>center</align>
 				<label></label>
@@ -217,19 +219,18 @@
 
 			<!-- Default group button -->
 			<control type="button" id="10">
-				<include>SettingsCategory_coords7</include>
+				<include>SettingsCategory_coords10</include>
 				<font>Font33</font>
 				<onclick>SetFocus(5)</onclick>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+				<focusedcolor>$VAR[settingsbuttonunfocusdim]</focusedcolor>
 				<invalidcolor>$VAR[InvalidColor]</invalidcolor>
 				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
-				<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="ControlGroup(5).HasFocus | Control.HasFocus(20)">Conditional</animation>
 			</control>
 
 			<!-- Default button -->
 			<control type="button" id="7">
-				<include>SettingsCategory_coords8</include>
+				<include>SettingsCategory_coords11</include>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -239,7 +240,7 @@
 
 			<!-- Default radiobutton -->
 			<control type="radiobutton" id="8">
-				<include>SettingsCategory_coords8</include>
+				<include>SettingsCategory_coords11</include>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -248,7 +249,7 @@
 
 			<!-- Default spincontrolex -->
 			<control type="spincontrolex" id="9">
-				<include>SettingsCategory_coords8</include>
+				<include>SettingsCategory_coords11</include>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -257,7 +258,7 @@
 
 			<!-- Default sliderex -->
 			<control type="sliderex" id="13">
-				<include>SettingsCategory_coords8</include>
+				<include>SettingsCategory_coords11</include>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -266,13 +267,13 @@
 
 			<!-- Default image -->
 			<control type="image" id="11">
-				<include>SettingsCategory_coords6</include>
+				<include>SettingsCategory_coords9</include>
 				<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>
 			</control>
 
 			<!-- Default edit -->
 			<control type="edit" id="12">
-				<include>SettingsCategory_coords6</include>
+				<include>SettingsCategory_coords9</include>
 			</control>
 			
 		</control>

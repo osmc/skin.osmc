@@ -9,7 +9,7 @@
 			<visible>![Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)]</visible>
 			
 			<!-- Dialog fanart -->
-			<include>DialogFanart</include>
+			<include>DialogBackgroundImage</include>
 			
 			<control type="group">
 				<include>DialogDepth</include>
@@ -19,15 +19,11 @@
 				<!-- Heading -->
 				<include content="Time">
 					<param name="heading">$INFO[Control.GetLabel(1)]</param>
+					<param name="secondary">False</param>
 				</include>
 
-				<!-- Heading -->
 				<control type="label" id="1">
-					<left>-15000</left>
-					<top>96</top>
-					<width>1620</width>
-					<height>72</height>
-					<font>Font72</font>
+					<font></font>
 				</control>
 
 				<!-- Image -->
@@ -97,11 +93,6 @@
 					<include>DialogSelect_coords8</include>
 
 				</control>
-
-				<!-- Button grouplist background -->
-				<include content="dialogButtonBackground">
-					<param name="id">9001</param>
-				</include>
 
 				<!-- Button grouplist -->
 				<control type="grouplist" id="9001">

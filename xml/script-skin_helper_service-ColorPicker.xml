@@ -8,25 +8,24 @@
 	<controls>
 
 		<!-- Dialog fanart -->
-		<include>DialogFanart</include>
+		<include>DialogBackgroundImage</include>
 
 		<control type="group">
 			<include>DialogDepth</include>
 		
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
-			
+
 			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$INFO[Control.GetLabel(1)]</param>
+				<param name="secondary">False</param>
+			</include>
+			
 			<control type="label" id="1">
-				<include>heading_coords</include>
-				<aligny>top</aligny>
-				<font>Font33</font>
+				<font></font>
 				<label></label>
 			</control>
-			
-			<include content="Time">
-				<param name="heading"></param>
-			</include>
 	        
 			<!-- Preview-->
 			<control type="grouplist">
@@ -101,11 +100,6 @@
 				<include>script-skin_helper_service-ColorPicker_coords10</include>
 				
 	        </control>
-
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9001</param>
-			</include>
 			
 			<!-- Button grouplist indicator -->
 			<include content="dialogButtonIndicator">
