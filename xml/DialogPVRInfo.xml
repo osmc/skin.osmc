@@ -9,7 +9,7 @@
 	<controls>
 
 		<!-- Dialog fanart -->
-		<include>DialogFanart</include>
+		<include>DialogBackgroundImage</include>
 
 		<control type="group">
 			<include>DialogDepth</include>
@@ -20,6 +20,7 @@
 			<!-- Heading -->
 			<include content="Time">
 				<param name="heading">$INFO[ListItem.Title]$INFO[ListItem.Year,[LIGHT] (,)[/LIGHT]]</param>
+				<param name="secondary">False</param>
 			</include>
 			
 			<!-- TV image -->
@@ -181,11 +182,6 @@
 				<visible>[Window.IsVisible(10600) + [!String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10600).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + !String.IsEmpty(ListItem.Plot)] | [Window.IsVisible(10601) + [!String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10601).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + !String.IsEmpty(ListItem.Plot)]</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
-
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9000</param>
-			</include>
 
 			<!-- Buttons -->
 			<control type="grouplist" id="9000">

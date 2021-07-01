@@ -13,7 +13,10 @@
 	<controls>
 
 		<!-- Background -->
-		<include>WindowBackgroundImage</include>
+		<include>WindowBackgroundImageVertical</include>
+		
+		<!-- Time -->
+		<include>Time</include>
 
 		<!-- Main group -->
 		<control type="group">
@@ -66,28 +69,31 @@
 				<control type="group">
 					<include>MyPVRRecordings_coords4</include>
 					<control type="textbox">
+						<include>MyPVRRecordings_coords5</include>
 						<font>Font27</font>
 						<align>left</align>
 						<label>$VAR[PVRDescription]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+						<visible>Skin.String(PlotFont,S)</visible>
 					</control>
 					<control type="textbox">
+						<include>MyPVRRecordings_coords6</include>
 						<font>Font30</font>
 						<align>left</align>
 						<label>$VAR[PVRDescription]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+						<visible>Skin.String(PlotFont,M)</visible>
 					</control>
 					<control type="textbox">
+						<include>MyPVRRecordings_coords7</include>
 						<font>Font33</font>
 						<align>left</align>
 						<label>$VAR[PVRDescription]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+						<visible>Skin.String(PlotFont,L)</visible>
 					</control>
 				</control>
 
@@ -95,7 +101,7 @@
 
 			<!-- List -->
 			<control type="fixedlist" id="50">
-				<include>MyPVRRecordings_coords5</include>
+				<include>MyPVRRecordings_coords8</include>
 				<onup>51</onup>
 				<ondown>51</ondown>
 				<onleft>60</onleft>
@@ -105,22 +111,21 @@
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
-				<include>MyPVRRecordings_coords6</include>
+				<include>MyPVRRecordings_coords9</include>
 
-				<include>MyPVRRecordings_coords7</include>
+				<include>MyPVRRecordings_coords10</include>
 
 			</control>
 
 			<!-- Scrollbar (list) -->
 			<control type="scrollbar" id="60">
-				<include>MyPVRRecordings_coords8</include>
+				<include>MyPVRRecordings_coords11</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbar border="11,1,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripFO.png</texturesliderbar>
 				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
@@ -129,18 +134,16 @@
 
 			<!-- Recording count -->
 			<control type="fadelabel">
-				<include>MyPVRRecordings_coords9</include>
+				<include>MyPVRRecordings_coords12</include>
+				<visible>!Skin.HasSetting(ItemCount)</visible>
 				<align>right</align>
 				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
-				<font>Font33</font>
+				<font>Font30</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 
 		</control>
-
-		<!-- Time -->
-		<include>Time</include>
 		
 		<!-- Submenu indicator -->
 		<control type="group">

@@ -13,23 +13,18 @@
 	<controls>
 
 		<!-- Background -->
-		<include>WindowBackgroundImage</include>
+		<include>WindowBackgroundImageHorizontalLow1</include>
+		
+		<!-- Time -->
+		<include>Time</include>
 
 		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
 
-			<!-- Start date -->
-			<control type="label">
-				<include>MyPVRSearch_coords1</include>
-				<aligny>top</aligny>
-				<font>Font33</font>
-				<label>$INFO[ListItem.StartDate]</label>
-			</control>
-
 			<!-- List -->
 			<control type="list" id="50">
-				<include>MyPVRSearch_coords2</include>
+				<include>MyPVRSearch_coords1</include>
 				<onup>50</onup>
 				<ondown>50</ondown>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
@@ -39,15 +34,15 @@
 				<viewtype label="535">list</viewtype>				
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
-				<include>MyPVRSearch_coords3</include>
+				<include>MyPVRSearch_coords2</include>
 
-				<include>MyPVRSearch_coords4</include>
+				<include>MyPVRSearch_coords3</include>
 
 			</control>
 
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="70">
-				<include>MyPVRSearch_coords5</include>
+				<include>MyPVRSearch_coords4</include>
 				<onleft>50</onleft>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
@@ -62,48 +57,54 @@
 
 			<!-- Channel preview & info -->
 			<control type="group">
-				<include>MyPVRSearch_coords6</include>
+				<include>MyPVRSearch_coords5</include>
 
 				<!-- Program name -->
 				<control type="fadelabel">
-					<include>MyPVRSearch_coords7</include>
+					<include>MyPVRSearch_coords6</include>
 					<label>$INFO[Container(50).ListItem.Title]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<control type="group">
-					<include>MyPVRSearch_coords8</include>
+					<include>MyPVRSearch_coords7</include>
 					<visible>Container(50).ListItem.HasEpg</visible>
 
 					<!-- Plot -->
 					<control type="group">
-						<include>MyPVRSearch_coords9</include>
-						<align>left</align>
+						<include>MyPVRSearch_coords8</include>
 						<control type="textbox">
+							<include>MyPVRSearch_coords9</include>
+							<font>Font27</font>
+							<align>left</align>
 							<info>Container(50).ListItem.Plot</info>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+							<visible>Skin.String(PlotFont,S)</visible>
 						</control>
 						<control type="textbox">
+							<include>MyPVRSearch_coords10</include>
 							<font>Font30</font>
+							<align>left</align>
 							<info>Container(50).ListItem.Plot</info>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+							<visible>Skin.String(PlotFont,M)</visible>
 						</control>
 						<control type="textbox">
+							<include>MyPVRSearch_coords11</include>
 							<font>Font33</font>
+							<align>left</align>
 							<info>Container(50).ListItem.Plot</info>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+							<visible>Skin.String(PlotFont,L)</visible>
 						</control>
 					</control>
 
 					<!-- Next program -->
 					<control type="fadelabel">
-						<include>MyPVRSearch_coords10</include>
+						<include>MyPVRSearch_coords12</include>
 						<font>Font30</font>
 						<align>right</align>
 						<label>$INFO[Container(50).ListItem.NextTitle,$LOCALIZE[19031]: ,]$INFO[Container(11).ListItem.NextStartTime, (,)]</label>
@@ -113,20 +114,18 @@
 
 			</control>
 
-			<!-- Channel count -->
+			<!-- Search result count -->
 			<control type="fadelabel">
-				<include>MyPVRSearch_coords11</include>
+				<include>MyPVRSearch_coords13</include>
+				<visible>!Skin.HasSetting(ItemCount)</visible>
 				<align>right</align>
 				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
-				<font>Font33</font>
+				<font>Font30</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 
 		</control>
-
-		<!-- Time -->
-		<include>Time</include>
 		
 		<!-- Submenu indicator -->
 		<control type="group">

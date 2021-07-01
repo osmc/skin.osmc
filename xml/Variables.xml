@@ -85,6 +85,11 @@
 		<value condition="!Skin.HasSetting(TextHighlight)">common/focus144.png</value>
 	</variable>
 	
+	<variable name="settingsbuttonunfocusdim">
+		<value condition="ControlGroup(5).HasFocus | ControlGroup(9002).HasFocus | Control.HasFocus(20)">$VAR[TextColorNF]</value>
+		<value>$VAR[TextColorFO]</value>
+	</variable>
+	
 	<!-- Busy spinner -->
 	<variable name="BusySpinner">
 		<value condition="Integer.IsLess(System.Memory(total),512)">busy-slow.gif</value>
@@ -102,52 +107,91 @@
 	</variable>
 	
 	<!-- Heading labels -->
-	<variable name="HeadingLabel">
-		<value condition="Window.IsVisible(busydialog)">$LOCALIZE[20186]...</value>
-		<value>$VAR[HeadingLabelPrimary]</value>
-	</variable>
-
 	<variable name="HeadingLabelPrimary">
+		<value condition="Window.IsVisible(busydialog)">$LOCALIZE[20186]...</value>
 		<value condition="[String.StartsWith(Container.FolderPath,library://video/movies) + String.EndsWith(Container.FolderPath,library://video/movies/)] | [String.StartsWith(Container.FolderPath,videodb://movies/titles/) + String.EndsWith(Container.FolderPath,videodb://movies/titles/)]">$LOCALIZE[342]</value>
-		<value condition="Container.Content(movies) | [String.StartsWith(Container.FolderPath,videodb://movies/) + !String.EndsWith(Container.FolderPath,videodb://movies/)] | [String.StartsWith(Container.FolderPath,library://video/movies) + !String.EndsWith(Container.FolderPath,library://video/movies/)]">$LOCALIZE[342]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Container.Content(movies) | [String.StartsWith(Container.FolderPath,videodb://movies/) + !String.EndsWith(Container.FolderPath,videodb://movies/)] | [String.StartsWith(Container.FolderPath,library://video/movies) + !String.EndsWith(Container.FolderPath,library://video/movies/)]">$LOCALIZE[342]</value>
 		<value condition="[String.StartsWith(Container.FolderPath,library://video/tvshows/) + String.EndsWith(Container.FolderPath,library://video/tvshows/)] | [String.StartsWith(Container.FolderPath,videodb://tvshows/titles/) + String.EndsWith(Container.FolderPath,videodb://tvshows/titles/)]">$LOCALIZE[20343]</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [String.StartsWith(Container.FolderPath,videodb://tvshows/) + !String.EndsWith(Container.FolderPath,videodb://tvshows/)] | [String.StartsWith(Container.FolderPath,library://video/tvshows/) + !String.EndsWith(Container.FolderPath,library://video/tvshows/)] | String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/)">$LOCALIZE[20343]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [String.StartsWith(Container.FolderPath,videodb://tvshows/) + !String.EndsWith(Container.FolderPath,videodb://tvshows/)] | [String.StartsWith(Container.FolderPath,library://video/tvshows/) + !String.EndsWith(Container.FolderPath,library://video/tvshows/)] | String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/)">$LOCALIZE[20343]</value>
 		<value condition="String.StartsWith(Container.FolderPath,library://video/musicvideos/) + String.EndsWith(Container.FolderPath,library://video/musicvideos/)">$LOCALIZE[20389]</value>
-		<value condition="Container.Content(musicvideos) | [String.StartsWith(Container.FolderPath,videodb://musicvideos/) + !String.EndsWith(Container.FolderPath,videodb://musicvideos/)] | [String.StartsWith(Container.FolderPath,library://video/musicvideos) + !String.EndsWith(Container.FolderPath,library://video/musicvideos/)]">$LOCALIZE[20389]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(TVChannels)">$LOCALIZE[10700]$INFO[Control.GetLabel(29), &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(RadioChannels)">$LOCALIZE[10705]$INFO[Control.GetLabel(29), &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(TVGuide)">$LOCALIZE[10702]$INFO[Control.GetLabel(30), &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(RadioGuide)">$LOCALIZE[10707]$INFO[Control.GetLabel(30), &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Container.Content(musicvideos) | [String.StartsWith(Container.FolderPath,videodb://musicvideos/) + !String.EndsWith(Container.FolderPath,videodb://musicvideos/)] | [String.StartsWith(Container.FolderPath,library://video/musicvideos) + !String.EndsWith(Container.FolderPath,library://video/musicvideos/)]">$LOCALIZE[20389]</value>
+		<value condition="Window.IsVisible(TVChannels)">$LOCALIZE[10700]</value>
+		<value condition="Window.IsVisible(RadioChannels)">$LOCALIZE[10705]</value>
+		<value condition="Window.IsVisible(TVGuide)">$LOCALIZE[10702]</value>
+		<value condition="Window.IsVisible(RadioGuide)">$LOCALIZE[10707]</value>
 		<value condition="Window.IsVisible(TVRecordings)">$LOCALIZE[10701]</value>
 		<value condition="Window.IsVisible(RadioRecordings)">$LOCALIZE[10706]</value>
 		<value condition="Window.IsVisible(TVTimers)">$LOCALIZE[10703]</value>
 		<value condition="Window.IsVisible(RadioTimers)">$LOCALIZE[10708]</value>
 		<value condition="Window.IsVisible(TVSearch)">$LOCALIZE[10704]</value>
 		<value condition="Window.IsVisible(RadioSearch)">$LOCALIZE[10709]</value>
-		<value condition="Window.IsVisible(Music)">$LOCALIZE[2]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(Videos)">$LOCALIZE[3]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(pictures)">$LOCALIZE[1]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(programs)">$LOCALIZE[0]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist)">$LOCALIZE[13350]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Window.IsVisible(Music)">$LOCALIZE[2]</value>
+		<value condition="Window.IsVisible(Videos)">$LOCALIZE[3]</value>
+		<value condition="Window.IsVisible(pictures)">$LOCALIZE[1]</value>
+		<value condition="Window.IsVisible(programs)">$LOCALIZE[0]</value>
+		<value condition="Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist)">$LOCALIZE[13350]</value>
 		<value condition="Window.IsVisible(settings)">$LOCALIZE[5]</value>
-		<value condition="Window.IsVisible(InterfaceSettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[14206][/LIGHT]</value>
-		<value condition="Window.IsVisible(PlayerSettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[16003][/LIGHT]</value>
-		<value condition="Window.IsVisible(MediaSettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[14211][/LIGHT]</value>
-		<value condition="Window.IsVisible(PVRSettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[31015][/LIGHT]</value>
-		<value condition="Window.IsVisible(ServiceSettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[14036][/LIGHT]</value>
-		<value condition="Window.IsVisible(SystemSettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[13000][/LIGHT]</value>
-		<value condition="Window.IsVisible(SystemInfo)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[130][/LIGHT]</value>
-		<value condition="Window.IsVisible(Profiles)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[13200][/LIGHT]</value>
-		<value condition="Window.IsVisible(gamesettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[15016][/LIGHT]</value>
-		<value condition="Window.IsVisible(skinsettings)">$LOCALIZE[5] &#8226; [LIGHT]$LOCALIZE[10035][/LIGHT]</value>
-		<value condition="Window.IsVisible(filebrowser)">$LOCALIZE[10126]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Window.IsVisible(InterfaceSettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(PlayerSettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(MediaSettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(PVRSettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(ServiceSettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(SystemSettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(SystemInfo)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(Profiles)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(gamesettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(skinsettings)">$LOCALIZE[5]</value>
+		<value condition="Window.IsVisible(filebrowser)">$LOCALIZE[10126]</value>
 		<value condition="Window.IsVisible(addonbrowser) + String.IsEqual(Container.FolderPath,addons://)">$LOCALIZE[10040]</value>
-		<value condition="Window.IsVisible(addonbrowser)">$LOCALIZE[10040]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Window.IsVisible(addonbrowser)">$LOCALIZE[10040]</value>
 		<value condition="Window.IsVisible(weather) + String.IsEqual(Weather.Location,$LOCALIZE[503])">$LOCALIZE[20186]...</value>
-		<value condition="Window.IsVisible(weather) + !String.IsEqual(Weather.Location,$LOCALIZE[503])">$LOCALIZE[400]$INFO[Weather.Location, &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(eventlog)">$LOCALIZE[14111]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
-		<value condition="Window.IsVisible(games)">$LOCALIZE[15016]$INFO[Container.FolderName, &#8226; [LIGHT],[/LIGHT]]</value>
+		<value condition="Window.IsVisible(weather) + !String.IsEqual(Weather.Location,$LOCALIZE[503])">$LOCALIZE[400]</value>
+		<value condition="Window.IsVisible(eventlog)">$LOCALIZE[14111]</value>
+		<value condition="Window.IsVisible(games)">$LOCALIZE[15016]</value>
 		<value>$INFO[Container.FolderName]</value>
+	</variable>
+	
+	<variable name="HeadingLabelSecondary">
+		<value condition="Window.IsVisible(busydialog)"></value>
+		<value condition="[String.StartsWith(Container.FolderPath,library://video/movies) + String.EndsWith(Container.FolderPath,library://video/movies/)] | [String.StartsWith(Container.FolderPath,videodb://movies/titles/) + String.EndsWith(Container.FolderPath,videodb://movies/titles/)]"></value>
+		<value condition="Container.Content(movies) | [String.StartsWith(Container.FolderPath,videodb://movies/) + !String.EndsWith(Container.FolderPath,videodb://movies/)] | [String.StartsWith(Container.FolderPath,library://video/movies) + !String.EndsWith(Container.FolderPath,library://video/movies/)]">$INFO[Container.FolderName]</value>
+		<value condition="[String.StartsWith(Container.FolderPath,library://video/tvshows/) + String.EndsWith(Container.FolderPath,library://video/tvshows/)] | [String.StartsWith(Container.FolderPath,videodb://tvshows/titles/) + String.EndsWith(Container.FolderPath,videodb://tvshows/titles/)]"></value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [String.StartsWith(Container.FolderPath,videodb://tvshows/) + !String.EndsWith(Container.FolderPath,videodb://tvshows/)] | [String.StartsWith(Container.FolderPath,library://video/tvshows/) + !String.EndsWith(Container.FolderPath,library://video/tvshows/)] | String.StartsWith(Container.FolderPath,videodb://recentlyaddedepisodes/)">$INFO[Container.FolderName]</value>
+		<value condition="String.StartsWith(Container.FolderPath,library://video/musicvideos/) + String.EndsWith(Container.FolderPath,library://video/musicvideos/)"></value>
+		<value condition="Container.Content(musicvideos) | [String.StartsWith(Container.FolderPath,videodb://musicvideos/) + !String.EndsWith(Container.FolderPath,videodb://musicvideos/)] | [String.StartsWith(Container.FolderPath,library://video/musicvideos) + !String.EndsWith(Container.FolderPath,library://video/musicvideos/)]">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(TVChannels)">$INFO[Control.GetLabel(29)]</value>
+		<value condition="Window.IsVisible(RadioChannels)">$INFO[Control.GetLabel(29)]</value>
+		<value condition="Window.IsVisible(TVGuide)">$INFO[Control.GetLabel(30)]</value>
+		<value condition="Window.IsVisible(RadioGuide)">$INFO[Control.GetLabel(30)]</value>
+		<value condition="Window.IsVisible(TVRecordings)"></value>
+		<value condition="Window.IsVisible(RadioRecordings)"></value>
+		<value condition="Window.IsVisible(TVTimers)"></value>
+		<value condition="Window.IsVisible(RadioTimers)"></value>
+		<value condition="Window.IsVisible(TVSearch)"></value>
+		<value condition="Window.IsVisible(RadioSearch)"></value>
+		<value condition="Window.IsVisible(Music)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(Videos)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(pictures)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(programs)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(settings)"></value>
+		<value condition="Window.IsVisible(InterfaceSettings)">$LOCALIZE[14206]</value>
+		<value condition="Window.IsVisible(PlayerSettings)">$LOCALIZE[16003]</value>
+		<value condition="Window.IsVisible(MediaSettings)">$LOCALIZE[14211]</value>
+		<value condition="Window.IsVisible(PVRSettings)">$LOCALIZE[31015]</value>
+		<value condition="Window.IsVisible(ServiceSettings)">$LOCALIZE[14036]</value>
+		<value condition="Window.IsVisible(SystemSettings)">$LOCALIZE[13000]</value>
+		<value condition="Window.IsVisible(SystemInfo)">$LOCALIZE[130]</value>
+		<value condition="Window.IsVisible(Profiles)">$LOCALIZE[13200]</value>
+		<value condition="Window.IsVisible(gamesettings)">$LOCALIZE[15016]</value>
+		<value condition="Window.IsVisible(skinsettings)">$LOCALIZE[10035]</value>
+		<value condition="Window.IsVisible(filebrowser)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(addonbrowser) + String.IsEqual(Container.FolderPath,addons://)"></value>
+		<value condition="Window.IsVisible(addonbrowser)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(weather) + String.IsEqual(Weather.Location,$LOCALIZE[503])"></value>
+		<value condition="Window.IsVisible(weather) + !String.IsEqual(Weather.Location,$LOCALIZE[503])">$INFO[Weather.Location]</value>
+		<value condition="Window.IsVisible(eventlog)">$INFO[Container.FolderName]</value>
+		<value condition="Window.IsVisible(games)">$INFO[Container.FolderName]</value>
 	</variable>
 	
 	<variable name="CustomMenuHeading">
@@ -196,8 +240,12 @@
 		<value condition="Container.Content(tags) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20459]</value>
 		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19043]</value>
 		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19163]</value>
-		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19029]</value>
-		<value condition="[Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19019]</value>
+		<value condition="[Window.IsVisible(RadioGuide) | Window.IsVisible(TVGuide) | Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19029]</value>
+		<value condition="[Window.IsVisible(RadioGuide) | Window.IsVisible(TVGuide) | Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19019]</value>
+		<value condition="[Window.IsVisible(RadioTimers) | Window.IsVisible(TVTimers)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31433]</value>
+		<value condition="[Window.IsVisible(RadioTimers) | Window.IsVisible(TVTimers)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31434]</value>
+		<value condition="[Window.IsVisible(RadioSearch) | Window.IsVisible(TVSearch)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31293]</value>
+		<value condition="[Window.IsVisible(RadioSearch) | Window.IsVisible(TVSearch)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[283]</value>
 		<value condition="Container.Content(games) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[15016]</value>
 		<value condition="Container.Content(games) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31238]</value>
 		<value condition="Container.Content(videos) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[10025]</value>
@@ -746,6 +794,11 @@
 		<value condition="String.IsEqual(Skin.String(videodurationformat),Hours and minutes) + !Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,hr ]$INFO[ListItem.Duration(m),,min]</value>
 		<value condition="String.IsEqual(Skin.String(videodurationformat),Minutes) + !Integer.IsEqual(ListItem.Duration(h),0) | [[String.IsEqual(Skin.String(videodurationformat),Minutes) | String.IsEqual(Skin.String(videodurationformat),Hours and minutes)] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreaterOrEqual(ListItem.Duration(m),1)]">$INFO[ListItem.Duration(mins),, min]</value>
 		<value condition="Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsLess(ListItem.Duration(m),1)">$INFO[ListItem.Duration(secs),, sec]</value>
+	</variable>
+	
+	<variable name="MediaFlagsDuration">
+		<value condition="!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]">$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration)">$VAR[Duration]</value>
 	</variable>
 	
 	<!-- Subtitle language labels -->

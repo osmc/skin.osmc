@@ -6,7 +6,7 @@
 	<controls>
 
 		<!-- Dialog fanart -->
-		<include>DialogFanart</include>
+		<include>DialogBackgroundImage</include>
 
 		<control type="group">
 			<include>DialogDepth</include>
@@ -17,6 +17,7 @@
 			<!-- Heading -->
 			<include content="Time">
 				<param name="heading">$LOCALIZE[1021]</param>
+				<param name="secondary">False</param>
 			</include>
 
 			<!-- Left grouplist -->
@@ -90,11 +91,6 @@
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<visible>!Control.HasFocus(12)</visible>
 			</control>
-
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9001</param>
-			</include>
 
 			<!-- Buttons -->
 			<control type="grouplist" id="9001">

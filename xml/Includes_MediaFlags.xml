@@ -8,208 +8,197 @@
 			<visible>Integer.IsGreater(Container.NumItems,0) + !String.IsEqual(Skin.String(mediaflags),None) + [Container.Content(files) | Container.Content(songs) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(videos)]</visible>
 			
 			<!-- File first/only -->
-			<control type="group">
+			<control type="grouplist">
+				<itemgap>0</itemgap>
 				<visible>!String.IsEqual(Skin.String(mediaflags),Duration only) + !String.IsEqual(Skin.String(mediaflags),Language only)</visible>
-				<animation effect="slide" time="0" start="0,0" end="0,32" condition="Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(537) | Control.IsVisible(539)">Conditional</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,-32" condition="[!String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + !String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.MusicChannels)] + [Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(537) | Control.IsVisible(539)]">Conditional</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,-16" condition="[!String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + !String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.MusicChannels)] + ![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(537) | Control.IsVisible(539)]">Conditional</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + ![String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + System.IdleTime(1)" loop="true">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + [Control.IsVisible(9995) | Control.IsVisible(9997)] + System.IdleTime(1)" loop="true">
 					<effect type="fade" start="100" end="0" time="200" delay="4000" />
 					<effect type="fade" start="100" end="0" time="200" delay="9000" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + ![String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + !System.IdleTime(1)">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + [Control.IsVisible(9995) | Control.IsVisible(9997)] + !System.IdleTime(1)">
 					<effect type="fade" end="0" time="0" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) + !System.IdleTime(1)">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + ![Control.IsVisible(9995) | Control.IsVisible(9997)] + !System.IdleTime(1)">
 					<effect type="fade" end="100" time="0" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + ![String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + System.IdleTime(1)" loop="true">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + [Control.IsVisible(9995) | Control.IsVisible(9997)] + System.IdleTime(1)" loop="true">
 					<effect type="fade" start="0" end="100" time="200" delay="4200" />
 					<effect type="fade" start="100" end="0" time="200" delay="9000" />
 				</animation>
-				
+
 				<!-- Video -->
-				<control type="image">
+				<control type="group" id="9989">
 					<include>MediaFlags_coords2</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>Video.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-					<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords3</include>
-					<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
-					<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.AudioCodec)">Conditional</animation>
+					<visible>!String.IsEmpty(Control.GetLabel(9990))</visible>
+					<control type="image">
+						<include>MediaFlags_coords3</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>Video.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="fadelabel" id="9990">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
 				
 				<!-- Audio (Video) -->
-				<control type="image">
-					<include>MediaFlags_coords4</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>osd/OSDAudioNF.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords5</include>
-					<label>$VAR[Audio]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+				<control type="group" id="9991">
+					<include>MediaFlags_coords2</include>
+					<visible>!String.IsEmpty(Control.GetLabel(9992))</visible>
+					<control type="image">
+						<include>MediaFlags_coords5</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>osd/OSDAudioNF.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="fadelabel" id="9992">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[Audio]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
 				
 				<!-- Audio (Music) -->
-				<control type="image">
-					<include>MediaFlags_coords4</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>osd/OSDAudioNF.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.MusicChannels)</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords5</include>
-					<label>$VAR[MusicChannels,, &#8226; ]$INFO[ListItem.SampleRate,, kHz ]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.MusicChannels)</visible>
+				<control type="group" id="9993">
+					<include>MediaFlags_coords2</include>
+					<visible>!String.IsEmpty(Control.GetLabel(9994))</visible>
+					<control type="image">
+						<include>MediaFlags_coords5</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>osd/OSDAudioNF.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="fadelabel" id="9994">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[MusicChannels,, &#8226; ]$INFO[ListItem.SampleRate,, kHz ]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
 				
 				<!-- Duration -->
-				<control type="image">
-					<include>MediaFlags_coords6</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>Duration.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>[!String.IsEmpty(ListItem.AudioCodec) | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.MusicChannels)] + !String.IsEmpty(ListItem.Duration)</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords7</include>
-					<label>$VAR[Duration]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>[!String.IsEmpty(ListItem.AudioCodec) | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.MusicChannels)] + !String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords7</include>
-					<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>[!String.IsEmpty(ListItem.AudioCodec) | !String.IsEmpty(ListItem.VideoResolution) | !String.IsEmpty(ListItem.MusicChannels)] + !String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
+				<control type="group">
+					<include>MediaFlags_coords2</include>
+					<visible>!String.IsEmpty(ListItem.Duration) + [Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)]</visible>
+					<control type="image">
+						<include>MediaFlags_coords6</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>Duration.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="fadelabel">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[Duration]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
 				
 			</control>
 			
 			<!-- Language first/only -->
-			<control type="group">
+			<control type="grouplist">
+				<itemgap>0</itemgap>
 				<visible>!String.IsEqual(Skin.String(mediaflags),Duration only) + !String.IsEqual(Skin.String(mediaflags),File only)</visible>
-				<animation effect="slide" time="0" start="0,0" end="0,32" condition="Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(537) | Control.IsVisible(539)">Conditional</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,-32" condition="[!String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + !String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.MusicChannels)] + [Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(537) | Control.IsVisible(539)]">Conditional</animation>
-				<animation effect="slide" time="0" start="0,0" end="0,-16" condition="[!String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + !String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + !String.IsEmpty(ListItem.MusicChannels)] + ![Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524) | Control.IsVisible(525) | Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(537) | Control.IsVisible(539)]">Conditional</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + ![String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels)] + System.IdleTime(1)" loop="true">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + [Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] + System.IdleTime(1)" loop="true">
 					<effect type="fade" start="100" end="0" time="200" delay="4000" />
 					<effect type="fade" start="100" end="0" time="200" delay="9000" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + ![String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels)] + !System.IdleTime(1)">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + [Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] + !System.IdleTime(1)">
 					<effect type="fade" end="0" time="0" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + ![String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels)] + !System.IdleTime(1)">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + [Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] + !System.IdleTime(1)">
 					<effect type="fade" end="100" time="0" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + ![String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels)] + System.IdleTime(1)" loop="true">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + [Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] + System.IdleTime(1)" loop="true">
 					<effect type="fade" start="0" end="100" time="200" delay="4200" />
 					<effect type="fade" start="100" end="0" time="200" delay="9000" />
 				</animation>
 			
 				<!-- Audio -->
-				<control type="image">
-					<include>MediaFlags_coords8</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>osd/OSDAudioNF.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
-					<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.Property(SubtitleLanguage.1))">Conditional</animation>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords3</include>
-					<label>$VAR[AudioSimple]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.Property(AudioLanguage.1))</visible>
-					<animation effect="slide" time="0" start="0,0" end="0,32" condition="String.IsEmpty(ListItem.Property(SubtitleLanguage.1))">Conditional</animation>
+				<control type="group" id="9995">
+					<include>MediaFlags_coords2</include>
+					<visible>!String.IsEmpty(Control.GetLabel(9996))</visible>
+					<control type="image">
+						<include>MediaFlags_coords5</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>osd/OSDAudioNF.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="fadelabel" id="9996">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[AudioSimple]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
 				
 				<!-- Subtitles -->
-				<control type="image">
-					<include>MediaFlags_coords9</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>osd/OSDSubtitlesNF.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords5</include>
-					<label>$VAR[SubtitleSimple]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+				<control type="group" id="9997">
+					<include>MediaFlags_coords2</include>
+					<visible>!String.IsEmpty(Control.GetLabel(9998))</visible>
+					<control type="image">
+						<include>MediaFlags_coords5</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>osd/OSDSubtitlesNF.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="fadelabel" id="9998">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[SubtitleSimple]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
 				
 				<!-- Duration -->
-				<control type="image">
-					<include>MediaFlags_coords6</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>Duration.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>[!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + !String.IsEmpty(ListItem.Duration)</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords7</include>
-					<label>$VAR[Duration]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>[!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + !String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords7</include>
-					<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>[!String.IsEmpty(ListItem.Property(AudioLanguage.1)) | !String.IsEmpty(ListItem.Property(SubtitleLanguage.1))] + !String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
+				<control type="group">
+					<include>MediaFlags_coords2</include>
+					<visible>!String.IsEmpty(ListItem.Duration) + [Control.IsVisible(9995) | Control.IsVisible(9997)]</visible>
+					<control type="image">
+						<include>MediaFlags_coords6</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>Duration.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="fadelabel">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[Duration]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
 			
 			</control>
 			
 			<!-- Duration only -->
-			<control type="group">
-				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) | String.IsEqual(Skin.String(mediaflags),Language only) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1)) | [String.IsEqual(Skin.String(mediaflags),File first) | String.IsEqual(Skin.String(mediaflags),Language first)] + String.IsEmpty(ListItem.AudioCodec) + String.IsEmpty(ListItem.VideoResolution) + String.IsEmpty(ListItem.MusicChannels) + String.IsEmpty(ListItem.Property(AudioLanguage.1)) + String.IsEmpty(ListItem.Property(SubtitleLanguage.1))</visible>
+			<control type="grouplist">
+				<itemgap>0</itemgap>
+				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + ![Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] | String.IsEqual(Skin.String(mediaflags),Language only) + ![Control.IsVisible(9995) | Control.IsVisible(9997)] | [String.IsEqual(Skin.String(mediaflags),File first) | String.IsEqual(Skin.String(mediaflags),Language first)] + ![Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993) | Control.IsVisible(9995) | Control.IsVisible(9997)]</visible>
 				
 				<!-- Duration -->
-				<control type="image">
-					<include>MediaFlags_coords10</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>Duration.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<control type="group">
+					<include>MediaFlags_coords2</include>
 					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					<control type="image">
+						<include>MediaFlags_coords6</include>
+						<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+						<texture>Duration.png</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					</control>
+					<control type="fadelabel">
+						<include>MediaFlags_coords4</include>
+						<label>$VAR[Duration]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords11</include>
-					<label>$VAR[Duration]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.Duration) + [String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords11</include>
-					<label>$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]</visible>
-				</control>
-				
+					
 			</control>
 		
 		</control>

@@ -30,34 +30,37 @@
 			<control type="group">
 				<include>DialogPVRChannelsOSD_coords4</include>
 				<control type="textbox">
+					<include>DialogPVRChannelsOSD_coords5</include>
 					<align>left</align>
 					<font>Font27</font>
 					<label>$VAR[PVRDescriptionDialogGuide]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-					<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					<visible>Skin.String(PlotFont,S)</visible>
 				</control>
 				<control type="textbox">
+					<include>DialogPVRChannelsOSD_coords6</include>
 					<align>left</align>
 					<font>Font30</font>
 					<label>$VAR[PVRDescriptionDialogGuide]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
-					<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					<visible>Skin.String(PlotFont,M)</visible>
 				</control>
 				<control type="textbox">
+					<include>DialogPVRChannelsOSD_coords7</include>
 					<align>left</align>
 					<font>Font33</font>
 					<label>$VAR[PVRDescriptionDialogGuide]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
-					<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					<visible>Skin.String(PlotFont,L)</visible>
 				</control>
 			</control>
 			
 			<!-- Channel group -->
 			<control type="fadelabel">
-				<include>DialogPVRChannelsOSD_coords5</include>
+				<include>DialogPVRChannelsOSD_coords8</include>
 				<align>center</align>
 				<aligny>top</aligny>
 				<label>$INFO[VideoPlayer.ChannelGroup,$LOCALIZE[19141]: ,]</label>
@@ -66,7 +69,7 @@
 
 			<!-- List -->
 			<control type="fixedlist" id="11">
-				<include>DialogPVRChannelsOSD_coords6</include>
+				<include>DialogPVRChannelsOSD_coords9</include>
 				<onleft>60</onleft>
 				<onright>NextChannelGroup</onright>
 				<pagecontrol>60</pagecontrol>
@@ -75,15 +78,15 @@
 				<viewtype label="535">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
-				<include>DialogPVRChannelsOSD_coords7</include>
+				<include>DialogPVRChannelsOSD_coords10</include>
 
-				<include>DialogPVRChannelsOSD_coords8</include>
+				<include>DialogPVRChannelsOSD_coords11</include>
 
 			</control>
 
 			<!-- Scrollbar (list) -->
 			<control type="scrollbar" id="60">
-				<include>DialogPVRChannelsOSD_coords9</include>
+				<include>DialogPVRChannelsOSD_coords12</include>
 				<onright>11</onright>
 				<onleft>PreviousChannelGroup</onleft>
 				<showonepage>false</showonepage>
@@ -99,17 +102,11 @@
 			
 			<!-- Channel group button indicator -->
 			<control type="image">
-				<left>10</left>
-				<centertop>50%</centertop>
-				<width>30</width>
-				<height>30</height>
+				<include>DialogPVRChannelsOSD_coords13</include>
 				<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
 			</control>
 			<control type="image">
-				<right>10</right>
-				<centertop>50%</centertop>
-				<width>30</width>
-				<height>30</height>
+				<include>DialogPVRChannelsOSD_coords14</include>
 				<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-right.png</texture>
 			</control>
 
