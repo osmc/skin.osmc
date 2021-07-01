@@ -8,7 +8,7 @@
 	<controls>
 
 		<!-- Dialog fanart -->
-		<include>DialogFanart</include>
+		<include>DialogBackgroundImage</include>
 
 		<control type="group">
 			<include>DialogDepth</include>
@@ -19,6 +19,7 @@
 			<!-- Heading -->
 			<include content="Time">
 				<param name="heading">$VAR[MusicInfoLabel]</param>
+				<param name="secondary">False</param>
 			</include>
 
 			<!-- Song image -->
@@ -849,11 +850,6 @@
 				<visible>!String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + [!String.IsEmpty(ListItem.ContributorAndRole) + String.IsEqual(ListItem.DBTYPE,song) | !String.IsEmpty(ListItem.Property(Album_Description)) + String.IsEqual(ListItem.DBTYPE,album) | !String.IsEmpty(ListItem.Property(Artist_Description)) + String.IsEqual(ListItem.DBTYPE,artist)] | String.IsEmpty(Window(10135).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) + String.IsEmpty(ListItem.Property(Artist_Born)) + String.IsEmpty(ListItem.Property(Artist_Died)) + String.IsEmpty(ListItem.Property(Artist_Formed)) + String.IsEmpty(ListItem.Property(Artist_Disbanded)) + String.IsEmpty(ListItem.Property(Artist_YearsActive)) + String.IsEmpty(ListItem.Property(Artist_Type)) + String.IsEmpty(ListItem.Property(Artist_Gender)) + String.IsEmpty(ListItem.Property(Artist_Genre)) + String.IsEmpty(ListItem.Property(Artist_Instrument)) + String.IsEmpty(ListItem.Property(Artist_Mood)) + String.IsEmpty(ListItem.Property(Artist_Style)) + String.IsEqual(ListItem.DBTYPE,artist)</visible>
 				<include>VisibleFadeAnimation</include>
 			</control>
-
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9000</param>
-			</include>
 
 			<!-- Buttons -->
 			<control type="grouplist" id="9000">

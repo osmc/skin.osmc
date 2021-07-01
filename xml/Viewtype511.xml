@@ -35,51 +35,54 @@
 				<include>Viewtype511_coords3</include>
 				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(videos)</visible>
 				<control type="textbox">
+					<include>Viewtype511_coords4</include>
 					<align>left</align>
 					<font>Font27</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-					<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+					<visible>Skin.String(PlotFont,S)</visible>
 				</control>
 				<control type="textbox">
+					<include>Viewtype511_coords5</include>
 					<align>left</align>
 					<font>Font30</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
-					<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+					<visible>Skin.String(PlotFont,M)</visible>
 				</control>
 				<control type="textbox">
+					<include>Viewtype511_coords6</include>
 					<align>left</align>
 					<font>Font33</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
-					<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+					<visible>Skin.String(PlotFont,L)</visible>
 				</control>
 			</control>
 			
 			<!-- Episode Info -->
 			<control type="group">
-				<include>Viewtype511_coords4</include>
+				<include>Viewtype511_coords7</include>
 				<visible>Container.Content(episodes)</visible>
 
 				<!-- Season & Episode Info -->
 				<control type="fadelabel">
-					<include>Viewtype511_coords5</include>
+					<include>Viewtype511_coords8</include>
 					<font>Font42</font>
 					<label>$INFO[ListItem.TVShowTitle]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="fadelabel">
-					<include>Viewtype511_coords6</include>
+					<include>Viewtype511_coords9</include>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$INFO[ListItem.Title]</label>
 				</control>
 				<control type="fadelabel">
-					<include>Viewtype511_coords7</include>
+					<include>Viewtype511_coords10</include>
 					<font>Font30</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[SEListView]</label>
@@ -87,29 +90,33 @@
 				
 				<!-- Episode Plot -->
 				<control type="group">
-					<include>Viewtype511_coords8</include>
+					<include>Viewtype511_coords11</include>
 					<control type="textbox">
+						<include>Viewtype511_coords12</include>
 						<align>left</align>
+						<font>Font27</font>
 						<label>$INFO[ListItem.Plot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,S) | Skin.String(PlotFont,S light)</visible>
+						<visible>Skin.String(PlotFont,S)</visible>
 					</control>
 					<control type="textbox">
+					<include>Viewtype511_coords13</include>
 						<align>left</align>
 						<font>Font30</font>
 						<label>$INFO[ListItem.Plot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,M) | Skin.String(PlotFont,M light)</visible>
+						<visible>Skin.String(PlotFont,M)</visible>
 					</control>
 					<control type="textbox">
+					<include>Viewtype511_coords14</include>
 						<align>left</align>
 						<font>Font33</font>
 						<label>$INFO[ListItem.Plot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,L) | Skin.String(PlotFont,XL) | Skin.String(PlotFont,L light) | Skin.String(PlotFont,XL light)</visible>
+						<visible>Skin.String(PlotFont,L)</visible>
 					</control>
 				</control>
 
@@ -117,7 +124,7 @@
 
 			<!-- List -->
 			<control type="fixedlist" id="511">
-				<include>Viewtype511_coords9</include>
+				<include>Viewtype511_coords15</include>
 				<onup>511</onup>
 				<ondown>511</ondown>
 				<onleft>60</onleft>
@@ -129,9 +136,9 @@
 				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(videos)</visible>
 				<include>DefaultView</include>
 
-				<include>Viewtype511_coords10</include>
+				<include>Viewtype511_coords16</include>
 
-				<include>Viewtype511_coords11</include>
+				<include>Viewtype511_coords17</include>
 
 			</control>
 
@@ -144,7 +151,7 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype511_coords12</include>
+				<include>Viewtype511_coords18</include>
 				<fadetime>200</fadetime>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
@@ -159,7 +166,7 @@
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
-				<include>Viewtype511_coords13</include>
+				<include>Viewtype511_coords19</include>
 				<fadetime>200</fadetime>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>

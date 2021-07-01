@@ -6,7 +6,7 @@
 	<controls>
 
 		<!-- Dialog fanart -->
-		<include>DialogFanart</include>
+		<include>DialogBackgroundImage</include>
 
 		<control type="group">
 			<include>DialogDepth</include>
@@ -14,17 +14,14 @@
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 			
+			<!-- Heading -->
 			<include content="Time">
 				<param name="heading">$INFO[Control.GetLabel(311)]</param>
+				<param name="secondary">False</param>
 			</include>
 
-			<!-- Heading -->
 			<control type="label" id="311">
-				<left>-150000</left>
-				<top>296</top>
-				<width>1620</width>
-				<height>72</height>
-				<font>Font72</font>
+				<font></font>
 				<label>13406</label>
 			</control>
 
@@ -492,11 +489,6 @@
 				<content>$VAR[keyboard-autocompletion]</content>
 				
 			</control>
-
-			<!-- Button grouplist background -->
-			<include content="dialogButtonBackground">
-				<param name="id">9001</param>
-			</include>
 
 			<!-- Button grouplist -->
 			<control type="grouplist" id="9001">

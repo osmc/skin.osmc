@@ -1,0 +1,733 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+	<include name="FullscreenDimensions">
+		<include condition="$EXP[NonMaskedCoordinates]">FullscreenDimensions_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FullscreenDimensions_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">FullscreenDimensions_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FullscreenDimensions_4:3</include>
+	</include>
+	<include name="FullscreenDimensions_16:9">
+		<left>0</left>
+		<top>0</top>
+		<width>1920</width>
+		<height>1080</height>
+	</include>
+	<include name="FullscreenDimensions_21:9">
+		<left>0</left>
+		<top>0</top>
+		<width>2560</width>
+		<height>1080</height>
+	</include>
+	<include name="FullscreenDimensions_21:9_masked">
+		<left>0</left>
+		<top>0</top>
+		<width>2560</width>
+		<height>1440</height>
+	</include>
+	<include name="FullscreenDimensions_4:3">
+		<left>0</left>
+		<top>0</top>
+		<width>1440</width>
+		<height>1080</height>
+	</include>
+	
+	<include name="FullscreenOverlayDimensions">
+		<include condition="$EXP[NonMaskedCoordinates]">FullscreenDimensions_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">FullscreenDimensions_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">FullscreenDimensions_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">FullscreenDimensions_4:3</include>
+	</include>
+	<include name="FullscreenDimensions_16:9">
+		<left>-100</left>
+		<top>-100</top>
+		<width>2120</width>
+		<height>1280</height>
+	</include>
+	<include name="FullscreenDimensions_21:9">
+		<left>-100</left>
+		<top>-100</top>
+		<width>2760</width>
+		<height>1280</height>
+	</include>
+	<include name="FullscreenDimensions_21:9_masked">
+		<left>-100</left>
+		<top>-100</top>
+		<width>2760</width>
+		<height>1640</height>
+	</include>
+	<include name="FullscreenDimensions_4:3">
+		<left>-100</left>
+		<top>-100</top>
+		<width>1640</width>
+		<height>1280</height>
+	</include>
+	
+	<include name="WindowBackgroundImageMultiView">
+		<control type="group">
+			<visible>Control.IsVisible(50) | Control.IsVisible(501) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(531) | Control.IsVisible(533) | Control.IsVisible(536) | Control.IsVisible(538)</visible>
+			<include>WindowBackgroundImageVertical</include>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(523) | Control.IsVisible(524)</visible>
+			<include>WindowBackgroundImageHorizontal</include>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(53) | Control.IsVisible(532) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(537) | Control.IsVisible(539)</visible>
+			<include>WindowBackgroundImageHorizontalWall</include>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(522) | Control.IsVisible(525)</visible>
+			<include>WindowBackgroundImageHorizontalLow1</include>
+		</control>
+	</include>
+	
+	<include name="WindowBackgroundImageVertical">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageVertical_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageVertical_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageVertical_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageVertical_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageVertical_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">798</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">698</param>
+			<param name="top2">-100</param>
+			<param name="width2">1222</param>
+			<param name="height2">1280</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageVertical_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">798</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">698</param>
+			<param name="top2">-100</param>
+			<param name="width2">1862</param>
+			<param name="height2">1280</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageVertical_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">798</param>
+			<param name="height1">1640</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">698</param>
+			<param name="top2">-100</param>
+			<param name="width2">1862</param>
+			<param name="height2">1640</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageVertical_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">798</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">698</param>
+			<param name="top2">-100</param>
+			<param name="width2">742</param>
+			<param name="height2">1280</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImageVerticalHome">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageVerticalHome_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageVerticalHome_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageVerticalHome_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageVerticalHome_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageVerticalHome_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">570</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">470</param>
+			<param name="top2">-100</param>
+			<param name="width2">1550</param>
+			<param name="height2">1280</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageVerticalHome_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">570</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">470</param>
+			<param name="top2">-100</param>
+			<param name="width2">2190</param>
+			<param name="height2">1280</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageVerticalHome_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">570</param>
+			<param name="height1">1640</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">470</param>
+			<param name="top2">-100</param>
+			<param name="width2">2190</param>
+			<param name="height2">1640</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageVerticalHome_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">570</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlayleft.png</param>
+			<param name="left2">470</param>
+			<param name="top2">-100</param>
+			<param name="width2">1070</param>
+			<param name="height2">1280</param>
+			<param name="texture2">common/overlay.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImageHorizontal">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageHorizontal_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageHorizontal_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageHorizontal_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageHorizontal_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontal_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2120</param>
+			<param name="height1">924</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">824</param>
+			<param name="width2">2120</param>
+			<param name="height2">572</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontal_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">924</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">824</param>
+			<param name="width2">2760</param>
+			<param name="height2">572</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontal_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1104</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">1004</param>
+			<param name="width2">2760</param>
+			<param name="height2">752</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontal_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">1640</param>
+			<param name="height1">924</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">824</param>
+			<param name="width2">1640</param>
+			<param name="height2">572</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImageHorizontalWall">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageHorizontalWall_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageHorizontalWall_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageHorizontalWall_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageHorizontalWall_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWall_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2120</param>
+			<param name="height1">957</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">857</param>
+			<param name="width2">2120</param>
+			<param name="height2">323</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWall_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">957</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">857</param>
+			<param name="width2">2760</param>
+			<param name="height2">323</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWall_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1137</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">1037</param>
+			<param name="width2">2760</param>
+			<param name="height2">503</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWall_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">1640</param>
+			<param name="height1">957</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">857</param>
+			<param name="width2">1640</param>
+			<param name="height2">323</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImageHorizontalLow1">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageHorizontalLow1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageHorizontalLow1_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageHorizontalLow1_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageHorizontalLow1_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow1_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2120</param>
+			<param name="height1">1012</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">912</param>
+			<param name="width2">2120</param>
+			<param name="height2">484</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow1_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1012</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">912</param>
+			<param name="width2">2760</param>
+			<param name="height2">484</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow1_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1192</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">1092</param>
+			<param name="width2">2760</param>
+			<param name="height2">664</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow1_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">1640</param>
+			<param name="height1">1012</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">912</param>
+			<param name="width2">1640</param>
+			<param name="height2">484</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImageHorizontalLow2">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageHorizontalLow2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageHorizontalLow2_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageHorizontalLow2_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageHorizontalLow2_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow2_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2120</param>
+			<param name="height1">1017</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">917</param>
+			<param name="width2">2120</param>
+			<param name="height2">263</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow2_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1017</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">917</param>
+			<param name="width2">2760</param>
+			<param name="height2">263</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow2_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1197</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">1097</param>
+			<param name="width2">2760</param>
+			<param name="height2">443</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalLow2_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">1640</param>
+			<param name="height1">1017</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">917</param>
+			<param name="width2">1640</param>
+			<param name="height2">263</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImageHorizontalEPG">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageHorizontalEPG_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageHorizontalEPG_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageHorizontalEPG_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageHorizontalEPG_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalEPG_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2120</param>
+			<param name="height1">895</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">795</param>
+			<param name="width2">2120</param>
+			<param name="height2">385</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalEPG_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">895</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">795</param>
+			<param name="width2">2760</param>
+			<param name="height2">385</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalEPG_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1075</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">975</param>
+			<param name="width2">2760</param>
+			<param name="height2">565</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalEPG_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">1640</param>
+			<param name="height1">895</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">795</param>
+			<param name="width2">1640</param>
+			<param name="height2">385</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImageHorizontalWeather">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImageHorizontalWeather_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImageHorizontalWeather_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImageHorizontalWeather_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImageHorizontalWeather_4:3</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWeather_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2120</param>
+			<param name="height1">814</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">714</param>
+			<param name="width2">2120</param>
+			<param name="height2">466</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWeather_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">814</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">714</param>
+			<param name="width2">2760</param>
+			<param name="height2">466</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWeather_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">994</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">894</param>
+			<param name="width2">2760</param>
+			<param name="height2">646</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImageHorizontalWeather_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">1640</param>
+			<param name="height1">814</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2">-100</param>
+			<param name="top2">714</param>
+			<param name="width2">1640</param>
+			<param name="height2">466</param>
+			<param name="texture2">common/overlaybottom.png</param>
+		</include>
+	</include>
+	
+	<include name="WindowBackgroundImagePlain">
+		<include condition="$EXP[NonMaskedCoordinates]">WindowBackgroundImagePlain_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">WindowBackgroundImagePlain_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">WindowBackgroundImagePlain_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">WindowBackgroundImagePlain_4:3</include>
+	</include>
+	<include name="WindowBackgroundImagePlain_16:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2120</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2"></param>
+			<param name="top2"></param>
+			<param name="width2"></param>
+			<param name="height2"></param>
+			<param name="texture2"></param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImagePlain_21:9">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2"></param>
+			<param name="top2"></param>
+			<param name="width2"></param>
+			<param name="height2"></param>
+			<param name="texture2"></param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImagePlain_21:9_masked">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">2760</param>
+			<param name="height1">1640</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2"></param>
+			<param name="top2"></param>
+			<param name="width2"></param>
+			<param name="height2"></param>
+			<param name="texture2"></param>
+		</include>
+	</include>
+	<include name="WindowBackgroundImagePlain_4:3">
+		<include content="WindowBackgroundImage">
+			<param name="left1">-100</param>
+			<param name="top1">-100</param>
+			<param name="width1">1640</param>
+			<param name="height1">1280</param>
+			<param name="texture1">common/overlay.png</param>
+			<param name="left2"></param>
+			<param name="top2"></param>
+			<param name="width2"></param>
+			<param name="height2"></param>
+			<param name="texture2"></param>
+		</include>
+	</include>
+	
+	<include name="BackgroundOverlayDialog1">
+		<include condition="$EXP[NonMaskedCoordinates]">BackgroundOverlayDialog1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">BackgroundOverlayDialog1_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">BackgroundOverlayDialog1_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">BackgroundOverlayDialog1_4:3</include>
+	</include>
+	<include name="BackgroundOverlayDialog1_16:9">
+		<left>-100</left>
+		<top>-100</top>
+		<width>2120</width>
+		<height>1280</height>
+	</include>
+	<include name="BackgroundOverlayDialog1_21:9">
+		<left>-100</left>
+		<top>-100</top>
+		<width>2760</width>
+		<height>1280</height>
+	</include>
+	<include name="BackgroundOverlayDialog1_21:9_masked">
+		<left>-100</left>
+		<top>-100</top>
+		<width>2760</width>
+		<height>1640</height>
+	</include>
+	<include name="BackgroundOverlayDialog1_4:3">
+		<left>-100</left>
+		<top>-100</top>
+		<width>1640</width>
+		<height>1280</height>
+	</include>
+	
+	<include name="BackgroundOverlayDialog2">
+		<include condition="$EXP[NonMaskedCoordinates]">BackgroundOverlayDialog2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">BackgroundOverlayDialog2_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">BackgroundOverlayDialog2_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">BackgroundOverlayDialog2_4:3</include>
+	</include>
+	<include name="BackgroundOverlayDialog2_16:9">
+		<width>2120</width>
+		<height>1005</height>
+	</include>
+	<include name="BackgroundOverlayDialog2_21:9">
+		<width>2760</width>
+		<height>1005</height>
+	</include>
+	<include name="BackgroundOverlayDialog2_21:9_masked">
+		<width>2760</width>
+		<height>1185</height>
+	</include>
+	<include name="BackgroundOverlayDialog2_4:3">
+		<width>1640</width>
+		<height>1005</height>
+	</include>
+	
+	<include name="BackgroundOverlayDialog3">
+		<include condition="$EXP[NonMaskedCoordinates]">BackgroundOverlayDialog3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">BackgroundOverlayDialog3_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">BackgroundOverlayDialog3_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">BackgroundOverlayDialog3_4:3</include>
+	</include>
+	<include name="BackgroundOverlayDialog3_16:9">
+		<top>1005</top>
+		<width>2120</width>
+		<height>275</height>
+	</include>
+	<include name="BackgroundOverlayDialog3_21:9">
+		<top>1005</top>
+		<width>2760</width>
+		<height>275</height>
+	</include>
+	<include name="BackgroundOverlayDialog3_21:9_masked">
+		<top>1185</top>
+		<width>2760</width>
+		<height>455</height>
+	</include>
+	<include name="BackgroundOverlayDialog3_4:3">
+		<top>1005</top>
+		<width>1640</width>
+		<height>275</height>
+	</include>
+	
+</includes>
