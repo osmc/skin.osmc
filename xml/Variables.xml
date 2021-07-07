@@ -2,9 +2,9 @@
 <includes>
 
 	<!-- Masking -->
-	<expression name="Masking">True</expression><!-- If masking should be available, this should be set to "True". -->
-	<expression name="NonMaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + False</expression><!-- If masking should be available, this should be set to "False". -->
-	<expression name="MaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + True</expression><!-- If masking should be available, this should be set to "True". -->
+	<expression name="Masking">False</expression><!-- If masking should be available, this should be set to "True". -->
+	<expression name="NonMaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + True</expression><!-- If masking should be available, this should be set to "False". -->
+	<expression name="MaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + False</expression><!-- If masking should be available, this should be set to "True". -->
 
 	<!-- Background images/overlay -->
 	<variable name="OSMCBackgroundImage">
@@ -304,6 +304,7 @@
 
 	<variable name="PlayerIcon">
 		<value condition="!String.IsEmpty(Pvr.EPGEventIcon)">$INFO[Pvr.EPGEventIcon]</value>
+		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value>$INFO[Player.Icon]</value>
 	</variable>
 
