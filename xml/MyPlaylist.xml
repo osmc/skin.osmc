@@ -39,37 +39,11 @@
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(50)</visible>
 			</control>
 			
-			<!-- Duration -->
-			<control type="group">
-				<include>MediaFlags_coords1</include>
-				
-				<control type="image">
-					<include>MediaFlags_coords10</include>
-					<colordiffuse>$VAR[TextColorNF]</colordiffuse>
-					<texture>Duration.png</texture>
-					<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					<visible>!String.IsEmpty(ListItem.Duration)</visible>
-				</control>
-				<control type="fadelabel">
-					<include>MediaFlags_coords11</include>
-					<label>$INFO[ListItem.Duration]$INFO[Container.Totaltime, / ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<visible>!String.IsEmpty(ListItem.Duration)</visible>
-				</control>
-			</control>
-			
+			<!-- Media flags -->
+			<include>MediaFlags</include>
 
 			<!-- Item count -->
-			<control type="fadelabel">
-				<include>ItemCount_coords</include>
-				<visible>!Skin.HasSetting(ItemCount)</visible>
-				<label>$INFO[Container.NumItems]$VAR[ContentTypeMyPlaylist, ,]</label>
-				<font>Font30</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<align>right</align>
-				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-			</control>
+			<include>ItemCount</include>
 			
 			<!-- Submenu indicator -->
 			<include>SubmenuIndicator</include>
