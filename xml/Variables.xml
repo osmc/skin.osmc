@@ -99,9 +99,9 @@
 	<!-- Media images -->
 	<variable name="mediaImages">
 		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="Container.Content(Seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
-		<value condition="Container.Content(Episodes)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(episodes)">$INFO[ListItem.Icon]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -232,8 +232,8 @@
 		<value condition="Container.Content(directors) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20348]</value>
 		<value condition="Container.Content(countries) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[574]</value>
 		<value condition="Container.Content(countries) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20451]</value>
-		<value condition="Container.Content(Addons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24000]</value>
-		<value condition="Container.Content(Addons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24001]</value>
+		<value condition="Container.Content(addons) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24000]</value>
+		<value condition="Container.Content(addons) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[24001]</value>
 		<value condition="Container.Content(sets) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20141]</value>
 		<value condition="Container.Content(sets) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[20434]</value>
 		<value condition="Container.Content(tags) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31002]</value>
@@ -246,12 +246,12 @@
 		<value condition="[Window.IsVisible(RadioTimers) | Window.IsVisible(TVTimers)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31434]</value>
 		<value condition="[Window.IsVisible(RadioSearch) | Window.IsVisible(TVSearch)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31293]</value>
 		<value condition="[Window.IsVisible(RadioSearch) | Window.IsVisible(TVSearch)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[283]</value>
-		<value condition="Container.Content(games) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[15016]</value>
 		<value condition="Container.Content(games) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31238]</value>
-		<value condition="Container.Content(videos) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[10025]</value>
-		<value condition="Container.Content(videos) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[157]</value>
-		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[35049]</value>
+		<value condition="Container.Content(games) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[15016]</value>
+		<value condition="[Container.Content(videos) | Window.IsVisible(VideoPlaylist)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[157]</value>
+		<value condition="[Container.Content(videos) | Window.IsVisible(VideoPlaylist)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[10025]</value>
 		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31239]</value>
+		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[35049]</value>
 		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
 		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
@@ -259,15 +259,6 @@
 	<variable name="ContentTypeFavourites">
 		<value condition="Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31000]</value>
 		<value condition="!Integer.IsEqual(Container(450).NumItems,1)">$LOCALIZE[31001]</value>
-	</variable>
-	
-	<variable name="ContentTypeMyPlaylist">
-		<value condition="Window.IsVisible(musicplaylist) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[179]</value>
-		<value condition="Window.IsVisible(musicplaylist) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[134]</value>
-		<value condition="Window.IsVisible(videoplaylist) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[157]</value>
-		<value condition="Window.IsVisible(videoplaylist) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[3]</value>
-		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
-		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
 	
 	<variable name="ContentTypeFileManager20">
@@ -790,16 +781,16 @@
 	</variable>
 
 	<!-- Audio/Video Duration -->
+	<variable name="MediaFlagsDuration">
+		<value condition="!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]">$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</value>
+		<value>$VAR[Duration]</value>
+	</variable>
+	
 	<variable name="Duration">
 		<value condition="Container.Content(albums) | Container.Content(songs) | Container.Content(files) | Container.Content(musicvideos)">$INFO[ListItem.Duration]</value>
 		<value condition="String.IsEqual(Skin.String(videodurationformat),Hours and minutes) + !Integer.IsEqual(ListItem.Duration(h),0)">$INFO[ListItem.Duration(h),,hr ]$INFO[ListItem.Duration(m),,min]</value>
 		<value condition="String.IsEqual(Skin.String(videodurationformat),Minutes) + !Integer.IsEqual(ListItem.Duration(h),0) | [[String.IsEqual(Skin.String(videodurationformat),Minutes) | String.IsEqual(Skin.String(videodurationformat),Hours and minutes)] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreaterOrEqual(ListItem.Duration(m),1)]">$INFO[ListItem.Duration(mins),, min]</value>
 		<value condition="Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsLess(ListItem.Duration(m),1)">$INFO[ListItem.Duration(secs),, sec]</value>
-	</variable>
-	
-	<variable name="MediaFlagsDuration">
-		<value condition="!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]">$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</value>
-		<value condition="!String.IsEmpty(ListItem.Duration)">$VAR[Duration]</value>
 	</variable>
 	
 	<!-- Subtitle language labels -->
