@@ -131,13 +131,27 @@
 					<onclick>ActivateWindow(systemsettings)</onclick>
 					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
 				</control>
+				
+				<!-- My OSMC -->
+				<control type="togglebutton" id="9">
+					<include>Settings_coords2</include>
+					<label>[B]$LOCALIZE[31091][/B]</label>
+					<altlabel>[LIGHT]$LOCALIZE[31091][/LIGHT]</altlabel>
+					<usealttexture>!Control.HasFocus(9)</usealttexture>
+					<font>Font42</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+					<onclick>RunScript(service.osmc.settings)</onclick>
+					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
+					<visible>System.HasAddon(service.osmc.settings)</visible>
+				</control>
 
 				<!-- System info -->
-				<control type="togglebutton" id="9">
+				<control type="togglebutton" id="10">
 					<include>Settings_coords2</include>
 					<label>[B]$LOCALIZE[130][/B]</label>
 					<altlabel>[LIGHT]$LOCALIZE[130][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(9)</usealttexture>
+					<usealttexture>!Control.HasFocus(10)</usealttexture>
 					<font>Font42</font>
 					<textcolor>$VAR[TextColorNF]</textcolor>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -146,11 +160,11 @@
 				</control>
 
 				<!-- Add-on browser -->
-				<control type="togglebutton" id="10">
+				<control type="togglebutton" id="11">
 					<include>Settings_coords2</include>
 					<label>[B]$LOCALIZE[10040][/B]</label>
 					<altlabel>[LIGHT]$LOCALIZE[10040][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(10)</usealttexture>
+					<usealttexture>!Control.HasFocus(11)</usealttexture>
 					<font>Font42</font>
 					<textcolor>$VAR[TextColorNF]</textcolor>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
@@ -159,11 +173,11 @@
 				</control>
 
 				<!-- File manager -->
-				<control type="togglebutton" id="11">
+				<control type="togglebutton" id="12">
 					<include>Settings_coords2</include>
 					<label>[B]$LOCALIZE[7][/B]</label>
 					<altlabel>[LIGHT]$LOCALIZE[7][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(11)</usealttexture>
+					<usealttexture>!Control.HasFocus(12)</usealttexture>
 					<font>Font42</font>
 					<textcolor>$VAR[TextColorNF]</textcolor>
 					<focusedcolor>$VAR[TextColorFO]</focusedcolor>

@@ -23,6 +23,7 @@ _Improved_
 - improve skin setting select process for settings with a lot of options to choose from
 - use translatable labels for skin setting options
 - improve media flags positioning and edge case handling
+- move My OSMC link from home menu to settings window
 
 _Fixed_
 - add missing "play recorded programme" button to PVR info dialog
@@ -362,6 +363,7 @@ _replace old TextColor1, TextColor2 by new TextColorFO, TextColorNF variables in
 _replace masking includes conditions by new expressions_
 _add new seperate includes coordinates files_
 _adjust coordinates for new skin design_
+_remove deprecated 31091-1.DATA.xml file for default My OSMC home menu entry_
 
 defaults.xml:
 - remove deprecated colours
@@ -383,6 +385,9 @@ Textures.xbt:
 - update textures file with new music OSD info button file and reworked music OSD repeat button file
 - update textures file with new background overlay image files for new skin design
 
+mainmenu.DATA.xml:
+- remove My OSMC from default skinshortcuts home menu layout
+
 template.xml:
 - hide weather widget when no weather information is available
 - improve widget heading details
@@ -403,6 +408,9 @@ Coordinates_MusicOSD.xml:
 
 Coordinates_MusicVisualisation.xml:
 - adjust coordinates for reworked fullscreen music playback window
+
+Coordinates_Settings.xml:
+- adjust coordinates of settings entry list to fit new My OSMC entry
 
 Coordinates_VideoFullScreen.xml:
 - add new coordinates for chapter and EDL markers
@@ -659,21 +667,26 @@ script-skinshortcuts.xml:
 script-skinshortcuts-static.xml:
 - hide weather widget when no weather information is available
 - improve widget heading details
+- remove My OSMC entry from default home menu layout
+- adjust home menu entry numbering
 
 Settings.xml:
 - replace WindowBackgroundImage include with new WindowBackgroundImageVerticalHome include
 - add new narrow and wide parameters to time include
+- add new My OSMC settings entry
 
 SettingsCategory.xml:
 - replace WindowBackgroundImage include with new WindowBackgroundImageVerticalHome include
 - add new narrow and wide parameters to time include
 - add adjustable explanation text box
 - rework settings level button
+- add new My OSMC entry to settings navigation side menu
 
 SettingsProfile.xml:
 - replace WindowBackgroundImage include with new WindowBackgroundImageVerticalHome include
 - add new narrow and wide parameters to time include
 - add missing scrollbar
+- add new My OSMC entry to settings navigation side menu
 
 SettingsScreenCalibration.xml:
 - replace WindowBackgroundImage include with new WindowBackgroundImagePlain include
@@ -682,6 +695,7 @@ SettingsScreenCalibration.xml:
 SettingsProfile.xml:
 - replace WindowBackgroundImage include with new WindowBackgroundImageVerticalHome include
 - add new narrow and wide parameters to time include
+- add new My OSMC entry to settings navigation side menu
 
 SkinSettings.xml:
 - remove deprecated bigger music OSD album art setting
