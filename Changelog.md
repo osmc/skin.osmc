@@ -375,8 +375,9 @@ strings.po:
 - rework localizes for new skin colour settings (31023, 31024, 31025, 31026, 31037, 31050, 31060, 31150)
 - rework localizes for new skin settings secondary labels (31061, 31070, 31152, 31153, 31154, 31168, 31235, 31319)
 - add new localizes for new skin settings secondary labels (31413, 31414, 31415, 31416, 31417, 31418, 31419, 31420, 31421, 31422, 31423, 31424, 31425, 31426, 31427, 31428, 31429, 31430, 31431, 31432)
-- rework localize for new skin design (31235)
+- rework localizes for new skin design (31235, 31290)
 - rework deprecated background gradient localize for new content types (31293)
+- remove deprecated background gradient localizes (31111, 31262, 31263, 31264, 31265, 31266)
 - update localize for streamlined plot/description font size setting (31326)
 - add new localizes for new content types (31433, 31434)
 
