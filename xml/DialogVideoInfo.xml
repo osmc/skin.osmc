@@ -405,7 +405,7 @@
 							<include>DialogVideoInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
-							<label>157</label>
+							<label>291</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
@@ -561,6 +561,25 @@
 							<include>DialogVideoInfo_coords7</include>
 							<aspectratio align="left">keep</aspectratio>
 							<texture>$INFO[ListItem.StarRating]</texture>
+						</control>
+					</control>
+					
+					<!-- Video -->
+					<control type="group">
+						<include>DialogVideoInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>291</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogVideoInfo_coords7</include>
+							<font>Font36</font>
+							<label>$VAR[VideoCodec]$VAR[VideoResolution, &#8226; ,]$INFO[ListItem.VideoAspect, &#8226; ,:1]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
 						</control>
 					</control>
 
@@ -742,7 +761,7 @@
 					<control type="fadelabel" id="312">
 						<include>DialogVideoInfo_coords15</include>
 						<font>Font36</font>
-						<label>287</label>
+						<label>24012</label>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<visible>Control.IsVisible(313)</visible>
 					</control>

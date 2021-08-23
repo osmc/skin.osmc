@@ -101,9 +101,11 @@
 		<node label="31231" condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets) | !System.HasAddon(script.skin.helper.widgets) | System.HasAddon(script.extendedinfo) + System.AddonIsEnabled(script.extendedinfo) | !System.HasAddon(script.extendedinfo)">
 			<!-- Skin Helper Service -->
 			<shortcut label="$LOCALIZE[31081]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
+			<shortcut label="$LOCALIZE[31081]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets) + !System.AddonIsEnabled(script.skin.helper.widgets)">::ENABLE::script.skin.helper.widgets</shortcut>
 			<shortcut label="$LOCALIZE[31081]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
 			<!-- ExtendedInfo Script -->
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="!System.HasAddon(script.extendedinfo)">::INSTALL::script.extendedinfo</shortcut>
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo) + !System.AddonIsEnabled(script.extendedinfo)">::ENABLE::script.extendedinfo</shortcut>
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo) + System.AddonIsEnabled(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
 		</node>
 	</groupings>
@@ -243,25 +245,25 @@
 		<node label="14204" condition="PVR.HasTVChannels | PVR.HasRadioChannels">
 			<!-- PVR - Live TV -->
 			<node label="$LOCALIZE[31015]" condition="Pvr.HasTVChannels">
-				<shortcut widget="LastPlayedChannels" label="$LOCALIZE[31222]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*?view=lastplayed</shortcut>
-				<shortcut widget="AllChannels" label="$LOCALIZE[19217]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*</shortcut>
-				<shortcut widget="TVChannelGroups" label="$LOCALIZE[19173]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="tvguide">pvr://channels/tv/</shortcut>
-				<shortcut widget="ActiveRecordings" label="$LOCALIZE[31223]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=flat</shortcut>
-				<shortcut widget="GroupedActiveRecordings" label="$LOCALIZE[31224]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=grouped</shortcut>
-				<shortcut widget="DeletedRecordings" label="$LOCALIZE[19184]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=flat</shortcut>
-				<shortcut widget="GroupedDeletedRecordings" label="$LOCALIZE[31225]" icon="DefaultAddonPVRClient.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=grouped</shortcut>
-				<shortcut widget="TVTimers" label="$LOCALIZE[10703]" icon="DefaultAddonPVRClient.png" widgetTarget="pvr" widgetType="tv">pvr://timers/tv/timers</shortcut>
+				<shortcut widget="LastPlayedChannels" label="$LOCALIZE[31222]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*?view=lastplayed</shortcut>
+				<shortcut widget="AllChannels" label="$LOCALIZE[19217]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*</shortcut>
+				<shortcut widget="TVChannelGroups" label="$LOCALIZE[19173]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="tvguide">pvr://channels/tv/</shortcut>
+				<shortcut widget="ActiveRecordings" label="$LOCALIZE[31223]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=flat</shortcut>
+				<shortcut widget="GroupedActiveRecordings" label="$LOCALIZE[31224]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=grouped</shortcut>
+				<shortcut widget="DeletedRecordings" label="$LOCALIZE[19184]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=flat</shortcut>
+				<shortcut widget="GroupedDeletedRecordings" label="$LOCALIZE[31225]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=grouped</shortcut>
+				<shortcut widget="TVTimers" label="$LOCALIZE[10703]" icon="DefaultLiveTV.png" widgetTarget="pvr" widgetType="tv">pvr://timers/tv/timers</shortcut>
 			</node>
 			<!-- PVR - Radio -->
 			<node label="$LOCALIZE[19021]" condition="Pvr.HasRadioChannels">
-				<shortcut widget="LastPlayedRadioChannels" label="$LOCALIZE[31226]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*?view=lastplayed</shortcut>
-				<shortcut widget="AllRadioChannels" label="$LOCALIZE[19216]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*</shortcut>
-				<shortcut widget="RadioChannelGroups" label="$LOCALIZE[19174]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="radioguide">pvr://channels/radio/</shortcut>
-				<shortcut widget="ActiveRadioRecordings" label="$LOCALIZE[31227]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=flat</shortcut>
-				<shortcut widget="GroupedActiveRadioRecordings" label="$LOCALIZE[31228]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=grouped</shortcut>
-				<shortcut widget="DeletedRadioRecordings" label="$LOCALIZE[19184]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=flat</shortcut>
-				<shortcut widget="GroupedDeletedRadioRecordings" label="$LOCALIZE[31229]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=grouped</shortcut>
-				<shortcut widget="RadioTimers" label="$LOCALIZE[10708]" icon="DefaultAddonPVRClient.png" widgetType="radio" widgetTarget="pvr">pvr://timers/radio/timers</shortcut>
+				<shortcut widget="LastPlayedRadioChannels" label="$LOCALIZE[31226]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*?view=lastplayed</shortcut>
+				<shortcut widget="AllRadioChannels" label="$LOCALIZE[19216]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*</shortcut>
+				<shortcut widget="RadioChannelGroups" label="$LOCALIZE[19174]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="radioguide">pvr://channels/radio/</shortcut>
+				<shortcut widget="ActiveRadioRecordings" label="$LOCALIZE[31227]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=flat</shortcut>
+				<shortcut widget="GroupedActiveRadioRecordings" label="$LOCALIZE[31228]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=grouped</shortcut>
+				<shortcut widget="DeletedRadioRecordings" label="$LOCALIZE[19184]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=flat</shortcut>
+				<shortcut widget="GroupedDeletedRadioRecordings" label="$LOCALIZE[31229]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=grouped</shortcut>
+				<shortcut widget="RadioTimers" label="$LOCALIZE[10708]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://timers/radio/timers</shortcut>
 			</node>
 		</node>
 		<!-- Add-ons -->
@@ -287,9 +289,11 @@
 		<node label="31230">
 			<!-- Skin Helper Service -->
 			<shortcut label="$LOCALIZE[31081]" icon="DefaultFolder.png" condition="!System.HasAddon(script.skin.helper.widgets)">::INSTALL::script.skin.helper.widgets</shortcut>
+			<shortcut label="$LOCALIZE[31081]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets) + !System.AddonIsEnabled(script.skin.helper.widgets)">::ENABLE::script.skin.helper.widgets</shortcut>
 			<shortcut label="$LOCALIZE[31081]" icon="DefaultFolder.png" condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=scriptwidgets</shortcut>
 			<!-- ExtendedInfo Script -->
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="!System.HasAddon(script.extendedinfo)">::INSTALL::script.extendedinfo</shortcut>
+			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo) + !System.AddonIsEnabled(script.extendedinfo)">::ENABLE::script.extendedinfo</shortcut>
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo) + System.AddonIsEnabled(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
 			<!-- Favourites -->
 			<shortcut widget="Favourites" label="$LOCALIZE[1036]" widgetType="favourite" icon="DefaultFavourites.png">favourites://</shortcut>

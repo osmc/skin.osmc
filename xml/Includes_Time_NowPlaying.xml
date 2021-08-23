@@ -38,7 +38,7 @@
 				<animation effect="slide" start="-75,0" end="0,0" time="200">VisibleChange</animation>
 				<control type="image">
 					<include>ScrollingLabel_coords1</include>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 				</control>
 				<control type="label">
 					<include>ScrollingLabel_coords2</include>
@@ -136,7 +136,7 @@
 							<include>nowplaying_coords4</include>
 							<aligny>top</aligny>
 							<align>right</align>
-							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, [LIGHT](,)[/LIGHT]]</label>
+							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</label>
 							<label>$INFO[VideoPlayer.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
 							<visible>!Player.HasGame + Player.HasVideo + Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 						</control>
@@ -145,7 +145,7 @@
 							<include>nowplaying_coords4</include>
 							<aligny>top</aligny>
 							<align>right</align>
-							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, [LIGHT](,)[/LIGHT]]</label>
+							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</label>
 							<label>$INFO[VideoPlayer.Title]</label>
 							<visible>!Player.HasGame + Player.HasVideo + Pvr.IsPlayingTv + !VideoPlayer.HasEpg + !String.IsEqual(MusicPlayer.ChannelName,MusicPlayer.Title)</visible>
 						</control>
@@ -154,7 +154,7 @@
 							<include>nowplaying_coords4</include>
 							<aligny>top</aligny>
 							<align>right</align>
-							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, [LIGHT](,)[/LIGHT]]</label>
+							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</label>
 							<visible>!Player.HasGame + Player.HasVideo + Pvr.IsPlayingTv + !VideoPlayer.HasEpg + String.IsEqual(MusicPlayer.ChannelName,MusicPlayer.Title)</visible>
 						</control>
 						
@@ -235,7 +235,7 @@
 							<include>nowplaying_coords4</include>
 							<aligny>top</aligny>
 							<align>right</align>
-							<label>$INFO[MusicPlayer.ChannelName]$INFO[MusicPlayer.ChannelNumberLabel, [LIGHT](,)[/LIGHT]]</label>
+							<label>$INFO[MusicPlayer.ChannelName]$INFO[MusicPlayer.ChannelNumberLabel, (,)]</label>
 							<label>$INFO[MusicPlayer.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
 							<visible>!Player.HasGame + Player.HasAudio + Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
 						</control>
@@ -244,7 +244,7 @@
 							<include>nowplaying_coords4</include>
 							<aligny>top</aligny>
 							<align>right</align>
-							<label>$INFO[MusicPlayer.ChannelName]$INFO[MusicPlayer.ChannelNumberLabel, [LIGHT](,)[/LIGHT]]</label>
+							<label>$INFO[MusicPlayer.ChannelName]$INFO[MusicPlayer.ChannelNumberLabel, (,)]</label>
 							<label>$INFO[MusicPlayer.Title]</label>
 							<visible>!Player.HasGame + Player.HasAudio + Pvr.IsPlayingRadio + !VideoPlayer.HasEpg + !String.IsEqual(MusicPlayer.ChannelName,MusicPlayer.Title)</visible>
 						</control>
@@ -254,7 +254,7 @@
 							<include>nowplaying_coords4</include>
 							<aligny>top</aligny>
 							<align>right</align>
-							<label>$INFO[MusicPlayer.ChannelName]$INFO[MusicPlayer.ChannelNumberLabel, [LIGHT](,)[/LIGHT]]</label>
+							<label>$INFO[MusicPlayer.ChannelName]$INFO[MusicPlayer.ChannelNumberLabel, (,)]</label>
 							<visible>!Player.HasGame + Player.HasAudio + Pvr.IsPlayingRadio + !VideoPlayer.HasEpg + String.IsEqual(MusicPlayer.ChannelName,MusicPlayer.Title)</visible>
 						</control>
 						
