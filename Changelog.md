@@ -5,10 +5,15 @@
 **_v19.1.0_**
 
 _New_
+- add ENABLE option for new skinshortcuts version
 
 _Improved_
+- improve background overlay colour management of new skin design
+- streamline secondary information and widget detail labels
+- improve weather widget
 
 _Fixed_
+- fix skinshortcuts management dialog
 
 ---
 
