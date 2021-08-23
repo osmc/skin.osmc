@@ -21,7 +21,7 @@
 			<!-- Background -->
 			<control type="image">
 				<include>VideoFullScreen_coords2</include>
-				<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+				<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 			</control>
 
 			<!-- Row 1 label -->
@@ -71,7 +71,7 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords8</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -113,7 +113,7 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords8</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -162,7 +162,7 @@
 
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords11</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 					
 					<control type="group" id="1">
@@ -189,24 +189,24 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords15</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg | !Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords16</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords17</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 
-					<!--  Current position/Time remaining -->
+					<!-- Current position/Time remaining -->
 					<control type="label" id="1">
 						<include>VideoFullScreen_coords18</include>
 						<font>Font27</font>
@@ -225,7 +225,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					
-					<!--  PVR current position/Time remaining -->
+					<!-- PVR current position/Time remaining -->
 					<control type="label" id="1">
 						<include>VideoFullScreen_coords18</include>
 						<font>Font27</font>
@@ -235,7 +235,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 
-					<!--  Progress bar -->
+					<!-- Progress bar -->
 					<control type="progress" id="1">
 						<include>VideoFullScreen_coords20</include>
 						<info>Player.Progress</info>
@@ -248,7 +248,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					
-					<!--  PVR progress bar -->
+					<!-- PVR progress bar -->
 					<control type="progress" id="1">
 						<include>VideoFullScreen_coords20</include>
 						<info>PVR.EpgEventProgress</info>
@@ -261,7 +261,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 
-					<!--  Cache bar -->
+					<!-- Cache bar -->
 					<control type="progress" id="1">
 						<include>VideoFullScreen_coords20</include>
 						<info>Player.ProgressCache</info>
@@ -274,21 +274,21 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					
-					<!--  Commercial break marker -->
+					<!-- Commercial break marker -->
 					<control type="ranges" id="1">
 						<include>VideoFullScreen_coords21</include>
 						<texturebg></texturebg>
-						<lefttexture colordiffuse="$VAR[OverlayColor]">osd/OSDProgressRanges.png</lefttexture>
-						<midtexture colordiffuse="$VAR[OverlayColor]">osd/OSDProgressRanges.png</midtexture>
-						<righttexture colordiffuse="$VAR[OverlayColor]">osd/OSDProgressRanges.png</righttexture>
+						<lefttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</lefttexture>
+						<midtexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</midtexture>
+						<righttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</righttexture>
 						<info>Player.Cutlist</info>
 					</control>
 					
-					<!--  Chapter marker -->
+					<!-- Chapter marker -->
 					<control type="ranges" id="1">
 						<include>VideoFullScreen_coords22</include>
 						<texturebg></texturebg>
-						<righttexture colordiffuse="$VAR[OverlayColor]">osd/OSDProgressRanges.png</righttexture>
+						<righttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</righttexture>
 						<info>Player.Chapters</info>
 					</control>
 
@@ -336,7 +336,7 @@
 				<!-- Background -->
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords25</include>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 				</control>
 
 				<!-- Title -->
@@ -378,7 +378,7 @@
 					<control type="textbox" id="1">
 						<include>VideoFullScreen_coords30</include>
 						<align>left</align>
-						<font>Font27-light</font>
+						<font>Font27</font>
 						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
@@ -388,7 +388,7 @@
 					<control type="textbox" id="1">
 						<include>VideoFullScreen_coords31</include>
 						<align>left</align>
-						<font>Font30-light</font>
+						<font>Font30</font>
 						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
@@ -398,7 +398,7 @@
 					<control type="textbox" id="1">
 						<include>VideoFullScreen_coords32</include>
 						<align>left</align>
-						<font>Font33-light</font>
+						<font>Font33</font>
 						<label>$VAR[VideoPlayerPlot]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
@@ -437,7 +437,7 @@
 					<include>VideoFullScreen_coords33</include>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[460]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels]$INFO[VideoPlayer.AudioLanguage, [CAPITALIZE](,)[/CAPITALIZE]]$VAR[SubtitleLanguage]</label>
+					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[292]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels]$INFO[VideoPlayer.AudioLanguage, [CAPITALIZE](,)[/CAPITALIZE]]$VAR[SubtitleLanguage]</label>
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
 				</control>
 				
@@ -472,7 +472,7 @@
 					
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords36</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<control type="label" id="1">
@@ -500,7 +500,7 @@
 				
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords38</include>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 				</control>
 				
 				<control type="label" id="1">

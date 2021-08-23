@@ -189,7 +189,7 @@
 						<control type="fadelabel">
 							<include>MusicVisualisation_coords5</include>
 							<font>Font36</font>
-							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, [LIGHT](,)[/LIGHT]]</label>
+							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</label>
 						</control>
 					</control>
 					
@@ -306,7 +306,7 @@
 				<!-- Next playing -->
 				<control type="grouplist">
 					<visible>String.IsEqual(Window(12006).Property(extended),basic) | String.IsEqual(Window(12006).Property(extended),artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + String.IsEmpty(RDS.Artist) + String.IsEmpty(RDS.Composer) + String.IsEmpty(RDS.Band) + String.IsEmpty(RDS.Conductor) + String.IsEmpty(RDS.Album) + String.IsEmpty(RDS.Title) + String.IsEmpty(RDS.ProgHost) + String.IsEmpty(RDS.ProgStyle) + String.IsEmpty(RDS.ChannelCountry) + String.IsEmpty(RDS.Comment)</visible>
-					<visible>MusicPlayer.HasNext | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+					<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title) | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
 					<include>VisibleFadeAnimation</include>
 					<include>MusicVisualisation_coords6</include>
 					<orientation>vertical</orientation>
@@ -316,59 +316,81 @@
 					<!-- Title -->
 					<control type="fadelabel">
 						<include>MusicVisualisation_coords5</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title) | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
 						<font>Font36</font>
 						<label>$LOCALIZE[19031]</label>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					
-					<!-- Line 1 -->
+					<!-- Artist -->
 					<control type="group">
 						<include>MusicVisualisation_coords3</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + !String.IsEmpty(MusicPlayer.Offset(1).Artist)</visible>
 						<control type="fadelabel">
 							<include>MusicVisualisation_coords4</include>
 							<align>right</align>
 							<font>Font36</font>
-							<label>$VAR[MusicNextPlayingLabel1]</label>
+							<label>$LOCALIZE[557]</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
 							<include>MusicVisualisation_coords5</include>
 							<font>Font36</font>
-							<label>$VAR[MusicNextPlaying1]</label>
+							<label>$INFO[MusicPlayer.Offset(1).Artist]</label>
 						</control>
 					</control>
 					
-					<!-- Line 2 -->
+					<!-- Album -->
 					<control type="group">
 						<include>MusicVisualisation_coords3</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album) + !String.IsEmpty(MusicPlayer.Offset(1).Artist)</visible>
 						<control type="fadelabel">
 							<include>MusicVisualisation_coords4</include>
 							<align>right</align>
 							<font>Font36</font>
-							<label>$VAR[MusicNextPlayingLabel2]</label>
+							<label>$LOCALIZE[558]</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
 							<include>MusicVisualisation_coords5</include>
 							<font>Font36</font>
-							<label>$VAR[MusicNextPlaying2]</label>
+							<label>$INFO[MusicPlayer.Offset(1).Album]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</label>
 						</control>
 					</control>
 					
-					<!-- Line 3 -->
+					<!-- Track -->
 					<control type="group">
 						<include>MusicVisualisation_coords3</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title)</visible>
 						<control type="fadelabel">
 							<include>MusicVisualisation_coords4</include>
 							<align>right</align>
 							<font>Font36</font>
-							<label>$VAR[MusicNextPlayingLabel3]</label>
+							<label>$LOCALIZE[556]</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
 							<include>MusicVisualisation_coords5</include>
 							<font>Font36</font>
-							<label>$VAR[MusicNextPlaying3]</label>
+							<label>$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</label>
+						</control>
+					</control>
+					
+					<!-- Radio programm -->
+					<control type="group">
+						<include>MusicVisualisation_coords3</include>
+						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords4</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29908]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords5</include>
+							<font>Font36</font>
+							<label>$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</label>
 						</control>
 					</control>
 				</control>
@@ -435,7 +457,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords8</include>
 						<align>left</align>
-						<font>Font27-light</font>
+						<font>Font27</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
 						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
@@ -444,7 +466,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords9</include>
 						<align>left</align>
-						<font>Font30-light</font>
+						<font>Font30</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
 						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
@@ -453,7 +475,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords10</include>
 						<align>left</align>
-						<font>Font33-light</font>
+						<font>Font33</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
 						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
@@ -479,7 +501,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords8</include>
 						<align>left</align>
-						<font>Font27-light</font>
+						<font>Font27</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[VideoPlayer.Plot]</label>
 						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
@@ -488,7 +510,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords9</include>
 						<align>left</align>
-						<font>Font30-light</font>
+						<font>Font30</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[VideoPlayer.Plot]</label>
 						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
@@ -497,7 +519,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords10</include>
 						<align>left</align>
-						<font>Font33-light</font>
+						<font>Font33</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[VideoPlayer.Plot]</label>
 						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
@@ -523,7 +545,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords8</include>
 						<align>left</align>
-						<font>Font27-light</font>
+						<font>Font27</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[VideoPlayer.NextPlot]</label>
 						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
@@ -532,7 +554,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords9</include>
 						<align>left</align>
-						<font>Font30-light</font>
+						<font>Font30</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[VideoPlayer.NextPlot]</label>
 						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
@@ -541,7 +563,7 @@
 					<control type="textbox">
 						<include>MusicVisualisation_coords10</include>
 						<align>left</align>
-						<font>Font33-light</font>
+						<font>Font33</font>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<label>$INFO[VideoPlayer.NextPlot]</label>
 						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
@@ -769,7 +791,7 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords12</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -810,7 +832,7 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords12</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -852,19 +874,19 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords16</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg | !Pvr.IsPlayingRadio + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
 						<include>MusicVisualisation_coords17</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
 						<include>MusicVisualisation_coords18</include>
-						<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>

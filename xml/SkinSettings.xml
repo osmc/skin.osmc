@@ -416,22 +416,8 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.background),None)]</visible>
 					</control>
-					<!-- Overlay opacity -->
-					<control type="button" id="304">
-						<include>SkinSettings_coords16</include>
-						<font>Font33</font>
-						<label> - $LOCALIZE[31110]</label>
-						<label2>$VAR[DefaultOverlayOpacity]</label2>
-						<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),High)">Skin.SetString(DefaultOverlayOpacity,Medium)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Medium)">Skin.SetString(DefaultOverlayOpacity,Low)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Low)">Skin.SetString(DefaultOverlayOpacity,Highest)</onclick>
-						<onclick condition="String.IsEqual(Skin.String(DefaultOverlayOpacity),Highest)">Skin.SetString(DefaultOverlayOpacity,High)</onclick>
-						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<visible>String.IsEqual(Skin.String(DefaultColors),yes) | [String.IsEqual(Skin.String(DefaultColors),no) + String.IsEqual(Skin.String(color.overlay),None)]</visible>
-					</control>
 					<!-- Custom colors -->
-					<control type="radiobutton" id="305">
+					<control type="radiobutton" id="304">
 						<include>SkinSettings_coords16</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[636]</label>
@@ -439,12 +425,12 @@
 						<selected>String.IsEqual(Skin.String(DefaultColors),no)</selected>
 					</control>
 					<!-- Custom background color -->
-					<control type="image" id="306">
+					<control type="image" id="305">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="307">
+					<control type="button" id="306">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31162]</label>
@@ -456,31 +442,13 @@
 						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
-					<!-- Custom overlay color -->
-					<control type="image" id="308">
-						<include>SkinSettings_coords18</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/white.png</texture>
-						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-					</control>
-					<control type="button" id="309">
-						<include>SkinSettings_coords19</include>
-						<font>Font33</font>
-						<label>$LOCALIZE[31062]</label>
-						<label2>$VAR[OverlayColor-Name]</label2>
-						<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.overlay,header=$LOCALIZE[31062],palette=rainbow)</onclick>
-						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
-						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
 					<!-- Custom focus text color -->
-					<control type="image" id="310">
+					<control type="image" id="307">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[TextColorFO]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="311">
+					<control type="button" id="308">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31163]</label>
@@ -493,12 +461,12 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<!-- Custom non-focus text color -->
-					<control type="image" id="312">
+					<control type="image" id="309">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[TextColorNF]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="313">
+					<control type="button" id="310">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31164]</label>
@@ -511,12 +479,12 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<!-- Custom selected text color -->
-					<control type="image" id="314">
+					<control type="image" id="311">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[SelectedColor]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="315">
+					<control type="button" id="312">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31165]</label>
@@ -529,12 +497,12 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<!-- Custom disabled text color -->
-					<control type="image" id="316">
+					<control type="image" id="313">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[DisabledColor]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="317">
+					<control type="button" id="314">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31166]</label>
@@ -547,12 +515,12 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<!-- Custom focus control color -->
-					<control type="image" id="318">
+					<control type="image" id="315">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[OverlayColorFO]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="319">
+					<control type="button" id="316">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31023]</label>
@@ -565,12 +533,12 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<!-- Custom non-focus control color -->
-					<control type="image" id="320">
+					<control type="image" id="317">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[OverlayColorNF]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="321">
+					<control type="button" id="318">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31024]</label>
@@ -583,12 +551,12 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<!-- Custom OSD cache bar color -->
-					<control type="image" id="322">
+					<control type="image" id="319">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[OSDCacheColor]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no)</visible>
 					</control>
-					<control type="button" id="323">
+					<control type="button" id="320">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31025]</label>
@@ -601,12 +569,12 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<!-- Custom masking color -->
-					<control type="image" id="324">
+					<control type="image" id="321">
 						<include>SkinSettings_coords18</include>
 						<texture colordiffuse="$VAR[MaskingColor]">common/white.png</texture>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no) + $EXP[Masking]</visible>
 					</control>
-					<control type="button" id="325">
+					<control type="button" id="322">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
 						<label>$LOCALIZE[31050]</label>
