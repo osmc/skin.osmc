@@ -56,7 +56,7 @@
 			<visible>!Skin.HasSetting(KioskMode)</visible>
 			<control type="image">
 				<include>FullscreenOverlayDimensions</include>
-				<texture colordiffuse="$VAR[DarkenColor]">dialogs/DialogTextBackground.png</texture>
+				<texture colordiffuse="$VAR[DarkenColor]">common/DimOverlay.png</texture>
 				<include>VisibleFadeAnimation</include>
 				<visible>ControlGroup(9002).HasFocus</visible>
 				<include>BackgroundDepth</include>
@@ -72,7 +72,7 @@
 
 				<control type="image">
 					<include>OptionsSideMenu1</include>
-					<texture colordiffuse="$VAR[OverlayColor]">dialogs/Background.png</texture>
+					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 				</control>
 
 				<!-- Look controls -->
@@ -159,131 +159,6 @@
 					
 				</control>
 			</control>
-		</control>
-
-		<!-- Options -->
-		<control type="group">
-			<include>OptionsAnimation</include>
-			<visible allowhiddenfocus="true">ControlGroup(3000).HasFocus() | ControlGroup(4000).HasFocus() | ControlGroup(5000).HasFocus()</visible>
-
-			<!-- Background -->
-			<include>OptionsBackgroundImage</include>
-
-			<!-- Main group -->
-			<control type="group">
-				<left>85</left>
-				<top>297</top>
-
-				<!-- Scroll -->
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>72</width>
-					<height>20</height>
-					<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>24</width>
-					<height>20</height>
-					<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripHorizontalFO.png</texture>
-					<animation effect="slide" start="0" end="24" time="200" condition="ControlGroup(4000).HasFocus()">Conditional</animation>
-					<animation effect="slide" start="0" end="48" time="200" condition="ControlGroup(5000).HasFocus()">Conditional</animation>
-				</control>
-
-				<!-- Heading -->
-				<control type="label">
-					<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-					<left>0</left>
-					<top>34</top>
-					<width>1200</width>
-					<height>72</height>
-					<label>$VAR[CustomMenuHeading]</label>
-					<font>Font72</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-				</control>
-
-				<!-- Look controls -->
-				<control type="grouplist" id="3000">
-					<left>0</left>
-					<top>130</top>
-					<width>1200</width>
-					<height>600</height>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<onleft>50</onleft>
-					<onright>4001</onright>
-					<itemgap>8</itemgap>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<defaultcontrol always="true">3001</defaultcontrol>
-					<visible allowhiddenfocus="true">ControlGroup(3000).HasFocus()</visible>
-
-					<!-- Dummy to set focus to top -->
-					<control type="button" id="3001">
-						<width>0</width>
-						<height>-8</height>
-						<label></label>
-						<onfocus>Down</onfocus>
-					</control>
-					
-				</control>
-
-				<!-- Layout controls -->
-				<control type="grouplist" id="4000">
-					<left>0</left>
-					<top>130</top>
-					<width>1200</width>
-					<height>600</height>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-					<onright>5001</onright>
-					<itemgap>8</itemgap>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<defaultcontrol always="true">4001</defaultcontrol>
-					<visible allowhiddenfocus="true">ControlGroup(4000).HasFocus()</visible>
-
-					<!-- Dummy to set focus to top -->
-					<control type="button" id="4001">
-						<width>0</width>
-						<height>-8</height>
-						<label></label>
-						<onfocus>Down</onfocus>
-					</control>
-
-				</control>
-
-				<!-- More controls -->
-				<control type="grouplist" id="5000">
-					<left>0</left>
-					<top>130</top>
-					<width>1200</width>
-					<height>600</height>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<onleft>4001</onleft>
-					<onright>50</onright>
-					<itemgap>8</itemgap>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<defaultcontrol always="true">5001</defaultcontrol>
-					<visible allowhiddenfocus="true">ControlGroup(5000).HasFocus()</visible>
-
-					<!-- Dummy to set focus to top -->
-					<control type="button" id="5001">
-						<width>0</width>
-						<height>-8</height>
-						<label></label>
-						<onfocus>Down</onfocus>
-					</control>
-
-				</control>
-
-			</control>
-
 		</control>
 
 		<include>MaskingBars</include>
