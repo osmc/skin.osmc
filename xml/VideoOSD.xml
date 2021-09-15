@@ -31,7 +31,7 @@
 			<control type="grouplist">
 				<include>VideoOSD_coords4</include>
 				<itemgap>0</itemgap>
-				<onleft>24</onleft>
+				<onleft>26</onleft>
 				<onright>12</onright>
 				<onup>30</onup>
 				<ondown>30</ondown>
@@ -196,9 +196,31 @@
 				<ondown>5</ondown>
 				<onback condition="Player.ShowInfo">Info</onback>
 				<orientation>horizontal</orientation>
-
-				<!-- 3D mode -->
+				
+				<!-- Repeat -->
 				<control type="button" id="12">
+					<include>MusicOSD_coords7</include>
+					<texturefocus></texturefocus>
+					<texturenofocus></texturenofocus>
+					<onclick>PlayerControl(Repeat)</onclick>
+					<visible>!Pvr.IsPlayingTv</visible>
+				</control>
+				
+				<!-- Random -->
+				<control type="togglebutton" id="13">
+					<include>MusicOSD_coords7</include>
+					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDRandomOffNF.png</texturefocus>
+					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDRandomOffNF.png</texturenofocus>
+					<usealttexture>Playlist.IsRandom</usealttexture>
+					<alttexturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDRandomOnNF.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDRandomOnNF.png</alttexturenofocus>
+					<onclick>PlayerControl(Random)</onclick>
+					<visible>!Pvr.IsPlayingTv</visible>
+					<visible>Integer.IsGreater(VideoPlayer.PlaylistLength,1)</visible>
+				</control>
+				
+				<!-- 3D mode -->
+				<control type="button" id="14">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSD3DNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSD3DNF.png</texturenofocus>
@@ -207,7 +229,7 @@
 				</control>
 				
 				<!-- Video Settings -->
-				<control type="button" id="13">
+				<control type="button" id="15">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDVideoNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDVideoNF.png</texturenofocus>
@@ -215,7 +237,7 @@
 				</control>
 				
 				<!-- Audio Settings -->
-				<control type="button" id="14">
+				<control type="button" id="16">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDAudioNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDAudioNF.png</texturenofocus>
@@ -223,7 +245,7 @@
 				</control>
 				
 				<!-- Subtitles -->
-				<control type="button" id="15">
+				<control type="button" id="17">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSubtitlesNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDSubtitlesNF.png</texturenofocus>
@@ -231,7 +253,7 @@
 				</control>
 				
 				<!-- Information -->
-				<control type="button" id="16">
+				<control type="button" id="18">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDInfoNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDInfoNF.png</texturenofocus>
@@ -239,7 +261,7 @@
 				</control>
 				
 				<!-- Bookmarks -->
-				<control type="button" id="17">
+				<control type="button" id="19">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDBookmarksNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDBookmarksNF.png</texturenofocus>
@@ -248,7 +270,7 @@
 				</control>
 				
 				<!-- Playlist -->
-				<control type="button" id="18">
+				<control type="button" id="20">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlaylistNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDPlaylistNF.png</texturenofocus>
@@ -258,7 +280,7 @@
 				</control>
 				
 				<!-- Channels -->
-				<control type="button" id="19">
+				<control type="button" id="21">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDChannelNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDChannelNF.png</texturenofocus>
@@ -267,7 +289,7 @@
 				</control>
 				
 				<!-- Channel EPG -->
-				<control type="button" id="20">
+				<control type="button" id="22">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDEPGNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDEPGNF.png</texturenofocus>
@@ -276,7 +298,7 @@
 				</control>
 				
 				<!-- Teletext -->
-				<control type="button" id="21">
+				<control type="button" id="23">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTextNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDTextNF.png</texturenofocus>
@@ -285,7 +307,7 @@
 				</control>
 				
 				<!-- DVD menu -->
-				<control type="button" id="22">
+				<control type="button" id="24">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDDvdNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDDvdNF.png</texturenofocus>
@@ -294,7 +316,7 @@
 				</control>
 				
 				<!-- Resolution select -->
-				<control type="button" id="23">
+				<control type="button" id="25">
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDResNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDResNF.png</texturenofocus>
@@ -303,7 +325,7 @@
 				</control>
 
 				<!-- Masking -->
-				<control type="button" id="24">
+				<control type="button" id="26">
 					<include>VideoOSD_coords8</include>
 					<texturefocus></texturefocus>
 					<texturenofocus></texturenofocus>
@@ -313,82 +335,131 @@
 
 			</control>
 			
-			<!-- Masking images -->
+			<!-- Repeat images -->
 			<control type="group">
 				<include>VideoOSD_coords10</include>
-				<visible>Control.IsVisible(24)</visible>
+				<visible>!Pvr.IsPlayingTv</visible>
+				<animation effect="slide" end="120,0" time="0" condition="!Integer.IsGreater(VideoPlayer.PlaylistLength,1)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(26)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(25)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(24)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(14)">Conditional</animation>
+
+				<control type="image">
+					<include>VideoOSD_coords8</include>
+					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(12)</visible>
+				</control>
+				<control type="image">
+					<include>VideoOSD_coords8</include>
+					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDRepeatNF.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(12)</visible>
+				</control>
+				<control type="image">
+					<include>VideoOSD_coords8</include>
+					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(12)</visible>
+				</control>
+				<control type="image">
+					<include>VideoOSD_coords8</include>
+					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDRepeatOneNF.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(12)</visible>
+				</control>
+				<control type="image">
+					<include>VideoOSD_coords8</include>
+					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>!Control.HasFocus(12)</visible>
+				</control>
+				<control type="image">
+					<include>VideoOSD_coords8</include>
+					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDRepeatAllNF.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>Control.HasFocus(12)</visible>
+				</control>
+
+			</control>
+			
+			<!-- Masking images -->
+			<control type="group">
+				<include>VideoOSD_coords11</include>
+				<visible>Control.IsVisible(26)</visible>
 
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDMask240NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.40:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>!Control.HasFocus(24)</visible>
+					<visible>!Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDMask240NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.40:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>Control.HasFocus(24)</visible>
+					<visible>Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDMask235NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.35:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>!Control.HasFocus(24)</visible>
+					<visible>!Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDMask235NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.35:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>Control.HasFocus(24)</visible>
+					<visible>Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDMask233NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.33:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>!Control.HasFocus(24)</visible>
+					<visible>!Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDMask233NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.33:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>Control.HasFocus(24)</visible>
+					<visible>Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDMask200NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.00:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>!Control.HasFocus(24)</visible>
+					<visible>!Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDMask200NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),2.00:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>Control.HasFocus(24)</visible>
+					<visible>Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDMask178NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),1.78:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>!Control.HasFocus(24)</visible>
+					<visible>!Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDMask178NF.png</texture>
 					<visible>String.IsEqual(Skin.String(MaskingBars),1.78:1) + [!Skin.HasSetting(AutomaticMasking) | Skin.HasSetting(AutomaticMasking) + !String.Contains(Player.FileName,-AR178-) + !String.Contains(Player.FileName,-AR178.) + !String.Contains(Player.FileName,-AR178_) + !String.Contains(Player.FileName,.AR178-) + !String.Contains(Player.FileName,.AR178.) + !String.Contains(Player.FileName,.AR178_) + !String.Contains(Player.FileName,_AR178-) + !String.Contains(Player.FileName,_AR178.) + !String.Contains(Player.FileName,_AR178_) + !String.Contains(Player.FileName,-AR200-) + !String.Contains(Player.FileName,-AR200.) + !String.Contains(Player.FileName,-AR200_) + !String.Contains(Player.FileName,.AR200-) + !String.Contains(Player.FileName,.AR200.) + !String.Contains(Player.FileName,.AR200_) + !String.Contains(Player.FileName,_AR200-) + !String.Contains(Player.FileName,_AR200.) + !String.Contains(Player.FileName,_AR200_) + !String.Contains(Player.FileName,-AR233-) + !String.Contains(Player.FileName,-AR233.) + !String.Contains(Player.FileName,-AR233_) + !String.Contains(Player.FileName,.AR233-) + !String.Contains(Player.FileName,.AR233.) + !String.Contains(Player.FileName,.AR233_) + !String.Contains(Player.FileName,_AR233-) + !String.Contains(Player.FileName,_AR233.) + !String.Contains(Player.FileName,_AR233_) + !String.Contains(Player.FileName,-AR235-) + !String.Contains(Player.FileName,-AR235.) + !String.Contains(Player.FileName,-AR235_) + !String.Contains(Player.FileName,.AR235-) + !String.Contains(Player.FileName,.AR235.) + !String.Contains(Player.FileName,.AR235_) + !String.Contains(Player.FileName,_AR235-) + !String.Contains(Player.FileName,_AR235.) + !String.Contains(Player.FileName,_AR235_) + !String.Contains(Player.FileName,-AR240-) + !String.Contains(Player.FileName,-AR240.) + !String.Contains(Player.FileName,-AR240_) + !String.Contains(Player.FileName,.AR240-) + !String.Contains(Player.FileName,.AR240.) + !String.Contains(Player.FileName,.AR240_) + !String.Contains(Player.FileName,_AR240-) + !String.Contains(Player.FileName,_AR240.) + !String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>Control.HasFocus(24)</visible>
+					<visible>Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDMaskAutoNF.png</texture>
 					<visible>Skin.HasSetting(AutomaticMasking) + [String.Contains(Player.FileName,-AR178-) | String.Contains(Player.FileName,-AR178.) | String.Contains(Player.FileName,-AR178_) | String.Contains(Player.FileName,.AR178-) | String.Contains(Player.FileName,.AR178.) | String.Contains(Player.FileName,.AR178_) | String.Contains(Player.FileName,_AR178-) | String.Contains(Player.FileName,_AR178.) | String.Contains(Player.FileName,_AR178_) | String.Contains(Player.FileName,-AR235-) | String.Contains(Player.FileName,-AR235.) | String.Contains(Player.FileName,-AR235_) | String.Contains(Player.FileName,.AR235-) | String.Contains(Player.FileName,.AR235.) | String.Contains(Player.FileName,.AR235_) | String.Contains(Player.FileName,_AR235-) | String.Contains(Player.FileName,_AR235.) | String.Contains(Player.FileName,_AR235_) | String.Contains(Player.FileName,-AR233-) | String.Contains(Player.FileName,-AR233.) | String.Contains(Player.FileName,-AR233_) | String.Contains(Player.FileName,.AR233-) | String.Contains(Player.FileName,.AR233.) | String.Contains(Player.FileName,.AR233_) | String.Contains(Player.FileName,_AR233-) | String.Contains(Player.FileName,_AR233.) | String.Contains(Player.FileName,_AR233_) | String.Contains(Player.FileName,-AR200-) | String.Contains(Player.FileName,-AR200.) | String.Contains(Player.FileName,-AR200_) | String.Contains(Player.FileName,.AR200-) | String.Contains(Player.FileName,.AR200.) | String.Contains(Player.FileName,.AR200_) | String.Contains(Player.FileName,_AR200-) | String.Contains(Player.FileName,_AR200.) | String.Contains(Player.FileName,_AR200_) | String.Contains(Player.FileName,-AR240-) | String.Contains(Player.FileName,-AR240.) | String.Contains(Player.FileName,-AR240_) | String.Contains(Player.FileName,.AR240-) | String.Contains(Player.FileName,.AR240.) | String.Contains(Player.FileName,.AR240_) | String.Contains(Player.FileName,_AR240-) | String.Contains(Player.FileName,_AR240.) | String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>!Control.HasFocus(24)</visible>
+					<visible>!Control.HasFocus(26)</visible>
 				</control>
 				<control type="image">
 					<include>VideoOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDMaskAutoNF.png</texture>
 					<visible>Skin.HasSetting(AutomaticMasking) + [String.Contains(Player.FileName,-AR178-) | String.Contains(Player.FileName,-AR178.) | String.Contains(Player.FileName,-AR178_) | String.Contains(Player.FileName,.AR178-) | String.Contains(Player.FileName,.AR178.) | String.Contains(Player.FileName,.AR178_) | String.Contains(Player.FileName,_AR178-) | String.Contains(Player.FileName,_AR178.) | String.Contains(Player.FileName,_AR178_) | String.Contains(Player.FileName,-AR235-) | String.Contains(Player.FileName,-AR235.) | String.Contains(Player.FileName,-AR235_) | String.Contains(Player.FileName,.AR235-) | String.Contains(Player.FileName,.AR235.) | String.Contains(Player.FileName,.AR235_) | String.Contains(Player.FileName,_AR235-) | String.Contains(Player.FileName,_AR235.) | String.Contains(Player.FileName,_AR235_) | String.Contains(Player.FileName,-AR233-) | String.Contains(Player.FileName,-AR233.) | String.Contains(Player.FileName,-AR233_) | String.Contains(Player.FileName,.AR233-) | String.Contains(Player.FileName,.AR233.) | String.Contains(Player.FileName,.AR233_) | String.Contains(Player.FileName,_AR233-) | String.Contains(Player.FileName,_AR233.) | String.Contains(Player.FileName,_AR233_) | String.Contains(Player.FileName,-AR200-) | String.Contains(Player.FileName,-AR200.) | String.Contains(Player.FileName,-AR200_) | String.Contains(Player.FileName,.AR200-) | String.Contains(Player.FileName,.AR200.) | String.Contains(Player.FileName,.AR200_) | String.Contains(Player.FileName,_AR200-) | String.Contains(Player.FileName,_AR200.) | String.Contains(Player.FileName,_AR200_) | String.Contains(Player.FileName,-AR240-) | String.Contains(Player.FileName,-AR240.) | String.Contains(Player.FileName,-AR240_) | String.Contains(Player.FileName,.AR240-) | String.Contains(Player.FileName,.AR240.) | String.Contains(Player.FileName,.AR240_) | String.Contains(Player.FileName,_AR240-) | String.Contains(Player.FileName,_AR240.) | String.Contains(Player.FileName,_AR240_)]</visible>
-					<visible>Control.HasFocus(24)</visible>
+					<visible>Control.HasFocus(26)</visible>
 				</control>
 
 			</control>

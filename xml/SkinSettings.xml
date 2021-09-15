@@ -146,7 +146,7 @@
 						<label>31049</label>
 						<font>Font33</font>
 						<onclick>RunScript(script.skinshortcuts,type=manage&amp;group=mainmenu)</onclick>
-						<visible>System.HasAddon(script.skinshortcuts) + System.AddonIsEnabled(script.skinshortcuts)<!--  + System.HasAddon(script.skin.helper.service) + System.AddonIsEnabled(script.skin.helper.service) --></visible>
+						<visible>System.HasAddon(script.skinshortcuts) + System.AddonIsEnabled(script.skinshortcuts)</visible>
 						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
@@ -155,10 +155,8 @@
 						<label>$LOCALIZE[31030]</label>
 						<font>Font33</font>
 						<onclick>InstallAddon(script.skinshortcuts)</onclick>
-						<!-- <onclick>InstallAddon(script.skin.helper.service)</onclick> -->
 						<onclick condition="System.HasAddon(script.skinshortcuts) + !System.AddonIsEnabled(script.skinshortcuts)">EnableAddon(script.skinshortcuts)</onclick>
-						<!-- <onclick condition="System.HasAddon(script.skin.helper.service) + !System.AddonIsEnabled(script.skin.helper.service)">EnableAddon(script.skin.helper.service)</onclick> -->
-						<visible>!System.AddonIsEnabled(script.skinshortcuts)<!--  | !System.AddonIsEnabled(script.skin.helper.service) --></visible>
+						<visible>!System.AddonIsEnabled(script.skinshortcuts)</visible>
 						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
@@ -577,11 +575,11 @@
 					<control type="button" id="322">
 						<include>SkinSettings_coords19</include>
 						<font>Font33</font>
-						<label>$LOCALIZE[31050]</label>
+						<label>$LOCALIZE[31150]</label>
 						<label2>$VAR[MaskingColor-Name]</label2>
 						<onclick condition="!System.HasAddon(script.skin.helper.colorpicker)">InstallAddon(script.skin.helper.colorpicker)</onclick>
 						<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">EnableAddon(script.skin.helper.colorpicker)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.masking,header=$LOCALIZE[31050],palette=rainbow)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">RunScript(script.skin.helper.colorpicker,skinstring=color.masking,header=$LOCALIZE[31150],palette=rainbow)</onclick>
 						<visible>String.IsEqual(Skin.String(DefaultColors),no) + $EXP[Masking]</visible>
 						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 						<textcolor>$VAR[TextColorNF]</textcolor>
