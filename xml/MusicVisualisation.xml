@@ -120,6 +120,24 @@
 						</control>
 					</control>
 					
+					<!-- Comment -->
+					<control type="group">
+						<include>MusicVisualisation_coords3</include>
+						<visible>!String.IsEmpty(MusicPlayer.Comment)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords4</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[569]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords5</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Comment]</label>
+						</control>
+					</control>
+					
 					<!-- File information (non-DSD) -->
 					<control type="group">
 						<include>MusicVisualisation_coords3</include>

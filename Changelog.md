@@ -6,11 +6,15 @@
 
 _New_
 - add ENABLE option for new skinshortcuts version
+- add playback mode (shuffle and repeat) buttons to video OSD
+- add comment tag line to music visualisation
 
 _Improved_
 - improve background overlay colour management of new skin design
 - streamline secondary information and widget detail labels
 - improve weather widget
+- add warning to add-ons currently not available from Kodi repo
+- allow jumping from top to bottom of video playback settings dialog
 
 _Fixed_
 - fix skinshortcuts management dialog
@@ -383,6 +387,7 @@ strings.po:
 - rework skin settings colour localizes (31288, 31290, 31291, 31295)
 - remove deprecated skin settings colour localizes (31292, 31296)
 - rework skin settings localizes (31332, 31412)
+- add warning to add-on descripton of add-ons currently not available from Kodi repo (31340, 31341, 31342, 31347)
 
 Textures.xbt:
 - update textures file with new background overlay media files, reworked OSD ranges image as well as removed deprecated background overlay and dialog media files/folders
@@ -392,6 +397,10 @@ Coordinates_script-skinshortcuts.xml:
 - fix visibility condition of left list button hightlights
 - fix height of right list controls
 
+Coordinates_VideoOSD.xml:
+- adjust width of OSD options for new playback mode buttons
+- add new coordinates for repeat button images
+
 DialogPVRInfo.xml:
 - streamline the way the channel number label is formatted
 
@@ -400,6 +409,9 @@ DialogVideoInfo.xml:
 
 Includes.xml:
 - remove deprecated overlay and skin settings onloads
+
+Includes_DialogSettings.xml:
+- allow jumping from top to bottom of video playback settings dialog
 
 Includes_Time_NowPlaying.xml
 - streamline the way the channel number label is formatted
@@ -411,6 +423,7 @@ MusicVisualisation.xml:
 - streamline the way the channel number label is formatted
 - rework next playing information
 - fix description and plot font
+- add new comment tag line
 
 MyPlaylist.xml:
 - remove deprecated options code
@@ -442,6 +455,9 @@ Variables_SkinSettings.xml:
 VideoFullScreen.xml:
 - fix description and plot font
 - use better localizes for audio and subtitle stream information
+
+VideoOSD.xml:
+- add playback mode (shuffle and repeat) buttons to video OSD
 
 overrides.xml:
 - add new ENABLE option (for new skinshortcuts version)
