@@ -201,10 +201,12 @@
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDRandomOffNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDRandomOffNF.png</texturenofocus>
+					<usealttexture>Playlist.IsRandom</usealttexture>
 					<alttexturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDRandomOnNF.png</alttexturefocus>
 					<alttexturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDRandomOnNF.png</alttexturenofocus>
 					<onclick>PlayerControl(Random)</onclick>
 					<visible>!Pvr.IsPlayingRadio</visible>
+					<visible>Integer.IsGreater(MusicPlayer.PlaylistLength,1)</visible>
 				</control>
 				
 				<!-- More information -->
@@ -305,7 +307,7 @@
 					<include>MusicOSD_coords7</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDVizPreNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDVizPreNF.png</texturenofocus>
-					<onclick>ActivateWindow(122)</onclick>
+					<onclick>ActivateWindow(VisualisationPresetlist)</onclick>
 					<visible>Visualisation.Enabled + Visualisation.HasPresets</visible>
 				</control>
 
@@ -315,10 +317,10 @@
 			<control type="group">
 				<include>MusicOSD_coords9</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
-				<animation effect="slide" end="60,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
+				<animation effect="slide" end="120,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(14)">Conditional</animation>
-				<animation effect="slide" end="60,0" time="0" condition="Control.IsVisible(19) + !Control.IsVisible(20)">Conditional</animation>
-				<animation effect="slide" end="120,0" time="0" condition="!Control.IsVisible(19)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(19)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(20)">Conditional</animation>
 
 				<control type="image">
 					<include>MusicOSD_coords7</include>
