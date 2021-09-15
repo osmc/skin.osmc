@@ -285,12 +285,13 @@
 				</control>
 
 				<!-- Change label-->
-				<!-- <control type="button" id="604">
+				<control type="button" id="604">
 					<include>script-skinshortcuts_coords7</include>
 					<label>  -  $LOCALIZE[528]</label>
                     <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[528],property=widgetName)</onclick>
                     <visible>String.EndsWith(Window.Property(groupname),.1)</visible>
-				</control> -->
+					<visible>System.HasAddon(script.skin.helper.service)</visible>
+				</control>
 				
 				<!-- Change layout -->
 				<control type="button" id="601">
