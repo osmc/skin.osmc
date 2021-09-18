@@ -15,9 +15,11 @@ _Improved_
 - improve weather widget
 - add warning to add-ons currently not available from Kodi repo
 - allow jumping from top to bottom of video playback settings dialog
+- adjust list views to change depending on secondary label status
 
 _Fixed_
 - fix skinshortcuts management dialog
+- add missing views to programs section for addons that set content type
 
 ---
 
@@ -392,6 +394,9 @@ strings.po:
 Textures.xbt:
 - update textures file with new background overlay media files, reworked OSD ranges image as well as removed deprecated background overlay and dialog media files/folders
 
+Coordinates_MyPrograms.xml:
+- add coordinates for new scrollbars
+
 Coordinates_script-skinshortcuts.xml:
 - fix width of left list button hightlights
 - fix visibility condition of left list button hightlights
@@ -400,6 +405,12 @@ Coordinates_script-skinshortcuts.xml:
 Coordinates_VideoOSD.xml:
 - adjust width of OSD options for new playback mode buttons
 - add new coordinates for repeat button images
+
+Coordinates_Viewtype51.xml:
+- add new visibility conditions and new labels to adjust look of list items when secondary label is empty
+
+Coordinates_Viewtype511.xml:
+- add new visibility conditions and new labels to adjust look of list items when secondary label is empty
 
 DialogPVRInfo.xml:
 - streamline the way the channel number label is formatted
@@ -427,6 +438,10 @@ MusicVisualisation.xml:
 
 MyPlaylist.xml:
 - remove deprecated options code
+
+MyPrograms.xml:
+- add new supported viewtypes for content type setting video addons
+- add new scrollbars for newly supported viewtypes
 
 script-skinshortcuts-static.xml:
 - rework weather widget behaviour
@@ -458,6 +473,12 @@ VideoFullScreen.xml:
 
 VideoOSD.xml:
 - add playback mode (shuffle and repeat) buttons to video OSD
+
+Viewtype51.xml:
+- add hidden label to be able to check for empty secondary list item label
+
+Viewtype511.xml:
+- add hidden label to be able to check for empty secondary list item label
 
 overrides.xml:
 - add new ENABLE option (for new skinshortcuts version)
