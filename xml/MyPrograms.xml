@@ -3,7 +3,7 @@
 	<!-- programs -->
 	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
-	<views>50,51,523,535,537</views>
+	<views>50,51,511,52,521,522,523,524,525,53,531,532,533,534,535,536,537,538,539</views>
 
 	<!-- Sidemenu menucontrol -->
 	<include content="SidemenuMenucontrol">
@@ -25,9 +25,23 @@
 			<!-- Views -->
 			<include>Viewtype50</include>
 			<include>Viewtype51</include>
+			<include>Viewtype511</include>
+			<include>Viewtype52</include>
+			<include>Viewtype521</include>
+			<include>Viewtype522</include>
 			<include>Viewtype523</include>
+			<include>Viewtype524</include>
+			<include>Viewtype525</include>
+			<include>Viewtype53</include>
+			<include>Viewtype531</include>
+			<include>Viewtype532</include>
+			<include>Viewtype533</include>
+			<include>Viewtype534</include>
 			<include>Viewtype535</include>
+			<include>Viewtype536</include>
 			<include>Viewtype537</include>
+			<include>Viewtype538</include>
+			<include>Viewtype539</include>
 
 			<!-- Scrollbar (list) -->
 			<control type="scrollbar" id="60">
@@ -41,7 +55,7 @@
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51)]</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(501) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(531) | Control.IsVisible(533) | Control.IsVisible(536) | Control.IsVisible(538)]</visible>
 			</control>
 			
 			<!-- Scrollbar (wide) -->
@@ -58,10 +72,25 @@
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(523)</visible>
 			</control>
+			
+			<!-- Scrollbar (wide low info) -->
+			<control type="scrollbar" id="62">
+				<include>MyPrograms_coords3</include>
+				<onup>50</onup>
+				<ondown condition="!Skin.HasSetting(KioskMode)">3001</ondown>
+				<showonepage>false</showonepage>
+				<orientation>horizontal</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbar border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalFO.png</texturesliderbar>
+				<texturesliderbarfocus border="1,12,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripHorizontalFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(522) | Control.IsVisible(525)]</visible>
+			</control>
 
 			<!-- Scrollbar (wall) -->
 			<control type="scrollbar" id="63">
-				<include>MyPrograms_coords3</include>
+				<include>MyPrograms_coords4</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
@@ -73,6 +102,22 @@
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(535) | Control.IsVisible(537)]</visible>
+			</control>
+			
+			<!-- Scrollbar (wall low) -->
+			<control type="scrollbar" id="64">
+				<include>MyPrograms_coords5</include>
+				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
+				<onright>50</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="6,1,8,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(534) | Control.IsVisible(539)]</visible>
 			</control>
 
 			<!-- Item count -->
@@ -182,7 +227,7 @@
 						<texture colordiffuse="$VAR[BackgroundColor]">transparent.png</texture>
 					</control>
 
-
+					<!-- Addons -->
 					<control type="button" id="92">
 						<height>52</height>
 						<label>$LOCALIZE[21452]</label>
