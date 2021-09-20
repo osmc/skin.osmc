@@ -43,7 +43,7 @@
 			<include>Viewtype538</include>
 			<include>Viewtype539</include>
 
-			<!-- Scrollbar (list) -->
+			<!-- Scrollbar (list/wall info) -->
 			<control type="scrollbar" id="60">
 				<include>MyPrograms_coords1</include>
 				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
@@ -70,7 +70,7 @@
 				<texturesliderbarfocus border="1,12,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripHorizontalFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(523)</visible>
+				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(523) | Control.IsVisible(524)]</visible>
 			</control>
 			
 			<!-- Scrollbar (wide low info) -->
