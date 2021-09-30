@@ -16,10 +16,12 @@ _Improved_
 - add warning to add-ons currently not available from Kodi repo
 - allow jumping from top to bottom of video playback settings dialog
 - adjust list views to change depending on secondary label status
+- improve settings window with new description and better list behaviour
 
 _Fixed_
 - fix skinshortcuts management dialog
 - add missing views to programs section for addons that set content type
+- fix dialog select icons for movies and TV shows
 
 ---
 
@@ -380,6 +382,7 @@ Release
 
 _adjust files to use new background and dim overlay textures_
 _remove deprecated OverlayColor from all skin files_
+_rename Variables_SkinSettings.xml to Variables_Settings.xml_
 
 defaults.xml:
 - update default BackgroundColor
@@ -390,9 +393,20 @@ strings.po:
 - remove deprecated skin settings colour localizes (31292, 31296)
 - rework skin settings localizes (31332, 31412)
 - add warning to add-on descripton of add-ons currently not available from Kodi repo (31340, 31341, 31342, 31347)
+- add My OSMC category labels (31103, 31111, 31262, 31263, 31264, 31265, 31266)
 
 Textures.xbt:
 - update textures file with new background overlay media files, reworked OSD ranges image as well as removed deprecated background overlay and dialog media files/folders
+
+Coordinates_AddonBrowser.xml:
+- fix formatting for label2 missing condition
+
+Coordinates_DialogSelect.xml:
+- fix list icons to show posters for movies using new SelectImage variable
+- add new visibility conditions and new labels to adjust look of list items when secondary label is empty
+
+Coordinates_FileManager.xml:
+- add new visibility conditions and new labels to adjust look of list items when secondary label is empty
 
 Coordinates_MyPrograms.xml:
 - add coordinates for new scrollbars
@@ -401,6 +415,9 @@ Coordinates_script-skinshortcuts.xml:
 - fix width of left list button hightlights
 - fix visibility condition of left list button hightlights
 - fix height of right list controls
+
+Coordinates_Settings.xml:
+- add coodiantes includes for new list control
 
 Coordinates_VideoOSD.xml:
 - adjust width of OSD options for new playback mode buttons
@@ -451,6 +468,10 @@ script-skinshortcuts-static.xml:
 script-skinshortcuts.xml:
 - fix move up and down button texture glitch
 
+Settings.xml:
+- rework settings window to use list control instead of grouplist control
+- add new description
+
 SkinSettings.xml:
 - remove deprecated overlay opacity and custom overlay colour settings
 
@@ -459,13 +480,15 @@ Variables.xml:
 - remove deprecated MusicNextPlaying variables
 - streamline VideoInfoLabel variable to show information like widgetdetails and other secondary information labels
 - rework Label2 variable to show information like widgetdetails and other secondary information labels
+- add new SelectImage variable
 
 Variables_Colours.xml:
 - remove deprecated OverlayColor and OverlayColor-Name variables
 
-Variables_SkinSettings.xml:
+Variables_Settings.xml:
 - rework SkinSettingsExplanation variable after removing deprecated skin settings
 - remove deprecated DefaultOverlayOpacity and OSMCBackgroundOverlay variables
+- add new SettingsExplanation variable
 
 VideoFullScreen.xml:
 - fix description and plot font

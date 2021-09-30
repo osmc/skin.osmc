@@ -387,7 +387,7 @@
 		<value>SW</value>
 	</variable>
 	
-	<!-- Info dialog labels -->
+	<!-- Dialog labels -->
 	<variable name="VideoInfoLabel">
 		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsLessOrEqual(ListItem.Episode,9) + !String.IsEqual(ListItem.Season,0)">$INFO[ListItem.TVShowTitle,, &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E0, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
 		<value condition="Container.Content(episodes) + Integer.IsLessOrEqual(ListItem.Season,9) + Integer.IsGreaterOrEqual(ListItem.Episode,10) + !String.IsEqual(ListItem.Season,0)">$INFO[ListItem.TVShowTitle,, &#8226; ]$INFO[ListItem.Season,S0,]$INFO[ListItem.Episode,E, &#8226; ]$INFO[ListItem.Title]$VAR[LabelUserRating]</value>
@@ -402,6 +402,11 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.Icon]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+	
+	<variable name="SelectImage">
+		<value condition="!String.IsEmpty(Container(6).ListItem.Art(poster))">$INFO[Container(6).ListItem.Art(poster)]</value>
+		<value>$INFO[Container(6).ListItem.Icon]</value>
 	</variable>
 
 	<variable name="MusicInfoLabel">
