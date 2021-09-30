@@ -196,59 +196,52 @@
 
 				<!-- Heading -->
 				<control type="label" id="1">
-					<textcolor>$VAR[TextColorNF]</textcolor>
 					<include>script-skinshortcuts_coords6</include>
 					<label>$INFO[Container(211).ListItem.Label]</label>
 					<align>center</align>
 					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorNF]</textcolor>
 					<visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				
-				<!-- Heading -->
-				<control type="label" id="2">
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<include>script-skinshortcuts_coords6</include>
-					<label>$INFO[Container(211).ListItem.Property(widgetName)]</label>
-					<align>center</align>
-					<scroll>True</scroll>
-					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
-				</control>
-
 				<!-- Change shortcut -->
 				<control type="button" id="401">
 					<include>script-skinshortcuts_coords6</include>
 					<label>$ADDON[script.skinshortcuts 32048]</label>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
-
+				
 				<!-- Change label -->
 				<control type="button" id="305">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[528]</label>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
-
+				
 				<!-- Change action -->
 				<control type="button" id="307">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $ADDON[script.skinshortcuts 32027]</label>
 					<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>!String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				
 				<!-- Edit background -->
 				<control type="button" id="310">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $ADDON[script.skinshortcuts 32045]</label>
 					<label2>$INFO[Container(211).ListItem.Property(background)]</label2>
 					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 				
 				<!-- Edit background duration -->
 				<control type="button" id="210">
-					<include>script-skinshortcuts_coords7</include>
-					<font>Font33</font>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31137]</label>
 					<label2>$INFO[Skin.String(IndividualBackgroundFolderDuration)]</label2>
 					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),1 min)">Skin.SetString(IndividualBackgroundFolderDuration,5s)</onclick>
@@ -260,6 +253,7 @@
 					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),20s)">Skin.SetString(IndividualBackgroundFolderDuration,30s)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(IndividualBackgroundFolderDuration),30s)">Skin.SetString(IndividualBackgroundFolderDuration,1 min)</onclick>
 					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 
@@ -267,6 +261,7 @@
 				<control type="button" id="405">
 					<include>script-skinshortcuts_coords6</include>
 					<label>$ADDON[script.skinshortcuts 32072]</label>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 
@@ -274,89 +269,108 @@
 				<control type="button" id="406">
 					<include>script-skinshortcuts_coords6</include>
 					<label>$LOCALIZE[31095]</label>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+				</control>
+				
+				<!-- Heading -->
+				<control type="label" id="2">
+					<include>script-skinshortcuts_coords6</include>
+					<label>$INFO[Container(211).ListItem.Property(widgetName)]</label>
+					<align>center</align>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
 				<!-- Select widget -->
 				<control type="button" id="312">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>$ADDON[script.skinshortcuts 32044]</label>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
-				<!-- Change label-->
+				<!-- Change label -->
 				<control type="button" id="604">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[528]</label>
                     <onclick>RunScript(script.skin.helper.service,action=setskinshortcutsproperty,header=$LOCALIZE[528],property=widgetName)</onclick>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
                     <visible>String.EndsWith(Window.Property(groupname),.1)</visible>
-					<visible>System.HasAddon(script.skin.helper.service)</visible>
+					<visible>System.HasAddon(script.skin.helper.service) + System.AddonIsEnabled(script.skin.helper.service)</visible>
 				</control>
 				
 				<!-- Change layout -->
 				<control type="button" id="601">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31172]</label>
 					<label2>$VAR[skinshortcuts-size]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget)</enable>
 					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
 				<!-- Change artwork -->
 				<control type="button" id="602">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31033]</label>
 					<label2>$VAR[skinshortcuts-art]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
 					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				
 				<!-- Fallback artwork -->
 				<control type="button" id="603">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31029]</label>
 					<label2>$VAR[skinshortcuts-fallbackart]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
 					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
 				<!-- Widget sort by -->
 				<control type="button" id="502">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31175]</label>
 					<label2>$VAR[WidgetSortByLabel]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
-					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 					<onclick>SetProperty(chooseProperty,widgetSortBy)</onclick>
 					<onclick>SendClick(404)</onclick>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				
 				<!-- Widget sort direction -->
 				<control type="button" id="503">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31176]</label>
 					<label2>$VAR[WidgetSortDirectionLabel]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
-					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 					<onclick>SetProperty(chooseProperty,widgetSortDirection)</onclick>
 					<onclick>SendClick(404)</onclick>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 				
 				<!-- Widget limit items -->
 				<control type="button" id="504">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>  -  $LOCALIZE[31177]</label>
 					<label2>$VAR[WidgetLimitLabel]</label2>
 					<enable>!String.IsEmpty(Container(211).ListItem.Property(widget)) + !String.IsEqual(Container(211).ListItem.Property(widget),WeatherWidget) + !Container(8000).IsUpdating</enable>
-					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
-					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 					<onclick>SetProperty(chooseProperty,widgetLimit)</onclick>
 					<onclick>SendClick(404)</onclick>
+					<disabledcolor>$VAR[DisabledColor]</disabledcolor>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
+					<visible>String.EndsWith(Window.Property(groupname),.1)</visible>
 				</control>
 
 				<!-- Enable/Disable -->
@@ -364,18 +378,21 @@
 					<include>script-skinshortcuts_coords6</include>
 					<label>$LOCALIZE[31161]</label>
 					<selected>String.IsEqual(Container(211).ListItem.Property(skinshortcuts-disabled),False)</selected>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 				</control>
 
 				<!-- Delete -->
 				<control type="button" id="302">
-					<include>script-skinshortcuts_coords7</include>
+					<include>script-skinshortcuts_coords6</include>
 					<label>$ADDON[script.skinshortcuts 32001]</label>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus44.png</texturefocus>
 				</control>
+				
 			</control>
 
 			<!-- Explanation text -->
 			<control type="textbox">
-				<include>script-skinshortcuts_coords8</include>
+				<include>script-skinshortcuts_coords7</include>
 				<label>$VAR[SkinShortcutsExplanation1]</label>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<font>Font27</font>
@@ -383,7 +400,7 @@
 			</control>
 			
 			<control type="textbox">
-				<include>script-skinshortcuts_coords9</include>
+				<include>script-skinshortcuts_coords8</include>
 				<label>$VAR[SkinShortcutsExplanation1]</label>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<font>Font30</font>
@@ -391,7 +408,7 @@
 			</control>
 			
 			<control type="textbox">
-				<include>script-skinshortcuts_coords10</include>
+				<include>script-skinshortcuts_coords9</include>
 				<label>$VAR[SkinShortcutsExplanation1]</label>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<font>Font33</font>

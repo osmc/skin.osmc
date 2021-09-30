@@ -1,71 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<!-- Skin Settings - Weather Art -->
-	<variable name="weather-icons">
-		<value condition="!String.IsEmpty(Skin.String(weatherIcons.name))">$INFO[Skin.String(weatherIcons.name)]</value>
-		<value>$LOCALIZE[571]</value>
-	</variable>
-	<variable name="weather-fanart">
-		<value condition="!String.IsEmpty(Skin.String(weatherFanart.name))">$INFO[Skin.String(weatherFanart.name)]</value>
-		<value>$LOCALIZE[231]</value>
-	</variable>
-
-	<!-- Skin Settings - Addons -->
-	<variable name="addon-skinshortcuts">
-		<value condition="System.HasAddon(script.skinshortcuts) + System.AddonIsEnabled(script.skinshortcuts)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skinshortcuts)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.skinshortcuts) + !System.AddonIsEnabled(script.skinshortcuts)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelper">
-		<value condition="System.HasAddon(script.skin.helper.service) + System.AddonIsEnabled(script.skin.helper.service)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.service)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.skin.helper.service) + !System.AddonIsEnabled(script.skin.helper.service)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelperbackgrounds">
-		<value condition="System.HasAddon(script.skin.helper.backgrounds) + System.AddonIsEnabled(script.skin.helper.backgrounds)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.backgrounds)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.skin.helper.backgrounds) + !System.AddonIsEnabled(script.skin.helper.backgrounds)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelperwidgets">
-		<value condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.widgets)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.skin.helper.widgets) + !System.AddonIsEnabled(script.skin.helper.widgets)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelpercolorpicker">
-		<value condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.colorpicker)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-skinhelperbackup">
-		<value condition="System.HasAddon(script.skin.helper.skinbackup) + System.AddonIsEnabled(script.skin.helper.skinbackup)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.skinbackup)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.skin.helper.skinbackup) + !System.AddonIsEnabled(script.skin.helper.skinbackup)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-autocompletion">
-		<value condition="System.HasAddon(plugin.program.autocompletion) + System.AddonIsEnabled(plugin.program.autocompletion)">[COLOR lightgreen]v$INFO[System.AddonVersion(plugin.program.autocompletion)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(plugin.program.autocompletion) + !System.AddonIsEnabled(plugin.program.autocompletion)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-librarynodeeditor">
-		<value condition="System.HasAddon(plugin.library.node.editor) + System.AddonIsEnabled(plugin.library.node.editor)">[COLOR lightgreen]v$INFO[System.AddonVersion(plugin.library.node.editor)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-imageselect">
-		<value condition="System.HasAddon(script.image.resource.select) + System.AddonIsEnabled(script.image.resource.select)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.image.resource.select)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-upnext">
-		<value condition="System.HasAddon(service.upnext) + System.AddonIsEnabled(service.upnext)">[COLOR lightgreen]v$INFO[System.AddonVersion(service.upnext)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(service.upnext) + !System.AddonIsEnabled(service.upnext)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
-	</variable>
-	<variable name="addon-artistslideshow">
-		<value condition="System.HasAddon(script.artistslideshow) + System.AddonIsEnabled(script.artistslideshow)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.artistslideshow)] $LOCALIZE[31093][/COLOR]</value>
-		<value condition="System.HasAddon(script.artistslideshow) + !System.AddonIsEnabled(script.artistslideshow)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
-		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	<!-- Settings categories description -->
+	<variable name="SettingsExplanation">
+		<value condition="String.IsEqual(Container(9000).CurrentItem,1)">$LOCALIZE[166] &#8226; $LOCALIZE[14222] &#8226; $LOCALIZE[360] &#8226; $LOCALIZE[12360] &#8226; $LOCALIZE[14224]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,2)">$LOCALIZE[14215] &#8226; $LOCALIZE[14216] &#8226; $LOCALIZE[14087] &#8226; $LOCALIZE[14217] &#8226; $LOCALIZE[14218] &#8226; $LOCALIZE[37032]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,3)">$LOCALIZE[14022] &#8226; $LOCALIZE[16000] &#8226; $LOCALIZE[14215] &#8226; $LOCALIZE[14216] &#8226; $LOCALIZE[14217]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,4)">$LOCALIZE[16000] &#8226; $LOCALIZE[19181] &#8226; $LOCALIZE[19222] &#8226; $LOCALIZE[14086] &#8226; $LOCALIZE[19043] &#8226; $LOCALIZE[19215] &#8226; $LOCALIZE[14095] &#8226; $LOCALIZE[19259] &#8226; $LOCALIZE[19279]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,5)">$LOCALIZE[16000]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,7)">$LOCALIZE[16000] &#8226; $LOCALIZE[14223] &#8226; $LOCALIZE[20187] &#8226; $LOCALIZE[1273] &#8226; $LOCALIZE[8]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,8)">$LOCALIZE[131] &#8226; $LOCALIZE[292] &#8226; $LOCALIZE[14125] &#8226; $LOCALIZE[798] &#8226; $LOCALIZE[14095] &#8226; $LOCALIZE[24001] &#8226; $LOCALIZE[14092]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,9) + System.HasAddon(service.osmc.settings) + System.HasAddon(script.module.osmcsetting.pi)">$LOCALIZE[31103] &#8226; $LOCALIZE[31111] &#8226; $LOCALIZE[31262] &#8226; $LOCALIZE[31263] &#8226; $LOCALIZE[31264] &#8226; $LOCALIZE[31265] &#8226; $LOCALIZE[31266]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,9) + System.HasAddon(service.osmc.settings) + !System.HasAddon(script.module.osmcsetting.pi)">$LOCALIZE[31103] &#8226; $LOCALIZE[31262] &#8226; $LOCALIZE[31263] &#8226; $LOCALIZE[31264] &#8226; $LOCALIZE[31265] &#8226; $LOCALIZE[31266]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,9) + !System.HasAddon(service.osmc.settings)">$LOCALIZE[20037] &#8226; $LOCALIZE[13277] &#8226; $LOCALIZE[13279] &#8226; $LOCALIZE[13280] &#8226; $LOCALIZE[13281] &#8226; $LOCALIZE[19191] &#8226; $LOCALIZE[12389]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,10) + System.HasAddon(service.osmc.settings)">$LOCALIZE[20037] &#8226; $LOCALIZE[13277] &#8226; $LOCALIZE[13279] &#8226; $LOCALIZE[13280] &#8226; $LOCALIZE[13281] &#8226; $LOCALIZE[19191] &#8226; $LOCALIZE[12389]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,10) + !System.HasAddon(service.osmc.settings)">$LOCALIZE[24998] &#8226; $LOCALIZE[36605] &#8226; $LOCALIZE[24033] &#8226; $LOCALIZE[24041] &#8226; $LOCALIZE[137]</value>
+		<value condition="String.IsEqual(Container(9000).CurrentItem,11) + System.HasAddon(service.osmc.settings)">$LOCALIZE[24998] &#8226; $LOCALIZE[36605] &#8226; $LOCALIZE[24033] &#8226; $LOCALIZE[24041] &#8226; $LOCALIZE[137]</value>
 	</variable>
 
 	<!-- Skin settings explanation -->
@@ -295,6 +245,73 @@
 		<value condition="Skin.HasSetting(DefaultVideosViewWallsmall)">$LOCALIZE[31114]</value>
 		<value condition="Skin.HasSetting(DefaultVideosViewWallsmallinfo)">$LOCALIZE[31116]</value>
 		<value condition="Skin.HasSetting(DefaultVideosViewWalllow)">$LOCALIZE[31113]</value>
+	</variable>
+	
+	<!-- Skin Settings - Weather Art -->
+	<variable name="weather-icons">
+		<value condition="!String.IsEmpty(Skin.String(weatherIcons.name))">$INFO[Skin.String(weatherIcons.name)]</value>
+		<value>$LOCALIZE[571]</value>
+	</variable>
+	<variable name="weather-fanart">
+		<value condition="!String.IsEmpty(Skin.String(weatherFanart.name))">$INFO[Skin.String(weatherFanart.name)]</value>
+		<value>$LOCALIZE[231]</value>
+	</variable>
+
+	<!-- Skin Settings - Addons -->
+	<variable name="addon-skinshortcuts">
+		<value condition="System.HasAddon(script.skinshortcuts) + System.AddonIsEnabled(script.skinshortcuts)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skinshortcuts)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.skinshortcuts) + !System.AddonIsEnabled(script.skinshortcuts)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-skinhelper">
+		<value condition="System.HasAddon(script.skin.helper.service) + System.AddonIsEnabled(script.skin.helper.service)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.service)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.skin.helper.service) + !System.AddonIsEnabled(script.skin.helper.service)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-skinhelperbackgrounds">
+		<value condition="System.HasAddon(script.skin.helper.backgrounds) + System.AddonIsEnabled(script.skin.helper.backgrounds)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.backgrounds)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.skin.helper.backgrounds) + !System.AddonIsEnabled(script.skin.helper.backgrounds)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-skinhelperwidgets">
+		<value condition="System.HasAddon(script.skin.helper.widgets) + System.AddonIsEnabled(script.skin.helper.widgets)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.widgets)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.skin.helper.widgets) + !System.AddonIsEnabled(script.skin.helper.widgets)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-skinhelpercolorpicker">
+		<value condition="System.HasAddon(script.skin.helper.colorpicker) + System.AddonIsEnabled(script.skin.helper.colorpicker)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.colorpicker)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.skin.helper.colorpicker) + !System.AddonIsEnabled(script.skin.helper.colorpicker)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-skinhelperbackup">
+		<value condition="System.HasAddon(script.skin.helper.skinbackup) + System.AddonIsEnabled(script.skin.helper.skinbackup)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.skin.helper.skinbackup)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.skin.helper.skinbackup) + !System.AddonIsEnabled(script.skin.helper.skinbackup)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-autocompletion">
+		<value condition="System.HasAddon(plugin.program.autocompletion) + System.AddonIsEnabled(plugin.program.autocompletion)">[COLOR lightgreen]v$INFO[System.AddonVersion(plugin.program.autocompletion)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(plugin.program.autocompletion) + !System.AddonIsEnabled(plugin.program.autocompletion)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-librarynodeeditor">
+		<value condition="System.HasAddon(plugin.library.node.editor) + System.AddonIsEnabled(plugin.library.node.editor)">[COLOR lightgreen]v$INFO[System.AddonVersion(plugin.library.node.editor)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-imageselect">
+		<value condition="System.HasAddon(script.image.resource.select) + System.AddonIsEnabled(script.image.resource.select)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.image.resource.select)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-upnext">
+		<value condition="System.HasAddon(service.upnext) + System.AddonIsEnabled(service.upnext)">[COLOR lightgreen]v$INFO[System.AddonVersion(service.upnext)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(service.upnext) + !System.AddonIsEnabled(service.upnext)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
+	</variable>
+	<variable name="addon-artistslideshow">
+		<value condition="System.HasAddon(script.artistslideshow) + System.AddonIsEnabled(script.artistslideshow)">[COLOR lightgreen]v$INFO[System.AddonVersion(script.artistslideshow)] $LOCALIZE[31093][/COLOR]</value>
+		<value condition="System.HasAddon(script.artistslideshow) + !System.AddonIsEnabled(script.artistslideshow)">[COLOR orange]$LOCALIZE[31119][/COLOR]</value>
+		<value>[COLOR red]$LOCALIZE[31092][/COLOR]</value>
 	</variable>
 
 </includes>
