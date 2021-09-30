@@ -169,6 +169,7 @@
 					<width>1020</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
 		</focusedlayout>
@@ -191,6 +192,7 @@
 					<width>1660</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
 		</focusedlayout>
@@ -213,6 +215,7 @@
 					<width>1660</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
 		</focusedlayout>
@@ -235,6 +238,7 @@
 					<width>540</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					<visible>!ListItem.IsParentFolder</visible>
 				</control>
 			</control>
 		</focusedlayout>
@@ -284,7 +288,7 @@
 				<height>96</height>
 				<bordersize>6</bordersize>
 				<aspectratio>keep</aspectratio>
-				<texture>$INFO[ListItem.Icon]</texture>
+				<texture>$VAR[SelectImage]</texture>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>!String.Contains(ListItem.Icon,Default)</visible>
 			</control>
@@ -299,22 +303,33 @@
 			</control>
 			<control type="label">
 				<left>140</left>
-				<top>10</top>
 				<width>880</width>
-				<height>36</height>
+				<height>96</height>
 				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<left>140</left>
-				<top>54</top>
-				<width>880</width>
-				<height>27</height>
-				<font>Font27-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<left>140</left>
+					<top>10</top>
+					<width>880</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>140</left>
+					<top>54</top>
+					<width>880</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -325,7 +340,7 @@
 				<height>96</height>
 				<bordersize>6</bordersize>
 				<aspectratio>keep</aspectratio>
-				<texture>$INFO[ListItem.Icon]</texture>
+				<texture>$VAR[SelectImage]</texture>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>!String.Contains(ListItem.Icon,Default)</visible>
 			</control>
@@ -340,22 +355,33 @@
 			</control>
 			<control type="label">
 				<left>140</left>
-				<top>10</top>
 				<width>1520</width>
-				<height>36</height>
+				<height>96</height>
 				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<left>140</left>
-				<top>54</top>
-				<width>1520</width>
-				<height>27</height>
-				<font>Font27-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<left>140</left>
+					<top>10</top>
+					<width>1520</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>140</left>
+					<top>54</top>
+					<width>1520</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -366,7 +392,7 @@
 				<height>96</height>
 				<bordersize>6</bordersize>
 				<aspectratio>keep</aspectratio>
-				<texture>$INFO[ListItem.Icon]</texture>
+				<texture>$VAR[SelectImage]</texture>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>!String.Contains(ListItem.Icon,Default)</visible>
 			</control>
@@ -381,22 +407,33 @@
 			</control>
 			<control type="label">
 				<left>140</left>
-				<top>10</top>
 				<width>1520</width>
-				<height>36</height>
+				<height>96</height>
 				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<left>140</left>
-				<top>54</top>
-				<width>1520</width>
-				<height>27</height>
-				<font>Font27-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<left>140</left>
+					<top>10</top>
+					<width>1520</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>140</left>
+					<top>54</top>
+					<width>1520</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -407,7 +444,7 @@
 				<height>96</height>
 				<bordersize>6</bordersize>
 				<aspectratio>keep</aspectratio>
-				<texture>$INFO[ListItem.Icon]</texture>
+				<texture>$VAR[SelectImage]</texture>
 				<include>NonFocusImageFadeAnimation</include>
 				<visible>!String.Contains(ListItem.Icon,Default)</visible>
 			</control>
@@ -422,22 +459,33 @@
 			</control>
 			<control type="label">
 				<left>140</left>
-				<top>10</top>
 				<width>400</width>
-				<height>36</height>
+				<height>96</height>
 				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
-				<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<left>140</left>
-				<top>54</top>
-				<width>400</width>
-				<height>27</height>
-				<font>Font27-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<left>140</left>
+					<top>10</top>
+					<width>400</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<left>140</left>
+					<top>54</top>
+					<width>400</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -459,7 +507,7 @@
 					<height>96</height>
 					<bordersize>6</bordersize>
 					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<texture>$VAR[SelectImage]</texture>
 					<visible>!String.Contains(ListItem.Icon,Default)</visible>
 				</control>
 				<control type="image">
@@ -471,35 +519,57 @@
 					<texture>$INFO[ListItem.Icon]</texture>
 					<visible>String.Contains(ListItem.Icon,Default)</visible>
 				</control>
-				<control type="label">
-					<left>140</left>
-					<top>10</top>
-					<width>880</width>
-					<height>36</height>
-					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<width>880</width>
+						<height>96</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>880</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
 				</control>
-				<control type="image">
-					<left>140</left>
-					<top>10</top>
-					<width>880</width>
-					<height>44</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<visible>!ListItem.IsParentFolder</visible>
-				</control>
-				<control type="label">
-					<left>140</left>
-					<top>54</top>
-					<width>880</width>
-					<height>27</height>
-					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<top>10</top>
+						<width>880</width>
+						<height>36</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>12</top>
+						<width>880</width>
+						<height>44</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
+					<control type="label">
+						<left>140</left>
+						<top>54</top>
+						<width>880</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+						<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -515,7 +585,7 @@
 					<height>96</height>
 					<bordersize>6</bordersize>
 					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<texture>$VAR[SelectImage]</texture>
 					<visible>!String.Contains(ListItem.Icon,Default)</visible>
 				</control>
 				<control type="image">
@@ -527,35 +597,57 @@
 					<texture>$INFO[ListItem.Icon]</texture>
 					<visible>String.Contains(ListItem.Icon,Default)</visible>
 				</control>
-				<control type="label">
-					<left>140</left>
-					<top>10</top>
-					<width>1520</width>
-					<height>36</height>
-					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<width>1520</width>
+						<height>96</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>1520</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
 				</control>
-				<control type="image">
-					<left>140</left>
-					<top>10</top>
-					<width>1520</width>
-					<height>44</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<visible>!ListItem.IsParentFolder</visible>
-				</control>
-				<control type="label">
-					<left>140</left>
-					<top>54</top>
-					<width>1520</width>
-					<height>27</height>
-					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<top>10</top>
+						<width>1520</width>
+						<height>36</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>12</top>
+						<width>1520</width>
+						<height>44</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
+					<control type="label">
+						<left>140</left>
+						<top>54</top>
+						<width>1520</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+						<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -571,7 +663,7 @@
 					<height>96</height>
 					<bordersize>6</bordersize>
 					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<texture>$VAR[SelectImage]</texture>
 					<visible>!String.Contains(ListItem.Icon,Default)</visible>
 				</control>
 				<control type="image">
@@ -583,35 +675,56 @@
 					<texture>$INFO[ListItem.Icon]</texture>
 					<visible>String.Contains(ListItem.Icon,Default)</visible>
 				</control>
-				<control type="label">
-					<left>140</left>
-					<top>10</top>
-					<width>1520</width>
-					<height>36</height>
-					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<width>1520</width>
+						<height>96</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>1520</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
 				</control>
-				<control type="image">
-					<left>140</left>
-					<top>10</top>
-					<width>1520</width>
-					<height>44</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<visible>!ListItem.IsParentFolder</visible>
-				</control>
-				<control type="label">
-					<left>140</left>
-					<top>54</top>
-					<width>1520</width>
-					<height>27</height>
-					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<top>10</top>
+						<width>1520</width>
+						<height>36</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>12</top>
+						<width>1520</width>
+						<height>44</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
+					<control type="label">
+						<left>140</left>
+						<top>54</top>
+						<width>1520</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -627,7 +740,7 @@
 					<height>96</height>
 					<bordersize>6</bordersize>
 					<aspectratio>keep</aspectratio>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<texture>$VAR[SelectImage]</texture>
 					<visible>!String.Contains(ListItem.Icon,Default)</visible>
 				</control>
 				<control type="image">
@@ -639,35 +752,56 @@
 					<texture>$INFO[ListItem.Icon]</texture>
 					<visible>String.Contains(ListItem.Icon,Default)</visible>
 				</control>
-				<control type="label">
-					<left>140</left>
-					<top>10</top>
-					<width>400</width>
-					<height>36</height>
-					<font>Font36-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<width>400</width>
+						<height>96</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<left>140</left>
+						<width>400</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
 				</control>
-				<control type="image">
-					<left>140</left>
-					<top>10</top>
-					<width>400</width>
-					<height>44</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
-					<animation effect="slide" end="0,20" time="0" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
-					<visible>!ListItem.IsParentFolder</visible>
-				</control>
-				<control type="label">
-					<left>140</left>
-					<top>54</top>
-					<width>400</width>
-					<height>27</height>
-					<font>Font27-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>140</left>
+						<top>10</top>
+						<width>400</width>
+						<height>36</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<left>140</left>
+						<top>12</top>
+						<width>400</width>
+						<height>44</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus44]</texture>
+						<visible>!ListItem.IsParentFolder</visible>
+					</control>
+					<control type="label">
+						<left>140</left>
+						<top>54</top>
+						<width>400</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
