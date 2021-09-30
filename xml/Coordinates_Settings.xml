@@ -39,20 +39,260 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Settings_coords2_4:3</include>
 	</include>
 	<include name="Settings_coords2_16:9">
-		<width>300</width>
-		<height>58</height>
+		<itemlayout width="300" height="60">
+			<control type="label">
+				<left>0</left>
+				<top>1</top>
+				<width>300</width>
+				<height>60</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font42-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
 	</include>
 	<include name="Settings_coords2_21:9">
-		<width>300</width>
-		<height>58</height>
+		<itemlayout width="300" height="60">
+			<control type="label">
+				<left>0</left>
+				<top>1</top>
+				<width>300</width>
+				<height>60</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font42-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
 	</include>
 	<include name="Settings_coords2_21:9_masked">
-		<width>300</width>
-		<height>58</height>
+		<itemlayout width="300" height="60">
+			<control type="label">
+				<left>0</left>
+				<top>1</top>
+				<width>300</width>
+				<height>60</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font42-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
 	</include>
 	<include name="Settings_coords2_4:3">
-		<width>300</width>
-		<height>58</height>
+		<itemlayout width="300" height="60">
+			<control type="label">
+				<left>0</left>
+				<top>1</top>
+				<width>300</width>
+				<height>60</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font42-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
+	</include>
+	
+	<include name="Settings_coords3">
+		<include condition="$EXP[NonMaskedCoordinates]">Settings_coords3_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Settings_coords3_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">Settings_coords3_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Settings_coords3_4:3</include>
+	</include>
+	<include name="Settings_coords3_16:9">
+		<focusedlayout width="300" height="60">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">9000</param>
+				</include>
+				<control type="label">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font42-bold</font>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<scroll>True</scroll>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Settings_coords3_21:9_masked">
+		<focusedlayout width="300" height="60">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">9000</param>
+				</include>
+				<control type="label">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font42-bold</font>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<scroll>True</scroll>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Settings_coords3_21:9">
+		<focusedlayout width="300" height="60">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">9000</param>
+				</include>
+				<control type="label">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font42-bold</font>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<scroll>True</scroll>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Settings_coords3_4:3">
+		<focusedlayout width="300" height="60">
+			<control type="group">
+				<include content="NonFocusFadeAnimation">
+					<param name="id">9000</param>
+				</include>
+				<control type="label">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<label>$INFO[ListItem.Label]</label>
+					<font>Font42-bold</font>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<scroll>True</scroll>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>1</top>
+					<width>300</width>
+					<height>60</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus66]</texture>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	
+	<include name="Settings_coords4">
+		<include condition="$EXP[NonMaskedCoordinates]">Settings_coords4_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Settings_coords4_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">Settings_coords4_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Settings_coords4_4:3</include>
+	</include>
+	<include name="Settings_coords4_16:9">
+		<left>550</left>
+		<top>900</top>
+		<width>1250</width>
+		<height>94</height>
+	</include>
+	<include name="Settings_coords4_21:9">
+		<left>550</left>
+		<top>900</top>
+		<width>1890</width>
+		<height>94</height>
+	</include>
+	<include name="Settings_coords4_21:9_masked">
+		<left>550</left>
+		<top>1080</top>
+		<width>1890</width>
+		<height>94</height>
+	</include>
+	<include name="Settings_coords4_4:3">
+		<left>550</left>
+		<top>900</top>
+		<width>770</width>
+		<height>94</height>
+	</include>
+	
+	<include name="Settings_coords5">
+		<include condition="$EXP[NonMaskedCoordinates]">Settings_coords5_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Settings_coords5_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">Settings_coords5_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Settings_coords5_4:3</include>
+	</include>
+	<include name="Settings_coords5_16:9">
+		<left>550</left>
+		<top>900</top>
+		<width>1250</width>
+		<height>70</height>
+	</include>
+	<include name="Settings_coords5_21:9">
+		<left>550</left>
+		<top>900</top>
+		<width>1890</width>
+		<height>70</height>
+	</include>
+	<include name="Settings_coords5_21:9_masked">
+		<left>550</left>
+		<top>1080</top>
+		<width>1890</width>
+		<height>70</height>
+	</include>
+	<include name="Settings_coords5_4:3">
+		<left>550</left>
+		<top>900</top>
+		<width>770</width>
+		<height>70</height>
+	</include>
+	
+	<include name="Settings_coords6">
+		<include condition="$EXP[NonMaskedCoordinates]">Settings_coords6_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">Settings_coords6_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">Settings_coords6_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">Settings_coords6_4:3</include>
+	</include>
+	<include name="Settings_coords6_16:9">
+		<left>550</left>
+		<top>900</top>
+		<width>1250</width>
+		<height>80</height>
+	</include>
+	<include name="Settings_coords6_21:9">
+		<left>550</left>
+		<top>900</top>
+		<width>1890</width>
+		<height>80</height>
+	</include>
+	<include name="Settings_coords6_21:9_masked">
+		<left>550</left>
+		<top>1080</top>
+		<width>1890</width>
+		<height>80</height>
+	</include>
+	<include name="Settings_coords6_4:3">
+		<left>550</left>
+		<top>900</top>
+		<width>770</width>
+		<height>80</height>
 	</include>
 
 </includes>

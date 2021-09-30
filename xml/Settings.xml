@@ -19,172 +19,120 @@
 		<!-- Main group -->
 		<control type="group">
 			<include>WindowFadeAnimation</include>
-
-			<!-- List -->
-			<control type="grouplist" id="9000">
+			
+			<!-- Main list -->
+			<control type="list" id="9000">
 				<include>Settings_coords1</include>
-				<itemgap>2</itemgap>
-				<onleft>noop</onleft>
+				<focusposition>7</focusposition>
+				<defaultcontrol>1</defaultcontrol>
 				<orientation>vertical</orientation>
-				<include>WindowFadeAnimation</include>
+				<viewtype label="535">list</viewtype>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
 
-				<!-- Interface -->
-				<control type="togglebutton" id="1">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[14206][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[14206][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(1)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(InterfaceSettings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+				<include>Settings_coords2</include>
 
-				<!-- Player -->
-				<control type="togglebutton" id="2">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[16003][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[16003][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(2)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(PlayerSettings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+				<include>Settings_coords3</include>
 
-				<!-- Library -->
-				<control type="togglebutton" id="3">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[14211][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[14211][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(3)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(MediaSettings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+				<content>
+					<!-- Interface -->
+					<item>
+						<label>$LOCALIZE[14206]</label>
+						<onclick>ActivateWindow(InterfaceSettings)</onclick>
+					</item>
 
-				<!-- TV -->
-				<control type="togglebutton" id="4">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[31015][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[31015][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(4)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(pvrsettings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
-				
-				<!-- Games -->
-				<control type="togglebutton" id="5">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[15016][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[15016][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(5)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(GameSettings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+					<!-- Player -->
+					<item>
+						<label>$LOCALIZE[16003]</label>
+						<onclick>ActivateWindow(PlayerSettings)</onclick>
+					</item>
 
-				<!-- Profiles -->
-				<control type="togglebutton" id="6">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[13200][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[13200][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(6)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(profiles)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+					<!-- Library -->
+					<item>
+						<label>$LOCALIZE[14211]</label>
+						<onclick>ActivateWindow(MediaSettings)</onclick>
+					</item>
 
-				<!-- Services -->
-				<control type="togglebutton" id="7">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[14036][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[14036][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(7)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(servicesettings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+					<!-- TV -->
+					<item>
+						<label>$LOCALIZE[31015]</label>
+						<onclick>ActivateWindow(pvrsettings)</onclick>
+					</item>
+					
+					<!-- Games -->
+					<item>
+						<label>$LOCALIZE[15016]</label>
+						<onclick>ActivateWindow(GameSettings)</onclick>
+					</item>
 
-				<!-- System -->
-				<control type="togglebutton" id="8">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[13000][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[13000][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(8)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(systemsettings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
-				
-				<!-- My OSMC -->
-				<control type="togglebutton" id="9">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[31091][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[31091][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(9)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>RunScript(service.osmc.settings)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-					<visible>System.HasAddon(service.osmc.settings)</visible>
-				</control>
+					<!-- Profiles -->
+					<item>
+						<label>$LOCALIZE[13200]</label>
+						<onclick>ActivateWindow(profiles)</onclick>
+					</item>
 
-				<!-- System info -->
-				<control type="togglebutton" id="10">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[130][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[130][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(10)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(systeminfo)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+					<!-- Services -->
+					<item>
+						<label>$LOCALIZE[14036]</label>
+						<onclick>ActivateWindow(servicesettings)</onclick>
+					</item>
 
-				<!-- Add-on browser -->
-				<control type="togglebutton" id="11">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[10040][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[10040][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(11)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(addonbrowser)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
+					<!-- System -->
+					<item>
+						<label>$LOCALIZE[13000]</label>
+						<onclick>ActivateWindow(systemsettings)</onclick>
+					</item>
+					
+					<!-- My OSMC -->
+					<item>
+						<label>$LOCALIZE[31091]</label>
+						<onclick>RunScript(service.osmc.settings)</onclick>
+						<visible>System.HasAddon(service.osmc.settings)</visible>
+					</item>
 
-				<!-- File manager -->
-				<control type="togglebutton" id="12">
-					<include>Settings_coords2</include>
-					<label>[B]$LOCALIZE[7][/B]</label>
-					<altlabel>[LIGHT]$LOCALIZE[7][/LIGHT]</altlabel>
-					<usealttexture>!Control.HasFocus(12)</usealttexture>
-					<font>Font42</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-					<onclick>ActivateWindow(filemanager)</onclick>
-					<animation effect="fade" start="100" end="50" time="200" condition="!ControlGroup(9000).HasFocus">Conditional</animation>
-				</control>
-				
+					<!-- System info -->
+					<item>
+						<label>$LOCALIZE[130]</label>
+						<onclick>ActivateWindow(systeminfo)</onclick>
+					</item>
+
+					<!-- Add-on browser -->
+					<item>
+						<label>$LOCALIZE[10040]</label>
+						<onclick>ActivateWindow(addonbrowser)</onclick>
+					</item>
+
+					<!-- File manager -->
+					<item>
+						<label>$LOCALIZE[7]</label>
+						<onclick>ActivateWindow(filemanager)</onclick>
+					</item>
+				</content>
+
+			</control>
+			
+			<!-- Settings description -->
+			<control type="textbox">
+				<include>Settings_coords4</include>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<font>Font27</font>
+				<label>$VAR[SettingsExplanation]</label>
+				<visible>Skin.String(PlotFont,S)</visible>
+			</control>
+			
+			<control type="textbox">
+				<include>Settings_coords5</include>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<font>Font30</font>
+				<label>$VAR[SettingsExplanation]</label>
+				<visible>Skin.String(PlotFont,M)</visible>
+			</control>
+			
+			<control type="textbox">
+				<include>Settings_coords6</include>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<font>Font33</font>
+				<label>$VAR[SettingsExplanation]</label>
+				<visible>Skin.String(PlotFont,L)</visible>
 			</control>
 
 		</control>
