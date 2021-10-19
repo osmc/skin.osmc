@@ -18,6 +18,7 @@ _Improved_
 - adjust list views to change depending on secondary label status
 - improve settings window with new description and better list behaviour
 - update translations
+- handle movie set/collection indication more seamlessly
 
 _Fixed_
 - fix skinshortcuts management dialog
@@ -396,6 +397,7 @@ strings.po:
 - add warning to add-on descripton of add-ons currently not available from Kodi repo (31340, 31341, 31342, 31347)
 - add My OSMC category labels (31103, 31111, 31262, 31263, 31264, 31265, 31266)
 - add new translations and update existing ones
+- add new string for movie sets content/secondary label (31292)
 
 Textures.xbt:
 - update textures file with new background overlay media files, reworked OSD ranges image as well as removed deprecated background overlay and dialog media files/folders
@@ -425,11 +427,64 @@ Coordinates_VideoOSD.xml:
 - adjust width of OSD options for new playback mode buttons
 - add new coordinates for repeat button images
 
+Coordinates_Viewtype50.xml:
+- remove deprecated collection indicator
+
 Coordinates_Viewtype51.xml:
 - add new visibility conditions and new labels to adjust look of list items when secondary label is empty
+- remove deprecated collection indicator
 
 Coordinates_Viewtype511.xml:
 - add new visibility conditions and new labels to adjust look of list items when secondary label is empty
+- remove deprecated collection indicator
+
+Coordinates_Viewtype52.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype521.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype522xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype523xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype524.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype525.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype53.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype531.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype532.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype533.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype534.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype535.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype536.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype537.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype538.xml:
+- remove deprecated collection indicator
+
+Coordinates_Viewtype539.xml:
+- remove deprecated collection indicator
 
 DialogPVRInfo.xml:
 - streamline the way the channel number label is formatted
@@ -466,6 +521,7 @@ script-skinshortcuts-static.xml:
 - rework weather widget behaviour
 - remove deprecated shadow param
 - rework widgetDetails variable to show streamlined secondary information for movies, TV shows and music
+- remove deprecated collection indicator
 
 script-skinshortcuts.xml:
 - fix move up and down button texture glitch
@@ -483,6 +539,7 @@ Variables.xml:
 - streamline VideoInfoLabel variable to show information like widgetdetails and other secondary information labels
 - rework Label2 variable to show information like widgetdetails and other secondary information labels
 - add new SelectImage variable
+- rework label2 variable for movie sets information
 
 Variables_Colours.xml:
 - remove deprecated OverlayColor and OverlayColor-Name variables
@@ -513,6 +570,7 @@ template.xml:
 - rework weather widget behaviour
 - remove deprecated shadow param
 - rework widgetDetails variable to show streamlined secondary information for movies, TV shows and music
+- remove deprecated collection indicator
 
 addon.xml:
 - bump version to 19.1.0
