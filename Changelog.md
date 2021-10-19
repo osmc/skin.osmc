@@ -17,6 +17,7 @@ _Improved_
 - allow jumping from top to bottom of video playback settings dialog
 - adjust list views to change depending on secondary label status
 - improve settings window with new description and better list behaviour
+- update translations
 
 _Fixed_
 - fix skinshortcuts management dialog
@@ -394,6 +395,7 @@ strings.po:
 - rework skin settings localizes (31332, 31412)
 - add warning to add-on descripton of add-ons currently not available from Kodi repo (31340, 31341, 31342, 31347)
 - add My OSMC category labels (31103, 31111, 31262, 31263, 31264, 31265, 31266)
+- add new translations and update existing ones
 
 Textures.xbt:
 - update textures file with new background overlay media files, reworked OSD ranges image as well as removed deprecated background overlay and dialog media files/folders
