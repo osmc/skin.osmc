@@ -375,36 +375,17 @@
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 			</include>
-			<!-- Collection -->
-			<control type="group">
-				<left>13</left>
-				<bottom>12</bottom>
-				<width>144</width>
-				<height>16</height>
-				<visible>ListItem.IsCollection</visible>
-				<control type="image">
-					<texture background="true">views/OverlayBottomBar.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-				<control type="image">
-					<width>16</width>
-					<centerleft>72</centerleft>
-					<texture background="true">views/OverlayCollectionWide.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-			</control>
 			<!-- Watched status -->
 			<control type="group">
 				<left>13</left>
 				<bottom>12</bottom>
 				<width>144</width>
 				<height>16</height>
-				<visible>!ListItem.IsCollection</visible>
 				<control type="image">
 					<texture background="true">views/OverlayBottomBar.png</texture>
 					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 				</control>
 				<control type="image">
 					<width>16</width>
@@ -429,36 +410,17 @@
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 			</include>
-			<!-- Collection -->
-			<control type="group">
-				<left>11</left>
-				<bottom>12</bottom>
-				<width>144</width>
-				<height>16</height>
-				<visible>ListItem.IsCollection</visible>
-				<control type="image">
-					<texture background="true">views/OverlayBottomBar.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-				<control type="image">
-					<width>16</width>
-					<centerleft>72</centerleft>
-					<texture background="true">views/OverlayCollectionWide.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-			</control>
 			<!-- Watched status -->
 			<control type="group">
 				<left>11</left>
 				<bottom>12</bottom>
 				<width>144</width>
 				<height>16</height>
-				<visible>!ListItem.IsCollection</visible>
 				<control type="image">
 					<texture background="true">views/OverlayBottomBar.png</texture>
 					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 				</control>
 				<control type="image">
 					<width>16</width>
@@ -483,36 +445,17 @@
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 			</include>
-			<!-- Collection -->
-			<control type="group">
-				<left>11</left>
-				<bottom>12</bottom>
-				<width>144</width>
-				<height>16</height>
-				<visible>ListItem.IsCollection</visible>
-				<control type="image">
-					<texture background="true">views/OverlayBottomBar.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-				<control type="image">
-					<width>16</width>
-					<centerleft>72</centerleft>
-					<texture background="true">views/OverlayCollectionWide.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-			</control>
 			<!-- Watched status -->
 			<control type="group">
 				<left>11</left>
 				<bottom>12</bottom>
 				<width>144</width>
 				<height>16</height>
-				<visible>!ListItem.IsCollection</visible>
 				<control type="image">
 					<texture background="true">views/OverlayBottomBar.png</texture>
 					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 				</control>
 				<control type="image">
 					<width>16</width>
@@ -537,36 +480,17 @@
 				<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
 				<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 			</include>
-			<!-- Collection -->
-			<control type="group">
-				<left>18</left>
-				<bottom>12</bottom>
-				<width>144</width>
-				<height>16</height>
-				<visible>ListItem.IsCollection</visible>
-				<control type="image">
-					<texture background="true">views/OverlayBottomBar.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-				<control type="image">
-					<width>16</width>
-					<centerleft>72</centerleft>
-					<texture background="true">views/OverlayCollectionWide.png</texture>
-					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				</control>
-			</control>
 			<!-- Watched status -->
 			<control type="group">
 				<left>18</left>
 				<bottom>12</bottom>
 				<width>144</width>
 				<height>16</height>
-				<visible>!ListItem.IsCollection</visible>
 				<control type="image">
 					<texture background="true">views/OverlayBottomBar.png</texture>
 					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 				</control>
 				<control type="image">
 					<width>16</width>
@@ -598,33 +522,16 @@
 					<param name="fallback">DefaultTVShows.png</param>
 					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 				</include>
-				<!-- Collection -->
-				<control type="group">
-					<left>5</left>
-					<bottom>0</bottom>
-					<width>160</width>
-					<height>18</height>
-					<visible>ListItem.IsCollection</visible>
-					<control type="image">
-						<texture background="true">views/OverlayBottomBar.png</texture>
-					</control>
-					<control type="image">
-						<width>18</width>
-						<centerleft>80</centerleft>
-						<texture background="true">views/OverlayCollectionWide.png</texture>
-					</control>
-				</control>
 				<!-- Watched status -->
 				<control type="group">
 					<left>5</left>
 					<bottom>0</bottom>
 					<width>160</width>
 					<height>18</height>
-					<visible>!ListItem.IsCollection</visible>
 					<control type="image">
 						<texture background="true">views/OverlayBottomBar.png</texture>
 						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 					</control>
 					<control type="image">
 						<width>18</width>
@@ -649,33 +556,16 @@
 					<param name="fallback">DefaultTVShows.png</param>
 					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 				</include>
-				<!-- Collection -->
-				<control type="group">
-					<left>3</left>
-					<bottom>0</bottom>
-					<width>160</width>
-					<height>18</height>
-					<visible>ListItem.IsCollection</visible>
-					<control type="image">
-						<texture background="true">views/OverlayBottomBar.png</texture>
-					</control>
-					<control type="image">
-						<width>18</width>
-						<centerleft>80</centerleft>
-						<texture background="true">views/OverlayCollectionWide.png</texture>
-					</control>
-				</control>
 				<!-- Watched status -->
 				<control type="group">
 					<left>3</left>
 					<bottom>0</bottom>
 					<width>160</width>
 					<height>18</height>
-					<visible>!ListItem.IsCollection</visible>
 					<control type="image">
 						<texture background="true">views/OverlayBottomBar.png</texture>
 						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 					</control>
 					<control type="image">
 						<width>18</width>
@@ -700,33 +590,16 @@
 					<param name="fallback">DefaultTVShows.png</param>
 					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 				</include>
-				<!-- Collection -->
-				<control type="group">
-					<left>3</left>
-					<bottom>0</bottom>
-					<width>160</width>
-					<height>18</height>
-					<visible>ListItem.IsCollection</visible>
-					<control type="image">
-						<texture background="true">views/OverlayBottomBar.png</texture>
-					</control>
-					<control type="image">
-						<width>18</width>
-						<centerleft>80</centerleft>
-						<texture background="true">views/OverlayCollectionWide.png</texture>
-					</control>
-				</control>
 				<!-- Watched status -->
 				<control type="group">
 					<left>3</left>
 					<bottom>0</bottom>
 					<width>160</width>
 					<height>18</height>
-					<visible>!ListItem.IsCollection</visible>
 					<control type="image">
 						<texture background="true">views/OverlayBottomBar.png</texture>
 						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 					</control>
 					<control type="image">
 						<width>18</width>
@@ -751,33 +624,16 @@
 					<param name="fallback">DefaultTVShows.png</param>
 					<param name="visible">Container.Content(tvshows) | Container.Content(seasons)</param>
 				</include>
-				<!-- Collection -->
-				<control type="group">
-					<left>10</left>
-					<bottom>0</bottom>
-					<width>160</width>
-					<height>18</height>
-					<visible>ListItem.IsCollection</visible>
-					<control type="image">
-						<texture background="true">views/OverlayBottomBar.png</texture>
-					</control>
-					<control type="image">
-						<width>18</width>
-						<centerleft>80</centerleft>
-						<texture background="true">views/OverlayCollectionWide.png</texture>
-					</control>
-				</control>
 				<!-- Watched status -->
 				<control type="group">
 					<left>10</left>
 					<bottom>0</bottom>
 					<width>160</width>
 					<height>18</height>
-					<visible>!ListItem.IsCollection</visible>
 					<control type="image">
 						<texture background="true">views/OverlayBottomBar.png</texture>
 						<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
 					</control>
 					<control type="image">
 						<width>18</width>
