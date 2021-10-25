@@ -41,7 +41,18 @@
 					<aligny>top</aligny>
 					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
-					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating) + ![Container.Content(sets) | ListItem.IsCollection]</visible>
+				</control>
+				
+				<!-- Movie Set Info -->
+				<control type="fadelabel">
+					<include>Viewtype533_coords4</include>
+					<font>Font27</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$VAR[SetLabel]</label>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>Container.Content(sets) | ListItem.IsCollection</visible>
 				</control>
 				
 				<!-- Title -->
@@ -57,7 +68,7 @@
 				<!-- Plot -->
 				<control type="group">
 					<include>Viewtype533_coords6</include>
-					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)</visible>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + [[Skin.HasSetting(UserRating) + !String.IsEmpty(ListItem.UserRating)] | Container.Content(sets) | ListItem.IsCollection]</visible>
 					<control type="textbox">
 						<include>Viewtype533_coords7</include>
 						<align>left</align>
@@ -90,7 +101,7 @@
 				<!-- Plot -->
 				<control type="group">
 					<include>Viewtype533_coords10</include>
-					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + [!Skin.HasSetting(UserRating) | String.IsEmpty(ListItem.UserRating)]</visible>
+					<visible>[!String.IsEmpty(ListItem.Plot) | !String.IsEmpty(ListItem.PlotOutline)] + [!Skin.HasSetting(UserRating) | String.IsEmpty(ListItem.UserRating)] + ![Container.Content(sets) | ListItem.IsCollection]</visible>
 					<control type="textbox">
 						<include>Viewtype533_coords11</include>
 						<align>left</align>

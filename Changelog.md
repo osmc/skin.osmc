@@ -19,11 +19,13 @@ _Improved_
 - improve settings window with new description and better list behaviour
 - update translations
 - handle movie set/collection indication more seamlessly
+- improve dialog animations
 
 _Fixed_
 - fix skinshortcuts management dialog
 - add missing views to programs section for addons that set content type
 - fix dialog select icons for movies and TV shows
+- fix movie set information in media library views
 
 ---
 
@@ -412,6 +414,11 @@ Coordinates_DialogSelect.xml:
 Coordinates_FileManager.xml:
 - add new visibility conditions and new labels to adjust look of list items when secondary label is empty
 
+Coordinates_Includes_Windows_Dialogs.xml:
+- remove deprecated FullscreenOverlayDimensions include
+- rework background overlay includes
+- remove deprecated BackgroundOverlayDialog1 include
+
 Coordinates_MyPrograms.xml:
 - add coordinates for new scrollbars
 
@@ -489,6 +496,10 @@ Coordinates_Viewtype539.xml:
 DialogPVRInfo.xml:
 - streamline the way the channel number label is formatted
 
+DialogSubtitles.xml:
+- replace deprecated FullscreenOverlayDimensions by FullscreenDimensions include
+- remove deprecated BackgroundOverlayDialog1 include and replace by FullscreenDimensions include
+
 DialogVideoInfo.xml:
 - add video information for music videos
 
@@ -503,6 +514,9 @@ Includes_Time_NowPlaying.xml
 
 Includes_Windows_Dialogs.xml:
 - remove deprecated OptionsBackgroundImage include
+- replace deprecated FullscreenOverlayDimensions by FullscreenDimensions include
+- remove deprecated BackgroundOverlayDialog1 include and replace by FullscreenDimensions include
+- rework dialog background overlay animations
 
 MusicVisualisation.xml:
 - streamline the way the channel number label is formatted
@@ -525,6 +539,9 @@ script-skinshortcuts-static.xml:
 
 script-skinshortcuts.xml:
 - fix move up and down button texture glitch
+- replace deprecated FullscreenOverlayDimensions by FullscreenDimensions include
+- remove deprecated BackgroundOverlayDialog1 include and replace by FullscreenDimensions include
+- rework dialog background overlay animations
 
 Settings.xml:
 - rework settings window to use list control instead of grouplist control
@@ -540,6 +557,7 @@ Variables.xml:
 - rework Label2 variable to show information like widgetdetails and other secondary information labels
 - add new SelectImage variable
 - rework label2 variable for movie sets information
+- add new SetListContent, SetLabel and VideoInfoListPlot variables for reworked movie set information
 
 Variables_Colours.xml:
 - remove deprecated OverlayColor and OverlayColor-Name variables
@@ -561,6 +579,16 @@ Viewtype51.xml:
 
 Viewtype511.xml:
 - add hidden label to be able to check for empty secondary list item label
+- add movie set information to plot textbox
+
+Viewtype522.xml:
+- add movie set information to plot textbox
+
+Viewtype531.xml:
+- add movie set information below title and details
+
+Viewtype533.xml:
+- add movie set information below title and details
 
 overrides.xml:
 - add new ENABLE option (for new skinshortcuts version)
