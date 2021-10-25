@@ -475,6 +475,21 @@
 		<value condition="Skin.HasSetting(UserRating) + ![Control.IsVisible(531) | Control.IsVisible(533)]">$INFO[ListItem.UserRating, &#8226; $LOCALIZE[38018]: ,]</value>
 		<value condition="!Skin.HasSetting(UserRating)"></value>
 	</variable>
+	
+	<variable name="SetListContent">
+		<value condition="String.IsEqual(Container.ListItem.dbtype,set)">videodb://movies/sets/$INFO[ListItem.DBID]/?setid=$INFO[ListItem.DBID]</value>
+		<value>-</value>
+	</variable>
+	
+	<variable name="SetLabel">
+		<value condition="Integer.IsEqual(Container(4500).NumItems,1)">$INFO[Container(4500).ListItem(0).Year,, &#8226; ]$INFO[Container(4500).NumItems,, $LOCALIZE[20338]]</value>
+		<value condition="Integer.IsGreater(Container(4500).NumItems,1)">$INFO[Container(4500).ListItem(0).Year]$INFO[Container(4500).ListItem(-1).Year, - , &#8226; ]$INFO[Container(4500).NumItems,, $LOCALIZE[342]]</value>
+	</variable>
+	
+	<variable name="VideoInfoListPlot">
+		<value condition="Container.Content(sets) | ListItem.IsCollection">$VAR[SetLabel][CR][CR]$INFO[ListItem.Plot]</value>
+		<value>$INFO[ListItem.Plot]</value>
+	</variable>
 
 	<!-- Audio labels -->
 	<variable name="Audio">
