@@ -9,7 +9,7 @@
 	
 		<!-- Black background image -->
 		<control type="image">
-			<include>FullscreenOverlayDimensions</include>
+			<include>FullscreenDimensions</include>
 			<texture background="true">common/white.png</texture>
 			<colordiffuse>FF000000</colordiffuse>
 			<aspectratio>scale</aspectratio>
@@ -89,24 +89,24 @@
 		
 		<!-- Overlay -->
 		<control type="group">
-			<include>BackgroundOverlayDialog1</include>
+			<include>FullscreenDimensions</include>
 			<animation type="WindowOpen">
 				<effect type="zoom" start="70" end="100" center="auto" tween="back" easing="inout" time="300" />
-				<effect type="fade" start="0" end="100" time="200" tween="quadratic" easing="out" />
+				<effect type="fade" start="0" end="100" time="100" />
 			</animation>
 			<animation type="WindowClose">
 				<effect type="zoom" start="100" end="70" center="auto" time="300" />
-				<effect type="fade" start="100" end="0" time="400" tween="quadratic" easing="in" />
+				<effect type="fade" start="100" end="0" time="100" delay="200" />
 			</animation>
 			<control type="image">
-				<include>BackgroundOverlayDialog2</include>
+				<include>BackgroundOverlayDialog1</include>
 				<texture background="true">common/Background1.png</texture>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<include>DialogBackgroundDepth</include>
 			</control>
 			<control type="image">
-				<include>BackgroundOverlayDialog3</include>
+				<include>BackgroundOverlayDialog2</include>
 				<texture background="true">common/Background2.png</texture>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
