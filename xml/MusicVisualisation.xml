@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- visualisation -->
+	<!-- musicvisualisation -->
 	<defaultcontrol></defaultcontrol>
+	<onload>ClearProperty(VideoOSDFresh,12006)</onload>
 	<onload condition="System.HasAddon(script.artistslideshow)">RunScript(script.artistslideshow)</onload>
 	<onload condition="!String.IsEqual(Window(12006).Property(extended),basic)">SetProperty(extended,basic,12006)</onload>
 	<onunload>ClearProperty(extended,12006)</onunload>
+	<onunload>ClearProperty(VideoOSDFresh,12006)</onunload>
 
 	<controls>
 
@@ -13,808 +15,36 @@
 		
 		<!-- Main group -->
 		<control type="group">
-			<include>WindowFadeAnimation</include>
-
-			<!-- Now playing information -->
-			<control type="group">
-				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
-				<visible>[Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo)</visible>
-				<visible>!String.IsEqual(Window(12006).Property(extended),none)</visible>
-				<include>VisibleFadeAnimation</include>
-
-				<!-- Music/radio icon/cover art -->
-				<control type="image">
-					<include>MusicVisualisation_coords1</include>
-					<fadetime>200</fadetime>
-					<texture background="true">$INFO[MusicPlayer.Cover]</texture>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-				</control>
-
-				<!-- Now playing (music) -->
-				<control type="grouplist">
-					<visible>String.IsEqual(Window(12006).Property(extended),basic) | String.IsEqual(Window(12006).Property(extended),artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Album_Description))</visible>
-					<visible>!Pvr.IsPlayingRadio</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords2</include>
-					<orientation>vertical</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-					<itemgap>12</itemgap>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords5</include>
-						<font>Font36</font>
-						<label>$LOCALIZE[19030]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Artist -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(MusicPlayer.Artist)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[557]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Artist]</label>
-						</control>
-					</control>
-					
-					<!-- Album/Year -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(MusicPlayer.Album)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[558]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
-						</control>
-					</control>
-					
-					<!-- Track/Title -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(Player.Title)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[556]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title]</label>
-						</control>
-					</control>
-					
-					<!-- Genre -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(MusicPlayer.Genre)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[515]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Genre]</label>
-						</control>
-					</control>
-					
-					<!-- Comment -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(MusicPlayer.Comment)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[569]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Comment]</label>
-						</control>
-					</control>
-					
-					<!-- File information (non-DSD) -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.StartsWith(MusicPlayer.Codec,dsd)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[292]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.BitRate,[LIGHT](, kBit/s)[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.SampleRate,[LIGHT], kHz[/LIGHT]]</label>
-						</control>
-					</control>
-					
-					<!-- File information (DSD) -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>String.StartsWith(MusicPlayer.Codec,dsd)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[292]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]</label>
-						</control>
-					</control>
-
-				</control>
-				
-				<!-- Now playing (radio) -->
-				<control type="grouplist">
-					<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + String.IsEmpty(RDS.Artist) + String.IsEmpty(RDS.Composer) + String.IsEmpty(RDS.Band) + String.IsEmpty(RDS.Conductor) + String.IsEmpty(RDS.Album) + String.IsEmpty(RDS.Title) + String.IsEmpty(RDS.ProgHost) + String.IsEmpty(RDS.ProgStyle) + String.IsEmpty(RDS.ChannelCountry) + String.IsEmpty(RDS.Comment)</visible>
-					<visible>Pvr.IsPlayingRadio</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords2</include>
-					<orientation>vertical</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-					<itemgap>12</itemgap>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords5</include>
-						<font>Font36</font>
-						<label>$LOCALIZE[19030]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Radio channel -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[19029]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</label>
-						</control>
-					</control>
-					
-					<!-- Radio show title (EPG) -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>VideoPlayer.HasEpg + !String.IsEmpty(Player.Title)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29908]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[Player.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
-						</control>
-					</control>
-					
-					<!-- Radio show title (non-EPG) -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!VideoPlayer.HasEpg + !String.IsEqual(MusicPlayer.ChannelName,Player.Title) + !String.IsEmpty(Player.Title)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29908]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[Player.Title]</label>
-						</control>
-					</control>
-					
-					<!-- Radio show information -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>VideoPlayer.HasEpg + !String.IsEmpty(VideoPlayer.EpisodeName)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[19047]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[VideoPlayer.EpisodeName]</label>
-						</control>
-					</control>
-					
-					<!-- Radio genre -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>VideoPlayer.HasEpg + !String.IsEmpty(MusicPlayer.Genre)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[515]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Genre]</label>
-						</control>
-					</control>
-					
-					<!-- File information (non-DSD) -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.StartsWith(MusicPlayer.Codec,dsd)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[292]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.BitRate,[LIGHT](, kBit/s)[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.SampleRate,[LIGHT], kHz[/LIGHT]]</label>
-						</control>
-					</control>
-					
-					<!-- File information (DSD) -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>String.StartsWith(MusicPlayer.Codec,dsd)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[292]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]</label>
-						</control>
-					</control>
-
-				</control>
-
-				<!-- Next playing -->
-				<control type="grouplist">
-					<visible>String.IsEqual(Window(12006).Property(extended),basic) | String.IsEqual(Window(12006).Property(extended),artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + String.IsEmpty(RDS.Artist) + String.IsEmpty(RDS.Composer) + String.IsEmpty(RDS.Band) + String.IsEmpty(RDS.Conductor) + String.IsEmpty(RDS.Album) + String.IsEmpty(RDS.Title) + String.IsEmpty(RDS.ProgHost) + String.IsEmpty(RDS.ProgStyle) + String.IsEmpty(RDS.ChannelCountry) + String.IsEmpty(RDS.Comment)</visible>
-					<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title) | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords6</include>
-					<orientation>vertical</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-					<itemgap>12</itemgap>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords5</include>
-						<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title) | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
-						<font>Font36</font>
-						<label>$LOCALIZE[19031]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Artist -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!Pvr.IsPlayingRadio + !String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + !String.IsEmpty(MusicPlayer.Offset(1).Artist)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[557]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Offset(1).Artist]</label>
-						</control>
-					</control>
-					
-					<!-- Album -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!Pvr.IsPlayingRadio + !String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album) + !String.IsEmpty(MusicPlayer.Offset(1).Artist)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[558]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Offset(1).Album]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</label>
-						</control>
-					</control>
-					
-					<!-- Track -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[556]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</label>
-						</control>
-					</control>
-					
-					<!-- Radio programm -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29908]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</label>
-						</control>
-					</control>
-				</control>
-				
-				<!-- Artist description -->
-				<control type="group">
-					<visible>String.IsEqual(Window(12006).Property(extended),artist) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords7</include>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords3</include>
-						<font>Font36</font>
-						<label>$INFO[MusicPlayer.Artist]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Description -->
-					<control type="textbox">
-						<include>MusicVisualisation_coords8</include>
-						<align>left</align>
-						<font>Font27</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[MusicPlayer.Property(Artist_Description)]</label>
-						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords9</include>
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[MusicPlayer.Property(Artist_Description)]</label>
-						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords10</include>
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[MusicPlayer.Property(Artist_Description)]</label>
-						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-				</control>
-				
-				<!-- Album description -->
-				<control type="group">
-					<visible>String.IsEqual(Window(12006).Property(extended),album) + !String.IsEmpty(MusicPlayer.Property(Album_Description))</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords7</include>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords3</include>
-						<font>Font36</font>
-						<label>$INFO[MusicPlayer.Album]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Description -->
-					<control type="textbox">
-						<include>MusicVisualisation_coords8</include>
-						<align>left</align>
-						<font>Font27</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
-						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords9</include>
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
-						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords10</include>
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
-						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-				</control>
-				
-				<!-- Radio plot (now) -->
-				<control type="group">
-					<visible>String.IsEqual(Window(12006).Property(extended),plotnow) + !String.IsEmpty(VideoPlayer.Plot)</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords7</include>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords3</include>
-						<font>Font36</font>
-						<label>$INFO[Player.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Plot -->
-					<control type="textbox">
-						<include>MusicVisualisation_coords8</include>
-						<align>left</align>
-						<font>Font27</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[VideoPlayer.Plot]</label>
-						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords9</include>
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[VideoPlayer.Plot]</label>
-						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords10</include>
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[VideoPlayer.Plot]</label>
-						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-				</control>
-				
-				<!-- Radio plot (next) -->
-				<control type="group">
-					<visible>String.IsEqual(Window(12006).Property(extended),plotnext) + !String.IsEmpty(VideoPlayer.NextPlot)</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords7</include>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords3</include>
-						<font>Font36</font>
-						<label>$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Plot -->
-					<control type="textbox">
-						<include>MusicVisualisation_coords8</include>
-						<align>left</align>
-						<font>Font27</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[VideoPlayer.NextPlot]</label>
-						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords9</include>
-						<align>left</align>
-						<font>Font30</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[VideoPlayer.NextPlot]</label>
-						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<include>MusicVisualisation_coords10</include>
-						<align>left</align>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[VideoPlayer.NextPlot]</label>
-						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
-				</control>
-				
-				<!-- Now playing (RDS) -->
-				<control type="grouplist">
-					<visible>String.IsEqual(Window(12006).Property(extended),rds) + ![String.IsEmpty(RDS.Artist) + String.IsEmpty(RDS.Composer) + String.IsEmpty(RDS.Band) + String.IsEmpty(RDS.Conductor) + String.IsEmpty(RDS.Album) + String.IsEmpty(RDS.Title) + String.IsEmpty(RDS.ProgHost) + String.IsEmpty(RDS.ProgStyle) + String.IsEmpty(RDS.ChannelCountry) + String.IsEmpty(RDS.Comment)]</visible>
-					<include>VisibleFadeAnimation</include>
-					<include>MusicVisualisation_coords7</include>
-					<orientation>vertical</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-					<itemgap>12</itemgap>
-					
-					<!-- Title -->
-					<control type="fadelabel">
-						<include>MusicVisualisation_coords5</include>
-						<font>Font36</font>
-						<label>$LOCALIZE[29900]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					
-					<!-- Artist -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.Artist)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29904]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.Artist]</label>
-						</control>
-					</control>
-					
-					<!-- Composer -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.Composer)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29903]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.Composer]</label>
-						</control>
-					</control>
-					
-					<!-- Band -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.Band)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29901]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.Band]</label>
-						</control>
-					</control>
-					
-					<!-- Conductor -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.Conductor)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29905]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.Conductor]</label>
-						</control>
-					</control>
-					
-					<!-- Album -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.Album)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[558]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.Album]</label>
-						</control>
-					</control>
-					
-					<!-- Track/Title -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.Title)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[556]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[RDS.Title]</label>
-						</control>
-					</control>
-					
-					<!-- Moderator -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.ProgHost)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29906]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.ProgHost]</label>
-						</control>
-					</control>
-					
-					<!-- Style -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.ProgStyle)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[29902]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.ProgStyle]</label>
-						</control>
-					</control>
-					
-					<!-- Country/Language -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.ChannelCountry)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[574]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.ChannelCountry]$INFO[RDS.AudioLanguage,[LIGHT] (,)[/LIGHT]]</label>
-						</control>
-					</control>
-					
-					<!-- Comment -->
-					<control type="group">
-						<include>MusicVisualisation_coords3</include>
-						<visible>!String.IsEmpty(RDS.Comment)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords4</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[569]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords5</include>
-							<font>Font36</font>
-							<label>$INFO[RDS.Comment]</label>
-						</control>
-					</control>
-
-				</control>
-			</control>
+			<include>DialogDepth</include>
 			
 			<!-- Playback progress information -->
 			<control type="group">
-				<include>DialogDepth</include>
-				<include>MusicVisualisation_coords11</include>
-				<visible>[Window.IsActive(seekbar) | Window.IsActive(musicosd) | [Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)]] + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
+				<include>MusicVisualisation_coords1</include>
 				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
-				<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(musicosd)">Conditional</animation>
-				<include>OSDOpenCloseAnimation</include>
+				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(MusicOSD) + String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(MusicOSD) + !String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(MusicOSD)">Conditional</animation>
+				<visible>Window.IsActive(seekbar) | [Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)] | Window.IsActive(musicosd)</visible>
+				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
 				<include>OSDVisibleHiddenAnimation</include>
+				<include>WindowFadeAnimation</include>
 				
 
 				<!-- Player forwarding/rewinding -->
 				<control type="group">
-					<include>MusicVisualisation_coords12</include>
+					<include>MusicVisualisation_coords2</include>
 					<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek | player.paused] + !Player.Seeking</visible>
 					<include>OSDVisibleHiddenAnimation</include>
 
 					<!-- Background -->
 					<control type="image">
-						<include>MusicVisualisation_coords12</include>
+						<include>MusicVisualisation_coords2</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
 					<control type="label">
-						<include>MusicVisualisation_coords12</include>
+						<include>MusicVisualisation_coords2</include>
 						<font>Font36-bold</font>
 						<align>center</align>
 						<label>$VAR[PlayerStatus]</label>
@@ -825,7 +55,7 @@
 
 					<!-- Pause -->
 					<control type="image">
-						<include>MusicVisualisation_coords13</include>
+						<include>MusicVisualisation_coords3</include>
 						<texture>osd/OSDPauseNF.png</texture>
 						<visible>player.paused</visible>
 						<include>VisibleFadeAnimation</include>
@@ -833,7 +63,7 @@
 					
 					<!-- Play after seek -->
 					<control type="image">
-						<include>MusicVisualisation_coords13</include>
+						<include>MusicVisualisation_coords3</include>
 						<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlayNF.png</texture>
 						<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
 						<include>VisibleFadeAnimation</include>
@@ -843,19 +73,20 @@
 
 				<!-- Player skipping -->
 				<control type="group">
-					<include>MusicVisualisation_coords14</include>
+					<include>MusicVisualisation_coords4</include>
 					<visible>Integer.IsGreater(MusicPlayer.PlaylistLength,0)</visible>
 					<include>OSDVisibleHiddenAnimation</include>
+					<include>WindowFadeAnimation</include>
 
 					<!-- Background -->
 					<control type="image">
-						<include>MusicVisualisation_coords12</include>
+						<include>MusicVisualisation_coords2</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
 					<control type="label">
-						<include>MusicVisualisation_coords12</include>
+						<include>MusicVisualisation_coords2</include>
 						<font>Font27-bold</font>
 						<align>center</align>
 						<label>$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)]</label>
@@ -865,7 +96,7 @@
 					
 					<!-- Status -->
 					<control type="label">
-						<include>MusicVisualisation_coords12</include>
+						<include>MusicVisualisation_coords2</include>
 						<font>Font27-bold</font>
 						<align>center</align>
 						<label>$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)]</label>
@@ -875,7 +106,7 @@
 					
 					<!-- Status -->
 					<control type="label">
-						<include>MusicVisualisation_coords12</include>
+						<include>MusicVisualisation_coords2</include>
 						<font>Font27</font>
 						<align>center</align>
 						<visible>!String.IsEmpty(Player.SeekStepSize)</visible>
@@ -887,23 +118,24 @@
 
 				<!-- Progress -->
 				<control type="group">
-					<include>MusicVisualisation_coords15</include>
+					<include>MusicVisualisation_coords5</include>
+					<include>WindowFadeAnimation</include>
 
 					<!-- Background -->
 					<control type="image">
-						<include>MusicVisualisation_coords16</include>
+						<include>MusicVisualisation_coords6</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg | !Pvr.IsPlayingRadio + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
-						<include>MusicVisualisation_coords17</include>
+						<include>MusicVisualisation_coords7</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
-						<include>MusicVisualisation_coords18</include>
+						<include>MusicVisualisation_coords8</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
@@ -911,7 +143,7 @@
 
 					<!--  Current position/Time remaining -->
 					<control type="label">
-						<include>MusicVisualisation_coords19</include>
+						<include>MusicVisualisation_coords9</include>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
@@ -919,7 +151,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
-						<include>MusicVisualisation_coords20</include>
+						<include>MusicVisualisation_coords10</include>
 						<font>Font27</font>
 						<align>center</align>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -930,7 +162,7 @@
 					
 					<!--  PVR current position/Time remaining -->
 					<control type="label">
-						<include>MusicVisualisation_coords19</include>
+						<include>MusicVisualisation_coords9</include>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
@@ -940,7 +172,7 @@
 
 					<!--  Progress bar -->
 					<control type="progress">
-						<include>MusicVisualisation_coords21</include>
+						<include>MusicVisualisation_coords11</include>
 						<info>Player.Progress</info>
 						<texturebg border="2">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
@@ -953,7 +185,7 @@
 					
 					<!--  PVR progress bar -->
 					<control type="progress">
-						<include>MusicVisualisation_coords21</include>
+						<include>MusicVisualisation_coords11</include>
 						<info>PVR.EpgEventProgress</info>
 						<texturebg border="2" colordiffuse="$VAR[OverlayColorNF]">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
@@ -966,7 +198,7 @@
 
 					<!--  Cache bar -->
 					<control type="progress">
-						<include>MusicVisualisation_coords21</include>
+						<include>MusicVisualisation_coords11</include>
 						<info>Player.ProgressCache</info>
 						<texturebg colordiffuse="$VAR[OverlayColorNF]" border="2">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
@@ -979,7 +211,7 @@
 
 					<!-- Current Time/End Time -->
 					<control type="label">
-						<include>MusicVisualisation_coords22</include>
+						<include>MusicVisualisation_coords12</include>
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -988,7 +220,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label">
-						<include>MusicVisualisation_coords23</include>
+						<include>MusicVisualisation_coords13</include>
 						<align>center</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -999,7 +231,7 @@
 					
 					<!-- PVR current Time/End Time -->
 					<control type="label">
-						<include>MusicVisualisation_coords22</include>
+						<include>MusicVisualisation_coords12</include>
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -1010,6 +242,789 @@
 
 				</control>
 
+			</control>
+
+			<!-- Now playing information -->
+			<control type="group">
+				<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
+				<visible>Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)</visible>
+				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo)</visible>
+				<visible>!String.IsEqual(Window(12006).Property(extended),none)</visible>
+				<include>VisibleFadeAnimation</include>
+				<include>WindowFadeAnimation</include>
+
+				<!-- Music/radio icon/cover art -->
+				<control type="image">
+					<include>MusicVisualisation_coords14</include>
+					<fadetime>200</fadetime>
+					<texture background="true">$INFO[MusicPlayer.Cover]</texture>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+				</control>
+
+				<!-- Now playing (music) -->
+				<control type="grouplist">
+					<include>MusicVisualisation_coords15</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),basic) | String.IsEqual(Window(12006).Property(extended),artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Album_Description))</visible>
+					<visible>!Pvr.IsPlayingRadio</visible>
+					<include>VisibleFadeAnimation</include>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>12</itemgap>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords18</include>
+						<font>Font36</font>
+						<label>$LOCALIZE[19030]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Artist -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(MusicPlayer.Artist)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[557]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Artist]</label>
+						</control>
+					</control>
+					
+					<!-- Album/Year -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(MusicPlayer.Album)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[558]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Album]$INFO[MusicPlayer.Year,[LIGHT] (,)[/LIGHT]]</label>
+						</control>
+					</control>
+					
+					<!-- Track/Title -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(Player.Title)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[556]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[Player.Title]</label>
+						</control>
+					</control>
+					
+					<!-- Genre -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(MusicPlayer.Genre)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[515]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Genre]</label>
+						</control>
+					</control>
+					
+					<!-- Comment -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(MusicPlayer.Comment)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[569]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Comment]</label>
+						</control>
+					</control>
+					
+					<!-- File information (non-DSD) -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.StartsWith(MusicPlayer.Codec,dsd)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[292]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.BitRate,[LIGHT](, kBit/s)[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.SampleRate,[LIGHT], kHz[/LIGHT]]</label>
+						</control>
+					</control>
+					
+					<!-- File information (DSD) -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>String.StartsWith(MusicPlayer.Codec,dsd)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[292]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]</label>
+						</control>
+					</control>
+
+				</control>
+				
+				<!-- Now playing (radio) -->
+				<control type="grouplist">
+					<include>MusicVisualisation_coords15</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),Basic) | String.IsEqual(Window(12006).Property(extended),now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + String.IsEmpty(RDS.Artist) + String.IsEmpty(RDS.Composer) + String.IsEmpty(RDS.Band) + String.IsEmpty(RDS.Conductor) + String.IsEmpty(RDS.Album) + String.IsEmpty(RDS.Title) + String.IsEmpty(RDS.ProgHost) + String.IsEmpty(RDS.ProgStyle) + String.IsEmpty(RDS.ChannelCountry) + String.IsEmpty(RDS.Comment)</visible>
+					<visible>Pvr.IsPlayingRadio</visible>
+					<include>VisibleFadeAnimation</include>
+					<include>WindowFadeAnimation</include>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>12</itemgap>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords18</include>
+						<font>Font36</font>
+						<label>$LOCALIZE[19030]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Radio channel -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[19029]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</label>
+						</control>
+					</control>
+					
+					<!-- Radio show title (EPG) -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>VideoPlayer.HasEpg + !String.IsEmpty(Player.Title)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29908]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[Player.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
+						</control>
+					</control>
+					
+					<!-- Radio show title (non-EPG) -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!VideoPlayer.HasEpg + !String.IsEqual(MusicPlayer.ChannelName,Player.Title) + !String.IsEmpty(Player.Title)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29908]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[Player.Title]</label>
+						</control>
+					</control>
+					
+					<!-- Radio show information -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>VideoPlayer.HasEpg + !String.IsEmpty(VideoPlayer.EpisodeName)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[19047]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[VideoPlayer.EpisodeName]</label>
+						</control>
+					</control>
+					
+					<!-- Radio genre -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>VideoPlayer.HasEpg + !String.IsEmpty(MusicPlayer.Genre)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[515]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Genre]</label>
+						</control>
+					</control>
+					
+					<!-- File information (non-DSD) -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.StartsWith(MusicPlayer.Codec,dsd)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[292]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.BitRate,[LIGHT](, kBit/s)[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]$INFO[MusicPlayer.SampleRate,[LIGHT], kHz[/LIGHT]]</label>
+						</control>
+					</control>
+					
+					<!-- File information (DSD) -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>String.StartsWith(MusicPlayer.Codec,dsd)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[292]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$VAR[MusicPlayerCodec,[LIGHT],[/LIGHT]  ]$VAR[MusicPlayerChannels,[LIGHT],[/LIGHT]  ]</label>
+						</control>
+					</control>
+
+				</control>
+
+				<!-- Next playing -->
+				<control type="grouplist">
+					<include>MusicVisualisation_coords19</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),basic) | String.IsEqual(Window(12006).Property(extended),artist) + String.IsEmpty(MusicPlayer.Property(Artist_Description)) | String.IsEqual(Window(12006).Property(extended),album) + String.IsEmpty(MusicPlayer.Property(Album_Description)) | String.IsEqual(Window(12006).Property(extended),now) + String.IsEmpty(VideoPlayer.Plot) | String.IsEqual(Window(12006).Property(extended),next) + String.IsEmpty(VideoPlayer.NextPlot) | String.IsEqual(Window(12006).Property(extended),rds) + String.IsEmpty(RDS.Artist) + String.IsEmpty(RDS.Composer) + String.IsEmpty(RDS.Band) + String.IsEmpty(RDS.Conductor) + String.IsEmpty(RDS.Album) + String.IsEmpty(RDS.Title) + String.IsEmpty(RDS.ProgHost) + String.IsEmpty(RDS.ProgStyle) + String.IsEmpty(RDS.ChannelCountry) + String.IsEmpty(RDS.Comment)</visible>
+					<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title) | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+					<include>VisibleFadeAnimation</include>
+					<include>WindowFadeAnimation</include>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>12</itemgap>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords18</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title) | Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+						<font>Font36</font>
+						<label>$LOCALIZE[19031]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Artist -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEqual(MusicPlayer.Artist,MusicPlayer.Offset(1).Artist) + !String.IsEmpty(MusicPlayer.Offset(1).Artist)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[557]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Offset(1).Artist]</label>
+						</control>
+					</control>
+					
+					<!-- Album -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEqual(MusicPlayer.Album,MusicPlayer.Offset(1).Album) + !String.IsEmpty(MusicPlayer.Offset(1).Artist)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[558]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Offset(1).Album]$INFO[MusicPlayer.Offset(1).Year,[LIGHT] (,)[/LIGHT]]</label>
+						</control>
+					</control>
+					
+					<!-- Track -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.Offset(1).Title)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[556]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Offset(1).TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[MusicPlayer.Offset(1).Title]</label>
+						</control>
+					</control>
+					
+					<!-- Radio programm -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29908]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</label>
+						</control>
+					</control>
+				</control>
+				
+				<!-- Artist description -->
+				<control type="group">
+					<include>MusicVisualisation_coords20</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),artist) + !String.IsEmpty(MusicPlayer.Property(Artist_Description))</visible>
+					<include>VisibleFadeAnimation</include>
+					<include>WindowFadeAnimation</include>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords16</include>
+						<font>Font36</font>
+						<label>$INFO[MusicPlayer.Artist]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Description -->
+					<control type="textbox">
+						<include>MusicVisualisation_coords21</include>
+						<align>left</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[MusicPlayer.Property(Artist_Description)]</label>
+						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords22</include>
+						<align>left</align>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[MusicPlayer.Property(Artist_Description)]</label>
+						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords23</include>
+						<align>left</align>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[MusicPlayer.Property(Artist_Description)]</label>
+						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L)</visible>
+					</control>
+				</control>
+				
+				<!-- Album description -->
+				<control type="group">
+					<include>MusicVisualisation_coords20</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),album) + !String.IsEmpty(MusicPlayer.Property(Album_Description))</visible>
+					<include>VisibleFadeAnimation</include>
+					<include>WindowFadeAnimation</include>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords16</include>
+						<font>Font36</font>
+						<label>$INFO[MusicPlayer.Album]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Description -->
+					<control type="textbox">
+						<include>MusicVisualisation_coords21</include>
+						<align>left</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
+						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords22</include>
+						<align>left</align>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
+						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords23</include>
+						<align>left</align>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[MusicPlayer.Property(Album_Description)]</label>
+						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L)</visible>
+					</control>
+				</control>
+				
+				<!-- Radio plot (now) -->
+				<control type="group">
+					<include>MusicVisualisation_coords20</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),plotnow) + !String.IsEmpty(VideoPlayer.Plot)</visible>
+					<include>VisibleFadeAnimation</include>
+					<include>WindowFadeAnimation</include>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords16</include>
+						<font>Font36</font>
+						<label>$INFO[Player.Title] [LIGHT]($INFO[VideoPlayer.StartTime] - $INFO[VideoPlayer.EndTime])[/LIGHT]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Plot -->
+					<control type="textbox">
+						<include>MusicVisualisation_coords21</include>
+						<align>left</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords22</include>
+						<align>left</align>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords23</include>
+						<align>left</align>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L)</visible>
+					</control>
+				</control>
+				
+				<!-- Radio plot (next) -->
+				<control type="group">
+					<include>MusicVisualisation_coords20</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),plotnext) + !String.IsEmpty(VideoPlayer.NextPlot)</visible>
+					<include>VisibleFadeAnimation</include>
+					<include>WindowFadeAnimation</include>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords16</include>
+						<font>Font36</font>
+						<label>$INFO[VideoPlayer.NextTitle] [LIGHT]($INFO[VideoPlayer.NextStartTime] - $INFO[VideoPlayer.NextEndTime])[/LIGHT]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Plot -->
+					<control type="textbox">
+						<include>MusicVisualisation_coords21</include>
+						<align>left</align>
+						<font>Font27</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[VideoPlayer.NextPlot]</label>
+						<autoscroll delay="10000" time="1400" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,S)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords22</include>
+						<align>left</align>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[VideoPlayer.NextPlot]</label>
+						<autoscroll delay="10000" time="1300" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,M)</visible>
+					</control>
+					<control type="textbox">
+						<include>MusicVisualisation_coords23</include>
+						<align>left</align>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[VideoPlayer.NextPlot]</label>
+						<autoscroll delay="10000" time="1200" repeat="12000">True</autoscroll>
+						<visible>Skin.String(PlotFont,L)</visible>
+					</control>
+				</control>
+				
+				<!-- Now playing (RDS) -->
+				<control type="grouplist">
+					<include>MusicVisualisation_coords20</include>
+					<visible>String.IsEqual(Window(12006).Property(extended),rds) + ![String.IsEmpty(RDS.Artist) + String.IsEmpty(RDS.Composer) + String.IsEmpty(RDS.Band) + String.IsEmpty(RDS.Conductor) + String.IsEmpty(RDS.Album) + String.IsEmpty(RDS.Title) + String.IsEmpty(RDS.ProgHost) + String.IsEmpty(RDS.ProgStyle) + String.IsEmpty(RDS.ChannelCountry) + String.IsEmpty(RDS.Comment)]</visible>
+					<include>VisibleFadeAnimation</include>
+					<include>WindowFadeAnimation</include>
+					<orientation>vertical</orientation>
+					<usecontrolcoords>true</usecontrolcoords>
+					<itemgap>12</itemgap>
+					
+					<!-- Title -->
+					<control type="fadelabel">
+						<include>MusicVisualisation_coords18</include>
+						<font>Font36</font>
+						<label>$LOCALIZE[29900]</label>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+					
+					<!-- Artist -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.Artist)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29904]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.Artist]</label>
+						</control>
+					</control>
+					
+					<!-- Composer -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.Composer)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29903]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.Composer]</label>
+						</control>
+					</control>
+					
+					<!-- Band -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.Band)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29901]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.Band]</label>
+						</control>
+					</control>
+					
+					<!-- Conductor -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.Conductor)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29905]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.Conductor]</label>
+						</control>
+					</control>
+					
+					<!-- Album -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.Album)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[558]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.Album]</label>
+						</control>
+					</control>
+					
+					<!-- Track/Title -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.Title)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[556]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.TrackNumber,[LIGHT],.[/LIGHT] ]$INFO[RDS.Title]</label>
+						</control>
+					</control>
+					
+					<!-- Moderator -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.ProgHost)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29906]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.ProgHost]</label>
+						</control>
+					</control>
+					
+					<!-- Style -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.ProgStyle)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29902]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.ProgStyle]</label>
+						</control>
+					</control>
+					
+					<!-- Country/Language -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.ChannelCountry)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[574]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.ChannelCountry]$INFO[RDS.AudioLanguage,[LIGHT] (,)[/LIGHT]]</label>
+						</control>
+					</control>
+					
+					<!-- Comment -->
+					<control type="group">
+						<include>MusicVisualisation_coords16</include>
+						<visible>!String.IsEmpty(RDS.Comment)</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords17</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[569]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords18</include>
+							<font>Font36</font>
+							<label>$INFO[RDS.Comment]</label>
+						</control>
+					</control>
+
+				</control>
 			</control>
 		
 		</control>

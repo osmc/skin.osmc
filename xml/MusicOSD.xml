@@ -2,26 +2,49 @@
 <window>
 	<!-- musicosd -->
 	<defaultcontrol always="true">5</defaultcontrol>
+	<onload>ClearProperty(MusicOSDFresh,12006)</onload>
+	<onload condition="!Window.IsVisible(seekbar) + !Player.ShowInfo + !Skin.HasSetting(MusicOSD)">SetProperty(MusicOSDFresh,True,12006)</onload>
+	<onunload>ClearProperty(MusicOSDFresh,12006)</onunload>
 
 	<controls>
+	
+		<!-- Seek slider -->
+		<control type="slider">
+			<include>MusicOSD_coords1</include>
+			<texturesliderbar />
+			<textureslidernib />
+			<textureslidernibfocus />
+			<action>seek</action>
+		</control>
 
 		<control type="group">
 			<include>DialogDepth</include>
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
 			<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
-			<include>MusicOSD_coords1</include>
+			<include>MusicOSD_coords2</include>
 			<include>OSDVisibleHiddenAnimation</include>
-			<include>OSDOpenCloseAnimation</include>
+			<animation type="WindowOpen" condition="Window.IsVisible(seekbar) | Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" delay="200" />
+				<effect type="fade" start="0" end="100" time="200" delay="200" />
+			</animation>
+			<animation type="WindowOpen" condition="!Window.IsVisible(seekbar) + !Player.ShowInfo + !Skin.HasSetting(MusicOSD)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" />
+				<effect type="fade" start="0" end="100" time="200" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200" />
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
 
 			<!-- Background -->
 			<control type="image">
-				<include>MusicOSD_coords2</include>
+				<include>MusicOSD_coords3</include>
 				<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 			</control>
 
 			<!-- Controls -->
 			<control type="grouplist">
-				<include>MusicOSD_coords3</include>
+				<include>MusicOSD_coords4</include>
 				<itemgap>0</itemgap>
 				<onleft>20</onleft>
 				<onright>12</onright>
@@ -31,13 +54,13 @@
 
 				<!-- Spacer -->
 				<control type="image" id="40">
-					<include>MusicOSD_coords4</include>
+					<include>MusicOSD_coords5</include>
 					<texture>transparent.png</texture>
 				</control>
 
 				<!-- Skip Back -->
 				<control type="button" id="1">
-					<include>MusicOSD_coords5</include>
+					<include>MusicOSD_coords6</include>
 					<onleft>2</onleft>
 					<onright>4</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickBackwardEnd.png</texturefocus>
@@ -48,7 +71,7 @@
 				
 				<!-- Rewind -->
 				<control type="togglebutton" id="2">
-					<include>MusicOSD_coords6</include>
+					<include>MusicOSD_coords7</include>
 					<onleft>8</onleft>
 					<onright>10</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickBackward.png</texturefocus>
@@ -62,7 +85,7 @@
 				
 				<!-- Tempo Down -->
 				<control type="togglebutton" id="3">
-					<include>MusicOSD_coords6</include>
+					<include>MusicOSD_coords7</include>
 					<onleft>8</onleft>
 					<onright>10</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickBackward.png</texturefocus>
@@ -77,13 +100,13 @@
 
 				<!-- Spacer -->
 				<control type="image" id="41">
-					<include>MusicOSD_coords4</include>
+					<include>MusicOSD_coords5</include>
 					<texture>transparent.png</texture>
 				</control>
 
 				<!-- Up -->
 				<control type="button" id="4">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<onleft>4</onleft>
 					<onright>6</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDUpNF.png</texturefocus>
@@ -99,7 +122,7 @@
 
 				<!-- Down -->
 				<control type="button" id="7">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<onleft>5</onleft>
 					<onright>7</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDDownNF.png</texturefocus>
@@ -110,13 +133,13 @@
 
 				<!-- Spacer -->
 				<control type="image" id="42">
-					<include>MusicOSD_coords4</include>
+					<include>MusicOSD_coords5</include>
 					<texture>transparent.png</texture>
 				</control>
 
 				<!-- Tempo Up -->
 				<control type="togglebutton" id="8">
-					<include>MusicOSD_coords6</include>
+					<include>MusicOSD_coords7</include>
 					<onleft>8</onleft>
 					<onright>10</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickForward.png</texturefocus>
@@ -131,7 +154,7 @@
 				
 				<!-- Fast Forward -->
 				<control type="togglebutton" id="9">
-					<include>MusicOSD_coords6</include>
+					<include>MusicOSD_coords7</include>
 					<onleft>8</onleft>
 					<onright>10</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickForward.png</texturefocus>
@@ -145,7 +168,7 @@
 				
 				<!-- Next -->
 				<control type="button" id="10">
-					<include>MusicOSD_coords5</include>
+					<include>MusicOSD_coords6</include>
 					<onleft>7</onleft>
 					<onright>9</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickForwardEnd.png</texturefocus>
@@ -156,13 +179,13 @@
 				
 				<!-- Spacer -->
 				<control type="image" id="43">
-					<include>MusicOSD_coords4</include>
+					<include>MusicOSD_coords5</include>
 					<texture>transparent.png</texture>
 				</control>
 
 				<!-- Record -->
 				<control type="togglebutton" id="11">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<onleft>8</onleft>
 					<onright>10</onright>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDRecordOffNF.png</texturefocus>
@@ -178,7 +201,7 @@
 
 			<!-- Options -->
 			<control type="grouplist" id="30">
-				<include>MusicOSD_coords8</include>
+				<include>MusicOSD_coords9</include>
 				<align>right</align>
 				<itemgap>0</itemgap>
 				<onleft>11</onleft>
@@ -189,7 +212,7 @@
 
 				<!-- Repeat -->
 				<control type="button" id="12">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus></texturefocus>
 					<texturenofocus></texturenofocus>
 					<onclick>PlayerControl(Repeat)</onclick>
@@ -198,7 +221,7 @@
 				
 				<!-- Random -->
 				<control type="togglebutton" id="13">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDRandomOffNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDRandomOffNF.png</texturenofocus>
 					<usealttexture>Playlist.IsRandom</usealttexture>
@@ -211,7 +234,7 @@
 				
 				<!-- More information -->
 				<control type="button" id="14">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDInfoNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDInfoNF.png</texturenofocus>
 					<onclick condition="!Skin.HasSetting(MusicOSD) + !Player.ShowInfo + String.IsEqual(Window(12006).Property(extended),none)">SetProperty(extended,basic,12006)</onclick>
@@ -251,7 +274,7 @@
 				
 				<!-- Channels -->
 				<control type="button" id="15">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDChannelNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDChannelNF.png</texturenofocus>
 					<onclick>ActivateWindow(PVROSDChannels)</onclick>
@@ -260,7 +283,7 @@
 				
 				<!-- Channel EPG -->
 				<control type="button" id="16">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDEPGNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDEPGNF.png</texturenofocus>
 					<onclick>ActivateWindow(PVRChannelGuide)</onclick>
@@ -269,7 +292,7 @@
 				
 				<!-- Lyrics -->
 				<control type="button" id="17">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDLyricsNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDLyricsNF.png</texturenofocus>
 					<onclick condition="String.IsEmpty(Skin.String(LyricAddon))">Skin.SetAddon(LyricAddon,xbmc.python.lyrics)</onclick>
@@ -278,7 +301,7 @@
 				
 				<!-- Playlist -->
 				<control type="button" id="18">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlaylistNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDPlaylistNF.png</texturenofocus>
 					<onclick>Dialog.Close(MusicOSD)</onclick>
@@ -288,14 +311,14 @@
 				
 				<!-- Visualisation -->
 				<control type="button" id="500">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDVizNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDVizNF.png</texturenofocus>
 				</control>
 				
 				<!-- Visualisation settings -->
 				<control type="button" id="19">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDVizSettingsNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDVizSettingsNF.png</texturenofocus>
 					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
@@ -304,7 +327,7 @@
 				
 				<!-- Visualisation presets list -->
 				<control type="button" id="20">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDVizPreNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDVizPreNF.png</texturenofocus>
 					<onclick>ActivateWindow(VisualisationPresetlist)</onclick>
@@ -315,7 +338,7 @@
 
 			<!-- Repeat images -->
 			<control type="group">
-				<include>MusicOSD_coords9</include>
+				<include>MusicOSD_coords10</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
 				<animation effect="slide" end="120,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(14)">Conditional</animation>
@@ -323,37 +346,37 @@
 				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(20)">Conditional</animation>
 
 				<control type="image">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDRepeatNF.png</texture>
 					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
 					<visible>!Control.HasFocus(12)</visible>
 				</control>
 				<control type="image">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDRepeatNF.png</texture>
 					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
 					<visible>Control.HasFocus(12)</visible>
 				</control>
 				<control type="image">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDRepeatOneNF.png</texture>
 					<visible>Playlist.IsRepeatOne</visible>
 					<visible>!Control.HasFocus(12)</visible>
 				</control>
 				<control type="image">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDRepeatOneNF.png</texture>
 					<visible>Playlist.IsRepeatOne</visible>
 					<visible>Control.HasFocus(12)</visible>
 				</control>
 				<control type="image">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">osd/OSDRepeatAllNF.png</texture>
 					<visible>Playlist.IsRepeat</visible>
 					<visible>!Control.HasFocus(12)</visible>
 				</control>
 				<control type="image">
-					<include>MusicOSD_coords7</include>
+					<include>MusicOSD_coords8</include>
 					<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDRepeatAllNF.png</texture>
 					<visible>Playlist.IsRepeat</visible>
 					<visible>Control.HasFocus(12)</visible>
@@ -361,16 +384,6 @@
 
 			</control>
 
-		</control>
-
-		<!-- Seek slider -->
-		<control type="slider">
-			<description>Seek Slider</description>
-			<include>MusicOSD_coords10</include>
-			<texturesliderbar />
-			<textureslidernib />
-			<textureslidernibfocus />
-			<action>seek</action>
 		</control>
 
 	</controls>
