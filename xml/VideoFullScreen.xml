@@ -2,7 +2,7 @@
 <window>
 	<!-- fullscreenvideo -->
 	<defaultcontrol></defaultcontrol>
-
+	<onload>ClearProperty(VideoOSDFresh,12005)</onload>
 	<onload condition="!String.IsEmpty(Window(12005).Property(shownext))">ClearProperty(shownext,12005)</onload>
 	<onload condition="!String.IsEmpty(Window(12005).Property(videoinfostart))">ClearProperty(videoinfostart,12005)</onload>
 	<onload condition="Skin.HasSetting(videoinfostart) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv)]">SetProperty(videoinfostart,True,12005)</onload>
@@ -11,22 +11,18 @@
 	<onload condition="Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),15s)">AlarmClock(videoplaybackinfo,ClearProperty(videoinfostart,12005),00:15,silent)</onload>
 	<onload condition="Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),20s)">AlarmClock(videoplaybackinfo,ClearProperty(videoinfostart,12005),00:20,silent)</onload>
 	<onunload>ClearProperty(videoinfostart,12005)</onunload>
+	<onunload>ClearProperty(VideoOSDFresh,12005)</onunload>
 
 	<controls>
 		
+		<!-- Built-in labels -->
 		<control type="group">
 			<include>DialogDepth</include>
 			<include>VideoFullScreen_coords1</include>
 
-			<!-- Background -->
-			<control type="image">
-				<include>VideoFullScreen_coords2</include>
-				<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
-			</control>
-
 			<!-- Row 1 label -->
 			<control type="label" id="10">
-				<include>VideoFullScreen_coords3</include>
+				<include>VideoFullScreen_coords2</include>
 				<font>Font25</font>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label></label>
@@ -34,7 +30,7 @@
 
 			<!-- Row 2 label -->
 			<control type="label" id="11">
-				<include>VideoFullScreen_coords4</include>
+				<include>VideoFullScreen_coords3</include>
 				<font>Font25</font>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label></label>
@@ -42,41 +38,47 @@
 
 			<!-- Row 3 label -->
 			<control type="label" id="12">
-				<include>VideoFullScreen_coords5</include>
+				<include>VideoFullScreen_coords4</include>
 				<font>Font25</font>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label></label>
 			</control>
 
 		</control>
-
+		
+		<!-- Main group -->
 		<control type="group" id="1">
 			<include>DialogDepth</include>
-			<include>VideoFullScreen_coords6</include>
+			<include>VideoFullScreen_coords5</include>
 			
+			<!-- Playback progress information -->
 			<control type="group" id="1">
-				<include>VideoFullScreen_coords7</include>
-				<animation effect="slide" end="0,-75" time="200" condition="Window.IsActive(VideoOSD) + !Window.IsActive(playerprocessinfo)">Conditional</animation>
-				<visible>Window.IsVisible(seekbar) | Window.IsVisible(fullscreeninfo) | Window.IsVisible(VideoOSD)</visible>
-				<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
+				<include>VideoFullScreen_coords6</include>
+				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(VideoOSD)">Conditional</animation>
+				<visible>Window.IsActive(seekbar) | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
+				<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 				<include>OSDVisibleHiddenAnimation</include>
+				<include>WindowFadeAnimation</include>
 
 				<!-- Player forwarding/rewinding -->
 				<control type="group" id="1">
-					<include>VideoFullScreen_coords8</include>
+					<include>VideoFullScreen_coords7</include>
 					<visible>!Window.IsVisible(VideoBookmarks)</visible>
 					<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek] + !Player.HasGame + !Player.Seeking | player.paused</visible>
 					<include>OSDVisibleHiddenAnimation</include>
+					<include>WindowFadeAnimation</include>
 
 					<!-- Background -->
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords8</include>
+						<include>VideoFullScreen_coords7</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords8</include>
+						<include>VideoFullScreen_coords7</include>
 						<font>Font36-bold</font>
 						<align>center</align>
 						<label>$VAR[PlayerStatus]</label>
@@ -87,7 +89,7 @@
 
 					<!-- Pause -->
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords9</include>
+						<include>VideoFullScreen_coords8</include>
 						<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDPauseNF.png</texture>
 						<visible>player.paused</visible>
 						<include>VisibleFadeAnimation</include>
@@ -95,7 +97,7 @@
 					
 					<!-- Play after seek -->
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords9</include>
+						<include>VideoFullScreen_coords8</include>
 						<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlayNF.png</texture>
 						<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
 						<include>VisibleFadeAnimation</include>
@@ -105,20 +107,21 @@
 				
 				<!-- Player skipping -->
 				<control type="group" id="1">
-					<include>VideoFullScreen_coords10</include>
+					<include>VideoFullScreen_coords9</include>
 					<visible>[Integer.IsGreater(Player.ChapterCount,0) | !String.IsEmpty(Player.SeekStepSize) | !String.IsEmpty(Player.SeekNumeric)] + !Player.HasGame</visible>
 					<visible>!Window.IsVisible(visualisation) + !Window.IsVisible(VideoBookmarks)</visible>
 					<include>OSDVisibleHiddenAnimation</include>
+					<include>WindowFadeAnimation</include>
 
 					<!-- Background -->
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords8</include>
+						<include>VideoFullScreen_coords7</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords8</include>
+						<include>VideoFullScreen_coords7</include>
 						<font>Font27-bold</font>
 						<align>center</align>
 						<label>$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)]</label>
@@ -129,7 +132,7 @@
 
 					<!-- Status -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords8</include>
+						<include>VideoFullScreen_coords7</include>
 						<font>Font27</font>
 						<align>center</align>
 						<label>$INFO[Player.SeekStepSize]</label>
@@ -140,7 +143,7 @@
 					
 					<!-- Status -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords8</include>
+						<include>VideoFullScreen_coords7</include>
 						<font>Font27-bold</font>
 						<align>center</align>
 						<label>$INFO[Player.SeekNumeric]</label>
@@ -156,23 +159,24 @@
 				<control type="group" id="1">
 					<visible>!Window.IsVisible(VideoBookmarks)</visible>
 					<visible>Pvr.IsTimeShift</visible>
-					<include>VideoFullScreen_coords11</include>
+					<include>VideoFullScreen_coords10</include>
 					<animation effect="slide" end="155,0" time="200" condition="player.forwarding | player.rewinding | player.paused | player.istempo | Player.DisplayAfterSeek">Conditional</animation>
 					<include>OSDVisibleHiddenAnimation</include>
+					<include>WindowFadeAnimation</include>
 
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords11</include>
+						<include>VideoFullScreen_coords10</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 					
 					<control type="group" id="1">
 						<control type="image" id="1">
-							<include>VideoFullScreen_coords12</include>
+							<include>VideoFullScreen_coords11</include>
 							<texture>osd/OSDTimeShift.png</texture>
 						</control>
 						
 						<control type="label" id="1">
-							<include>VideoFullScreen_coords13</include>
+							<include>VideoFullScreen_coords12</include>
 							<font>Font27</font>
 							<align>center</align>
 							<textcolor>$VAR[TextColorNF]</textcolor>
@@ -183,14 +187,21 @@
 				
 				<!-- Progress -->
 				<control type="group" id="1">
-					<include>VideoFullScreen_coords14</include>
+					<include>VideoFullScreen_coords13</include>
 					<include>OSDVisibleHiddenAnimation</include>
+					<include>WindowFadeAnimation</include>
 
 					<!-- Background -->
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords15</include>
+						<include>VideoFullScreen_coords14</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg | !Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					<control type="image" id="1">
+						<include>VideoFullScreen_coords15</include>
+						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
@@ -199,16 +210,10 @@
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
-					<control type="image" id="1">
-						<include>VideoFullScreen_coords17</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
-						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
-						<include>VisibleFadeAnimation</include>
-					</control>
 
 					<!-- Current position/Time remaining -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords18</include>
+						<include>VideoFullScreen_coords17</include>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
@@ -216,7 +221,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords19</include>
+						<include>VideoFullScreen_coords18</include>
 						<font>Font27</font>
 						<align>center</align>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -227,7 +232,7 @@
 					
 					<!-- PVR current position/Time remaining -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords18</include>
+						<include>VideoFullScreen_coords17</include>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<label>$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ,]</label>
@@ -237,7 +242,7 @@
 
 					<!-- Progress bar -->
 					<control type="progress" id="1">
-						<include>VideoFullScreen_coords20</include>
+						<include>VideoFullScreen_coords19</include>
 						<info>Player.Progress</info>
 						<texturebg colordiffuse="$VAR[OverlayColorNF]">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
@@ -250,7 +255,7 @@
 					
 					<!-- PVR progress bar -->
 					<control type="progress" id="1">
-						<include>VideoFullScreen_coords20</include>
+						<include>VideoFullScreen_coords19</include>
 						<info>PVR.EpgEventProgress</info>
 						<texturebg colordiffuse="$VAR[OverlayColorNF]">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
@@ -263,7 +268,7 @@
 
 					<!-- Cache bar -->
 					<control type="progress" id="1">
-						<include>VideoFullScreen_coords20</include>
+						<include>VideoFullScreen_coords19</include>
 						<info>Player.ProgressCache</info>
 						<texturebg colordiffuse="$VAR[OverlayColorNF]">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
@@ -276,7 +281,7 @@
 					
 					<!-- Commercial break marker -->
 					<control type="ranges" id="1">
-						<include>VideoFullScreen_coords21</include>
+						<include>VideoFullScreen_coords20</include>
 						<texturebg></texturebg>
 						<lefttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</lefttexture>
 						<midtexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</midtexture>
@@ -286,7 +291,7 @@
 					
 					<!-- Chapter marker -->
 					<control type="ranges" id="1">
-						<include>VideoFullScreen_coords22</include>
+						<include>VideoFullScreen_coords21</include>
 						<texturebg></texturebg>
 						<righttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</righttexture>
 						<info>Player.Chapters</info>
@@ -294,7 +299,7 @@
 
 					<!-- Current Time/End Time -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords23</include>
+						<include>VideoFullScreen_coords22</include>
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -303,7 +308,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords24</include>
+						<include>VideoFullScreen_coords23</include>
 						<align>center</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -314,7 +319,7 @@
 					
 					<!-- PVR current Time/End Time -->
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords23</include>
+						<include>VideoFullScreen_coords22</include>
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
@@ -326,22 +331,23 @@
 				</control>
 			</control>
 			
-			<!-- Info -->
+			<!-- Now playing information -->
 			<control type="group" id="1">
-				<include>VideoFullScreen_coords25</include>
+				<include>VideoFullScreen_coords24</include>
 				<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(12005).Property(videoinfostart)) | [!Pvr.IsPlayingTv + [[Integer.IsLessOrEqual(Player.TimeRemaining(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),20s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),15s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),10s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),5s)] | [Integer.IsLessOrEqual(Player.Time(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),20s)] | [Integer.IsLessOrEqual(Player.Time(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),15s)] | [Integer.IsLessOrEqual(Player.Time(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),10s)] | [Integer.IsLessOrEqual(Player.Time(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),5s)]]]</visible>
 				<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 				<include>OSDVisibleHiddenAnimation</include>
+				<include>WindowFadeAnimation</include>
 
 				<!-- Background -->
 				<control type="image" id="1">
-					<include>VideoFullScreen_coords25</include>
+					<include>VideoFullScreen_coords24</include>
 					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 				</control>
 
 				<!-- Title -->
 				<control type="fadelabel" id="1">
-					<include>VideoFullScreen_coords26</include>
+					<include>VideoFullScreen_coords25</include>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
@@ -351,7 +357,7 @@
 				
 				<!-- Live TV Title -->
 				<control type="fadelabel" id="1">
-					<include>VideoFullScreen_coords27</include>
+					<include>VideoFullScreen_coords26</include>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
@@ -361,7 +367,7 @@
 
 				<!-- Live TV Channel -->
 				<control type="fadelabel" id="1">
-					<include>VideoFullScreen_coords28</include>
+					<include>VideoFullScreen_coords27</include>
 					<font>Font33-bold</font>
 					<align>right</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
@@ -372,7 +378,7 @@
 
 				<!-- Plot -->
 				<control type="group" id="1">
-					<include>VideoFullScreen_coords29</include>
+					<include>VideoFullScreen_coords28</include>
 					<visible>!VideoPlayer.Content(musicvideos)</visible>
 					
 					<control type="textbox" id="1">
@@ -386,7 +392,7 @@
 					</control>
 					
 					<control type="textbox" id="1">
-						<include>VideoFullScreen_coords31</include>
+						<include>VideoFullScreen_coords30</include>
 						<align>left</align>
 						<font>Font30</font>
 						<label>$VAR[VideoPlayerPlot]</label>
@@ -396,7 +402,7 @@
 					</control>
 					
 					<control type="textbox" id="1">
-						<include>VideoFullScreen_coords32</include>
+						<include>VideoFullScreen_coords31</include>
 						<align>left</align>
 						<font>Font33</font>
 						<label>$VAR[VideoPlayerPlot]</label>
@@ -409,7 +415,7 @@
 				
 				<!-- Music video information -->
 				<control type="group" id="1">
-					<include>VideoFullScreen_coords29</include>
+					<include>VideoFullScreen_coords28</include>
 					<visible>VideoPlayer.Content(musicvideos)</visible>
 					
 					<control type="grouplist" id="1">
@@ -434,7 +440,7 @@
 				
 				<!-- Audio/subtitle stream -->
 				<control type="label" id="1">
-					<include>VideoFullScreen_coords33</include>
+					<include>VideoFullScreen_coords32</include>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[292]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels]$INFO[VideoPlayer.AudioLanguage, [CAPITALIZE](,)[/CAPITALIZE]]$VAR[SubtitleLanguage]</label>
@@ -443,7 +449,7 @@
 				
 				<!-- Audio information -->
 				<control type="label" id="1">
-					<include>VideoFullScreen_coords33</include>
+					<include>VideoFullScreen_coords32</include>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerAudioCodec,[LIGHT],[/LIGHT]  ]$VAR[VideoPlayerAudioChannels,[LIGHT],[/LIGHT]  ]$INFO[Player.Process(AudioSamplerate),[LIGHT], kHz[/LIGHT]]</label>
@@ -452,7 +458,7 @@
 
 				<!-- Icon -->
 				<control type="image" id="1">
-					<include>VideoFullScreen_coords34</include>
+					<include>VideoFullScreen_coords33</include>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture background="true">$VAR[PlayerIcon]</texture>
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
@@ -466,23 +472,23 @@
 				
 				<!-- Live TV next information -->
 				<control type="group" id="1">
-					<include>VideoFullScreen_coords35</include>
+					<include>VideoFullScreen_coords34</include>
 					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg + Window.IsVisible(fullscreeninfo)</visible>
 					<include>OSDVisibleHiddenAnimation</include>
 					
 					<control type="image" id="1">
-						<include>VideoFullScreen_coords36</include>
+						<include>VideoFullScreen_coords35</include>
 						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 					</control>
 
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords37</include>
+						<include>VideoFullScreen_coords36</include>
 						<label>$VAR[VideoPlayerNext]</label>
 						<font>Font25</font>
 					</control>
 
 					<control type="label" id="1">
-						<include>VideoFullScreen_coords38</include>
+						<include>VideoFullScreen_coords37</include>
 						<align>right</align>
 						<label>31171</label>
 						<font>Font25</font>
@@ -494,17 +500,18 @@
 			
 			<!-- PVR channel number input -->
 			<control type="group" id="1">
-				<include>VideoFullScreen_coords39</include>
+				<include>VideoFullScreen_coords38</include>
 				<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
 				<include>OSDVisibleHiddenAnimation</include>
+				<include>WindowFadeAnimation</include>
 				
 				<control type="image" id="1">
-					<include>VideoFullScreen_coords38</include>
+					<include>VideoFullScreen_coords37</include>
 					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
 				</control>
 				
 				<control type="label" id="1">
-					<include>VideoFullScreen_coords40</include>
+					<include>VideoFullScreen_coords39</include>
 					<label>$INFO[PVR.ChannelNumberInput]</label>
 					<align>center</align>
 					<font>Font72</font>
