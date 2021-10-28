@@ -2,6 +2,9 @@
 <window>
 	<!-- videoosd -->
 	<defaultcontrol always="true">5</defaultcontrol>
+	<onload>ClearProperty(VideoOSDFresh,12005)</onload>
+	<onload condition="!Window.IsVisible(seekbar) + !Window.IsVisible(fullscreeninfo)">SetProperty(VideoOSDFresh,True,12005)</onload>
+	<onunload>ClearProperty(VideoOSDFresh,12005)</onunload>
 
 	<controls>
 
@@ -17,9 +20,20 @@
 		<control type="group">
 			<include>DialogDepth</include>
 			<include>VideoOSD_coords2</include>
-			<visible>!Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
+			<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(VideoBookmarks) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 			<include>OSDVisibleHiddenAnimation</include>
-			<include>OSDOpenCloseAnimation</include>
+			<animation type="WindowOpen" condition="Window.IsVisible(fullscreeninfo) | Window.IsVisible(seekbar)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" delay="200" />
+				<effect type="fade" start="0" end="100" time="200" delay="200" />
+			</animation>
+			<animation type="WindowOpen" condition="!Window.IsVisible(fullscreeninfo) + !Window.IsVisible(seekbar)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" />
+				<effect type="fade" start="0" end="100" time="200" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200" />
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
 
 			<!-- Background -->
 			<control type="image">

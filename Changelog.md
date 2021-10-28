@@ -20,6 +20,7 @@ _Improved_
 - update translations
 - handle movie set/collection indication more seamlessly
 - improve dialog animations
+- improve OSD animations
 
 _Fixed_
 - fix skinshortcuts management dialog
@@ -496,6 +497,9 @@ Coordinates_Viewtype539.xml:
 DialogPVRInfo.xml:
 - streamline the way the channel number label is formatted
 
+DialogSeekBar.xml:
+- add new slide animations for video and music fullscreen playback
+
 DialogSubtitles.xml:
 - replace deprecated FullscreenOverlayDimensions by FullscreenDimensions include
 - remove deprecated BackgroundOverlayDialog1 include and replace by FullscreenDimensions include
@@ -518,11 +522,16 @@ Includes_Windows_Dialogs.xml:
 - remove deprecated BackgroundOverlayDialog1 include and replace by FullscreenDimensions include
 - rework dialog background overlay animations
 
+MusicOSD.xml:
+- add new MusicOSDFresh property onloads and onunload
+- add new slide animations
+
 MusicVisualisation.xml:
 - streamline the way the channel number label is formatted
 - rework next playing information
 - fix description and plot font
 - add new comment tag line
+- add missing window fade animations
 
 MyPlaylist.xml:
 - remove deprecated options code
@@ -570,9 +579,15 @@ Variables_Settings.xml:
 VideoFullScreen.xml:
 - fix description and plot font
 - use better localizes for audio and subtitle stream information
+- add new VideoOSDFresh property onloads and onunload
+- add new slide animations
+- add missing window fade animations
 
 VideoOSD.xml:
 - add playback mode (shuffle and repeat) buttons to video OSD
+- add missing player process info visibility condition
+- add new MusicOSDFresh property onloads and onunload
+- add new slide animations
 
 Viewtype51.xml:
 - add hidden label to be able to check for empty secondary list item label
