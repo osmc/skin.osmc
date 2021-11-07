@@ -41,23 +41,6 @@
 					<visible>Control.IsVisible(6) + String.Contains(Container(6).ListItem.Icon,Default)</visible>
 				</control>
 
-				<!-- Scrollbar -->
-				<control type="scrollbar" id="60">
-					<include>DialogSelect_coords2</include>
-					<onleft>5</onleft>
-					<onright condition="Control.IsVisible(3)">3</onright>
-					<onright condition="Control.IsVisible(6)">6</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib></textureslidernib>
-					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-
 				<!-- List -->
 				<control type="list" id="3">
 					<include>DialogSelect_coords3</include>
@@ -93,8 +76,25 @@
 					<include>DialogSelect_coords8</include>
 
 				</control>
+				
+				<!-- Scrollbar -->
+				<control type="scrollbar" id="60">
+					<include>DialogSelect_coords2</include>
+					<onleft>5</onleft>
+					<onright condition="Control.IsVisible(3)">3</onright>
+					<onright condition="Control.IsVisible(6)">6</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars)</visible>
+				</control>
 
-				<!-- Button grouplist -->
+				<!-- Buttons -->
 				<control type="grouplist" id="9001">
 					<include>DialogButtons</include>
 					<itemgap>30</itemgap>
@@ -102,6 +102,7 @@
 					<onup condition="Control.IsVisible(6)">6</onup>
 					<orientation>horizontal</orientation>
 					<align>center</align>
+					<defaultcontrol always="true">0</defaultcontrol>
 
 					<!-- Cancel Button -->
 					<control type="button" id="7">
@@ -115,7 +116,7 @@
 
 				</control>
 				
-				<!-- Button grouplist indicator -->
+				<!-- Button indicator -->
 				<include content="dialogButtonIndicator">
 					<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
 				</include>
@@ -138,7 +139,7 @@
 			<!-- Window Background -->
 			<control type="image">
 				<include>DialogSelect_coords9</include>
-				<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+				<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 			</control>
 			
 			<!-- Heading -->

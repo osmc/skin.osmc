@@ -25,22 +25,6 @@
 			<control type="group">
 				<include>VisibleFadeAnimation</include>
 				<visible>Pvr.HasTVChannels + Window.IsVisible(TVGuide) | Pvr.HasRadioChannels + Window.IsVisible(RadioGuide)</visible>
-
-				<!-- Scrollbar (list) -->
-				<control type="scrollbar" id="60">
-					<include>MyPVRGuide_coords1</include>
-					<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
-					<onright>10</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib></textureslidernib>
-					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
 				
 				<!-- EPG Grid -->
 				<control type="epggrid" id="10">
@@ -68,6 +52,22 @@
 
 					<include>MyPVRGuide_coords7</include>
 
+				</control>
+				
+				<!-- Scrollbar -->
+				<control type="scrollbar" id="60">
+					<include>MyPVRGuide_coords1</include>
+					<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
+					<onright>10</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars)</visible>
 				</control>
 
 				<!-- Program preview & info -->
@@ -233,13 +233,14 @@
 				<left>-460</left>
 				<top>0</top>
 				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
-				<control type="image">
-					<include>OptionsSideMenu1</include>
-					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
-				</control>
 				<control type="button">
 					<include>OptionsSideMenu1</include>
 					<texturefocus>noop</texturefocus>
+				</control>
+				
+				<control type="image">
+					<include>OptionsSideMenu1</include>
+					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 				</control>
 
 				<!-- Look controls -->

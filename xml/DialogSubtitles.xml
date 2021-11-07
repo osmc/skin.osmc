@@ -66,7 +66,7 @@
 			</control>
 			<control type="image">
 				<include>BackgroundOverlayDialog2</include>
-				<texture background="true">common/Background2.png</texture>
+				<texture background="true">$VAR[BackgroundOverlayStyle]</texture>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<include>DialogBackgroundDepth</include>
@@ -128,8 +128,8 @@
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
@@ -182,15 +182,15 @@
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbackground border="8,1,6,1">$VAR[BackgroundOverlayStyleScrollbarVertical]</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars)</visible>
 			</control>
 
-			<!-- Button grouplist -->
+			<!-- Buttons -->
 			<control type="grouplist" id="9001">
 				<include>DialogButtons</include>
 				<itemgap>30</itemgap>
@@ -206,7 +206,7 @@
 
 			</control>
 			
-			<!-- Button grouplist indicator -->
+			<!-- Button indicator -->
 			<include content="dialogButtonIndicator">
 				<param name="visibility">!Control.HasFocus(9001) + !Window.IsVisible(shutdownmenu)</param>
 			</include>
