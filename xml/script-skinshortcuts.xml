@@ -107,7 +107,7 @@
 			</control>
 			<control type="image">
 				<include>BackgroundOverlayDialog2</include>
-				<texture background="true">common/Background2.png</texture>
+				<texture background="true">$VAR[BackgroundOverlayStyle]</texture>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<include>DialogBackgroundDepth</include>
@@ -174,8 +174,8 @@
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="9,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
@@ -415,49 +415,46 @@
 				<visible>Skin.String(PlotFont,L)</visible>
 			</control>
 
-			<control type="group">
-				
-				<!-- Button grouplist indicator -->
-				<include content="dialogButtonIndicator">
-					<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
-				</include>
-
-				<!-- Buttons -->
-				<control type="grouplist" id="9001">
-					<include>DialogButtons</include>
-					<orientation>horizontal</orientation>
-					<align>center</align>
-					<itemgap>30</itemgap>
-					<onup>9000</onup>
-					<visible>!Window.IsVisible(1106)</visible>
-					<include>VisibleFadeAnimation</include>
+			<!-- Buttons -->
+			<control type="grouplist" id="9001">
+				<include>DialogButtons</include>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>9000</onup>
+				<defaultcontrol always="true">0</defaultcontrol>
+				<visible>!Window.IsVisible(1106)</visible>
+				<include>VisibleFadeAnimation</include>
 
 
-					<!-- Add item -->
-					<control type="button" id="301">
-						<width>auto</width>
-						<label>$ADDON[script.skinshortcuts 32000]</label>
-					</control>
+				<!-- Add item -->
+				<control type="button" id="301">
+					<width>auto</width>
+					<label>$ADDON[script.skinshortcuts 32000]</label>
+				</control>
 
-					<!-- Restore -->
-					<control type="button" id="308">
-						<width>auto</width>
-						<label>$ADDON[script.skinshortcuts 32028]</label>
-					</control>
+				<!-- Restore -->
+				<control type="button" id="308">
+					<width>auto</width>
+					<label>$ADDON[script.skinshortcuts 32028]</label>
+				</control>
 
-					<!-- Help -->
-					<control type="button" id="314">
-						<label>10043</label>
-						<width>auto</width>
-						<onclick condition="String.EndsWith(Window.Property(groupname),.1)">SetProperty(Window,Widgetmenu,1106)</onclick>
-						<onclick condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1)">SetProperty(Window,Submenu,1106)</onclick>
-						<onclick condition="String.IsEqual(Window.Property(groupname),mainmenu)">SetProperty(Window,Mainmenu,1106)</onclick>
-						<onclick>ActivateWindow(1106)</onclick>
-					</control>
-
+				<!-- Help -->
+				<control type="button" id="314">
+					<label>10043</label>
+					<width>auto</width>
+					<onclick condition="String.EndsWith(Window.Property(groupname),.1)">SetProperty(Window,Widgetmenu,1106)</onclick>
+					<onclick condition="!String.IsEqual(Window.Property(groupname),mainmenu) + !String.EndsWith(Window.Property(groupname),.1)">SetProperty(Window,Submenu,1106)</onclick>
+					<onclick condition="String.IsEqual(Window.Property(groupname),mainmenu)">SetProperty(Window,Mainmenu,1106)</onclick>
+					<onclick>ActivateWindow(1106)</onclick>
 				</control>
 			
 			</control>
+			
+			<!-- Button indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
+			</include>
 
 		</control>
 

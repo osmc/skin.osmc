@@ -167,9 +167,11 @@
 		<onload condition="String.IsEmpty(Skin.String(color.osdcache))">Skin.SetString(color.osdcache,None)</onload>
 		<onload condition="String.IsEmpty(Skin.String(color.masking))">Skin.SetString(color.masking,None)</onload>
 		<onload condition="String.IsEmpty(Skin.String(color.background))">Skin.SetString(color.background,None)</onload>
+		<onload condition="String.IsEmpty(Skin.String(color.menuosd))">Skin.SetString(color.menuosd,None)</onload>
 		<onload condition="![Skin.HasSetting(DefaultColorSetOSMCBlue) | Skin.HasSetting(DefaultColorSetOSMCLightblue) | Skin.HasSetting(DefaultColorSetOSMCBlack) | Skin.HasSetting(DefaultColorSetOSMCRosered) | Skin.HasSetting(DefaultColorSetOSMCSunsetYellow) | Skin.HasSetting(DefaultColorSetOSMCLimegreen) | Skin.HasSetting(DefaultColorSetDarkBlue) | Skin.HasSetting(DefaultColorSetOrange) | Skin.HasSetting(DefaultColorSetRed) | Skin.HasSetting(DefaultColorSetPurple)]">Skin.SetBool(DefaultColorSetOSMCLightblue)</onload>
 		<onload condition="String.IsEmpty(Skin.String(DefaultColors))">Skin.SetString(DefaultColors,yes)</onload>
 		<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundOpacity))">Skin.SetString(DefaultBackgroundOpacity,High)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DefaultMenuOSDOpacity))">Skin.SetString(DefaultMenuOSDOpacity,High)</onload>
 		<onload condition="String.IsEmpty(Skin.String(videoinfostartduration))">Skin.SetString(videoinfostartduration,10s)</onload>
 		<onload condition="String.IsEmpty(Skin.String(videoinfoendduration))">Skin.SetString(videoinfoendduration,10s)</onload>
 		<onload condition="String.IsEmpty(Skin.String(videodurationformat))">Skin.SetString(videodurationformat,Minutes)</onload>
@@ -244,7 +246,7 @@
 		<!-- Spacer -->
 		<control type="image" id="80001">
 			<include>SideMenuControls_coords1</include>
-			<texture colordiffuse="$VAR[BackgroundColor]">transparent.png</texture>
+			<texture>transparent.png</texture>
 			<visible>Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
 			<animation effect="slide" start="-450,0" end="0,0" time="200">VisibleChange</animation>
 		</control>
