@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- movieinformation -->
-	<defaultcontrol always="true">8</defaultcontrol>
+	<defaultcontrol always="true">9000</defaultcontrol>
 	<onload condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onload>
 	<onload condition="!String.IsEmpty(Window(12003).Property(cast))">ClearProperty(cast,12003)</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
@@ -601,7 +601,7 @@
 				<include>VisibleFadeAnimation</include>
 			</control>
 
-			<!-- Cast -->
+			<!-- Cast/Movie sets -->
 			<control type="list" id="50">
 				<include>DialogVideoInfo_coords9</include>
 				<onup>50</onup>
@@ -629,9 +629,9 @@
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="11,1,1,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="11,1,1,1">common/ScrollbarGripNF.png</texturesliderbar>
-				<texturesliderbarfocus border="11,1,1,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
 				<visible>!Skin.HasSetting(Scrollbars) + [!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)]</visible>
@@ -779,21 +779,15 @@
 
 			</control>
 
-			<!-- Button grouplist -->
+			<!-- Buttons -->
 			<control type="grouplist" id="9000">
 				<include>DialogButtons</include>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
 				<onup condition="!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)">50</onup>
+				<defaultcontrol always="true">0</defaultcontrol>
 
-				<!-- Play/Browse Button -->
-				<control type="togglebutton" id="8">
-					<width>Auto</width>
-					<label>208</label>
-					<altlabel>1024</altlabel>
-					<usealttexture>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,set)</usealttexture>
-				</control>
 				<!-- Extended info Button -->
 				<control type="togglebutton" id="15">
 					<width>Auto</width>
@@ -880,11 +874,24 @@
 					<label>20339</label>
 					<visible>!String.IsEmpty(ListItem.Director)</visible>
 				</control>
+				<!-- Trailer Button -->
+				<control type="button" id="11">
+					<width>Auto</width>
+					<label>20410</label>
+					<visible>!String.IsEmpty(ListItem.Trailer)</visible>
+				</control>
 				<!-- User rating Button -->
 				<control type="button" id="7">
 					<width>Auto</width>
 					<label>38018</label>
 					<visible>Skin.HasSetting(UserRating)</visible>
+				</control>
+				<!-- Play/Browse Button -->
+				<control type="togglebutton" id="8">
+					<width>Auto</width>
+					<label>208</label>
+					<altlabel>1024</altlabel>
+					<usealttexture>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,set)</usealttexture>
 				</control>
 				<!-- Refresh Button -->
 				<control type="button" id="6">
@@ -907,12 +914,6 @@
 					<visible>System.HasAddon(script.artwork.downloader) + [String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,movie)]</visible>
 					<visible>!Skin.HasSetting(KioskMode)</visible>
 				</control>
-				<!-- Trailer Button -->
-				<control type="button" id="11">
-					<width>Auto</width>
-					<label>20410</label>
-					<visible>!String.IsEmpty(ListItem.Trailer)</visible>
-				</control>
 				<!-- Cinema Experience Button -->
 				<control type="button" id="22">
 					<width>Auto</width>
@@ -924,7 +925,7 @@
 
 			</control>
 			
-			<!-- Button grouplist indicator -->
+			<!-- Button indicator -->
 			<include content="dialogButtonIndicator">
 				<param name="visibility">!ControlGroup(9000).HasFocus + !Window.IsVisible(shutdownmenu)</param>
 			</include>

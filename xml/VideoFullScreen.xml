@@ -73,7 +73,7 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords7</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -116,7 +116,7 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords7</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -166,7 +166,7 @@
 
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords10</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 					</control>
 					
 					<control type="group" id="1">
@@ -194,19 +194,19 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords14</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg | !Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords15</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords16</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
@@ -272,7 +272,7 @@
 						<info>Player.ProgressCache</info>
 						<texturebg colordiffuse="$VAR[OverlayColorNF]">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
-						<midtexture colordiffuse="OSDCacheColor">osd/OSDProgressBar.png</midtexture>
+						<midtexture colordiffuse="$VAR[OSDCacheColor]">osd/OSDProgressBar.png</midtexture>
 						<righttexture></righttexture>
 						<overlaytexture></overlaytexture>
 						<visible>!Pvr.IsTimeShift + Pvr.IsPlayingTv + VideoPlayer.HasEpg | Integer.IsGreater(Player.Duration,0) + !Pvr.IsPlayingTv</visible>
@@ -283,9 +283,9 @@
 					<control type="ranges" id="1">
 						<include>VideoFullScreen_coords20</include>
 						<texturebg></texturebg>
-						<lefttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</lefttexture>
-						<midtexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</midtexture>
-						<righttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</righttexture>
+						<lefttexture colordiffuse="$VAR[MenuOSDColor]">osd/OSDProgressRanges.png</lefttexture>
+						<midtexture colordiffuse="$VAR[MenuOSDColor]">osd/OSDProgressRanges.png</midtexture>
+						<righttexture colordiffuse="$VAR[MenuOSDColor]">osd/OSDProgressRanges.png</righttexture>
 						<info>Player.Cutlist</info>
 					</control>
 					
@@ -293,7 +293,7 @@
 					<control type="ranges" id="1">
 						<include>VideoFullScreen_coords21</include>
 						<texturebg></texturebg>
-						<righttexture colordiffuse="$VAR[BackgroundColor]">osd/OSDProgressRanges.png</righttexture>
+						<righttexture colordiffuse="$VAR[MenuOSDColor]">osd/OSDProgressRanges.png</righttexture>
 						<info>Player.Chapters</info>
 					</control>
 
@@ -342,7 +342,7 @@
 				<!-- Background -->
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords24</include>
-					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 				</control>
 
 				<!-- Title -->
@@ -351,7 +351,7 @@
 					<font>Font33</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
-					<visible>!Pvr.IsPlayingTv | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
+					<visible>!Pvr.IsPlayingTv</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 				
@@ -361,7 +361,7 @@
 					<font>Font33</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
-					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+					<visible>Pvr.IsPlayingTv</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 
@@ -372,7 +372,7 @@
 					<align>right</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerChannelNumber]</label>
-					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+					<visible>Pvr.IsPlayingTv</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 
@@ -464,7 +464,7 @@
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<control type="image" id="1">
-					<include>VideoFullScreen_coords34</include>
+					<include>VideoFullScreen_coords33</include>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PlayerIcon]</texture>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
@@ -473,12 +473,12 @@
 				<!-- Live TV next information -->
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords34</include>
-					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg + Window.IsVisible(fullscreeninfo)</visible>
+					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 					<include>OSDVisibleHiddenAnimation</include>
 					
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords35</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 					</control>
 
 					<control type="label" id="1">
@@ -507,7 +507,7 @@
 				
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords37</include>
-					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 				</control>
 				
 				<control type="label" id="1">

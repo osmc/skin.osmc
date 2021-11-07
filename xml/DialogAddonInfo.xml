@@ -214,12 +214,6 @@
 				<onup>50</onup>
 				<defaultcontrol always="true">0</defaultcontrol>
 
-				<!-- Launch Addon Button -->
-				<control type="button" id="12">
-					<width>Auto</width>
-					<label>518</label>
-					<visible>Control.IsEnabled(12)</visible>
-				</control>
 				<!-- Extended info Button -->
 				<control type="togglebutton" id="15">
 					<width>Auto</width>
@@ -229,6 +223,12 @@
 					<onclick condition="!String.IsEmpty(Window(10146).Property(description))">ClearProperty(description,10146)</onclick>
 					<usealttexture>String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)</usealttexture>
 					<visible>!String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
+				</control>
+				<!-- Launch Addon Button -->
+				<control type="button" id="12">
+					<width>Auto</width>
+					<label>518</label>
+					<visible>Control.IsEnabled(12)</visible>
 				</control>
 				<!-- Configure Addon Button -->
 					<control type="button" id="9">
