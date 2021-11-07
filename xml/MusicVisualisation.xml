@@ -39,7 +39,7 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords2</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -81,7 +81,7 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords2</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 					</control>
 
 					<!-- Status -->
@@ -124,24 +124,24 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords6</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg | !Pvr.IsPlayingRadio + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
 						<include>MusicVisualisation_coords7</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
 						<include>MusicVisualisation_coords8</include>
-						<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 
-					<!--  Current position/Time remaining -->
+					<!-- Current position/Time remaining -->
 					<control type="label">
 						<include>MusicVisualisation_coords9</include>
 						<font>Font27</font>
@@ -160,7 +160,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					
-					<!--  PVR current position/Time remaining -->
+					<!-- PVR current position/Time remaining -->
 					<control type="label">
 						<include>MusicVisualisation_coords9</include>
 						<font>Font27</font>
@@ -170,7 +170,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 
-					<!--  Progress bar -->
+					<!-- Progress bar -->
 					<control type="progress">
 						<include>MusicVisualisation_coords11</include>
 						<info>Player.Progress</info>
@@ -183,7 +183,7 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 					
-					<!--  PVR progress bar -->
+					<!-- PVR progress bar -->
 					<control type="progress">
 						<include>MusicVisualisation_coords11</include>
 						<info>PVR.EpgEventProgress</info>
@@ -196,13 +196,13 @@
 						<include>VisibleFadeAnimation</include>
 					</control>
 
-					<!--  Cache bar -->
+					<!-- Cache bar -->
 					<control type="progress">
 						<include>MusicVisualisation_coords11</include>
 						<info>Player.ProgressCache</info>
-						<texturebg colordiffuse="$VAR[OverlayColorNF]" border="2">osd/OSDProgressBack.png</texturebg>
+						<texturebg colordiffuse="$VAR[OverlayColorNF]">osd/OSDProgressBack.png</texturebg>
 						<lefttexture></lefttexture>
-						<midtexture colordiffuse="OSDCacheColor" border="2">osd/OSDProgressBar.png</midtexture>
+						<midtexture colordiffuse="$VAR[OSDCacheColor]">osd/OSDProgressBar.png</midtexture>
 						<righttexture></righttexture>
 						<overlaytexture></overlaytexture>
 						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg | !Pvr.IsPlayingRadio + Integer.IsGreater(Player.Duration,0)</visible>

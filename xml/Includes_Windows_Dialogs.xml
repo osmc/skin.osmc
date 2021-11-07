@@ -336,11 +336,20 @@
 				<include>DialogBackgroundDepth</include>
 			</control>
 			<control type="image">
-				<include>BackgroundOverlayDialog2</include>
+				<include condition="!Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayDialog2</include>
+				<include condition="Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayDialog3</include>
+				<texture background="true">$VAR[BackgroundOverlayStyle]</texture>
+				<aspectratio>scale</aspectratio>
+				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
+				<include>DialogBackgroundDepth</include>
+			</control>
+			<control type="image">
+				<include>BackgroundOverlayDialog4</include>
 				<texture background="true">common/Background2.png</texture>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<include>DialogBackgroundDepth</include>
+				<visible>Skin.HasSetting(BackgroundOverlayStyle)</visible>
 			</control>
 		</control>
 	</include>
@@ -493,6 +502,31 @@
 				</control>
 			</control>
 		</definition>
+	</include>
+	
+	<!-- Scrollbars depending on background overlay design -->
+	<include name="BackgroundOverlayStyleScrollbarVertical">
+		<include condition="!Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayStyleScrollbarVerticalNew</include>
+		<include condition="Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayStyleScrollbarVerticalOld</include>
+	</include>
+	<include name="BackgroundOverlayStyleScrollbarVerticalNew">
+		<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripFO.png</texturesliderbar>
+	</include>
+	<include name="BackgroundOverlayStyleScrollbarVerticalOld">
+		<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+		<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+	</include>
+	
+	<include name="BackgroundOverlayStyleScrollbarHorizontal">
+		<include condition="!Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayStyleScrollbarHorizontalNew</include>
+		<include condition="Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayStyleScrollbarHorizontalOld</include>
+	</include>
+	<include name="BackgroundOverlayStyleScrollbarHorizontalNew">
+		<texturesliderbar border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalFO.png</texturesliderbar>
+	</include>
+	<include name="BackgroundOverlayStyleScrollbarHorizontalOld">
+		<texturesliderbackground border="1,12,1,1">common/ScrollBackgroundHorizontal.png</texturesliderbackground>
+		<texturesliderbar border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalNF.png</texturesliderbar>
 	</include>
 
 </includes>

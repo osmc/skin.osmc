@@ -47,8 +47,8 @@
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<texturesliderbackground border="6,1,8,1">common/ScrollBackground.png</texturesliderbackground>
-				<texturesliderbar border="8,1,6,1">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
 				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 				<textureslidernib></textureslidernib>
 				<textureslidernibfocus></textureslidernibfocus>
@@ -159,13 +159,14 @@
 				<left>-460</left>
 				<top>0</top>
 				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
-				<control type="image">
-					<include>OptionsSideMenu1</include>
-					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
-				</control>
 				<control type="button">
 					<include>OptionsSideMenu1</include>
 					<texturefocus>noop</texturefocus>
+				</control>
+				
+				<control type="image">
+					<include>OptionsSideMenu1</include>
+					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 				</control>
 
 				<!-- Look controls -->

@@ -5,6 +5,12 @@
 	<expression name="Masking">False</expression><!-- If masking should be available, this should be set to "True". -->
 	<expression name="NonMaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + True</expression><!-- If masking should be available, this should be set to "False". -->
 	<expression name="MaskedCoordinates">String.IsEqual(Skin.AspectRatio,16:9) + False</expression><!-- If masking should be available, this should be set to "True". -->
+	
+	<!-- Background overlay -->
+	<variable name="BackgroundOverlayStyle">
+		<value condition="!Skin.HasSetting(BackgroundOverlayStyle)">common/Background2.png</value>
+		<value condition="Skin.HasSetting(BackgroundOverlayStyle)">common/Background1.png</value>
+	</variable>
 
 	<!-- Background images/overlay -->
 	<variable name="OSMCBackgroundImage">

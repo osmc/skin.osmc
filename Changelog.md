@@ -1,4 +1,4 @@
-**Changes to the OSMC skin**
+**Changes to the OSMC Skin**
 
 ---
 
@@ -8,6 +8,8 @@ _New_
 - add ENABLE option for new skinshortcuts version
 - add playback mode (shuffle and repeat) buttons to video OSD
 - add comment tag line to music visualisation
+- add new menu/OSD opacity/colour settings
+- add new plain colour background overlay style option matching the new skin design
 
 _Improved_
 - improve background overlay colour management of new skin design
@@ -21,12 +23,14 @@ _Improved_
 - handle movie set/collection indication more seamlessly
 - improve dialog animations
 - improve OSD animations
+- change focus of info dialog button lists to extended info button
 
 _Fixed_
 - fix skinshortcuts management dialog
 - add missing views to programs section for addons that set content type
 - fix dialog select icons for movies and TV shows
 - fix movie set information in media library views
+- fix seek indicator
 
 ---
 
@@ -388,22 +392,29 @@ Release
 _adjust files to use new background and dim overlay textures_
 _remove deprecated OverlayColor from all skin files_
 _rename Variables_SkinSettings.xml to Variables_Settings.xml_
+_replace BackgroundColor variable with new MenuOSDColor variable in all menu and OSD elements_
+_add new BackgroundOverlayStyleScrollbar includes to list and horizontal media view scrollbars for new plain colour background overlay style option_
 
 defaults.xml:
 - update default BackgroundColor
 - remove deprecated OverlayColor
+- add new MenuOSD colour
 
 strings.po:
-- rework skin settings colour localizes (31288, 31290, 31291, 31295)
+- rework skin settings colour localizes (31288, 31290)
 - remove deprecated skin settings colour localizes (31292, 31296)
 - rework skin settings localizes (31332, 31412)
 - add warning to add-on descripton of add-ons currently not available from Kodi repo (31340, 31341, 31342, 31347)
 - add My OSMC category labels (31103, 31111, 31262, 31263, 31264, 31265, 31266)
 - add new translations and update existing ones
 - add new string for movie sets content/secondary label (31292)
+- rework old overlay colour setting localizes for new menu/OSD colour setting (31062, 31110)
+- rework background colour and opacity setting localizes (31291, 31295)
+- add localizes for new menu/OSD colour/opacity settings (31296, 31435, 31436, 31437)
 
 Textures.xbt:
 - update textures file with new background overlay media files, reworked OSD ranges image as well as removed deprecated background overlay and dialog media files/folders
+- update textures file with fixed seek indicator icon
 
 Coordinates_AddonBrowser.xml:
 - fix formatting for label2 missing condition
@@ -419,6 +430,7 @@ Coordinates_Includes_Windows_Dialogs.xml:
 - remove deprecated FullscreenOverlayDimensions include
 - rework background overlay includes
 - remove deprecated BackgroundOverlayDialog1 include
+- replace common/Background2.png of the secondary background colour overalay texture with BackgroundOverlayStyle variable for new plain colour background overlay style option
 
 Coordinates_MyPrograms.xml:
 - add coordinates for new scrollbars
@@ -494,8 +506,12 @@ Coordinates_Viewtype538.xml:
 Coordinates_Viewtype539.xml:
 - remove deprecated collection indicator
 
+DialogAddonInfo.xml:
+- change order of dialog buttons to prioritize extended info button
+
 DialogPVRInfo.xml:
 - streamline the way the channel number label is formatted
+- change order of dialog buttons to prioritize extended info button
 
 DialogSeekBar.xml:
 - add new slide animations for video and music fullscreen playback
@@ -506,9 +522,11 @@ DialogSubtitles.xml:
 
 DialogVideoInfo.xml:
 - add video information for music videos
+- change order of dialog buttons to prioritize extended info button
 
 Includes.xml:
 - remove deprecated overlay and skin settings onloads
+- add new onload conditions for new plain colour background overlay style option
 
 Includes_DialogSettings.xml:
 - allow jumping from top to bottom of video playback settings dialog
@@ -521,6 +539,8 @@ Includes_Windows_Dialogs.xml:
 - replace deprecated FullscreenOverlayDimensions by FullscreenDimensions include
 - remove deprecated BackgroundOverlayDialog1 include and replace by FullscreenDimensions include
 - rework dialog background overlay animations
+- add new image controls to dialog colour background overlay for new plain colour background overlay style option
+- add new BackgroundOverlayStyleScrollbar includes for new plain colour background overlay style option
 
 MusicOSD.xml:
 - add new MusicOSDFresh property onloads and onunload
@@ -558,6 +578,8 @@ Settings.xml:
 
 SkinSettings.xml:
 - remove deprecated overlay opacity and custom overlay colour settings
+- add new menu/OSD opacity and colour settings
+- add setting to switch to new plain colour background overlay style
 
 Variables.xml:
 - streamline the way the channel number label is formatted
@@ -567,9 +589,11 @@ Variables.xml:
 - add new SelectImage variable
 - rework label2 variable for movie sets information
 - add new SetListContent, SetLabel and VideoInfoListPlot variables for reworked movie set information
+- add new BackgroundOverlayStyle variable for new plain colour background overlay style option
 
 Variables_Colours.xml:
 - remove deprecated OverlayColor and OverlayColor-Name variables
+- add MenuOSDColor and MenuOSDColor-Name variables for new plain colour background overlay style option
 
 Variables_Settings.xml:
 - rework SkinSettingsExplanation variable after removing deprecated skin settings

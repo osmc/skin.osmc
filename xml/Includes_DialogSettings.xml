@@ -71,11 +71,6 @@
 					<include>DialogSettings_coords5</include>
 					<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
 				</control>
-				
-				<!-- Button grouplist indicator -->
-				<include content="dialogButtonIndicator">
-					<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
-				</include>
 
 				<!-- Buttons -->
 				<control type="grouplist" id="9001">
@@ -84,7 +79,7 @@
 					<align>center</align>
 					<itemgap>30</itemgap>
 					<onup>5</onup>
-					<defaultcontrol>28</defaultcontrol>
+					<defaultcontrol always="true">0</defaultcontrol>
 
 					<!-- OK Button -->
 					<control type="button" id="28">
@@ -102,6 +97,11 @@
 					</control>
 
 				</control>
+				
+				<!-- Button indicator -->
+				<include content="dialogButtonIndicator">
+					<param name="visibility">!ControlGroup(9001).HasFocus + !Window.IsVisible(shutdownmenu)</param>
+				</include>
 
 				<!-- Heading -->
 				<control type="label" id="2">
@@ -135,7 +135,7 @@
 				<!-- Window Background -->
 				<control type="image">
 					<include>DialogSettings_coords7</include>
-					<texture colordiffuse="$VAR[BackgroundColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 				</control>
 
 				<!-- Heading -->
