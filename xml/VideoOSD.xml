@@ -2,6 +2,9 @@
 <window>
 	<!-- videoosd -->
 	<defaultcontrol always="true">5</defaultcontrol>
+	<include content="WindowDialogFocus">
+		<param name="id">5</param>
+	</include>
 	<onload>ClearProperty(VideoOSDFresh,12005)</onload>
 	<onload condition="!Window.IsVisible(seekbar) + !Window.IsVisible(fullscreeninfo)">SetProperty(VideoOSDFresh,True,12005)</onload>
 	<onunload>ClearProperty(VideoOSDFresh,12005)</onunload>

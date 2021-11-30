@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- profilesettings -->
-	<defaultcontrol always="true">9001</defaultcontrol>
+	<!-- gamecontrollersettings -->
+	<defaultcontrol always="true">3</defaultcontrol>
+	<include content="WindowDialogFocus">
+		<param name="id">3</param>
+	</include>
 
 	<controls>
 
@@ -41,6 +44,16 @@
 				<orientation>vertical</orientation>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<pagecontrol>70</pagecontrol>
+			</control>
+			
+			<!-- Default button -->
+			<control type="button" id="10">
+				<include>DialogGameControllers_coords6</include>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<focusedcolor>$VAR[gamecontrollersbuttonunfocusdim]</focusedcolor>
+				<invalidcolor>$VAR[InvalidColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 			</control>
 			
 			<!-- Scrollbar (Controllers Grouplist) -->
@@ -109,12 +122,14 @@
 			<!-- Default button -->
 			<control type="button" id="7">
 				<include>DialogGameControllers_coords6</include>
-			</control>
-			<control type="button" id="10">
-				<include>DialogGameControllers_coords6</include>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+				<invalidcolor>$VAR[InvalidColor]</invalidcolor>
+				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 			</control>
 
-			<!-- Default image -->
+			<!-- Default seperator -->
 			<control type="image" id="9">
 				<include>DialogGameControllers_coords8</include>
 				<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>

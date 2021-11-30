@@ -7,7 +7,9 @@
 	<onunload>SetProperty(isCaching,False,10000)</onunload>
 	<onunload>CancelAlarm(isCachingTimer,silent)</onunload>
 	<zorder>100</zorder>
+	
 	<controls>
+	
 		<control type="group">
 			<include>NotificationDepth</include>
 			<visible>Player.Caching + String.IsEqual(Window(10000).Property(isCaching),True)</visible>
@@ -44,6 +46,7 @@
 				<midtexture colordiffuse="OSDCacheColor">common/white.png</midtexture>
 				<info>Player.ProgressCache</info>
 			</control>
+			
 		</control>
 
 	</controls>
