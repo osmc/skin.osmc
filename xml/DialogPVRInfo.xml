@@ -2,10 +2,14 @@
 <window>
 	<!-- pvrguideinfo -->
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<include content="WindowDialogFocus">
+		<param name="id">9000</param>
+	</include>
 	<onload condition="Window.IsVisible(10600) + !String.IsEmpty(Window(10600).Property(description))">ClearProperty(description,10600)</onload>
 	<onload condition="Window.IsVisible(10601) + !String.IsEmpty(Window(10601).Property(description))">ClearProperty(description,10601)</onload>
 	<onunload condition="Window.IsVisible(10600)">ClearProperty(description,10600)</onunload>
 	<onunload condition="Window.IsVisible(10601)">ClearProperty(description,10601)</onunload>
+	
 	<controls>
 
 		<!-- Dialog fanart -->

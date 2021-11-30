@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-	<!-- Settings -->
+	<!-- SettingsCategory -->
 	<backgroundcolor>0</backgroundcolor>
+	<defaultcontrol always="true">3</defaultcontrol>
+	<include content="WindowDialogFocus">
+		<param name="id">3</param>
+	</include>
 	
 	<!-- Sidemenu menucontrol -->
 	<menucontrol>3001</menucontrol>
 	
-	<!--Welcome screen -->
+	<!-- Welcome screen -->
 	<onload condition="String.IsEmpty(Skin.String(WelcomeDialogShown)) + !System.HasAddon(service.osmc.settings)">ActivateWindow(1101)</onload>
 	
 	<!-- Skin Shortcuts -->
@@ -293,7 +297,7 @@
 				<disabledcolor>$VAR[DisabledColor]</disabledcolor>
 			</control>
 
-			<!-- Default image -->
+			<!-- Default seperator -->
 			<control type="image" id="11">
 				<include>SettingsCategory_coords9</include>
 				<texture border="2" colordiffuse="$VAR[OverlayColorNF]">common/Divider.png</texture>

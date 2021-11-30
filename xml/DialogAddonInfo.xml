@@ -2,6 +2,9 @@
 <window>
 	<!-- addoninformation -->
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<include content="WindowDialogFocus">
+		<param name="id">9000</param>
+	</include>
 	<onload condition="!String.IsEmpty(Window(10146).Property(description))">ClearProperty(description,10146)</onload>
 	<onunload>ClearProperty(description,10146)</onunload>
 

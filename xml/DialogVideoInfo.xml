@@ -2,6 +2,9 @@
 <window>
 	<!-- movieinformation -->
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<include content="WindowDialogFocus">
+		<param name="id">9000</param>
+	</include>
 	<onload condition="!String.IsEmpty(Window(12003).Property(extended))">ClearProperty(extended,12003)</onload>
 	<onload condition="!String.IsEmpty(Window(12003).Property(cast))">ClearProperty(cast,12003)</onload>
 	<onload condition="System.HasAddon(script.tvtunes)">RunScript(script.tvtunes,backend=True)</onload>
