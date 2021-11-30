@@ -88,18 +88,29 @@
 		<itemlayout height="85" width="640">
 			<control type="label">
 				<width>640</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>640</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>640</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>640</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -107,18 +118,29 @@
 		<itemlayout height="85" width="960">
 			<control type="label">
 				<width>960</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>960</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>960</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>960</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -126,18 +148,29 @@
 		<itemlayout height="85" width="960">
 			<control type="label">
 				<width>960</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>960</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>960</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>960</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -145,18 +178,29 @@
 		<itemlayout height="85" width="400">
 			<control type="label">
 				<width>400</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>400</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>400</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>400</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -173,27 +217,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">50</param>
 				</include>
-				<control type="label">
-					<width>640</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>640</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>640</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>640</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>640</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>640</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>640</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>640</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -204,27 +268,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">50</param>
 				</include>
-				<control type="label">
-					<width>960</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>960</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>960</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>960</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -235,27 +319,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">50</param>
 				</include>
-				<control type="label">
-					<width>960</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>960</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>960</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>960</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -266,27 +370,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">50</param>
 				</include>
-				<control type="label">
-					<width>400</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>400</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>400</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>400</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>400</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>400</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>400</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>400</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -568,18 +692,29 @@
 		<itemlayout height="85" width="640">
 			<control type="label">
 				<width>640</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>640</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>640</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>640</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -587,18 +722,29 @@
 		<itemlayout height="85" width="960">
 			<control type="label">
 				<width>960</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>960</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>960</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>960</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -606,18 +752,29 @@
 		<itemlayout height="85" width="960">
 			<control type="label">
 				<width>960</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>960</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>960</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>960</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -625,18 +782,29 @@
 		<itemlayout height="85" width="400">
 			<control type="label">
 				<width>400</width>
-				<height>58</height>
-				<font>Font33</font>
+				<height>85</height>
+				<font>Font36-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Label2)</visible>
 			</control>
-			<control type="label">
-				<top>58</top>
-				<width>400</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label2]</label>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Label2)</visible>
+				<control type="label">
+					<width>400</width>
+					<height>36</height>
+					<font>Font36-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+				<control type="label">
+					<top>58</top>
+					<width>400</width>
+					<height>27</height>
+					<font>Font27-light</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<label>$INFO[ListItem.Label2]</label>
+				</control>
 			</control>
 		</itemlayout>
 	</include>
@@ -653,27 +821,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">100</param>
 				</include>
-				<control type="label">
-					<width>640</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>640</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>640</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>640</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>640</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>640</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>640</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>640</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -684,27 +872,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">100</param>
 				</include>
-				<control type="label">
-					<width>960</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>960</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>960</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>960</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -715,27 +923,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">100</param>
 				</include>
-				<control type="label">
-					<width>960</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>960</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>960</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>960</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>
@@ -746,27 +974,47 @@
 				<include content="NonFocusFadeAnimation">
 					<param name="id">100</param>
 				</include>
-				<control type="label">
-					<width>400</width>
-					<height>58</height>
-					<font>Font33-bold</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>85</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<centertop>50%</centertop>
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
 				</control>
-				<control type="image">
-					<width>400</width>
-					<height>58</height>
-					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
-				</control>
-				<control type="label">
-					<top>58</top>
-					<width>400</width>
-					<height>27</height>
-					<font>Font27</font>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.Label2]</label>
-					<scroll>True</scroll>
+				<control type="group">
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<width>960</width>
+						<height>58</height>
+						<font>Font36-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<scroll>True</scroll>
+					</control>
+					<control type="image">
+						<width>960</width>
+						<height>58</height>
+						<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
+					</control>
+					<control type="label">
+						<top>58</top>
+						<width>960</width>
+						<height>27</height>
+						<font>Font27-bold</font>
+						<textcolor>$VAR[TextColorFO]</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+						<scroll>True</scroll>
+					</control>
 				</control>
 			</control>
 		</focusedlayout>

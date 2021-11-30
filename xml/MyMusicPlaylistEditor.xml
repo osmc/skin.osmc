@@ -2,8 +2,10 @@
 <window>
 	<!-- musicplaylisteditor -->
 	<backgroundcolor>0</backgroundcolor>
-	<onload>SetFocus(50)</onload>
-	<onload>SetFocus(6)</onload>
+	<defaultcontrol always="true">6</defaultcontrol>
+	<include content="WindowDialogFocus">
+		<param name="id">6</param>
+	</include>
 	<views>50</views>
 
 	<controls>
@@ -246,7 +248,7 @@
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
 					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="8,1,6,1">$VAR[BackgroundOverlayStyleScrollbarVertical]</texturesliderbackground>
+					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
 					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
 					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 					<textureslidernib></textureslidernib>
