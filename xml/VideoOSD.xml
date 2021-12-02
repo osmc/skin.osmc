@@ -6,8 +6,10 @@
 		<param name="id">5</param>
 	</include>
 	<onload>ClearProperty(VideoOSDFresh,12005)</onload>
+	<onload>ClearProperty(VideoOSDSlider,12005)</onload>
 	<onload condition="!Window.IsVisible(seekbar) + !Window.IsVisible(fullscreeninfo)">SetProperty(VideoOSDFresh,True,12005)</onload>
 	<onunload>ClearProperty(VideoOSDFresh,12005)</onunload>
+	<onunload>ClearProperty(VideoOSDSlider,12005)</onunload>
 
 	<controls>
 
@@ -18,6 +20,19 @@
 			<textureslidernib />
 			<textureslidernibfocus />
 			<action>seek</action>
+		</control>
+		
+		<control type="button">
+			<include>VideoOSD_coords1</include>
+			<onup>5</onup>
+			<ondown>5</ondown>
+			<onleft>StepBack</onleft>
+			<onright condition="!Player.Paused">StepForward</onright>
+			<onright condition="Player.Paused">PlayerControl(FrameAdvance(1))</onright>
+			<onfocus>SetProperty(VideoOSDSlider,True,12005)</onfocus>
+			<onunfocus>ClearProperty(VideoOSDSlider,12005)</onunfocus>
+			<texturefocus />
+			<texturenofocus />
 		</control>
 
 		<control type="group">
@@ -50,7 +65,8 @@
 				<itemgap>0</itemgap>
 				<onleft>26</onleft>
 				<onright>12</onright>
-				<onup>30</onup>
+				<onup condition="!Player.SeekEnabled">30</onup>
+				<onup condition="Player.SeekEnabled">100</onup>
 				<ondown>30</ondown>
 				<onback condition="Player.ShowInfo">Info</onback>
 				<orientation>horizontal</orientation>
@@ -209,7 +225,8 @@
 				<itemgap>0</itemgap>
 				<onleft>11</onleft>
 				<onright>1</onright>
-				<onup>5</onup>
+				<onup condition="!Player.SeekEnabled">5</onup>
+				<onup condition="Player.SeekEnabled">100</onup>
 				<ondown>5</ondown>
 				<onback condition="Player.ShowInfo">Info</onback>
 				<orientation>horizontal</orientation>
