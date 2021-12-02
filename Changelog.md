@@ -4,6 +4,9 @@
 
 **_v19.1.1_**
 
+_New_
+- add new video/music OSD seek slider button functionality (also adds frame advance feature)
+
 _Fixed_
 - fix initial focus in all windows and dialogs
 
@@ -398,8 +401,31 @@ Release
 
 _fix inital focus in all windows and dialogs_
 
+Textures.xbt:
+- update textures file with differently coloured seek indicator icon
+
+Coordinates_MusicVisualisation.xml:
+- add new coordinates for seek button indicators
+
+Coordinates_VideoFullScreen.xml:
+- add new coordinates for seek button indicators
+
 Includes_Windows_Dialog.xml:
 - add new WindowDialogFocus include for window and dialog focus fix
+
+MusicOSD.xml:
+- add new onload/onunload for new music OSD seek slider button
+- change controls onup tags to navigate to new music OSD seek slider button
+
+MusicVisualisation.xml:
+- add new seek slider controls for new music OSD seek slider button
+
+VideoFullScreen.xml:
+- add new seek slider controls for new video OSD seek slider button
+
+VideoOSD.xml:
+- add new onload/onunload for new video OSD seek slider button
+- change controls onup tags to navigate to new video OSD seek slider button
 
 addon.xml:
 - bump version to 19.1.1
