@@ -36,10 +36,10 @@
 
 		<control type="group">
 			<include>DialogDepth</include>
-			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
-			<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
 			<include>MusicOSD_coords2</include>
+			<visible>!Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(playerprocessinfo) + !Window.IsVisible(shutdownmenu)</visible>
 			<include>OSDVisibleHiddenAnimation</include>
+			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsTopMost(DialogSelect.xml)">Conditional</animation>
 			<animation type="WindowOpen" condition="Window.IsVisible(seekbar) | Player.ShowInfo + !Skin.HasSetting(MusicOSD) | Skin.HasSetting(MusicOSD)">
 				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" delay="200" />
 				<effect type="fade" start="0" end="100" time="200" delay="200" />

@@ -11,33 +11,40 @@
 		<control type="group">
 			<include>DialogDepth</include>
 			<include>DialogSeekBar_coords1</include>
-	
-			<control type="slider" id="401">
+				
+			<control type="group">
 				<include>DialogSeekBar_coords2</include>
-				<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
-				<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
-				<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
 				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
 				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(VideoOSD)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(MusicOSD) + String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(MusicOSD) + !String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
 				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(MusicOSD)">Conditional</animation>
-				<visible>Player.Seeking + !Pvr.IsPlayingTv</visible>
-			</control>
+				<include>WindowFadeAnimation</include>
 			
-			<control type="slider" id="402">
-				<include>DialogSeekBar_coords2</include>
-				<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
-				<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
-				<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
-				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
-				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(VideoOSD)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(MusicOSD) + String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(MusicOSD) + !String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
-				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(MusicOSD)">Conditional</animation>
-				<visible>Player.Seeking + Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+				<control type="group">
+					<include>DialogSeekBar_coords3</include>
+		
+					<control type="slider" id="401">
+						<include>DialogSeekBar_coords4</include>
+						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
+						<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
+						<visible>Player.Seeking + !Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					
+					<control type="slider" id="402">
+						<include>DialogSeekBar_coords4</include>
+						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
+						<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
+						<visible>Player.Seeking + Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					
+				</control>
+				
 			</control>
 			
 		</control>
