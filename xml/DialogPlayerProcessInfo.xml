@@ -10,13 +10,13 @@
 
 		<control type="group">
 			<include>DialogDepth</include>
-			<visible>!Window.IsVisible(shutdownmenu)</visible>
-			<include>OSDVisibleHiddenAnimation</include>
-			<include>OSDOpenCloseAnimation</include>
 			
 			<!-- Info -->
 			<control type="group">
 				<include>DialogPlayerProcessInfo_coords1</include>
+				<visible>!Window.IsVisible(shutdownmenu)</visible>
+				<include>OSDVisibleHiddenAnimation</include>
+				<include>OSDOpenCloseAnimation</include>
 
 				<!-- Background -->
 				<control type="image">
@@ -25,6 +25,13 @@
 				</control>
 
 				<!-- Icon -->
+				<control type="image">
+					<include>DialogPlayerProcessInfo_coords3</include>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<fadetime>200</fadetime>
+					<texture background="true">$VAR[PlayerIcon]</texture>
+					<visible>!VideoPlayer.Content(LiveTV) + !MusicPlayer.Content(LiveTV)</visible>
+				</control>
 				<control type="image">
 					<include>DialogPlayerProcessInfo_coords3</include>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
@@ -134,19 +141,26 @@
 						<font>Font25</font>
 					</control>
 				</control>
-
+				
+			</control>
+			
+			<!-- Player debug overlay shortcut -->
+			<control type="group">
+				<include>DialogPlayerProcessInfo_coords6</include>
+				<visible>Player.HasVideo</visible>
+				<visible>!Window.IsVisible(shutdownmenu)</visible>
+				<include>OSDVisibleHiddenAnimation</include>
+				<include>OSDOpenCloseAnimation</include>
+				
 				<!-- Background -->
 				<control type="image">
-					<include>DialogPlayerProcessInfo_coords6</include>
 					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
-					<visible>Player.HasVideo</visible>
 				</control>
 
 				<control type="label">
 					<include>DialogPlayerProcessInfo_coords7</include>
 					<label>$LOCALIZE[31156]</label>
 					<font>Font25-light</font>
-					<visible>Player.HasVideo</visible>
 				</control>
 				
 			</control>
@@ -158,6 +172,7 @@
 				<height>1</height>
 				<label>noop</label>
 				<onclick>PlayerDebug</onclick>
+				<oninfo>noop</oninfo>
 			</control>
 
 		</control>
