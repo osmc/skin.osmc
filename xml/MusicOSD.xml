@@ -6,8 +6,10 @@
 		<param name="id">5</param>
 	</include>
 	<onload>ClearProperty(MusicOSDFresh,12006)</onload>
+	<onload>ClearProperty(MusicOSDSlider,12006)</onload>
 	<onload condition="!Window.IsVisible(seekbar) + !Player.ShowInfo + !Skin.HasSetting(MusicOSD)">SetProperty(MusicOSDFresh,True,12006)</onload>
 	<onunload>ClearProperty(MusicOSDFresh,12006)</onunload>
+	<onunload>ClearProperty(MusicOSDSlider,12006)</onunload>
 
 	<controls>
 	
@@ -18,6 +20,18 @@
 			<textureslidernib />
 			<textureslidernibfocus />
 			<action>seek</action>
+		</control>
+		
+		<control type="button">
+			<include>VideoOSD_coords1</include>
+			<onup>5</onup>
+			<ondown>5</ondown>
+			<onleft>StepBack</onleft>
+			<onright>StepForward</onright>
+			<onfocus>SetProperty(MusicOSDSlider,True,12006)</onfocus>
+			<onunfocus>ClearProperty(MusicOSDSlider,12006)</onunfocus>
+			<texturefocus />
+			<texturenofocus />
 		</control>
 
 		<control type="group">
@@ -51,7 +65,8 @@
 				<itemgap>0</itemgap>
 				<onleft>20</onleft>
 				<onright>12</onright>
-				<onup>30</onup>
+				<onup condition="!Player.SeekEnabled">30</onup>
+				<onup condition="Player.SeekEnabled">100</onup>
 				<ondown>30</ondown>
 				<orientation>horizontal</orientation>
 
@@ -209,7 +224,8 @@
 				<itemgap>0</itemgap>
 				<onleft>11</onleft>
 				<onright>1</onright>
-				<onup>4</onup>
+				<onup condition="!Player.SeekEnabled">4</onup>
+				<onup condition="Player.SeekEnabled">100</onup>
 				<ondown>4</ondown>
 				<orientation>horizontal</orientation>
 
