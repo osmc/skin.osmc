@@ -291,7 +291,8 @@
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDInfoNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDInfoNF.png</texturenofocus>
-					<onclick>Info</onclick>
+					<onclick condition="!Window.IsVisible(fullscreeninfo)">Info</onclick>
+					<onclick condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</onclick>
 				</control>
 				
 				<!-- Bookmarks -->

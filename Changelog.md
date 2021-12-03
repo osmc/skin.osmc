@@ -7,6 +7,9 @@
 _New_
 - add new video/music OSD seek slider button functionality (also adds frame advance feature)
 
+_Improved_
+- improve behaviour of OSD bookmarks dialog while other OSD dialogs are open (similar to previous OSD animation improvements)
+
 _Fixed_
 - fix initial focus in all windows and dialogs
 
@@ -410,6 +413,13 @@ Coordinates_MusicVisualisation.xml:
 Coordinates_VideoFullScreen.xml:
 - add new coordinates for seek button indicators
 
+DialogFullScreenInfo.xml:
+- add new onloads for other OSD animations to rely on
+
+DialogSeekBar.xml:
+- add new onloads for other OSD animations to rely on
+- add new OSD bookmarks dialog related animations
+
 Includes_Windows_Dialog.xml:
 - add new WindowDialogFocus include for window and dialog focus fix
 
@@ -422,10 +432,17 @@ MusicVisualisation.xml:
 
 VideoFullScreen.xml:
 - add new seek slider controls for new video OSD seek slider button
+- add new onloads for other OSD animations to rely on
+- add new OSD bookmarks dialog related animations
+- add visible condition to now playing information to be hidden while OSD bookmarks are open
 
 VideoOSD.xml:
 - add new onload/onunload for new video OSD seek slider button
 - change controls onup tags to navigate to new video OSD seek slider button
+
+VideoOSDBookmarks.xml:
+- add new onloads for other OSD animations to rely on
+- add delayed window open animations for correct behaviour with other OSD dialogs
 
 addon.xml:
 - bump version to 19.1.1
