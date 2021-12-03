@@ -5,18 +5,23 @@
 	<visible>[Player.Seeking | Player.DisplayAfterSeek + !Player.Paused | Player.Forwarding | Player.Rewinding | Player.IsTempo | !String.IsEmpty(Player.SeekNumeric) | Player.Paused + String.IsEqual(Skin.String(HideOSD),Always) | Player.Paused + !System.IdleTime(5) + String.IsEqual(Skin.String(HideOSD),5s) | Player.Paused + !System.IdleTime(10) + String.IsEqual(Skin.String(HideOSD),10s) | Player.Paused + !System.IdleTime(20) + String.IsEqual(Skin.String(HideOSD),20s) | Player.Paused + !System.IdleTime(30) + String.IsEqual(Skin.String(HideOSD),30s) | Player.Paused + !System.IdleTime(60) + String.IsEqual(Skin.String(HideOSD),1 min) | Player.Paused + !System.IdleTime(120) + String.IsEqual(Skin.String(HideOSD),2 min) | Player.Paused + !System.IdleTime(180) + String.IsEqual(Skin.String(HideOSD),3 min) | Player.Paused + !System.IdleTime(300) + String.IsEqual(Skin.String(HideOSD),5 min)] + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(gamevideofilter) + !Window.IsVisible(gamestretchmode) + !Window.IsVisible(gamevideorotation) + !Window.IsVisible(gameosd)</visible>
 	<visible>VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)</visible>
 	<zorder>0</zorder>
+	<onload>ClearProperty(SeekBar,True,12005)</onload>
+	<onload>SetProperty(SeekBar,True,12005)</onload>
+	<onunload>ClearProperty(SeekBar,12005)</onunload>
 
 	<controls>
-
+		
 		<control type="group">
 			<include>DialogDepth</include>
 			<include>DialogSeekBar_coords1</include>
 				
 			<control type="group">
 				<include>DialogSeekBar_coords2</include>
-				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh)">Conditional</animation>
 				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(VideoOSD)">Conditional</animation>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksVideoInfo)">Conditional</animation>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksSeekBar)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(MusicOSD) + String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
 				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(MusicOSD) + !String.IsEmpty(Window(12006).Property(MusicOSDFresh)">Conditional</animation>
 				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(MusicOSD)">Conditional</animation>
