@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- videobookmarks -->
-	<defaultcontrol always="true">2</defaultcontrol>
+	<defaultcontrol always="true">1</defaultcontrol>
 	<include content="WindowDialogFocus">
-		<param name="id">2</param>
+		<param name="id">1</param>
 	</include>
+	<onload>ClearProperty(VideoOSDBookmarksFresh,12005)</onload>
+	<onload>ClearProperty(VideoOSDBookmarksSeekBar,12005)</onload>
+	<onload>ClearProperty(VideoOSDBookmarksVideoInfo,12005)</onload>
+	<onload condition="!Window.IsVisible(seekbar) + !Window.IsVisible(fullscreeninfo)">SetProperty(VideoOSDBookmarksFresh,True,12005)</onload>
+	<onunload>ClearProperty(VideoOSDBookmarksFresh,12005)</onunload>
+	<onunload condition="Window.IsVisible(seekbar)">SetProperty(VideoOSDBookmarksSeekBar,12005)</onunload>
+	<onunload condition="Window.IsVisible(seekbar)">AlarmClock(VideoOSDBookmarksSeekBar,ClearProperty(VideoOSDBookmarksSeekBar,12005),00:01,silent)</onunload>
+	<onunload condition="Window.IsVisible(fullscreeninfo)">SetProperty(VideoOSDBookmarksVideoInfo,True,12005)</onunload>
+	<onunload condition="Window.IsVisible(fullscreeninfo)">AlarmClock(VideoOSDBookmarksVideoInfo,ClearProperty(VideoOSDBookmarksVideoInfo,12005),00:01,silent)</onunload>
 
 	<controls>
 		
+		<!-- Bookmark icon list -->
 		<control type="list" id="11">
 			<include>DialogDepth</include>
 			<include>VideoOSDBookmarks_coords1</include>
@@ -15,12 +25,19 @@
 			<onright>noop</onright>
 			<ondown>9001</ondown>
 			<onup>noop</onup>
+			<oninfo>noop</oninfo>
 			<orientation>horizontal</orientation>
 			<viewtype label="535">list</viewtype>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
-			<animation type="WindowOpen">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
+			<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
+			<include>OSDVisibleHiddenAnimation</include>
+			<animation type="WindowOpen" condition="Window.IsVisible(VideoOSD) | !String.IsEmpty(Window(12005).Property(SeekBar) | !String.IsEmpty(Window(12005).Property(FullScreenInfo)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" delay="200" />
+				<effect type="fade" start="0" end="100" time="200" delay="200" />
+			</animation>
+			<animation type="WindowOpen" condition="!Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(SeekBar) + String.IsEmpty(Window(12005).Property(FullScreenInfo)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" />
+				<effect type="fade" start="0" end="100" time="200" />
 			</animation>
 			<animation type="WindowClose">
 				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
@@ -32,13 +49,20 @@
 			<include>VideoOSDBookmarks_coords3</include>
 
 		</control>
-
+		
+		<!-- Buttons -->
 		<control type="group">
 			<include>DialogDepth</include>
 			<include>VideoOSDBookmarks_coords4</include>
-			<animation type="WindowOpen">
-				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200"/>
-				<effect type="fade" start="0" end="100" time="200"/>
+			<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
+			<include>OSDVisibleHiddenAnimation</include>
+			<animation type="WindowOpen" condition="Window.IsVisible(VideoOSD) | !String.IsEmpty(Window(12005).Property(SeekBar) | !String.IsEmpty(Window(12005).Property(FullScreenInfo)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" delay="200" />
+				<effect type="fade" start="0" end="100" time="200" delay="200" />
+			</animation>
+			<animation type="WindowOpen" condition="!Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(SeekBar) + String.IsEmpty(Window(12005).Property(FullScreenInfo)">
+				<effect type="zoom" start="90" end="100" center="auto" tween="back" easing="out" time="200" />
+				<effect type="fade" start="0" end="100" time="200" />
 			</animation>
 			<animation type="WindowClose">
 				<effect type="zoom" start="100" end="90" center="auto" easing="in" time="200"/>
@@ -55,28 +79,43 @@
 			<control type="grouplist" id="9001">
 				<include>VideoOSDBookmarks_coords6</include>
 				<itemgap>20</itemgap>
-				<onleft>noop</onleft>
-				<onright>noop</onright>
+				<onleft>9001</onleft>
+				<onright>9001</onright>
 				<onup>11</onup>
 				<ondown>close</ondown>
 				<orientation>horizontal</orientation>
+				
+				<!-- Close -->
+				<control type="button" id="1">
+					<include>VideoOSDBookmarks_coords7</include>
+					<label>15067</label>
+					<font>Font33</font>
+					<onclick>Dialog.Close(videobookmarks)</onclick>
+					<oninfo>noop</oninfo>
+				</control>
 
 				<!-- Create Bookmark button -->
 				<control type="button" id="2">
 					<include>VideoOSDBookmarks_coords7</include>
 					<label>294</label>
+					<font>Font33</font>
+					<oninfo>noop</oninfo>
 				</control>
 
 				<!-- Clear Bookmark button -->
 				<control type="button" id="3">
 					<include>VideoOSDBookmarks_coords7</include>
 					<label>296</label>
+					<font>Font33</font>
+					<oninfo>noop</oninfo>
 				</control>
 
 				<!-- Use current for episode thumb -->
 				<control type="button" id="4">
 					<include>VideoOSDBookmarks_coords7</include>
 					<label>20406</label>
+					<font>Font33</font>
+					<oninfo>noop</oninfo>
 				</control>
 
 			</control>

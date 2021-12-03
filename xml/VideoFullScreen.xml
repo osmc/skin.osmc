@@ -3,6 +3,10 @@
 	<!-- fullscreenvideo -->
 	<defaultcontrol></defaultcontrol>
 	<onload>ClearProperty(VideoOSDFresh,12005)</onload>
+	<onload>ClearProperty(VideoOSDBookmarksFresh,12005)</onload>
+	<onunload>ClearProperty(SeekBar,12005)</onunload>
+	<onload>ClearProperty(VideoOSDBookmarksSeekBar,12005)</onload>
+	<onload>ClearProperty(FullScreenInfo,True,12005)</onload>
 	<onload condition="!String.IsEmpty(Window(12005).Property(shownext))">ClearProperty(shownext,12005)</onload>
 	<onload condition="!String.IsEmpty(Window(12005).Property(videoinfostart))">ClearProperty(videoinfostart,12005)</onload>
 	<onload condition="Skin.HasSetting(videoinfostart) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles) | VideoPlayer.Content(livetv) + Skin.HasSetting(videoinfostartlivetv)]">SetProperty(videoinfostart,True,12005)</onload>
@@ -12,6 +16,11 @@
 	<onload condition="Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),20s)">AlarmClock(videoplaybackinfo,ClearProperty(videoinfostart,12005),00:20,silent)</onload>
 	<onunload>ClearProperty(videoinfostart,12005)</onunload>
 	<onunload>ClearProperty(VideoOSDFresh,12005)</onunload>
+	<onunload>ClearProperty(VideoOSDBookmarksFresh,12005)</onunload>
+	<onunload>ClearProperty(SeekBar,12005)</onunload>
+	<onunload>ClearProperty(FullScreenInfo,12005)</onunload>
+	<onunload>ClearProperty(VideoOSDBookmarksSeekBar,12005)</onunload>
+	<onunload>ClearProperty(VideoOSDBookmarksVideoInfo,12005)</onunload>
 
 	<controls>
 		
@@ -54,10 +63,12 @@
 			<!-- Playback progress information -->
 			<control type="group" id="1">
 				<include>VideoFullScreen_coords6</include>
-				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh)">Conditional</animation>
 				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(VideoOSD)">Conditional</animation>
-				<visible>Window.IsActive(seekbar) | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD)</visible>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksVideoInfo)">Conditional</animation>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksSeekBar)">Conditional</animation>
+				<visible>Window.IsActive(seekbar) | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD) | Window.IsActive(videobookmarks)</visible>
 				<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 				<include>OSDVisibleHiddenAnimation</include>
 				<include>WindowFadeAnimation</include>
@@ -356,7 +367,7 @@
 			<control type="group" id="1">
 				<include>VideoFullScreen_coords25</include>
 				<visible>Window.IsVisible(fullscreeninfo) | Player.ShowInfo | !String.IsEmpty(Window(12005).Property(videoinfostart)) | [!Pvr.IsPlayingTv + [[Integer.IsLessOrEqual(Player.TimeRemaining(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),20s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),15s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),10s)] | [Integer.IsLessOrEqual(Player.TimeRemaining(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfoendmovie) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfoendtvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfoendmusicvideo) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfoendfiles)] + Skin.HasSetting(videoinfoend) + String.IsEqual(Skin.String(videoinfoendduration),5s)] | [Integer.IsLessOrEqual(Player.Time(secs),20) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),20s)] | [Integer.IsLessOrEqual(Player.Time(secs),15) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),15s)] | [Integer.IsLessOrEqual(Player.Time(secs),10) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),10s)] | [Integer.IsLessOrEqual(Player.Time(secs),5) + [VideoPlayer.Content(movies) + Skin.HasSetting(videoinfostartmovies) | VideoPlayer.Content(episodes) + Skin.HasSetting(videoinfostarttvshow) | VideoPlayer.Content(musicvideos) + Skin.HasSetting(videoinfostartmusicvideo) | Pvr.IsPlayingTv + Skin.HasSetting(videoinfostartlivetv) | VideoPlayer.Content(files) + Skin.HasSetting(videoinfostartfiles)] + Skin.HasSetting(videoinfostart) + String.IsEqual(Skin.String(videoinfostartduration),5s)]]]</visible>
-				<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
+				<visible>!Window.IsVisible(videobookmarks) + !Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 				<include>OSDVisibleHiddenAnimation</include>
 				<include>WindowFadeAnimation</include>
 
