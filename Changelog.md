@@ -6,9 +6,11 @@
 
 _New_
 - add new video/music OSD seek slider button functionality (also adds frame advance feature)
+- add settings level button and settings description to addon settings dialog
 
 _Improved_
 - improve behaviour of OSD bookmarks dialog while other OSD dialogs are open (similar to previous OSD animation improvements)
+- streamline addon settings and skinshortcuts customization dialogs
 
 _Fixed_
 - fix initial focus in all windows and dialogs
@@ -404,14 +406,40 @@ Release
 
 _fix inital focus in all windows and dialogs_
 
+strings.po:
+- remove line break from skinshortcuts explanation localizes (31353, 31362, 31367, 31370, 31371, 31372, 31373, 31374, 31375, 31377, 31388)
+
 Textures.xbt:
 - update textures file with differently coloured seek indicator icon
+
+Coordinates_Custom_Skin_Shortcuts_Help.xml:
+- rework coordinates for improved skinshortcuts dialog layout
+- add new settings description label coordinates
+- remove deprecated explanation textbox coordinates
+
+Coordinates_DialogAddonSettings.xml:
+- adjust coordinates to streamline addon settings and skinshortcuts dialog layouts
+- rework and add new coordinates for added settings level button and settings description label
+
+Coordinates_DialogVideoInfo.xml:
+- fix coordinates
 
 Coordinates_MusicVisualisation.xml:
 - add new coordinates for seek button indicators
 
+Coordinates_script-skinshortcuts.xml:
+- adjust coordinates to streamline skinshortcuts and addon settings dialog layouts
+- rework coordinates for adjusted settings description label
+- remove deprecated explanation textbox coordinates
+
 Coordinates_VideoFullScreen.xml:
 - add new coordinates for seek button indicators
+
+Custom_Skin_Shortcuts_Help.xml:
+- remove deprecated explanation textbox and add new settings description label
+
+DialogAddonSettings.xml:
+- add new added settings level button and settings description label
 
 DialogFullScreenInfo.xml:
 - add new onloads for other OSD animations to rely on
@@ -429,6 +457,14 @@ MusicOSD.xml:
 
 MusicVisualisation.xml:
 - add new seek slider controls for new music OSD seek slider button
+
+script-skinshortcuts.xml:
+- add missing right list scrollbar
+- adjust right list focus highlight
+- rework settings description label
+
+Variables.xml:
+- adjust addonsettingsbuttonunfocusdim variable for added settings level button
 
 VideoFullScreen.xml:
 - add new seek slider controls for new video OSD seek slider button
