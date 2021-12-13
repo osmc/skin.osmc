@@ -63,11 +63,11 @@
 			<!-- Playback progress information -->
 			<control type="group" id="1">
 				<include>VideoFullScreen_coords6</include>
-				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh)">Conditional</animation>
-				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="200" reversible="false" condition="Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDFresh)) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh))">Conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-75" time="0" reversible="false" condition="Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDFresh)) | Window.IsVisible(videobookmarks) + !Window.IsVisible(VideoOSD) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksFresh))">Conditional</animation>
 				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(VideoOSD)">Conditional</animation>
-				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksVideoInfo)">Conditional</animation>
-				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksSeekBar)">Conditional</animation>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksVideoInfo))">Conditional</animation>
+				<animation effect="slide" start="0,-75" end="0,0" time="200" reversible="false" condition="!Window.IsVisible(videobookmarks) + !String.IsEmpty(Window(12005).Property(VideoOSDBookmarksSeekBar))">Conditional</animation>
 				<visible>Window.IsActive(seekbar) | Window.IsActive(fullscreeninfo) | Window.IsActive(VideoOSD) | Window.IsActive(videobookmarks)</visible>
 				<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 				<include>OSDVisibleHiddenAnimation</include>
