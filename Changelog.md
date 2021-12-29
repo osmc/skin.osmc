@@ -2,6 +2,13 @@
 
 ---
 
+**_v19.1.2_**
+
+_Fixed_
+- always show OSD playlist button when expected
+
+---
+
 **_v19.1.1_**
 
 _New_
@@ -402,83 +409,15 @@ Release
 
 ---
 
-**Changelog v19.1.1**
-
-_fix inital focus in all windows and dialogs_
-
-strings.po:
-- remove line break from skinshortcuts explanation localizes (31353, 31362, 31367, 31370, 31371, 31372, 31373, 31374, 31375, 31377, 31388)
-
-Textures.xbt:
-- update textures file with differently coloured seek indicator icon
-
-Coordinates_Custom_Skin_Shortcuts_Help.xml:
-- rework coordinates for improved skinshortcuts dialog layout
-- add new settings description label coordinates
-- remove deprecated explanation textbox coordinates
-
-Coordinates_DialogAddonSettings.xml:
-- adjust coordinates to streamline addon settings and skinshortcuts dialog layouts
-- rework and add new coordinates for added settings level button and settings description label
-
-Coordinates_DialogVideoInfo.xml:
-- fix coordinates
-
-Coordinates_MusicVisualisation.xml:
-- add new coordinates for seek button indicators
-
-Coordinates_script-skinshortcuts.xml:
-- adjust coordinates to streamline skinshortcuts and addon settings dialog layouts
-- rework coordinates for adjusted settings description label
-- remove deprecated explanation textbox coordinates
-
-Coordinates_VideoFullScreen.xml:
-- add new coordinates for seek button indicators
-
-Custom_Skin_Shortcuts_Help.xml:
-- remove deprecated explanation textbox and add new settings description label
-
-DialogAddonSettings.xml:
-- add new added settings level button and settings description label
-
-DialogFullScreenInfo.xml:
-- add new onloads for other OSD animations to rely on
-
-DialogSeekBar.xml:
-- add new onloads for other OSD animations to rely on
-- add new OSD bookmarks dialog related animations
-
-Includes_Windows_Dialog.xml:
-- add new WindowDialogFocus include for window and dialog focus fix
+**Changelog v19.1.2**
 
 MusicOSD.xml:
-- add new onload/onunload for new music OSD seek slider button
-- change controls onup tags to navigate to new music OSD seek slider button
-
-MusicVisualisation.xml:
-- add new seek slider controls for new music OSD seek slider button
-
-script-skinshortcuts.xml:
-- add missing right list scrollbar
-- adjust right list focus highlight
-- rework settings description label
-
-Variables.xml:
-- adjust addonsettingsbuttonunfocusdim variable for added settings level button
-
-VideoFullScreen.xml:
-- add new seek slider controls for new video OSD seek slider button
-- add new onloads for other OSD animations to rely on
-- add new OSD bookmarks dialog related animations
-- add visible condition to now playing information to be hidden while OSD bookmarks are open
+- fix playlist button onlick dialog close command
+- fix playlist button visibility condition to always show the button when expected
 
 VideoOSD.xml:
-- add new onload/onunload for new video OSD seek slider button
-- change controls onup tags to navigate to new video OSD seek slider button
-
-VideoOSDBookmarks.xml:
-- add new onloads for other OSD animations to rely on
-- add delayed window open animations for correct behaviour with other OSD dialogs
+- fix onlick dialog close command
+- fix playlist button visibility condition to always show the button when expected
 
 addon.xml:
-- bump version to 19.1.1
+- bump version to 19.1.2
