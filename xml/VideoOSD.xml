@@ -309,9 +309,9 @@
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlaylistNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDPlaylistNF.png</texturenofocus>
-					<onclick>Dialog.Close(VideoOSD)</onclick>
+					<onclick>Dialog.Close(all, true)</onclick>
 					<onclick>ActivateWindow(VideoPlaylist)</onclick>
-					<visible>Integer.IsGreater(VideoPlayer.PlaylistLength,1)</visible>
+					<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
 				</control>
 				
 				<!-- Channels -->
