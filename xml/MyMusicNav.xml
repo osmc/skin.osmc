@@ -235,9 +235,25 @@
 						<onclick condition="System.HasAddon(plugin.library.node.editor) + System.AddonIsEnabled(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
 						<visible>Container.Content() + String.IsEmpty(Container.PluginName)</visible>
 					</control>
+
+					<!-- Addon Settings -->
+					<control type="button" id="624">
+						<height>52</height>
+						<label>$LOCALIZE[10140]</label>
+						<visible>Control.IsEnabled(624)</visible>
+						<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
+						<visible>!String.IsEmpty(Container.PluginName)</visible>
+					</control>
+					<!-- Get more -->
+					<control type="button" id="621">
+						<height>52</height>
+						<label>$LOCALIZE[21452]</label>
+						<onclick>ActivateWindow(addonbrowser,addons://more/audio/,return)</onclick>
+						<visible>Container.Content(addons)</visible>
+					</control>
 					
 					<include>SideMenuControls</include>
-					
+
 				</control>
 			</control>
 		</control>
