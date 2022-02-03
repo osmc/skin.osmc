@@ -3,18 +3,10 @@
 	<!-- musiclibrary -->
 	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">50</param>
-	</include>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(NumberItems,$INFO[Container(50).NumItems])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem-3,$INFO[Container(50).ListItemNoWrap(-3).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem-2,$INFO[Container(50).ListItemNoWrap(-2).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem-1,$INFO[Container(50).ListItem(-1).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem,$INFO[Container(50).ListItemNoWrap.Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem1,$INFO[Container(50).ListItemNoWrap(1).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem2,$INFO[Container(50).ListItemNoWrap(2).Label])</onunload>
-	<onunload condition="Window.Next(musicplaylisteditor)">SetProperty(ListItem3,$INFO[Container(50).ListItemNoWrap(3).Label])</onunload>
 	<views>50,51,523,535,537</views>
+	
+	<!-- Textbox scroll reset -->
+	<include>MediaWindowResetScroll</include>
 
 	<!-- Sidemenu menucontrol -->
 	<include content="SidemenuMenucontrol">
@@ -131,6 +123,7 @@
 					<onleft>50</onleft>
 					<onright>50</onright>
 					<onback>50</onback>
+					<include>SideMenuResetScroll</include>
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>

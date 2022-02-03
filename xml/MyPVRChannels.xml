@@ -3,10 +3,10 @@
 	<!-- pvrchannels -->
 	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">50</param>
-	</include>
 	<views>50</views>
+	
+	<!-- Textbox scroll reset -->
+	<include>10700ResetScroll</include>
 
 	<!-- Sidemenu menucontrol -->
 	<include content="SidemenuMenucontrol">
@@ -57,7 +57,7 @@
 						<include>MyPVRChannels_coords4</include>
 						<font>Font27</font>
 						<align>left</align>
-						<label>$VAR[PVRDescription]</label>
+						<label>$VAR[PVRDescription]$INFO[Window(10700).Property(ResetScroll)]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,S)</visible>
@@ -66,7 +66,7 @@
 						<include>MyPVRChannels_coords5</include>
 						<font>Font30</font>
 						<align>left</align>
-						<label>$VAR[PVRDescription]</label>
+						<label>$VAR[PVRDescription]$INFO[Window(10700).Property(ResetScroll)]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,M)</visible>
@@ -75,7 +75,7 @@
 						<include>MyPVRChannels_coords6</include>
 						<font>Font33</font>
 						<align>left</align>
-						<label>$VAR[PVRDescription]</label>
+						<label>$VAR[PVRDescription]$INFO[Window(10700).Property(ResetScroll)]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,L)</visible>
@@ -178,6 +178,7 @@
 					<onleft>50</onleft>
 					<onright>50</onright>
 					<onback>50</onback>
+					<include>SideMenuResetScroll</include>
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>

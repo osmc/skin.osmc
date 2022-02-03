@@ -3,10 +3,10 @@
 	<!-- pvrguide -->
 	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">10</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">10</param>
-	</include>
 	<views>10</views>
+	
+	<!-- Textbox scroll reset -->
+	<include>10702ResetScroll</include>
 
 	<!-- Sidemenu menucontrol -->
 	<include content="SidemenuMenucontrol">
@@ -151,7 +151,7 @@
 							<include>MyPVRGuide_coords15</include>
 							<font>Font27</font>
 							<align>left</align>
-							<label fallback="161">$INFO[ListItem.Plot]</label>
+							<label>$INFO[ListItem.Plot]$INFO[Window(10700).Property(ResetScroll)]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,S)</visible>
@@ -160,7 +160,7 @@
 							<include>MyPVRGuide_coords16</include>
 							<font>Font30</font>
 							<align>left</align>
-							<label fallback="161">$INFO[ListItem.Plot]</label>
+							<label>$INFO[ListItem.Plot]$INFO[Window(10700).Property(ResetScroll)]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,M)</visible>
@@ -169,7 +169,7 @@
 							<include>MyPVRGuide_coords17</include>
 							<font>Font33</font>
 							<align>left</align>
-							<label fallback="161">$INFO[ListItem.Plot]</label>
+							<label>$INFO[ListItem.Plot]$INFO[Window(10700).Property(ResetScroll)]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,L)</visible>
@@ -252,6 +252,7 @@
 					<onleft>10</onleft>
 					<onright>10</onright>
 					<onback>10</onback>
+					<include>SideMenuResetScroll</include>
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
 					<itemgap>0</itemgap>

@@ -21,6 +21,9 @@
 	<onunload>ClearProperty(FullScreenInfo,12005)</onunload>
 	<onunload>ClearProperty(VideoOSDBookmarksSeekBar,12005)</onunload>
 	<onunload>ClearProperty(VideoOSDBookmarksVideoInfo,12005)</onunload>
+	
+	<!-- Textbox scroll reset -->
+	<include>ResetScroll</include>
 
 	<controls>
 		
@@ -415,10 +418,10 @@
 					<include>VisibleFadeAnimation</include>
 					
 					<control type="textbox" id="1">
-						<include>VideoFullScreen_coords31</include>
+						<include>VideoFullScreen_coords30</include>
 						<align>left</align>
 						<font>Font27</font>
-						<label>$VAR[VideoPlayerPlot]</label>
+						<label>$VAR[VideoPlayerPlot]$INFO[Window(12005).Property(ResetScroll)]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,S)</visible>
@@ -428,7 +431,7 @@
 						<include>VideoFullScreen_coords31</include>
 						<align>left</align>
 						<font>Font30</font>
-						<label>$VAR[VideoPlayerPlot]</label>
+						<label>$VAR[VideoPlayerPlot]$INFO[Window(12005).Property(ResetScroll)]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,M)</visible>
@@ -438,7 +441,7 @@
 						<include>VideoFullScreen_coords32</include>
 						<align>left</align>
 						<font>Font33</font>
-						<label>$VAR[VideoPlayerPlot]</label>
+						<label>$VAR[VideoPlayerPlot]$INFO[Window(12005).Property(ResetScroll)]</label>
 						<textcolor>$VAR[TextColorFO]</textcolor>
 						<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
 						<visible>Skin.String(PlotFont,L)</visible>
