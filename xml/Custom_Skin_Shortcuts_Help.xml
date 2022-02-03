@@ -2,11 +2,11 @@
 <window type="dialog" id="1106">
 	<!-- script-skinshortcuts help -->
 	<defaultcontrol always="true">9001</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">9001</param>
-	</include>
 	<onload>SetProperty(HelpPage,first,1106)</onload>
 	<onunload>SetProperty(HelpPage,first,1106)</onunload>
+	
+	<!-- Textbox scroll reset -->
+	<include>ResetScroll</include>
 
 	<controls>
 	
@@ -92,7 +92,7 @@
 					<enable>String.IsEmpty(Window(1106).Property(HelpPage))</enable>
 				</control>
 				
-				<!-- Close help -->
+				<!-- Close -->
 				<control type="button" id="3">
 					<label>15067</label>
 					<width>auto</width>

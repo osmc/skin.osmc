@@ -7,6 +7,9 @@
 	</include>
 	<onload condition="!String.IsEmpty(Window(10146).Property(description))">ClearProperty(description,10146)</onload>
 	<onunload>ClearProperty(description,10146)</onunload>
+	
+	<!-- Textbox scroll reset -->
+	<include>10146ResetScroll</include>
 
 	<controls>
 
@@ -202,7 +205,7 @@
 				<align>left</align>
 				<font>Font36</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$VAR[addonInformation]</label>
+				<label>$VAR[addonInformation]$INFO[Window(10146).Property(ResetScroll)]</label>
 				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
 				<visible>!String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(10146).Property(description)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) + !String.IsEmpty(ListItem.AddonDescription) + !String.IsEmpty(ListItem.AddonNews)</visible>
 				<include>VisibleFadeAnimation</include>

@@ -2,9 +2,9 @@
 <window>
 	<!-- dialogsettings -->
 	<defaultcontrol always="true">5</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">5</param>
-	</include>
+	
+	<!-- Textbox scroll reset -->
+	<include>ResetScroll</include>
 
 	<include condition="!Window.IsVisible(osdaudiosettings) + !Window.IsVisible(osdvideosettings) + !Window.IsVisible(osdsubtitlesettings)">DialogSettings_Default</include>
 	<include condition="Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdsubtitlesettings)">DialogSettings_OSD</include>
