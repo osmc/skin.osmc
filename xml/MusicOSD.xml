@@ -2,14 +2,14 @@
 <window>
 	<!-- musicosd -->
 	<defaultcontrol always="true">5</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">5</param>
-	</include>
 	<onload>ClearProperty(MusicOSDFresh,12006)</onload>
 	<onload>ClearProperty(MusicOSDSlider,12006)</onload>
 	<onload condition="!Window.IsVisible(seekbar) + !Player.ShowInfo + !Skin.HasSetting(MusicOSD)">SetProperty(MusicOSDFresh,True,12006)</onload>
 	<onunload>ClearProperty(MusicOSDFresh,12006)</onunload>
 	<onunload>ClearProperty(MusicOSDSlider,12006)</onunload>
+	
+	<!-- Textbox scroll reset -->
+	<include>ResetScroll</include>
 
 	<controls>
 	

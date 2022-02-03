@@ -2,10 +2,10 @@
 <window>
 	<!-- osdvideosettings -->
 	<defaultcontrol always="true">11</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">11</param>
-	</include>
 	<zorder>0</zorder>
+	
+	<!-- Textbox scroll reset -->
+	<include>10609ResetScroll</include>
 	
 	<controls>
 
@@ -61,7 +61,7 @@
 					<include>DialogPVRChannelGuide_coords7</include>
 					<font>Font27</font>
 					<align>left</align>
-					<label>$VAR[PVRDescriptionDialogGuide]</label>
+					<label>$VAR[PVRDescriptionDialogGuide]$INFO[Window(10609).Property(ResetScroll)]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
 					<visible>Skin.String(PlotFont,S)</visible>
@@ -70,7 +70,7 @@
 					<include>DialogPVRChannelGuide_coords8</include>
 					<font>Font30</font>
 					<align>left</align>
-					<label>$VAR[PVRDescriptionDialogGuide]</label>
+					<label>$VAR[PVRDescriptionDialogGuide]$INFO[Window(10609).Property(ResetScroll)]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
 					<visible>Skin.String(PlotFont,M)</visible>
@@ -79,7 +79,7 @@
 					<include>DialogPVRChannelGuide_coords9</include>
 					<font>Font33</font>
 					<align>left</align>
-					<label>$VAR[PVRDescriptionDialogGuide]</label>
+					<label>$VAR[PVRDescriptionDialogGuide]$INFO[Window(10609).Property(ResetScroll)]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
 					<visible>Skin.String(PlotFont,L)</visible>

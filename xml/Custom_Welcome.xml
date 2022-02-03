@@ -2,9 +2,9 @@
 <window type="dialog" id="1101">
 	<!-- Welcome -->
 	<defaultcontrol always="true">9001</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">9001</param>
-	</include>
+	
+	<!-- Textbox scroll reset -->
+	<include>1101ResetScroll</include>
 
 	<controls>
 
@@ -49,6 +49,8 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
+				
+				<!-- Close help -->
 				<control type="button">
 					<width>auto</width>
 					<font>Font36</font>
@@ -57,6 +59,7 @@
 					<onclick>Skin.SetString(WelcomeDialogShown,true)</onclick>
 					<label>$LOCALIZE[31151]</label>
 				</control>
+				
 			</control>
 			
 		</control>

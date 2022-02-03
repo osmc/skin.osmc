@@ -3,9 +3,9 @@
 	<!-- weather -->
 	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">100</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">100</param>
-	</include>
+	
+	<!-- Textbox scroll reset -->
+	<include>12600ResetScroll</include>
 
 	<!-- Sidemenu menucontrol -->
 	<include content="SidemenuMenucontrol">
@@ -146,7 +146,7 @@
 				</control>
 				<control type="textbox">
 					<include>MyWeather_coords11</include>
-					<label>$LOCALIZE[33030]: $INFO[Window(Weather).Property(Day0.Outlook)]</label>
+					<label>$LOCALIZE[33030]: $INFO[Window(Weather).Property(Day0.Outlook)]$INFO[Window(12600).Property(ResetScroll)]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<autoscroll>false</autoscroll>
 				</control>
@@ -195,6 +195,7 @@
 						<onleft>100</onleft>
 						<onright>100</onright>
 						<onback>100</onback>
+						<include>SideMenuResetScroll</include>
 						<scrolltime>200</scrolltime>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
