@@ -3,10 +3,10 @@
 	<!-- settings -->
 	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">9000</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">9000</param>
-	</include>
 	<onload condition="!String.IsEmpty(Window(settings).Property(ChangeSettingsLevel))">ClearProperty(ChangeSettingsLevel)</onload>
+	
+	<!-- Textbox scroll reset -->
+	<include>10004ResetScroll</include>
 
 	<controls>
 
@@ -118,7 +118,7 @@
 				<include>Settings_coords4</include>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<font>Font27</font>
-				<label>$VAR[SettingsExplanation]</label>
+				<label>$VAR[SettingsExplanation]$INFO[Window(10004).Property(ResetScroll)]</label>
 				<visible>Skin.String(PlotFont,S)</visible>
 			</control>
 			
@@ -126,7 +126,7 @@
 				<include>Settings_coords5</include>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<font>Font30</font>
-				<label>$VAR[SettingsExplanation]</label>
+				<label>$VAR[SettingsExplanation]$INFO[Window(10004).Property(ResetScroll)]</label>
 				<visible>Skin.String(PlotFont,M)</visible>
 			</control>
 			
@@ -134,7 +134,7 @@
 				<include>Settings_coords6</include>
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<font>Font33</font>
-				<label>$VAR[SettingsExplanation]</label>
+				<label>$VAR[SettingsExplanation]$INFO[Window(10004).Property(ResetScroll)]</label>
 				<visible>Skin.String(PlotFont,L)</visible>
 			</control>
 

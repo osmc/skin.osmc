@@ -2,9 +2,9 @@
 <window type="dialog" id="1107">
 	<!-- Confirm skin settings reset -->
 	<defaultcontrol always="true">10</defaultcontrol>
-	<include content="WindowDialogFocus">
-		<param name="id">10</param>
-	</include>
+	
+	<!-- Textbox scroll reset -->
+	<include>ResetScroll</include>
 	
 	<controls>
 
@@ -51,6 +51,8 @@
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<itemgap>30</itemgap>
+				
+				<!-- Close -->
 				<control type="button" id="10">
 					<width>auto</width>
 					<font>Font36</font>
@@ -58,6 +60,8 @@
 					<onclick>Dialog.Close(1107)</onclick>
 					<label>$LOCALIZE[106]</label>
 				</control>
+				
+				<!-- OK -->
 				<control type="button" id="11">
 					<width>auto</width>
 					<font>Font36</font>
@@ -70,6 +74,7 @@
 					<onclick>Skin.SetString(WelcomeDialogShown,true)</onclick>
 					<label>$LOCALIZE[107]</label>
 				</control>
+				
 			</control>
 		
 		</control>

@@ -4,6 +4,12 @@
 
 **_v19.1.2_**
 
+_New_
+- reset textboxes to top scrolling position during dialog or window switches
+
+_Improved_
+- improve inital window/dialog focus fix (only apply where needed)
+
 _Fixed_
 - always show OSD playlist button when expected
 
@@ -410,6 +416,14 @@ Release
 ---
 
 **Changelog v19.1.2**
+
+_remove WindowDialogFocus include from all windows and dialogs where not needed_
+_add ResetScroll include to all windows and dialogs_
+_add SideMenuResetScroll to all windows that offer a side menu_
+_add ResetScroll window property infolabel to all plot and description textboxes_
+
+Includes.xml:
+- add new ResetScroll, 1101ResetScroll, 10004ResetScroll, 10035ResetScroll, 10135ResetScroll, 10146ResetScroll, 10600ResetScroll, 10608ResetScroll, 10609ResetScroll, 10700ResetScroll, 10701ResetScroll, 10702ResetScroll, 10704ResetScroll, 12003ResetScroll, 12005ResetScroll, 12006ResetScroll, 12600ResetScroll, MediaWindowResetScroll, SideMenuResetScroll includes
 
 MusicOSD.xml:
 - fix playlist button onlick dialog close command
