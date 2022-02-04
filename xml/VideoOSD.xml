@@ -28,6 +28,8 @@
 			<onright condition="Player.Paused">PlayerControl(FrameAdvance(1))</onright>
 			<onfocus>SetProperty(VideoOSDSlider,True,12005)</onfocus>
 			<onunfocus>ClearProperty(VideoOSDSlider,12005)</onunfocus>
+			<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+			<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 			<texturefocus />
 			<texturenofocus />
 		</control>
@@ -82,6 +84,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickBackwardEnd.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDTrickBackwardEnd.png</texturenofocus>
 					<onclick>PlayerControl(Previous)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Player.SeekEnabled</visible>
 				</control>
 				
@@ -96,6 +100,8 @@
 					<alttexturenofocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickBackward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(1)</usealttexture>
 					<onclick>PlayerControl(Rewind)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Player.SeekEnabled</visible>
 				</control>
 				
@@ -110,6 +116,8 @@
 					<alttexturenofocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickBackward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(1) | Control.HasFocus(2)</usealttexture>
 					<onclick>PlayerControl(TempoDown)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Player.SeekEnabled</visible>
 					<enable>Player.TempoEnabled</enable>
 				</control>
@@ -128,6 +136,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDUpNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDUpNF.png</texturenofocus>
 					<onclick>Action(ChannelUp)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 
@@ -144,6 +154,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDDownNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDDownNF.png</texturenofocus>
 					<onclick>Action(ChannelDown)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 
@@ -164,6 +176,8 @@
 					<alttexturenofocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickForward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(9) | Control.HasFocus(10)</usealttexture>
 					<onclick>PlayerControl(TempoUp)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Player.SeekEnabled</visible>
 					<enable>Player.TempoEnabled</enable>
 				</control>
@@ -179,6 +193,8 @@
 					<alttexturenofocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickForward.png</alttexturenofocus>
 					<usealttexture>Control.HasFocus(10)</usealttexture>
 					<onclick>PlayerControl(Forward)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Player.SeekEnabled</visible>
 				</control>
 				
@@ -190,6 +206,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTrickForwardEnd.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDTrickForwardEnd.png</texturenofocus>
 					<onclick>PlayerControl(Next)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Player.SeekEnabled</visible>
 				</control>
 
@@ -210,6 +228,8 @@
 					<alttexturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDRecordOnNF.png</alttexturenofocus>
 					<usealttexture>PVR.IsRecordingPlayingChannel</usealttexture>
 					<onclick>PVR.ToggleRecordPlayingChannel</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>PVR.CanRecordPlayingChannel</visible>
 				</control>
 
@@ -234,6 +254,8 @@
 					<texturefocus></texturefocus>
 					<texturenofocus></texturenofocus>
 					<onclick>PlayerControl(Repeat)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>!Pvr.IsPlayingTv</visible>
 				</control>
 				
@@ -246,6 +268,8 @@
 					<alttexturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDRandomOnNF.png</alttexturefocus>
 					<alttexturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDRandomOnNF.png</alttexturenofocus>
 					<onclick>PlayerControl(Random)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>!Pvr.IsPlayingTv</visible>
 					<visible>Integer.IsGreater(VideoPlayer.PlaylistLength,1)</visible>
 				</control>
@@ -256,6 +280,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSD3DNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSD3DNF.png</texturenofocus>
 					<onclick>StereoMode</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>VideoPlayer.IsStereoscopic</visible>
 				</control>
 				
@@ -265,6 +291,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDVideoNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDVideoNF.png</texturenofocus>
 					<onclick>ActivateWindow(123)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 				</control>
 				
 				<!-- Audio Settings -->
@@ -273,6 +301,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDAudioNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDAudioNF.png</texturenofocus>
 					<onclick>ActivateWindow(124)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 				</control>
 				
 				<!-- Subtitles -->
@@ -281,6 +311,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSubtitlesNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDSubtitlesNF.png</texturenofocus>
 					<onclick>ActivateWindow(159)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 				</control>
 				
 				<!-- Information -->
@@ -288,8 +320,10 @@
 					<include>VideoOSD_coords8</include>
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDInfoNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDInfoNF.png</texturenofocus>
-					<onclick condition="!Window.IsVisible(fullscreeninfo)">Info</onclick>
+					<onclick condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</onclick>
 					<onclick condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 				</control>
 				
 				<!-- Bookmarks -->
@@ -298,6 +332,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDBookmarksNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDBookmarksNF.png</texturenofocus>
 					<onclick>ActivateWindow(125)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>!Pvr.IsPlayingTv</visible>
 				</control>
 				
@@ -308,6 +344,8 @@
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDPlaylistNF.png</texturenofocus>
 					<onclick>Dialog.Close(all, true)</onclick>
 					<onclick>ActivateWindow(VideoPlaylist)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Integer.IsGreater(Playlist.Length(video),1)</visible>
 				</control>
 				
@@ -317,6 +355,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDChannelNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDChannelNF.png</texturenofocus>
 					<onclick>ActivateWindow(PVROSDChannels)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 				
@@ -326,6 +366,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDEPGNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDEPGNF.png</texturenofocus>
 					<onclick>ActivateWindow(PVRChannelGuide)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 				</control>
 				
@@ -335,6 +377,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDTextNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDTextNF.png</texturenofocus>
 					<onclick>ActivateWindow(Teletext)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 				
@@ -344,6 +388,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDDvdNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDDvdNF.png</texturenofocus>
 					<onclick>PlayerControl(ShowVideoMenu)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>VideoPlayer.HasMenu</visible>
 				</control>
 				
@@ -353,6 +399,8 @@
 					<texturefocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDResNF.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[OverlayColorNF]">osd/OSDResNF.png</texturenofocus>
 					<onclick>PlayerResolutionSelect</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>Player.HasResolutions</visible>
 				</control>
 
@@ -362,6 +410,8 @@
 					<texturefocus></texturefocus>
 					<texturenofocus></texturenofocus>
 					<onclick>ActivateWindow(1105)</onclick>
+					<oninfo condition="!Window.IsVisible(fullscreeninfo)">ActivateWindow(fullscreeninfo)</oninfo>
+					<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 					<visible>$EXP[Masking]</visible>
 				</control>
 
