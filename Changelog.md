@@ -423,15 +423,17 @@ _add SideMenuResetScroll to all windows that offer a side menu_
 _add ResetScroll window property infolabel to all plot and description textboxes_
 
 Includes.xml:
-- add new ResetScroll, 1101ResetScroll, 10004ResetScroll, 10035ResetScroll, 10135ResetScroll, 10146ResetScroll, 10600ResetScroll, 10608ResetScroll, 10609ResetScroll, 10700ResetScroll, 10701ResetScroll, 10702ResetScroll, 10704ResetScroll, 12003ResetScroll, 12005ResetScroll, 12006ResetScroll, 12600ResetScroll, MediaWindowResetScroll, SideMenuResetScroll includes
+- add new ResetScroll, 1101ResetScroll, 10004ResetScroll, 10035ResetScroll, 10135ResetScroll, 10146ResetScroll, 10600ResetScroll, 10608ResetScroll, 10609ResetScroll, 10700ResetScroll, 10701ResetScroll, 10702ResetScroll, 10704ResetScroll, 12003ResetScroll, 12005ResetScroll, 12006ResetScroll, 12600ResetScroll, MediaWindowResetScroll, SideMenuResetScroll and VideoOSDResetScroll includes
 
 MusicOSD.xml:
 - fix playlist button onlick dialog close command
 - fix playlist button visibility condition to always show the button when expected
+- add textbox reset scroll onclick actions to music OSD info button
 
 VideoOSD.xml:
 - fix onlick dialog close command
 - fix playlist button visibility condition to always show the button when expected
+- add oninfo actions to all video OSD controls to always invoke fullscreen info dialog to reliably trigger textbox scroll reset
 
 addon.xml:
 - bump version to 19.1.2
