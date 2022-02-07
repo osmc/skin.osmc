@@ -8,10 +8,8 @@
 	<!-- Textbox scroll reset -->
 	<include>10704ResetScroll</include>
 	
-	<!-- Sidemenu menucontrol -->
-	<include content="SidemenuMenucontrol">
-		<param name="id">3000</param>
-	</include>
+	<!-- Sub menu menucontrol -->
+	<include condition="!Skin.HasSetting(KioskMode)">SubMenuMenucontrol</include>
 	
 	<controls>
 
@@ -30,7 +28,7 @@
 				<include>MyPVRSearch_coords1</include>
 				<onup>50</onup>
 				<ondown>50</ondown>
-				<onleft condition="!Skin.HasSetting(KioskMode)">3000</onleft>
+				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 				<onright>70</onright>
 				<pagecontrol>70</pagecontrol>
 				<preloaditems>2</preloaditems>
@@ -80,7 +78,7 @@
 							<include>MyPVRSearch_coords9</include>
 							<font>Font27</font>
 							<align>left</align>
-							<label>$INFO[Container(50).ListItem.Plot]$INFO[Window(10704).Property(ResetScroll)]</label>
+							<label>$INFO[Container(50).ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10704)]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,S)</visible>
@@ -89,7 +87,7 @@
 							<include>MyPVRSearch_coords10</include>
 							<font>Font30</font>
 							<align>left</align>
-							<label>$INFO[Container(50).ListItem.Plot]$INFO[Window(10704).Property(ResetScroll)]</label>
+							<label>$INFO[Container(50).ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10704)]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,M)</visible>
@@ -98,7 +96,7 @@
 							<include>MyPVRSearch_coords11</include>
 							<font>Font33</font>
 							<align>left</align>
-							<label>$INFO[Container(50).ListItem.Plot]$INFO[Window(10704).Property(ResetScroll)]</label>
+							<label>$INFO[Container(50).ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10704)]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 							<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
 							<visible>Skin.String(PlotFont,L)</visible>
@@ -127,161 +125,13 @@
 				<textcolor>$VAR[TextColorNF]</textcolor>
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
+			
+			<!-- Sub menu indicator -->
+			<include>SubMenuIndicator</include>
+			
+			<!-- Sub menu -->
+			<include>SubMenu</include>
 
-		</control>
-		
-		<!-- Submenu indicator -->
-		<control type="group">
-			<visible>!Skin.HasSetting(KioskMode)</visible>
-			<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(contextmenu)</visible>
-			<include>VisibleFadeAnimation</include>
-			<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
-			<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
-			<control type="image">
-				<left>10</left>
-				<centertop>50%</centertop>
-				<width>30</width>
-				<height>30</height>
-				<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
-				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-			</control>
-		</control>
-
-		<!-- Options -->
-		<control type="group" id="9002">
-			<include>NotificationDepth</include>
-			<visible>!Skin.HasSetting(KioskMode)</visible>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[DarkenColor]">common/DimOverlay.png</texture>
-				<include>VisibleFadeAnimation</include>
-				<visible>ControlGroup(9002).HasFocus</visible>
-				<include>BackgroundDepth</include>
-			</control>
-			<control type="group">
-				<left>-460</left>
-				<top>0</top>
-				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
-				<control type="button">
-					<include>OptionsSideMenu1</include>
-					<texturefocus>noop</texturefocus>
-				</control>
-				
-				<control type="image">
-					<include>OptionsSideMenu1</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
-				</control>
-
-				<!-- Look controls -->
-				<control type="grouplist" id="3000">
-					<include>OptionsSideMenu3</include>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<onback>50</onback>
-					<include>SideMenuResetScroll</include>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<itemgap>0</itemgap>
-					<defaultcontrol always="true">3</defaultcontrol>
-
-					<include content="SideMenuAnimation">
-						<param name="containerID">3000</param>
-					</include>
-					
-					<!-- Sort by -->
-					<control type="button" id="3">
-						<height>52</height>
-						<label>103</label>
-						<visible>Control.IsEnabled(3)</visible>
-					</control>
-					<!-- Sort ascending/descending -->
-					<control type="togglebutton" id="4">
-						<height>52</height>
-						<label>$LOCALIZE[31234] $LOCALIZE[584]</label>
-						<altlabel>$LOCALIZE[31234] $LOCALIZE[585]</altlabel>
-						<usealttexture>Container.SortDirection(Descending)</usealttexture>
-						<visible>Control.IsEnabled(4)</visible>
-					</control>
-					<!-- Channel Groups -->
-					<control type="button" id="28">
-						<height>52</height>
-						<label></label>
-						<visible>Control.IsEnabled(28)</visible>
-					</control>
-					<!-- Group recording items by folder structure -->
-					<control type="radiobutton" id="5">
-						<height>52</height>
-						<label>19270</label>
-						<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
-					</control>
-
-					<control type="image" id="80">
-						<left>0</left>
-						<top>0</top>
-						<width>410</width>
-						<height>10</height>
-						<texture>transparent.png</texture>
-					</control>
-
-					<!-- Channels -->
-					<control type="button" id="100">
-						<height>52</height>
-						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVChannels)</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioChannels)</onclick>
-						<onclick>SetFocus(10)</onclick>
-						<label>19019</label>
-						<visible>Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
-					</control>
-					<!-- Guide -->
-					<control type="button" id="102">
-						<height>52</height>
-						<label>22020</label>
-						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioGuide)</onclick>
-						<onclick>SetFocus(10)</onclick>
-						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
-					</control>
-					<!-- Recordings -->
-					<control type="button" id="103">
-						<height>52</height>
-						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioRecordings)</onclick>
-						<onclick>SetFocus(10)</onclick>
-						<label>19163</label>
-						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
-					</control>
-					<!-- Timers -->
-					<control type="button" id="35">
-						<height>52</height>
-						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimers)</onclick>
-						<onclick>SetFocus(50)</onclick>
-						<label>19040</label>
-						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
-					</control>
-					<!-- Rules -->
-					<control type="button" id="36">
-						<height>52</height>
-						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimerRules)</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioTimerRules)</onclick>
-						<onclick>SetFocus(50)</onclick>
-						<label>$LOCALIZE[31022]</label>
-						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVSearch) | Window.IsActive(RadioSearch)</visible>
-					</control>
-					<!-- Search -->
-					<control type="button" id="37">
-						<height>52</height>
-						<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
-						<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(RadioSearch)</onclick>
-						<onclick>SetFocus(50)</onclick>
-						<label>137</label>
-						<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels) | Window.IsActive(TVGuide) | Window.IsActive(RadioGuide) | Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings) | Window.IsActive(TVTimers) | Window.IsActive(RadioTimers) | Window.IsActive(TVTimerRules) | Window.IsActive(RadioTimerRules)</visible>
-					</control>
-					
-					<include>SideMenuControls</include>
-					
-				</control>
-			</control>
 		</control>
 
 		<include>MaskingBars</include>

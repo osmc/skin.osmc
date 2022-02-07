@@ -599,7 +599,7 @@
 				<align>left</align>
 				<font>Font36</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Plot]$INFO[Window(12003).Property(ResetScroll)]</label>
+				<label>$INFO[ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.12003)]</label>
 				<autoscroll delay="10000" time="1700" repeat="12000">True</autoscroll>
 				<visible>String.IsEmpty(Window(12003).Property(cast)) + [!String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + !Control.IsVisible(100) + !String.IsEqual(ListItem.DBTYPE,set)]</visible>
 				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
