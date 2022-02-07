@@ -298,5 +298,183 @@
 			<param name="container">9000</param>
 		</include>
 	</include>
+	
+	<include name="HomeSubMenu_coords1">
+		<include condition="$EXP[NonMaskedCoordinates]">HomeSubMenu_coords1_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">HomeSubMenu_coords1_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">HomeSubMenu_coords1_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">HomeSubMenu_coords1_4:3</include>
+	</include>
+	<include name="HomeSubMenu_coords1_16:9">
+		<itemlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
+	</include>
+	<include name="HomeSubMenu_coords1_21:9">
+		<itemlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
+	</include>
+	<include name="HomeSubMenu_coords1_21:9_masked">
+		<itemlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
+	</include>
+	<include name="HomeSubMenu_coords1_4:3">
+		<itemlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+		</itemlayout>
+	</include>
+	
+	<include name="HomeSubMenu_coords2">
+		<include condition="$EXP[NonMaskedCoordinates]">HomeSubMenu_coords2_16:9</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">HomeSubMenu_coords2_21:9</include>
+		<include condition="$EXP[MaskedCoordinates]">HomeSubMenu_coords2_21:9_masked</include>
+		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">HomeSubMenu_coords2_4:3</include>
+	</include>
+	<include name="HomeSubMenu_coords2_16:9">
+		<focusedlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="image">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<visible>!Control.HasFocus(9001)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="HomeSubMenu_coords2_21:9">
+		<focusedlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="image">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<visible>!Control.HasFocus(9001)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="HomeSubMenu_coords2_21:9_masked">
+		<focusedlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="image">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<visible>!Control.HasFocus(9001)</visible>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="HomeSubMenu_coords2_4:3">
+		<focusedlayout width="410" height="52">
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="image">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+				<visible>Control.HasFocus(9001)</visible>
+			</control>
+			<control type="label">
+				<top>0</top>
+				<width>410</width>
+				<height>52</height>
+				<label>$INFO[ListItem.Label]</label>
+				<font>Font33</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<visible>!Control.HasFocus(9001)</visible>
+			</control>
+		</focusedlayout>
+	</include>
 
 </includes>

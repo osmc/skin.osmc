@@ -8,10 +8,8 @@
 	<!-- Textbox scroll reset -->
 	<include>ResetScroll</include>
 	
-	<!-- Sidemenu menucontrol -->
-	<include content="SidemenuMenucontrol">
-		<param name="id">3001</param>
-	</include>
+	<!-- Sub menu menucontrol -->
+	<include condition="!Skin.HasSetting(KioskMode)">SubMenuMenucontrol</include>
 	
 	<!--Welcome screen -->
 	<onload condition="String.IsEmpty(Skin.String(WelcomeDialogShown)) + !System.HasAddon(service.osmc.settings)">ActivateWindow(1101)</onload>
@@ -80,147 +78,12 @@
 			<!-- Item count -->
 			<include>ItemCount</include>
 			
-			<!-- Submenu indicator -->
-			<control type="group">
-				<visible>!Skin.HasSetting(KioskMode)</visible>
-				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(contextmenu)</visible>
-				<include>VisibleFadeAnimation</include>
-				
-				<control type="image">
-					<left>10</left>
-					<centertop>50%</centertop>
-					<width>30</width>
-					<height>30</height>
-					<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
-				</control>
-			</control>
+			<!-- Sub menu indicator -->
+			<include>SubMenuIndicator</include>
 			
-		</control>
-
-		<!-- Options -->
-		<control type="group" id="9002">
-			<include>NotificationDepth</include>
-			<visible>!Skin.HasSetting(KioskMode)</visible>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[DarkenColor]">common/DimOverlay.png</texture>
-				<include>VisibleFadeAnimation</include>
-				<visible>ControlGroup(9002).HasFocus</visible>
-				<include>BackgroundDepth</include>
-			</control>
-			<control type="group">
-				<left>-460</left>
-				<top>0</top>
-				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
-				<control type="button">
-					<include>OptionsSideMenu1</include>
-					<texturefocus>noop</texturefocus>
-				</control>
-
-				<control type="image">
-					<include>OptionsSideMenu1</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
-				</control>
-
-				<!-- Look controls -->
-				<control type="grouplist" id="3001">
-					<include condition="Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu2</include>
-					<include condition="!Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu3</include>
-					<onleft>500</onleft>
-					<onright>500</onright>
-					<onback>500</onback>
-					<include>SideMenuResetScroll</include>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<itemgap>0</itemgap>
-					<defaultcontrol always="true">99</defaultcontrol>
-
-					<include content="SideMenuAnimation">
-						<param name="containerID">3001</param>
-					</include>
-					
-					<!-- View -->
-					<control type="button" id="99">
-						<height>52</height>
-						<label>$LOCALIZE[31233] $INFO[Container.ViewMode]</label>
-						<onclick>Container.NextViewMode</onclick>
-						<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
-					</control>
-
-
-					<control type="image" id="80">
-						<left>0</left>
-						<top>0</top>
-						<width>410</width>
-						<height>10</height>
-						<texture>transparent.png</texture>
-						<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
-					</control>
-					
-
-					<!-- Sort by -->
-					<control type="button" id="3">
-						<height>52</height>
-						<label>103</label>
-						<visible>Control.IsEnabled(3)</visible>
-					</control>
-					<!-- Sort ascending/descending -->
-					<control type="togglebutton" id="4">
-						<height>52</height>
-						<label>$LOCALIZE[31234] $LOCALIZE[584]</label>
-						<altlabel>$LOCALIZE[31234] $LOCALIZE[585]</altlabel>
-						<usealttexture>Container.SortDirection(Descending)</usealttexture>
-						<visible>Control.IsEnabled(4)</visible>
-					</control>
-					<!-- Filter -->
-					<control type="edit" id="19">
-						<height>52</height>
-						<label>587</label>
-						<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
-					</control>
-					<!-- Filter -->
-					<control type="radiobutton" id="93">
-						<height>52</height>
-						<label>587</label>
-						<onclick>right</onclick>
-						<onclick>Filter</onclick>
-						<selected>Container.Filtered</selected>
-						<visible>Container.CanFilterAdvanced</visible>
-					</control>
-
-
-					<control type="image" id="81">
-						<left>0</left>
-						<top>0</top>
-						<width>410</width>
-						<height>10</height>
-						<texture>transparent.png</texture>
-					</control>
-
-
-					<!-- Check for updates -->
-					<control type="button" id="9">
-						<height>52</height>
-						<label>24034</label>
-						<visible>Control.IsEnabled(9)</visible>
-					</control>
-					<!-- Settings -->
-					<control type="button" id="5">
-						<height>52</height>
-						<label>10004</label>
-						<visible>Control.IsEnabled(5)</visible>
-					</control>
-					<!-- Language -->
-					<control type="radiobutton" id="7">
-						<height>52</height>
-						<label>25001</label>
-						<visible>Control.IsEnabled(7)</visible>
-					</control>
-					
-					<include>SideMenuControls</include>
-				
-				</control>
-			</control>
+			<!-- Sub menu -->
+			<include>SubMenu</include>
+			
 		</control>
 
 		<include>MaskingBars</include>
