@@ -43,7 +43,7 @@
 			<include>skinshortcuts-template-vertical</include>
 		</control>
 		
-		<!-- Side menu indicator -->
+		<!-- Sub menu indicator -->
 		<control type="group">
 			<include>WindowDepth</include>
 			<visible>Control.HasFocus(9000) + !Window.IsVisible(shutdownmenu)</visible>
@@ -52,44 +52,46 @@
 			<animation effect="slide" time="200" start="-200,0" end="0,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowOpen</animation>
 			<animation effect="slide" time="200" start="0,0" end="-200,0" condition="Integer.IsGreater(Container(9001).NumItems,0)">WindowClose</animation>
 			<control type="image">
-				<left>10</left>
-				<centertop>50%</centertop>
-				<width>30</width>
-				<height>30</height>
+				<include>SubMenu_coords13</include>
 				<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
 			</control>
 		</control>
 
-		<!-- Side menu -->
+		<!-- Sub menu -->
 		<control type="group" id="9010">
 			<include>NotificationDepth</include>
+			
+			<!-- Window dim overlay -->
 			<control type="image">
+				<include>BackgroundDepth</include>
 				<include>FullscreenDimensions</include>
 				<texture colordiffuse="$VAR[DarkenColor]">common/DimOverlay.png</texture>
-				<include>VisibleFadeAnimation</include>
 				<visible>ControlGroup(9010).HasFocus</visible>
-				<include>BackgroundDepth</include>
+				<include>VisibleFadeAnimation</include>
 			</control>
+			
 			<control type="group">
-				<left>-460</left>
-				<top>0</top>
+				<include>SubMenu_coords1</include>
 				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9010).HasFocus">Conditional</animation>
+				
+				<!-- Hidden button for mouse control -->
 				<control type="button">
-					<include>OptionsSideMenu1</include>
+					<include>SubMenu_coords2</include>
 					<texturefocus>noop</texturefocus>
 				</control>
-
+				
+				<!-- Background -->
 				<control type="image">
-					<include>OptionsSideMenu1</include>
+					<include>SubMenu_coords2</include>
 					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
 				</control>
 
 				<control type="list" id="9001">
-					<include>OptionsSideMenu3</include>
+					<include>SubMenu_coords3</include>
 					<onleft>9000</onleft>
 					<onright>9000</onright>
 					<onback>9000</onback>
-					<include>SideMenuResetScroll</include>
+					<include>SubMenuResetScroll</include>
 					<orientation>vertical</orientation>
 					<defaultcontrol always="true">1</defaultcontrol>
 
@@ -113,44 +115,9 @@
 					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,3)">Conditional</animation>
 					<animation effect="slide" time="0" end="0,26" condition="Integer.IsLess(Container(9001).NumItems,2)">Conditional</animation>
 
-					<itemlayout width="410" height="52">
-						<control type="label">
-							<top>0</top>
-							<width>410</width>
-							<height>52</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>Font33</font>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-					</itemlayout>
-
-					<focusedlayout width="410" height="52">
-						<control type="label">
-							<top>0</top>
-							<width>410</width>
-							<height>52</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>Font33</font>
-							<textcolor>$VAR[TextColorFO]</textcolor>
-							<visible>Control.HasFocus(9001)</visible>
-						</control>
-						<control type="image">
-							<top>0</top>
-							<width>410</width>
-							<height>52</height>
-							<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
-							<visible>Control.HasFocus(9001)</visible>
-						</control>
-						<control type="label">
-							<top>0</top>
-							<width>410</width>
-							<height>52</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>Font33</font>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-							<visible>!Control.HasFocus(9001)</visible>
-						</control>
-					</focusedlayout>
+					<include>HomeSubMenu_coords1</include>
+					
+					<include>HomeSubMenu_coords2</include>
 
 					<content>
 						<include>skinshortcuts-submenu</include>
