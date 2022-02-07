@@ -7,10 +7,8 @@
 	<!-- Textbox scroll reset -->
 	<include>ResetScroll</include>
 	
-	<!-- Sidemenu menucontrol -->
-	<include content="SidemenuMenucontrol">
-		<param name="id">3001</param>
-	</include>
+	<!-- Sub menu menucontrol -->
+	<include condition="!Skin.HasSetting(KioskMode)">SubMenuMenucontrol</include>
 	
 	<controls>
 	
@@ -84,7 +82,7 @@
 				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(450).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 			
-			<!-- Submenu indicator -->
+			<!-- Sub menu indicator -->
 			<control type="group">
 				<visible>!Skin.HasSetting(KioskMode)</visible>
 				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(contextmenu) + !String.IsEqual(Container(450).NumItems,0) + Player.HasMedia + !Skin.HasSetting(SubMenuControls)</visible>
@@ -92,61 +90,15 @@
 				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
 				<control type="image">
-					<left>10</left>
-					<centertop>50%</centertop>
-					<width>30</width>
-					<height>30</height>
+					<include>SubMenu_coords13</include>
 					<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
 					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(450).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 				</control>
 			</control>
 			
-		</control>
-		
-		<!-- Options -->
-		<control type="group" id="9002">
-			<include>NotificationDepth</include>
-			<visible>!Skin.HasSetting(KioskMode)</visible>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[DarkenColor]">common/DimOverlay.png</texture>
-				<include>VisibleFadeAnimation</include>
-				<visible>ControlGroup(9002).HasFocus</visible>
-				<include>BackgroundDepth</include>
-			</control>
-			<control type="group">
-				<left>-460</left>
-				<top>0</top>
-				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
-				<control type="button">
-					<include>OptionsSideMenu1</include>
-					<texturefocus>noop</texturefocus>
-				</control>
-
-				<control type="image">
-					<include>OptionsSideMenu1</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
-				</control>
-
-				<!-- Look controls -->
-				<control type="grouplist" id="3001">
-					<include>OptionsSideMenu3</include>
-					<onleft>450</onleft>
-					<onright>450</onright>
-					<onback>450</onback>
-					<include>SideMenuResetScroll</include>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<itemgap>0</itemgap>
-
-					<include content="SideMenuAnimation">
-						<param name="containerID">3001</param>
-					</include>
-
-					<include>SideMenuControls</include>
-
-				</control>
-			</control>
+			<!-- Sub menu -->
+			<include>SubMenu</include>
+			
 		</control>
 
 		<include>MaskingBars</include>

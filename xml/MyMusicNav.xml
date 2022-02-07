@@ -8,10 +8,8 @@
 	<!-- Textbox scroll reset -->
 	<include>MediaWindowResetScroll</include>
 
-	<!-- Sidemenu menucontrol -->
-	<include content="SidemenuMenucontrol">
-		<param name="id">3001</param>
-	</include>
+	<!-- Sub menu menucontrol -->
+	<include condition="!Skin.HasSetting(KioskMode)">SubMenuMenucontrol</include>
 
 	<controls>
 
@@ -86,169 +84,12 @@
 			<!-- Item count -->
 			<include>ItemCount</include>
 			
-			<!-- Submenu indicator -->
-			<include>SubmenuIndicator</include>
+			<!-- Sub menu indicator -->
+			<include>SubMenuIndicator</include>
+			
+			<!-- Sub menu -->
+			<include>SubMenu</include>
 
-		</control>
-
-		<!-- Options -->
-		<control type="group" id="9002">
-			<include>NotificationDepth</include>
-			<visible>!Skin.HasSetting(KioskMode)</visible>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture colordiffuse="$VAR[DarkenColor]">common/DimOverlay.png</texture>
-				<include>VisibleFadeAnimation</include>
-				<visible>ControlGroup(9002).HasFocus</visible>
-				<include>BackgroundDepth</include>
-			</control>
-			<control type="group">
-				<left>-460</left>
-				<top>0</top>
-				<animation effect="slide" start="0,0" end="460,0" time="200" condition="ControlGroup(9002).HasFocus">Conditional</animation>
-				<control type="button">
-					<include>OptionsSideMenu1</include>
-					<texturefocus>noop</texturefocus>
-				</control>
-				
-				<control type="image">
-					<include>OptionsSideMenu1</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
-				</control>
-
-				<!-- Look controls -->
-				<control type="grouplist" id="3001">
-					<include condition="Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu2</include>
-					<include condition="!Integer.IsGreater(Container.ViewCount,1)">OptionsSideMenu3</include>
-					<onleft>50</onleft>
-					<onright>50</onright>
-					<onback>50</onback>
-					<include>SideMenuResetScroll</include>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<itemgap>0</itemgap>
-					<defaultcontrol always="true">99</defaultcontrol>
-
-					<include content="SideMenuAnimation">
-						<param name="containerID">3001</param>
-					</include>
-
-					<!-- View -->
-					<control type="button" id="99">
-						<height>52</height>
-						<label>$LOCALIZE[31233] $INFO[Container.ViewMode]</label>
-						<onclick>Container.NextViewMode</onclick>
-						<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
-					</control>
-
-
-					<control type="image" id="80">
-						<left>0</left>
-						<top>0</top>
-						<width>410</width>
-						<height>10</height>
-						<texture>transparent.png</texture>
-						<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
-					</control>
-
-
-					<!-- Sort by -->
-					<control type="button" id="3">
-						<height>52</height>
-						<label>103</label>
-						<visible>Control.IsEnabled(3)</visible>
-					</control>
-					<!-- Sort ascending/descending -->
-					<control type="togglebutton" id="4">
-						<height>52</height>
-						<label>$LOCALIZE[31234] $LOCALIZE[584]</label>
-						<altlabel>$LOCALIZE[31234] $LOCALIZE[585]</altlabel>
-						<usealttexture>Container.SortDirection(Descending)</usealttexture>
-						<visible>Control.IsEnabled(4)</visible>
-					</control>
-					<!-- Filter -->
-					<control type="edit" id="19">
-						<height>52</height>
-						<label>587</label>
-						<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
-					</control>
-					<!-- Filter -->
-					<control type="radiobutton" id="93">
-						<height>52</height>
-						<label>587</label>
-						<onclick>Right</onclick>
-						<onclick>Right</onclick>
-						<onclick>Filter</onclick>
-						<selected>Container.Filtered</selected>
-						<visible>Container.CanFilterAdvanced</visible>
-					</control>
-
-
-					<control type="image" id="81">
-						<left>0</left>
-						<top>0</top>
-						<width>410</width>
-						<height>10</height>
-						<texture>transparent.png</texture>
-					</control>
-
-
-					<!-- Open playlist -->
-					<control type="button" id="91">
-						<height>52</height>
-						<label>13350</label>
-						<onclick condition="!String.IsEqual(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</onclick>
-						<visible>!String.IsEqual(Playlist.Length(music),0)</visible>
-					</control>
-					<!-- Update library -->
-					<control type="togglebutton" id="20">
-						<height>52</height>
-						<label>653</label>
-						<altlabel>13353</altlabel>
-						<usealttexture>Library.IsScanningMusic</usealttexture>
-						<visible>!String.StartsWith(Container.FolderPath,plugin://plugin)</visible>
-					</control>
-					<!-- Search -->
-					<control type="button" id="8">
-						<height>52</height>
-						<label>137</label>
-						<visible>Control.IsEnabled(8)</visible>
-					</control>
-					<!-- PartyMode -->
-					<control type="radiobutton" id="16">
-						<height>52</height>
-						<label>589</label>
-					</control>
-					<!-- Library Node Editor -->
-					<control type="button" id="95">
-						<label>31400</label>
-						<height>52</height>
-						<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
-						<onclick condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">EnableAddon(plugin.library.node.editor)</onclick>
-						<onclick condition="System.HasAddon(plugin.library.node.editor) + System.AddonIsEnabled(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=video,return)</onclick>
-						<visible>Container.Content() + String.IsEmpty(Container.PluginName)</visible>
-					</control>
-
-					<!-- Addon Settings -->
-					<control type="button" id="624">
-						<height>52</height>
-						<label>$LOCALIZE[10140]</label>
-						<visible>Control.IsEnabled(624)</visible>
-						<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
-						<visible>!String.IsEmpty(Container.PluginName)</visible>
-					</control>
-					<!-- Get more -->
-					<control type="button" id="621">
-						<height>52</height>
-						<label>$LOCALIZE[21452]</label>
-						<onclick>ActivateWindow(addonbrowser,addons://more/audio/,return)</onclick>
-						<visible>Container.Content(addons)</visible>
-					</control>
-					
-					<include>SideMenuControls</include>
-
-				</control>
-			</control>
 		</control>
 
 		<include>MaskingBars</include>
