@@ -421,11 +421,11 @@ _remove WindowDialogFocus include from all windows and dialogs where not needed_
 _add ResetScroll include to all windows and dialogs_
 _add SubMenuResetScroll to all windows that offer a sub menu_
 _add ResetScroll window property infolabel to all plot and description textboxes_
-_add new Coordinates_Includes_SubMenu.xml, Includes_ScrollReset.xml and Includes_SubMenu.xml files for sub menu restructure and new scroll reset feature_
-_move all sub menues to new Includes file and replace sub menus by includes in respective window files_
+_add new Coordinates_Includes_SubMenu.xml, Includes_ResetScroll.xml and Includes_SubMenu.xml files for sub menu restructure and new scroll reset feature_
+_move all sub menus to new Includes file and replace sub menus by includes in respective window files_
 
-Includes_ScrollReset.xml:
-- add new ResetScroll, 1101ResetScroll, 10004ResetScroll, 10035ResetScroll, 10135ResetScroll, 10146ResetScroll, 10600ResetScroll, 10608ResetScroll, 10609ResetScroll, 10700ResetScroll, 10701ResetScroll, 10702ResetScroll, 10704ResetScroll, 12003ResetScroll, 12005ResetScroll, 12006ResetScroll, 12600ResetScroll, MediaWindowResetScroll, SubMenuResetScroll and VideoOSDResetScroll includes
+Includes_ResetScroll.xml:
+- add new ResetScroll, 1101ResetScroll, 10004ResetScroll, 10035ResetScroll, 10135ResetScroll, 10146ResetScroll, 10600ResetScroll, 10608ResetScroll, 10609ResetScroll, 10700ResetScroll, 10701ResetScroll, 10702ResetScroll, 10704ResetScroll, 12003ResetScroll, 12005ResetScroll, 12006ResetScroll, 12600ResetScroll, MediaWindowResetScroll, VideoOSDResetScroll and SubMenuResetScroll includes
 
 MusicOSD.xml:
 - fix playlist button onlick dialog close command
