@@ -35,6 +35,7 @@
 				<orientation>horizontal</orientation>
 				<viewtype label="">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<visible>!String.IsEmpty(Window(Weather).Property(Daily.1.LongDay))</visible>
 				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
 				<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
 				<animation effect="slide" start="0,0" end="700,0" time="0" condition="String.IsEqual(Container(50).NumItems,1)">conditional</animation>
@@ -112,6 +113,7 @@
 			<!-- Weather Info -->
 			<control type="group">
 				<include>MyWeather_coords5</include>
+				<visible>!String.IsEmpty(Window(Weather).Property(Current.Condition)) + !String.IsEmpty(Window(Weather).Property(Daily.1.LongDay))</visible>
 				<control type="label">
 					<include>MyWeather_coords6</include>
 					<font>Font42</font>
@@ -149,14 +151,27 @@
 					<autoscroll>false</autoscroll>
 				</control>
 			</control>
+			
+			<!-- No information available -->
+			<control type="group">
+				<include>MyWeather_coords5</include>
+				<visible>String.IsEmpty(Window(Weather).Property(Current.Condition)) + String.IsEmpty(Window(Weather).Property(Daily.1.LongDay))</visible>
+				<control type="label">
+					<include>MyWeather_coords6</include>
+					<font>Font42</font>
+					<label>$LOCALIZE[19055]</label>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+				</control>
+			</control>
 
 			<!-- Weather provider -->
 			<control type="fadelabel">
 				<include>MyWeather_coords12</include>
 				<align>right</align>
-				<label>$LOCALIZE[31045]$INFO[Window(Weather).Property(WeatherProvider), ,]</label>
+				<label>$INFO[Window(Weather).Property(WeatherProvider)]</label>
 				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
+				<visible>!String.IsEmpty(Window(Weather).Property(WeatherProvider))</visible>
 			</control>
 			
 			<!-- Sub menu indicator -->

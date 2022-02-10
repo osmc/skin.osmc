@@ -47,8 +47,6 @@
 				<include condition="Window.IsVisible(MyPVRTimers.xml)">SubMenu_MyPVRTimers</include>
 				<include condition="Window.IsVisible(MyVideoNav.xml)">SubMenu_MyVideoNav</include>
 				<include condition="Window.IsVisible(MyWeather.xml)">SubMenu_MyWeather</include>
-				<include condition="Window.IsVisible(MyWeather.xml)">SubMenu_MyWeather</include>
-				<include condition="Window.IsVisible(MyWeather.xml)">SubMenu_MyWeather</include>
 				<include condition="Window.IsVisible(SettingsCategory.xml) | Window.IsVisible(SettingsProfile.xml) | Window.IsVisible(SettingsSystemInfo.xml)">SubMenu_Settings</include>
 				
 			</control>
@@ -56,7 +54,7 @@
 		
 	</include>
 	
-	<!-- Addon browser side menu -->
+	<!-- Addon browser sub menu -->
 	<include name="SubMenu_AddonBrowser">
 		<control type="grouplist" id="3001">
 			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
@@ -149,7 +147,7 @@
 		</control>
 	</include>
 	
-	<!-- Favourites dialog side menu -->
+	<!-- Favourites dialog sub menu -->
 	<include name="SubMenu_DialogFavourites">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -170,7 +168,7 @@
 		</control>
 	</include>
 	
-	<!-- Event log side menu -->
+	<!-- Event log sub menu -->
 	<include name="SubMenu_EventLog">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -214,7 +212,7 @@
 		</control>
 	</include>
 	
-	<!-- My games side menu -->
+	<!-- My games sub menu -->
 	<include name="SubMenu_MyGames">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -304,7 +302,7 @@
 		</control>
 	</include>
 	
-	<!-- My music nav side menu -->
+	<!-- My music nav sub menu -->
 	<include name="SubMenu_MyMusicNav">
 		<control type="grouplist" id="3001">
 			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
@@ -430,7 +428,7 @@
 		</control>
 	</include>
 	
-	<!-- My pics nav side menu -->
+	<!-- My pics nav sub menu -->
 	<include name="SubMenu_MyPics">
 		<control type="grouplist" id="3001">
 			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
@@ -539,7 +537,7 @@
 		</control>
 	</include>
 	
-	<!-- My playlist side menu -->
+	<!-- My playlist sub menu -->
 	<include name="SubMenu_MyPlaylist">
 		<control type="grouplist" id="3001">
 			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
@@ -625,7 +623,7 @@
 		</control>
 	</include>
 	
-	<!-- My programs side menu -->
+	<!-- My programs sub menu -->
 	<include name="SubMenu_MyPrograms">
 		<control type="grouplist" id="3001">
 			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
@@ -716,7 +714,7 @@
 		</control>
 	</include>
 	
-	<!-- My PVR channels side menu -->
+	<!-- My PVR channels sub menu -->
 	<include name="SubMenu_MyPVRChannels">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -808,7 +806,7 @@
 		</control>
 	</include>
 	
-	<!-- My PVR guide side menu -->
+	<!-- My PVR guide sub menu -->
 	<include name="SubMenu_MyPVRGuide">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -895,7 +893,7 @@
 		</control>
 	</include>
 	
-	<!-- My PVR recordings side menu -->
+	<!-- My PVR recordings sub menu -->
 	<include name="SubMenu_MyPVRRecordings">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -993,7 +991,7 @@
 		</control>
 	</include>
 	
-	<!-- My PVR search side menu -->
+	<!-- My PVR search sub menu -->
 	<include name="SubMenu_MyPVRSearch">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -1075,7 +1073,7 @@
 		</control>
 	</include>
 	
-	<!-- My PVR timers side menu -->
+	<!-- My PVR timers sub menu -->
 	<include name="SubMenu_MyPVRTimers">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -1157,7 +1155,7 @@
 		</control>
 	</include>
 	
-	<!-- My video nav side menu -->
+	<!-- My video nav sub menu -->
 	<include name="SubMenu_MyVideoNav">
 		<control type="grouplist" id="3001">
 			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
@@ -1297,7 +1295,7 @@
 		</control>
 	</include>
 	
-	<!-- My weather side menu -->
+	<!-- My weather sub menu -->
 	<include name="SubMenu_MyWeather">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -1319,6 +1317,7 @@
 				<include>SubMenu_coords5</include>
 				<width>410</width>
 				<label>$LOCALIZE[31069]:</label>
+				<visible>!String.IsEmpty(Window(Weather).Property(Current.Condition)) + !String.IsEmpty(Window(Weather).Property(Daily.1.LongDay))</visible>
 			</control>
 			<!-- Refresh -->
 			<control type="button" id="2">
@@ -1331,7 +1330,7 @@
 		</control>
 	</include>
 	
-	<!-- Settings side menu -->
+	<!-- Settings sub menu -->
 	<include name="SubMenu_Settings">
 		<control type="grouplist" id="3001">
 			<include>SubMenu_coords4</include>
@@ -1698,7 +1697,7 @@
 			
 			<control type="group">
 				<visible>!Skin.HasSetting(KioskMode)</visible>
-				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(contextmenu) + [Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(532) | Control.IsVisible(533) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(536) | Control.IsVisible(537) | Control.IsVisible(538) | Control.IsVisible(539) | Window.IsVisible(addonbrowser) | Window.IsVisible(eventlog) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml)]</visible>
+				<visible>!ControlGroup(9002).HasFocus + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(contextmenu) + [Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(532) | Control.IsVisible(533) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(536) | Control.IsVisible(537) | Control.IsVisible(538) | Control.IsVisible(539) | Window.IsVisible(addonbrowser) | Window.IsVisible(eventlog) | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRRecordings.xml) | Window.IsVisible(MyPVRSearch.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyWeather.xml)]</visible>
 				<include>VisibleFadeAnimation</include>
 				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
 				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
