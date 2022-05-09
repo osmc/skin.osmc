@@ -3,16 +3,16 @@
 	<!-- osdvideosettings -->
 	<defaultcontrol always="true">11</defaultcontrol>
 	<zorder>0</zorder>
-	
+
 	<!-- Textbox scroll reset -->
 	<include>10609ResetScroll</include>
-	
+
 	<controls>
 
 		<control type="group">
 			<include>DialogDepth</include>
 			<include>DialogPVRChannelGuide_coords1</include>
-			
+
 			<!-- Animation -->
 			<include>DialogZoomAnimation</include>
 
@@ -37,7 +37,7 @@
 				<textcolor>$VAR[TextColorFO]</textcolor>
 				<label>$INFO[Container(11).ListItem.StartDate]</label>
 			</control>
-			
+
 			<!-- Icon -->
 			<control type="image">
 				<include>DialogPVRChannelGuide_coords5</include>
@@ -53,7 +53,7 @@
 				<texture background="true" fallback="DefaultRadio.png">$VAR[PlayerIcon]</texture>
 				<visible>MusicPlayer.Content(LiveTV)</visible>
 			</control>
-			
+
 			<!-- Episode Information -->
 			<control type="group">
 				<include>DialogPVRChannelGuide_coords6</include>
@@ -87,12 +87,14 @@
 			</control>
 
 			<!-- List -->
-			<control type="list" id="11">
+			<control type="fixedlist" id="11">
 				<include>DialogPVRChannelGuide_coords10</include>
 				<onleft>60</onleft>
 				<pagecontrol>60</pagecontrol>
 				<onup>11</onup>
 				<ondown>11</ondown>
+				<focusposition>5</focusposition>
+				<movement>5</movement>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 
 				<include>DialogPVRChannelGuide_coords11</include>
