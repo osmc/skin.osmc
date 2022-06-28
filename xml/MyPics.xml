@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- pictures -->
-	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<views>50,51</views>
 	
@@ -12,48 +11,53 @@
 	<include condition="!Skin.HasSetting(KioskMode)">SubMenuMenucontrol</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageVertical</include>
-		
-		<!-- Time -->
-		<include>Time</include>
-
-		<!-- Main group -->
+	
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
 
-			<!-- Views -->
-			<include>Viewtype50</include>
-			<include>Viewtype51</include>
+			<!-- Background -->
+			<include>WindowBackgroundImageVertical</include>
+			
+			<!-- Time -->
+			<include>Time</include>
 
-			<!-- Scrollbar (list) -->
-			<control type="scrollbar" id="60">
-				<include>MyPics_coords</include>
-				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-				<onright>50</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<include>BackgroundOverlayStyleScrollbarVertical</include>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51)]</visible>
+			<!-- Main group -->
+			<control type="group">
+				<include>WindowFadeAnimation</include>
+
+				<!-- Views -->
+				<include>Viewtype50</include>
+				<include>Viewtype51</include>
+
+				<!-- Scrollbar (list) -->
+				<control type="scrollbar" id="60">
+					<include>MyPics_coords</include>
+					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
+					<onright>50</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<include>BackgroundOverlayStyleScrollbarVertical</include>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51)]</visible>
+				</control>
+
+				<!-- Item count -->
+				<include>ItemCount</include>
+				
+				<!-- Sub menu indicator -->
+				<include>SubMenuIndicator</include>
+				
+				<!-- Sub menu -->
+				<include>SubMenu</include>
+
 			</control>
 
-			<!-- Item count -->
-			<include>ItemCount</include>
+			<include>MaskingBars</include>
 			
-			<!-- Sub menu indicator -->
-			<include>SubMenuIndicator</include>
-			
-			<!-- Sub menu -->
-			<include>SubMenu</include>
-
 		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 

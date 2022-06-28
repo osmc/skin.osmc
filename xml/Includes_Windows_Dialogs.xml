@@ -8,6 +8,11 @@
 		<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>
 		<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 	</include>
+	
+	<!-- Window fulscreen dialog overlay animation -->
+	<include name="WindowFullscreenDialogFadeAnimation">
+		<animation effect="fade" start="100" end="0" time="1" delay="300" reversible="false" condition="Window.IsActive(Custom_Confirm_Reset_Skin_Settings.xml) | Window.IsActive(Custom_Welcome.xml) | Window.IsActive(DialogAddonInfo.xml) | Window.IsActive(DialogAddonSettings.xml) | Window.IsActive(DialogConfirm.xml) | Window.IsActive(DialogGameControllers.xml) | Window.IsActive(DialogKeyboard.xml) | Window.IsActive(DialogMediaSource.xml) | Window.IsActive(DialogMusicInfo.xml) | Window.IsActive(DialogNumeric.xml) | Window.IsActive(DialogPictureInfo.xml) | Window.IsActive(DialogPVRChannelManager.xml) | Window.IsActive(DialogPVRGroupManager.xml) | Window.IsActive(DialogPVRGuideSearch.xml) | Window.IsActive(DialogPVRInfo.xml) | Window.IsActive(DialogSettings.xml) | Window.IsActive(DialogTextViewer.xml) | Window.IsActive(DialogVideoInfo.xml) | Window.IsActive(FileBrowser.xml) | Window.IsActive(script-skin_helper_service-ColorPicker.xml) | Window.IsActive(SmartPlaylistEditor.xml) | Window.IsActive(SmartPlaylistRule.xml)">Conditional</animation>
+	</include>
 
 	<!-- Visible animation -->
 	<include name="VisibleFadeAnimation">
@@ -104,14 +109,6 @@
 	</include>
 	
 	<include name="WindowBackgroundImage">
-		<!-- Black background image -->
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture background="true">common/white.png</texture>
-			<colordiffuse>FF000000</colordiffuse>
-			<aspectratio>scale</aspectratio>
-			<include>BackgroundDepth</include>
-		</control>
 		<!-- Background video -->
 		<control type="videowindow">
 			<include>FullscreenDimensions</include>
@@ -126,6 +123,7 @@
 			<colordiffuse>$VAR[SolidBackgroundColor]</colordiffuse>
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 			<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) + String.IsEqual(Skin.String(BackgroundSingleImage),solid)</visible>
+			<visible>!Control.IsEnabled(11000)</visible>
 			<aspectratio>scale</aspectratio>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -138,6 +136,7 @@
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
+			<visible>!Control.IsEnabled(11000)</visible>
 			<aspectratio>scale</aspectratio>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -150,6 +149,7 @@
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background))</visible>
+			<visible>!Control.IsEnabled(11000)</visible>
 			<aspectratio>scale</aspectratio>
 			<include>CustomBackgroundFolderDuration</include>
 			<fadetime>2000</fadetime>
@@ -168,6 +168,7 @@
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + ![String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)] + Window.IsVisible(Home)</visible>
+			<visible>!Control.IsEnabled(11000)</visible>
 			<aspectratio>scale</aspectratio>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -181,6 +182,7 @@
 			<visible>![Player.HasVideo + Skin.HasSetting(BackgroundVideo)]</visible>
 			<visible>![Player.HasAudio + [!String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) | !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image))] + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]]</visible>
 			<visible>!String.IsEmpty(Container(9000).ListItem.Property(background)) + [String.EndsWith(Container(9000).ListItem.Property(background),\) | String.EndsWith(Container(9000).ListItem.Property(background),/)] + Window.IsVisible(Home)</visible>
+			<visible>!Control.IsEnabled(11000)</visible>
 			<aspectratio>scale</aspectratio>
 			<include>IndividualBackgroundFolderDuration</include>
 			<fadetime>2000</fadetime>
@@ -199,6 +201,7 @@
 			<fadetime>400</fadetime>
 			<texture background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow.Image)]</texture>
 			<visible>Player.HasAudio + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.Image)) + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]</visible>
+			<visible>!Control.IsEnabled(11000)</visible>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<include>WindowFadeAnimation</include>
@@ -213,6 +216,7 @@
 			<randomize>true</randomize>
 			<loop>yes</loop>
 			<visible>Player.HasAudio + !String.IsEmpty(Window(Visualisation).Property(ArtistSlideshow.ArtworkReady)) + [Skin.HasSetting(EnableArtistFanart) | Window.IsVisible(visualisation)]</visible>
+			<visible>!Control.IsEnabled(11000)</visible>
 			<animation effect="fade" start="0" end="100" time="200" delay="70">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<include>WindowFadeAnimation</include>
@@ -220,7 +224,7 @@
 		</control>
 		
 		<!-- Fanart -->
-		<control type="image" id="10000">
+		<control type="image" id="11000">
 			<include>FullscreenDimensions</include>
 			<texture background="true" fallback="transparent.png">$VAR[widgetBackground]</texture>
 			<aspectratio>scale</aspectratio>
@@ -233,6 +237,7 @@
 			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 			<include>WindowFadeAnimation</include>
 			<include>BackgroundDepth</include>
+			<enable>!String.IsEqual(Control.GetLabel(11000),transparent.png) + !String.IsEmpty(Control.GetLabel(11000))</enable>
 		</control>
 
 		<!-- Visualisation -->
@@ -273,21 +278,13 @@
 	
 	<!-- Dialog fanart -->
 	<include name="DialogBackgroundImage">
-		<!-- Black background image -->
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture background="true">common/white.png</texture>
-			<colordiffuse>FF000000</colordiffuse>
-			<aspectratio>scale</aspectratio>
-			<include>DialogZoomAnimation</include>
-			<include>DialogBackgroundDepth</include>
-		</control>
 		<!-- Color -->
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture background="true">common/white.png</texture>
 			<colordiffuse>$VAR[SolidBackgroundColor]</colordiffuse>
 			<visible>String.IsEqual(Skin.String(BackgroundDefaultImage),no) | String.IsEqual(Skin.String(BackgroundSingleImage),solid)</visible>
+			<visible>!Control.IsEnabled(11001)</visible>
 			<aspectratio>scale</aspectratio>
 			<include>DialogZoomAnimation</include>
 			<include>DialogBackgroundDepth</include>
@@ -297,6 +294,7 @@
 			<include>FullscreenDimensions</include>
 			<texture background="true">$VAR[OSMCBackgroundImage]</texture>
 			<visible>[String.IsEqual(Skin.String(BackgroundDefaultImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),yes) | String.IsEqual(Skin.String(BackgroundSingleImage),no) + String.IsEmpty(Skin.String(CustomBackgroundFolder))] + String.IsEmpty(Container(9000).ListItem.Property(background)) + String.IsEmpty(ListItem.Art(fanart))</visible>
+			<visible>!Control.IsEnabled(11001)</visible>
 			<aspectratio>scale</aspectratio>
 			<include>DialogZoomAnimation</include>
 			<include>DialogBackgroundDepth</include>
@@ -306,6 +304,7 @@
 			<include>FullscreenDimensions</include>
 			<imagepath background="true">$VAR[OSMCBackgroundImage]</imagepath>
 			<visible>String.IsEqual(Skin.String(BackgroundSingleImage),no) + !String.IsEmpty(Skin.String(CustomBackgroundFolder)) + String.IsEmpty(Container(9000).ListItem.Property(background)) + String.IsEmpty(ListItem.Art(fanart))</visible>
+			<visible>!Control.IsEnabled(11001)</visible>
 			<aspectratio>scale</aspectratio>
 			<include>CustomBackgroundFolderDuration</include>
 			<fadetime>2000</fadetime>
@@ -323,6 +322,7 @@
 			<visible>!Skin.HasSetting(HideFanart)</visible>
 			<include>DialogZoomAnimation</include>
 			<include>DialogBackgroundDepth</include>
+			<enable>!String.IsEqual(Control.GetLabel(11001),transparent.png) + !String.IsEmpty(Control.GetLabel(11001))</enable>
 		</control>
 		<!-- Overlay -->
 		<control type="group">

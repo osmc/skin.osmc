@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- Login screen -->
-	<backgroundcolor>0</backgroundcolor>
+	<!-- loginscreen -->
 	<defaultcontrol always="true">52</defaultcontrol>
 	
 	<!-- Textbox scroll reset -->
@@ -14,90 +13,95 @@
 	<include>Onloads</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageVertical</include>
-
-		<!-- Time -->
-		<include>Time</include>
-
-		<!-- Logo -->
-		<control type="image">
-			<include>LoginScreen_coords1</include>
-			<texture>logo.png</texture>
-			<include>WindowFadeAnimation</include>
-		</control>
-
-		<!-- Main group -->
+	
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
 
-			<!-- Image -->
+			<!-- Background -->
+			<include>WindowBackgroundImageVertical</include>
+
+			<!-- Time -->
+			<include>Time</include>
+
+			<!-- Logo -->
 			<control type="image">
-				<include>LoginScreen_coords2</include>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<aspectratio aligny="center">keep</aspectratio>
-				<visible>!String.Contains(ListItem.Icon,unknown-user)</visible>
-			</control>
-			<control type="image">
-				<include>LoginScreen_coords2</include>
-				<texture>DefaultActor.png</texture>
-				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
-				<aspectratio aligny="center">keep</aspectratio>
-				<visible>String.Contains(ListItem.Icon,unknown-user)</visible>
+				<include>LoginScreen_coords1</include>
+				<texture>logo.png</texture>
+				<include>WindowFadeAnimation</include>
 			</control>
 
-			<!-- View -->
-			<control type="fixedlist" id="52">
-				<include>LoginScreen_coords3</include>
-				<onup>52</onup>
-				<ondown>52</ondown>
-				<onleft>60</onleft>
-				<onright>noop</onright>
-				<pagecontrol>60</pagecontrol>
-				<focusposition>4</focusposition>
-				<orientation>vertical</orientation>
-				<viewtype label="535">list</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
-
-				<include>LoginScreen_coords4</include>
-
-				<include>LoginScreen_coords5</include>
-
-			</control>
-			
-			<!-- Scrollbar (list) -->
-			<control type="scrollbar" id="60">
-				<include>LoginScreen_coords3</include>
-				<onleft condition="!Skin.HasSetting(KioskMode)">ActivateWindow(shutdownmenu)</onleft>
-				<onright>52</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<include>BackgroundOverlayStyleScrollbarVertical</include>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars)</visible>
-			</control>
-			
+			<!-- Main group -->
 			<control type="group">
-				<visible>Control.HasFocus(52) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(contextmenu)</visible>
-				<include>VisibleFadeAnimation</include>
-				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
-				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+				<include>WindowFadeAnimation</include>
+
+				<!-- Image -->
 				<control type="image">
-					<left>10</left>
-					<centertop>50%</centertop>
-					<width>30</width>
-					<height>30</height>
-					<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
+					<include>LoginScreen_coords2</include>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<aspectratio aligny="center">keep</aspectratio>
+					<visible>!String.Contains(ListItem.Icon,unknown-user)</visible>
 				</control>
+				<control type="image">
+					<include>LoginScreen_coords2</include>
+					<texture>DefaultActor.png</texture>
+					<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+					<aspectratio aligny="center">keep</aspectratio>
+					<visible>String.Contains(ListItem.Icon,unknown-user)</visible>
+				</control>
+
+				<!-- View -->
+				<control type="fixedlist" id="52">
+					<include>LoginScreen_coords3</include>
+					<onup>52</onup>
+					<ondown>52</ondown>
+					<onleft>60</onleft>
+					<onright>noop</onright>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>4</focusposition>
+					<orientation>vertical</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<include>LoginScreen_coords4</include>
+
+					<include>LoginScreen_coords5</include>
+
+				</control>
+				
+				<!-- Scrollbar (list) -->
+				<control type="scrollbar" id="60">
+					<include>LoginScreen_coords3</include>
+					<onleft condition="!Skin.HasSetting(KioskMode)">ActivateWindow(shutdownmenu)</onleft>
+					<onright>52</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<include>BackgroundOverlayStyleScrollbarVertical</include>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars)</visible>
+				</control>
+				
+				<control type="group">
+					<visible>Control.HasFocus(52) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(contextmenu)</visible>
+					<include>VisibleFadeAnimation</include>
+					<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
+					<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+					<control type="image">
+						<left>10</left>
+						<centertop>50%</centertop>
+						<width>30</width>
+						<height>30</height>
+						<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
+					</control>
+				</control>
+
 			</control>
 
+			<include>MaskingBars</include>
+			
 		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 

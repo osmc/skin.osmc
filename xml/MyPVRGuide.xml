@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- pvrguide -->
-	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">10</defaultcontrol>
 	<views>10</views>
 	
@@ -12,224 +11,229 @@
 	<include condition="!Skin.HasSetting(KioskMode)">SubMenuMenucontrol</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageHorizontalEPG</include>
-		
-		<!-- Time -->
-		<include>Time</include>
-
-		<!-- Main group -->
+	
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
 
+			<!-- Background -->
+			<include>WindowBackgroundImageHorizontalEPG</include>
+			
+			<!-- Time -->
+			<include>Time</include>
+
+			<!-- Main group -->
 			<control type="group">
-				<include>VisibleFadeAnimation</include>
-				<visible>Pvr.HasTVChannels + Window.IsVisible(TVGuide) | Pvr.HasRadioChannels + Window.IsVisible(RadioGuide)</visible>
-				
-				<!-- EPG Grid -->
-				<control type="epggrid" id="10">
-					<include>MyPVRGuide_coords2</include>
-					<onup>10</onup>
-					<ondown>10</ondown>
-					<onleft>10</onleft>
-					<onright>10</onright>
-					<onback condition="Control.IsVisible(60)">60</onback>
-					<onback condition="!Control.IsVisible(60)">3001</onback>
-					<rulerunit>12</rulerunit>
-					<timeblocks>54</timeblocks>
-					<pagecontrol>60</pagecontrol>
-					<viewtype label="19032">list</viewtype>
-					<progresstexture border="4,61,4,4">pvr/ProgressTimeline.png</progresstexture>
-					<scrolltime tween="sine" easing="out">240</scrolltime>
+				<include>WindowFadeAnimation</include>
 
-					<include>MyPVRGuide_coords3</include>
-
-					<include>MyPVRGuide_coords4</include>
-
-					<include>MyPVRGuide_coords5</include>
-
-					<include>MyPVRGuide_coords6</include>
-
-					<include>MyPVRGuide_coords7</include>
-
-				</control>
-				
-				<!-- Scrollbar -->
-				<control type="scrollbar" id="60">
-					<include>MyPVRGuide_coords1</include>
-					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-					<onright>10</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib></textureslidernib>
-					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-
-				<!-- Program preview & info -->
 				<control type="group">
-					<include>MyPVRGuide_coords8</include>
+					<include>VisibleFadeAnimation</include>
+					<visible>Pvr.HasTVChannels + Window.IsVisible(TVGuide) | Pvr.HasRadioChannels + Window.IsVisible(RadioGuide)</visible>
+					
+					<!-- EPG Grid -->
+					<control type="epggrid" id="10">
+						<include>MyPVRGuide_coords2</include>
+						<onup>10</onup>
+						<ondown>10</ondown>
+						<onleft>10</onleft>
+						<onright>10</onright>
+						<onback condition="Control.IsVisible(60)">60</onback>
+						<onback condition="!Control.IsVisible(60)">3001</onback>
+						<rulerunit>12</rulerunit>
+						<timeblocks>54</timeblocks>
+						<pagecontrol>60</pagecontrol>
+						<viewtype label="19032">list</viewtype>
+						<progresstexture border="4,61,4,4">pvr/ProgressTimeline.png</progresstexture>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
 
-					<control type="image">
-						<include>MyPVRGuide_coords9</include>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<fadetime>200</fadetime>
-						<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-						<visible>Window.IsVisible(TVGuide)</visible>
-					</control>
-					
-					<control type="image">
-						<include>MyPVRGuide_coords9</include>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<fadetime>200</fadetime>
-						<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-						<visible>Window.IsVisible(RadioGuide)</visible>
-					</control>
+						<include>MyPVRGuide_coords3</include>
 
-					<control type="fadelabel">
-						<include>MyPVRGuide_coords10</include>
-						<font>Font33-bold</font>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-					</control>
+						<include>MyPVRGuide_coords4</include>
 
-					<control type="fadelabel">
-						<include>MyPVRGuide_coords11</include>
-						<label>$INFO[ListItem.EpisodeName]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<visible>!String.IsEmpty(ListItem.EpisodeName)</visible>
+						<include>MyPVRGuide_coords5</include>
+
+						<include>MyPVRGuide_coords6</include>
+
+						<include>MyPVRGuide_coords7</include>
+
 					</control>
 					
-					<control type="fadelabel">
-						<include>MyPVRGuide_coords12</include>
-						<font>Font33-light</font>
-						<label>$INFO[ListItem.Genre]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
-					</control>
-					
-					<control type="label">
-						<include>MyPVRGuide_coords13</include>
-						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
-					</control>
-					
-					<control type="fadelabel">
-						<include>MyPVRGuide_coords11</include>
-						<font>Font33-light</font>
-						<label>$INFO[ListItem.Genre]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<visible>String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
-					</control>
-					
-					<control type="label">
-						<include>MyPVRGuide_coords12</include>
-						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<visible>String.IsEmpty(ListItem.EpisodeName) | String.IsEmpty(ListItem.Genre)</visible>
-					</control>
-					
-					<control type="fadelabel">
-						<include>MyPVRGuide_coords11</include>
-						<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<visible>String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Genre)</visible>
+					<!-- Scrollbar -->
+					<control type="scrollbar" id="60">
+						<include>MyPVRGuide_coords1</include>
+						<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
+						<onright>10</onright>
+						<showonepage>false</showonepage>
+						<orientation>vertical</orientation>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+						<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+						<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+						<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+						<textureslidernib></textureslidernib>
+						<textureslidernibfocus></textureslidernibfocus>
+						<visible>!Skin.HasSetting(Scrollbars)</visible>
 					</control>
 
-					<!-- Plot -->
+					<!-- Program preview & info -->
 					<control type="group">
-						<include>MyPVRGuide_coords14</include>
-						<control type="textbox">
-							<include>MyPVRGuide_coords15</include>
-							<font>Font27</font>
-							<align>left</align>
-							<label>$INFO[ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10702)]</label>
-							<textcolor>$VAR[TextColorFO]</textcolor>
-							<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,S)</visible>
+						<include>MyPVRGuide_coords8</include>
+
+						<control type="image">
+							<include>MyPVRGuide_coords9</include>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<fadetime>200</fadetime>
+							<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+							<visible>Window.IsVisible(TVGuide)</visible>
 						</control>
-						<control type="textbox">
-							<include>MyPVRGuide_coords16</include>
-							<font>Font30</font>
-							<align>left</align>
-							<label>$INFO[ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10702)]</label>
-							<textcolor>$VAR[TextColorFO]</textcolor>
-							<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,M)</visible>
+						
+						<control type="image">
+							<include>MyPVRGuide_coords9</include>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<fadetime>200</fadetime>
+							<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+							<visible>Window.IsVisible(RadioGuide)</visible>
 						</control>
-						<control type="textbox">
-							<include>MyPVRGuide_coords17</include>
-							<font>Font33</font>
-							<align>left</align>
-							<label>$INFO[ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10702)]</label>
+
+						<control type="fadelabel">
+							<include>MyPVRGuide_coords10</include>
+							<font>Font33-bold</font>
+							<label>$INFO[ListItem.Label]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
-							<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
-							<visible>Skin.String(PlotFont,L)</visible>
 						</control>
+
+						<control type="fadelabel">
+							<include>MyPVRGuide_coords11</include>
+							<label>$INFO[ListItem.EpisodeName]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<visible>!String.IsEmpty(ListItem.EpisodeName)</visible>
+						</control>
+						
+						<control type="fadelabel">
+							<include>MyPVRGuide_coords12</include>
+							<font>Font33-light</font>
+							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
+						</control>
+						
+						<control type="label">
+							<include>MyPVRGuide_coords13</include>
+							<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<visible>!String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
+						</control>
+						
+						<control type="fadelabel">
+							<include>MyPVRGuide_coords11</include>
+							<font>Font33-light</font>
+							<label>$INFO[ListItem.Genre]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<visible>String.IsEmpty(ListItem.EpisodeName) + !String.IsEmpty(ListItem.Genre)</visible>
+						</control>
+						
+						<control type="label">
+							<include>MyPVRGuide_coords12</include>
+							<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<visible>String.IsEmpty(ListItem.EpisodeName) | String.IsEmpty(ListItem.Genre)</visible>
+						</control>
+						
+						<control type="fadelabel">
+							<include>MyPVRGuide_coords11</include>
+							<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<visible>String.IsEmpty(ListItem.EpisodeName) + String.IsEmpty(ListItem.Genre)</visible>
+						</control>
+
+						<!-- Plot -->
+						<control type="group">
+							<include>MyPVRGuide_coords14</include>
+							<control type="textbox">
+								<include>MyPVRGuide_coords15</include>
+								<font>Font27</font>
+								<align>left</align>
+								<label>$INFO[ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10702)]</label>
+								<textcolor>$VAR[TextColorFO]</textcolor>
+								<autoscroll delay="8000" time="1800" repeat="10000">true</autoscroll>
+								<visible>Skin.String(PlotFont,S)</visible>
+							</control>
+							<control type="textbox">
+								<include>MyPVRGuide_coords16</include>
+								<font>Font30</font>
+								<align>left</align>
+								<label>$INFO[ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10702)]</label>
+								<textcolor>$VAR[TextColorFO]</textcolor>
+								<autoscroll delay="8000" time="1700" repeat="10000">true</autoscroll>
+								<visible>Skin.String(PlotFont,M)</visible>
+							</control>
+							<control type="textbox">
+								<include>MyPVRGuide_coords17</include>
+								<font>Font33</font>
+								<align>left</align>
+								<label>$INFO[ListItem.Plot]$INFO[Window(Home).Property(ResetScroll.10702)]</label>
+								<textcolor>$VAR[TextColorFO]</textcolor>
+								<autoscroll delay="8000" time="1600" repeat="10000">true</autoscroll>
+								<visible>Skin.String(PlotFont,L)</visible>
+							</control>
+						</control>
+
+					</control>
+					
+					<!-- Channel count -->
+					<control type="fadelabel">
+						<include>MyPVRGuide_coords18</include>
+						<visible>!Skin.HasSetting(ItemCount)</visible>
+						<align>right</align>
+						<label>$INFO[Container(10).NumItems]$VAR[ContentType, ,]</label>
+						<font>Font30</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(10).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 					</control>
 
 				</control>
 				
-				<!-- Channel count -->
-				<control type="fadelabel">
-					<include>MyPVRGuide_coords18</include>
-					<visible>!Skin.HasSetting(ItemCount)</visible>
-					<align>right</align>
-					<label>$INFO[Container(10).NumItems]$VAR[ContentType, ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(10).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+				<!-- Sub menu indicator -->
+				<control type="group">
+					<visible>!Window.IsVisible(contextmenu) + Control.HasFocus(10)</visible>
+					<include>VisibleFadeAnimation</include>
+					<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
+					<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+					<control type="image">
+						<include>SubMenu_coords13</include>
+						<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-return.png</texture>
+						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+					</control>
 				</control>
+				<control type="group">
+					<visible>!Window.IsVisible(contextmenu) + !Skin.HasSetting(KioskMode) + Control.HasFocus(60)</visible>
+					<include>VisibleFadeAnimation</include>
+					<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
+					<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
+					<control type="image">
+						<include>SubMenu_coords13</include>
+						<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
+						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+					</control>
+				</control>
+				
+				<!-- Sub menu -->
+				<include>SubMenu</include>
 
 			</control>
 			
-			<!-- Sub menu indicator -->
-			<control type="group">
-				<visible>!Window.IsVisible(contextmenu) + Control.HasFocus(10)</visible>
-				<include>VisibleFadeAnimation</include>
-				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
-				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
-				<control type="image">
-					<include>SubMenu_coords13</include>
-					<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-return.png</texture>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-				</control>
+			<!-- Channels group name hidden label -->
+			<control type="label" id="30">
+				<left>-10000</left>
+				<top>-10000</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Font72</font>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<label></label>
 			</control>
-			<control type="group">
-				<visible>!Window.IsVisible(contextmenu) + !Skin.HasSetting(KioskMode) + Control.HasFocus(60)</visible>
-				<include>VisibleFadeAnimation</include>
-				<animation effect="slide" time="200" start="-200,0" end="0,0">WindowOpen</animation>
-				<animation effect="slide" time="200" start="0,0" end="-200,0">WindowClose</animation>
-				<control type="image">
-					<include>SubMenu_coords13</include>
-					<texture colordiffuse="$VAR[OverlayColorNF]">sub-menu-left.png</texture>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container.NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-				</control>
-			</control>
+
+			<include>MaskingBars</include>
 			
-			<!-- Sub menu -->
-			<include>SubMenu</include>
-
 		</control>
-		
-		<!-- Channels group name hidden label -->
-		<control type="label" id="30">
-			<left>-10000</left>
-			<top>-10000</top>
-			<width>1620</width>
-			<height>72</height>
-			<font>Font72</font>
-			<textcolor>$VAR[TextColorFO]</textcolor>
-			<label></label>
-		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 

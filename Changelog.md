@@ -2,16 +2,10 @@
 
 ---
 
-**_v19.1.2_**
-
-_New_
-- reset textboxes to top scrolling position during dialog or window switches
+**_v19.1.3_**
 
 _Improved_
-- improve inital window/dialog focus fix (only apply where needed)
-
-_Fixed_
-- always show OSD playlist button when expected
+- improve window draw performance
 
 ---
 
@@ -415,27 +409,15 @@ Release
 
 ---
 
-**Changelog v19.1.2**
+**Changelog v19.1.3**
 
-_remove WindowDialogFocus include from all windows and dialogs where not needed_
-_add ResetScroll include to all windows and dialogs_
-_add SubMenuResetScroll to all windows that offer a sub menu_
-_add ResetScroll window property infolabel to all plot and description textboxes_
-_add new Coordinates_Includes_SubMenu.xml, Includes_ResetScroll.xml and Includes_SubMenu.xml files for sub menu restructure and new scroll reset feature_
-_move all sub menus to new Includes file and replace sub menus by includes in respective window files_
+_add fade animations to all windows to hide content while fullscreen dialogs are visible_
 
-Includes_ResetScroll.xml:
-- add new ResetScroll, 1101ResetScroll, 10004ResetScroll, 10035ResetScroll, 10135ResetScroll, 10146ResetScroll, 10600ResetScroll, 10608ResetScroll, 10609ResetScroll, 10700ResetScroll, 10701ResetScroll, 10702ResetScroll, 10704ResetScroll, 12003ResetScroll, 12005ResetScroll, 12006ResetScroll, 12600ResetScroll, MediaWindowResetScroll, VideoOSDResetScroll and SubMenuResetScroll includes
-
-MusicOSD.xml:
-- fix playlist button onlick dialog close command
-- fix playlist button visibility condition to always show the button when expected
-- add textbox reset scroll onclick actions to music OSD info button
-
-VideoOSD.xml:
-- fix onlick dialog close command
-- fix playlist button visibility condition to always show the button when expected
-- add oninfo actions to all video OSD controls to always invoke fullscreen info dialog to reliably trigger textbox scroll reset
+Includes_Windows_Dialogs.xml:
+- add new WindowFullscreenDialogFadeAnimation animation include
+- remove unnecessary Black background image from WindowBackgroundImage and DialogBackgroundImage includes
+- add visible conditions to hide background images while fanart image control is enabled
+- add visible conditions to only enable fanart image control, if it's actually populated
 
 addon.xml:
-- bump version to 19.1.2
+- bump version to 19.1.3
