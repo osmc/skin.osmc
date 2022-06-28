@@ -1,151 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- filemanager -->
-	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">20</defaultcontrol>
 	
 	<!-- Textbox scroll reset -->
 	<include>ResetScroll</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageHorizontalLow2</include>
-
-		<!-- Time -->
-		<include content="Time">
-			<param name="heading">$LOCALIZE[7]</param>
-		</include>
-		
-		<!-- Main group -->
+	
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
 
-			<!-- Left group -->
+			<!-- Background -->
+			<include>WindowBackgroundImageHorizontalLow2</include>
+
+			<!-- Time -->
+			<include content="Time">
+				<param name="heading">$LOCALIZE[7]</param>
+			</include>
+			
+			<!-- Main group -->
 			<control type="group">
-				<include>FileManager_coords1</include>
+				<include>WindowFadeAnimation</include>
 
-				<!-- Root label -->
-				<control type="label" id="101">
-					<include>FileManager_coords2</include>
-					<font>Font36</font>
-					<haspath>true</haspath>
-					<textcolor>$VAR[TextColorNF]</textcolor>
+				<!-- Left group -->
+				<control type="group">
+					<include>FileManager_coords1</include>
+
+					<!-- Root label -->
+					<control type="label" id="101">
+						<include>FileManager_coords2</include>
+						<font>Font36</font>
+						<haspath>true</haspath>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
+
+					<!-- Seperator -->
+					<control type="image">
+						<include>FileManager_coords3</include>
+						<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+					</control>
+
+					<!-- Left list -->
+					<control type="list" id="20">
+						<include>FileManager_coords4</include>
+						<onright>80</onright>
+						<onleft>70</onleft>
+						<onup>20</onup>
+						<ondown>20</ondown>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+						<pagecontrol>70</pagecontrol>
+
+						<include>FileManager_coords5</include>
+
+						<include>FileManager_coords6</include>
+
+					</control>
+					
+					<!-- Scrollbar (left list) -->
+					<control type="scrollbar" id="70">
+						<include>FileManager_coords7</include>
+						<onright>20</onright>
+						<showonepage>false</showonepage>
+						<orientation>vertical</orientation>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+						<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+						<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+						<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+						<textureslidernib></textureslidernib>
+						<textureslidernibfocus></textureslidernibfocus>
+						<visible>!Skin.HasSetting(Scrollbars)</visible>
+					</control>
+
+					<!-- Item count -->
+					<control type="fadelabel">
+						<include>FileManager_coords8</include>
+						<align>left</align>
+						<label>$INFO[Container(20).NumItems]$VAR[ContentTypeFileManager20, ,]</label>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(20).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+					</control>
+
 				</control>
 
-				<!-- Seperator -->
-				<control type="image">
-					<include>FileManager_coords3</include>
-					<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
-				</control>
+				<!-- Right group -->
+				<control type="group">
+					<include>FileManager_coords9</include>
 
-				<!-- Left list -->
-				<control type="list" id="20">
-					<include>FileManager_coords4</include>
-					<onright>80</onright>
-					<onleft>70</onleft>
-					<onup>20</onup>
-					<ondown>20</ondown>
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-					<pagecontrol>70</pagecontrol>
+					<!-- Root label -->
+					<control type="label" id="102">
+						<include>FileManager_coords10</include>
+						<font>Font36</font>
+						<haspath>true</haspath>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+					</control>
 
-					<include>FileManager_coords5</include>
+					<!-- Seperator -->
+					<control type="image">
+						<include>FileManager_coords11</include>
+						<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
+					</control>
 
-					<include>FileManager_coords6</include>
+					<!-- Right list -->
+					<control type="list" id="21">
+						<include>FileManager_coords12</include>
+						<onleft>80</onleft>
+						<onup>21</onup>
+						<ondown>21</ondown>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+						<pagecontrol>80</pagecontrol>
 
-				</control>
-				
-				<!-- Scrollbar (left list) -->
-				<control type="scrollbar" id="70">
-					<include>FileManager_coords7</include>
-					<onright>20</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib></textureslidernib>
-					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
+						<include>FileManager_coords13</include>
 
-				<!-- Item count -->
-				<control type="fadelabel">
-					<include>FileManager_coords8</include>
-					<align>left</align>
-					<label>$INFO[Container(20).NumItems]$VAR[ContentTypeFileManager20, ,]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(20).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+						<include>FileManager_coords14</include>
+
+					</control>
+					
+					<!-- Scrollbar (right list) -->
+					<control type="scrollbar" id="80">
+						<include>FileManager_coords15</include>
+						<onright>21</onright>
+						<onleft>20</onleft>
+						<showonepage>false</showonepage>
+						<orientation>vertical</orientation>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+						<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+						<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+						<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+						<textureslidernib></textureslidernib>
+						<textureslidernibfocus></textureslidernibfocus>
+						<visible>!Skin.HasSetting(Scrollbars)</visible>
+					</control>
+					
+					<!-- Item count -->
+					<control type="fadelabel">
+						<include>FileManager_coords16</include>
+						<align>right</align>
+						<label>$INFO[Container(21).NumItems]$VAR[ContentTypeFileManager21, ,]</label>
+						<font>Font33</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(21).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+					</control>
+					
 				</control>
 
 			</control>
 
-			<!-- Right group -->
-			<control type="group">
-				<include>FileManager_coords9</include>
-
-				<!-- Root label -->
-				<control type="label" id="102">
-					<include>FileManager_coords10</include>
-					<font>Font36</font>
-					<haspath>true</haspath>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-				</control>
-
-				<!-- Seperator -->
-				<control type="image">
-					<include>FileManager_coords11</include>
-					<texture border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollBackgroundHorizontal.png</texture>
-				</control>
-
-				<!-- Right list -->
-				<control type="list" id="21">
-					<include>FileManager_coords12</include>
-					<onleft>80</onleft>
-					<onup>21</onup>
-					<ondown>21</ondown>
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-					<pagecontrol>80</pagecontrol>
-
-					<include>FileManager_coords13</include>
-
-					<include>FileManager_coords14</include>
-
-				</control>
-				
-				<!-- Scrollbar (right list) -->
-				<control type="scrollbar" id="80">
-					<include>FileManager_coords15</include>
-					<onright>21</onright>
-					<onleft>20</onleft>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib></textureslidernib>
-					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-				
-				<!-- Item count -->
-				<control type="fadelabel">
-					<include>FileManager_coords16</include>
-					<align>right</align>
-					<label>$INFO[Container(21).NumItems]$VAR[ContentTypeFileManager21, ,]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(21).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-				</control>
-				
-			</control>
-
+			<include>MaskingBars</include>
+			
 		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 

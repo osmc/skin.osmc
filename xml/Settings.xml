@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- settings -->
-	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<onload condition="!String.IsEmpty(Window(settings).Property(ChangeSettingsLevel))">ClearProperty(ChangeSettingsLevel)</onload>
 	
@@ -9,138 +8,143 @@
 	<include>10004ResetScroll</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageVerticalHome</include>
-		
-		<!-- Time -->
-		<include content="Time">
-			<param name="narrow">True</param>
-			<param name="wide">False</param>
-		</include>
-		
-		<!-- Main group -->
+	
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
+
+			<!-- Background -->
+			<include>WindowBackgroundImageVerticalHome</include>
 			
-			<!-- Main list -->
-			<control type="list" id="9000">
-				<include>Settings_coords1</include>
-				<focusposition>7</focusposition>
-				<defaultcontrol>1</defaultcontrol>
-				<orientation>vertical</orientation>
-				<viewtype label="535">list</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
+			<!-- Time -->
+			<include content="Time">
+				<param name="narrow">True</param>
+				<param name="wide">False</param>
+			</include>
+			
+			<!-- Main group -->
+			<control type="group">
+				<include>WindowFadeAnimation</include>
+				
+				<!-- Main list -->
+				<control type="list" id="9000">
+					<include>Settings_coords1</include>
+					<focusposition>7</focusposition>
+					<defaultcontrol>1</defaultcontrol>
+					<orientation>vertical</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
 
-				<include>Settings_coords2</include>
+					<include>Settings_coords2</include>
 
-				<include>Settings_coords3</include>
+					<include>Settings_coords3</include>
 
-				<content>
-					<!-- Interface -->
-					<item>
-						<label>$LOCALIZE[14206]</label>
-						<onclick>ActivateWindow(InterfaceSettings)</onclick>
-					</item>
+					<content>
+						<!-- Interface -->
+						<item>
+							<label>$LOCALIZE[14206]</label>
+							<onclick>ActivateWindow(InterfaceSettings)</onclick>
+						</item>
 
-					<!-- Player -->
-					<item>
-						<label>$LOCALIZE[16003]</label>
-						<onclick>ActivateWindow(PlayerSettings)</onclick>
-					</item>
+						<!-- Player -->
+						<item>
+							<label>$LOCALIZE[16003]</label>
+							<onclick>ActivateWindow(PlayerSettings)</onclick>
+						</item>
 
-					<!-- Library -->
-					<item>
-						<label>$LOCALIZE[14211]</label>
-						<onclick>ActivateWindow(MediaSettings)</onclick>
-					</item>
+						<!-- Library -->
+						<item>
+							<label>$LOCALIZE[14211]</label>
+							<onclick>ActivateWindow(MediaSettings)</onclick>
+						</item>
 
-					<!-- TV -->
-					<item>
-						<label>$LOCALIZE[31015]</label>
-						<onclick>ActivateWindow(pvrsettings)</onclick>
-					</item>
-					
-					<!-- Games -->
-					<item>
-						<label>$LOCALIZE[15016]</label>
-						<onclick>ActivateWindow(GameSettings)</onclick>
-					</item>
+						<!-- TV -->
+						<item>
+							<label>$LOCALIZE[31015]</label>
+							<onclick>ActivateWindow(pvrsettings)</onclick>
+						</item>
+						
+						<!-- Games -->
+						<item>
+							<label>$LOCALIZE[15016]</label>
+							<onclick>ActivateWindow(GameSettings)</onclick>
+						</item>
 
-					<!-- Profiles -->
-					<item>
-						<label>$LOCALIZE[13200]</label>
-						<onclick>ActivateWindow(profiles)</onclick>
-					</item>
+						<!-- Profiles -->
+						<item>
+							<label>$LOCALIZE[13200]</label>
+							<onclick>ActivateWindow(profiles)</onclick>
+						</item>
 
-					<!-- Services -->
-					<item>
-						<label>$LOCALIZE[14036]</label>
-						<onclick>ActivateWindow(servicesettings)</onclick>
-					</item>
+						<!-- Services -->
+						<item>
+							<label>$LOCALIZE[14036]</label>
+							<onclick>ActivateWindow(servicesettings)</onclick>
+						</item>
 
-					<!-- System -->
-					<item>
-						<label>$LOCALIZE[13000]</label>
-						<onclick>ActivateWindow(systemsettings)</onclick>
-					</item>
-					
-					<!-- My OSMC -->
-					<item>
-						<label>$LOCALIZE[31091]</label>
-						<onclick>RunScript(service.osmc.settings)</onclick>
-						<visible>System.HasAddon(service.osmc.settings)</visible>
-					</item>
+						<!-- System -->
+						<item>
+							<label>$LOCALIZE[13000]</label>
+							<onclick>ActivateWindow(systemsettings)</onclick>
+						</item>
+						
+						<!-- My OSMC -->
+						<item>
+							<label>$LOCALIZE[31091]</label>
+							<onclick>RunScript(service.osmc.settings)</onclick>
+							<visible>System.HasAddon(service.osmc.settings)</visible>
+						</item>
 
-					<!-- System info -->
-					<item>
-						<label>$LOCALIZE[130]</label>
-						<onclick>ActivateWindow(systeminfo)</onclick>
-					</item>
+						<!-- System info -->
+						<item>
+							<label>$LOCALIZE[130]</label>
+							<onclick>ActivateWindow(systeminfo)</onclick>
+						</item>
 
-					<!-- Add-on browser -->
-					<item>
-						<label>$LOCALIZE[10040]</label>
-						<onclick>ActivateWindow(addonbrowser)</onclick>
-					</item>
+						<!-- Add-on browser -->
+						<item>
+							<label>$LOCALIZE[10040]</label>
+							<onclick>ActivateWindow(addonbrowser)</onclick>
+						</item>
 
-					<!-- File manager -->
-					<item>
-						<label>$LOCALIZE[7]</label>
-						<onclick>ActivateWindow(filemanager)</onclick>
-					</item>
-				</content>
+						<!-- File manager -->
+						<item>
+							<label>$LOCALIZE[7]</label>
+							<onclick>ActivateWindow(filemanager)</onclick>
+						</item>
+					</content>
+
+				</control>
+				
+				<!-- Settings description -->
+				<control type="textbox">
+					<include>Settings_coords4</include>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<font>Font27</font>
+					<label>$VAR[SettingsExplanation]$INFO[Window(Home).Property(ResetScroll.10004)]</label>
+					<visible>Skin.String(PlotFont,S)</visible>
+				</control>
+				
+				<control type="textbox">
+					<include>Settings_coords5</include>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<font>Font30</font>
+					<label>$VAR[SettingsExplanation]$INFO[Window(Home).Property(ResetScroll.10004)]</label>
+					<visible>Skin.String(PlotFont,M)</visible>
+				</control>
+				
+				<control type="textbox">
+					<include>Settings_coords6</include>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<font>Font33</font>
+					<label>$VAR[SettingsExplanation]$INFO[Window(Home).Property(ResetScroll.10004)]</label>
+					<visible>Skin.String(PlotFont,L)</visible>
+				</control>
 
 			</control>
-			
-			<!-- Settings description -->
-			<control type="textbox">
-				<include>Settings_coords4</include>
-				<textcolor>$VAR[TextColorFO]</textcolor>
-				<font>Font27</font>
-				<label>$VAR[SettingsExplanation]$INFO[Window(Home).Property(ResetScroll.10004)]</label>
-				<visible>Skin.String(PlotFont,S)</visible>
-			</control>
-			
-			<control type="textbox">
-				<include>Settings_coords5</include>
-				<textcolor>$VAR[TextColorFO]</textcolor>
-				<font>Font30</font>
-				<label>$VAR[SettingsExplanation]$INFO[Window(Home).Property(ResetScroll.10004)]</label>
-				<visible>Skin.String(PlotFont,M)</visible>
-			</control>
-			
-			<control type="textbox">
-				<include>Settings_coords6</include>
-				<textcolor>$VAR[TextColorFO]</textcolor>
-				<font>Font33</font>
-				<label>$VAR[SettingsExplanation]$INFO[Window(Home).Property(ResetScroll.10004)]</label>
-				<visible>Skin.String(PlotFont,L)</visible>
-			</control>
 
+			<include>MaskingBars</include>
+			
 		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 
