@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- Addon browser -->
-	<backgroundcolor>0</backgroundcolor>
+	<!-- addonbrowser -->
 	<defaultcontrol always="true">500</defaultcontrol>
 	<views>500</views>
 	
@@ -21,72 +20,77 @@
 	<include>Onloads</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageVertical</include>
 		
-		<!-- Time -->
-		<include>Time</include>
-
-		<!-- Main group -->
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
+
+			<!-- Background -->
+			<include>WindowBackgroundImageVertical</include>
 			
-			<!-- Image -->
-			<control type="image">
-				<include>AddonBrowser_coords1</include>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
-				<aspectratio aligny="center">keep</aspectratio>
+			<!-- Time -->
+			<include>Time</include>
+
+			<!-- Main group -->
+			<control type="group">
+				<include>WindowFadeAnimation</include>
+				
+				<!-- Image -->
+				<control type="image">
+					<include>AddonBrowser_coords1</include>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
+					<aspectratio aligny="center">keep</aspectratio>
+				</control>
+
+				<!-- List -->
+				<control type="fixedlist" id="500">
+					<include>AddonBrowser_coords2</include>
+					<onup>500</onup>
+					<ondown>500</ondown>
+					<onleft>60</onleft>
+					<onright condition="!Skin.HasSetting(KioskMode)">3001</onright>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>4</focusposition>
+					<orientation>vertical</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+					<visible>!String.IsEmpty(Container.FolderPath)</visible>
+
+					<include>AddonBrowser_coords3</include>
+
+					<include>AddonBrowser_coords4</include>
+
+				</control>
+
+				<!-- Scrollbar -->
+				<control type="scrollbar" id="60">
+					<include>AddonBrowser_coords5</include>
+					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
+					<onright>500</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<include>BackgroundOverlayStyleScrollbarVertical</include>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(500)</visible>
+				</control>
+
+				<!-- Item count -->
+				<include>ItemCount</include>
+				
+				<!-- Sub menu indicator -->
+				<include>SubMenuIndicator</include>
+				
+				<!-- Sub menu -->
+				<include>SubMenu</include>
+				
 			</control>
 
-			<!-- List -->
-			<control type="fixedlist" id="500">
-				<include>AddonBrowser_coords2</include>
-				<onup>500</onup>
-				<ondown>500</ondown>
-				<onleft>60</onleft>
-				<onright condition="!Skin.HasSetting(KioskMode)">3001</onright>
-				<pagecontrol>60</pagecontrol>
-				<focusposition>4</focusposition>
-				<orientation>vertical</orientation>
-				<viewtype label="535">list</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>!String.IsEmpty(Container.FolderPath)</visible>
-
-				<include>AddonBrowser_coords3</include>
-
-				<include>AddonBrowser_coords4</include>
-
-			</control>
-
-			<!-- Scrollbar -->
-			<control type="scrollbar" id="60">
-				<include>AddonBrowser_coords5</include>
-				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-				<onright>500</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<include>BackgroundOverlayStyleScrollbarVertical</include>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(500)</visible>
-			</control>
-
-			<!-- Item count -->
-			<include>ItemCount</include>
-			
-			<!-- Sub menu indicator -->
-			<include>SubMenuIndicator</include>
-			
-			<!-- Sub menu -->
-			<include>SubMenu</include>
+			<include>MaskingBars</include>
 			
 		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- musicplaylisteditor -->
-	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">6</defaultcontrol>
 	<views>50</views>
 	
@@ -9,293 +8,298 @@
 	<include>ResetScroll</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageHorizontalLow2</include>
-		
-		<!-- Time -->
-		<include content="Time">
-			<param name="heading">$LOCALIZE[10503]</param>
-		</include>
-
-		<!-- Main group -->
+	
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
 
-			<!-- Left group -->
+			<!-- Background -->
+			<include>WindowBackgroundImageHorizontalLow2</include>
+			
+			<!-- Time -->
+			<include content="Time">
+				<param name="heading">$LOCALIZE[10503]</param>
+			</include>
+
+			<!-- Main group -->
 			<control type="group">
-				<include>MyMusicPlaylistEditor_coords1</include>
+				<include>WindowFadeAnimation</include>
 
-				<!-- Heading -->
-				<control type="label">
-					<include>MyMusicPlaylistEditor_coords2</include>
-					<font>Font36</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<label>31007</label>
-					<align>center</align>
-				</control>
-
-				<!-- Left list -->
-				<control type="list" id="50">
-					<include>MyMusicPlaylistEditor_coords3</include>
-					<onright>70</onright>
-					<onup>50</onup>
-					<ondown>50</ondown>
-					<pagecontrol>70</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-
-					<include>MyMusicPlaylistEditor_coords4</include>
-
-					<include>MyMusicPlaylistEditor_coords5</include>
-
-				</control>
-				
-				<!-- Scrollbar (left list) -->
-				<control type="scrollbar" id="70">
-					<include>MyMusicPlaylistEditor_coords6</include>
-					<onright>9000</onright>
-					<onleft>50</onleft>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib></textureslidernib>
-					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-
-				<!-- Number label -->
-				<control type="grouplist">
-					<include>MyMusicPlaylistEditor_coords7</include>
-					<align>left</align>
-					<itemgap>6</itemgap>
-					<orientation>horizontal</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>left</align>
-						<font>Font33</font>
-						<label>$INFO[Container(50).NumItems]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>left</align>
-						<label>31000</label>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<visible>!Integer.IsGreater(Container(50).NumItems,1)</visible>
-					</control>
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>left</align>
-						<label>31001</label>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<visible>Integer.IsGreater(Container(50).NumItems,1)</visible>
-					</control>
-				</control>
-
-			</control>
-
-			<!-- Middle group -->
-			<control type="group">
-				<include>MyMusicPlaylistEditor_coords8</include>
-
-				<!-- Heading -->
-				<control type="label">
-					<include>MyMusicPlaylistEditor_coords9</include>
-					<font>Font36</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<label>31008</label>
-					<align>center</align>
-				</control>
-
+				<!-- Left group -->
 				<control type="group">
-					<visible>Control.HasFocus(50)</visible>
+					<include>MyMusicPlaylistEditor_coords1</include>
 
-					<!-- Image -->
-					<control type="image">
-						<include>MyMusicPlaylistEditor_coords10</include>
-						<texture fallback="DefaultAddonMusic.png">$INFO[Container(50).ListItem.Icon]</texture>
-						<aspectratio aligny="top">scale</aspectratio>
+					<!-- Heading -->
+					<control type="label">
+						<include>MyMusicPlaylistEditor_coords2</include>
+						<font>Font36</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+						<label>31007</label>
+						<align>center</align>
 					</control>
 
-					<!-- Details -->
-					<control type="fadelabel">
-						<include>MyMusicPlaylistEditor_coords11</include>
-						<font>Font27</font>
-						<align>center</align>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[Container(50).ListItem.Artist]</label>
+					<!-- Left list -->
+					<control type="list" id="50">
+						<include>MyMusicPlaylistEditor_coords3</include>
+						<onright>70</onright>
+						<onup>50</onup>
+						<ondown>50</ondown>
+						<pagecontrol>70</pagecontrol>
+						<preloaditems>2</preloaditems>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+
+						<include>MyMusicPlaylistEditor_coords4</include>
+
+						<include>MyMusicPlaylistEditor_coords5</include>
+
 					</control>
-					<control type="fadelabel">
-						<include>MyMusicPlaylistEditor_coords12</include>
-						<font>Font27</font>
-						<align>center</align>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[Container(50).ListItem.Album]</label>
+					
+					<!-- Scrollbar (left list) -->
+					<control type="scrollbar" id="70">
+						<include>MyMusicPlaylistEditor_coords6</include>
+						<onright>9000</onright>
+						<onleft>50</onleft>
+						<showonepage>false</showonepage>
+						<orientation>vertical</orientation>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+						<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+						<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+						<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+						<textureslidernib></textureslidernib>
+						<textureslidernibfocus></textureslidernibfocus>
+						<visible>!Skin.HasSetting(Scrollbars)</visible>
+					</control>
+
+					<!-- Number label -->
+					<control type="grouplist">
+						<include>MyMusicPlaylistEditor_coords7</include>
+						<align>left</align>
+						<itemgap>6</itemgap>
+						<orientation>horizontal</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<control type="label">
+							<width>auto</width>
+							<height>44</height>
+							<align>left</align>
+							<font>Font33</font>
+							<label>$INFO[Container(50).NumItems]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="label">
+							<width>auto</width>
+							<height>44</height>
+							<align>left</align>
+							<label>31000</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<visible>!Integer.IsGreater(Container(50).NumItems,1)</visible>
+						</control>
+						<control type="label">
+							<width>auto</width>
+							<height>44</height>
+							<align>left</align>
+							<label>31001</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<visible>Integer.IsGreater(Container(50).NumItems,1)</visible>
+						</control>
 					</control>
 
 				</control>
 
+				<!-- Middle group -->
 				<control type="group">
-					<visible>Control.HasFocus(100)</visible>
+					<include>MyMusicPlaylistEditor_coords8</include>
 
-					<!-- Image -->
-					<control type="image">
-						<include>MyMusicPlaylistEditor_coords10</include>
-						<texture fallback="DefaultAddonMusic.png">$INFO[Container(100).ListItem.Icon]</texture>
-						<aspectratio aligny="top">scale</aspectratio>
+					<!-- Heading -->
+					<control type="label">
+						<include>MyMusicPlaylistEditor_coords9</include>
+						<font>Font36</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+						<label>31008</label>
+						<align>center</align>
 					</control>
 
-					<!-- Details -->
-					<control type="fadelabel">
-						<include>MyMusicPlaylistEditor_coords11</include>
-						<font>Font27</font>
-						<align>center</align>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[Container(100).ListItem.Artist]</label>
+					<control type="group">
+						<visible>Control.HasFocus(50)</visible>
+
+						<!-- Image -->
+						<control type="image">
+							<include>MyMusicPlaylistEditor_coords10</include>
+							<texture fallback="DefaultAddonMusic.png">$INFO[Container(50).ListItem.Icon]</texture>
+							<aspectratio aligny="top">scale</aspectratio>
+						</control>
+
+						<!-- Details -->
+						<control type="fadelabel">
+							<include>MyMusicPlaylistEditor_coords11</include>
+							<font>Font27</font>
+							<align>center</align>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<label>$INFO[Container(50).ListItem.Artist]</label>
+						</control>
+						<control type="fadelabel">
+							<include>MyMusicPlaylistEditor_coords12</include>
+							<font>Font27</font>
+							<align>center</align>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<label>$INFO[Container(50).ListItem.Album]</label>
+						</control>
+
 					</control>
-					<control type="fadelabel">
-						<include>MyMusicPlaylistEditor_coords12</include>
-						<font>Font27</font>
-						<align>center</align>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[Container(100).ListItem.Album]</label>
+
+					<control type="group">
+						<visible>Control.HasFocus(100)</visible>
+
+						<!-- Image -->
+						<control type="image">
+							<include>MyMusicPlaylistEditor_coords10</include>
+							<texture fallback="DefaultAddonMusic.png">$INFO[Container(100).ListItem.Icon]</texture>
+							<aspectratio aligny="top">scale</aspectratio>
+						</control>
+
+						<!-- Details -->
+						<control type="fadelabel">
+							<include>MyMusicPlaylistEditor_coords11</include>
+							<font>Font27</font>
+							<align>center</align>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<label>$INFO[Container(100).ListItem.Artist]</label>
+						</control>
+						<control type="fadelabel">
+							<include>MyMusicPlaylistEditor_coords12</include>
+							<font>Font27</font>
+							<align>center</align>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<label>$INFO[Container(100).ListItem.Album]</label>
+						</control>
+
+					</control>
+
+					<!-- Middle grouplist -->
+					<control type="grouplist" id="9000">
+						<include>MyMusicPlaylistEditor_coords13</include>
+						<itemgap>0</itemgap>
+						<onleft>70</onleft>
+						<onright>80</onright>
+						<onup>9000</onup>
+						<ondown>9000</ondown>
+						<orientation>vertical</orientation>
+
+						<!-- Open Button -->
+						<control type="button" id="6">
+							<align>center</align>
+							<label>31009</label>
+							<include>MyMusicPlaylistEditor_coords14</include>
+							<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+						</control>
+
+						<!-- Save Button -->
+						<control type="button" id="7">
+							<align>center</align>
+							<label>31010</label>
+							<include>MyMusicPlaylistEditor_coords14</include>
+							<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+						</control>
+
+						<!-- Clear Button -->
+						<control type="button" id="8">
+							<align>center</align>
+							<label>31011</label>
+							<include>MyMusicPlaylistEditor_coords14</include>
+							<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+						</control>
+
 					</control>
 
 				</control>
 
-				<!-- Middle grouplist -->
-				<control type="grouplist" id="9000">
-					<include>MyMusicPlaylistEditor_coords13</include>
-					<itemgap>0</itemgap>
-					<onleft>70</onleft>
-					<onright>80</onright>
-					<onup>9000</onup>
-					<ondown>9000</ondown>
-					<orientation>vertical</orientation>
+				<!-- Right group -->
+				<control type="group">
+					<include>MyMusicPlaylistEditor_coords15</include>
 
-					<!-- Open Button -->
-					<control type="button" id="6">
+					<!-- Heading -->
+					<control type="label">
+						<include>MyMusicPlaylistEditor_coords2</include>
+						<font>Font36</font>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+						<label>31012</label>
 						<align>center</align>
-						<label>31009</label>
-						<include>MyMusicPlaylistEditor_coords14</include>
-						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
 					</control>
 
-					<!-- Save Button -->
-					<control type="button" id="7">
-						<align>center</align>
-						<label>31010</label>
-						<include>MyMusicPlaylistEditor_coords14</include>
-						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+					<!-- Right list -->
+					<control type="list" id="100">
+						<include>MyMusicPlaylistEditor_coords3</include>
+						<onleft>80</onleft>
+						<onup>100</onup>
+						<ondown>100</ondown>
+						<pagecontrol>80</pagecontrol>
+						<preloaditems>2</preloaditems>
+						<scrolltime tween="sine" easing="out">240</scrolltime>
+
+						<include>MyMusicPlaylistEditor_coords16</include>
+
+						<include>MyMusicPlaylistEditor_coords17</include>
+
+					</control>
+					
+					<!-- Scrollbar (right list) -->
+					<control type="scrollbar" id="80">
+						<include>MyMusicPlaylistEditor_coords18</include>
+						<onleft>9000</onleft>
+						<onright>100</onright>
+						<showonepage>false</showonepage>
+						<orientation>vertical</orientation>
+						<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+						<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+						<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+						<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+						<textureslidernib></textureslidernib>
+						<textureslidernibfocus></textureslidernibfocus>
+						<visible>!Skin.HasSetting(Scrollbars)</visible>
 					</control>
 
-					<!-- Clear Button -->
-					<control type="button" id="8">
-						<align>center</align>
-						<label>31011</label>
-						<include>MyMusicPlaylistEditor_coords14</include>
-						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus66c.png</texturefocus>
+					<!-- Number label -->
+					<control type="grouplist">
+						<include>MyMusicPlaylistEditor_coords7</include>
+						<align>right</align>
+						<itemgap>6</itemgap>
+						<orientation>horizontal</orientation>
+						<usecontrolcoords>true</usecontrolcoords>
+						<control type="label">
+							<width>auto</width>
+							<height>44</height>
+							<align>right</align>
+							<font>Font33</font>
+							<label>$INFO[Container(100).NumItems]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="label">
+							<width>auto</width>
+							<height>44</height>
+							<align>right</align>
+							<label>31000</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<visible>!Integer.IsGreater(Container(100).NumItems,1)</visible>
+						</control>
+						<control type="label">
+							<width>auto</width>
+							<height>44</height>
+							<align>right</align>
+							<label>31001</label>
+							<font>Font33</font>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<visible>Integer.IsGreater(Container(100).NumItems,1)</visible>
+						</control>
 					</control>
 
 				</control>
 
 			</control>
 
-			<!-- Right group -->
-			<control type="group">
-				<include>MyMusicPlaylistEditor_coords15</include>
-
-				<!-- Heading -->
-				<control type="label">
-					<include>MyMusicPlaylistEditor_coords2</include>
-					<font>Font36</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<label>31012</label>
-					<align>center</align>
-				</control>
-
-				<!-- Right list -->
-				<control type="list" id="100">
-					<include>MyMusicPlaylistEditor_coords3</include>
-					<onleft>80</onleft>
-					<onup>100</onup>
-					<ondown>100</ondown>
-					<pagecontrol>80</pagecontrol>
-					<preloaditems>2</preloaditems>
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-
-					<include>MyMusicPlaylistEditor_coords16</include>
-
-					<include>MyMusicPlaylistEditor_coords17</include>
-
-				</control>
-				
-				<!-- Scrollbar (right list) -->
-				<control type="scrollbar" id="80">
-					<include>MyMusicPlaylistEditor_coords18</include>
-					<onleft>9000</onleft>
-					<onright>100</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-					<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-					<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
-					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-					<textureslidernib></textureslidernib>
-					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars)</visible>
-				</control>
-
-				<!-- Number label -->
-				<control type="grouplist">
-					<include>MyMusicPlaylistEditor_coords7</include>
-					<align>right</align>
-					<itemgap>6</itemgap>
-					<orientation>horizontal</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<font>Font33</font>
-						<label>$INFO[Container(100).NumItems]</label>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-					</control>
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>31000</label>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<visible>!Integer.IsGreater(Container(100).NumItems,1)</visible>
-					</control>
-					<control type="label">
-						<width>auto</width>
-						<height>44</height>
-						<align>right</align>
-						<label>31001</label>
-						<font>Font33</font>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<visible>Integer.IsGreater(Container(100).NumItems,1)</visible>
-					</control>
-				</control>
-
-			</control>
-
+			<include>MaskingBars</include>
+			
 		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 

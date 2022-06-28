@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- pvrchannels -->
-	<backgroundcolor>0</backgroundcolor>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<views>50</views>
 	
@@ -12,140 +11,145 @@
 	<include condition="!Skin.HasSetting(KioskMode)">SubMenuMenucontrol</include>
 
 	<controls>
-
-		<!-- Background -->
-		<include>WindowBackgroundImageVertical</include>
-		
-		<!-- Time -->
-		<include>Time</include>
-
-		<!-- Main group -->
+	
 		<control type="group">
-			<include>WindowFadeAnimation</include>
+			<include>WindowFullscreenDialogFadeAnimation</include>
 
-			<!-- Episode Info -->
+			<!-- Background -->
+			<include>WindowBackgroundImageVertical</include>
+			
+			<!-- Time -->
+			<include>Time</include>
+
+			<!-- Main group -->
 			<control type="group">
-				<include>MyPVRChannels_coords1</include>
+				<include>WindowFadeAnimation</include>
 
-				<!-- Episode image -->
+				<!-- Episode Info -->
 				<control type="group">
-					<control type="image">
-						<include>MyPVRChannels_coords2</include>
-						<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<fadetime>200</fadetime>
-						<visible>Window.IsVisible(TVChannels)</visible>
+					<include>MyPVRChannels_coords1</include>
+
+					<!-- Episode image -->
+					<control type="group">
+						<control type="image">
+							<include>MyPVRChannels_coords2</include>
+							<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<fadetime>200</fadetime>
+							<visible>Window.IsVisible(TVChannels)</visible>
+						</control>
+						
+						<control type="image">
+							<include>MyPVRChannels_coords2</include>
+							<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<fadetime>200</fadetime>
+							<visible>Window.IsVisible(RadioChannels)</visible>
+						</control>
 					</control>
-					
-					<control type="image">
-						<include>MyPVRChannels_coords2</include>
-						<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<fadetime>200</fadetime>
-						<visible>Window.IsVisible(RadioChannels)</visible>
+
+					<!-- Episode Information -->
+					<control type="group">
+						<include>MyPVRChannels_coords3</include>
+						<visible>!Integer.IsEqual(Container(50).NumItems,0)</visible>
+						<include>VisibleFadeAnimation</include>
+						<control type="textbox">
+							<include>MyPVRChannels_coords4</include>
+							<font>Font27</font>
+							<align>left</align>
+							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
+							<visible>Skin.String(PlotFont,S)</visible>
+						</control>
+						<control type="textbox">
+							<include>MyPVRChannels_coords5</include>
+							<font>Font30</font>
+							<align>left</align>
+							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
+							<visible>Skin.String(PlotFont,M)</visible>
+						</control>
+						<control type="textbox">
+							<include>MyPVRChannels_coords6</include>
+							<font>Font33</font>
+							<align>left</align>
+							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
+							<visible>Skin.String(PlotFont,L)</visible>
+						</control>
 					</control>
+
 				</control>
 
-				<!-- Episode Information -->
-				<control type="group">
-					<include>MyPVRChannels_coords3</include>
-					<visible>!Integer.IsEqual(Container(50).NumItems,0)</visible>
-					<include>VisibleFadeAnimation</include>
-					<control type="textbox">
-						<include>MyPVRChannels_coords4</include>
-						<font>Font27</font>
-						<align>left</align>
-						<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<autoscroll delay="5000" time="1400" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,S)</visible>
-					</control>
-					<control type="textbox">
-						<include>MyPVRChannels_coords5</include>
-						<font>Font30</font>
-						<align>left</align>
-						<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<autoscroll delay="5000" time="1300" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,M)</visible>
-					</control>
-					<control type="textbox">
-						<include>MyPVRChannels_coords6</include>
-						<font>Font33</font>
-						<align>left</align>
-						<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<autoscroll delay="5000" time="1200" repeat="10000">true</autoscroll>
-						<visible>Skin.String(PlotFont,L)</visible>
-					</control>
+				<!-- List -->
+				<control type="fixedlist" id="50">
+					<include>MyPVRChannels_coords7</include>
+					<onup>50</onup>
+					<ondown>50</ondown>
+					<onleft>60</onleft>
+					<pagecontrol>60</pagecontrol>
+					<focusposition>3</focusposition>
+					<orientation>vertical</orientation>
+					<viewtype label="535">list</viewtype>
+					<scrolltime tween="sine" easing="out">240</scrolltime>
+
+					<include>MyPVRChannels_coords8</include>
+
+					<include>MyPVRChannels_coords9</include>
+
 				</control>
 
-			</control>
+				<!-- Scrollbar (list) -->
+				<control type="scrollbar" id="60">
+					<include>MyPVRChannels_coords10</include>
+					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
+					<onright>50</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+					<include>BackgroundOverlayStyleScrollbarVertical</include>
+					<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+					<textureslidernib></textureslidernib>
+					<textureslidernibfocus></textureslidernibfocus>
+					<visible>!Skin.HasSetting(Scrollbars)</visible>
+				</control>
 
-			<!-- List -->
-			<control type="fixedlist" id="50">
-				<include>MyPVRChannels_coords7</include>
-				<onup>50</onup>
-				<ondown>50</ondown>
-				<onleft>60</onleft>
-				<pagecontrol>60</pagecontrol>
-				<focusposition>3</focusposition>
-				<orientation>vertical</orientation>
-				<viewtype label="535">list</viewtype>
-				<scrolltime tween="sine" easing="out">240</scrolltime>
+				<!-- Channel count -->
+				<control type="fadelabel">
+					<include>MyPVRChannels_coords11</include>
+					<visible>!Skin.HasSetting(ItemCount)</visible>
+					<align>right</align>
+					<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
+					<font>Font30</font>
+					<textcolor>$VAR[TextColorNF]</textcolor>
+					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+				</control>
+				
+				<!-- Sub menu indicator -->
+				<include>SubMenuIndicator</include>
+				
+				<!-- Sub menu -->
+				<include>SubMenu</include>
 
-				<include>MyPVRChannels_coords8</include>
-
-				<include>MyPVRChannels_coords9</include>
-
-			</control>
-
-			<!-- Scrollbar (list) -->
-			<control type="scrollbar" id="60">
-				<include>MyPVRChannels_coords10</include>
-				<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-				<onright>50</onright>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
-				<include>BackgroundOverlayStyleScrollbarVertical</include>
-				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
-				<textureslidernib></textureslidernib>
-				<textureslidernibfocus></textureslidernibfocus>
-				<visible>!Skin.HasSetting(Scrollbars)</visible>
-			</control>
-
-			<!-- Channel count -->
-			<control type="fadelabel">
-				<include>MyPVRChannels_coords11</include>
-				<visible>!Skin.HasSetting(ItemCount)</visible>
-				<align>right</align>
-				<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
-				<font>Font30</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
 			</control>
 			
-			<!-- Sub menu indicator -->
-			<include>SubMenuIndicator</include>
+			<!-- Channels group name hidden label -->
+			<control type="label" id="29">
+				<left>-10000</left>
+				<top>-10000</top>
+				<width>1620</width>
+				<height>72</height>
+				<font>Font72</font>
+				<textcolor>$VAR[TextColorFO]</textcolor>
+				<label></label>
+			</control>
+
+			<include>MaskingBars</include>
 			
-			<!-- Sub menu -->
-			<include>SubMenu</include>
-
 		</control>
-		
-		<!-- Channels group name hidden label -->
-		<control type="label" id="29">
-			<left>-10000</left>
-			<top>-10000</top>
-			<width>1620</width>
-			<height>72</height>
-			<font>Font72</font>
-			<textcolor>$VAR[TextColorFO]</textcolor>
-			<label></label>
-		</control>
-
-		<include>MaskingBars</include>
 
 	</controls>
 
