@@ -6,6 +6,11 @@
 
 _Improved_
 - improve window draw performance
+- rework home screen widget animation and heading/details behaviour
+
+_Fixed_
+- use proper localize for Player settings entry
+- fix default (non-skinshortcuts) home menu widget headings
 
 ---
 
@@ -413,11 +418,33 @@ Release
 
 _add fade animations to all windows to hide content while fullscreen dialogs are visible_
 
+template.xml:
+- only zoom in on weather widget icons, not text
+- adjust temperature font size of weather widget
+
+Includes_SubMenu.xml:
+- replace Player settings entry localize to use the proper one
+
+Includes_Widgets.xml:
+- remove slide effect from home screen widget animations
+- rework widget heading and details for less item movement on screen
+
 Includes_Windows_Dialogs.xml:
 - add new WindowFullscreenDialogFadeAnimation animation include
 - remove unnecessary Black background image from WindowBackgroundImage and DialogBackgroundImage includes
 - add visible conditions to hide background images while fanart image control is enabled
 - add visible conditions to only enable fanart image control, if it's actually populated
+
+script-skonshortcuts-static.xml:
+- add missing container2 parameter to widgetHeading includes
+- only zoom in on weather widget icons, not text
+- adjust temperature font size of weather widget
+
+Settings.xml:
+- replace Player settings entry localize to use the proper one
+
+Variables.xml:
+- replace Player settings entry localize in HeadingLabelSecondary variable to use the proper one
 
 addon.xml:
 - bump version to 19.1.3
