@@ -93,7 +93,7 @@
 						<include>MusicVisualisation_coords3</include>
 						<font>Font27-bold</font>
 						<align>center</align>
-						<label>$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)]$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)]</label>
+						<label>$INFO[Player.Chapter,, / ]$INFO[Player.ChapterCount]$INFO[MusicPlayer.PlaylistPosition,, / ]$INFO[MusicPlayer.PlaylistLength]</label>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<visible>!Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize)</visible>
 						<include>VisibleFadeAnimation</include>
@@ -104,7 +104,7 @@
 						<include>MusicVisualisation_coords3</include>
 						<font>Font27-bold</font>
 						<align>center</align>
-						<label>$INFO[MusicPlayer.PlaylistPosition,(,/]$INFO[MusicPlayer.PlaylistLength,,)]</label>
+						<label>$INFO[MusicPlayer.PlaylistPosition,, / ]$INFO[MusicPlayer.PlaylistLength]</label>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<visible>Window.IsVisible(visualisation) + String.IsEmpty(Player.SeekStepSize)</visible>
 						<include>VisibleFadeAnimation</include>
@@ -243,7 +243,7 @@
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
+						<label>$INFO[System.Time,$LOCALIZE[555]: ,]$INFO[Player.FinishTime, / $LOCALIZE[19081]: ,]</label>
 						<visible>!Pvr.IsPlayingRadio + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
@@ -252,7 +252,7 @@
 						<align>center</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[System.Time,$LOCALIZE[142] ,]</label>
+						<label>$INFO[System.Time,$LOCALIZE[555]: ,]</label>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
@@ -263,7 +263,7 @@
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081] ,]</label>
+						<label>$INFO[System.Time,$LOCALIZE[555]: ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081]: ,]</label>
 						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
