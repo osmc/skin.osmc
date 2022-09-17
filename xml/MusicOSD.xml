@@ -371,7 +371,8 @@
 			<control type="group">
 				<include>MusicOSD_coords10</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
-				<animation effect="slide" end="120,0" time="0" condition="!Integer.IsGreater(MusicPlayer.PlaylistLength,1)">Conditional</animation>
+				<animation effect="slide" end="120,0" time="0" condition="Control.IsVisible(13)">Conditional</animation>
+				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(13)">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(14)">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(19)">Conditional</animation>
 				<animation effect="slide" end="60,0" time="0" condition="!Control.IsVisible(20)">Conditional</animation>
