@@ -138,7 +138,7 @@
 						<include>VideoFullScreen_coords7</include>
 						<font>Font27-bold</font>
 						<align>center</align>
-						<label>$INFO[Player.Chapter,(,/]$INFO[Player.ChapterCount,,)]</label>
+						<label>$INFO[Player.Chapter,, / ]$INFO[Player.ChapterCount]</label>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<visible>Integer.IsGreater(Player.ChapterCount,0) + String.IsEmpty(Player.SeekStepSize) + [String.IsEmpty(Player.SeekNumeric) | !String.IsEmpty(Player.SeekNumeric) + Window.IsVisible(fullscreeninfo)]</visible>
 						<include>VisibleFadeAnimation</include>
@@ -337,7 +337,7 @@
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[Player.FinishTime, / $LOCALIZE[19081] ,]</label>
+						<label>$INFO[System.Time,$LOCALIZE[555]: ,]$INFO[Player.FinishTime, / $LOCALIZE[19081]: ,]</label>
 						<visible>!Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
@@ -346,7 +346,7 @@
 						<align>center</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[System.Time,$LOCALIZE[142] ,]</label>
+						<label>$INFO[System.Time,$LOCALIZE[555]: ,]</label>
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
@@ -357,7 +357,7 @@
 						<align>right</align>
 						<font>Font27</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<label>$INFO[System.Time,$LOCALIZE[142] ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081] ,]</label>
+						<label>$INFO[System.Time,$LOCALIZE[555]: ,]$INFO[PVR.EpgEventFinishTime, / $LOCALIZE[19081]: ,]</label>
 						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
