@@ -8,8 +8,29 @@
 	
 	<!-- Background overlay -->
 	<variable name="BackgroundOverlayStyle">
-		<value condition="!Skin.HasSetting(BackgroundOverlayStyle)">common/Background2.png</value>
-		<value condition="Skin.HasSetting(BackgroundOverlayStyle)">common/Background1.png</value>
+		<value condition="!Skin.HasSetting(BackgroundOverlayStyle)">$VAR[Background2]</value>
+		<value condition="Skin.HasSetting(BackgroundOverlayStyle)">$VAR[Background1]</value>
+	</variable>
+	
+	<variable name="Background1">
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">common/Background1High.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">common/Background1Medium.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">common/Background1Low.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">common/Background1Highest.png</value>
+	</variable>
+	
+	<variable name="Background2">
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">common/Background2High.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">common/Background2Medium.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">common/Background2Low.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">common/Background2Highest.png</value>
+	</variable>
+	
+	<variable name="MenuOSDBackground">
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),High)">common/Background2High.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),Medium)">common/Background2Medium.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),Low)">common/Background2Low.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),Highest)">common/Background2Highest.png</value>
 	</variable>
 
 	<!-- Background images/overlay -->
@@ -117,7 +138,8 @@
 		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
 		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
-		<value condition="Container.Content(episodes)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(episodes) + !System.Setting(hideunwatchedepisodethumbs)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(episodes) + System.Setting(hideunwatchedepisodethumbs)"></value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -164,6 +186,7 @@
 		<value condition="Window.IsVisible(weather) + !String.IsEqual(Weather.Location,$LOCALIZE[503])">$LOCALIZE[400]</value>
 		<value condition="Window.IsVisible(eventlog)">$LOCALIZE[14111]</value>
 		<value condition="Window.IsVisible(games)">$LOCALIZE[15016]</value>
+		<value condition="Window.IsVisible(favouritesbrowser)">$LOCALIZE[1036]</value>
 		<value>$INFO[Container.FolderName]</value>
 	</variable>
 	
@@ -353,15 +376,14 @@
 		<value condition="ListItem.IsParentFolder">noop</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + Skin.HasSetting(MusicListenedToStatus)">noop</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + Skin.HasSetting(VideoWatchedStatus)">noop</value>
-		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayResumable.png</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWatched.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76)">views/OverlayProgress7.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,63)">views/OverlayProgress6.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,51)">views/OverlayProgress5.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38)">views/OverlayProgress4.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26)">views/OverlayProgress3.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13)">views/OverlayProgress2.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,0)">views/OverlayProgress1.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),76)">views/OverlayProgress7.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,63) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),63)">views/OverlayProgress6.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,51) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),51)">views/OverlayProgress5.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),38)">views/OverlayProgress4.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),26)">views/OverlayProgress3.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),13)">views/OverlayProgress2.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,0) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),0)">views/OverlayProgress1.png</value>
 		<value condition="ListItem.IsResumable">views/OverlayResumable.png</value>
 		<value condition="!String.IsEmpty(ListItem.PlayCount)">views/OverlayProgressWatched.png</value>
 	</variable>
@@ -370,15 +392,14 @@
 		<value condition="ListItem.IsParentFolder">noop</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + Skin.HasSetting(MusicListenedToStatus)">noop</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + Skin.HasSetting(VideoWatchedStatus)">noop</value>
-		<value condition="ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">views/OverlayResumableWide.png</value>
 		<value condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png)">views/OverlayProgressWideWatched.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76)">views/OverlayProgressWide7.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,63)">views/OverlayProgressWide6.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,51)">views/OverlayProgressWide5.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38)">views/OverlayProgressWide4.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26)">views/OverlayProgressWide3.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13)">views/OverlayProgressWide2.png</value>
-		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,0)">views/OverlayProgressWide1.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,76) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),76)">views/OverlayProgressWide7.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,63) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),63)">views/OverlayProgressWide6.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,51) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),51)">views/OverlayProgressWide5.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,38) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),38)">views/OverlayProgressWide4.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,26) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),26)">views/OverlayProgressWide3.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,13) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),13)">views/OverlayProgressWide2.png</value>
+		<value condition="ListItem.IsResumable + Integer.IsGreater(ListItem.PercentPlayed,0) | [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)] + Integer.IsGreater(ListItem.Property(WatchedEpisodePercent),0)">views/OverlayProgressWide1.png</value>
 		<value condition="ListItem.IsResumable">views/OverlayResumableWide.png</value>
 		<value condition="!String.IsEmpty(ListItem.PlayCount)">views/OverlayProgressWideWatched.png</value>
 	</variable>
@@ -780,7 +801,7 @@
 
 	<!-- Audio/Video Duration -->
 	<variable name="MediaFlagsDuration">
-		<value condition="!String.IsEmpty(ListItem.Duration) + ![String.IsEqual(ListItem.Size,0 B) | String.IsEqual(ListItem.Size,0.000000 B)]">$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration) + ![String.StartsWith(ListItem.Size,0) + String.EndsWith(ListItem.Size,0 B)]">$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</value>
 		<value>$VAR[Duration]</value>
 	</variable>
 	
@@ -804,13 +825,13 @@
 	
 	<!-- Video Resolution labels -->
 	<variable name="VideoResolution">
-		<value condition="String.IsEqual(ListItem.VideoResolution,480)">$VAR[3DMode,, &#8226; ]NTSC (480)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,576)">$VAR[3DMode,, &#8226; ]PAL (576)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,540)">$VAR[3DMode,, &#8226; ]SD (540)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,720)">$VAR[3DMode,, &#8226; ]HD (720)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">$VAR[3DMode,, &#8226; ]Full HD (1080)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,4K)">$VAR[3DMode,, &#8226; ]UHD (4K)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">$VAR[3DMode,, &#8226; ]UHD (8K)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,480)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]720x480 (NTSC)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,576)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]720x576 (PAL)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,540)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]960x540 (SD)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,720)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]1280x720 (HD)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]1920x1080 (FHD)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,4K)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]4096x3072 (UHD)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]8192x6144 (SUHD)</value>
 	</variable>
 	
 	<!-- Video Codec labels -->
@@ -837,6 +858,12 @@
 		<value condition="String.Contains(ListItem.FileName,_ou-) | String.Contains(ListItem.FileName,_ou.) | String.Contains(ListItem.FileName,_ou_) | String.Contains(ListItem.FileName,_tab-) | String.Contains(ListItem.FileName,_tab.) | String.Contains(ListItem.FileName,_tab_) | String.Contains(ListItem.FileName,-ou-) | String.Contains(ListItem.FileName,-ou.) | String.Contains(ListItem.FileName,-ou_) | String.Contains(ListItem.FileName,-tab-) | String.Contains(ListItem.FileName,-tab.) | String.Contains(ListItem.FileName,-tab_) | String.Contains(ListItem.FileName,.ou-) | String.Contains(ListItem.FileName,.ou.) | String.Contains(ListItem.FileName,.ou_) | String.Contains(ListItem.FileName,.tab-) | String.Contains(ListItem.FileName,.tab.) | String.Contains(ListItem.FileName,.tab_)">3D (TAB)</value>
 		<value condition="String.Contains(ListItem.FileName,_sbs-) | String.Contains(ListItem.FileName,_sbs.) | String.Contains(ListItem.FileName,_sbs_) | String.Contains(ListItem.FileName,-sbs-) | String.Contains(ListItem.FileName,-sbs.) | String.Contains(ListItem.FileName,-sbs_) | String.Contains(ListItem.FileName,.sbs-) | String.Contains(ListItem.FileName,.sbs.) | String.Contains(ListItem.FileName,.sbs_)">3D (SBS)</value>
 		<value condition="ListItem.IsStereoscopic | String.Contains(ListItem.FileName,.3d-) | String.Contains(ListItem.FileName,.3d.) | String.Contains(ListItem.FileName,.3d_) | String.Contains(ListItem.FileName,-3d-) | String.Contains(ListItem.FileName,-3d.) | String.Contains(ListItem.FileName,-3d_) | String.Contains(ListItem.FileName,_3d-) | String.Contains(ListItem.FileName,_3d.) | String.Contains(ListItem.FileName,_3d_)">3D</value>
+	</variable>
+	
+	<!-- HDR type labels -->
+	<variable name="HDRType">
+		<value condition="String.IsEqual(ListItem.HdrType,dolbyvision)">DV</value>
+		<value condition="!String.IsEmpty(ListItem.HdrType)">$INFO[ListItem.HdrType,[UPPERCASE],[/UPPERCASE]]</value>
 	</variable>
 	
 	<!-- Season/Episode label -->

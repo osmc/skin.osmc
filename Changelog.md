@@ -2,6 +2,14 @@
 
 ---
 
+**_v20.0.0_**
+
+_New_
+- Support Nexus skin engine features
+- remove Skin Helper Service ColorPicker support
+
+---
+
 **_v19.1.3_**
 
 _Improved_
@@ -414,37 +422,111 @@ Release
 
 ---
 
-**Changelog v19.1.3**
+**Changelog v20.0.0**
 
-_add fade animations to all windows to hide content while fullscreen dialogs are visible_
+_add new Coordinates_DialogColorPicker.xml and DialogColorPicker.xml files_
+_add new Coordinates_MyFavourites.xml and MyFavourites.xml files_
+_remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
+_replace Background1.png and Background2.png links by new background overlay opacity variables_
 
-template.xml:
-- only zoom in on weather widget icons, not text
-- adjust temperature font size of weather widget
+strings.po:
+- update localizes for new colour picker (31405, 31407)
+- add new localizes for new colour picker (31438, 31439, 31440)
+
+Textures.xbt:
+- update textures file with new background overlay image files (for all four opacity levels)
+
+mainmenu.DATA.xml:
+- adjust default favourites main menu link to point to new favourites window
+
+overrides.xml:
+- adjust favourites main menu entry template to point to new favourites window
+
+Coordinates_Includes_MediaFlags.xml:
+- adjust media flags positioning
+- add new coordinates include for different media flags widths
+
+Coordinates_SkinSettings.xml:
+- adjust coordinates of colour settings entries
+
+Coordinates_Viewtype523.xml:
+- add new favourites image includes
+
+Coordinates_Viewtype535.xml:
+- add new favourites image includes
+
+Coordinates_Viewtype537.xml:
+- add new favourites image includes
+
+Custom_Overlay_Debug.xml:
+- add new entry for new favourites window and new colour picker dialog
+- remove entry of deprecates colour picker script dialog
+
+Defaults.xml:
+- add new colorbutton control
+
+DialogKeyboard.xml:
+- add new show/hide password buttin
+
+DialogPlayerProcessInfo.xml:
+- add new video scan type info label
+
+DialogSeekBar.xml:
+- replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
+
+Includes.xml:
+- add new Coordinates_DialogColorPicker.xml and Coordinates_MyFavourites.xml include files
+- remove deprevated Coordinates_script-skin_helper_service-ColorPicker.xml include file
+- adjust onloads to set default colour value to "Default" instead of "None"
+
+Includes_MediaFlags.xml:
+- change order of media flags for longer video info flags (duration on top)
 
 Includes_SubMenu.xml:
-- replace Player settings entry localize to use the proper one
+- add sub menu for new favourites window
 
-Includes_Widgets.xml:
-- remove slide effect from home screen widget animations
-- rework widget heading and details for less item movement on screen
+script-skinshortcuts-static.xml:
+- adjust default favourites main menu link to point to new favourites window
 
-Includes_Windows_Dialogs.xml:
-- add new WindowFullscreenDialogFadeAnimation animation include
-- remove unnecessary Black background image from WindowBackgroundImage and DialogBackgroundImage includes
-- add visible conditions to hide background images while fanart image control is enabled
-- add visible conditions to only enable fanart image control, if it's actually populated
+SettingsCategory.xml:
+- add new default color button
 
-script-skonshortcuts-static.xml:
-- add missing container2 parameter to widgetHeading includes
-- only zoom in on weather widget icons, not text
-- adjust temperature font size of weather widget
-
-Settings.xml:
-- replace Player settings entry localize to use the proper one
+SkinSettings.xml:
+- rework colour settings for new Kodi colour picker
+- remove entry for deprecated Skin Helper Service ColorPicker addon
 
 Variables.xml:
-- replace Player settings entry localize in HeadingLabelSecondary variable to use the proper one
+- add new background overlay opacity variables
+- add condition to mediaImages variable utilizing new hideunwatchedepisodethumbs boolean
+- add condition to HeadingLabelPrimary for new favourites window heading
+- rework StatusOverlay and StatusOverlayWide variables to show percentage based watch status for TV shows and seasons
+- rework VideoResolution variable to incorporate new HDR info
+- add new HDRType variable
+
+Variables_Colours.xml:
+- rework colour variables with new  default colour value "Default"
+- rework BackgroundColor and MenuOSDColor variables to reflect background overlay opacity adjustments
+- remove deprecated SolidBackgroundColor-Name variable
+
+Variables_Settings.xml:
+- rework skin settings explanation variable after colour skin settings rework and removal of deprecated Skin Helper Service ColorPicker addon
+- add skin settings explanations for new colour skin settings
+- remove deprecated addon-skinhelpercolorpicker variable
+
+VideoFullScreen.xml:
+- replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
+
+Viewtype50.xml:
+- add new favourites image include
+
+Viewtype523.xml:
+- adjust list visibility condition for new favourites content type
+
+Viewtype535.xml:
+- adjust list visibility condition for new favourites content type
+
+Viewtype537.xml:
+- adjust list visibility condition for new favourites content type
 
 addon.xml:
-- bump version to 19.1.3
+- bump version to 20.0.0
