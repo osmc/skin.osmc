@@ -80,14 +80,14 @@
 				<control type="group" id="1">
 					<include>VideoFullScreen_coords7</include>
 					<visible>!Window.IsVisible(VideoBookmarks)</visible>
-					<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek] + !Player.HasGame + !Player.Seeking | player.paused</visible>
+					<visible>[player.forwarding | player.rewinding | player.istempo | Player.HasPerformedSeek(3)] + !Player.HasGame + !Player.Seeking | player.paused</visible>
 					<include>OSDVisibleHiddenAnimation</include>
 					<include>WindowFadeAnimation</include>
 
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords7</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 					</control>
 
 					<!-- Status -->
@@ -113,7 +113,7 @@
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords8</include>
 						<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlayNF.png</texture>
-						<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
+						<visible>Player.HasPerformedSeek(3) + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 
@@ -130,7 +130,7 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords7</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 					</control>
 
 					<!-- Status -->
@@ -173,13 +173,13 @@
 					<include>VideoFullScreen_coords10</include>
 					<visible>!Window.IsVisible(VideoBookmarks)</visible>
 					<visible>Pvr.IsTimeShift</visible>
-					<animation effect="slide" end="155,0" time="200" condition="player.forwarding | player.rewinding | player.paused | player.istempo | Player.DisplayAfterSeek">Conditional</animation>
+					<animation effect="slide" end="155,0" time="200" condition="player.forwarding | player.rewinding | player.paused | player.istempo | Player.HasPerformedSeek(3)">Conditional</animation>
 					<include>OSDVisibleHiddenAnimation</include>
 					<include>WindowFadeAnimation</include>
 
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords10</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 					</control>
 					
 					<control type="group" id="1">
@@ -208,19 +208,19 @@
 					<!-- Background -->
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords14</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 						<visible>Pvr.IsPlayingTv + VideoPlayer.HasEpg | !Pvr.IsPlayingTv + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords15</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image" id="1">
 						<include>VideoFullScreen_coords16</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 						<visible>!Pvr.IsPlayingTv + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingTv</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
@@ -300,7 +300,7 @@
 						<lefttexture colordiffuse="$VAR[MenuOSDColor]">osd/OSDProgressRanges.png</lefttexture>
 						<midtexture colordiffuse="$VAR[MenuOSDColor]">osd/OSDProgressRanges.png</midtexture>
 						<righttexture colordiffuse="$VAR[MenuOSDColor]">osd/OSDProgressRanges.png</righttexture>
-						<info>Player.Cutlist</info>
+						<info>Player.Editlist</info>
 					</control>
 					
 					<!-- Chapter marker -->
@@ -377,7 +377,7 @@
 				<!-- Background -->
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords25</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 
 				<!-- Title -->
@@ -524,7 +524,7 @@
 				
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords36</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 
 				<control type="label" id="1">
@@ -551,7 +551,7 @@
 				
 				<control type="image" id="1">
 					<include>VideoFullScreen_coords38</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 				
 				<control type="label" id="1">

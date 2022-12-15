@@ -82,6 +82,15 @@
 					<font>Font48</font>
 					<label>1006</label>
 				</control>
+				
+				<!-- Show/Hide password -->
+				<control type="button" id="310">
+					<include>DialogKeyboard_coords2</include>
+					<onleft>312</onleft>
+					<onright>312</onright>
+					<font>Font48</font>
+					<label>12308</label>
+				</control>
 
 			</control>
 
@@ -461,6 +470,7 @@
 					<include>DialogKeyboard_coords9</include>
 					<onup>32</onup>
 					<ondown>6000</ondown>
+					<onleft condition="Control.IsVisible(310)">310</onleft>
 					<scroll>True</scroll>
 					<font>Font48</font>
 					<textoffsetx>20</textoffsetx>
