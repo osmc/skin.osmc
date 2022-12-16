@@ -36,14 +36,14 @@
 				<!-- Player forwarding/rewinding -->
 				<control type="group">
 					<include>MusicVisualisation_coords3</include>
-					<visible>[player.forwarding | player.rewinding | player.istempo | Player.DisplayAfterSeek | player.paused] + !Player.Seeking</visible>
+					<visible>[player.forwarding | player.rewinding | player.istempo | Player.HasPerformedSeek(3) | player.paused] + !Player.Seeking</visible>
 					<include>OSDVisibleHiddenAnimation</include>
 					<include>WindowFadeAnimation</include>
 
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords3</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 					</control>
 
 					<!-- Status -->
@@ -69,7 +69,7 @@
 					<control type="image">
 						<include>MusicVisualisation_coords4</include>
 						<texture colordiffuse="$VAR[OverlayColorFO]">osd/OSDPlayNF.png</texture>
-						<visible>Player.DisplayAfterSeek + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
+						<visible>Player.HasPerformedSeek(3) + ![Player.Paused | player.forwarding | player.rewinding | player.istempo]</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 
@@ -85,7 +85,7 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords3</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 					</control>
 
 					<!-- Status -->
@@ -132,19 +132,19 @@
 					<!-- Background -->
 					<control type="image">
 						<include>MusicVisualisation_coords7</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 						<visible>Pvr.IsPlayingRadio + VideoPlayer.HasEpg | !Pvr.IsPlayingRadio + Integer.IsGreater(Player.Duration,0)</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
 						<include>MusicVisualisation_coords8</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
 					<control type="image">
 						<include>MusicVisualisation_coords9</include>
-						<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+						<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 						<visible>!Pvr.IsPlayingRadio + !Integer.IsGreater(Player.Duration,0) | !VideoPlayer.HasEpg + Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
