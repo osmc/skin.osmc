@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<!-- colorpicker -->
+	<defaultcontrol always="true">6</defaultcontrol>
+	<onunload>ClearProperty(colorpicker,10035)</onunload>
+	<onunload>ClearProperty(colorpickercolor,10035)</onunload>
+	
+	<!-- Textbox scroll reset -->
+	<include>ResetScroll</include>
+	
+	<controls>
+
+		<!-- Dialog fanart -->
+		<include>DialogBackgroundImage</include>
+
+		<control type="group">
+			<include>DialogDepth</include>
+		
+			<!-- Animation -->
+			<include>DialogZoomAnimation</include>
+
+			<!-- Heading -->
+			<include content="Time">
+				<param name="heading">$INFO[Control.GetLabel(1)]</param>
+				<param name="secondary">False</param>
+			</include>
+			
+			<control type="label" id="1">
+				<font></font>
+			</control>
+
+	        <!-- Color picker panel -->
+			<control type="panel" id="6">
+				<include>DialogColorPicker_coords1</include>
+				<orientation>vertical</orientation>
+				<onleft>60</onleft>
+				<ondown>6</ondown>
+				<onup>6</onup>
+				<onright>9000</onright>
+				<pagecontrol>60</pagecontrol>
+				<preloaditems>4</preloaditems>
+				<scrolltime tween="sine" easing="out">240</scrolltime>
+				
+				<include>DialogColorPicker_coords2</include>
+				
+				<include>DialogColorPicker_coords3</include>
+				
+	        </control>
+			
+			<!-- Scrollbar -->
+			<control type="scrollbar" id="60">
+				<include>DialogColorPicker_coords4</include>
+				<onleft>9000</onleft>
+				<onright>6</onright>
+				<showonepage>false</showonepage>
+				<orientation>vertical</orientation>
+				<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
+				<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
+				<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+				<texturesliderbarfocus border="8,1,6,1" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
+				<textureslidernib></textureslidernib>
+				<textureslidernibfocus></textureslidernibfocus>
+				<visible>!Skin.HasSetting(Scrollbars)</visible>
+				<include>VisibleFadeAnimation</include>
+			</control>
+			
+			<!-- Color name -->
+			<control type="fadelabel">
+				<include>DialogColorPicker_coords5</include>
+				<font>Font27</font>
+				<align>center</align>
+				<label>$INFO[Container(6).ListItem.Label]$INFO[Container(6).ListItem.Label2, (#,)]</label>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<visible>Control.HasFocus(6)</visible>
+				<include>VisibleFadeAnimation</include>
+			</control>
+
+			<!-- Buttons -->
+			<control type="grouplist" id="9000">
+				<include>DialogButtons</include>
+				<orientation>horizontal</orientation>
+				<align>center</align>
+				<itemgap>30</itemgap>
+				<onup>6</onup>
+				
+				<!-- Edit -->
+				<control type="button" id="8">
+					<width>auto</width>
+					<label>31405</label>
+					<onclick>Skin.SetString($INFO[Window(10035).Property(colorpickercolor)])</onclick>
+					<visible>!String.IsEmpty(Window(10035).Property(colorpicker))</visible>
+				</control>
+				
+				<!-- Reset -->
+				<control type="button" id="9">
+					<width>auto</width>
+					<label>13007</label>
+					<onclick>Skin.SetString($INFO[Window(10035).Property(colorpickercolor)],Default)</onclick>
+					<onclick>Dialog.Close(12008)</onclick>
+					<visible>!String.IsEmpty(Window(10035).Property(colorpicker))</visible>
+				</control>
+
+				<!-- Cancel -->
+				<control type="button" id="7">
+					<width>auto</width>
+					<label>222</label>
+				</control>
+
+			</control>
+			
+			<!-- Button indicator -->
+			<include content="dialogButtonIndicator">
+				<param name="visibility">!ControlGroup(9000).HasFocus + !Window.IsVisible(shutdownmenu)</param>
+			</include>
+
+		</control>
+
+		<include>MaskingBars</include>
+
+	</controls>
+</window>

@@ -21,7 +21,7 @@
 				<!-- Background -->
 				<control type="image">
 					<include>DialogPlayerProcessInfo_coords2</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 
 				<!-- Icon -->
@@ -75,7 +75,7 @@
 					<control type="label">
 						<include>DialogPlayerProcessInfo_coords5</include>
 						<aligny>bottom</aligny>
-						<label>$INFO[Player.Process(VideoDecoder),[LIGHT]$LOCALIZE[38031]:[/LIGHT] [CAPITALIZE],[/CAPITALIZE]][LIGHT] ($INFO[Player.Process(videowidth),,x]$INFO[Player.Process(videoheight),, px]$INFO[Player.Process(videodar),$COMMA ,:1]$INFO[Player.Process(videofps),$COMMA , fps])[/LIGHT]</label>
+						<label>$INFO[Player.Process(VideoDecoder),[LIGHT]$LOCALIZE[38031]:[/LIGHT] [CAPITALIZE],[/CAPITALIZE]][LIGHT] ($INFO[Player.Process(videowidth),,x]$INFO[Player.Process(videoheight)]$INFO[Player.Process(videoscantype)]$INFO[Player.Process(videodar),$COMMA ,:1]$INFO[Player.Process(videofps),$COMMA , fps])[/LIGHT]</label>
 						<font>Font25</font>
 						<visible>Player.HasVideo</visible>					
 					</control>
@@ -154,7 +154,7 @@
 				
 				<!-- Background -->
 				<control type="image">
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 
 				<control type="label">
