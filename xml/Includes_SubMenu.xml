@@ -29,11 +29,12 @@
 				<!-- Background -->
 				<control type="image">
 					<include>SubMenu_coords2</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 				
 				<include condition="Window.IsVisible(AddonBrowser.xml)">SubMenu_AddonBrowser</include>
 				<include condition="Window.IsVisible(DialogFavourites.xml)">SubMenu_DialogFavourites</include>
+				<include condition="Window.IsVisible(MyFavourites.xml)">SubMenu_FavouritesBrowser</include>
 				<include condition="Window.IsVisible(EventLog.xml)">SubMenu_EventLog</include>
 				<include condition="Window.IsVisible(MyGames.xml)">SubMenu_MyGames</include>
 				<include condition="Window.IsVisible(MyMusicNav.xml)">SubMenu_MyMusicNav</include>
@@ -162,6 +163,73 @@
 			<include content="SubMenuAnimation">
 				<param name="containerID">3001</param>
 			</include>
+			
+			<include>SubMenuControls</include>
+		
+		</control>
+	</include>
+	
+	<!-- Favourites browser sub menu -->
+	<include name="SubMenu_FavouritesBrowser">
+		<control type="grouplist" id="3001">
+			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
+			<include condition="!Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords4</include>
+			<onleft>50</onleft>
+			<onright>50</onright>
+			<onback>50</onback>
+			<include>SubMenuResetScroll</include>
+			<scrolltime>200</scrolltime>
+			<orientation>vertical</orientation>
+			<itemgap>0</itemgap>
+
+			<include content="SubMenuAnimation">
+				<param name="containerID">3001</param>
+			</include>
+			
+			<!-- View -->
+			<control type="button" id="99">
+				<include>SubMenu_coords5</include>
+				<label>$LOCALIZE[31233] $INFO[Container.ViewMode]</label>
+				<onclick>Container.NextViewMode</onclick>
+				<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+			</control>
+
+			<!-- Seperator -->
+			<control type="image" id="80">
+				<include>SubMenu_coords6</include>
+				<texture>transparent.png</texture>
+				<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+			</control>
+
+			<!-- Sort by -->
+			<control type="button" id="3">
+				<include>SubMenu_coords5</include>
+				<label>103</label>
+				<visible>Control.IsEnabled(3)</visible>
+			</control>
+			<!-- Sort ascending/descending -->
+			<control type="togglebutton" id="4">
+				<include>SubMenu_coords5</include>
+				<label>$LOCALIZE[31234] $LOCALIZE[584]</label>
+				<altlabel>$LOCALIZE[31234] $LOCALIZE[585]</altlabel>
+				<usealttexture>Container.SortDirection(Descending)</usealttexture>
+				<visible>Control.IsEnabled(4)</visible>
+			</control>
+			<!-- Filter -->
+			<control type="edit" id="19">
+				<include>SubMenu_coords5</include>
+				<label>587</label>
+				<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+			</control>
+			<!-- Filter -->
+			<control type="radiobutton" id="93">
+				<include>SubMenu_coords5</include>
+				<label>587</label>
+				<onclick>right</onclick>
+				<onclick>Filter</onclick>
+				<selected>Container.Filtered</selected>
+				<visible>Container.CanFilterAdvanced</visible>
+			</control>
 			
 			<include>SubMenuControls</include>
 		
