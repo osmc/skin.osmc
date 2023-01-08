@@ -8,6 +8,9 @@ _New_
 - Support Nexus skin engine features
 - remove Skin Helper Service ColorPicker support
 
+_Fixed_
+- fix seek slider mouse control
+
 ---
 
 **_v19.1.3_**
@@ -449,6 +452,9 @@ Coordinates_Includes_MediaFlags.xml:
 Coordinates_SkinSettings.xml:
 - adjust coordinates of colour settings entries
 
+Coordinates_VideoOSD.xml:
+- adjust top coordinates to match video fullscreen progress bar position
+
 Coordinates_Viewtype523.xml:
 - add new favourites image includes
 
@@ -512,6 +518,9 @@ Variables_Settings.xml:
 - rework skin settings explanation variable after colour skin settings rework and removal of deprecated Skin Helper Service ColorPicker addon
 - add skin settings explanations for new colour skin settings
 - remove deprecated addon-skinhelpercolorpicker variable
+
+VideoOSD.xml:
+- adjust order of seek slider and seek slider button for mouse to be able catch control of the slider control
 
 VideoFullScreen.xml:
 - replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
