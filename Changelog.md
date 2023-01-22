@@ -430,6 +430,7 @@ Release
 _add new colors.xml file for new colour picker_
 _add new Coordinates_DialogColorPicker.xml and DialogColorPicker.xml files_
 _add new Coordinates_MyFavourites.xml and MyFavourites.xml files_
+_add new Coordinates_SettingsScreenCalibration.xml file_
 _remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
 _replace Background1.png and Background2.png links by new background overlay opacity variables_
 
@@ -438,6 +439,7 @@ strings.po:
 
 Textures.xbt:
 - update textures file with new background overlay image files (for all four opacity levels)
+- update textures file with new and updated calibrate window textures
 
 mainmenu.DATA.xml:
 - adjust default favourites main menu link to point to new favourites window
@@ -484,6 +486,7 @@ Includes.xml:
 - add new Coordinates_DialogColorPicker.xml and Coordinates_MyFavourites.xml include files
 - remove deprevated Coordinates_script-skin_helper_service-ColorPicker.xml include file
 - adjust onloads to set default colour value to "Default" instead of "None"
+- add new Coordinates_SettingsScreenCalibration.xml include file
 
 Includes_MediaFlags.xml:
 - change order of media flags for longer video info flags (duration on top)
@@ -496,6 +499,11 @@ script-skinshortcuts-static.xml:
 
 SettingsCategory.xml:
 - add new default color button
+
+SettingsScreenCalibration.xml:
+- add new movingspeed tags to mover and resize controls
+- add new calibration reset control
+- add missing calibration value label
 
 SkinSettings.xml:
 - rework colour settings for new Kodi colour picker
