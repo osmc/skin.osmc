@@ -431,6 +431,7 @@ _add new colors.xml file for new colour picker_
 _add new Coordinates_DialogColorPicker.xml and DialogColorPicker.xml files_
 _add new Coordinates_MyFavourites.xml and MyFavourites.xml files_
 _add new Coordinates_SettingsScreenCalibration.xml file_
+_add new Includes_GameControllers.xml file_
 _remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
 _replace Background1.png and Background2.png links by new background overlay opacity variables_
 
@@ -446,6 +447,12 @@ mainmenu.DATA.xml:
 
 overrides.xml:
 - adjust favourites main menu entry template to point to new favourites window
+
+Coordinates_DialogGameControllers.xml:
+- add new coordinates includes for new game controller ports dialog
+
+Coordinates_GameOSD.xml:
+- adjust height of game OSD dialog for new game controller ports entry
 
 Coordinates_Includes_MediaFlags.xml:
 - adjust media flags positioning
@@ -473,6 +480,9 @@ Custom_Overlay_Debug.xml:
 Defaults.xml:
 - add new colorbutton control
 
+DialogGameControllers.xml:
+- rework game controllers dialog to use includes depending on which dialog is called (game controller profiles or game controller ports dialog)
+
 DialogKeyboard.xml:
 - add new show/hide password buttin
 
@@ -482,11 +492,16 @@ DialogPlayerProcessInfo.xml:
 DialogSeekBar.xml:
 - replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
 
+GameOSD.xml:
+- adjust visibility conditions with new game controller ports window condition
+- add new game controller ports entry
+
 Includes.xml:
 - add new Coordinates_DialogColorPicker.xml and Coordinates_MyFavourites.xml include files
 - remove deprevated Coordinates_script-skin_helper_service-ColorPicker.xml include file
 - adjust onloads to set default colour value to "Default" instead of "None"
 - add new Coordinates_SettingsScreenCalibration.xml include file
+- add new Includes_GameControllers.xml include file
 
 Includes_MediaFlags.xml:
 - change order of media flags for longer video info flags (duration on top)
