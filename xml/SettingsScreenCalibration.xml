@@ -25,50 +25,76 @@
 
 				<!-- Top left mover -->
 				<control type="mover" id="8">
-					<width>44</width>
-					<height>42</height>
+					<include>SettingsScreenCalibration_coords1</include>
 					<texturefocus colordiffuse="$VAR[TextColorFO]">calibrate/CalibrateTopLeftFO.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[TextColorNF]">calibrate/CalibrateTopLeftFO.png</texturenofocus>
+					<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
+						<eventconfig type="up" />
+						<eventconfig type="down" />
+						<eventconfig type="left" />
+						<eventconfig type="right" />
+					</movingspeed>
 				</control>
 
 				<!-- Bottom right mover -->
 				<control type="mover" id="9">
-					<width>44</width>
-					<height>42</height>
+					<include>SettingsScreenCalibration_coords2</include>
 					<texturefocus colordiffuse="$VAR[TextColorFO]">calibrate/CalibrateBottomRightFO.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[TextColorNF]">calibrate/CalibrateBottomRightFO.png</texturenofocus>
+					<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
+						<eventconfig type="up" />
+						<eventconfig type="down" />
+						<eventconfig type="left" />
+						<eventconfig type="right" />
+					</movingspeed>
 				</control>
 
 				<!-- Subtitle position mover -->
 				<control type="mover" id="10">
-					<width>384</width>
-					<height>128</height>
+					<include>SettingsScreenCalibration_coords3</include>
 					<texturefocus colordiffuse="$VAR[TextColorFO]">calibrate/CalibrateSubTitlesFO.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[TextColorNF]">calibrate/CalibrateSubTitlesFO.png</texturenofocus>
+					<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
+						<eventconfig type="up" />
+						<eventconfig type="down" />
+					</movingspeed>
 				</control>
 
 				<!-- Pixel aspect ratio box -->
 				<control type="resize" id="11">
-					<width>128</width>
-					<height>128</height>
+					<include>SettingsScreenCalibration_coords4</include>
 					<texturefocus colordiffuse="$VAR[TextColorFO]">calibrate/CalibratePixelRatioFO.png</texturefocus>
 					<texturenofocus colordiffuse="$VAR[TextColorNF]">calibrate/CalibratePixelRatioFO.png</texturenofocus>
+					<movingspeed acceleration="140" maxvelocity="300" resettimeout="180" delta="1">
+						<eventconfig type="left" />
+						<eventconfig type="right" />
+					</movingspeed>
+				</control>
+				
+				<!-- Reset calibration -->
+				<control type="mover" id="12">
+					<include>SettingsScreenCalibration_coords5</include>
+					<texturefocus colordiffuse="$VAR[TextColorFO]">calibrate/CalibrateResetFO.png</texturefocus>
+					<texturenofocus colordiffuse="$VAR[TextColorNF]">calibrate/CalibrateResetFO.png</texturenofocus>
 				</control>
 
 				<!-- Coordinates label -->
 				<control type="label" id="2">
-					<top>60</top>
-					<width>1920</width>
-					<height>36</height>
+					<include>SettingsScreenCalibration_coords6</include>
 					<align>center</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 
 				<!-- Help information -->
 				<control type="label" id="3">
-					<top>140</top>
-					<width>1920</width>
-					<height>36</height>
+					<include>SettingsScreenCalibration_coords7</include>
+					<align>center</align>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+				</control>
+				
+				<!-- Calibration values -->
+				<control type="label" id="4">
+					<include>SettingsScreenCalibration_coords8</include>
 					<align>center</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
