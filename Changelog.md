@@ -8,6 +8,9 @@ _New_
 - Support Nexus skin engine features
 - remove Skin Helper Service ColorPicker support
 
+_Improved_
+- improve rendering of all progress bar, scroll bar and slider controls
+
 _Fixed_
 - fix seek slider mouse control
 
@@ -434,6 +437,7 @@ _add new Coordinates_SettingsScreenCalibration.xml file_
 _add new Includes_GameControllers.xml file_
 _remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
 _replace Background1.png and Background2.png links by new background overlay opacity variables_
+_adjust border attributes of all slider textures_
 
 strings.po:
 - update localizes for new colour picker (31026, 31037, 31050, 31060, 31295, 31297, 31298, 31299, 31300, 31405, 31407, 31435)
@@ -441,6 +445,7 @@ strings.po:
 Textures.xbt:
 - update textures file with new background overlay image files (for all four opacity levels)
 - update textures file with new and updated calibrate window textures
+- update textures file with new and updated progress bar, scroll bar and slider textures
 
 mainmenu.DATA.xml:
 - adjust default favourites main menu link to point to new favourites window
@@ -450,6 +455,9 @@ overrides.xml:
 
 Coordinates_DialogGameControllers.xml:
 - add new coordinates includes for new game controller ports dialog
+
+Coordinates_DialogSlider.xml:
+- adjust height of background as well as positioning of slider control for updated slider textures
 
 Coordinates_GameOSD.xml:
 - adjust height of game OSD dialog for new game controller ports entry
@@ -479,6 +487,8 @@ Custom_Overlay_Debug.xml:
 
 Defaults.xml:
 - add new colorbutton control
+- adjust sliderex and slider unfocus behaviour
+- adjust sliderex slider height
 
 DialogGameControllers.xml:
 - rework game controllers dialog to use includes depending on which dialog is called (game controller profiles or game controller ports dialog)
