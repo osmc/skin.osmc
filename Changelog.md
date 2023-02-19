@@ -7,10 +7,14 @@
 _Improved_
 - improve window draw performance
 - rework home screen widget animation and heading/details behaviour
+- improve background overlay rendering
+- improve media flags spacing and positioning
+- improve rendering of all progress bar, scroll bar and slider controls
 
 _Fixed_
 - use proper localize for Player settings entry
 - fix default (non-skinshortcuts) home menu widget headings
+- fix seek slider mouse control
 
 ---
 
@@ -417,10 +421,33 @@ Release
 **Changelog v19.1.3**
 
 _add fade animations to all windows to hide content while fullscreen dialogs are visible_
+_replace Background1.png and Background2.png links by new background overlay opacity variables_
+_adjust border attributes of all slider textures_
+
+Textures.xbt:
+- update textures file with new background overlay image files (for all four opacity levels)
+- update textures file with new and updated progress bar, scroll bar and slider textures
 
 template.xml:
 - only zoom in on weather widget icons, not text
 - adjust temperature font size of weather widget
+
+Coordinates_DialogSlider.xml:
+- adjust height of background as well as positioning of slider control for updated slider textures
+
+Coordinates_Includes_MediaFlags.xml:
+- adjust media flags positioning
+- add new coordinates include for different media flags widths
+
+Coordinates_VideoOSD.xml:
+- adjust top coordinates to match video fullscreen progress bar position
+
+Defaults.xml:
+- adjust sliderex and slider unfocus behaviour
+- adjust sliderex slider height
+
+Includes_MediaFlags.xml:
+- change order of media flags for longer video info flags (duration on top)
 
 Includes_SubMenu.xml:
 - replace Player settings entry localize to use the proper one
@@ -445,6 +472,14 @@ Settings.xml:
 
 Variables.xml:
 - replace Player settings entry localize in HeadingLabelSecondary variable to use the proper one
+- add new background overlay opacity variables
+- rework VideoResolution variable to show resolution information differently
+
+Variables_Colours.xml:
+- rework BackgroundColor and MenuOSDColor variables to reflect background overlay opacity adjustments
+
+VideoOSD.xml:
+- adjust order of seek slider and seek slider button for mouse to be able catch control of the slider control
 
 addon.xml:
-- bump version to 19.1.3
+- bump version to 19.1.4
