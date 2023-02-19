@@ -8,8 +8,29 @@
 	
 	<!-- Background overlay -->
 	<variable name="BackgroundOverlayStyle">
-		<value condition="!Skin.HasSetting(BackgroundOverlayStyle)">common/Background2.png</value>
-		<value condition="Skin.HasSetting(BackgroundOverlayStyle)">common/Background1.png</value>
+		<value condition="!Skin.HasSetting(BackgroundOverlayStyle)">$VAR[Background2]</value>
+		<value condition="Skin.HasSetting(BackgroundOverlayStyle)">$VAR[Background1]</value>
+	</variable>
+	
+	<variable name="Background1">
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">common/Background1High.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">common/Background1Medium.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">common/Background1Low.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">common/Background1Highest.png</value>
+	</variable>
+	
+	<variable name="Background2">
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),High)">common/Background2High.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Medium)">common/Background2Medium.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Low)">common/Background2Low.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultBackgroundOpacity),Highest)">common/Background2Highest.png</value>
+	</variable>
+	
+	<variable name="MenuOSDBackground">
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),High)">common/Background2High.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),Medium)">common/Background2Medium.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),Low)">common/Background2Low.png</value>
+		<value condition="String.IsEqual(Skin.String(DefaultMenuOSDOpacity),Highest)">common/Background2Highest.png</value>
 	</variable>
 
 	<!-- Background images/overlay -->
@@ -804,13 +825,12 @@
 	
 	<!-- Video Resolution labels -->
 	<variable name="VideoResolution">
-		<value condition="String.IsEqual(ListItem.VideoResolution,480)">$VAR[3DMode,, &#8226; ]NTSC (480)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,576)">$VAR[3DMode,, &#8226; ]PAL (576)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,540)">$VAR[3DMode,, &#8226; ]SD (540)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,720)">$VAR[3DMode,, &#8226; ]HD (720)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">$VAR[3DMode,, &#8226; ]Full HD (1080)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,4K)">$VAR[3DMode,, &#8226; ]UHD (4K)</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">$VAR[3DMode,, &#8226; ]UHD (8K)</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,540)">$VAR[3DMode,, &#8226; ]SD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,720)">$VAR[3DMode,, &#8226; ]HD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">$VAR[3DMode,, &#8226; ]Full HD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,4K)">$VAR[3DMode,, &#8226; ]4K UHD</value>
+		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">$VAR[3DMode,, &#8226; ]8K UHD</value>
+		<value condition="String.IsEmpty(ListItem.VideoResolution)">$VAR[3DMode]</value>
 	</variable>
 	
 	<!-- Video Codec labels -->
