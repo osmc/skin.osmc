@@ -24,7 +24,7 @@
 			<onup>noop</onup>
 			<oninfo>noop</oninfo>
 			<orientation>horizontal</orientation>
-			<viewtype label="535">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<scrolltime tween="sine" easing="out">240</scrolltime>
 			<visible>!Window.IsActive(playerprocessinfo) + !Window.IsVisible(DialogSettings.xml) + !Window.IsVisible(PVRChannelGuide) + !Window.IsVisible(pvrosdchannels) + !Window.IsVisible(teletext) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(DialogPVRInfo.xml) + !Window.IsVisible(shutdownmenu) + !Window.IsVisible(1105) + String.IsEmpty(Window(home).Property(service.upnext.dialog))</visible>
 			<include>OSDVisibleHiddenAnimation</include>
@@ -69,7 +69,7 @@
 			<!-- Background -->
 			<control type="image">
 				<include>VideoOSDBookmarks_coords5</include>
-				<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+				<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 			</control>
 
 			<!-- Button grouplist -->
@@ -85,6 +85,8 @@
 				<!-- Close -->
 				<control type="button" id="1">
 					<include>VideoOSDBookmarks_coords7</include>
+					<align>center</align>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
 					<label>15067</label>
 					<font>Font33</font>
 					<onclick>Dialog.Close(videobookmarks)</onclick>
@@ -94,6 +96,8 @@
 				<!-- Create Bookmark button -->
 				<control type="button" id="2">
 					<include>VideoOSDBookmarks_coords7</include>
+					<align>center</align>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
 					<label>294</label>
 					<font>Font33</font>
 					<oninfo>noop</oninfo>
@@ -102,6 +106,8 @@
 				<!-- Clear Bookmark button -->
 				<control type="button" id="3">
 					<include>VideoOSDBookmarks_coords7</include>
+					<align>center</align>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
 					<label>296</label>
 					<font>Font33</font>
 					<oninfo>noop</oninfo>
@@ -110,6 +116,8 @@
 				<!-- Use current for episode thumb -->
 				<control type="button" id="4">
 					<include>VideoOSDBookmarks_coords7</include>
+					<align>center</align>
+					<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
 					<label>20406</label>
 					<font>Font33</font>
 					<oninfo>noop</oninfo>

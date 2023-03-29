@@ -144,36 +144,4 @@
 
 	</include>
 
-	<include name="image-538">
-		<param name="fallback">DefaultVideos.png</param>
-		<param name="colordiffuse">FFFFFFFF</param>
-		<param name="visible">False</param>
-		<definition>
-			<control type="image">
-				<include>Viewtype538_coords17</include>
-				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
-				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>$PARAM[visible]</visible>
-				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
-			</control>
-		</definition>
-	</include>
-	
-	<include name="image-538-focused">
-		<param name="fallback">DefaultVideos.png</param>
-		<param name="colordiffuse">FFFFFFFF</param>
-		<param name="visible">False</param>
-		<definition>
-			<control type="image">
-				<include>Viewtype538_coords18</include>
-				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
-				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>$PARAM[visible]</visible>
-				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
-			</control>
-		</definition>
-	</include>
-
 </includes>

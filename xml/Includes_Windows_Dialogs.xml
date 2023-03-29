@@ -67,7 +67,11 @@
 	</include>
 	
 	<!-- Nonfocus focused control animation -->
-	<include name="NonFocusFadeAnimation">
+	<include name="NonFocusWindowFadeAnimation">
+		<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="System.HasActiveModalDialog | !Control.HasFocus($PARAM[id])">Conditional</animation>
+	</include>
+	
+	<include name="NonFocusDialogFadeAnimation">
 		<animation effect="fade" start="100" end="50" time="200" tween="cubic" easing="out" reversible="false" condition="!Control.HasFocus($PARAM[id])">Conditional</animation>
 	</include>
 	
@@ -339,7 +343,7 @@
 			</animation>
 			<control type="image">
 				<include>BackgroundOverlayDialog1</include>
-				<texture background="true">common/Background1.png</texture>
+				<texture background="true">$VAR[Background1]</texture>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<include>DialogBackgroundDepth</include>
@@ -354,7 +358,7 @@
 			</control>
 			<control type="image">
 				<include>BackgroundOverlayDialog4</include>
-				<texture background="true">common/Background2.png</texture>
+				<texture background="true">$VAR[Background2]</texture>
 				<aspectratio>scale</aspectratio>
 				<colordiffuse>$VAR[BackgroundColor]</colordiffuse>
 				<include>DialogBackgroundDepth</include>
@@ -520,11 +524,11 @@
 		<include condition="Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayStyleScrollbarVerticalOld</include>
 	</include>
 	<include name="BackgroundOverlayStyleScrollbarVerticalNew">
-		<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripFO.png</texturesliderbar>
+		<texturesliderbar border="0,5,0,5" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripFO.png</texturesliderbar>
 	</include>
 	<include name="BackgroundOverlayStyleScrollbarVerticalOld">
-		<texturesliderbackground border="8,1,6,1">common/ScrollBackground.png</texturesliderbackground>
-		<texturesliderbar border="8,1,6,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
+		<texturesliderbackground border="0,5,0,5">common/ScrollBackground.png</texturesliderbackground>
+		<texturesliderbar border="0,5,0,5" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripNF.png</texturesliderbar>
 	</include>
 	
 	<include name="BackgroundOverlayStyleScrollbarHorizontal">
@@ -532,11 +536,96 @@
 		<include condition="Skin.HasSetting(BackgroundOverlayStyle)">BackgroundOverlayStyleScrollbarHorizontalOld</include>
 	</include>
 	<include name="BackgroundOverlayStyleScrollbarHorizontalNew">
-		<texturesliderbar border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalFO.png</texturesliderbar>
+		<texturesliderbar border="5,0,5,0" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalFO.png</texturesliderbar>
 	</include>
 	<include name="BackgroundOverlayStyleScrollbarHorizontalOld">
-		<texturesliderbackground border="1,12,1,1">common/ScrollBackgroundHorizontal.png</texturesliderbackground>
-		<texturesliderbar border="1,12,1,1" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalNF.png</texturesliderbar>
+		<texturesliderbackground border="5,0,5,0">common/ScrollBackgroundHorizontal.png</texturesliderbackground>
+		<texturesliderbar border="5,0,5,0" colordiffuse="$VAR[OverlayColorNF]">common/ScrollbarGripHorizontalNF.png</texturesliderbar>
+	</include>
+	
+	<!-- Wall and wide view images -->
+	<include name="MediaViewImageNF">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>$PARAM[coords]</include>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
+			</control>
+			<!-- Watched status -->
+			<control type="group">
+				<include>$PARAM[coords2]</include>
+				<fadetime>200</fadetime>
+				<control type="image">
+					<texture background="true">views/OverlayBottomBar.png</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+				</control>
+				<control type="image">
+					<include>$PARAM[coords3]</include>
+					<texture background="true">$VAR[StatusOverlayWide]</texture>
+					<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+		</definition>
+	</include>
+	
+	<include name="MediaViewImageFO">
+		<param name="fallback">DefaultVideos.png</param>
+		<param name="visible">False</param>
+		<definition>
+			<control type="image">
+				<include>$PARAM[coords]</include>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>[!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]] + !System.HasActiveModalDialog + Control.HasFocus($PARAM[id])</visible>
+			</control>
+			<control type="image">
+				<include>$PARAM[coords]</include>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>[!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]] + [System.HasActiveModalDialog | !Control.HasFocus($PARAM[id])]</visible>
+			</control>
+			<!-- Watched status -->
+			<control type="group">
+				<visible>!System.HasActiveModalDialog + Control.HasFocus($PARAM[id])</visible>
+				<include>$PARAM[coords2]</include>
+				<fadetime>200</fadetime>
+				<control type="image">
+					<texture background="true">views/OverlayBottomBar.png</texture>
+					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+				</control>
+				<control type="image">
+					<include>$PARAM[coords3]</include>
+					<texture background="true">$VAR[StatusOverlayWide]</texture>
+				</control>
+			</control>
+			<control type="group">
+				<visible>System.HasActiveModalDialog | !Control.HasFocus($PARAM[id])</visible>
+				<include>$PARAM[coords2]</include>
+				<fadetime>200</fadetime>
+				<control type="image">
+					<texture background="true">views/OverlayBottomBar.png</texture>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+					<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+					<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+				</control>
+				<control type="image">
+					<include>$PARAM[coords3]</include>
+					<texture background="true">$VAR[StatusOverlayWide]</texture>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				</control>
+			</control>
+		</definition>
 	</include>
 
 </includes>

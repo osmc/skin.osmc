@@ -29,7 +29,7 @@
 				<!-- Background -->
 				<control type="image">
 					<include>SubMenu_coords2</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 				
 				<include condition="Window.IsVisible(AddonBrowser.xml)">SubMenu_AddonBrowser</include>
@@ -1158,8 +1158,8 @@
 	<!-- My video nav sub menu -->
 	<include name="SubMenu_MyVideoNav">
 		<control type="grouplist" id="3001">
-			<include condition="Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords3</include>
-			<include condition="!Integer.IsGreater(Container.ViewCount,1)">SubMenu_coords4</include>
+			<include condition="Integer.IsGreater(Container.ViewCount,1) + !Skin.HasSetting(FixedVideosView)">SubMenu_coords3</include>
+			<include condition="!Integer.IsGreater(Container.ViewCount,1) | Skin.HasSetting(FixedVideosView)">SubMenu_coords4</include>
 			<onleft>50</onleft>
 			<onright>50</onright>
 			<onback>50</onback>
@@ -1178,7 +1178,7 @@
 				<include>SubMenu_coords5</include>
 				<label>$LOCALIZE[31233] $INFO[Container.ViewMode]</label>
 				<onclick>Container.NextViewMode</onclick>
-				<visible>Integer.IsGreater(Container.ViewCount,1)</visible>
+				<visible>Integer.IsGreater(Container.ViewCount,1) + !Skin.HasSetting(FixedVideosView)</visible>
 			</control>
 
 			<!-- Seperator -->
