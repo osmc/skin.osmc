@@ -11,14 +11,6 @@
 	<controls>
 
 		<!-- Seek slider -->
-		<control type="slider">
-			<include>VideoOSD_coords1</include>
-			<texturesliderbar />
-			<textureslidernib />
-			<textureslidernibfocus />
-			<action>seek</action>
-		</control>
-		
 		<control type="button" id="100">
 			<include>VideoOSD_coords1</include>
 			<onup>5</onup>
@@ -32,6 +24,14 @@
 			<oninfo condition="Window.IsVisible(fullscreeninfo)">Dialog.Close(fullscreeninfo)</oninfo>
 			<texturefocus />
 			<texturenofocus />
+		</control>
+		
+		<control type="slider">
+			<include>VideoOSD_coords1</include>
+			<texturesliderbar />
+			<textureslidernib />
+			<textureslidernibfocus />
+			<action>seek</action>
 		</control>
 
 		<control type="group">
@@ -55,7 +55,7 @@
 			<!-- Background -->
 			<control type="image">
 				<include>VideoOSD_coords3</include>
-				<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+				<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 			</control>
 
 			<!-- Controls -->

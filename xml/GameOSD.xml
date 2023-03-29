@@ -20,7 +20,7 @@
 			<!-- Background -->
 			<control type="image" id="1">
 				<include>GameOSD_coords2</include>
-				<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+				<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 			</control>
 
 			<!-- Pause -->
@@ -43,7 +43,7 @@
 				<!-- Window Background -->
 				<control type="image">
 					<include>GameOSD_coords5</include>
-					<texture colordiffuse="$VAR[MenuOSDColor]">common/Background2.png</texture>
+					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 				
 				<!-- Heading -->
@@ -147,24 +147,24 @@
 						<texture>transparent.png</texture> 
 					</control>
 					
-					<!-- Game advanced settings button -->
+					<!-- Game controller settings button -->
 					<control type="button" id="1010">
+						<include>GameOSD_coords8</include>
+						<textcolor>$VAR[TextColorNF]</textcolor>
+						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+						<label>$LOCALIZE[35234]</label>
+						<font>Font33</font>
+						<onclick>ActivateWindow(gamecontrollers)</onclick>
+					</control>
+					
+					<!-- Game advanced settings button -->
+					<control type="button" id="1011">
 						<include>GameOSD_coords8</include>
 						<textcolor>$VAR[TextColorNF]</textcolor>
 						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 						<label>$LOCALIZE[35226]</label>
 						<font>Font33</font>
 						<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
-					</control>
-					
-					<!-- Input settings button -->
-					<control type="button" id="1011">
-						<include>GameOSD_coords8</include>
-						<textcolor>$VAR[TextColorNF]</textcolor>
-						<focusedcolor>$VAR[TextColorFO]</focusedcolor>
-						<label>$LOCALIZE[35050]</label>
-						<font>Font33</font>
-						<onclick>ActivateWindow(gamecontrollers)</onclick>
 					</control>
 					
 				</control>
