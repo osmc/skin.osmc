@@ -15,7 +15,7 @@
 				<ondown>53</ondown>
 				<pagecontrol>63</pagecontrol>
 				<preloaditems>4</preloaditems>
-				<viewtype label="$LOCALIZE[31078]">icon</viewtype>
+				<viewtype label="$LOCALIZE[31078]">bigicon</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 
@@ -55,12 +55,11 @@
 
 	<include name="image-53">
 		<param name="fallback">DefaultVideos.png</param>
-		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
 				<include>Viewtype53_coords7</include>
-				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
@@ -71,16 +70,22 @@
 	
 	<include name="image-53-focused">
 		<param name="fallback">DefaultVideos.png</param>
-		<param name="colordiffuse">FFFFFFFF</param>
 		<param name="visible">False</param>
 		<definition>
 			<control type="image">
 				<include>Viewtype53_coords8</include>
-				<colordiffuse>$PARAM[colordiffuse]</colordiffuse>
 				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<visible>$PARAM[visible]</visible>
-				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
+				<visible>[!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]] + !System.HasActiveModalDialog + Control.HasFocus(53)</visible>
+			</control>
+			<control type="image">
+				<include>Viewtype53_coords8</include>
+				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+				<texture fallback="$PARAM[fallback]" background="true">$VAR[mediaImages]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>$PARAM[visible]</visible>
+				<visible>[!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]] + [System.HasActiveModalDialog | !Control.HasFocus(53)]</visible>
 			</control>
 		</definition>
 	</include>
