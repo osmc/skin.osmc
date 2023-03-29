@@ -818,6 +818,11 @@
 		<value>$INFO[VideoPlayer.SubtitlesLanguage,   [LIGHT]$LOCALIZE[24012]:[/LIGHT] [CAPITALIZE],[/CAPITALIZE]]</value>
 	</variable>
 	
+	<variable name="SubtitleLanguageOSD">
+		<value condition="!VideoPlayer.SubtitlesEnabled">$LOCALIZE[1223]</value>
+		<value>$INFO[VideoPlayer.SubtitlesLanguage,[CAPITALIZE],[/CAPITALIZE]]</value>
+	</variable>
+	
 	<variable name="SubtitleSimple">
 		<value condition="String.IsEmpty(ListItem.Property(SubtitleLanguage.5))">$INFO[ListItem.Property(SubtitleLanguage.1),[CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.2),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.3),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.4),$COMMA [CAPITALIZE],[/CAPITALIZE]]</value>
 		<value condition="!String.IsEmpty(ListItem.Property(SubtitleLanguage.5))">$INFO[ListItem.Property(SubtitleLanguage.1),[CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.2),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.3),$COMMA [CAPITALIZE],[/CAPITALIZE]]$INFO[ListItem.Property(SubtitleLanguage.4),$COMMA [CAPITALIZE],[/CAPITALIZE] ...]</value>
