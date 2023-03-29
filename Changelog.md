@@ -7,9 +7,17 @@
 _New_
 - Support Nexus skin engine features
 - remove Skin Helper Service ColorPicker support
+- add new video OSD audio and subtitle selection
+
+---
+
+**_v19.1.4_**
 
 _Improved_
+- improve background overlay rendering
+- improve media flags spacing and positioning
 - improve rendering of all progress bar, scroll bar and slider controls
+- improve non-focus fanart behaviour
 
 _Fixed_
 - fix seek slider mouse control
@@ -436,16 +444,13 @@ _add new Coordinates_MyFavourites.xml and MyFavourites.xml files_
 _add new Coordinates_SettingsScreenCalibration.xml file_
 _add new Includes_GameControllers.xml file_
 _remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
-_replace Background1.png and Background2.png links by new background overlay opacity variables_
-_adjust border attributes of all slider textures_
 
 strings.po:
 - update localizes for new colour picker (31026, 31037, 31050, 31060, 31295, 31297, 31298, 31299, 31300, 31405, 31407, 31435)
 
 Textures.xbt:
-- update textures file with new background overlay image files (for all four opacity levels)
 - update textures file with new and updated calibrate window textures
-- update textures file with new and updated progress bar, scroll bar and slider textures
+- update textures file with button icon for new video OSD Audio and Subtitle stream selection
 
 mainmenu.DATA.xml:
 - adjust default favourites main menu link to point to new favourites window
@@ -456,21 +461,15 @@ overrides.xml:
 Coordinates_DialogGameControllers.xml:
 - add new coordinates includes for new game controller ports dialog
 
-Coordinates_DialogSlider.xml:
-- adjust height of background as well as positioning of slider control for updated slider textures
-
 Coordinates_GameOSD.xml:
 - adjust height of game OSD dialog for new game controller ports entry
-
-Coordinates_Includes_MediaFlags.xml:
-- adjust media flags positioning
-- add new coordinates include for different media flags widths
 
 Coordinates_SkinSettings.xml:
 - adjust coordinates of colour settings entries
 
 Coordinates_VideoOSD.xml:
-- adjust top coordinates to match video fullscreen progress bar position
+- adjust width of Controls and Options grouplists
+- add VideoOSD_coords12 include for new Audio and Subtitle stream selection grouplists
 
 Coordinates_Viewtype523.xml:
 - add new favourites image includes
@@ -487,8 +486,6 @@ Custom_Overlay_Debug.xml:
 
 Defaults.xml:
 - add new colorbutton control
-- adjust sliderex and slider unfocus behaviour
-- adjust sliderex slider height
 
 DialogGameControllers.xml:
 - rework game controllers dialog to use includes depending on which dialog is called (game controller profiles or game controller ports dialog)
@@ -513,9 +510,6 @@ Includes.xml:
 - add new Coordinates_SettingsScreenCalibration.xml include file
 - add new Includes_GameControllers.xml include file
 
-Includes_MediaFlags.xml:
-- change order of media flags for longer video info flags (duration on top)
-
 Includes_SubMenu.xml:
 - add sub menu for new favourites window
 
@@ -535,16 +529,15 @@ SkinSettings.xml:
 - remove entry for deprecated Skin Helper Service ColorPicker addon
 
 Variables.xml:
-- add new background overlay opacity variables
 - add condition to mediaImages variable utilizing new hideunwatchedepisodethumbs boolean
 - add condition to HeadingLabelPrimary for new favourites window heading
 - rework StatusOverlay and StatusOverlayWide variables to show percentage based watch status for TV shows and seasons
 - rework VideoResolution variable to incorporate new HDR info
 - add new HDRType variable
+- add new SubtitleLanguageOSD variable for new video OSD Subtitle stream selection
 
 Variables_Colours.xml:
 - rework colour variables with new  default colour value "Default"
-- rework BackgroundColor and MenuOSDColor variables to reflect background overlay opacity adjustments
 - remove deprecated SolidBackgroundColor-Name variable
 
 Variables_Settings.xml:
@@ -552,11 +545,13 @@ Variables_Settings.xml:
 - add skin settings explanations for new colour skin settings
 - remove deprecated addon-skinhelpercolorpicker variable
 
-VideoOSD.xml:
-- adjust order of seek slider and seek slider button for mouse to be able catch control of the slider control
-
 VideoFullScreen.xml:
 - replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
+
+VideoOSD.xml:
+- adjust visibility condition and fade animations of Options grouplist for new Audio and Subtitle stream selection
+- adjust Audio Settings and Subtitles buttons to open new Audio and Subtitle stream selection, if more than one audio or subtitle stream is present and playback isn't live TV
+- add new Audio and Subtitle stream selection
 
 Viewtype50.xml:
 - add new favourites image include

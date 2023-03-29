@@ -15,7 +15,7 @@
 				<onright>523</onright>
 				<pagecontrol>61</pagecontrol>
 				<orientation>horizontal</orientation>
-				<viewtype label="31241">list</viewtype>
+				<viewtype label="$LOCALIZE[31241]">wide</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
 				<visible>Container.Content(albums) | Container.Content(addons) | Container.Content(artists) | Container.Content(games) | Container.Content(videos) | Container.Content(favourites)</visible>
 				<include>DefaultView</include>
@@ -53,35 +53,6 @@
 
 		</control>
 
-	</include>
-
-	<include name="image-523">
-		<param name="fallback">DefaultVideos.png</param>
-		<param name="visible">False</param>
-		<definition>
-			<control type="image">
-				<include>Viewtype523_coords7</include>
-				<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>$PARAM[visible]</visible>
-				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
-			</control>
-		</definition>
-	</include>
-
-	<include name="image-523-focus">
-		<param name="fallback">DefaultVideos.png</param>
-		<param name="visible">False</param>
-		<definition>
-			<control type="image">
-				<include>Viewtype523_coords8</include>
-				<texture background="true" fallback="$PARAM[fallback]">$VAR[mediaImages]</texture>
-				<aspectratio align="center" aligny="center">keep</aspectratio>
-				<visible>$PARAM[visible]</visible>
-				<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
-			</control>
-		</definition>
 	</include>
 
 </includes>

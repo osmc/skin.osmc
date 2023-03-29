@@ -130,7 +130,7 @@
 
 		<controls>
 			<control type="list" id="10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]">
-				<viewtype label="">list</viewtype>
+				<viewtype label="$LOCALIZE[535]">list</viewtype>
 				<orientation>horizontal</orientation>
 				<defaultcontrol always="true">0</defaultcontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -166,26 +166,24 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
-							<left>0</left>
-							<top>35</top>
-							<width>203</width>
-							<height>246</height>
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
 							<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
-							<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 						</control>
 						<control type="multiimage">
-							<left>0</left>
-							<top>35</top>
-							<width>203</width>
-							<height>246</height>
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
-							<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 						</control>
 						<control type="label">
 							<top>281</top>
@@ -201,46 +199,99 @@
 
 				<focusedlayout width="203" height="306">
 					<control type="group">
+						<animation effect="zoom" start="100" end="120" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 						<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-						<control type="label">
-							<top>2</top>
-							<width>203</width>
-							<height>33</height>
-							<font>Font33</font>
-							<align>center</align>
-							<label>$INFO[ListItem.Label]</label>
-							<textcolor>$VAR[TextColorFO]</textcolor>
+						<control type="group">
+							<visible>!System.HasActiveModalDialog + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
+							<control type="image">
+								<left>21</left>
+								<top>60</top>
+								<width>162</width>
+								<height>197</height>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+								<aspectratio align="center">keep</aspectratio>
+								<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+							</control>
+							<control type="multiimage">
+								<left>21</left>
+								<top>60</top>
+								<width>162</width>
+								<height>197</height>
+								<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+								<timeperimage>200</timeperimage>
+								<aspectratio align="center">keep</aspectratio>
+								<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+							</control>
 						</control>
-						<control type="image">
-							<left>0</left>
-							<top>35</top>
-							<width>203</width>
-							<height>246</height>
-							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio align="center">keep</aspectratio>
-							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
-							<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+						<control type="group">
+							<visible>System.HasActiveModalDialog | !Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
+							<control type="image">
+								<left>21</left>
+								<top>60</top>
+								<width>162</width>
+								<height>197</height>
+								<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
+								<aspectratio align="center">keep</aspectratio>
+								<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+							</control>
+							<control type="multiimage">
+								<left>21</left>
+								<top>60</top>
+								<width>162</width>
+								<height>197</height>
+								<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<timeperimage>200</timeperimage>
+								<aspectratio align="center">keep</aspectratio>
+								<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+							</control>
 						</control>
-						<control type="multiimage">
-							<left>0</left>
-							<top>35</top>
-							<width>203</width>
-							<height>246</height>
-							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
-							<timeperimage>200</timeperimage>
-							<aspectratio align="center">keep</aspectratio>
-							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
-							<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					</control>
+					<control type="group">
+						<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+						<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
+						<control type="group">
+							<visible>!System.HasActiveModalDialog + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
+							<control type="label">
+								<top>2</top>
+								<width>203</width>
+								<height>33</height>
+								<font>Font33</font>
+								<align>center</align>
+								<label>$INFO[ListItem.Label]</label>
+								<textcolor>$VAR[TextColorFO]</textcolor>
+							</control>
+							<control type="label">
+								<top>281</top>
+								<width>203</width>
+								<height>33</height>
+								<font>Font33</font>
+								<align>center</align>
+								<textcolor>$VAR[TextColorFO]</textcolor>
+								<label>$INFO[ListItem.Label2]</label>
+							</control>
 						</control>
-						<control type="label">
-							<top>281</top>
-							<width>203</width>
-							<height>33</height>
-							<font>Font33</font>
-							<align>center</align>
-							<textcolor>$VAR[TextColorFO]</textcolor>
-							<label>$INFO[ListItem.Label2]</label>
+						<control type="group">
+							<visible>System.HasActiveModalDialog | !Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
+							<control type="label">
+								<top>2</top>
+								<width>203</width>
+								<height>33</height>
+								<font>Font33</font>
+								<align>center</align>
+								<label>$INFO[ListItem.Label]</label>
+								<textcolor>$VAR[TextColorNF]</textcolor>
+							</control>
+							<control type="label">
+								<top>281</top>
+								<width>203</width>
+								<height>33</height>
+								<font>Font33</font>
+								<align>center</align>
+								<textcolor>$VAR[TextColorNF]</textcolor>
+								<label>$INFO[ListItem.Label2]</label>
+							</control>
 						</control>
 					</control>
 					<control type="group">
@@ -255,26 +306,24 @@
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="image">
-							<left>0</left>
-							<top>35</top>
-							<width>203</width>
-							<height>246</height>
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
 							<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
-							<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 						</control>
 						<control type="multiimage">
-							<left>0</left>
-							<top>35</top>
-							<width>203</width>
-							<height>246</height>
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
 							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<timeperimage>200</timeperimage>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
-							<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 						</control>
 						<control type="label">
 							<top>281</top>
@@ -308,7 +357,7 @@
 
 		<controls>
 			<control type="list" id="10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id]">
-				<viewtype label="">list</viewtype>
+				<viewtype label="$LOCALIZE[535]">list</viewtype>
 				<orientation>horizontal</orientation>
 				<defaultcontrol always="true">0</defaultcontrol>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -407,54 +456,115 @@
 						<animation effect="zoom" start="100" end="111" center="$PYTHON[int(imageWidthFocus) / 2],$SKINSHORTCUTS[imageHeightFocus]" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 						<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 						<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-						<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
-							<description>Primary art</description>
-							<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
-							<param name="bottom">0</param>
-							<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
-							<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
-							<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
-							<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
-							<param name="aspectratio">keep</param>
-							<param name="visible">![$PYTHON[$SKINSHORTCUTS[secondary-visibility]]]</param>
-						</include>
-						<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
-							<description>Fallback art</description>
-							<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
-							<param name="bottom">0</param>
-							<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
-							<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
-							<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
-							<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
-							<param name="aspectratio">keep</param>
-							<param name="visible">$PYTHON[$SKINSHORTCUTS[secondary-visibility]]</param>
-						</include>
-						<include content="widget-image">
-							<description>Catch-all art</description>
-							<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
-							<param name="bottom">0</param>
-							<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
-							<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
-							<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
-							<param name="art">$INFO[ListItem.Icon]</param>
-							<param name="aspectratio">keep</param>
-							<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
-						</include>
-						
 						<control type="group">
-							<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
-							<bottom>0</bottom>
-							<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
-							<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
-							<control type="image">
-								<texture background="true">views/OverlayBottomBar.png</texture>
-								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							<visible>!System.HasActiveModalDialog + Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
+							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
+								<description>Primary art</description>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
+								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
+								<param name="aspectratio">keep</param>
+								<param name="visible">![$PYTHON[$SKINSHORTCUTS[secondary-visibility]]]</param>
+							</include>
+							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
+								<description>Fallback art</description>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
+								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
+								<param name="aspectratio">keep</param>
+								<param name="visible">$PYTHON[$SKINSHORTCUTS[secondary-visibility]]</param>
+							</include>
+							<include content="widget-image">
+								<description>Catch-all art</description>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
+								<param name="art">$INFO[ListItem.Icon]</param>
+								<param name="aspectratio">keep</param>
+								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
+							</include>
+							
+							<control type="group">
+								<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
+								<bottom>0</bottom>
+								<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+								<control type="image">
+									<texture background="true">views/OverlayBottomBar.png</texture>
+									<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+									<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+								</control>
+								<control type="image">
+									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
+									<texture background="true">$VAR[StatusOverlayWide]</texture>
+								</control>
 							</control>
-							<control type="image">
-								<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
-								<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
-								<texture background="true">$VAR[StatusOverlayWide]</texture>
+						</control>
+						<control type="group">
+							<visible>System.HasActiveModalDialog | !Control.HasFocus(10$SKINSHORTCUTS[auto-rootID]0$SKINSHORTCUTS[id])</visible>
+							<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
+								<description>Primary art</description>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
+								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
+								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art]]</param>
+								<param name="aspectratio">keep</param>
+								<param name="visible">![$PYTHON[$SKINSHORTCUTS[secondary-visibility]]]</param>
+							</include>
+							<include content="$PYTHON[$SKINSHORTCUTS[secondary-art]]">
+								<description>Fallback art</description>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
+								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
+								<param name="art">$INFO[ListItem.$SKINSHORTCUTS[art2]]</param>
+								<param name="aspectratio">keep</param>
+								<param name="visible">$PYTHON[$SKINSHORTCUTS[secondary-visibility]]</param>
+							</include>
+							<include content="widget-image">
+								<description>Catch-all art</description>
+								<param name="left">$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</param>
+								<param name="bottom">0</param>
+								<param name="width">$SKINSHORTCUTS[imageWidthNoFocus]</param>
+								<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+								<param name="height">$SKINSHORTCUTS[imageHeightNoFocus]</param>
+								<param name="fallback">$SKINSHORTCUTS[artFallback]</param>
+								<param name="art">$INFO[ListItem.Icon]</param>
+								<param name="aspectratio">keep</param>
+								<param name="visible">[ $PYTHON[$SKINSHORTCUTS[secondary-visibility]] ] + [ $PYTHON[$SKINSHORTCUTS[fallback-visibility]] ]</param>
+							</include>
+							
+							<control type="group">
+								<left>$PYTHON[(int(imageWidthFocus) - int(imageWidthNoFocus)) / 2]</left>
+								<bottom>0</bottom>
+								<width>$SKINSHORTCUTS[imageWidthNoFocus]</width>
+								<height>$PYTHON[int(imageWidthNoFocus) * 0.11]</height>
+								<control type="image">
+									<texture background="true">views/OverlayBottomBar.png</texture>
+									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+									<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+									<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+								</control>
+								<control type="image">
+									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
+									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
+									<texture background="true">$VAR[StatusOverlayWide]</texture>
+									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								</control>
 							</control>
 						</control>
 					</control>

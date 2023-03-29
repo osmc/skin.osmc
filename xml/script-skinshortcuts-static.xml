@@ -1423,7 +1423,7 @@
 	</include>
 	<include name="skinshortcuts-template-vertical-Master user">
 		<control id="10101" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -1511,53 +1511,113 @@
 					<animation effect="zoom" start="100" end="111" center="120,360" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<include content="widget-image">
-						<description>Primary art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">324</param>
-						<param name="fallback">DefaultMovie.png</param>
-						<param name="art">$INFO[ListItem.Art(poster)]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
-					</include>
-					<include content="widget-image">
-						<description>Fallback art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">324</param>
-						<param name="fallback">DefaultMovie.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
-					</include>
-					<include content="widget-image">
-						<description>Catch-all art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">324</param>
-						<param name="fallback">DefaultMovie.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
-					</include>
 					<control type="group">
-						<left>12</left>
-						<bottom>0</bottom>
-						<width>216</width>
-						<height>24</height>
-						<control type="image">
-							<texture background="true">views/OverlayBottomBar.png</texture>
-							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(10101)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="art">$INFO[ListItem.Art(poster)]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
-						<control type="image">
-							<width>24</width>
-							<centerleft>108</centerleft>
-							<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(10101)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="art">$INFO[ListItem.Art(poster)]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultMovie.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -1624,7 +1684,7 @@
 			<content target="videos">special://skin/extras/playlists/movies_random.xsp</content>
 		</control>
 		<control id="10201" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -1712,53 +1772,113 @@
 					<animation effect="zoom" start="100" end="111" center="120,360" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<include content="widget-image">
-						<description>Primary art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">324</param>
-						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Art(poster)]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
-					</include>
-					<include content="widget-image">
-						<description>Fallback art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">324</param>
-						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
-					</include>
-					<include content="widget-image">
-						<description>Catch-all art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">324</param>
-						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
-					</include>
 					<control type="group">
-						<left>12</left>
-						<bottom>0</bottom>
-						<width>216</width>
-						<height>24</height>
-						<control type="image">
-							<texture background="true">views/OverlayBottomBar.png</texture>
-							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(10201)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Art(poster)]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
-						<control type="image">
-							<width>24</width>
-							<centerleft>108</centerleft>
-							<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(10201)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Art(poster)]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Art(poster))]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Art(poster))</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">324</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Art(poster)) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -1823,7 +1943,7 @@
 			<content target="videos">special://skin/extras/playlists/tvshows_random.xsp</content>
 		</control>
 		<control id="10401" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -1911,53 +2031,113 @@
 					<animation effect="zoom" start="100" end="111" center="120,240" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<include content="widget-image">
-						<description>Primary art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultMusicAlbums.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
-					</include>
-					<include content="widget-image">
-						<description>Fallback art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultMusicAlbums.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">String.IsEmpty(ListItem.Icon)</param>
-					</include>
-					<include content="widget-image">
-						<description>Catch-all art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultMusicAlbums.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
-					</include>
 					<control type="group">
-						<left>12</left>
-						<bottom>0</bottom>
-						<width>216</width>
-						<height>24</height>
-						<control type="image">
-							<texture background="true">views/OverlayBottomBar.png</texture>
-							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(10401)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultMusicAlbums.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultMusicAlbums.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultMusicAlbums.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
-						<control type="image">
-							<width>24</width>
-							<centerleft>108</centerleft>
-							<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(10401)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultMusicAlbums.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultMusicAlbums.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultMusicAlbums.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -2022,7 +2202,7 @@
 			<content target="music">special://skin/extras/playlists/albums_random.xsp</content>
 		</control>
 		<control id="10601" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -2110,53 +2290,113 @@
 					<animation effect="zoom" start="100" end="111" center="120,240" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<include content="widget-image">
-						<description>Primary art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultGameAddons.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
-					</include>
-					<include content="widget-image">
-						<description>Fallback art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultGameAddons.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">String.IsEmpty(ListItem.Icon)</param>
-					</include>
-					<include content="widget-image">
-						<description>Catch-all art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultGameAddons.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
-					</include>
 					<control type="group">
-						<left>12</left>
-						<bottom>0</bottom>
-						<width>216</width>
-						<height>24</height>
-						<control type="image">
-							<texture background="true">views/OverlayBottomBar.png</texture>
-							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(10601)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultGameAddons.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultGameAddons.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultGameAddons.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
-						<control type="image">
-							<width>24</width>
-							<centerleft>108</centerleft>
-							<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(10601)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultGameAddons.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultGameAddons.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultGameAddons.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -2221,7 +2461,7 @@
 			<content target="">addons://sources/game/</content>
 		</control>
 		<control id="10801" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -2309,53 +2549,113 @@
 					<animation effect="zoom" start="100" end="111" center="120,240" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<include content="widget-image">
-						<description>Primary art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
-					</include>
-					<include content="widget-image">
-						<description>Fallback art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">String.IsEmpty(ListItem.Icon)</param>
-					</include>
-					<include content="widget-image">
-						<description>Catch-all art</description>
-						<param name="left">12</param>
-						<param name="bottom">0</param>
-						<param name="width">216</param>
-						<param name="height">216</param>
-						<param name="fallback">DefaultShortcut.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
-					</include>
 					<control type="group">
-						<left>12</left>
-						<bottom>0</bottom>
-						<width>216</width>
-						<height>24</height>
-						<control type="image">
-							<texture background="true">views/OverlayBottomBar.png</texture>
-							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(10801)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
-						<control type="image">
-							<width>24</width>
-							<centerleft>108</centerleft>
-							<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(10801)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">12</param>
+							<param name="bottom">0</param>
+							<param name="width">216</param>
+							<param name="height">216</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultShortcut.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>12</left>
+							<bottom>0</bottom>
+							<width>216</width>
+							<height>24</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+								<width>24</width>
+								<centerleft>108</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -2420,7 +2720,7 @@
 			<content target="programs">addons://sources/executable</content>
 		</control>
 		<control id="10901" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -2447,26 +2747,24 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<left>0</left>
-						<top>35</top>
-						<width>203</width>
-						<height>246</height>
+						<left>21</left>
+						<top>60</top>
+						<width>162</width>
+						<height>197</height>
 						<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="center">keep</aspectratio>
 						<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
-						<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 					</control>
 					<control type="multiimage">
-						<left>0</left>
-						<top>35</top>
-						<width>203</width>
-						<height>246</height>
+						<left>21</left>
+						<top>60</top>
+						<width>162</width>
+						<height>197</height>
 						<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						<timeperimage>200</timeperimage>
 						<aspectratio align="center">keep</aspectratio>
 						<visible>Skin.HasSetting(weatherIcons.multi)</visible>
-						<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 					</control>
 					<control type="label">
 						<top>281</top>
@@ -2481,46 +2779,99 @@
 			</itemlayout>
 			<focusedlayout height="326" width="203">
 				<control type="group">
+					<animation effect="zoom" start="100" end="120" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<control type="label">
-						<top>2</top>
-						<width>203</width>
-						<height>33</height>
-						<font>Font33</font>
-						<align>center</align>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[TextColorFO]</textcolor>
+					<control type="group">
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(10901)</visible>
+						<control type="image">
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">keep</aspectratio>
+							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+						</control>
+						<control type="multiimage">
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
+							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+							<timeperimage>200</timeperimage>
+							<aspectratio align="center">keep</aspectratio>
+							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+						</control>
 					</control>
-					<control type="image">
-						<left>0</left>
-						<top>35</top>
-						<width>203</width>
-						<height>246</height>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<aspectratio align="center">keep</aspectratio>
-						<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
-						<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(10901)</visible>
+						<control type="image">
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
+							<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
+							<aspectratio align="center">keep</aspectratio>
+							<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
+						</control>
+						<control type="multiimage">
+							<left>21</left>
+							<top>60</top>
+							<width>162</width>
+							<height>197</height>
+							<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
+							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							<timeperimage>200</timeperimage>
+							<aspectratio align="center">keep</aspectratio>
+							<visible>Skin.HasSetting(weatherIcons.multi)</visible>
+						</control>
 					</control>
-					<control type="multiimage">
-						<left>0</left>
-						<top>35</top>
-						<width>203</width>
-						<height>246</height>
-						<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
-						<timeperimage>200</timeperimage>
-						<aspectratio align="center">keep</aspectratio>
-						<visible>Skin.HasSetting(weatherIcons.multi)</visible>
-						<animation effect="zoom" start="80" end="100" center="auto" time="300" tween="back" easing="out" reversible="false">Focus</animation>
+				</control>
+				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
+					<control type="group">
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(10901)</visible>
+						<control type="label">
+							<top>2</top>
+							<width>203</width>
+							<height>33</height>
+							<font>Font33</font>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+						</control>
+						<control type="label">
+							<top>281</top>
+							<width>203</width>
+							<height>33</height>
+							<font>Font33</font>
+							<align>center</align>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
 					</control>
-					<control type="label">
-						<top>281</top>
-						<width>203</width>
-						<height>33</height>
-						<font>Font33</font>
-						<align>center</align>
-						<textcolor>$VAR[TextColorFO]</textcolor>
-						<label>$INFO[ListItem.Label2]</label>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(10901)</visible>
+						<control type="label">
+							<top>2</top>
+							<width>203</width>
+							<height>33</height>
+							<font>Font33</font>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="label">
+							<top>281</top>
+							<width>203</width>
+							<height>33</height>
+							<font>Font33</font>
+							<align>center</align>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
 					</control>
 				</control>
 				<control type="group">
@@ -2535,26 +2886,24 @@
 						<textcolor>$VAR[TextColorNF]</textcolor>
 					</control>
 					<control type="image">
-						<left>0</left>
-						<top>35</top>
-						<width>203</width>
-						<height>246</height>
+						<left>21</left>
+						<top>60</top>
+						<width>162</width>
+						<height>197</height>
 						<texture background="true" colordiffuse="$VAR[DiffusePosterNF]">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="center">keep</aspectratio>
 						<visible>!Skin.HasSetting(weatherIcons.multi)</visible>
-						<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 					</control>
 					<control type="multiimage">
-						<left>0</left>
-						<top>35</top>
-						<width>203</width>
-						<height>246</height>
+						<left>21</left>
+						<top>60</top>
+						<width>162</width>
+						<height>197</height>
 						<imagepath>$INFO[ListItem.Property(weatherIconMulti)]</imagepath>
 						<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 						<timeperimage>200</timeperimage>
 						<aspectratio align="center">keep</aspectratio>
 						<visible>Skin.HasSetting(weatherIcons.multi)</visible>
-						<animation effect="zoom" end="80" center="auto" time="0" condition="True">Conditional</animation>
 					</control>
 					<control type="label">
 						<top>281</top>
@@ -2572,7 +2921,7 @@
 			</content>
 		</control>
 		<control id="101001" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -2660,53 +3009,113 @@
 					<animation effect="zoom" start="100" end="111" center="160,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<include content="widget-image">
-						<description>Primary art</description>
-						<param name="left">16</param>
-						<param name="bottom">0</param>
-						<param name="width">288</param>
-						<param name="height">288</param>
-						<param name="fallback">DefaultLiveTV.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
-					</include>
-					<include content="widget-image">
-						<description>Fallback art</description>
-						<param name="left">16</param>
-						<param name="bottom">0</param>
-						<param name="width">288</param>
-						<param name="height">288</param>
-						<param name="fallback">DefaultLiveTV.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">String.IsEmpty(ListItem.Icon)</param>
-					</include>
-					<include content="widget-image">
-						<description>Catch-all art</description>
-						<param name="left">16</param>
-						<param name="bottom">0</param>
-						<param name="width">288</param>
-						<param name="height">288</param>
-						<param name="fallback">DefaultLiveTV.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
-					</include>
 					<control type="group">
-						<left>16</left>
-						<bottom>0</bottom>
-						<width>288</width>
-						<height>32</height>
-						<control type="image">
-							<texture background="true">views/OverlayBottomBar.png</texture>
-							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(101001)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>16</left>
+							<bottom>0</bottom>
+							<width>288</width>
+							<height>32</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+									<width>32</width>
+									<centerleft>144</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
-						<control type="image">
-								<width>32</width>
-								<centerleft>144</centerleft>
-							<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(101001)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>16</left>
+							<bottom>0</bottom>
+							<width>288</width>
+							<height>32</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+									<width>32</width>
+									<centerleft>144</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							</control>
 						</control>
 					</control>
 				</control>
@@ -2771,7 +3180,7 @@
 			<content target="videos">pvr://channels/tv/*/</content>
 		</control>
 		<control id="101101" type="list">
-			<viewtype label="">list</viewtype>
+			<viewtype label="$LOCALIZE[535]">list</viewtype>
 			<orientation>horizontal</orientation>
 			<defaultcontrol always="true">0</defaultcontrol>
 			<scrolltime easing="out" tween="sine">240</scrolltime>
@@ -2859,53 +3268,113 @@
 					<animation effect="zoom" start="100" end="111" center="160,320" time="300" tween="back" easing="out" reversible="false">Focus</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false" condition="Control.HasFocus(9000)">Conditional</animation>
 					<animation effect="fade" start="100" end="0" time="0" reversible="false">Unfocus</animation>
-					<include content="widget-image">
-						<description>Primary art</description>
-						<param name="left">16</param>
-						<param name="bottom">0</param>
-						<param name="width">288</param>
-						<param name="height">288</param>
-						<param name="fallback">DefaultLiveTV.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
-					</include>
-					<include content="widget-image">
-						<description>Fallback art</description>
-						<param name="left">16</param>
-						<param name="bottom">0</param>
-						<param name="width">288</param>
-						<param name="height">288</param>
-						<param name="fallback">DefaultLiveTV.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">String.IsEmpty(ListItem.Icon)</param>
-					</include>
-					<include content="widget-image">
-						<description>Catch-all art</description>
-						<param name="left">16</param>
-						<param name="bottom">0</param>
-						<param name="width">288</param>
-						<param name="height">288</param>
-						<param name="fallback">DefaultLiveTV.png</param>
-						<param name="art">$INFO[ListItem.Icon]</param>
-						<param name="aspectratio">keep</param>
-						<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
-					</include>
 					<control type="group">
-						<left>16</left>
-						<bottom>0</bottom>
-						<width>288</width>
-						<height>32</height>
-						<control type="image">
-							<texture background="true">views/OverlayBottomBar.png</texture>
-							<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
-							<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+						<visible>!System.HasActiveModalDialog + Control.HasFocus(101101)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>16</left>
+							<bottom>0</bottom>
+							<width>288</width>
+							<height>32</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+									<width>32</width>
+									<centerleft>144</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+							</control>
 						</control>
-						<control type="image">
-								<width>32</width>
-								<centerleft>144</centerleft>
-							<texture background="true">$VAR[StatusOverlayWide]</texture>
+					</control>
+					<control type="group">
+						<visible>System.HasActiveModalDialog | !Control.HasFocus(101101)</visible>
+						<include content="widget-image">
+							<description>Primary art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">![String.IsEmpty(ListItem.Icon)]</param>
+						</include>
+						<include content="widget-image">
+							<description>Fallback art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">String.IsEmpty(ListItem.Icon)</param>
+						</include>
+						<include content="widget-image">
+							<description>Catch-all art</description>
+							<param name="left">16</param>
+							<param name="bottom">0</param>
+							<param name="width">288</param>
+							<param name="height">288</param>
+							<param name="colordiffuse">$VAR[DiffusePosterNF]</param>
+							<param name="fallback">DefaultLiveTV.png</param>
+							<param name="art">$INFO[ListItem.Icon]</param>
+							<param name="aspectratio">keep</param>
+							<param name="visible">[ String.IsEmpty(ListItem.Icon) ] + [ String.IsEmpty(ListItem.Icon) ]</param>
+						</include>
+						<control type="group">
+							<left>16</left>
+							<bottom>0</bottom>
+							<width>288</width>
+							<height>32</height>
+							<control type="image">
+								<texture background="true">views/OverlayBottomBar.png</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+								<visible>[ListItem.IsFolder + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)</visible>
+								<visible>[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)</visible>
+							</control>
+							<control type="image">
+									<width>32</width>
+									<centerleft>144</centerleft>
+								<texture background="true">$VAR[StatusOverlayWide]</texture>
+								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
+							</control>
 						</control>
 					</control>
 				</control>
