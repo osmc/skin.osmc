@@ -2,19 +2,41 @@
 
 ---
 
+**_v19.1.4_**
+
+_Improved_
+- improve background overlay rendering
+- improve media flags spacing and positioning
+- improve rendering of all progress bar, scroll bar and slider controls
+- improve non-focus fanart behaviour
+
+_Fixed_
+- fix seek slider mouse control
+
+---
+
 **_v19.1.3_**
 
 _Improved_
 - improve window draw performance
 - rework home screen widget animation and heading/details behaviour
-- improve background overlay rendering
-- improve media flags spacing and positioning
-- improve rendering of all progress bar, scroll bar and slider controls
 
 _Fixed_
 - use proper localize for Player settings entry
 - fix default (non-skinshortcuts) home menu widget headings
-- fix seek slider mouse control
+
+---
+
+**_v19.1.2_**
+
+_New_
+- reset textboxes to top scrolling position during dialog or window switches
+
+_Improved_
+- improve inital window/dialog focus fix (only apply where needed)
+
+_Fixed_
+- always show OSD playlist button when expected
 
 ---
 
@@ -418,19 +440,19 @@ Release
 
 ---
 
-**Changelog v19.1.3**
+**Changelog v19.1.4**
 
-_add fade animations to all windows to hide content while fullscreen dialogs are visible_
 _replace Background1.png and Background2.png links by new background overlay opacity variables_
 _adjust border attributes of all slider textures_
+_replace all NonFocusFadeAnimation includes by new NonFocusWindowFadeAnimation or NonFocusDialogFadeAnimation includes for better non-focus fading while dialogs are active_
+_add correct localize to list viewtype tags_
 
 Textures.xbt:
 - update textures file with new background overlay image files (for all four opacity levels)
 - update textures file with new and updated progress bar, scroll bar and slider textures
 
 template.xml:
-- only zoom in on weather widget icons, not text
-- adjust temperature font size of weather widget
+- rework widgets for proper non-focus dimming
 
 Coordinates_DialogSlider.xml:
 - adjust height of background as well as positioning of slider control for updated slider textures
@@ -442,6 +464,76 @@ Coordinates_Includes_MediaFlags.xml:
 Coordinates_VideoOSD.xml:
 - adjust top coordinates to match video fullscreen progress bar position
 
+Coordinates_Viewtype52.xml:
+- replace deprecated image-52 and image-52-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- rework focus animations to cover all onfocus events
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype521.xml:
+- replace deprecated image-521 and image-521-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- rework focus animations to cover all onfocus events
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype522.xml:
+- replace deprecated image-522 and image-522-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- rework focus animations to cover all onfocus events
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype523.xml:
+- replace deprecated image-523 and image-523-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- rework focus animations to cover all onfocus events
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype524.xml:
+- replace deprecated image-524 and image-524-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- rework focus animations to cover all onfocus events
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype525.xml:
+- replace deprecated image-525 and image-525-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- rework focus animations to cover all onfocus events
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype53.xml:
+- replace deprecated image-53 and image-53-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype531.xml:
+- replace deprecated image-531 and image-531-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype532.xml:
+- replace deprecated image-532 and image-532-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype533.xml:
+- replace deprecated image-533 and image-533-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype534.xml:
+- replace deprecated image-534 and image-534-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype535.xml:
+- replace deprecated image-535 and image-535-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype536.xml:
+- replace deprecated image-536 and image-536-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype537.xml:
+- replace deprecated image-537 and image-537-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype538.xml:
+- replace deprecated image-538 and image-538-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
+Coordinates_Viewtype539.xml:
+- replace deprecated image-539 and image-539-focus includes by new MediaViewImageNF and MediaViewImageFO includes
+- add new coordinates includes for new MediaViewImageNF and MediaViewImageFO includes structure
+
 Defaults.xml:
 - adjust sliderex and slider unfocus behaviour
 - adjust sliderex slider height
@@ -450,28 +542,16 @@ Includes_MediaFlags.xml:
 - change order of media flags for longer video info flags (duration on top)
 
 Includes_SubMenu.xml:
-- replace Player settings entry localize to use the proper one
+- add condition to hide view button of video media window for videos content type when fixed videos view setting is active
 
-Includes_Widgets.xml:
-- remove slide effect from home screen widget animations
-- rework widget heading and details for less item movement on screen
+script-skinshortcuts-static.xml:
+- rework widgets for proper non-focus dimming
 
 Includes_Windows_Dialogs.xml:
-- add new WindowFullscreenDialogFadeAnimation animation include
-- remove unnecessary Black background image from WindowBackgroundImage and DialogBackgroundImage includes
-- add visible conditions to hide background images while fanart image control is enabled
-- add visible conditions to only enable fanart image control, if it's actually populated
-
-script-skonshortcuts-static.xml:
-- add missing container2 parameter to widgetHeading includes
-- only zoom in on weather widget icons, not text
-- adjust temperature font size of weather widget
-
-Settings.xml:
-- replace Player settings entry localize to use the proper one
+- replace deprecated NonFocusFadeAnimation include with new NonFocusWindowFadeAnimation and NonFocusDialogFadeAnimation includes
+- add new MediaViewImageNF and MediaViewImageFO includes
 
 Variables.xml:
-- replace Player settings entry localize in HeadingLabelSecondary variable to use the proper one
 - add new background overlay opacity variables
 - rework VideoResolution variable to show resolution information differently
 
@@ -480,6 +560,54 @@ Variables_Colours.xml:
 
 VideoOSD.xml:
 - adjust order of seek slider and seek slider button for mouse to be able catch control of the slider control
+
+Viewtype52.xml:
+- remove deprecated image-52 and image-52-focus includes
+
+Viewtype521.xml:
+- remove deprecated image-521 and image-521-focus includes
+
+Viewtype522.xml:
+- remove deprecated image-522 and image-522-focus includes
+
+Viewtype523.xml:
+- remove deprecated image-523 and image-523-focus includes
+
+Viewtype524.xml:
+- remove deprecated image-524 and image-524-focus includes
+
+Viewtype525.xml:
+- remove deprecated image-525 and image-525-focus includes
+
+Viewtype53.xml:
+- remove deprecated image-53 and image-53-focus includes
+
+Viewtype531.xml:
+- remove deprecated image-531 and image-531-focus includes
+
+Viewtype532.xml:
+- remove deprecated image-532 and image-532-focus includes
+
+Viewtype533.xml:
+- remove deprecated image-533 and image-533-focus includes
+
+Viewtype534.xml:
+- remove deprecated image-534 and image-534-focus includes
+
+Viewtype535.xml:
+- remove deprecated image-535 and image-535-focus includes
+
+Viewtype536.xml:
+- remove deprecated image-536 and image-536-focus includes
+
+Viewtype537.xml:
+- remove deprecated image-537 and image-537-focus includes
+
+Viewtype538.xml:
+- remove deprecated image-538 and image-538-focus includes
+
+Viewtype539.xml:
+- remove deprecated image-539 and image-539-focus includes
 
 addon.xml:
 - bump version to 19.1.4
