@@ -29,6 +29,15 @@
 				<fadetime>100</fadetime>
 				<texture>$INFO[ListItem.FileNameAndPath]</texture>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>!Window.IsActive(Slideshow)</visible>
+			</control>
+			
+			<control type="image">
+				<include>DialogPictureInfo_coords1</include>
+				<fadetime>100</fadetime>
+				<texture>$INFO[Slideshow.Path]$INFO[Slideshow.Filename]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<visible>Window.IsActive(Slideshow)</visible>
 			</control>
 
 			<!-- List -->
