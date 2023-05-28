@@ -8,6 +8,7 @@ _New_
 - Support Nexus skin engine features
 - remove Skin Helper Service ColorPicker support
 - add new video OSD audio and subtitle selection
+- add missing PVR guide controls dialog
 
 ---
 
@@ -444,6 +445,7 @@ _add new Coordinates_MyFavourites.xml and MyFavourites.xml files_
 _add new Coordinates_SettingsScreenCalibration.xml file_
 _add new Includes_GameControllers.xml file_
 _remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
+_add new DialogPVRGuideControls.xml and Coordinates_DialogPVRGuideControls.xml files_
 
 strings.po:
 - update localizes for new colour picker (31026, 31037, 31050, 31060, 31295, 31297, 31298, 31299, 31300, 31405, 31407, 31435)
@@ -457,6 +459,9 @@ mainmenu.DATA.xml:
 
 overrides.xml:
 - adjust favourites main menu entry template to point to new favourites window
+
+Coordinates_DialogButtonMenu.xml:
+- rework coordinates for new power menu structure
 
 Coordinates_DialogGameControllers.xml:
 - add new coordinates includes for new game controller ports dialog
@@ -483,9 +488,13 @@ Coordinates_Viewtype537.xml:
 Custom_Overlay_Debug.xml:
 - add new entry for new favourites window and new colour picker dialog
 - remove entry of deprecates colour picker script dialog
+- add new entry for new PVR guide controls dialog
 
 Defaults.xml:
 - add new colorbutton control
+
+DialogButtonMenu.xml:
+- rework power menu to match new PVR guide controls dialog
 
 DialogGameControllers.xml:
 - rework game controllers dialog to use includes depending on which dialog is called (game controller profiles or game controller ports dialog)
@@ -509,6 +518,7 @@ Includes.xml:
 - adjust onloads to set default colour value to "Default" instead of "None"
 - add new Coordinates_SettingsScreenCalibration.xml include file
 - add new Includes_GameControllers.xml include file
+- add new Coordinates_DialogPVRGuideControls.xml include file
 
 Includes_SubMenu.xml:
 - add sub menu for new favourites window
