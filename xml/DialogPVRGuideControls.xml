@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<!-- shutdownmenu -->
+	<!-- PVRGuideControls -->
 	<defaultcontrol always="true">7000</defaultcontrol>
-	<onload>Dialog.Close(1110)</onload>
 	
 	<!-- Textbox scroll reset -->
 	<include>ResetScroll</include>
@@ -19,12 +18,12 @@
 				<animation effect="slide" end="-460,0" time="200">WindowClose</animation>
 
 				<control type="image">
-					<include>DialogButtonMenu_coords1</include>
+					<include>DialogPVRGuideControls_coords1</include>
 					<texture colordiffuse="$VAR[MenuOSDColor]">$VAR[MenuOSDBackground]</texture>
 				</control>
 
 				<control type="grouplist" id="7000">
-					<include>DialogButtonMenu_coords2</include>
+					<include>DialogPVRGuideControls_coords2</include>
 					<onright>Close</onright>
 					<onleft>Close</onleft>
 					<orientation>vertical</orientation>
@@ -33,127 +32,104 @@
 					<include content="SubMenuAnimation">
 						<param name="containerID">7000</param>
 					</include>
-
+					
 					<control type="button" id="600">
-						<include>DialogButtonMenu_coords3</include>
-						<label>13012</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19063</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Quit</onclick>
+						<onclick>PVR.EpgGridControl(FirstProgramme)</onclick>
 						<align>center</align>
-						<visible>System.ShowExitButton</visible>
 					</control>
 					
 					<control type="button" id="601">
-						<include>DialogButtonMenu_coords3</include>
-						<label>13016</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19317</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Powerdown</onclick>
+						<onclick>PVR.EpgGridControl(-12)</onclick>
 						<align>center</align>
-						<visible>System.CanPowerDown</visible>
 					</control>
 					
 					<control type="button" id="602">
-						<include>DialogButtonMenu_coords3</include>
-						<label>13011</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19070</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Suspend</onclick>
+						<onclick>PVR.EpgGridControl(CurrentProgramme)</onclick>
 						<align>center</align>
-						<visible>System.CanSuspend</visible>
 					</control>
 					
 					<control type="button" id="603">
-						<include>DialogButtonMenu_coords3</include>
-						<label>13010</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19318</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Hibernate</onclick>
+						<onclick>PVR.EpgGridControl(+12)</onclick>
 						<align>center</align>
-						<visible>System.CanHibernate</visible>
 					</control>
 					
 					<control type="button" id="604">
-						<include>DialogButtonMenu_coords3</include>
-						<label>13013</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19064</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Reset</onclick>
+						<onclick>PVR.EpgGridControl(LastProgramme)</onclick>
 						<align>center</align>
-						<visible>System.CanReboot</visible>
 					</control>
 					
 					<control type="button" id="605">
-						<include>DialogButtonMenu_coords3</include>
-						<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19288</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>dialog.close(all,true)</onclick>
-						<onclick>System.LogOff</onclick>
+						<onclick>PVR.EpgGridControl(SelectDate)</onclick>
 						<align>center</align>
-						<visible>System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)</visible>
-						<visible>System.Loggedon</visible>
 					</control>
 					
 					<control type="button" id="606">
-						<include>DialogButtonMenu_coords3</include>
-						<label>20046</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19322</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Mastermode</onclick>
+						<onclick>PVR.EpgGridControl(FirstChannel)</onclick>
 						<align>center</align>
-						<visible>System.HasLocks + System.IsMaster</visible>
 					</control>
 					
 					<control type="button" id="607">
-						<include>DialogButtonMenu_coords3</include>
-						<altlabel>20045</altlabel>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19323</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Mastermode</onclick>
+						<onclick>PVR.EpgGridControl(PlayingChannel)</onclick>
 						<align>center</align>
-						<visible>System.HasLocks + !System.IsMaster</visible>
+						<visible>PVR.IsPlayingTV | PVR.IsPlayingRadio | PVR.IsPlayingEpgTag</visible>
 					</control>
 					
 					<control type="button" id="608">
-						<include>DialogButtonMenu_coords3</include>
-						<label>13017</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19324</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>InhibitIdleShutdown(true)</onclick>
+						<onclick>PVR.EpgGridControl(LastChannel)</onclick>
 						<align>center</align>
-						<visible>System.HasShutdown +!System.IsInhibit</visible>
 					</control>
 					
 					<control type="button" id="609">
-						<include>DialogButtonMenu_coords3</include>
-						<label>13018</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19319</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>InhibitIdleShutdown(false)</onclick>
+						<onclick>PVR.EpgGridControl(PreviousGroup)</onclick>
 						<align>center</align>
-						<visible>System.HasShutdown + System.IsInhibit</visible>
 					</control>
 					
 					<control type="button" id="610">
-						<include>DialogButtonMenu_coords3</include>
-						<label>20150</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19320</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>AlarmClock(shutdowntimer,Shutdown)</onclick>
+						<onclick>PVR.EpgGridControl(NextGroup)</onclick>
 						<align>center</align>
-						<visible>!System.HasAlarm(shutdowntimer)</visible>
-						<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
 					</control>
 					
 					<control type="button" id="611">
-						<include>DialogButtonMenu_coords3</include>
-						<label>20151 $INFO[System.Alarmpos,T-]</label>
+						<include>DialogPVRGuideControls_coords3</include>
+						<label>19321</label>
 						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>CancelAlarm(shutdowntimer)</onclick>
+						<onclick>PVR.EpgGridControl(SelectGroup)</onclick>
 						<align>center</align>
-						<visible>System.HasAlarm(shutdowntimer)</visible>
 					</control>
-					
-					<control type="button" id="612">
-						<include>DialogButtonMenu_coords3</include>
-						<label>5</label>
-						<texturefocus colordiffuse="$VAR[buttonfocus]">common/focus52c.png</texturefocus>
-						<onclick>Close</onclick>
-						<align>center</align>
-						<onclick>ActivateWindow(Settings)</onclick>
-					</control>
-					
+
 				</control>
 			</control>
 		</control>
