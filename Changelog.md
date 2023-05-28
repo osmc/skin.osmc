@@ -10,6 +10,12 @@ _New_
 - add new video OSD audio and subtitle selection
 - add missing PVR guide controls dialog
 
+_Improved_
+- improve inital info dialog button focus behaviour
+
+_Fixed_
+- fix view type button supression behaviour in video media window while video addon force view setting is enabled
+
 ---
 
 **_v19.1.4_**
@@ -493,6 +499,10 @@ Custom_Overlay_Debug.xml:
 Defaults.xml:
 - add new colorbutton control
 
+DialogAddonInfo.xml:
+- remove deprecated WindowDialogFocus include
+- remove deprecated button grouplist defaultcontrol tag
+
 DialogButtonMenu.xml:
 - rework power menu to match new PVR guide controls dialog
 
@@ -502,11 +512,23 @@ DialogGameControllers.xml:
 DialogKeyboard.xml:
 - add new show/hide password buttin
 
+DialogMusicInfo.xml:
+- remove deprecated WindowDialogFocus include
+- remove deprecated button grouplist defaultcontrol tag
+
 DialogPlayerProcessInfo.xml:
 - add new video scan type info label
 
+DialogPVRInfo.xml:
+- remove deprecated WindowDialogFocus include
+- remove deprecated button grouplist defaultcontrol tag
+
 DialogSeekBar.xml:
 - replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
+
+DialogVideoInfo.xml:
+- remove deprecated WindowDialogFocus include
+- remove deprecated button grouplist defaultcontrol tag
 
 GameOSD.xml:
 - adjust visibility conditions with new game controller ports window condition
@@ -522,6 +544,10 @@ Includes.xml:
 
 Includes_SubMenu.xml:
 - add sub menu for new favourites window
+- fix include and visible conditions for view type suppression in video media window while force video addon view setting is enabled
+
+Includes_Windows_Dialogs.xml:
+- remove deprecated WindowDialogFocus include
 
 script-skinshortcuts-static.xml:
 - adjust default favourites main menu link to point to new favourites window
