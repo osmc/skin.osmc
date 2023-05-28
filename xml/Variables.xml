@@ -830,12 +830,13 @@
 	
 	<!-- Video Resolution labels -->
 	<variable name="VideoResolution">
-		<value condition="String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,540)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]SD</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,720)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]HD</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,1080)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]Full HD</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,4K)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]4K UHD</value>
-		<value condition="String.IsEqual(ListItem.VideoResolution,8K)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]8K UHD</value>
-		<value condition="String.IsEmpty(ListItem.VideoResolution)">$VAR[HDRType,, &#8226; ]$VAR[3DMode]</value>
+		<value condition="![String.IsEmpty(ListItem.VideoWidth) | String.IsEmpty(ListItem.VideoHeight) | String.IsEqual(ListItem.VideoWidth,0) | String.IsEqual(ListItem.VideoHeight,0)]">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]$INFO[ListItem.VideoWidth]x$INFO[ListItem.VideoHeight]</value>
+		<value condition="[String.IsEmpty(ListItem.VideoWidth) | String.IsEmpty(ListItem.VideoHeight) | String.IsEqual(ListItem.VideoWidth,0) | String.IsEqual(ListItem.VideoHeight,0)] + String.IsEqual(ListItem.VideoResolution,480) | String.IsEqual(ListItem.VideoResolution,576) | String.IsEqual(ListItem.VideoResolution,540)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]SD</value>
+		<value condition="[String.IsEmpty(ListItem.VideoWidth) | String.IsEmpty(ListItem.VideoHeight) | String.IsEqual(ListItem.VideoWidth,0) | String.IsEqual(ListItem.VideoHeight,0)] + String.IsEqual(ListItem.VideoResolution,720)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]HD</value>
+		<value condition="[String.IsEmpty(ListItem.VideoWidth) | String.IsEmpty(ListItem.VideoHeight) | String.IsEqual(ListItem.VideoWidth,0) | String.IsEqual(ListItem.VideoHeight,0)] + String.IsEqual(ListItem.VideoResolution,1080)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]Full HD</value>
+		<value condition="[String.IsEmpty(ListItem.VideoWidth) | String.IsEmpty(ListItem.VideoHeight) | String.IsEqual(ListItem.VideoWidth,0) | String.IsEqual(ListItem.VideoHeight,0)] + String.IsEqual(ListItem.VideoResolution,4K)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]4K UHD</value>
+		<value condition="[String.IsEmpty(ListItem.VideoWidth) | String.IsEmpty(ListItem.VideoHeight) | String.IsEqual(ListItem.VideoWidth,0) | String.IsEqual(ListItem.VideoHeight,0)] + String.IsEqual(ListItem.VideoResolution,8K)">$VAR[HDRType,, &#8226; ]$VAR[3DMode,, &#8226; ]8K UHD</value>
+		<value condition="[String.IsEmpty(ListItem.VideoWidth) | String.IsEmpty(ListItem.VideoHeight) | String.IsEqual(ListItem.VideoWidth,0) | String.IsEqual(ListItem.VideoHeight,0)] + String.IsEmpty(ListItem.VideoResolution)">$VAR[HDRType,, &#8226; ]$VAR[3DMode]</value>
 	</variable>
 	
 	<!-- Video Codec labels -->

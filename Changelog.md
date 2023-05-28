@@ -9,6 +9,7 @@ _New_
 - remove Skin Helper Service ColorPicker support
 - add new video OSD audio and subtitle selection
 - add missing PVR guide controls dialog
+- use new OSMC specific video width and height info for media flags
 
 _Improved_
 - improve inital info dialog button focus behaviour
@@ -571,6 +572,7 @@ Variables.xml:
 - rework VideoResolution variable to incorporate new HDR info
 - add new HDRType variable
 - add new SubtitleLanguageOSD variable for new video OSD Subtitle stream selection
+- add new conditions to VideoResolution variable to support new OSMC specific video width and height infolabels
 
 Variables_Colours.xml:
 - rework colour variables with new  default colour value "Default"
