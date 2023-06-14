@@ -10,6 +10,7 @@ _New_
 - add new video OSD audio and subtitle selection
 - add missing PVR guide controls dialog
 - use new OSMC specific video width and height info for media flags
+- add new default widgets to movies, tv shows and music home screen items
 
 _Improved_
 - improve inital info dialog button focus behaviour
@@ -453,6 +454,7 @@ _add new Coordinates_SettingsScreenCalibration.xml file_
 _add new Includes_GameControllers.xml file_
 _remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
 _add new DialogPVRGuideControls.xml and Coordinates_DialogPVRGuideControls.xml files_
+_rename music and videos template files for skinshortcuts script_
 
 strings.po:
 - update localizes for new colour picker (31026, 31037, 31050, 31060, 31295, 31297, 31298, 31299, 31300, 31405, 31407, 31435)
@@ -464,8 +466,22 @@ Textures.xbt:
 mainmenu.DATA.xml:
 - adjust default favourites main menu link to point to new favourites window
 
+movies-1.DATA.xml:
+- add new recently added movies widget entry
+
+music-1.DATA.xml:
+- add new recently added albums widget entry
+
 overrides.xml:
 - adjust favourites main menu entry template to point to new favourites window
+- add new default recently added movies, recently added albums and in-progress tv shows widget entries
+- fix default program add-ons widget entry
+
+programs-1.DATA.xml:
+- fix name label of program add-ons widget
+
+tvhsows-1.DATA.xml:
+- add new in-progress tv shows widget entry
 
 Coordinates_DialogButtonMenu.xml:
 - rework coordinates for new power menu structure
@@ -503,6 +519,8 @@ Defaults.xml:
 DialogAddonInfo.xml:
 - remove deprecated WindowDialogFocus include
 - remove deprecated button grouplist defaultcontrol tag
+- add new AddonInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
+- revert button order to former default
 
 DialogButtonMenu.xml:
 - rework power menu to match new PVR guide controls dialog
@@ -516,6 +534,7 @@ DialogKeyboard.xml:
 DialogMusicInfo.xml:
 - remove deprecated WindowDialogFocus include
 - remove deprecated button grouplist defaultcontrol tag
+- add new MusicInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
 
 DialogPlayerProcessInfo.xml:
 - add new video scan type info label
@@ -523,6 +542,8 @@ DialogPlayerProcessInfo.xml:
 DialogPVRInfo.xml:
 - remove deprecated WindowDialogFocus include
 - remove deprecated button grouplist defaultcontrol tag
+- add new PVRInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
+- revert button order to former default
 
 DialogSeekBar.xml:
 - replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
@@ -530,6 +551,8 @@ DialogSeekBar.xml:
 DialogVideoInfo.xml:
 - remove deprecated WindowDialogFocus include
 - remove deprecated button grouplist defaultcontrol tag
+- add new VideoInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
+- revert button order to former default
 
 GameOSD.xml:
 - adjust visibility conditions with new game controller ports window condition
@@ -549,9 +572,12 @@ Includes_SubMenu.xml:
 
 Includes_Windows_Dialogs.xml:
 - remove deprecated WindowDialogFocus include
+- add new AddonInfoDialogButtonFocus, MusicInfoDialogButtonFocus, PVRInfoDialogButtonFocus and VideoInfoDialogButtonFocus includes
 
 script-skinshortcuts-static.xml:
 - adjust default favourites main menu link to point to new favourites window
+- add new default recently added movies, recently added albums and in-progress tv shows widget entries
+- fix name label and default layout of program add-ons widget
 
 SettingsCategory.xml:
 - add new default color button
