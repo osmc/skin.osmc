@@ -109,38 +109,50 @@
 			<shortcut label="$LOCALIZE[31236]" icon="DefaultFolder.png" condition="System.HasAddon(script.extendedinfo) + System.AddonIsEnabled(script.extendedinfo)">||BROWSE||script.skin.helper.service/?action=widgets&amp;path=extendedinfo</shortcut>
 		</node>
 	</groupings>
-
+	
 	<!-- Additional widgets -->
 	<widget label="$LOCALIZE[10508]" type="custom" path="$INCLUDE[weather-widget]">WeatherWidget</widget>
 	<widget label="$LOCALIZE[31091]" type="custom" path="$INCLUDE[osmc-widget]">OSMCWidget</widget>
 	<widget label="$LOCALIZE[35049]" type="custom" path="addons://sources/game/">GameWidget</widget>
-
-	<!-- Default properties -->
-	<widgetdefault labelID="10508" group="weather.1">WeatherWidget</widgetdefault>
 	
-	<widgetdefault labelID="31091" group="31091.1">OSMCWidget</widgetdefault>
-	<propertydefault labelID="31091" group="31091.1" property="layout">square-small</propertydefault>
+	<!-- Default properties -->
+	<widgetdefaultnode labelID="31054" group="movies.1" label="$LOCALIZE[31054]" type="movies" path="special://skin/extras/playlists/movies_random.xsp" target="videos">library</widgetdefaultnode>
+	<propertydefault labelID="31054" group="movies.1" property="widgetArt">Art(poster)</propertydefault>
+	
+	<widgetdefaultnode labelID="31179" group="movies.1" label="$LOCALIZE[31179]" type="movies" path="special://skin/extras/playlists/movies_recentlyadded.xsp" target="videos">library</widgetdefaultnode>
+	<propertydefault labelID="31179" group="movies.1" property="widgetArt">Art(poster)</propertydefault>
+	<propertydefault labelID="31179" group="movies.1" property="widgetSortBy">dateAdded</propertydefault>
+	<propertydefault labelID="31179" group="movies.1" property="widgetSortDirection">descending</propertydefault>
+	
+	<widgetdefaultnode labelID="31118" group="tvshows.1" label="$LOCALIZE[31118]" type="tvshows" path="special://skin/extras/playlists/tvshows_random.xsp" target="videos">library</widgetdefaultnode>
+	<propertydefault labelID="31118" group="tvshows.1" property="widgetArt">Art(poster)</propertydefault>
+	
+	<widgetdefaultnode labelID="31193" group="tvshows.1" label="$LOCALIZE[31193]" type="tvshows" path="library://video/tvshows/inprogressshows.xml" target="videos">library</widgetdefaultnode>
+	<propertydefault labelID="31193" group="tvshows.1" property="widgetArt">Art(poster)</propertydefault>
+	<propertydefault labelID="31193" group="tvshows.1" property="widgetSortBy">lastplayed</propertydefault>
+	<propertydefault labelID="31193" group="tvshows.1" property="widgetSortDirection">descending</propertydefault>
+	
+	<widgetdefaultnode labelID="31056" group="music.1" label="$LOCALIZE[31056]" type="albums" path="special://skin/extras/playlists/albums_random.xsp" target="music">music</widgetdefaultnode>
+	<propertydefault labelID="31056" group="music.1" property="layout">square-small</propertydefault>
+	
+	<widgetdefaultnode labelID="31207" group="music.1" label="$LOCALIZE[31207]" type="albums" path="musicdb://recentlyaddedalbums/" target="music">music</widgetdefaultnode>
+	<propertydefault labelID="31207" group="music.1" property="layout">square-small</propertydefault>
+	<propertydefault labelID="31207" group="music.1" property="widgetSortBy">dateAdded</propertydefault>
+	<propertydefault labelID="31207" group="music.1" property="widgetSortDirection">descending</propertydefault>
 	
 	<widgetdefault labelID="35049" group="15016.1">GameWidget</widgetdefault>
 	<propertydefault labelID="35049" group="15016.1" property="layout">square-small</propertydefault>
-
-	<widgetdefaultnode labelID="31054" group="movies.1" label="$LOCALIZE[31054]" type="movies" path="special://skin/extras/playlists/movies_random.xsp" target="videos">library</widgetdefaultnode>
-	<propertydefault labelID="31054" group="movies.1" property="widgetArt">Art(poster)</propertydefault>
-
-	<widgetdefaultnode labelID="31118" group="tvshows.1" label="$LOCALIZE[31118]" type="tvshows" path="special://skin/extras/playlists/tvshows_random.xsp" target="videos">library</widgetdefaultnode>
-	<propertydefault labelID="31118" group="tvshows.1" property="widgetArt">Art(poster)</propertydefault>
-
-	<widgetdefaultnode labelID="31056" group="2.1" label="$LOCALIZE[31056]" type="albums" path="special://skin/extras/playlists/albums_random.xsp" target="music">music</widgetdefaultnode>
-	<propertydefault labelID="31056" group="2.1" property="layout">square-small</propertydefault>
-
+	
+	<widgetdefaultnode labelID="1043" group="programs.1" label="$LOCALIZE[1043]" type="program" path="addons://sources/executable/" target="programs">addon</widgetdefaultnode>
+	<propertydefault labelID="1043" group="programs.1" property="layout">square-small</propertydefault>
+	
+	<widgetdefault labelID="10508" group="weather.1">WeatherWidget</widgetdefault>
+	
 	<widgetdefaultnode labelID="19217" group="14204.1" label="$LOCALIZE[19217]" type="pvr" path="pvr://channels/tv/*/" target="video">pvr</widgetdefaultnode>
 	<propertydefault labelID="19217" group="14204.1" property="layout">square</propertydefault>
-
+	
 	<widgetdefaultnode labelID="19216" group="19021.1" label="$LOCALIZE[19216]" type="pvr" path="pvr://channels/radio/*/" target="video">pvr</widgetdefaultnode>
 	<propertydefault labelID="19216" group="19021.1" property="layout">square</propertydefault>
-
-	<widgetdefaultnode labelID="10001" group="programs.1" label="$LOCALIZE[10001]" type="program" path="addons://sources/executable" target="programs">addon</widgetdefaultnode>
-	<propertydefault labelID="10001" group="programs.1" property="layout">square-small</propertydefault>
 	
 	<!-- Widget Grouping -->
 	<widget-groupings>

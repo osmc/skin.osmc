@@ -789,7 +789,15 @@
 				<align>center</align>
 				<itemgap>30</itemgap>
 				<onup condition="!String.IsEmpty(Window(12003).Property(cast)) | [String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Details) | !String.IsEmpty(Window(12003).Property(extended)) + String.IsEqual(Skin.String(infodialogfirstpage),Description)] + String.IsEqual(ListItem.DBTYPE,set)">50</onup>
+				<include>VideoInfoDialogButtonFocus</include>
 
+				<!-- Play/Browse Button -->
+				<control type="togglebutton" id="8">
+					<width>Auto</width>
+					<label>208</label>
+					<altlabel>1024</altlabel>
+					<usealttexture>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,set)</usealttexture>
+				</control>
 				<!-- Extended info Button -->
 				<control type="togglebutton" id="15">
 					<width>Auto</width>
