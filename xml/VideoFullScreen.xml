@@ -314,6 +314,25 @@
 					<!-- Seek slider -->
 					<control type="slider" id="1">
 						<include>VideoFullScreen_coords23</include>
+						<info>Player.Seekbar</info>
+						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
+						<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
+						<visible>Player.Seeking + !Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					<control type="slider" id="1">
+						<include>VideoFullScreen_coords23</include>
+						<info>PVR.TimeShiftSeekbar</info>
+						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
+						<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
+						<visible>Player.Seeking + Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					
+					<control type="slider" id="1">
+						<include>VideoFullScreen_coords23</include>
 						<info>Player.Progress</info>
 						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
 						<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>

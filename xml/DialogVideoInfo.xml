@@ -37,7 +37,7 @@
 				<control type="image">
 					<include>DialogVideoInfo_coords1</include>
 					<fadetime>100</fadetime>
-					<texture>$VAR[VideoInfoImage]</texture>
+					<texture fallback="DefaultVideo.png" background="true">$VAR[VideoInfoImage]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 				</control>
 			</control>
@@ -66,7 +66,7 @@
 				</control>
 			</control>
 			
-			<!-- Musicvideo image -->
+			<!-- Music video image -->
 			<control type="image">
 				<visible>String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				<include>DialogVideoInfo_coords1</include>
