@@ -148,6 +148,25 @@
 							<textcolor>$VAR[TextColorFO]</textcolor>
 						</control>
 					</control>
+					
+					<!-- Composer -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Role.Composer))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>29903</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Role.Composer)]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+						</control>
+					</control>
 
 					<!-- Year -->
 					<control type="group">
@@ -385,6 +404,25 @@
 							<include>DialogMusicInfo_coords7</include>
 							<font>Font36</font>
 							<label>$INFO[ListItem.AlbumArtist]</label>
+							<textcolor>$VAR[TextColorFO]</textcolor>
+						</control>
+					</control>
+					
+					<!-- Composer -->
+					<control type="group">
+						<include>DialogMusicInfo_coords5</include>
+						<visible>!String.IsEmpty(ListItem.Property(Role.Composer))</visible>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords6</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>29903</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>DialogMusicInfo_coords7</include>
+							<font>Font36</font>
+							<label>$INFO[ListItem.Property(Role.Composer)]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
 						</control>
 					</control>

@@ -218,7 +218,26 @@
 					</control>
 					
 					<!-- Seek slider -->
-					<control type="slider" id="1">
+					<control type="slider">
+						<include>MusicVisualisation_coords13</include>
+						<info>Player.Seekbar</info>
+						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
+						<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
+						<visible>Player.Seeking + !Pvr.IsPlayingTv</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					<control type="slider">
+						<include>MusicVisualisation_coords13</include>
+						<info>PVR.TimeShiftSeekbar</info>
+						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
+						<textureslidernib colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernib>
+						<textureslidernibfocus colordiffuse="$VAR[OverlayColorFO]">osd/OSDSliderNibBig.png</textureslidernibfocus>
+						<visible>Player.Seeking + Pvr.IsPlayingTv + VideoPlayer.HasEpg</visible>
+						<include>VisibleFadeAnimation</include>
+					</control>
+					
+					<control type="slider">
 						<include>MusicVisualisation_coords13</include>
 						<info>Player.Progress</info>
 						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
@@ -227,7 +246,7 @@
 						<visible>!String.IsEmpty(Window(12006).Property(MusicOSDSlider)) + Player.SeekEnabled + !Player.Seeking + !Pvr.IsPlayingRadio</visible>
 						<include>VisibleFadeAnimation</include>
 					</control>
-					<control type="slider" id="1">
+					<control type="slider">
 						<include>MusicVisualisation_coords13</include>
 						<info>PVR.TimeshiftProgressPlayPos</info>
 						<texturesliderbar colordiffuse="00FFFFFF">osd/OSDSliderBack.png</texturesliderbar>
@@ -363,6 +382,24 @@
 						</control>
 					</control>
 					
+					<!-- Composer -->
+					<control type="group">
+						<include>MusicVisualisation_coords19</include>
+						<visible>!String.IsEmpty(MusicPlayer.Property(Role.Composer))</visible>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords20</include>
+							<align>right</align>
+							<font>Font36</font>
+							<label>$LOCALIZE[29903]</label>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<control type="fadelabel">
+							<include>MusicVisualisation_coords21</include>
+							<font>Font36</font>
+							<label>$INFO[MusicPlayer.Property(Role.Composer)]</label>
+						</control>
+					</control>
+					
 					<!-- Genre -->
 					<control type="group">
 						<include>MusicVisualisation_coords19</include>
@@ -378,24 +415,6 @@
 							<include>MusicVisualisation_coords21</include>
 							<font>Font36</font>
 							<label>$INFO[MusicPlayer.Genre]</label>
-						</control>
-					</control>
-					
-					<!-- Comment -->
-					<control type="group">
-						<include>MusicVisualisation_coords19</include>
-						<visible>!String.IsEmpty(MusicPlayer.Comment)</visible>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords20</include>
-							<align>right</align>
-							<font>Font36</font>
-							<label>$LOCALIZE[569]</label>
-							<textcolor>$VAR[TextColorNF]</textcolor>
-						</control>
-						<control type="fadelabel">
-							<include>MusicVisualisation_coords21</include>
-							<font>Font36</font>
-							<label>$INFO[MusicPlayer.Comment]</label>
 						</control>
 					</control>
 					

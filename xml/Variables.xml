@@ -138,8 +138,9 @@
 		<value condition="ListItem.IsParentFolder">DefaultFolderBack.png</value>
 		<value condition="Container.Content(seasons) + !String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
 		<value condition="Container.Content(tvshows) + !String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
-		<value condition="Container.Content(episodes) + !System.Setting(hideunwatchedepisodethumbs)">$INFO[ListItem.Icon]</value>
-		<value condition="Container.Content(episodes) + System.Setting(hideunwatchedepisodethumbs)"></value>
+		<value condition="Container.Content(episodes) + [!System.Setting(hideunwatchedepisodethumbs) | System.Setting(hideunwatchedepisodethumbs) + Integer.IsGreater(ListItem.Playcount,0)]">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(episodes) + System.Setting(hideunwatchedepisodethumbs) + Integer.IsEqual(ListItem.Playcount,0) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="Container.Content(episodes) + System.Setting(hideunwatchedepisodethumbs) + Integer.IsEqual(ListItem.Playcount,0) + String.IsEmpty(ListItem.Art(fanart))">DefaultTVShows.png</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
@@ -436,7 +437,9 @@
 	</variable>
 
 	<variable name="VideoInfoImage">
-		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">$INFO[ListItem.Icon]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode) + [!System.Setting(hideunwatchedepisodethumbs) | System.Setting(hideunwatchedepisodethumbs) + Integer.IsGreater(ListItem.Playcount,0)]">$INFO[ListItem.Icon]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode) + System.Setting(hideunwatchedepisodethumbs) + Integer.IsEqual(ListItem.Playcount,0) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode) + System.Setting(hideunwatchedepisodethumbs) + Integer.IsEqual(ListItem.Playcount,0) + String.IsEmpty(ListItem.Art(fanart))">DefaultTVShows.png</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
