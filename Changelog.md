@@ -2,7 +2,21 @@
 
 ---
 
-**_v20.0.0_**
+**_v20.1.0_**
+
+_New_
+- add composer info to fullscreen music playback window and music info dialog
+
+_Improved_
+- rework seek indicator and button behaviour
+
+_Fixed_
+- fix watched indicator background in wide and wall views
+- fix episodes image to properly react to hide thumbs for unwatched episode setting
+
+---
+
+**_v20.0.0 - June 2023_**
 
 _New_
 - Support Nexus skin engine features
@@ -20,7 +34,7 @@ _Fixed_
 
 ---
 
-**_v19.1.4_**
+**_v19.1.4 - May 2023_**
 
 _Improved_
 - improve background overlay rendering
@@ -33,7 +47,7 @@ _Fixed_
 
 ---
 
-**_v19.1.3_**
+**_v19.1.3 - September 2022_**
 
 _Improved_
 - improve window draw performance
@@ -45,7 +59,20 @@ _Fixed_
 
 ---
 
-**_v19.1.1_**
+**_v19.1.2 - March 2022_**
+
+_New_
+- reset textboxes to top scrolling position during dialog or window switches
+
+_Improved_
+- improve inital window/dialog focus fix (only apply where needed)
+
+_Fixed_
+- always show OSD playlist button when expected
+
+---
+
+**_v19.1.1 - December 2021_**
 
 _New_
 - add new video/music OSD seek slider button functionality (also adds frame advance feature)
@@ -60,7 +87,7 @@ _Fixed_
 
 ---
 
-**_v19.1.0_**
+**_v19.1.0 - August 2021_**
 
 _New_
 - add ENABLE option for new skinshortcuts version
@@ -445,189 +472,45 @@ Release
 
 ---
 
-**Changelog v20.0.0**
+**Changelog v20.1.0**
 
-_add new colors.xml file for new colour picker_
-_add new Coordinates_DialogColorPicker.xml and DialogColorPicker.xml files_
-_add new Coordinates_MyFavourites.xml and MyFavourites.xml files_
-_add new Coordinates_SettingsScreenCalibration.xml file_
-_add new Includes_GameControllers.xml file_
-_remove deprecates Coordinates_script-skin_helper_service-ColorPicker.xml and script-skin_helper_service-ColorPicker.xml files_
-_add new DialogPVRGuideControls.xml and Coordinates_DialogPVRGuideControls.xml files_
-_rename music and videos template files for skinshortcuts script_
+Coordinates_DialogSeekBar.xml:
+- remove deprecated coordinates includes
 
-strings.po:
-- update localizes for new colour picker (31026, 31037, 31050, 31060, 31295, 31297, 31298, 31299, 31300, 31405, 31407, 31435)
+Coordinates_MusicVisualisation.xml:
+- adjust position and height of now and next playing information
 
-Textures.xbt:
-- update textures file with new and updated calibrate window textures
-- update textures file with button icon for new video OSD Audio and Subtitle stream selection
+Coordinates_Viewtype52.xml:
+- fix position of watched status banner
 
-mainmenu.DATA.xml:
-- adjust default favourites main menu link to point to new favourites window
-
-movies-1.DATA.xml:
-- add new recently added movies widget entry
-
-music-1.DATA.xml:
-- add new recently added albums widget entry
-
-overrides.xml:
-- adjust favourites main menu entry template to point to new favourites window
-- add new default recently added movies, recently added albums and in-progress tv shows widget entries
-- fix default program add-ons widget entry
-
-programs-1.DATA.xml:
-- fix name label of program add-ons widget
-
-tvhsows-1.DATA.xml:
-- add new in-progress tv shows widget entry
-
-Coordinates_DialogButtonMenu.xml:
-- rework coordinates for new power menu structure
-
-Coordinates_DialogGameControllers.xml:
-- add new coordinates includes for new game controller ports dialog
-
-Coordinates_GameOSD.xml:
-- adjust height of game OSD dialog for new game controller ports entry
-
-Coordinates_SkinSettings.xml:
-- adjust coordinates of colour settings entries
-
-Coordinates_VideoOSD.xml:
-- adjust width of Controls and Options grouplists
-- add VideoOSD_coords12 include for new Audio and Subtitle stream selection grouplists
-
-Coordinates_Viewtype523.xml:
-- add new favourites image includes
-
-Coordinates_Viewtype535.xml:
-- add new favourites image includes
-
-Coordinates_Viewtype537.xml:
-- add new favourites image includes
-
-Custom_Overlay_Debug.xml:
-- add new entry for new favourites window and new colour picker dialog
-- remove entry of deprecates colour picker script dialog
-- add new entry for new PVR guide controls dialog
-
-Defaults.xml:
-- add new colorbutton control
-
-DialogAddonInfo.xml:
-- remove deprecated WindowDialogFocus include
-- remove deprecated button grouplist defaultcontrol tag
-- add new AddonInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
-- revert button order to former default
-
-DialogButtonMenu.xml:
-- rework power menu to match new PVR guide controls dialog
-
-DialogGameControllers.xml:
-- rework game controllers dialog to use includes depending on which dialog is called (game controller profiles or game controller ports dialog)
-
-DialogKeyboard.xml:
-- add new show/hide password buttin
+Coordinates_Viewtype53.xml:
+- fix position of watched status banner
 
 DialogMusicInfo.xml:
-- remove deprecated WindowDialogFocus include
-- remove deprecated button grouplist defaultcontrol tag
-- add new MusicInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
-
-DialogPlayerProcessInfo.xml:
-- add new video scan type info label
-
-DialogPVRInfo.xml:
-- remove deprecated WindowDialogFocus include
-- remove deprecated button grouplist defaultcontrol tag
-- add new PVRInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
-- revert button order to former default
+- add new composer info
 
 DialogSeekBar.xml:
-- replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
+- remove deprecated controls
 
 DialogVideoInfo.xml:
-- remove deprecated WindowDialogFocus include
-- remove deprecated button grouplist defaultcontrol tag
-- add new VideoInfoDialogButtonFocus include for proper inital info dialog button focus behaviour
-- revert button order to former default
-
-GameOSD.xml:
-- adjust visibility conditions with new game controller ports window condition
-- add new game controller ports entry
-
-Includes.xml:
-- add new Coordinates_DialogColorPicker.xml and Coordinates_MyFavourites.xml include files
-- remove deprevated Coordinates_script-skin_helper_service-ColorPicker.xml include file
-- adjust onloads to set default colour value to "Default" instead of "None"
-- add new Coordinates_SettingsScreenCalibration.xml include file
-- add new Includes_GameControllers.xml include file
-- add new Coordinates_DialogPVRGuideControls.xml include file
-
-Includes_SubMenu.xml:
-- add sub menu for new favourites window
-- fix include and visible conditions for view type suppression in video media window while force video addon view setting is enabled
+- add missing fallback to episode image
 
 Includes_Windows_Dialogs.xml:
-- remove deprecated WindowDialogFocus include
-- add new AddonInfoDialogButtonFocus, MusicInfoDialogButtonFocus, PVRInfoDialogButtonFocus and VideoInfoDialogButtonFocus includes
+- fix video image fallback
 
-script-skinshortcuts-static.xml:
-- adjust default favourites main menu link to point to new favourites window
-- add new default recently added movies, recently added albums and in-progress tv shows widget entries
-- fix name label and default layout of program add-ons widget
-
-SettingsCategory.xml:
-- add new default color button
-
-SettingsScreenCalibration.xml:
-- add new movingspeed tags to mover and resize controls
-- add new calibration reset control
-- add missing calibration value label
-
-SkinSettings.xml:
-- rework colour settings for new Kodi colour picker
-- remove entry for deprecated Skin Helper Service ColorPicker addon
+MusicVisualisation.xml:
+- add missing seek slider controls
+- add new composer info
 
 Variables.xml:
-- add condition to mediaImages variable utilizing new hideunwatchedepisodethumbs boolean
-- add condition to HeadingLabelPrimary for new favourites window heading
-- rework StatusOverlay and StatusOverlayWide variables to show percentage based watch status for TV shows and seasons
-- rework VideoResolution variable to incorporate new HDR info
-- add new HDRType variable
-- add new SubtitleLanguageOSD variable for new video OSD Subtitle stream selection
-- add new conditions to VideoResolution variable to support new OSMC specific video width and height infolabels
-
-Variables_Colours.xml:
-- rework colour variables with new  default colour value "Default"
-- remove deprecated SolidBackgroundColor-Name variable
-
-Variables_Settings.xml:
-- rework skin settings explanation variable after colour skin settings rework and removal of deprecated Skin Helper Service ColorPicker addon
-- add skin settings explanations for new colour skin settings
-- remove deprecated addon-skinhelpercolorpicker variable
+- rework mediaImages and VideoInfoImage variables to properly react to hide thumbs for unwatched episode setting
 
 VideoFullScreen.xml:
-- replace deprecated Player.DisplayAfterSeek by new Player.HasPerformedSeek(3) built-in
+- add missing seek slider controls
 
-VideoOSD.xml:
-- adjust visibility condition and fade animations of Options grouplist for new Audio and Subtitle stream selection
-- adjust Audio Settings and Subtitles buttons to open new Audio and Subtitle stream selection, if more than one audio or subtitle stream is present and playback isn't live TV
-- add new Audio and Subtitle stream selection
+Addon.xml:
+- bump version to 20.1.0
+- update changelog
 
-Viewtype50.xml:
-- add new favourites image include
-
-Viewtype523.xml:
-- adjust list visibility condition for new favourites content type
-
-Viewtype535.xml:
-- adjust list visibility condition for new favourites content type
-
-Viewtype537.xml:
-- adjust list visibility condition for new favourites content type
-
-addon.xml:
-- bump version to 20.0.0
+Changelog.md:
+- update changelog
