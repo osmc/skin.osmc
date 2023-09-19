@@ -107,5 +107,28 @@
 		<value condition="!String.IsEmpty(Container(211).ListItem.Property(widgetLimit))">$INFO[Container(211).ListItem.Property(widgetLimit)]</value>
 		<value>$LOCALIZE[16018]</value>
 	</variable>
+	
+	<variable name="WidgetOnClickAlbum">
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetBrowse)">ActivateWindow(music,musicdb://albums/$INFO[ListItem.DBID]/,return)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetPlay)">PlayMedia(musicdb://albums/$INFO[ListItem.DBID]/)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetPlayNext)">QueueMedia(musicdb://albums/$INFO[ListItem.DBID]/,playnext)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetQueue)">QueueMedia(musicdb://albums/$INFO[ListItem.DBID]/)</value>
+	</variable>
+	
+	<variable name="WidgetOnClickTVShow">
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetBrowse)">ActivateWindow(videos,videodb://tvshows/titles/$INFO[ListItem.DBID]/,return)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetContinueWatching)">PlayMedia(videodb://tvshows/titles/$INFO[ListItem.DBID]/,resume)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetPlayFromBeginning)">PlayMedia(videodb://tvshows/titles/$INFO[ListItem.DBID]/,noresume)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetPlayNext)">QueueMedia(videodb://tvshows/titles/$INFO[ListItem.DBID]/,playnext)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetQueue)">QueueMedia(videodb://tvshows/titles/$INFO[ListItem.DBID]/)</value>
+	</variable>
+	
+	<variable name="WidgetOnClickMovieSet">
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetBrowse)">ActivateWindow(videos,videodb://movies/sets/$INFO[ListItem.DBID]/,return)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetContinueWatching)">PlayMedia(videodb://movies/sets/$INFO[ListItem.DBID]/,resume)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetPlayFromBeginning)">PlayMedia(videodb://movies/sets/$INFO[ListItem.DBID]/,noresume)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetPlayNext)">QueueMedia(videodb://movies/sets/$INFO[ListItem.DBID]/,playnext)</value>
+		<value condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetQueue)">QueueMedia(videodb://movies/sets/$INFO[ListItem.DBID]/)</value>
+	</variable>
 
 </includes>
