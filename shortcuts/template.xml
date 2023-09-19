@@ -392,6 +392,11 @@
 					<param name="container1">1000$SKINSHORTCUTS[auto-rootID]</param>
 					<param name="container2">$SKINSHORTCUTS[auto-rootID]-$SKINSHORTCUTS[id]</param>
 				</include>
+				
+				<!-- Widget onclick -->
+				<onclick condition="String.IsEqual(ListItem.DBTYPE,album)">$VAR[WidgetOnClickAlbum]</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">$VAR[WidgetOnClickTVShow]</onclick>
+				<onclick condition="String.IsEqual(ListItem.DBTYPE,set)">$VAR[WidgetOnClickMovieSet]</onclick>
 
 				<itemlayout width="$SKINSHORTCUTS[layoutWidth]" height="$SKINSHORTCUTS[layoutHeight]">
 					<include content="$PYTHON[$SKINSHORTCUTS[primary-art]]">
