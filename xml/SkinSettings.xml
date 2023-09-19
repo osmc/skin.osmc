@@ -149,7 +149,7 @@
 						<usecontrolcoords>true</usecontrolcoords>
 						<scrolltime tween="sine" easing="out">240</scrolltime>
 						<visible>Container(9000).HasFocus(1)</visible>
-						<!-- Edit menu -->
+						<!-- Edit main menu -->
 						<control type="button" id="101">
 							<include>SkinSettings_coords16</include>
 							<label>31049</label>
@@ -169,8 +169,49 @@
 							<focusedcolor>$VAR[TextColorFO]</focusedcolor>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
+						<!-- Default select action for album widgets -->
+						<control type="button" id="103">
+							<include>SkinSettings_coords16</include>
+							<font>Font33</font>
+							<label> - $LOCALIZE[31438]</label>
+							<label2>$VAR[WidgetOnClickAlbumLabel]</label2>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetBrowse)">Skin.SetString(WidgetOnClickAlbum,AlbumWidgetPlay)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetPlay)">Skin.SetString(WidgetOnClickAlbum,AlbumWidgetPlayNext)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetPlayNext)">Skin.SetString(WidgetOnClickAlbum,AlbumWidgetQueue)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickAlbum),AlbumWidgetQueue)">Skin.SetString(WidgetOnClickAlbum,AlbumWidgetBrowse)</onclick>
+							<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<!-- Default select action for TV show widgets -->
+						<control type="button" id="104">
+							<include>SkinSettings_coords16</include>
+							<font>Font33</font>
+							<label> - $LOCALIZE[31439]</label>
+							<label2>$VAR[WidgetOnClickTVShowLabel]</label2>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetBrowse)">Skin.SetString(WidgetOnClickTVShow,TVShowWidgetContinueWatching)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetContinueWatching)">Skin.SetString(WidgetOnClickTVShow,TVShowWidgetPlayFromBeginning)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetPlayFromBeginning)">Skin.SetString(WidgetOnClickTVShow,TVShowWidgetPlayNext)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetPlayNext)">Skin.SetString(WidgetOnClickTVShow,TVShowWidgetQueue)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickTVShow),TVShowWidgetQueue)">Skin.SetString(WidgetOnClickTVShow,TVShowWidgetBrowse)</onclick>
+							<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
+						<!-- Default select action for movie set widgets -->
+						<control type="button" id="105">
+							<include>SkinSettings_coords16</include>
+							<font>Font33</font>
+							<label> - $LOCALIZE[31440]</label>
+							<label2>$VAR[WidgetOnClickMovieSetLabel]</label2>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetBrowse)">Skin.SetString(WidgetOnClickMovieSet,MovieSetWidgetContinueWatching)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetContinueWatching)">Skin.SetString(WidgetOnClickMovieSet,MovieSetWidgetPlayFromBeginning)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetPlayFromBeginning)">Skin.SetString(WidgetOnClickMovieSet,MovieSetWidgetPlayNext)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetPlayNext)">Skin.SetString(WidgetOnClickMovieSet,MovieSetWidgetQueue)</onclick>
+							<onclick condition="String.IsEqual(Skin.String(WidgetOnClickMovieSet),MovieSetWidgetQueue)">Skin.SetString(WidgetOnClickMovieSet,MovieSetWidgetBrowse)</onclick>
+							<focusedcolor>$VAR[TextColorFO]</focusedcolor>
+							<textcolor>$VAR[TextColorNF]</textcolor>
+						</control>
 						<!-- Always show settings link -->
-						<control type="radiobutton" id="103">
+						<control type="radiobutton" id="106">
 							<include>SkinSettings_coords16</include>
 							<font>Font33</font>
 							<label>$LOCALIZE[31096]</label>
@@ -179,7 +220,7 @@
 							<visible>System.HasAddon(script.skinshortcuts)</visible>
 						</control>
 						<!-- Show date above system time -->
-						<control type="radiobutton" id="104">
+						<control type="radiobutton" id="107">
 							<include>SkinSettings_coords16</include>
 							<font>Font33</font>
 							<label>31101</label>
@@ -187,7 +228,7 @@
 							<selected>Skin.HasSetting(Dateaboveclock)</selected>
 						</control>
 						<!-- Toggle masking -->
-						<control type="button" id="105">
+						<control type="button" id="108">
 							<include>SkinSettings_coords16</include>
 							<font>Font33</font>
 							<label>$LOCALIZE[31065]</label>
@@ -202,7 +243,7 @@
 							<visible>$EXP[Masking]</visible>
 						</control>
 						<!-- Automatic masking -->
-						<control type="radiobutton" id="106">
+						<control type="radiobutton" id="109">
 							<include>SkinSettings_coords16</include>
 							<font>Font33</font>
 							<label>31401</label>
