@@ -2,7 +2,14 @@
 
 ---
 
-**_v20.1.0_**
+**_v20.1.1_**
+
+_New_
+- add new setting to adjust select action of album, TV show and movie set main menu widgets
+
+---
+
+**_v20.1.0 - August 2023_**
 
 _New_
 - add composer info to fullscreen music playback window and music info dialog
@@ -472,44 +479,31 @@ Release
 
 ---
 
-**Changelog v20.1.0**
+**Changelog v20.1.1**
 
-Coordinates_DialogSeekBar.xml:
-- remove deprecated coordinates includes
+strings.po:
+- add localizes for new adjust select action of album, TV show and movie set main menu widgets settings (31438, 31439, 31440, 31441, 31442, 31443)
 
-Coordinates_MusicVisualisation.xml:
-- adjust position and height of now and next playing information
+template.xml:
+- add new widget onclick controls
 
-Coordinates_Viewtype52.xml:
-- fix position of watched status banner
+Includes.xml:
+- add new onload conditions for new adjust select action of album, TV show and movie set main menu widgets settings
 
-Coordinates_Viewtype53.xml:
-- fix position of watched status banner
+script-skinshortcuts-static.xml:
+- add new widget onclick controls
 
-DialogMusicInfo.xml:
-- add new composer info
+SkinSettings.xml:
+- add new adjust select action of album, TV show and movie set main menu widgets settings
 
-DialogSeekBar.xml:
-- remove deprecated controls
+Variables_Settings.xml:
+- add new variable values to SkinSettingsExplanation for new adjust select action of album, TV show and movie set main menu widgets settings
 
-DialogVideoInfo.xml:
-- add missing fallback to episode image
-
-Includes_Windows_Dialogs.xml:
-- fix video image fallback
-
-MusicVisualisation.xml:
-- add missing seek slider controls
-- add new composer info
-
-Variables.xml:
-- rework mediaImages and VideoInfoImage variables to properly react to hide thumbs for unwatched episode setting
-
-VideoFullScreen.xml:
-- add missing seek slider controls
+Variables_Skinshortcuts.xml:
+- add new WidgetOnClickAlbum, WidgetOnClickTVShow and WidgetOnClickMovieSet variables for new widget onclick controls
 
 Addon.xml:
-- bump version to 20.1.0
+- bump version to 20.1.1
 - update changelog
 
 Changelog.md:
