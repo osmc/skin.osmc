@@ -6,6 +6,9 @@
 		<control type="group">
 			<include>MediaFlags_coords1</include>
 			<visible>Integer.IsGreater(Container.NumItems,0) + !String.IsEqual(Skin.String(mediaflags),None) + [Container.Content(files) | Container.Content(songs) | Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(videos) | Window.IsVisible(MyPlaylist.xml)]</visible>
+			<animation type="Conditional" reversible="false" condition="Container.OnNext | Container.OnPrevious">
+				<effect type="fade" end="0" time="0" />
+			</animation>
 			
 			<!-- File first/only -->
 			<control type="grouplist">
@@ -18,7 +21,7 @@
 				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + [Control.IsVisible(9995) | Control.IsVisible(9997)] + !System.IdleTime(1)">
 					<effect type="fade" end="0" time="0" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + ![Control.IsVisible(9995) | Control.IsVisible(9997)] + !System.IdleTime(1)">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + !Control.IsVisible(9995) + !Control.IsVisible(9997) + !System.IdleTime(1)">
 					<effect type="fade" end="100" time="0" />
 				</animation>
 				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),Language first) + [Control.IsVisible(9995) | Control.IsVisible(9997)] + System.IdleTime(1)" loop="true">
@@ -111,7 +114,7 @@
 				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + [Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] + !System.IdleTime(1)">
 					<effect type="fade" end="0" time="0" />
 				</animation>
-				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + ![Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] + !System.IdleTime(1)">
+				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + !Control.IsVisible(9989) + !Control.IsVisible(9991) + !Control.IsVisible(9993) + !System.IdleTime(1)">
 					<effect type="fade" end="100" time="0" />
 				</animation>
 				<animation type="Conditional" reversible="false" condition="String.IsEqual(Skin.String(mediaflags),File first) + [Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] + System.IdleTime(1)" loop="true">
@@ -178,7 +181,7 @@
 			<!-- Duration only -->
 			<control type="group">
 				<include>MediaFlags_coords2</include>
-				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + ![Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993)] | String.IsEqual(Skin.String(mediaflags),Language only) + ![Control.IsVisible(9995) | Control.IsVisible(9997)] | [String.IsEqual(Skin.String(mediaflags),File first) | String.IsEqual(Skin.String(mediaflags),Language first)] + ![Control.IsVisible(9989) | Control.IsVisible(9991) | Control.IsVisible(9993) | Control.IsVisible(9995) | Control.IsVisible(9997)] | Window.IsVisible(MyPlaylist.xml)</visible>
+				<visible>String.IsEqual(Skin.String(mediaflags),Duration only) | String.IsEqual(Skin.String(mediaflags),File only) + !Control.IsVisible(9989) + !Control.IsVisible(9991) + !Control.IsVisible(9993) | String.IsEqual(Skin.String(mediaflags),Language only) + !Control.IsVisible(9995) + !Control.IsVisible(9997) | [String.IsEqual(Skin.String(mediaflags),File first) | String.IsEqual(Skin.String(mediaflags),Language first)] + !Control.IsVisible(9989) + !Control.IsVisible(9991) + !Control.IsVisible(9993) + !Control.IsVisible(9995) + !Control.IsVisible(9997) | Window.IsVisible(MyPlaylist.xml)</visible>
 				<visible>!String.IsEmpty(ListItem.Duration)</visible>
 				<control type="image">
 					<include>MediaFlags_coords7</include>
