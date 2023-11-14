@@ -7,6 +7,10 @@
 _New_
 - add new setting to adjust select action of album, TV show and movie set main menu widgets
 
+_Fixed_
+- fix focus cover animation in wide views
+- fix media flags transition glitch
+
 ---
 
 **_v20.1.0 - August 2023_**
@@ -487,8 +491,30 @@ strings.po:
 template.xml:
 - add new widget onclick controls
 
+Coordinates_Viewtype52.xml:
+- fix focus cover animation
+
+Coordinates_Viewtype521.xml:
+- fix focus cover animation
+
+Coordinates_Viewtype522.xml:
+- fix focus cover animation
+
+Coordinates_Viewtype523.xml:
+- fix focus cover animation
+
+Coordinates_Viewtype524.xml:
+- fix focus cover animation
+
+Coordinates_Viewtype525.xml:
+- fix focus cover animation
+
 Includes.xml:
 - add new onload conditions for new adjust select action of album, TV show and movie set main menu widgets settings
+
+Includes_MediaFlags.xml:
+- add fade animation during on next and on previous transitions to hide media flags glitch
+- fix hide animation for edge cases
 
 script-skinshortcuts-static.xml:
 - add new widget onclick controls
