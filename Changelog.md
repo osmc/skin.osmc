@@ -6,10 +6,19 @@
 
 _New_
 - add new setting to adjust select action of album, TV show and movie set main menu widgets
+- add consistent reminder icons for v20 PVR reminder feature
+
+_Improved_
+- improve live TV and radio related localizes
+- improve pre-playback behaviour of now playing information section in the top right corner of each window/dialog
+- improve consistency between PVR windows and dialogs (feature parity as well as cosmetic appearance)
+- improve media flags behaviour during window transitions and when encountering edge cases
 
 _Fixed_
 - fix focus cover animation in wide views
 - fix media flags transition glitch
+- fix radio button control text width
+- fix behaviour when the correct view type or content type is not yet ready (especially related to addons loading new pages)
 
 ---
 
@@ -485,11 +494,88 @@ Release
 
 **Changelog v20.1.1**
 
+_rename default live TV home menu items to use new heading localize ID_
+
 strings.po:
 - add localizes for new adjust select action of album, TV show and movie set main menu widgets settings (31438, 31439, 31440, 31441, 31442, 31443)
+- remove deprecated live TV localize and replace it with new favourite content label (31015)
+
+mainmenu.DATA.xml:
+- replace live TV home menu item localize to use the new localize ID
+
+overrides.xml:
+- rework TV and radio nodes for home menu item and widgets sections using the new localize ID for the TV section
 
 template.xml:
 - add new widget onclick controls
+- add new recording, timer and reminder icons to the widget template
+
+Coordinates_Custom_DialogMasking.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_DialogAddonSettings.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_DialogKeyboard.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_DialogPVRChannelGuide.xml:
+- add new reminder icons and rework recording and timer icons for consistency
+
+Coordinates_DialogPVRChannelManager.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_DialogPVRChannelsOSD.xml:
+- add missing recording and timer and new reminder icons
+
+Coordinates_DialogPVRGroupManager.xml:
+- add missing channel icons to lists
+
+Coordinates_DialogPVRGuideSearch.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_DialogSettings.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_Includes_SubMenu.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_Includes_Time_NowPlaying.xml:
+- add new coordinates includes for new pre-playback player icon
+
+Coordinates_MyPVRChannels.xml:
+- rework coordinates includes for more consistent window look
+- add missing recording and timer and new reminder icons
+
+Coordinates_MyPVRGuide.xml:
+- fix colours of timer and reminder icons
+
+Coordinates_MyPVRRecordings.xml:
+- rework coordinates includes for more consistent window look
+- add missing recording and timer and new reminder icons
+
+Coordinates_MyPVRSearch.xml:
+- rework coordinates includes for more consistent window look
+- add missing recording and timer and new reminder icons
+
+Coordinates_MyPVRTimers.xml:
+- rework coordinates includes for more consistent window look
+- add missing recording and timer and new reminder icons
+
+Coordinates_script-skinshortcuts.xml:
+- add new coordinates includes to add textwidth tags for radio button control
+
+Coordinates_SettingsCategory.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_SettingsProfiles.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_SkinSettings.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_SmartPlaylistEditor.xml:
+- rework coordinates includes to add and adjust textwidth tags for radio button controls
 
 Coordinates_Viewtype52.xml:
 - fix focus cover animation
@@ -509,24 +595,108 @@ Coordinates_Viewtype524.xml:
 Coordinates_Viewtype525.xml:
 - fix focus cover animation
 
+Defaults.xml:
+- adjust textwidth tag of default radio button control
+
+DialogAddonInfo.xml:
+- adjust textwidth tag of radio button control
+
+DialogFavourites.xml:
+- rework item count visibility condition and animation
+
+DialogKeybard.xml:
+- replace coordinates includes to add and adjust textwidth tags for radio button controls
+
+DialogPVRChannelManager.xml:
+- fix defaultcontrol
+- replace coordinates includes of edit, button, spincontrolex and radio button controls
+
+DialogPVRGroupManager.xml:
+- fix defaultcontrol
+- add textwidth tag to radio button control
+
+DialogPVRGuideSearch.xml:
+- replace coordinates includes to add and adjust textwidth tags for radio button controls
+
+FileBrowser.xml:
+- add textwidth tag to radio button control
+
+FileManager.xml:
+- rework item count visibility condition and animation
+
 Includes.xml:
 - add new onload conditions for new adjust select action of album, TV show and movie set main menu widgets settings
 
+Includes_DialogSettings.xml:
+- replace coordinates include to add and adjust textwidth tags for radio button control
+
 Includes_MediaFlags.xml:
 - add fade animation during on next and on previous transitions to hide media flags glitch
-- fix hide animation for edge cases
+- adjust media flags animations for more consitent behaviour
+- rework duration only label to incorporate MyPlaylist window more seamlessly
+- rework item count visibility condition and animation
+
+Includes_SubMenu.xml:
+- adjust addon browser submenu onleft, onright and onback tags for now utilized view types 50 and 51
+- replace PVR & live TV settings sub menu item localize to use the new localize ID
+
+Includes_Time_NowPlaying.xml:
+- adjust now playing labels conditional visibility for better pre-playback information (before streams or network resources are available)
+- add new pre-playback player icon
+
+Includes_Windows_Dialogs.xml:
+- add new background transition fallback when media window view type controls are not yet visible
+
+MyPrograms.xml:
+- adjust scrollbar visibility condition to remove never used control
+
+MyPVRChannels.xml:
+- rework window for more consistent look
+
+MyPVRGuide.xml:
+- rework item count visibility condition and animation
+
+MyPVRRecordings.xml:
+- rework window for more consistent look
+
+MyPVRSearch.xml:
+- rework scrollbar position for more consistent look
+
+MyPVRTimers.xml:
+- rework scrollbar position for more consistent look
 
 script-skinshortcuts-static.xml:
 - add new widget onclick controls
+- add new recording, timer and reminder icons to the widget template
+
+script-skinshortcuts.xml:
+- replace coordinates includes to add and adjust textwidth tags for radio button control
+
+Settings.xml:
+- replace PVR & live TV settings section localize to use the new localize ID
+
+SettingsCategory.xml:
+- replace coordinates includes to add and adjust textwidth tags for radio button controls
+
+SettingsProfiles.xml:
+- replace coordinates includes to add and adjust textwidth tags for radio button control
 
 SkinSettings.xml:
 - add new adjust select action of album, TV show and movie set main menu widgets settings
+- replace coordinates includes to add and adjust textwidth tags for radio button controls
+
+Variables.xml:
+- add new value condition to HeadingLabelSecondary variable for new PVR & live TV settings section localize ID
+- rework PlayerIcon variable for better pre-playback player icon
 
 Variables_Settings.xml:
 - add new variable values to SkinSettingsExplanation for new adjust select action of album, TV show and movie set main menu widgets settings
 
 Variables_Skinshortcuts.xml:
 - add new WidgetOnClickAlbum, WidgetOnClickTVShow and WidgetOnClickMovieSet variables for new widget onclick controls
+
+Viewtype50.xml:
+- rework view type for better content type related icons and instances where the content type is returned empty
 
 Addon.xml:
 - bump version to 20.1.1

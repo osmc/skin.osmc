@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<!-- addonbrowser -->
-	<defaultcontrol always="true">500</defaultcontrol>
-	<views>500</views>
+	<defaultcontrol always="true">51</defaultcontrol>
+	<views>50,51</views>
 	
 	<!-- Textbox scroll reset -->
 	<include>ResetScroll</include>
@@ -34,39 +34,15 @@
 			<control type="group">
 				<include>WindowFadeAnimation</include>
 				
-				<!-- Image -->
-				<control type="image">
-					<include>AddonBrowser_coords1</include>
-					<texture>$INFO[ListItem.Icon]</texture>
-					<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
-					<aspectratio aligny="center">keep</aspectratio>
-				</control>
+				<!-- Views -->
+				<include>Viewtype50</include>
+				<include>Viewtype51</include>
 
-				<!-- List -->
-				<control type="fixedlist" id="500">
-					<include>AddonBrowser_coords2</include>
-					<onup>500</onup>
-					<ondown>500</ondown>
-					<onleft>60</onleft>
-					<onright condition="!Skin.HasSetting(KioskMode)">3001</onright>
-					<pagecontrol>60</pagecontrol>
-					<focusposition>4</focusposition>
-					<orientation>vertical</orientation>
-					<viewtype label="$LOCALIZE[535]">list</viewtype>
-					<scrolltime tween="sine" easing="out">240</scrolltime>
-					<visible>!String.IsEmpty(Container.FolderPath)</visible>
-
-					<include>AddonBrowser_coords3</include>
-
-					<include>AddonBrowser_coords4</include>
-
-				</control>
-
-				<!-- Scrollbar -->
+				<!-- Scrollbar (list) -->
 				<control type="scrollbar" id="60">
-					<include>AddonBrowser_coords5</include>
+					<include>AddonBrowser_coords1</include>
 					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-					<onright>500</onright>
+					<onright>50</onright>
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
 					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
@@ -74,7 +50,7 @@
 					<texturesliderbarfocus border="0,5,0,5" colordiffuse="$VAR[OverlayColorFO]">common/ScrollbarGripFO.png</texturesliderbarfocus>
 					<textureslidernib></textureslidernib>
 					<textureslidernibfocus></textureslidernibfocus>
-					<visible>!Skin.HasSetting(Scrollbars) + Control.IsVisible(500)</visible>
+					<visible>!Skin.HasSetting(Scrollbars) + [Control.IsVisible(50) | Control.IsVisible(51)]</visible>
 				</control>
 
 				<!-- Item count -->

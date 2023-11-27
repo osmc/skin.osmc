@@ -30,9 +30,8 @@
 					<include>MyPVRTimers_coords1</include>
 					<onup>50</onup>
 					<ondown>50</ondown>
-					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
-					<onright>70</onright>
-					<pagecontrol>70</pagecontrol>
+					<onleft>60</onleft>
+					<pagecontrol>60</pagecontrol>
 					<preloaditems>2</preloaditems>
 					<viewtype label="$LOCALIZE[535]">list</viewtype>				
 					<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -44,9 +43,10 @@
 				</control>
 
 				<!-- Scrollbar -->
-				<control type="scrollbar" id="70">
+				<control type="scrollbar" id="60">
 					<include>MyPVRTimers_coords4</include>
-					<onleft>50</onleft>
+					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
+					<onright>50</onright>
 					<showonepage>false</showonepage>
 					<orientation>vertical</orientation>
 					<colordiffuse>$VAR[OverlayColorNF]</colordiffuse>
@@ -58,15 +58,8 @@
 					<visible>!Skin.HasSetting(Scrollbars)</visible>
 				</control>
 
-				<!-- Timer count -->
-				<control type="fadelabel">
-					<include>MyPVRTimers_coords5</include>
-					<align>right</align>
-					<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
-					<font>Font33</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-				</control>
+				<!-- Item count -->
+				<include>ItemCount</include>
 				
 				<!-- Sub menu indicator -->
 				<include>SubMenuIndicator</include>

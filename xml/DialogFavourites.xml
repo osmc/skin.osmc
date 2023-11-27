@@ -81,7 +81,8 @@
 					<label>$INFO[Container(450).NumItems]$VAR[ContentTypeFavourites, ,]</label>
 					<font>Font30</font>
 					<textcolor>$VAR[TextColorNF]</textcolor>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(450).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+					<visible>!String.IsEmpty(Container(450).NumItems)</visible>
+					<include>VisibleFadeAnimation</include>
 				</control>
 				
 				<!-- Sub menu indicator -->
