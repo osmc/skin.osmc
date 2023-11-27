@@ -79,7 +79,8 @@
 						<label>$INFO[Container(20).NumItems]$VAR[ContentTypeFileManager20, ,]</label>
 						<font>Font33</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(20).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+						<visible>!String.IsEmpty(Container(20).NumItems)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 				</control>
@@ -140,7 +141,8 @@
 						<label>$INFO[Container(21).NumItems]$VAR[ContentTypeFileManager21, ,]</label>
 						<font>Font33</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(21).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+						<visible>!String.IsEmpty(Container(21).NumItems)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 					
 				</control>

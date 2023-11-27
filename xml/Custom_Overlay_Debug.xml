@@ -906,11 +906,11 @@
 				<shadowcolor>FF000000</shadowcolor>
 				<font>font13</font>
 				<align>right</align>
-				<label>$INFO[System.CurrentControl]$INFO[System.CurrentControlID, (,)]$INFO[Container.Content, &#8226; ,]$INFO[Container.CurrentItem, (,)]$INFO[ListItem.DBID, &#8226; DBID: ,]</label>
-				<visible>!String.IsEmpty(System.CurrentControl)</visible>
+				<label>$INFO[System.CurrentControl]$INFO[System.CurrentControlID, (,)]$INFO[Container.Content, ,]$INFO[Container.CurrentItem, (,)]$INFO[ListItem.DBID, DBID: ,]</label>
+				<visible>![String.IsEmpty(System.CurrentControl) + String.IsEmpty(System.CurrentControlID) + String.IsEmpty(Container.Content) + String.IsEmpty(Container.CurrentItem) + String.IsEmpty(ListItem.DBID)]</visible>
 			</control>
 
-			<!-- Path label -->
+			<!-- Folder & Path label -->
 			<control type="fadelabel">
 				<include>Custom_Overlay_Debug_coords2</include>
 				<textcolor>FFFF0000</textcolor>
@@ -919,17 +919,6 @@
 				<align>right</align>
 				<label>[COLOR=FF00FF00]$INFO[Container.FolderName,, &#8226; ][/COLOR]$INFO[Container.FolderPath]</label>
 				<visible>!String.IsEmpty(Container.FolderName)</visible>
-			</control>
-			
-			<!-- Aspect ratio label -->
-			<control type="fadelabel">
-				<include>Custom_Overlay_Debug_coords2</include>
-				<textcolor>FF0000FF</textcolor>
-				<shadowcolor>FF000000</shadowcolor>
-				<font>font13</font>
-				<align>right</align>
-				<label>$INFO[Skin.AspectRatio]</label>
-				<visible>!String.IsEmpty(Skin.AspectRatio)</visible>
 			</control>
 			
 		</control>
