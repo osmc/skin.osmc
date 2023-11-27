@@ -178,15 +178,16 @@
 
 					</control>
 					
-					<!-- Channel count -->
+					<!-- Item count -->
 					<control type="fadelabel">
-						<include>MyPVRGuide_coords18</include>
+						<include>ItemCount_coords</include>
 						<visible>!Skin.HasSetting(ItemCount)</visible>
 						<align>right</align>
 						<label>$INFO[Container(10).NumItems]$VAR[ContentType, ,]</label>
 						<font>Font30</font>
 						<textcolor>$VAR[TextColorNF]</textcolor>
-						<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(10).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
+						<visible>!String.IsEmpty(Container(10).NumItems)</visible>
+						<include>VisibleFadeAnimation</include>
 					</control>
 
 				</control>

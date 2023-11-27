@@ -86,7 +86,7 @@
 	
 		<!-- List/list info/wall info -->
 		<control type="group">
-			<visible>Control.IsVisible(50) | Control.IsVisible(501) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(531) | Control.IsVisible(533) | Control.IsVisible(536) | Control.IsVisible(538)</visible>
+			<visible>Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(511) | Control.IsVisible(531) | Control.IsVisible(533) | Control.IsVisible(536) | Control.IsVisible(538)</visible>
 			<include>WindowBackgroundImageVertical</include>
 		</control>
 		
@@ -106,6 +106,12 @@
 		<control type="group">
 			<visible>Control.IsVisible(522) | Control.IsVisible(525)</visible>
 			<include>WindowBackgroundImageHorizontalLow1</include>
+		</control>
+		
+		<!-- Transition fallback -->
+		<control type="group">
+			<visible>!Control.IsVisible(50) + !Control.IsVisible(501) + !Control.IsVisible(51) + !Control.IsVisible(511) + !Control.IsVisible(531) + !Control.IsVisible(533) + !Control.IsVisible(536) + !Control.IsVisible(538) + !Control.IsVisible(52) + !Control.IsVisible(521) + !Control.IsVisible(523) + !Control.IsVisible(524) + !Control.IsVisible(53) + !Control.IsVisible(532) + !Control.IsVisible(534) + !Control.IsVisible(535) + !Control.IsVisible(537) + !Control.IsVisible(539) + !Control.IsVisible(522) + !Control.IsVisible(525)</visible>
+			<include>WindowBackgroundImageVerticalHome</include>
 		</control>
 		
 	</include>

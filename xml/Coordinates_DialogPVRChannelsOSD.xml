@@ -245,38 +245,9 @@
 	<include name="DialogPVRChannelsOSD_coords10_16:9">
 		<itemlayout height="90" width="750">
 			<control type="label">
+				<left>32</left>
 				<top>-12</top>
-				<width>680</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[ListItem.ChannelName]</label>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-			</control>
-			<control type="label">
-				<top>58</top>
-				<width>750</width>
-				<height>27</height>
-				<font>Font27</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
-			</control>
-			<control type="label">
-				<right>0</right>
-				<top>-12</top>
-				<width>50</width>
-				<height>90</height>
-				<font>Font36</font>
-				<label>$INFO[ListItem.ChannelNumberLabel]</label>
-				<align>right</align>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-			</control>
-		</itemlayout>
-	</include>
-	<include name="DialogPVRChannelsOSD_coords10_21:9">
-		<itemlayout height="90" width="750">
-			<control type="label">
-				<top>-12</top>
-				<width>680</width>
+				<width>648</width>
 				<height>90</height>
 				<font>Font36</font>
 				<label>$INFO[ListItem.ChannelName]</label>
@@ -285,7 +256,7 @@
 			<control type="label">
 				<left>32</left>
 				<top>58</top>
-				<width>750</width>
+				<width>718</width>
 				<height>27</height>
 				<font>Font27</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
@@ -300,22 +271,120 @@
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
 				<align>right</align>
 				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+			<!-- Recording image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Timer image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Timer.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Reminder image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+		</itemlayout>
+	</include>
+	<include name="DialogPVRChannelsOSD_coords10_21:9">
+		<itemlayout height="90" width="750">
+			<control type="label">
+				<left>32</left>
+				<top>-12</top>
+				<width>648</width>
+				<height>90</height>
+				<font>Font36</font>
+				<label>$INFO[ListItem.ChannelName]</label>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+			<control type="label">
+				<left>32</left>
+				<top>58</top>
+				<width>718</width>
+				<height>27</height>
+				<font>Font27</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<label>[LIGHT]$INFO[ListItem.StartTime,,:][/LIGHT] $INFO[ListItem.Title]</label>
+			</control>
+			<control type="label">
+				<right>0</right>
+				<top>-12</top>
+				<width>50</width>
+				<height>90</height>
+				<font>Font36</font>
+				<label>$INFO[ListItem.ChannelNumberLabel]</label>
+				<align>right</align>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+			<!-- Recording image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Timer image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Timer.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Reminder image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 		</itemlayout>
 	</include>
 	<include name="DialogPVRChannelsOSD_coords10_21:9_masked">
 		<itemlayout height="90" width="750">
 			<control type="label">
+				<left>32</left>
 				<top>-12</top>
-				<width>680</width>
+				<width>648</width>
 				<height>90</height>
 				<font>Font36</font>
 				<label>$INFO[ListItem.ChannelName]</label>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<control type="label">
+				<left>32</left>
 				<top>58</top>
-				<width>750</width>
+				<width>718</width>
 				<height>27</height>
 				<font>Font27</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
@@ -330,22 +399,56 @@
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
 				<align>right</align>
 				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+			<!-- Recording image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Timer image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Timer.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Reminder image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 		</itemlayout>
 	</include>
 	<include name="DialogPVRChannelsOSD_coords10_4:3">
 		<itemlayout height="90" width="510">
 			<control type="label">
+				<left>32</left>
 				<top>-12</top>
-				<width>440</width>
+				<width>408</width>
 				<height>90</height>
 				<font>Font36</font>
 				<label>$INFO[ListItem.ChannelName]</label>
 				<textcolor>$VAR[TextColorNF]</textcolor>
 			</control>
 			<control type="label">
+				<left>32</left>
 				<top>58</top>
-				<width>510</width>
+				<width>478</width>
 				<height>27</height>
 				<font>Font27</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
@@ -360,6 +463,38 @@
 				<label>$INFO[ListItem.ChannelNumberLabel]</label>
 				<align>right</align>
 				<textcolor>$VAR[TextColorNF]</textcolor>
+			</control>
+			<!-- Recording image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Recording.png</texture>
+				<visible>ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Timer image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Timer.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			<!-- Reminder image -->
+			<control type="image">
+				<left>0</left>
+				<top>30</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
 			</control>
 		</itemlayout>
 	</include>
@@ -377,8 +512,9 @@
 					<param name="id">11</param>
 				</include>
 				<control type="label">
+					<left>32</left>
 					<top>43</top>
-					<width>680</width>
+					<width>648</width>
 					<height>48</height>
 					<font>Font48</font>
 					<scroll>True</scroll>
@@ -386,8 +522,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>100</top>
-					<width>750</width>
+					<width>718</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -395,8 +532,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>127</top>
-					<width>750</width>
+					<width>718</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -404,8 +542,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
+					<left>32</left>
 					<top>43</top>
-					<width>750</width>
+					<width>718</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
@@ -419,6 +558,35 @@
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
 					<align>right</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+				</control>
+				<!-- Recording image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+				<!-- Timer image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Timer.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				</control>
+				<!-- Reminder image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
 				</control>
 			</control>
 		</focusedlayout>
@@ -430,8 +598,9 @@
 					<param name="id">11</param>
 				</include>
 				<control type="label">
+					<left>32</left>
 					<top>43</top>
-					<width>680</width>
+					<width>648</width>
 					<height>48</height>
 					<font>Font48</font>
 					<scroll>True</scroll>
@@ -439,8 +608,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>100</top>
-					<width>750</width>
+					<width>718</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -448,8 +618,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>127</top>
-					<width>750</width>
+					<width>718</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -457,8 +628,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
+					<left>32</left>
 					<top>43</top>
-					<width>750</width>
+					<width>718</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
@@ -472,6 +644,35 @@
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
 					<align>right</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+				</control>
+				<!-- Recording image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+				<!-- Timer image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Timer.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				</control>
+				<!-- Reminder image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
 				</control>
 			</control>
 		</focusedlayout>
@@ -483,8 +684,9 @@
 					<param name="id">11</param>
 				</include>
 				<control type="label">
+					<left>32</left>
 					<top>43</top>
-					<width>680</width>
+					<width>648</width>
 					<height>48</height>
 					<font>Font48</font>
 					<scroll>True</scroll>
@@ -492,8 +694,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>100</top>
-					<width>750</width>
+					<width>718</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -501,8 +704,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>127</top>
-					<width>750</width>
+					<width>718</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -510,8 +714,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
+					<left>32</left>
 					<top>43</top>
-					<width>750</width>
+					<width>718</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
@@ -525,6 +730,35 @@
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
 					<align>right</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+				</control>
+				<!-- Recording image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+				<!-- Timer image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Timer.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				</control>
+				<!-- Reminder image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
 				</control>
 			</control>
 		</focusedlayout>
@@ -536,8 +770,9 @@
 					<param name="id">11</param>
 				</include>
 				<control type="label">
+					<left>32</left>
 					<top>43</top>
-					<width>440</width>
+					<width>408</width>
 					<height>48</height>
 					<font>Font48</font>
 					<scroll>True</scroll>
@@ -545,8 +780,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>100</top>
-					<width>510</width>
+					<width>478</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -554,8 +790,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="label">
+					<left>32</left>
 					<top>127</top>
-					<width>510</width>
+					<width>478</width>
 					<height>27</height>
 					<font>Font27</font>
 					<scroll>True</scroll>
@@ -563,8 +800,9 @@
 					<textcolor>$VAR[TextColorFO]</textcolor>
 				</control>
 				<control type="image">
+					<left>32</left>
 					<top>43</top>
-					<width>510</width>
+					<width>478</width>
 					<height>58</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus58]</texture>
 				</control>
@@ -578,6 +816,35 @@
 					<label>$INFO[ListItem.ChannelNumberLabel]</label>
 					<align>right</align>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+				</control>
+				<!-- Recording image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Recording.png</texture>
+					<visible>ListItem.IsRecording</visible>
+				</control>
+				<!-- Timer image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Timer.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				</control>
+				<!-- Reminder image -->
+				<control type="image">
+					<left>0</left>
+					<top>75</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
 				</control>
 			</control>
 		</focusedlayout>

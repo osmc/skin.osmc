@@ -411,7 +411,7 @@
 				
 				<!-- Live TV Title -->
 				<control type="fadelabel" id="1">
-					<include>VideoFullScreen_coords27</include>
+					<include>VideoFullScreen_coords28</include>
 					<font>Font33</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerTitle]</label>
@@ -499,8 +499,8 @@
 					<include>VideoFullScreen_coords34</include>
 					<font>Font27</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$VAR[VideoPlayerAudioCodec,[LIGHT]$LOCALIZE[292]:[/LIGHT] , ]$VAR[VideoPlayerAudioChannels]$INFO[VideoPlayer.AudioLanguage, [CAPITALIZE](,)[/CAPITALIZE]]$VAR[SubtitleLanguage]</label>
-					<visible>!VideoPlayer.Content(musicvideos)</visible>
+					<label>[LIGHT]$LOCALIZE[292]:[/LIGHT] $VAR[VideoPlayerAudioCodec,, ]$VAR[VideoPlayerAudioChannels]$INFO[VideoPlayer.AudioLanguage, [CAPITALIZE](,)[/CAPITALIZE]]$VAR[SubtitleLanguage]</label>
+					<visible>!VideoPlayer.Content(musicvideos) + ![String.IsEmpty(VideoPlayer.AudioCodec) + String.IsEmpty(VideoPlayer.AudioChannels) + String.IsEmpty(VideoPlayer.AudioLanguage)]</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 				
@@ -510,7 +510,7 @@
 					<font>Font27</font>
 					<textcolor>$VAR[TextColorFO]</textcolor>
 					<label>$VAR[VideoPlayerAudioCodec,[LIGHT],[/LIGHT]  ]$VAR[VideoPlayerAudioChannels,[LIGHT],[/LIGHT]  ]$INFO[Player.Process(AudioSamplerate),[LIGHT], kHz[/LIGHT]]</label>
-					<visible>VideoPlayer.Content(musicvideos)</visible>
+					<visible>VideoPlayer.Content(musicvideos) + ![String.IsEmpty(VideoPlayer.AudioCodec) + String.IsEmpty(VideoPlayer.AudioChannels) + String.IsEmpty(VideoPlayer.AudioLanguage)]</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 
@@ -519,14 +519,6 @@
 					<include>VideoFullScreen_coords35</include>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<texture background="true">$VAR[PlayerIcon]</texture>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-					<include>VisibleFadeAnimation</include>
-				</control>
-				<control type="image" id="1">
-					<include>VideoFullScreen_coords35</include>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<texture background="true" fallback="DefaultLiveTV.png">$VAR[PlayerIcon]</texture>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
 					<include>VisibleFadeAnimation</include>
 				</control>
 				

@@ -48,21 +48,18 @@
 			<shortcut label="$LOCALIZE[10821]" icon="DefaultFolder.png">ActivateWindow(Games)</shortcut>
 			<shortcut label="35049" icon="DefaultAddonGame.png">ActivateWindow(Games,Addons,return)</shortcut>
 		</node>
-		<!-- PVR -->
-		<node label="14204" condition="PVR.HasTVChannels | PVR.HasRadioChannels">
-			<!-- PVR - Live TV -->
-			<node label="31015" condition="PVR.HasTVChannels">
-				<content>pvr</content>
-				<node label="19023">
-					<content>pvr-tv</content>
-				</node>
+		<!-- TV -->
+		<node label="19020" condition="PVR.HasTVChannels">
+			<content>pvr</content>
+			<node label="19023">
+				<content>pvr-tv</content>
 			</node>
-			<!-- PVR - Radio -->
-			<node label="19021" condition="PVR.HasRadioChannels">
-			<content>radio</content>
-				<node label="19024">
-					<content>pvr-radio</content>
-				</node>
+		</node>
+		<!-- Radio -->
+		<node label="19021" condition="PVR.HasRadioChannels">
+		<content>radio</content>
+			<node label="19024">
+				<content>pvr-radio</content>
 			</node>
 		</node>
 		<!-- Add-ons -->
@@ -148,8 +145,8 @@
 	
 	<widgetdefault labelID="10508" group="weather.1">WeatherWidget</widgetdefault>
 	
-	<widgetdefaultnode labelID="19217" group="14204.1" label="$LOCALIZE[19217]" type="pvr" path="pvr://channels/tv/*/" target="video">pvr</widgetdefaultnode>
-	<propertydefault labelID="19217" group="14204.1" property="layout">square</propertydefault>
+	<widgetdefaultnode labelID="19217" group="19020.1" label="$LOCALIZE[19217]" type="pvr" path="pvr://channels/tv/*/" target="video">pvr</widgetdefaultnode>
+	<propertydefault labelID="19217" group="19020.1" property="layout">square</propertydefault>
 	
 	<widgetdefaultnode labelID="19216" group="19021.1" label="$LOCALIZE[19216]" type="pvr" path="pvr://channels/radio/*/" target="video">pvr</widgetdefaultnode>
 	<propertydefault labelID="19216" group="19021.1" property="layout">square</propertydefault>
@@ -253,30 +250,27 @@
 			<shortcut label="$LOCALIZE[35049]" widget="addon" icon="DefaultAddonGame.png" widgetType="addons" widgetTarget="games">addons://sources/game</shortcut>
 			<shortcut label="$LOCALIZE[10821]" widget="gamesources" icon="DefaultFolder.png" widgetType="games" widgetTarget="games">sources://games/</shortcut>
 		</node>
-		<!-- PVR -->
-		<node label="14204" condition="PVR.HasTVChannels | PVR.HasRadioChannels">
-			<!-- PVR - Live TV -->
-			<node label="$LOCALIZE[31015]" condition="Pvr.HasTVChannels">
-				<shortcut widget="LastPlayedChannels" label="$LOCALIZE[31222]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*?view=lastplayed</shortcut>
-				<shortcut widget="AllChannels" label="$LOCALIZE[19217]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*</shortcut>
-				<shortcut widget="TVChannelGroups" label="$LOCALIZE[19173]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="tvguide">pvr://channels/tv/</shortcut>
-				<shortcut widget="ActiveRecordings" label="$LOCALIZE[31223]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=flat</shortcut>
-				<shortcut widget="GroupedActiveRecordings" label="$LOCALIZE[31224]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=grouped</shortcut>
-				<shortcut widget="DeletedRecordings" label="$LOCALIZE[19184]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=flat</shortcut>
-				<shortcut widget="GroupedDeletedRecordings" label="$LOCALIZE[31225]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=grouped</shortcut>
-				<shortcut widget="TVTimers" label="$LOCALIZE[10703]" icon="DefaultLiveTV.png" widgetTarget="pvr" widgetType="tv">pvr://timers/tv/timers</shortcut>
-			</node>
-			<!-- PVR - Radio -->
-			<node label="$LOCALIZE[19021]" condition="Pvr.HasRadioChannels">
-				<shortcut widget="LastPlayedRadioChannels" label="$LOCALIZE[31226]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*?view=lastplayed</shortcut>
-				<shortcut widget="AllRadioChannels" label="$LOCALIZE[19216]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*</shortcut>
-				<shortcut widget="RadioChannelGroups" label="$LOCALIZE[19174]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="radioguide">pvr://channels/radio/</shortcut>
-				<shortcut widget="ActiveRadioRecordings" label="$LOCALIZE[31227]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=flat</shortcut>
-				<shortcut widget="GroupedActiveRadioRecordings" label="$LOCALIZE[31228]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=grouped</shortcut>
-				<shortcut widget="DeletedRadioRecordings" label="$LOCALIZE[19184]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=flat</shortcut>
-				<shortcut widget="GroupedDeletedRadioRecordings" label="$LOCALIZE[31229]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=grouped</shortcut>
-				<shortcut widget="RadioTimers" label="$LOCALIZE[10708]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://timers/radio/timers</shortcut>
-			</node>
+		<!-- TV -->
+		<node label="$LOCALIZE[19020]" condition="Pvr.HasTVChannels">
+			<shortcut widget="LastPlayedChannels" label="$LOCALIZE[31222]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*?view=lastplayed</shortcut>
+			<shortcut widget="AllChannels" label="$LOCALIZE[19217]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://channels/tv/*</shortcut>
+			<shortcut widget="TVChannelGroups" label="$LOCALIZE[19173]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="tvguide">pvr://channels/tv/</shortcut>
+			<shortcut widget="ActiveRecordings" label="$LOCALIZE[31223]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=flat</shortcut>
+			<shortcut widget="GroupedActiveRecordings" label="$LOCALIZE[31224]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/active?view=grouped</shortcut>
+			<shortcut widget="DeletedRecordings" label="$LOCALIZE[19184]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=flat</shortcut>
+			<shortcut widget="GroupedDeletedRecordings" label="$LOCALIZE[31225]" icon="DefaultLiveTV.png" widgetType="tv" widgetTarget="pvr">pvr://recordings/tv/deleted?view=grouped</shortcut>
+			<shortcut widget="TVTimers" label="$LOCALIZE[10703]" icon="DefaultLiveTV.png" widgetTarget="pvr" widgetType="tv">pvr://timers/tv/timers</shortcut>
+		</node>
+		<!-- Radio -->
+		<node label="$LOCALIZE[19021]" condition="Pvr.HasRadioChannels">
+			<shortcut widget="LastPlayedRadioChannels" label="$LOCALIZE[31226]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*?view=lastplayed</shortcut>
+			<shortcut widget="AllRadioChannels" label="$LOCALIZE[19216]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://channels/radio/*</shortcut>
+			<shortcut widget="RadioChannelGroups" label="$LOCALIZE[19174]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="radioguide">pvr://channels/radio/</shortcut>
+			<shortcut widget="ActiveRadioRecordings" label="$LOCALIZE[31227]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=flat</shortcut>
+			<shortcut widget="GroupedActiveRadioRecordings" label="$LOCALIZE[31228]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/active?view=grouped</shortcut>
+			<shortcut widget="DeletedRadioRecordings" label="$LOCALIZE[19184]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=flat</shortcut>
+			<shortcut widget="GroupedDeletedRadioRecordings" label="$LOCALIZE[31229]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://recordings/radio/deleted?view=grouped</shortcut>
+			<shortcut widget="RadioTimers" label="$LOCALIZE[10708]" icon="DefaultRadio.png" widgetType="radio" widgetTarget="pvr">pvr://timers/radio/timers</shortcut>
 		</node>
 		<!-- Add-ons -->
 		<node label="24001">
