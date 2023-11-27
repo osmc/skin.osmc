@@ -25,54 +25,34 @@
 			<control type="group">
 				<include>WindowFadeAnimation</include>
 
-				<!-- Skin helper image -->
+				<!-- PVR Info -->
 				<control type="group">
-					<visible>String.IsEmpty(Container(50).ListItem.Plot)</visible>
-					<include>VisibleFadeAnimation</include>
+					<visible>Control.IsVisible(50)</visible>
+
+					<!-- PVR image -->
 					<control type="image">
 						<include>MyPVRRecordings_coords1</include>
 						<fadetime>200</fadetime>
-						<texture background="true">$INFO[Window(Home).Property(SkinHelper.PVR.Poster)]</texture>
-						<aspectratio align="center">keep</aspectratio>
-						<visible>!String.IsEmpty(Window(Home).Property(SkinHelper.PVR.Poster))</visible>
-					</control>
-					<control type="image">
-						<include>MyPVRRecordings_coords1</include>
-						<fadetime>200</fadetime>
-						<texture background="true">$INFO[Window(Home).Property(SkinHelper.PVR.Thumb)]</texture>
-						<aspectratio align="center">keep</aspectratio>
-						<visible>String.IsEmpty(Window(Home).Property(SkinHelper.PVR.Poster)) + !String.IsEmpty(Window(Home).Property(SkinHelper.PVR.Thumb))</visible>
-					</control>
-				</control>
-
-				<!-- Episode Info -->
-				<control type="group">
-					<include>MyPVRRecordings_coords2</include>
-					<visible>!String.IsEmpty(Container(50).ListItem.Plot) | String.IsEqual(Container(50).ListItem.Label,..)</visible>
-					<include>VisibleFadeAnimation</include>
-
-					<!-- Episode image -->
-					<control type="image">
-						<include>MyPVRRecordings_coords3</include>
-						<fadetime>200</fadetime>
-						<texture background="true" fallback="DefaultLiveTV.png">$INFO[ListItem.Icon]</texture>
+						<texture fallback="DefaultLiveTV.png" background="true">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<visible>Window.IsVisible(TVRecordings)</visible>
+						<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 					</control>
 					
 					<control type="image">
-						<include>MyPVRRecordings_coords3</include>
+						<include>MyPVRRecordings_coords1</include>
 						<fadetime>200</fadetime>
-						<texture background="true" fallback="DefaultRadio.png">$INFO[ListItem.Icon]</texture>
+						<texture fallback="DefaultRadio.png" background="true">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<visible>Window.IsVisible(RadioRecordings)</visible>
+						<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 					</control>
 					
-					<!-- Episode Information -->
+					<!-- PVR Plot -->
 					<control type="group">
-						<include>MyPVRRecordings_coords4</include>
+						<include>MyPVRRecordings_coords2</include>
 						<control type="textbox">
-							<include>MyPVRRecordings_coords5</include>
+							<include>MyPVRRecordings_coords3</include>
 							<font>Font27</font>
 							<align>left</align>
 							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10701)]</label>
@@ -81,7 +61,7 @@
 							<visible>Skin.String(PlotFont,S)</visible>
 						</control>
 						<control type="textbox">
-							<include>MyPVRRecordings_coords6</include>
+							<include>MyPVRRecordings_coords4</include>
 							<font>Font30</font>
 							<align>left</align>
 							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10701)]</label>
@@ -90,7 +70,7 @@
 							<visible>Skin.String(PlotFont,M)</visible>
 						</control>
 						<control type="textbox">
-							<include>MyPVRRecordings_coords7</include>
+							<include>MyPVRRecordings_coords5</include>
 							<font>Font33</font>
 							<align>left</align>
 							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10701)]</label>
@@ -104,9 +84,9 @@
 
 				<!-- List -->
 				<control type="fixedlist" id="50">
-					<include>MyPVRRecordings_coords8</include>
-					<onup>51</onup>
-					<ondown>51</ondown>
+					<include>MyPVRRecordings_coords6</include>
+					<onup>50</onup>
+					<ondown>50</ondown>
 					<onleft>60</onleft>
 					<pagecontrol>60</pagecontrol>
 					<focusposition>3</focusposition>
@@ -114,15 +94,15 @@
 					<viewtype label="$LOCALIZE[535]">list</viewtype>
 					<scrolltime tween="sine" easing="out">240</scrolltime>
 
-					<include>MyPVRRecordings_coords9</include>
+					<include>MyPVRRecordings_coords7</include>
 
-					<include>MyPVRRecordings_coords10</include>
+					<include>MyPVRRecordings_coords8</include>
 
 				</control>
 
 				<!-- Scrollbar (list) -->
 				<control type="scrollbar" id="60">
-					<include>MyPVRRecordings_coords11</include>
+					<include>MyPVRRecordings_coords9</include>
 					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 					<onright>50</onright>
 					<showonepage>false</showonepage>
@@ -135,16 +115,8 @@
 					<visible>!Skin.HasSetting(Scrollbars)</visible>
 				</control>
 
-				<!-- Recording count -->
-				<control type="fadelabel">
-					<include>MyPVRRecordings_coords12</include>
-					<visible>!Skin.HasSetting(ItemCount)</visible>
-					<align>right</align>
-					<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-				</control>
+				<!-- Item count -->
+				<include>ItemCount</include>
 				
 				<!-- Sub menu indicator -->
 				<include>SubMenuIndicator</include>

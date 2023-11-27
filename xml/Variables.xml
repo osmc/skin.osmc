@@ -218,7 +218,7 @@
 		<value condition="Window.IsVisible(InterfaceSettings)">$LOCALIZE[14206]</value>
 		<value condition="Window.IsVisible(PlayerSettings)">$LOCALIZE[14200]</value>
 		<value condition="Window.IsVisible(MediaSettings)">$LOCALIZE[14211]</value>
-		<value condition="Window.IsVisible(PVRSettings)">$LOCALIZE[31015]</value>
+		<value condition="Window.IsVisible(PVRSettings)">$LOCALIZE[19020] &#38; $LOCALIZE[19021]</value>
 		<value condition="Window.IsVisible(ServiceSettings)">$LOCALIZE[14036]</value>
 		<value condition="Window.IsVisible(SystemSettings)">$LOCALIZE[13000]</value>
 		<value condition="Window.IsVisible(SystemInfo)">$LOCALIZE[130]</value>
@@ -282,16 +282,14 @@
 		<value condition="[Window.IsVisible(TVRecordings) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19163]</value>
 		<value condition="[Window.IsVisible(RadioGuide) | Window.IsVisible(TVGuide) | Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19029]</value>
 		<value condition="[Window.IsVisible(RadioGuide) | Window.IsVisible(TVGuide) | Window.IsVisible(TVChannels) | Window.IsVisible(RadioRecordings)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[19019]</value>
-		<value condition="[Window.IsVisible(RadioTimers) | Window.IsVisible(TVTimers)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31433]</value>
-		<value condition="[Window.IsVisible(RadioTimers) | Window.IsVisible(TVTimers)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31434]</value>
-		<value condition="[Window.IsVisible(RadioSearch) | Window.IsVisible(TVSearch)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31293]</value>
-		<value condition="[Window.IsVisible(RadioSearch) | Window.IsVisible(TVSearch)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[283]</value>
 		<value condition="Container.Content(games) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31238]</value>
 		<value condition="Container.Content(games) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[15016]</value>
 		<value condition="[Container.Content(videos) | Window.IsVisible(VideoPlaylist)] + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[157]</value>
 		<value condition="[Container.Content(videos) | Window.IsVisible(VideoPlaylist)] + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[10025]</value>
 		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31239]</value>
 		<value condition="String.StartsWith(Container.FolderPath,addons://sources/game) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[35049]</value>
+		<value condition="Container.Content(favourites) + Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31015]</value>
+		<value condition="Container.Content(favourites) + !Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[10060]</value>
 		<value condition="Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31000]</value>
 		<value condition="!Integer.IsEqual(Container.NumItems,1)">$LOCALIZE[31001]</value>
 	</variable>
@@ -336,11 +334,10 @@
 	<variable name="PlayerIcon">
 		<value condition="!String.IsEmpty(Pvr.EPGEventIcon)">$INFO[Pvr.EPGEventIcon]</value>
 		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
-		<value>$INFO[Player.Icon]</value>
-	</variable>
-
-	<variable name="VideoPlayerChannelNumber">
-		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelName]$INFO[VideoPlayer.ChannelNumberLabel, (,)]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
+		<value condition="!String.IsEmpty(Player.Icon)">$INFO[Player.Icon]</value>
+		<value condition="VideoPlayer.Content(LiveTV)">DefaultLiveTV.png</value>
+		<value>DefaultFile.png</value>
 	</variable>
 
 	<variable name="VideoPlayerNext">
@@ -506,7 +503,7 @@
 		<value condition="[Container.Content(episodes) | Container.Content(videos)] + !String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered,$LOCALIZE[20416]: ,]$VAR[LabelUserRating]</value>
 		<value condition="[Container.Content(episodes) | Container.Content(videos)] + !String.IsEmpty(ListItem.Date)">$INFO[ListItem.Date,$LOCALIZE[570]: ,]$VAR[LabelUserRating]</value>
 		<value condition="Container.Content(albums)">$INFO[ListItem.Artist]$INFO[ListItem.Year, &#8226; ,]$VAR[LabelUserRating]</value>
-		<value condition="Container.Content(addons)">$INFO[ListItem.AddonVersion,$LOCALIZE[19114]: ,]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.AddonVersion,$LOCALIZE[19114]: ,]$INFO[ListItem.Label2, &#8226; ,]</value>
 		<value condition="Container.Content(images) + !String.IsEmpty(ListItem.PictureDatetime)">$INFO[ListItem.PictureDatetime,$LOCALIZE[21820]: ,]</value>
 		<value condition="[Container.Content(files) | Container.Content(games) | Container.Content(images)] + !String.IsEmpty(ListItem.Date)">$INFO[ListItem.Date,$LOCALIZE[21820]: ,]</value>
 	</variable>
@@ -539,7 +536,7 @@
 		<value condition="[String.Contains(ListItem.FileName,-dts-x-) | String.Contains(ListItem.FileName,-dts-x.) | String.Contains(ListItem.FileName,-dts-x_) | String.Contains(ListItem.FileName,-dtsx-) | String.Contains(ListItem.FileName,-dtsx.) | String.Contains(ListItem.FileName,-dtsx_) | String.Contains(ListItem.FileName,.dts-x.) | String.Contains(ListItem.FileName,.dts-x_) | String.Contains(ListItem.FileName,.dts-x-) | String.Contains(ListItem.FileName,.dtsx.) | String.Contains(ListItem.FileName,.dtsx_) | String.Contains(ListItem.FileName,.dtsx-) | String.Contains(ListItem.FileName,_dts-x_) | String.Contains(ListItem.FileName,_dts-x-) | String.Contains(ListItem.FileName,_dts-x.) | String.Contains(ListItem.FileName,_dtsx_) | String.Contains(ListItem.FileName,_dtsx-) | String.Contains(ListItem.FileName,_dtsx.)] + String.IsEqual(ListItem.AudioCodec,dtshd_hra)">DTS:X &#8226; DTS-HD HRA $VAR[AudioChannels]</value>
 		<value condition="[String.Contains(ListItem.FileName,-auro-3d-) | String.Contains(ListItem.FileName,-auro-3d.) | String.Contains(ListItem.FileName,-auro-3d_) | String.Contains(ListItem.FileName,.auro-3d-) | String.Contains(ListItem.FileName,.auro-3d.) | String.Contains(ListItem.FileName,.auro-3d_) | String.Contains(ListItem.FileName,_auro-3d-) | String.Contains(ListItem.FileName,_auro-3d.) | String.Contains(ListItem.FileName,_auro-3d_) | String.Contains(ListItem.FileName,-auro3d-) | String.Contains(ListItem.FileName,-auro3d.) | String.Contains(ListItem.FileName,-auro3d_) | String.Contains(ListItem.FileName,.auro3d-) | String.Contains(ListItem.FileName,.auro3d.) | String.Contains(ListItem.FileName,.auro3d_) | String.Contains(ListItem.FileName,_auro3d-) | String.Contains(ListItem.FileName,_auro3d.) | String.Contains(ListItem.FileName,_auro3d_)] + [String.IsEqual(ListItem.AudioCodec,dtshd_ma) | String.IsEqual(ListItem.AudioCodec,dtsma)]">AURO-3D &#8226; DTS-HD MA $VAR[AudioChannels]</value>
 		<value condition="[String.Contains(ListItem.FileName,-auro-3d-) | String.Contains(ListItem.FileName,-auro-3d.) | String.Contains(ListItem.FileName,-auro-3d_) | String.Contains(ListItem.FileName,.auro-3d-) | String.Contains(ListItem.FileName,.auro-3d.) | String.Contains(ListItem.FileName,.auro-3d_) | String.Contains(ListItem.FileName,_auro-3d-) | String.Contains(ListItem.FileName,_auro-3d.) | String.Contains(ListItem.FileName,_auro-3d_) | String.Contains(ListItem.FileName,-auro3d-) | String.Contains(ListItem.FileName,-auro3d.) | String.Contains(ListItem.FileName,-auro3d_) | String.Contains(ListItem.FileName,.auro3d-) | String.Contains(ListItem.FileName,.auro3d.) | String.Contains(ListItem.FileName,.auro3d_) | String.Contains(ListItem.FileName,_auro3d-) | String.Contains(ListItem.FileName,_auro3d.) | String.Contains(ListItem.FileName,_auro3d_)] + [Integer.IsEqual(ListItem.AudioChannels,6) | Integer.IsEqual(ListItem.AudioChannels,8)]">AURO-3D &#8226; PCM $VAR[AudioChannels]</value>
-		<value>$VAR[AudioCodec]$VAR[AudioChannels, ,]</value>
+		<value>$VAR[AudioCodec,, ]$VAR[AudioChannels]</value>
 	</variable>
 
 	<variable name="AudioSimple">
@@ -804,8 +801,9 @@
 
 	<!-- Audio/Video Duration -->
 	<variable name="MediaFlagsDuration">
-		<value condition="!String.IsEmpty(ListItem.Duration) + ![String.StartsWith(ListItem.Size,0) + String.EndsWith(ListItem.Size,0 B)]">$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</value>
-		<value>$VAR[Duration]</value>
+		<value condition="!Window.IsVisible(MyPlaylist.xml) + !String.IsEmpty(ListItem.Duration) + ![String.StartsWith(ListItem.Size,0) + String.EndsWith(ListItem.Size,0 B)]">$VAR[Duration]$INFO[ListItem.Size, &#8226; $LOCALIZE[289]: ,]</value>
+		<value condition="!Window.IsVisible(MyPlaylist.xml)">$VAR[Duration]</value>
+		<value condition="Window.IsVisible(MyPlaylist.xml)">$INFO[ListItem.Duration]$INFO[Container.Totaltime, / ,]</value>
 	</variable>
 	
 	<variable name="Duration">

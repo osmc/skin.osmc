@@ -9,25 +9,25 @@
 	</include>
 	<include name="MyPVRSearch_coords1_16:9">
 		<left>120</left>
-		<top>226</top>
+		<centertop>50%</centertop>
 		<width>1020</width>
 		<height>648</height>
 	</include>
 	<include name="MyPVRSearch_coords1_21:9">
 		<left>120</left>
-		<top>226</top>
+		<centertop>50%</centertop>
 		<width>1340</width>
 		<height>648</height>
 	</include>
 	<include name="MyPVRSearch_coords1_21:9_masked">
 		<left>120</left>
-		<top>406</top>
+		<centertop>50%</centertop>
 		<width>1340</width>
 		<height>648</height>
 	</include>
 	<include name="MyPVRSearch_coords1_4:3">
 		<left>120</left>
-		<top>226</top>
+		<centertop>50%</centertop>
 		<width>780</width>
 		<height>648</height>
 	</include>
@@ -41,157 +41,226 @@
 	<include name="MyPVRSearch_coords2_16:9">
 		<itemlayout width="1020" height="108">
 
-			<!-- Start time -->
+			<!-- Start date -->
 			<control type="label">
+				<left>20</left>
 				<top>12</top>
-				<width>200</width>
+				<width>280</width>
+				<font>Font33-light</font>
 				<align>right</align>
 				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
+				<label>$INFO[ListItem.StartDate]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
-			<!-- End time -->
+			<!-- Start time - End time -->
 			<control type="label">
+				<left>20</left>
 				<top>62</top>
-				<width>200</width>
+				<width>280</width>
 				<height>27</height>
+				<font>Font27-light</font>
 				<align>right</align>
-				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.EndTime]</label>
+				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Recording image -->
 			<control type="image">
-				<left>226</left>
-				<top>40</top>
+				<left>317</left>
+				<top>39</top>
 				<width>30</width>
 				<height>30</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
 			<control type="image">
-				<left>221</left>
-				<top>36</top>
-				<width>38</width>
-				<height>40</height>
+				<left>317</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>317</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Icon -->
+			<control type="image">
+				<left>344</left>
+				<top>3</top>
+				<width>102</width>
+				<height>102</height>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Channel name -->
+			<control type="label">
+				<left>489</left>
+				<top>12</top>
+				<width>531</width>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Program name -->
 			<control type="label">
-				<left>280</left>
-				<top>12</top>
-				<width>500</width>
-				<font>Font33-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-			</control>
-
-			<!-- Channel name -->
-			<control type="label">
-				<left>280</left>
+				<left>489</left>
 				<top>62</top>
-				<width>740</width>
+				<width>531</width>
 				<height>27</height>
 				<font>Font27-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
-
-			<!-- Duration -->
+			
+			<!-- Search options -->
 			<control type="label">
-				<left>800</left>
-				<top>12</top>
-				<width>200</width>
-				<font>Font33-light</font>
+				<left>20</left>
+				<top>36</top>
+				<width>1000</width>
+				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Duration]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Date)</visible>
 			</control>
-
+			
 		</itemlayout>
 	</include>
 	<include name="MyPVRSearch_coords2_21:9">
 		<itemlayout width="1340" height="108">
 
-			<!-- Start time -->
+			<!-- Start date -->
 			<control type="label">
+				<left>20</left>
 				<top>12</top>
-				<width>200</width>
+				<width>406</width>
 				<align>right</align>
 				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
+				<label>$INFO[ListItem.StartDate]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
-			<!-- End time -->
+			<!-- Start time - End time -->
 			<control type="label">
+				<left>20</left>
 				<top>62</top>
-				<width>200</width>
+				<width>406</width>
 				<height>27</height>
+				<font>Font27-light</font>
 				<align>right</align>
-				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.EndTime]</label>
+				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Recording image -->
 			<control type="image">
-				<left>226</left>
-				<top>40</top>
+				<left>433</left>
+				<top>39</top>
 				<width>30</width>
 				<height>30</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
 			<control type="image">
-				<left>221</left>
-				<top>36</top>
-				<width>38</width>
-				<height>40</height>
+				<left>433</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>433</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Icon -->
+			<control type="image">
+				<left>470</left>
+				<top>3</top>
+				<width>102</width>
+				<height>102</height>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Channel name -->
+			<control type="label">
+				<left>636</left>
+				<top>12</top>
+				<width>704</width>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Program name -->
 			<control type="label">
-				<left>280</left>
-				<top>12</top>
-				<width>820</width>
-				<font>Font33-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-			</control>
-
-			<!-- Channel name -->
-			<control type="label">
-				<left>280</left>
+				<left>636</left>
 				<top>62</top>
-				<width>1060</width>
+				<width>704</width>
 				<height>27</height>
 				<font>Font27-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
-
-			<!-- Duration -->
+			
+			<!-- Search options -->
 			<control type="label">
-				<left>1120</left>
-				<top>12</top>
-				<width>200</width>
-				<font>Font33-light</font>
+				<left>20</left>
+				<top>36</top>
+				<width>1320</width>
+				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Duration]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 		</itemlayout>
@@ -199,78 +268,112 @@
 	<include name="MyPVRSearch_coords2_21:9_masked">
 		<itemlayout width="1340" height="108">
 
-			<!-- Start time -->
+			<!-- Start date -->
 			<control type="label">
+				<left>20</left>
 				<top>12</top>
-				<width>200</width>
+				<width>406</width>
 				<align>right</align>
 				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
+				<label>$INFO[ListItem.StartDate]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
-			<!-- End time -->
+			<!-- Start time - End time -->
 			<control type="label">
+				<left>20</left>
 				<top>62</top>
-				<width>200</width>
+				<width>406</width>
 				<height>27</height>
+				<font>Font27-light</font>
 				<align>right</align>
-				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.EndTime]</label>
+				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Recording image -->
 			<control type="image">
-				<left>226</left>
-				<top>40</top>
+				<left>433</left>
+				<top>39</top>
 				<width>30</width>
 				<height>30</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
 			<control type="image">
-				<left>221</left>
-				<top>36</top>
-				<width>38</width>
-				<height>40</height>
+				<left>433</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>433</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Icon -->
+			<control type="image">
+				<left>433</left>
+				<top>3</top>
+				<width>102</width>
+				<height>102</height>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Channel name -->
+			<control type="label">
+				<left>636</left>
+				<top>12</top>
+				<width>704</width>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Program name -->
 			<control type="label">
-				<left>280</left>
-				<top>12</top>
-				<width>820</width>
-				<font>Font33-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-			</control>
-
-			<!-- Channel name -->
-			<control type="label">
-				<left>280</left>
+				<left>636</left>
 				<top>62</top>
-				<width>1060</width>
+				<width>704</width>
 				<height>27</height>
 				<font>Font27-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
-
-			<!-- Duration -->
+			
+			<!-- Search options -->
 			<control type="label">
-				<left>1120</left>
-				<top>12</top>
-				<width>200</width>
-				<font>Font33-light</font>
+				<left>20</left>
+				<top>36</top>
+				<width>1320</width>
+				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Duration]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 		</itemlayout>
@@ -278,78 +381,112 @@
 	<include name="MyPVRSearch_coords2_4:3">
 		<itemlayout width="780" height="108">
 
-			<!-- Start time -->
+			<!-- Start date -->
 			<control type="label">
+				<left>20</left>
 				<top>12</top>
-				<width>200</width>
+				<width>185</width>
 				<align>right</align>
 				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartTime]</label>
+				<label>$INFO[ListItem.StartDate]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
-			<!-- End time -->
+			<!-- Start time - End time -->
 			<control type="label">
+				<left>20</left>
 				<top>62</top>
-				<width>200</width>
+				<width>185</width>
 				<height>27</height>
+				<font>Font27-light</font>
 				<align>right</align>
-				<font>Font33-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.EndTime]</label>
+				<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Recording image -->
 			<control type="image">
-				<left>226</left>
-				<top>40</top>
+				<left>222</left>
+				<top>39</top>
 				<width>30</width>
 				<height>30</height>
 				<texture>pvr/Recording.png</texture>
 				<visible>ListItem.IsRecording</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
 			</control>
 
 			<!-- Timer image -->
 			<control type="image">
-				<left>221</left>
-				<top>36</top>
-				<width>38</width>
-				<height>40</height>
+				<left>222</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
 				<texture>pvr/Timer.png</texture>
-				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Reminder image -->
+			<control type="image">
+				<left>222</left>
+				<top>39</top>
+				<width>30</width>
+				<height>30</height>
+				<texture>pvr/Reminder.png</texture>
+				<colordiffuse>$VAR[TextColorNF]</colordiffuse>
+				<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Icon -->
+			<control type="image">
+				<left>269</left>
+				<top>3</top>
+				<width>102</width>
+				<height>102</height>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
+				<include>NonFocusImageFadeAnimation</include>
+			</control>
+			
+			<!-- Channel name -->
+			<control type="label">
+				<left>435</left>
+				<top>12</top>
+				<width>345</width>
+				<font>Font33-light</font>
+				<textcolor>$VAR[TextColorNF]</textcolor>
+				<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 			<!-- Program name -->
 			<control type="label">
-				<left>280</left>
-				<top>12</top>
-				<width>260</width>
-				<font>Font33-light</font>
-				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Label]</label>
-			</control>
-
-			<!-- Channel name -->
-			<control type="label">
-				<left>280</left>
+				<left>435</left>
 				<top>62</top>
-				<width>500</width>
+				<width>345</width>
 				<height>27</height>
 				<font>Font27-light</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>!String.IsEmpty(ListItem.Date)</visible>
 			</control>
-
-			<!-- Duration -->
+			
+			<!-- Search options -->
 			<control type="label">
-				<left>560</left>
-				<top>12</top>
-				<width>200</width>
-				<font>Font33-light</font>
+				<left>20</left>
+				<top>36</top>
+				<width>760</width>
+				<font>Font33</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
-				<label>$INFO[ListItem.Duration]</label>
+				<label>$INFO[ListItem.Label]</label>
+				<visible>String.IsEmpty(ListItem.Date)</visible>
 			</control>
 
 		</itemlayout>
@@ -368,87 +505,132 @@
 					<param name="id">50</param>
 				</include>
 		
-				<!-- Start time -->
+				<!-- Start date -->
 				<control type="label">
+					<left>20</left>
 					<top>12</top>
-					<width>200</width>
+					<width>280</width>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.StartTime]</label>
+					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
-				<!-- End time -->
+				<!-- Start time - End time -->
 				<control type="label">
+					<left>20</left>
 					<top>62</top>
-					<width>200</width>
+					<width>280</width>
 					<height>27</height>
+					<font>Font27</font>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.EndTime]</label>
+					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Recording image -->
 				<control type="image">
-					<left>226</left>
-					<top>40</top>
+					<left>317</left>
+					<top>39</top>
 					<width>30</width>
 					<height>30</height>
 					<texture>pvr/Recording.png</texture>
 					<visible>ListItem.IsRecording</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Timer image -->
 				<control type="image">
-					<left>221</left>
-					<top>36</top>
-					<width>38</width>
-					<height>40</height>
+					<left>317</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
 					<texture>pvr/Timer.png</texture>
-					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
-
-				<!-- Program name -->
-				<control type="label">
-					<left>280</left>
-					<top>12</top>
-					<width>500</width>
-					<font>Font33-bold</font>
-					<scroll>True</scroll>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColorFO]</textcolor>
+				
+				<!-- Reminder image -->
+				<control type="image">
+					<left>317</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				</control>
+				
+				<!-- Icon -->
+				<control type="image">
+					<left>344</left>
+					<top>3</top>
+					<width>102</width>
+					<height>102</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Channel name -->
 				<control type="label">
-					<left>280</left>
-					<top>62</top>
-					<width>740</width>
-					<height>27</height>
-					<font>Font27</font>
-					<scroll>True</scroll>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
-				</control>
-
-				<!-- Duration -->
-				<control type="label">
-					<left>800</left>
+					<left>489</left>
 					<top>12</top>
-					<width>200</width>
+					<width>531</width>
+					<font>Font33-bold</font>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.Duration]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Highlighting -->
 				<control type="image">
-					<left>280</left>
+					<left>489</left>
 					<top>12</top>
-					<width>720</width>
+					<width>531</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Program name -->
+				<control type="label">
+					<left>489</left>
+					<top>62</top>
+					<width>531</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+			
+				<!-- Search options -->
+				<control type="label">
+					<left>20</left>
+					<top>36</top>
+					<width>1000</width>
+					<font>Font33-bold</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>20</left>
+					<top>36</top>
+					<width>1000</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 			</control>
@@ -461,87 +643,132 @@
 					<param name="id">50</param>
 				</include>
 		
-				<!-- Start time -->
+				<!-- Start date -->
 				<control type="label">
+					<left>20</left>
 					<top>12</top>
-					<width>200</width>
+					<width>406</width>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.StartTime]</label>
+					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
-				<!-- End time -->
+				<!-- Start time - End time -->
 				<control type="label">
+					<left>20</left>
 					<top>62</top>
-					<width>200</width>
+					<width>406</width>
 					<height>27</height>
+					<font>Font27</font>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.EndTime]</label>
+					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Recording image -->
 				<control type="image">
-					<left>226</left>
-					<top>40</top>
+					<left>433</left>
+					<top>39</top>
 					<width>30</width>
 					<height>30</height>
 					<texture>pvr/Recording.png</texture>
 					<visible>ListItem.IsRecording</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Timer image -->
 				<control type="image">
-					<left>221</left>
-					<top>36</top>
-					<width>38</width>
-					<height>40</height>
+					<left>433</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
 					<texture>pvr/Timer.png</texture>
-					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
-
-				<!-- Program name -->
-				<control type="label">
-					<left>280</left>
-					<top>12</top>
-					<width>820</width>
-					<font>Font33-bold</font>
-					<scroll>True</scroll>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColorFO]</textcolor>
+				
+				<!-- Reminder image -->
+				<control type="image">
+					<left>433</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				</control>
+				
+				<!-- Icon -->
+				<control type="image">
+					<left>470</left>
+					<top>3</top>
+					<width>102</width>
+					<height>102</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Channel name -->
 				<control type="label">
-					<left>280</left>
-					<top>62</top>
-					<width>1060</width>
-					<height>27</height>
-					<font>Font27</font>
-					<scroll>True</scroll>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
-				</control>
-
-				<!-- Duration -->
-				<control type="label">
-					<left>1120</left>
+					<left>636</left>
 					<top>12</top>
-					<width>200</width>
+					<width>704</width>
+					<font>Font33-bold</font>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.Duration]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Highlighting -->
 				<control type="image">
-					<left>280</left>
+					<left>636</left>
 					<top>12</top>
-					<width>1040</width>
+					<width>704</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Program name -->
+				<control type="label">
+					<left>636</left>
+					<top>62</top>
+					<width>704</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+			
+				<!-- Search options -->
+				<control type="label">
+					<left>20</left>
+					<top>36</top>
+					<width>1320</width>
+					<font>Font33-bold</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>20</left>
+					<top>36</top>
+					<width>1320</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 			</control>
@@ -554,87 +781,132 @@
 					<param name="id">50</param>
 				</include>
 		
-				<!-- Start time -->
+				<!-- Start date -->
 				<control type="label">
+					<left>20</left>
 					<top>12</top>
-					<width>200</width>
+					<width>406</width>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.StartTime]</label>
+					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
-				<!-- End time -->
+				<!-- Start time - End time -->
 				<control type="label">
+					<left>20</left>
 					<top>62</top>
-					<width>200</width>
+					<width>406</width>
 					<height>27</height>
+					<font>Font27</font>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.EndTime]</label>
+					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Recording image -->
 				<control type="image">
-					<left>226</left>
-					<top>40</top>
+					<left>433</left>
+					<top>39</top>
 					<width>30</width>
 					<height>30</height>
 					<texture>pvr/Recording.png</texture>
 					<visible>ListItem.IsRecording</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Timer image -->
 				<control type="image">
-					<left>221</left>
-					<top>36</top>
-					<width>38</width>
-					<height>40</height>
+					<left>433</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
 					<texture>pvr/Timer.png</texture>
-					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
-
-				<!-- Program name -->
-				<control type="label">
-					<left>280</left>
-					<top>12</top>
-					<width>820</width>
-					<font>Font33-bold</font>
-					<scroll>True</scroll>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColorFO]</textcolor>
+				
+				<!-- Reminder image -->
+				<control type="image">
+					<left>433</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				</control>
+				
+				<!-- Icon -->
+				<control type="image">
+					<left>433</left>
+					<top>3</top>
+					<width>102</width>
+					<height>102</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Channel name -->
 				<control type="label">
-					<left>280</left>
-					<top>62</top>
-					<width>1060</width>
-					<height>27</height>
-					<font>Font27</font>
-					<scroll>True</scroll>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
-				</control>
-
-				<!-- Duration -->
-				<control type="label">
-					<left>1120</left>
+					<left>470</left>
 					<top>12</top>
-					<width>200</width>
+					<width>704</width>
+					<font>Font33-bold</font>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.Duration]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Highlighting -->
 				<control type="image">
-					<left>280</left>
+					<left>470</left>
 					<top>12</top>
-					<width>1040</width>
+					<width>704</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Program name -->
+				<control type="label">
+					<left>470</left>
+					<top>62</top>
+					<width>704</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+			
+				<!-- Search options -->
+				<control type="label">
+					<left>20</left>
+					<top>36</top>
+					<width>1320</width>
+					<font>Font33-bold</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>20</left>
+					<top>36</top>
+					<width>1320</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 			</control>
@@ -647,87 +919,132 @@
 					<param name="id">50</param>
 				</include>
 		
-				<!-- Start time -->
+				<!-- Start date -->
 				<control type="label">
+					<left>20</left>
 					<top>12</top>
-					<width>200</width>
+					<width>185</width>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.StartTime]</label>
+					<label>$INFO[ListItem.StartDate]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
-				<!-- End time -->
+				<!-- Start time - End time -->
 				<control type="label">
+					<left>20</left>
 					<top>62</top>
-					<width>200</width>
+					<width>185</width>
 					<height>27</height>
+					<font>Font27</font>
 					<align>right</align>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.EndTime]</label>
+					<label>$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Recording image -->
 				<control type="image">
-					<left>226</left>
-					<top>40</top>
+					<left>222</left>
+					<top>39</top>
 					<width>30</width>
 					<height>30</height>
 					<texture>pvr/Recording.png</texture>
 					<visible>ListItem.IsRecording</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Timer image -->
 				<control type="image">
-					<left>221</left>
-					<top>36</top>
-					<width>38</width>
-					<height>40</height>
+					<left>222</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
 					<texture>pvr/Timer.png</texture>
-					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording</visible>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
-
-				<!-- Program name -->
-				<control type="label">
-					<left>280</left>
-					<top>12</top>
-					<width>260</width>
-					<font>Font33-bold</font>
-					<scroll>True</scroll>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$VAR[TextColorFO]</textcolor>
+				
+				<!-- Reminder image -->
+				<control type="image">
+					<left>222</left>
+					<top>39</top>
+					<width>30</width>
+					<height>30</height>
+					<texture>pvr/Reminder.png</texture>
+					<colordiffuse>$VAR[TextColorFO]</colordiffuse>
+					<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
+				</control>
+				
+				<!-- Icon -->
+				<control type="image">
+					<left>269</left>
+					<top>3</top>
+					<width>102</width>
+					<height>102</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture>$INFO[ListItem.Icon]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 				<!-- Channel name -->
 				<control type="label">
-					<left>280</left>
-					<top>62</top>
-					<width>500</width>
-					<height>27</height>
-					<font>Font27</font>
-					<scroll>True</scroll>
-					<textcolor>$VAR[TextColorFO]</textcolor>
-					<label>$INFO[ListItem.StartDate]$INFO[ListItem.ChannelName, &#8226; ,]</label>
-				</control>
-
-				<!-- Duration -->
-				<control type="label">
-					<left>560</left>
+					<left>435</left>
 					<top>12</top>
-					<width>200</width>
+					<width>345</width>
+					<font>Font33-bold</font>
 					<scroll>True</scroll>
-					<label>$INFO[ListItem.Duration]</label>
 					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.ChannelName]$INFO[ListItem.ChannelNumberLabel, (,)]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
 				</control>
 				
 				<!-- Highlighting -->
 				<control type="image">
-					<left>280</left>
+					<left>435</left>
 					<top>12</top>
-					<width>480</width>
+					<width>345</width>
 					<height>51</height>
 					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Program name -->
+				<control type="label">
+					<left>435</left>
+					<top>62</top>
+					<width>345</width>
+					<height>27</height>
+					<font>Font27</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>!String.IsEmpty(ListItem.Date)</visible>
+				</control>
+			
+				<!-- Search options -->
+				<control type="label">
+					<left>20</left>
+					<top>36</top>
+					<width>760</width>
+					<font>Font33-bold</font>
+					<scroll>True</scroll>
+					<textcolor>$VAR[TextColorFO]</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
+				</control>
+				
+				<!-- Highlighting -->
+				<control type="image">
+					<left>20</left>
+					<top>36</top>
+					<width>760</width>
+					<height>51</height>
+					<texture colordiffuse="$VAR[TextColorFO]">$VAR[focus52]</texture>
+					<visible>String.IsEmpty(ListItem.Date)</visible>
 				</control>
 
 			</control>
@@ -741,26 +1058,26 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords4_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords4_16:9">
-		<left>1152</left>
-		<top>246</top>
+		<left>90</left>
+		<centertop>50%</centertop>
 		<width>20</width>
 		<height>608</height>
 	</include>
 	<include name="MyPVRSearch_coords4_21:9">
-		<left>1472</left>
-		<top>246</top>
+		<left>90</left>
+		<centertop>50%</centertop>
 		<width>20</width>
 		<height>608</height>
 	</include>
 	<include name="MyPVRSearch_coords4_21:9_masked">
-		<left>1472</left>
-		<top>426</top>
+		<left>90</left>
+		<centertop>50%</centertop>
 		<width>20</width>
 		<height>608</height>
 	</include>
 	<include name="MyPVRSearch_coords4_4:3">
-		<left>912</left>
-		<top>246</top>
+		<left>90</left>
+		<centertop>50%</centertop>
 		<width>20</width>
 		<height>608</height>
 	</include>
@@ -773,23 +1090,27 @@
 	</include>
 	<include name="MyPVRSearch_coords5_16:9">
 		<right>120</right>
-		<top>246</top>
-		<width>512</width>
+		<centertop>50%</centertop>
+		<width>600</width>
+		<height>608</height>
 	</include>
 	<include name="MyPVRSearch_coords5_21:9">
 		<right>120</right>
-		<top>246</top>
-		<width>832</width>
+		<centertop>50%</centertop>
+		<width>1050</width>
+		<height>608</height>
 	</include>
 	<include name="MyPVRSearch_coords5_21:9_masked">
 		<right>120</right>
-		<top>426</top>
-		<width>832</width>
+		<centertop>50%</centertop>
+		<width>1050</width>
+		<height>608</height>
 	</include>
 	<include name="MyPVRSearch_coords5_4:3">
 		<right>120</right>
-		<top>246</top>
-		<width>272</width>
+		<centertop>50%</centertop>
+		<width>360</width>
+		<height>608</height>
 	</include>
 	
 	<include name="MyPVRSearch_coords6">
@@ -799,16 +1120,16 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords6_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords6_16:9">
-		<width>512</width>
+		<width>600</width>
 	</include>
 	<include name="MyPVRSearch_coords6_21:9">
-		<width>832</width>
+		<width>1050</width>
 	</include>
 	<include name="MyPVRSearch_coords6_21:9_masked">
-		<width>832</width>
+		<width>1050</width>
 	</include>
 	<include name="MyPVRSearch_coords6_4:3">
-		<width>272</width>
+		<width>360</width>
 	</include>
 	
 	<include name="MyPVRSearch_coords7">
@@ -837,20 +1158,20 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords8_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords8_16:9">
-		<width>512</width>
-		<height>460</height>
+		<width>600</width>
+		<height>474</height>
 	</include>
 	<include name="MyPVRSearch_coords8_21:9">
 		<width>832</width>
-		<height>460</height>
+		<height>474</height>
 	</include>
 	<include name="MyPVRSearch_coords8_21:9_masked">
 		<width>832</width>
-		<height>460</height>
+		<height>474</height>
 	</include>
 	<include name="MyPVRSearch_coords8_4:3">
 		<width>272</width>
-		<height>460</height>
+		<height>474</height>
 	</include>
 	
 	<include name="MyPVRSearch_coords9">
@@ -860,16 +1181,16 @@
 		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords9_4:3</include>
 	</include>
 	<include name="MyPVRSearch_coords9_16:9">
-		<height>437</height>
+		<height>471</height>
 	</include>
 	<include name="MyPVRSearch_coords9_21:9">
-		<height>437</height>
+		<height>471</height>
 	</include>
 	<include name="MyPVRSearch_coords9_21:9_masked">
-		<height>437</height>
+		<height>471</height>
 	</include>
 	<include name="MyPVRSearch_coords9_4:3">
-		<height>437</height>
+		<height>471</height>
 	</include>
 	
 	<include name="MyPVRSearch_coords10">
@@ -918,58 +1239,27 @@
 	</include>
 	<include name="MyPVRSearch_coords12_16:9">
 		<right>0</right>
-		<top>504</top>
-		<width>512</width>
+		<bottom>0</bottom>
+		<width>600</width>
 		<height>30</height>
 	</include>
 	<include name="MyPVRSearch_coords12_21:9">
 		<right>0</right>
-		<top>504</top>
-		<width>832</width>
+		<bottom>0</bottom>
+		<width>1050</width>
 		<height>30</height>
 	</include>
 	<include name="MyPVRSearch_coords12_21:9_masked">
 		<right>0</right>
-		<top>504</top>
-		<width>832</width>
+		<bottom>0</bottom>
+		<width>1050</width>
 		<height>30</height>
 	</include>
 	<include name="MyPVRSearch_coords12_4:3">
 		<right>0</right>
-		<top>504</top>
-		<width>272</width>
+		<bottom>0</bottom>
+		<width>360</width>
 		<height>30</height>
-	</include>
-	
-	<include name="MyPVRSearch_coords13">
-		<include condition="$EXP[NonMaskedCoordinates]">MyPVRSearch_coords13_16:9</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,21:9)">MyPVRSearch_coords13_21:9</include>
-		<include condition="$EXP[MaskedCoordinates]">MyPVRSearch_coords13_21:9_masked</include>
-		<include condition="String.IsEqual(Skin.AspectRatio,4:3)">MyPVRSearch_coords13_4:3</include>
-	</include>
-	<include name="MyPVRSearch_coords13_16:9">
-		<right>120</right>
-		<bottom>110</bottom>
-		<width>800</width>
-		<height>44</height>
-	</include>
-	<include name="MyPVRSearch_coords13_21:9">
-		<right>120</right>
-		<bottom>110</bottom>
-		<width>800</width>
-		<height>44</height>
-	</include>
-	<include name="MyPVRSearch_coords13_21:9_masked">
-		<right>120</right>
-		<bottom>290</bottom>
-		<width>800</width>
-		<height>44</height>
-	</include>
-	<include name="MyPVRSearch_coords13_4:3">
-		<right>120</right>
-		<bottom>110</bottom>
-		<width>800</width>
-		<height>44</height>
 	</include>
 
 </includes>

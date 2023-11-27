@@ -25,36 +25,38 @@
 			<control type="group">
 				<include>WindowFadeAnimation</include>
 
-				<!-- Episode Info -->
+				<!-- PVR Info -->
 				<control type="group">
-					<include>MyPVRChannels_coords1</include>
+					<visible>Control.IsVisible(50)</visible>
 
-					<!-- Episode image -->
+					<!-- PVR image -->
 					<control type="group">
 						<control type="image">
-							<include>MyPVRChannels_coords2</include>
-							<texture background="true" fallback="DefaultLiveTV.png">$VAR[PVRChannelIcon]</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<include>MyPVRChannels_coords1</include>
 							<fadetime>200</fadetime>
+							<texture fallback="DefaultLiveTV.png" background="true">$VAR[PVRChannelIcon]</texture>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
 							<visible>Window.IsVisible(TVChannels)</visible>
+							<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 						</control>
 						
 						<control type="image">
-							<include>MyPVRChannels_coords2</include>
-							<texture background="true" fallback="DefaultRadio.png">$VAR[PVRChannelIcon]</texture>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<include>MyPVRChannels_coords1</include>
 							<fadetime>200</fadetime>
+							<texture fallback="DefaultRadio.png" background="true">$VAR[PVRChannelIcon]</texture>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
 							<visible>Window.IsVisible(RadioChannels)</visible>
+							<visible>!Integer.IsEqual(Container.NumItems,0) | [Integer.IsEqual(Container.NumItems,0) + ListItem.IsParentFolder]</visible>
 						</control>
 					</control>
 
-					<!-- Episode Information -->
+					<!-- PVR Plot -->
 					<control type="group">
-						<include>MyPVRChannels_coords3</include>
-						<visible>!Integer.IsEqual(Container(50).NumItems,0)</visible>
+						<include>MyPVRChannels_coords2</include>
+						<visible>!Integer.IsEqual(Container.NumItems,0)</visible>
 						<include>VisibleFadeAnimation</include>
 						<control type="textbox">
-							<include>MyPVRChannels_coords4</include>
+							<include>MyPVRChannels_coords3</include>
 							<font>Font27</font>
 							<align>left</align>
 							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
@@ -63,7 +65,7 @@
 							<visible>Skin.String(PlotFont,S)</visible>
 						</control>
 						<control type="textbox">
-							<include>MyPVRChannels_coords5</include>
+							<include>MyPVRChannels_coords4</include>
 							<font>Font30</font>
 							<align>left</align>
 							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
@@ -72,7 +74,7 @@
 							<visible>Skin.String(PlotFont,M)</visible>
 						</control>
 						<control type="textbox">
-							<include>MyPVRChannels_coords6</include>
+							<include>MyPVRChannels_coords5</include>
 							<font>Font33</font>
 							<align>left</align>
 							<label>$VAR[PVRDescription]$INFO[Window(Home).Property(ResetScroll.10700)]</label>
@@ -86,7 +88,7 @@
 
 				<!-- List -->
 				<control type="fixedlist" id="50">
-					<include>MyPVRChannels_coords7</include>
+					<include>MyPVRChannels_coords6</include>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<onleft>60</onleft>
@@ -96,15 +98,15 @@
 					<viewtype label="$LOCALIZE[535]">list</viewtype>
 					<scrolltime tween="sine" easing="out">240</scrolltime>
 
-					<include>MyPVRChannels_coords8</include>
+					<include>MyPVRChannels_coords7</include>
 
-					<include>MyPVRChannels_coords9</include>
+					<include>MyPVRChannels_coords8</include>
 
 				</control>
 
 				<!-- Scrollbar (list) -->
 				<control type="scrollbar" id="60">
-					<include>MyPVRChannels_coords10</include>
+					<include>MyPVRChannels_coords9</include>
 					<onleft condition="!Skin.HasSetting(KioskMode)">3001</onleft>
 					<onright>50</onright>
 					<showonepage>false</showonepage>
@@ -117,16 +119,8 @@
 					<visible>!Skin.HasSetting(Scrollbars)</visible>
 				</control>
 
-				<!-- Channel count -->
-				<control type="fadelabel">
-					<include>MyPVRChannels_coords11</include>
-					<visible>!Skin.HasSetting(ItemCount)</visible>
-					<align>right</align>
-					<label>$INFO[Container(50).NumItems]$VAR[ContentType, ,]</label>
-					<font>Font30</font>
-					<textcolor>$VAR[TextColorNF]</textcolor>
-					<animation effect="fade" start="100" end="0" time="200" condition="Integer.IsEqual(Container(50).NumItems,0) + Window.IsVisible(busydialog)">Conditional</animation>
-				</control>
+				<!-- Item count -->
+				<include>ItemCount</include>
 				
 				<!-- Sub menu indicator -->
 				<include>SubMenuIndicator</include>
