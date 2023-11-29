@@ -18,9 +18,15 @@
 			<include>DialogZoomAnimation</include>
 			
 			<!-- Heading -->
-			<include content="Time">
+			<include content="Time" condition="String.IsEmpty(System.Progressbar)">
 				<param name="heading">$INFO[Control.GetLabel(1)]</param>
 				<param name="secondary">False</param>
+				<param name="busyspinner">False</param>
+			</include>
+			<include content="Time" condition="!String.IsEmpty(System.Progressbar)">
+				<param name="heading">$INFO[Control.GetLabel(1)]</param>
+				<param name="secondary">False</param>
+				<param name="busyspinner">True</param>
 			</include>
 
 			<!-- Heading -->
