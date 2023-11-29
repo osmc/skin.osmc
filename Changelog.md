@@ -7,12 +7,14 @@
 _New_
 - add new setting to adjust select action of album, TV show and movie set main menu widgets
 - add consistent reminder icons for v20 PVR reminder feature
+- add genre colours to EPG grid
 
 _Improved_
 - improve live TV and radio related localizes
 - improve pre-playback behaviour of now playing information section in the top right corner of each window/dialog
 - improve consistency between PVR windows and dialogs (feature parity as well as cosmetic appearance)
 - improve media flags behaviour during window transitions and when encountering edge cases
+- improve progress feedback of confirm dialog as well as the extended progress notification
 
 _Fixed_
 - fix focus cover animation in wide views
@@ -499,6 +501,11 @@ _rename default live TV home menu items to use new heading localize ID_
 strings.po:
 - add localizes for new adjust select action of album, TV show and movie set main menu widgets settings (31438, 31439, 31440, 31441, 31442, 31443)
 - remove deprecated live TV localize and replace it with new favourite content label (31015)
+- remove deprecated search result and timer localizes (31293, 31433, 31434)
+- add new localizes for EPG grid genre colour setting (31293, 31433)
+
+textures.xbt:
+- update textures file with new EPG grid genre colour assets
 
 mainmenu.DATA.xml:
 - replace live TV home menu item localize to use the new localize ID
@@ -515,6 +522,9 @@ Coordinates_Custom_DialogMasking.xml:
 
 Coordinates_DialogAddonSettings.xml:
 - rework coordinates includes to add and adjust textwidth tags for radio button controls
+
+Coordinates_DialogExtendedProgressBar.xml:
+- add coordinates includes for new progress bar busy spinner icon
 
 Coordinates_DialogKeyboard.xml:
 - rework coordinates includes to add and adjust textwidth tags for radio button controls
@@ -541,7 +551,7 @@ Coordinates_Includes_SubMenu.xml:
 - rework coordinates includes to add and adjust textwidth tags for radio button controls
 
 Coordinates_Includes_Time_NowPlaying.xml:
-- add new coordinates includes for new pre-playback player icon
+- add coordinates includes for new dialog confirm busy spinner icon
 
 Coordinates_MyPVRChannels.xml:
 - rework coordinates includes for more consistent window look
@@ -549,6 +559,8 @@ Coordinates_MyPVRChannels.xml:
 
 Coordinates_MyPVRGuide.xml:
 - fix colours of timer and reminder icons
+- adjust position of recording, timer and reminder images to prevent overlap with added highlighting textures
+- adjust EPG grid background textures for new EPG grid genre colours
 
 Coordinates_MyPVRRecordings.xml:
 - rework coordinates includes for more consistent window look
@@ -601,6 +613,12 @@ Defaults.xml:
 DialogAddonInfo.xml:
 - adjust textwidth tag of radio button control
 
+DialogConfirm.xml:
+- adjust time include for new progress busy spinner icon
+
+DialogExtendedProgressBar.xml:
+- add new busy spinner icon
+
 DialogFavourites.xml:
 - rework item count visibility condition and animation
 
@@ -642,7 +660,7 @@ Includes_SubMenu.xml:
 
 Includes_Time_NowPlaying.xml:
 - adjust now playing labels conditional visibility for better pre-playback information (before streams or network resources are available)
-- add new pre-playback player icon
+- adjust time include for new dialog confirm busy spinner icon
 
 Includes_Windows_Dialogs.xml:
 - add new background transition fallback when media window view type controls are not yet visible
@@ -684,13 +702,18 @@ SettingsProfiles.xml:
 SkinSettings.xml:
 - add new adjust select action of album, TV show and movie set main menu widgets settings
 - replace coordinates includes to add and adjust textwidth tags for radio button controls
+- add setting for new EPG grid genre colours
 
 Variables.xml:
 - add new value condition to HeadingLabelSecondary variable for new PVR & live TV settings section localize ID
 - rework PlayerIcon variable for better pre-playback player icon
 
+Variables_Colours.xml:
+- add EPGColours variable for new EPG grid genre colours feature
+
 Variables_Settings.xml:
 - add new variable values to SkinSettingsExplanation for new adjust select action of album, TV show and movie set main menu widgets settings
+- add new variable value for EPG grid genre colour setting explanation text
 
 Variables_Skinshortcuts.xml:
 - add new WidgetOnClickAlbum, WidgetOnClickTVShow and WidgetOnClickMovieSet variables for new widget onclick controls
