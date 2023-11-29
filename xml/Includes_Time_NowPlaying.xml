@@ -7,12 +7,21 @@
 		<param name="narrow">False</param>
 		<param name="wide">True</param>
 		<param name="secondary">True</param>
+		<param name="busyspinner">False</param>
 		<definition>
 		
 			<!-- Window heading -->
+			<control type="image">
+				<include>heading_coords1</include>
+				<texture colordiffuse="$VAR[OverlayColorFO]">$VAR[BusySpinner]</texture>
+				<visible>$PARAM[busyspinner]</visible>
+				<animation effect="slide" time="0" end="0,17" condition="String.IsEmpty(Control.GetLabel(9999)) | ![$PARAM[secondary]]">Conditional</animation>
+			</control>
 			<control type="fadelabel">
-				<include condition="$PARAM[narrow]">heading_coords1</include>
-				<include condition="$PARAM[wide]">heading_coords2</include>
+				<include condition="$PARAM[narrow] + ![$PARAM[busyspinner]]">heading_coords2</include>
+				<include condition="$PARAM[wide] + ![$PARAM[busyspinner]]">heading_coords3</include>
+				<include condition="$PARAM[narrow] + [$PARAM[busyspinner]]">heading_coords4</include>
+				<include condition="$PARAM[wide] + [$PARAM[busyspinner]]">heading_coords5</include>
 				<aligny>top</aligny>
 				<label>$PARAM[heading]</label>
 				<font>Font33</font>
@@ -20,8 +29,10 @@
 				<animation effect="slide" time="0" end="0,33" condition="String.IsEmpty(Control.GetLabel(9999)) | ![$PARAM[secondary]]">Conditional</animation>
 			</control>
 			<control type="fadelabel" id="9999">
-				<include condition="$PARAM[narrow]">heading_coords3</include>
-				<include condition="$PARAM[wide]">heading_coords4</include>
+				<include condition="$PARAM[narrow] + ![$PARAM[busyspinner]]">heading_coords6</include>
+				<include condition="$PARAM[wide] + ![$PARAM[busyspinner]]">heading_coords7</include>
+				<include condition="$PARAM[narrow] + [$PARAM[busyspinner]]">heading_coords8</include>
+				<include condition="$PARAM[wide] + [$PARAM[busyspinner]]">heading_coords9</include>
 				<aligny>top</aligny>
 				<label>$VAR[HeadingLabelSecondary]</label>
 				<font>Font33-light</font>
@@ -308,13 +319,6 @@
 						<texture fallback="DefaultFile.png" background="true">$VAR[PlayerIcon]</texture>
 						<aspectratio aligny="center">keep</aspectratio>
 						<visible>Pvr.IsPlayingTv + [Player.HasVideo | Player.HasAudio] | !Pvr.IsPlayingTv + !String.IsEmpty(Player.Duration)</visible>
-					</control>
-					
-					<!-- Playback not started icon -->
-					<control type="image">
-						<include>nowplaying_coords7</include>
-						<texture colordiffuse="$VAR[OverlayColorFO]">$VAR[BusySpinner]</texture>
-						<visible>Pvr.IsPlayingTv + !Player.HasVideo + !Player.HasAudio | !Pvr.IsPlayingTv + String.IsEmpty(Player.Duration)</visible>
 					</control>
 
 					<!-- Play/Paused Image -->
