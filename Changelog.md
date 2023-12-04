@@ -2,7 +2,7 @@
 
 ---
 
-**_v20.1.1_**
+**_v20.1.1 - December 2023_**
 
 _New_
 - add new setting to adjust select action of album, TV show and movie set main menu widgets
