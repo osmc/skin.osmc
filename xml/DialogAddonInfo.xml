@@ -28,7 +28,7 @@
 			<!-- Image -->
 			<control type="group">
 				<control type="image">
-					<include>DialogAddonInfodetails_coords1</include>
+					<include>DialogAddonInfo_coords1</include>
 					<texture>$INFO[ListItem.Icon]</texture>
 					<aspectratio aligny="center">keep</aspectratio>
 				</control>
@@ -36,7 +36,7 @@
 
 			<!-- Last used & last updated time & date -->
 			<control type="fadelabel">
-				<include>DialogAddonInfodetails_coords2</include>
+				<include>DialogAddonInfo_coords2</include>
 				<font>Font27</font>
 				<align>center</align>
 				<label>$INFO[ListItem.AddonLastUsed,$LOCALIZE[12012]: ,]$INFO[ListItem.AddonLastUpdated, &#8226; $LOCALIZE[12014]: ,]</label>
@@ -45,7 +45,7 @@
 				<include>VisibleFadeAnimation</include>
 			</control>
 			<control type="fadelabel">
-				<include>DialogAddonInfodetails_coords2</include>
+				<include>DialogAddonInfo_coords2</include>
 				<font>Font27</font>
 				<align>center</align>
 				<label>$INFO[ListItem.AddonLastUsed,$LOCALIZE[12012]: ,]</label>
@@ -54,7 +54,7 @@
 				<include>VisibleFadeAnimation</include>
 			</control>
 			<control type="fadelabel">
-				<include>DialogAddonInfodetails_coords2</include>
+				<include>DialogAddonInfo_coords2</include>
 				<font>Font27</font>
 				<align>center</align>
 				<label>$INFO[ListItem.AddonLastUpdated,$LOCALIZE[12014]: ,]</label>
@@ -65,11 +65,11 @@
 
 			<!-- Info -->
 			<control type="group">
-				<include>DialogAddonInfodetails_coords3</include>
+				<include>DialogAddonInfo_coords3</include>
 
 				<!-- Details -->
 				<control type="grouplist">
-					<include>DialogAddonInfodetails_coords4</include>
+					<include>DialogAddonInfo_coords4</include>
 					<itemgap>12</itemgap>
 					<orientation>vertical</orientation>
 					<usecontrolcoords>true</usecontrolcoords>
@@ -78,17 +78,17 @@
 
 					<!-- Type -->
 					<control type="group">
-						<include>DialogAddonInfodetails_coords5</include>
+						<include>DialogAddonInfo_coords5</include>
 						<visible>!String.IsEmpty(ListItem.AddonType)</visible>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords6</include>
+							<include>DialogAddonInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
 							<label>467</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords7</include>
+							<include>DialogAddonInfo_coords7</include>
 							<font>Font36</font>
 							<label fallback="416">$INFO[ListItem.AddonType]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
@@ -97,17 +97,17 @@
 
 					<!-- Author -->
 					<control type="group">
-						<include>DialogAddonInfodetails_coords5</include>
+						<include>DialogAddonInfo_coords5</include>
 						<visible>!String.IsEmpty(ListItem.AddonCreator)</visible>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords6</include>
+							<include>DialogAddonInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
 							<label>21863</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords7</include>
+							<include>DialogAddonInfo_coords7</include>
 							<font>Font36</font>
 							<label fallback="416">$INFO[ListItem.AddonCreator]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
@@ -116,17 +116,17 @@
 
 					<!-- Version -->
 					<control type="group">
-						<include>DialogAddonInfodetails_coords5</include>
+						<include>DialogAddonInfo_coords5</include>
 						<visible>!String.IsEmpty(ListItem.AddonVersion)</visible>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords6</include>
+							<include>DialogAddonInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
 							<label>19114</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords7</include>
+							<include>DialogAddonInfo_coords7</include>
 							<font>Font36</font>
 							<label fallback="416">$INFO[ListItem.AddonVersion]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
@@ -135,17 +135,17 @@
 					
 					<!-- Addon origin -->
 					<control type="group">
-						<include>DialogAddonInfodetails_coords5</include>
+						<include>DialogAddonInfo_coords5</include>
 						<visible>!String.IsEmpty(ListItem.AddonOrigin) + ListItem.Property(Addon.IsInstalled)</visible>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords6</include>
+							<include>DialogAddonInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
 							<label>31404</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords7</include>
+							<include>DialogAddonInfo_coords7</include>
 							<font>Font36</font>
 							<label fallback="416">$INFO[ListItem.AddonOrigin]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
@@ -154,17 +154,17 @@
 					
 					<!-- Install date -->
 					<control type="group">
-						<include>DialogAddonInfodetails_coords5</include>
+						<include>DialogAddonInfo_coords5</include>
 						<visible>!String.IsEmpty(ListItem.AddonInstallDate)</visible>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords6</include>
+							<include>DialogAddonInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
 							<label>12013</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords7</include>
+							<include>DialogAddonInfo_coords7</include>
 							<font>Font36</font>
 							<label fallback="416">$INFO[ListItem.AddonInstallDate]</label>
 							<textcolor>$VAR[TextColorFO]</textcolor>
@@ -173,17 +173,17 @@
 
 					<!-- Summary -->
 					<control type="group">
-						<include>DialogAddonInfodetails_coords8</include>
+						<include>DialogAddonInfo_coords8</include>
 						<visible>!String.IsEmpty(ListItem.AddonSummary)</visible>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords6</include>
+							<include>DialogAddonInfo_coords6</include>
 							<align>right</align>
 							<font>Font36</font>
 							<label>20037</label>
 							<textcolor>$VAR[TextColorNF]</textcolor>
 						</control>
 						<control type="fadelabel">
-							<include>DialogAddonInfodetails_coords9</include>
+							<include>DialogAddonInfo_coords9</include>
 							<font>Font36</font>
 							<aligny>top</aligny>
 							<wrapmultiline>true</wrapmultiline>
@@ -198,7 +198,7 @@
 			
 			<!-- Description -->
 			<control type="textbox" id="100">
-				<include>DialogAddonInfodetails_coords10</include>
+				<include>DialogAddonInfo_coords10</include>
 				<align>left</align>
 				<font>Font36</font>
 				<textcolor>$VAR[TextColorNF]</textcolor>
