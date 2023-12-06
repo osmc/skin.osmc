@@ -673,6 +673,7 @@ MyPVRChannels.xml:
 
 MyPVRGuide.xml:
 - rework item count visibility condition and animation
+- add new colour diffuse variable to guide grid progress timeline
 
 MyPVRRecordings.xml:
 - rework window for more consistent look
@@ -707,9 +708,7 @@ SkinSettings.xml:
 Variables.xml:
 - add new value condition to HeadingLabelSecondary variable for new PVR & live TV settings section localize ID
 - rework PlayerIcon variable for better pre-playback player icon
-
-Variables_Colours.xml:
-- add EPGColours variable for new TV/radio guide colours feature
+- add new epggridunfocusdim variable for unfocus dimming of TV/radio guide grid progress timeline
 
 Variables_Settings.xml:
 - add new variable values to SkinSettingsExplanation for new adjust select action of album, TV show and movie set main menu widgets settings
