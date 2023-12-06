@@ -2,7 +2,7 @@
 
 ---
 
-**_v20.1.1 - December 2023_**
+**_v20.2.0 - December 2023_**
 
 _New_
 - add new setting to adjust select action of album, TV show and movie set main menu widgets
@@ -721,7 +721,7 @@ Viewtype50.xml:
 - rework view type for better content type related icons and instances where the content type is returned empty
 
 Addon.xml:
-- bump version to 20.1.1
+- bump version to 20.2.0
 - update changelog
 
 Changelog.md:
