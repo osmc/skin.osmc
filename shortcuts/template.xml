@@ -452,7 +452,7 @@
 							<texture background="true">pvr/Recording.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<visible>ListItem.IsRecording</visible>
-							<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+							<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 						</control>
 						<control type="image">
 							<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -460,7 +460,7 @@
 							<texture background="true">pvr/Timer.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-							<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+							<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 						</control>
 						<control type="image">
 							<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -468,7 +468,7 @@
 							<texture background="true">pvr/Reminder.png</texture>
 							<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 							<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
-							<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+							<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 						</control>
 						<control type="image">
 							<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -535,21 +535,21 @@
 									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
 									<texture background="true">pvr/Recording.png</texture>
 									<visible>ListItem.IsRecording</visible>
-									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 								</control>
 								<control type="image">
 									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
 									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
 									<texture background="true">pvr/Timer.png</texture>
 									<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 								</control>
 								<control type="image">
 									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
 									<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
 									<texture background="true">pvr/Reminder.png</texture>
 									<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
-									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 								</control>
 								<control type="image">
 									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -614,7 +614,7 @@
 									<texture background="true">pvr/Recording.png</texture>
 									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 									<visible>ListItem.IsRecording</visible>
-									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 								</control>
 								<control type="image">
 									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -622,7 +622,7 @@
 									<texture background="true">pvr/Timer.png</texture>
 									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 									<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 								</control>
 								<control type="image">
 									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -630,7 +630,7 @@
 									<texture background="true">pvr/Reminder.png</texture>
 									<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 									<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible>
-									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+									<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 								</control>
 								<control type="image">
 									<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -697,7 +697,7 @@
 								<texture background="true">pvr/Recording.png</texture>
 								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 								<visible>ListItem.IsRecording</visible>
-								<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+								<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 							</control>
 							<control type="image">
 								<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
@@ -705,14 +705,14 @@
 								<texture background="true">pvr/Timer.png</texture>
 								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
 								<visible>[ListItem.HasTimer | ListItem.HasTimerSchedule] + !ListItem.IsRecording + !ListItem.HasReminder + !ListItem.HasReminderRule</visible>
-								<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+								<animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 							</control>
 							<control type="image">
 								<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
 								<centerleft>$PYTHON[int(imageWidthNoFocus) / 2]</centerleft>
 								<texture background="true">pvr/Reminder.png</texture>
 								<colordiffuse>$VAR[DiffusePosterNF]</colordiffuse>
-								<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible><animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)">Conditional</animation>
+								<visible>[ListItem.HasReminder | ListItem.HasReminderRule] + !ListItem.IsRecording</visible><animation effect="slide" end="-$PYTHON[int(imageWidthNoFocus) * 0.11 / 2],0" time="0" reversible="false" condition="[String.IsEqual(ListItem.Overlay,OverlayWatched.png) | ListItem.IsResumable | !String.IsEmpty(ListItem.PlayCount)] + [[String.IsEqual(ListItem.DBTYPE,music) | String.IsEqual(ListItem.DBTYPE,song) | String.IsEqual(ListItem.DBTYPE,album) | String.IsEqual(ListItem.DBTYPE,artist)] + !Skin.HasSetting(MusicListenedToStatus) | [String.IsEqual(ListItem.DBTYPE,video) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,set) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + !Skin.HasSetting(VideoWatchedStatus)]">Conditional</animation>
 							</control>
 							<control type="image">
 								<width>$PYTHON[int(imageWidthNoFocus) * 0.11]</width>
