@@ -17,6 +17,7 @@
 			
 			<control type="group">
 				<include>DialogDepth</include>
+				
 				<!-- Animation -->
 				<include>DialogZoomAnimation</include>
 			
@@ -35,14 +36,7 @@
 					<include>DialogSelect_coords1</include>
 					<texture>$VAR[SelectImage]</texture>
 					<aspectratio aligny="center">keep</aspectratio>
-					<visible>Control.IsVisible(6) + !String.Contains(Container(6).ListItem.Icon,Default)</visible>
-				</control>
-				<control type="image">
-					<include>DialogSelect_coords1</include>
-					<texture>$INFO[Container(6).ListItem.Icon]</texture>
-					<colordiffuse>$VAR[OverlayColorFO]</colordiffuse>
-					<aspectratio aligny="center">keep</aspectratio>
-					<visible>Control.IsVisible(6) + String.Contains(Container(6).ListItem.Icon,Default)</visible>
+					<visible>Control.IsVisible(6)</visible>
 				</control>
 
 				<!-- List -->
@@ -135,6 +129,7 @@
 		<control type="group">
 			<include>DialogDepth</include>
 			<visible>[Window.IsVisible(gamevideofilter) | Window.IsVisible(gamestretchmode) | Window.IsVisible(gamevideorotation)] + !Window.IsVisible(shutdownmenu)</visible>
+			
 			<!-- Animation -->
 			<animation effect="slide" start="0,500" time="200">WindowOpen</animation>
 			<animation effect="slide" end="0,500" time="200">WindowClose</animation>
