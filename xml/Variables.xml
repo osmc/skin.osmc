@@ -448,6 +448,7 @@
 	
 	<variable name="SelectImage">
 		<value condition="!String.IsEmpty(Container(6).ListItem.Art(poster))">$INFO[Container(6).ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Container(6).ListItem.Art(thumb))">$INFO[Container(6).ListItem.Art(thumb)]</value>
 		<value>$INFO[Container(6).ListItem.Icon]</value>
 	</variable>
 
@@ -483,7 +484,11 @@
 	<variable name="Label2">
 		<value condition="Container.Content(movies) + !ListItem.IsCollection + !String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year]$INFO[ListItem.Genre, &#8226; ,]$VAR[LabelUserRating]</value>
 		<value condition="Container.Content(movies) + !ListItem.IsCollection + String.IsEmpty(ListItem.Year)">$INFO[ListItem.Genre]$VAR[LabelUserRating]</value>
-		<value condition="[Container.Content(sets) | ListItem.IsCollection] + !ListItem.IsParentFolder">$LOCALIZE[20457]</value>
+		<value condition="[Container.Content(sets) | ListItem.IsCollection] + !ListItem.IsParentFolder + Integer.IsGreater(ListItem.Property(Total),1) + Integer.IsGreater(ListItem.Property(Watched),0)">$INFO[ListItem.Property(Watched),$LOCALIZE[20457] &#8226; $LOCALIZE[16102]: , $LOCALIZE[1443] ]$INFO[ListItem.Property(Total),, $LOCALIZE[36900]]</value>
+		<value condition="[Container.Content(sets) | ListItem.IsCollection] + !ListItem.IsParentFolder + Integer.IsGreater(ListItem.Property(Total),1) + Integer.IsEqual(ListItem.Property(Watched),0)">$INFO[ListItem.Property(Total),$LOCALIZE[20457] &#8226; , $LOCALIZE[36901]]</value>
+		<value condition="[Container.Content(sets) | ListItem.IsCollection] + !ListItem.IsParentFolder + Integer.IsEqual(ListItem.Property(Total),1) + Integer.IsGreater(ListItem.Property(Watched),0)">$INFO[ListItem.Property(Watched),$LOCALIZE[20457] &#8226; $LOCALIZE[16102]: , $LOCALIZE[1443] ]$INFO[ListItem.Property(Total),, $LOCALIZE[36900]]</value>
+		<value condition="[Container.Content(sets) | ListItem.IsCollection] + !ListItem.IsParentFolder + Integer.IsEqual(ListItem.Property(Total),1) + Integer.IsEqual(ListItem.Property(Watched),0)">$INFO[ListItem.Property(Total),$LOCALIZE[20457] &#8226; , $LOCALIZE[36900]]</value>
+		<value condition="[Container.Content(sets) | ListItem.IsCollection] + !ListItem.IsParentFolder + Integer.IsEqual(ListItem.Property(Total),0)">$INFO[ListItem.Property(Total),$LOCALIZE[20457] &#8226; , $LOCALIZE[36901]]</value>
 		<value condition="Container.Content(tvshows) + Integer.IsGreater(ListItem.Property(TotalSeasons),1) + Integer.IsGreater(ListItem.Property(TotalEpisodes),1) + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)">$INFO[ListItem.Year,, &#8226; ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36905] &#8226; ]$INFO[ListItem.Property(WatchedEpisodes),$LOCALIZE[16102]: , $LOCALIZE[1443] ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[36907]]$VAR[LabelUserRating]</value>
 		<value condition="Container.Content(tvshows) + Integer.IsGreater(ListItem.Property(TotalSeasons),1) + Integer.IsGreater(ListItem.Property(TotalEpisodes),1) + Integer.IsEqual(ListItem.Property(WatchedEpisodes),0)">$INFO[ListItem.Year,, &#8226; ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36905] &#8226; ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[36907]]$VAR[LabelUserRating]</value>
 		<value condition="Container.Content(tvshows) + Integer.IsEqual(ListItem.Property(TotalSeasons),1) + Integer.IsGreater(ListItem.Property(TotalEpisodes),1) + Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)">$INFO[ListItem.Year,, &#8226; ]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36904] &#8226; ]$INFO[ListItem.Property(WatchedEpisodes),$LOCALIZE[16102]: , $LOCALIZE[1443] ]$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[36907]]$VAR[LabelUserRating]</value>
@@ -516,21 +521,6 @@
 	<variable name="LabelUserRating">
 		<value condition="Skin.HasSetting(UserRating) + ![Control.IsVisible(531) | Control.IsVisible(533)]">$INFO[ListItem.UserRating, &#8226; $LOCALIZE[38018]: ,]</value>
 		<value condition="!Skin.HasSetting(UserRating)"></value>
-	</variable>
-	
-	<variable name="SetListContent">
-		<value condition="String.IsEqual(Container.ListItem.dbtype,set)">videodb://movies/sets/$INFO[ListItem.DBID]/?setid=$INFO[ListItem.DBID]</value>
-		<value>-</value>
-	</variable>
-	
-	<variable name="SetLabel">
-		<value condition="Integer.IsEqual(Container(4500).NumItems,1)">$INFO[Container(4500).ListItem(0).Year,, &#8226; ]$INFO[Container(4500).NumItems,, $LOCALIZE[20338]]</value>
-		<value condition="Integer.IsGreater(Container(4500).NumItems,1)">$INFO[Container(4500).ListItem(0).Year]$INFO[Container(4500).ListItem(-1).Year, - , &#8226; ]$INFO[Container(4500).NumItems,, $LOCALIZE[342]]</value>
-	</variable>
-	
-	<variable name="VideoInfoListPlot">
-		<value condition="Container.Content(sets) | ListItem.IsCollection">$VAR[SetLabel][CR][CR]$INFO[ListItem.Plot]</value>
-		<value>$INFO[ListItem.Plot]</value>
 	</variable>
 
 	<!-- Audio labels -->
