@@ -12,7 +12,7 @@
 			<!-- Files/Others -->
 			<include content="image-50">
 				<param name="fallback">DefaultFile.png</param>
-				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(files) | Container.Content(songs) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(playlists) | Container.Content(plugins) | Container.Content(studios) | Container.Content(directors) | Container.Content(sets) | Container.Content(tags) | Container.Content(countries) | Container.Content(roles) | Container.Content(favourites) | Container.Content(addons) | Container.Content(albums) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(images)]</param>
+				<param name="visible">![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(files) | Container.Content(songs) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(playlists) | Container.Content(plugins) | Container.Content(studios) | Container.Content(directors) | Container.Content(tags) | Container.Content(countries) | Container.Content(roles) | Container.Content(favourites) | Container.Content(addons) | Container.Content(albums) | Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(images)]</param>
 			</include>
 			<!-- Playlist songs -->
 			<include content="image-50">
@@ -79,11 +79,6 @@
 				<param name="fallback">DefaultDirector.png</param>
 				<param name="visible">Container.Content(directors)</param>
 			</include>
-			<!-- Sets -->
-			<include content="image-50">
-				<param name="fallback">DefaultSets.png</param>
-				<param name="visible">Container.Content(sets)</param>
-			</include>
 			<!-- Tags -->
 			<include content="image-50">
 				<param name="fallback">DefaultTags.png</param>
@@ -99,6 +94,7 @@
 			<control type="group">
 				<include>Viewtype50_coords1</include>
 				<visible>Container.Content(songs)</visible>
+				
 				<!-- Album & Artist Info -->
 				<control type="fadelabel">
 					<include>Viewtype50_coords2</include>
@@ -119,6 +115,7 @@
 					<label>$INFO[ListItem.UserRating,$LOCALIZE[38018]: ,]</label>
 					<visible>Skin.HasSetting(UserRating)</visible>
 				</control>
+				
 			</control>
 
 			<!-- List -->
@@ -132,7 +129,7 @@
 				<orientation>vertical</orientation>
 				<viewtype label="$LOCALIZE[535]">list</viewtype>
 				<scrolltime tween="sine" easing="out">240</scrolltime>
-				<visible>Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(files) | Container.Content(songs) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(playlists) | Container.Content(plugins) | Container.Content(studios) | Container.Content(directors) | Container.Content(sets) | Container.Content(tags) | Container.Content(countries) | Container.Content(roles) | Container.Content(favourites) | ![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(files) | Container.Content(songs) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(playlists) | Container.Content(plugins) | Container.Content(studios) | Container.Content(directors) | Container.Content(sets) | Container.Content(tags) | Container.Content(countries) | Container.Content(roles) | Container.Content(favourites) | Container.Content(addons) | Container.Content(albums) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(images)]</visible>
+				<visible>Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(files) | Container.Content(songs) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(playlists) | Container.Content(plugins) | Container.Content(studios) | Container.Content(directors) | Container.Content(tags) | Container.Content(countries) | Container.Content(roles) | Container.Content(favourites) | ![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist) | Container.Content(files) | Container.Content(songs) | Container.Content(artists) | Container.Content(musicvideos) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(playlists) | Container.Content(plugins) | Container.Content(studios) | Container.Content(directors) | Container.Content(tags) | Container.Content(countries) | Container.Content(roles) | Container.Content(favourites) | Container.Content(addons) | Container.Content(albums) | Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(images)]</visible>
 				
 				<include>Viewtype50_coords6</include>
 
