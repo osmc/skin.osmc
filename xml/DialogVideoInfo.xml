@@ -610,8 +610,11 @@
 				<onup>50</onup>
 				<ondown>50</ondown>
 				<onleft>60</onleft>
-				<onright condition="Control.IsVisible(17) + !Control.IsVisible(18)">17</onright>
-				<onright condition="!Control.IsVisible(17) + Control.IsVisible(18)">18</onright>
+				<onright condition="Control.IsVisible(17)">17</onright>
+				<onright condition="Control.IsVisible(18)">18</onright>
+				<onright condition="Control.IsVisible(19)">19</onright>
+				<onright condition="Control.IsVisible(20)">20</onright>
+				<onright condition="![Control.IsVisible(17) | Control.IsVisible(18) | Control.IsVisible(19) | Control.IsVisible(20)]">9000</onright>
 				<orientation>vertical</orientation>
 				<viewtype label="$LOCALIZE[535]">list</viewtype>
 				<pagecontrol>60</pagecontrol>
@@ -628,8 +631,11 @@
 			<!-- Scrollbar -->
 			<control type="scrollbar" id="60">
 				<include>DialogVideoInfo_coords12</include>
-				<onleft condition="Control.IsVisible(17) + !Control.IsVisible(18)">17</onleft>
-				<onleft condition="!Control.IsVisible(17) + Control.IsVisible(18)">18</onleft>
+				<onleft condition="Control.IsVisible(17)">17</onleft>
+				<onleft condition="Control.IsVisible(18)">18</onleft>
+				<onleft condition="Control.IsVisible(19)">19</onleft>
+				<onleft condition="Control.IsVisible(20)">20</onleft>
+				<onleft condition="![Control.IsVisible(17) | Control.IsVisible(18) | Control.IsVisible(19) | Control.IsVisible(20)]">9000</onleft>
 				<onright>50</onright>
 				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
