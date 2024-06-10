@@ -1,1 +1,49 @@
-Hello world
+<!DOCTYPE html>
+<html>
+<head>
+   <title>OSMC Skin</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+<script>
+   var converter = new showdown.Converter();
+   var markdownText = `## OSMC Skin for Kodi
+
+[OSMC is a free and open source mediacenter](https://osmc.tv/about/) based on Linux and powered by Kodi technology. It features its own unique look and feel in the form of a custom Kodi skin.
+
+Due to popular demand, we have made the skin available for non OSMC systems running Kodi. To facilitate this further, we have set up a Kodi repository to make it easy to install the OSMC skin and keep it updated; even when newer versions of Kodi are released.
+
+## Installation instructions
+
+Installing the skin is a simple process. All versions of Kodi from Kodi Leia (v18) and above are supported. To install the OSMC skin:
+
+* Go to Settings -> Add-ons Enable Unknown Sources 
+* Change update official add-ons from (Official repositores only (default) to Any repositories to ensure that you receive future updates
+* Go to Settings -> File Manager Select Add Source Select Browse 
+* Select Add Network Location Select Web Server Directory (HTTP) Type 'get.osmcsk.in' and press OK
+* Now go back and go to Add-ons Select Install from zip file 
+* Select 'get.osmcsk.in' Select 'repository.osmcskin.zip'
+* Now go to Install from repository Select the OSMC Skin Repository 
+* Select Look and feel Select the desired OSMC skin
+
+You should now be running the OSMC Skin. The repository will skin updated automatically without any further action from your side. 
+
+## Support
+
+If you experience any issues with the skin or want to make some suggestions, we [recommend doing so via our support forums](https://discourse.osmc.tv). 
+
+## Source Code
+
+You can find the source code for [the OSMC skin on GitHub](https://github.com/osmc/osmc). Contributions are welcomed. 
+
+## Check out OSMC
+
+If you like the OSMC skin, you'll love OSMC. [You can learn more about OSMC here](https://osmc.tv) as well as which devices it runs on.
+
+(c) 2024 OSMC`;
+   var htmlText = converter.makeHtml(markdownText);
+   document.write(htmlText);
+</script>
+
+</body>
+</html>
