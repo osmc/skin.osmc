@@ -2,6 +2,17 @@
 
 ---
 
+**_v21.2.1_**
+
+_Improved_
+- change masking bars to allow fully transparent colour values
+
+_Fixed_
+- fix missing OSD icon for auto masking feaure
+- fix custom masking colour setting
+
+---
+
 **_v21.2.0 - March 2025_**
 
 _New_
@@ -540,157 +551,24 @@ Release
 
 ---
 
-**Changelog v21.2.0**
+**Changelog v21.2.1**
 
-_add new Coordinates_Custom_ColorPicker_Slider.xml and Custom_ColorPicker.xml files_
+_add back OSDMaskAutoNF file for auto masking feature_
 
-strings.po:
-- adjust plot/description setting description to mention new XL font size (31326)
-- add localizes for new colour picker slider dialog (31188, 31434)
-- adjust colour picker dialog localize for clearer differentiation from new colour picker slider dialog button (31405)
-
-Coordinates_DialogPVRChannelGuide.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_DialogPVRChannelsOSD.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_MusicVisualisation.xml:
-- add coordinates includes for new XL plot font textbox control
-
-Coordinates_MyPics.xml:
-- add new coordinates includes for new scrollbars
-
-Coordinates_MyPVRChannels.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_MyPVRGuide.xml:
-- add coordinates includes for new XL plot font textbox control
-
-Coordinates_MyPVRRecordings.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_MyPVRSearch.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Settings.xml:
-- add coordinates includes for new XL plot font textbox control
-
-Coordinates_SettingsCategory.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_SkinSettings.xml:
-- add coordinates includes for new XL plot font textbox control
-
-Coordinates_VideoFullScreen.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Viewtype511.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Viewtype522.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Viewtype523.xml:
-- add new content type image includes
-
-Coordinates_Viewtype524.xml:
-- add new content type image includes
-
-Coordinates_Viewtype525.xml:
-- add new content type image includes
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Viewtype531.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Viewtype533.xml:
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Viewtype535.xml:
-- add new content type image includes
-
-Coordinates_Viewtype536.xml:
-- add new content type image includes
-- adjust coordinates includes for new XL plot font textbox control
-
-Coordinates_Viewtype537.xml:
-- add new content type image includes
-
-Coordinates_Viewtype538.xml:
-- add new content type image includes
-
-Coordinates_Viewtype539.xml:
-- add new content type image includes
-- fix videos fallback icon
-
-DialogColorPicker.xml:
-- add new colour picker slider dialog button
-
-Font.xml:
-- remove line spacing from Font36
+Texture.xbt:
+- update textures file with added back auto masking Icon
 
 Includes.xml:
-- adjust DefaultView include to work with multiple content types and specifically with video addons
-- add new includes files
+- adjust colour diffuse of masking bars to allow fully transparent colours
 
-Includes_SubMenu.xml:
-- add fixed video addon views setting to side menu
-- adjust views menu to work together with fixed video addon views setting
-- add new images content type in views menu for viewtypes 523, 535 and 537
+SkinSettings.xml:
+- fix custom masking colour setting to adjust the correct colour
 
-Includes_Time_NowPlaying.xml:
-- adjust Now Playing - Video section
-
-MyPics.xml:
-- add new viewtypes
-- change background include to WindowBackgroundImageMultiView
-- add new viewtype includes
-- add new scrollbars
-
-Variables.xml:
-- add new DefaultViewSettings variable for reworked views menu buttons
-- adjust HeadingLabelSecondary variable to show proper information on episodes level (TV show title and season, if useful)
-- adjust ContentType variable to show videos content type when a list of video addon items are shown
-
-Variables_Colours.xml:
-- add new ColorPicker_PercentToHEX_Alpha, ColorPicker_PercentToHEX_Red, ColorPicker_PercentToHEX_Green, ColorPicker_PercentToHEX_Blue and ColorPicker_PercentToHEX_Color variables for new colour picker slider dialog
-
-Viewtype51.xml:
-- adjust visibility conditions of images and list container to work with multiple with multiple video addons content type
-
-Viewtype511.xml:
-- adjust visibility conditions of images and list container to work with multiple with multiple video addons content type
-
-Viewtype523.xml:
-- adjust visibility conditions of list container to work with multiple with multiple video addons content type
-- adjust conditional visibility of list control with new images content type
-
-Viewtype524xml:
-- adjust visibility conditions of list container to work with multiple with multiple video addons content type
-
-Viewtype525.xml:
-- adjust visibility conditions of list container and info controls to work with multiple with multiple video addons content type
-
-Viewtype535.xml:
-- adjust visibility conditions of panel container to work with multiple with multiple video addons content type
-- adjust conditional visibility of panel control with new images content type
-
-Viewtype536.xml:
-- adjust visibility conditions of panel container and info controls to work with multiple with multiple video addons content type
-
-Viewtype537.xml:
-- adjust visibility conditions of panel container to work with multiple with multiple video addons content type
-- adjust conditional visibility of panel control with new images content type
-
-Viewtype538.xml:
-- adjust visibility conditions of panel container and info controls to work with multiple with multiple video addons content type
-
-Viewtype539.xml:
-- adjust visibility conditions of panel container to work with multiple with multiple video addons content type
+VideoFullScreen.xml:
+- adjust colour diffuse of masking bars to allow fully transparent colours
 
 addon.xml:
-- bump version to 21.2.0
+- bump version to 21.2.1
 - update changelog
 
 Changelog.md:
