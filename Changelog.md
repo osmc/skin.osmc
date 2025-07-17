@@ -10,6 +10,7 @@ _Improved_
 _Fixed_
 - fix missing OSD icon for auto masking feaure
 - fix custom masking colour setting
+- fix versions/extras management dialog
 
 ---
 
@@ -558,11 +559,23 @@ _add back OSDMaskAutoNF file for auto masking feature_
 Texture.xbt:
 - update textures file with added back auto masking Icon
 
+Coordinates_DialogVideoManager.xml:
+- replace texture variable to show proper list icons
+
+Custom_Debug_Info.xml:
+- add missing dialog label for video manager dialog
+
+DialogVideoManager.xml:
+- add missing buttons and fix visibility conditions of existing ones
+
 Includes.xml:
 - adjust colour diffuse of masking bars to allow fully transparent colours
 
 SkinSettings.xml:
 - fix custom masking colour setting to adjust the correct colour
+
+Variables.xml:
+- add new VideoManagerImage variable for fixes video manager dialog list
 
 VideoFullScreen.xml:
 - adjust colour diffuse of masking bars to allow fully transparent colours
