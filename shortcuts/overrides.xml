@@ -118,7 +118,7 @@
 	
 	<widgetdefaultnode labelID="31179" group="movies.1" label="$LOCALIZE[31179]" type="movies" path="special://skin/extras/playlists/movies_recentlyadded.xsp" target="videos">library</widgetdefaultnode>
 	<propertydefault labelID="31179" group="movies.1" property="widgetArt">Art(poster)</propertydefault>
-	<propertydefault labelID="31179" group="movies.1" property="widgetSortBy">dateAdded</propertydefault>
+	<propertydefault labelID="31179" group="movies.1" property="widgetSortBy">dateadded</propertydefault>
 	<propertydefault labelID="31179" group="movies.1" property="widgetSortDirection">descending</propertydefault>
 	
 	<widgetdefaultnode labelID="31118" group="tvshows.1" label="$LOCALIZE[31118]" type="tvshows" path="special://skin/extras/playlists/tvshows_random.xsp" target="videos">library</widgetdefaultnode>
@@ -134,7 +134,7 @@
 	
 	<widgetdefaultnode labelID="31207" group="music.1" label="$LOCALIZE[31207]" type="albums" path="musicdb://recentlyaddedalbums/" target="music">music</widgetdefaultnode>
 	<propertydefault labelID="31207" group="music.1" property="layout">square-small</propertydefault>
-	<propertydefault labelID="31207" group="music.1" property="widgetSortBy">dateAdded</propertydefault>
+	<propertydefault labelID="31207" group="music.1" property="widgetSortBy">dateadded</propertydefault>
 	<propertydefault labelID="31207" group="music.1" property="widgetSortDirection">descending</propertydefault>
 	
 	<widgetdefault labelID="35049" group="15016.1">GameWidget</widgetdefault>
@@ -380,7 +380,7 @@
 	<property property="widgetSortBy" label="$LOCALIZE[554]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),songs)">tracknumber</property>
 	<property property="widgetSortBy" label="$LOCALIZE[19029]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),pvr)">channelnumber</property>
 	<property property="widgetSortBy" label="$LOCALIZE[345]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType),albums)">year</property>
-	<property property="widgetSortBy" label="$LOCALIZE[570]" condition="!String.IsEqual(Container(211).ListItem.Property(widgetType),pvr)">dateAdded</property>
+	<property property="widgetSortBy" label="$LOCALIZE[570]" condition="!String.IsEqual(Container(211).ListItem.Property(widgetType),pvr)">dateadded</property>
 	<property property="widgetSortBy" label="$LOCALIZE[590]">random</property>
 	<property property="widgetSortBy" label="$LOCALIZE[515]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType),albums) | String.IsEqual(Container(211).ListItem.Property(widgetType),songs)">genre</property>
 	<property property="widgetSortBy" label="$LOCALIZE[567]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType),musicvideos) | String.IsEqual(Container(211).ListItem.Property(widgetType),episodes)">playcount</property>
@@ -389,18 +389,27 @@
 	<property property="widgetSortBy" label="$LOCALIZE[563]" condition="String.IsEqual(Container(211).ListItem.Property(widgetType),movies) | String.IsEqual(Container(211).ListItem.Property(widgetType),tvshows) | String.IsEqual(Container(211).ListItem.Property(widgetType),episodes)">rating</property>
 	<property property="widgetSortBy" label="$LOCALIZE[33067]" condition="String.IsEqual(Container(211).ListItem.Property(widgetTarget),video) | String.IsEqual(Container(211).ListItem.Property(widgetTarget),music)">userrating</property>
 
-    <!-- Widget Sort Direction -->
-    <propertySettings property="widgetSortDirection" title="$LOCALIZE[31176]" showNone="True" />
-    <property property="widgetSortDirection" label="$LOCALIZE[584]">ascending</property>
-    <property property="widgetSortDirection" label="$LOCALIZE[585]">descending</property>
+	<!-- Widget Sort Direction -->
+	<propertySettings property="widgetSortDirection" title="$LOCALIZE[31176]" showNone="True" />
+	<property property="widgetSortDirection" label="$LOCALIZE[584]">ascending</property>
+	<property property="widgetSortDirection" label="$LOCALIZE[585]">descending</property>
 	
 	<!-- Widget Limit -->
-    <propertySettings property="widgetLimit" title="Item limit" showNone="True" />
-    <property property="widgetLimit" label="10 ">$NUMBER[10]</property>
+	<propertySettings property="widgetLimit" title="Item limit" showNone="True" />
+	<property property="widgetLimit" label="1 ">$NUMBER[1]</property>
+	<property property="widgetLimit" label="2 ">$NUMBER[2]</property>
+	<property property="widgetLimit" label="3 ">$NUMBER[3]</property>
+	<property property="widgetLimit" label="4 ">$NUMBER[4]</property>
+	<property property="widgetLimit" label="5 ">$NUMBER[5]</property>
+	<property property="widgetLimit" label="6 ">$NUMBER[6]</property>
+	<property property="widgetLimit" label="7 ">$NUMBER[7]</property>
+	<property property="widgetLimit" label="8 ">$NUMBER[8]</property>
+	<property property="widgetLimit" label="9 ">$NUMBER[9]</property>
+	<property property="widgetLimit" label="10 ">$NUMBER[10]</property>
 	<property property="widgetLimit" label="15 ">$NUMBER[15]</property>
-    <property property="widgetLimit" label="20 ">$NUMBER[20]</property>
-    <property property="widgetLimit" label="25 ">$NUMBER[25]</property>
-    <property property="widgetLimit" label="30 ">$NUMBER[30]</property>
+	<property property="widgetLimit" label="20 ">$NUMBER[20]</property>
+	<property property="widgetLimit" label="25 ">$NUMBER[25]</property>
+	<property property="widgetLimit" label="30 ">$NUMBER[30]</property>
 	<property property="widgetLimit" label="50 ">$NUMBER[50]</property>
 	<property property="widgetLimit" label="100 ">$NUMBER[100]</property>
 

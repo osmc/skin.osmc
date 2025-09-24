@@ -2,7 +2,17 @@
 
 ---
 
-**_v21.2.1_**
+**_v21.2.2_**
+
+_Improved_
+- add new item limits to main menu widgets
+
+_Fixed_
+- fix the date added sort order of main menu widgets
+
+---
+
+**_v21.2.1 - August 2025_**
 
 _Improved_
 - change masking bars to allow fully transparent colour values
@@ -552,36 +562,20 @@ Release
 
 ---
 
-**Changelog v21.2.1**
+**Changelog v21.2.2**
 
-_add back OSDMaskAutoNF file for auto masking feature_
+overrides.xml:
+- turn case sensitive sort order properties to lower case
+- add new lower widget item limit
 
-Texture.xbt:
-- update textures file with added back auto masking Icon
+script-skinshortcuts-static.xml:
+- turn case sensitive sort order properties to lower case
 
-Coordinates_DialogVideoManager.xml:
-- replace texture variable to show proper list icons
-
-Custom_Debug_Info.xml:
-- add missing dialog label for video manager dialog
-
-DialogVideoManager.xml:
-- add missing buttons and fix visibility conditions of existing ones
-
-Includes.xml:
-- adjust colour diffuse of masking bars to allow fully transparent colours
-
-SkinSettings.xml:
-- fix custom masking colour setting to adjust the correct colour
-
-Variables.xml:
-- add new VideoManagerImage variable for fixes video manager dialog list
-
-VideoFullScreen.xml:
-- adjust colour diffuse of masking bars to allow fully transparent colours
+Variables_Skinshortcuts.xml:
+- turn case sensitive sort order properties to lower case
 
 addon.xml:
-- bump version to 21.2.1
+- bump version to 21.2.2
 - update changelog
 
 Changelog.md:
